@@ -6,6 +6,7 @@ comments: yes
   
 ##[missdeer](http://about.me/missdeer) 
 
+* 个人主页: [http://minidump.info](http://minidump.info)
 * Email: [missdeer # dfordsoft.com](mailto:misdeer@dfordsoft.com)      
 * github : [https://github.com/missdeer](https://github.com/missdeer)   
 * bitbucket: [https://bitbucket.org/missdeer/](https://bitbucket.org/missdeer/)
