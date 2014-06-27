@@ -3,7 +3,7 @@ layout: post
 title: "旧版本Protobuf在Serializing方法crash"
 categories: Coding
 description: 旧版本Protobuf在Serializing方法crash
-key: Coding
+tags: Coding
 ---
 花了几天时间，把原本基于XML的IPC重要部分都改成用Protobuf了，之前以为会大幅度提高运行效率，结果发现原本用RapidXML库生成消息，比填充Protobuf结构慢不了多少。不过可以肯定的是，消息长度缩短为差不多是原来的1/4了，原本16KB左右，之后4KB多点。
 

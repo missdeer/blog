@@ -3,7 +3,7 @@ layout: post
 title: "使用qterminal替代LXTerminal"
 categories: Software
 description: 使用qterminal替代LXTerminal
-key: qterminal LXTerminal
+tags: qterminal LXTerminal
 ---
 发现FreeBSD上的LXterminal很容易在输入长命令时换行错位，于是胡乱覆盖掉前面的内容，就很难好好地输入完一整条长命令。这事在Debian上没遇到过，我也只在Debian上装过LXDE并使用LXTerminal。其他在Linux上用过的Terminal也只有GNOME Terminal和Mate Terminal，感觉吧每种Terminal都是配合自家的DE的，虽然可以混用但心里总是有点疙瘩。
 

@@ -3,7 +3,7 @@ layout: post
 title: "项目进展"
 categories: Startup
 description: 项目进展
-key: Yiili, MiaoCoffee, Restaurant
+tags: Yiili MiaoCoffee Restaurant
 ---
 [Yiili](http://yii.li)和[MiaoCoffee](http://miaocoffee.com)是基于同一个codebase，目前的区别主要在描述性文字等周边部分。现在Yiili和MiaoCoffee都算正式上线了，之后的工作重心就在运营上了。MiaoCoffee的运营我肯定基本上是不管的，那个其实不算我自己的项目，我的主要精力将放在Yiili上，Yiili上我才有绝对的控制力和话语权。总的说来，我也只是因为有Yiili才会顺便花点时间给MiaoCoffee做些技术支持工作。我在人脉方面几乎没有任何基础，所以很难直接拉些人来活跃气氛。于是我想着前期只能自己生产些内容来吸引流量了，而内容生产是件不容易的事，对我来说有两条路可以走，一是找那些还算有交情并且交情还不错的又在某方面的知识掌握得比较多的朋友，请他们偶尔抽空写点两三百字的超短篇，再配张图就算是图文并茂了，二是从国外找内容自己翻译。前者产量极不稳定，后者产量要稳定得多但要占用大量时间。除了通过生产内容吸引流量外，另外我想到的一个也许效果并不怎样的办法是同步SNS，比如微博，微信等等。等项目起步后，就可以开始考虑推出移动app了，这样既能显示专业和认真，又能降低使用门槛和提高用户体验。大体思路就是学[v2ex](http://www.v2ex.com)那样通过技术手段来弥补一些资源上的不足。
 
