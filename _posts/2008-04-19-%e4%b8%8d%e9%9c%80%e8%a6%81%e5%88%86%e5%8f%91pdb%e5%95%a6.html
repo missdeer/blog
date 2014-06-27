@@ -1,0 +1,15 @@
+---
+layout: post
+title: "不需要分发pdb啦"
+categories: []
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  blogger_blog: missdeer.blogspot.com
+  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
+  blogger_permalink: "/2008/04/pdb.html"
+author: 
+---
+<p>　　话说我已经通过抠早期版本FileZilla的代码，能让程序在崩溃那一刻进行dump，但是却只是知道，dump时，如果有相应的pdb文件在搜索路径下，是可以直接得到详尽的信息的，如果当时没有pdb文件，就只能得到一些看似无用的东东。<br />　　其实我错了，大大地错了！也不怪中间各种各样的原因，关键是现在知道只要能保留下可执行文件相配套的pdb和源代码在本地就可以了。当初从别人那里拿来dump文件来分析，是因为搜索路径下的pdb和源代码都是跟那个可执行文件不匹配的！<br />　　我居然还想着通过什么策略把pdb分发出去，哈哈，太可爱太幼稚了！现在终于可以安心地发放可执行文件出去了，只是崩溃报告机制需要好好设计一下，如何能及时地把报告从用户处取回，考虑到公司的网络环境和使用政策，还是要费点劲的。<br />　　另外又引出一个新问题，配置管理怎么做？嗯嗯，越来越复杂哈！</p>

@@ -1,0 +1,15 @@
+---
+layout: post
+title: "发现一个问题"
+categories: []
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  blogger_blog: missdeer.blogspot.com
+  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
+  blogger_permalink: "/2009/07/blog-post_27.html"
+author: 
+---
+<p>　　看《Windows高级调试》猛然发现一个问题，书中的例子都是对exe进行调试的，而且几乎都是知道问题重现步骤的。这跟我现在的情况可差得很远了，我只有一个core dump文件，不知道问题出现时的操作。看书上都是一直操作，直到问题出现，然后在调试器中断下来，查看寄存器，堆栈，句柄等信息，再抽丝剥茧一点点推测出问题的根本原因。我不行啊，我在源代码中加入了一个自定义的UnhandledExceptionHandler，在问题出现后，就转到那里去执行了，连最后现场都被破坏了的！<br />　　晕！</p>

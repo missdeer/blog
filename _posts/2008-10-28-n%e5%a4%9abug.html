@@ -1,0 +1,15 @@
+---
+layout: post
+title: n多bug
+categories: []
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  blogger_blog: missdeer.blogspot.com
+  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
+  blogger_permalink: "/2008/10/nbug.html"
+author: 
+---
+<p>　　今天终于发版本发出去了，但是，用别人的话说，几乎不可用。<br />　　这个版本确实进行了大幅修改，不但增加了新功能，还进行了重构，对原来使用的那一套机制50%被翻修过了。<br />　　那些出现的问题，都落在没有经过单元测试的模块，但是那些模块都是我不知道如何进行方便有效的单元测试的。<br />　　其中主要的还在于两个模块，一个是界面交互，确实不好测，另一个是数据库操作。当时的接口设计可能过于复杂了，导致后来想做单元测试时，很是畏惧。实际上，数据库操作部分，也是可以进行单元测试的，而且我想着要把本地数据库从Access换成SQLite，更是应该趁这个机会补充单元测试用例了。</p>

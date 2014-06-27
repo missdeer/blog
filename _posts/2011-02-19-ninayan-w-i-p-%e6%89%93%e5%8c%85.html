@@ -1,0 +1,32 @@
+---
+layout: post
+title: Ninayan W.I.P.(打包)
+categories: []
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  _wp_old_slug: ''
+author: 
+---
+<p>　　今天觉得Ninayan大部分功能已经实现了，也差不多快可以发布beta版了，于是要打包，先解决Windows和Mac上的打包问题。<br />
+　　Windows上一直以来我都习惯用Inno Setup了，所以在如何制作安装包的问题上并不纠结，InnoIDE和ISTool都是很方便的工具，主要的问题在于解决Qt的插件的部署。Ninayan在Windows上也是用GCC（MinGW）编译的，相比VS2008，少了个SxS的问题，只要带两个dll一起发布就行了。Qt本身有一种简单但比较有用的插件机制，它的字符编码支持CJK，图形文件格式支持，数据库驱动等等都是由插件实现的。也就是说$(QTDIR)/plugins下的东西都要跟着发布，而且程序代码中需要自己在main()中，app对象创建后及时调用QCoreApplication::addLibraryPath()添加plugins的路径。另外由于用到了QtWebKit和QML，QDeclarativeEngine对象也需要指定一下qmlwebkitplugin插件的目录，把$(QTDIR)/imports/QtWebKit目录打包进去，然后在代码中调用QDeclarativeEngine::addImportPath()添加路径，这样整个目录就是发布的所有内容了。<br />
+　　在Mac OSX上比较流行用dmg，但这之前还要解决Qt的framework链接的问题。Qt在Mac OSX下官方发布的二进制包是framework形式的，这跟Windows下有点不同，呃，其实跟SxS有点类似。要用install_name_tool -change命令行修改自己的程序可执行文件链接的framework的位置，这个工作可以由Qt自带的一个叫macdeployqt的小工具完成，只要在命令行执行macdeployqt Ninayan.app就可以了。不过除此之外，还是由于qmlwebkitplugin的缘故，需要自己复制这个插件到程序的bundle中，我就放在跟最终的可执行文件相同的目录中，这个插件macdeployqt并不处理，除了要自己复制，还要自己用install_name_tool来修改链接的framework。这样操作后，是一个可以正常运行的，完整的应用程序bundle，整个bundle就有113MB，谁让Qt那么大呢！然后是把这个bundle打包成dmg。Mac OSX自带免费的工具，GUI和CUI的都有，GUI的叫Disk Utility，不过看了下感觉界面挺复杂的，还是用命令行的hdiutil爽，而且我前面是用命令行修改的符号链接，这里当然最好也是用命令行打包，这样一个shell脚本就能搞定编译后生成dmg的所有事情了。用hdiutil的话，这个命令行就可以打出一个dmg来：</p>
+<blockquote><p>hdiutil create -srcfolder Ninayan.app -volname Ninayan -format UDZO -ov Ninayan.dmg</p></blockquote>
+<p>不过这个有点土，就是把Ninayan.app放成了dmg而已，其他什么都没有。我的要求其实也很简单，有自定义的背景图片，有Applications目录的链接，这样用户打开这个dmg就可以完成把Ninayan拖拽到Applications目录中的操作。在网上找了不少文章和视频，多是用其他的GUI工具，在stackoverflow上有个家伙用AppleScript写了段脚本，确实通用性和灵活性都比较好了。最后我选了条简易简陋没通用性的路子，但够用。首先需要明白的是，dmg被Finder打开后，就是当成一个普通的文件夹处理的，所以它的背景什么的设置，都是放在.DS_Store文件中的（Mac中以dot开头的文件都会自动隐藏），所以很dirty的做法是，先用这个命令行创建一个可读可写的dmg并挂载：</p>
+<blockquote><p>hdiutil create -srcfolder Ninayan.app -volname Ninayan -format UDRW -size 150000k -ov -attach temp.dmg</p></blockquote>
+<p>然后手动在Finder里打开那个dmg，复制个图片文件进去，作为背景，然后在show view options里，设置好背景为该图片。还可以顺便调整下图标的大小和位置，再在里面创建到/Applications的alias。再用这个命令行把那个图片文件隐藏起来：</p>
+<blockquote><p>/Developer/Tools/SetFile -a V /Volumes/Ninayan/background.png</p></blockquote>
+<p>其实都知道只要文件或文件夹名以dot开头就会隐藏，但问题是我在show view options里怎么都选不到隐藏的文件作背景啊，所以只好这么来了。然后可以把.DS_Store文件复制出来保存起来，以备后用。最后就是改下权限，卸载dmg，并转换成一个新的只读的压缩过的dmg。有了那个.DS_Store，每次都可以完全用shell脚本生成最终的dmg了，所有的命令如下：</p>
+<blockquote><p>hdiutil create -srcfolder Ninayan.app -volname Ninayan -format UDRW -size 150000k -ov -attach temp.dmg<br />
+cp src/qml/image/start_bg.png /Volumes/Ninayan/background.png<br />
+ln -s /Applications /Volumes/Ninayan/Application<br />
+/Developer/Tools/SetFile -a V /Volumes/Ninayan/background.png<br />
+cp install/DS_Store.bak /Volumes/Ninayan/.DS_Store<br />
+chmod -Rf go-w /Volumes/Ninayan<br />
+sync<br />
+sync<br />
+hdiutil detach /Volumes/Ninayan<br />
+hdiutil convert temp.dmg -format UDZO -o Ninayan.dmg -ov<br />
+rm -f temp.dmg</p></blockquote>

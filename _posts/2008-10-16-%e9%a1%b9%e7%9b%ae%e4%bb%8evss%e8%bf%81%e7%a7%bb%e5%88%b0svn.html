@@ -1,0 +1,15 @@
+---
+layout: post
+title: "项目从VSS迁移到SVN"
+categories: []
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  blogger_blog: missdeer.blogspot.com
+  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
+  blogger_permalink: "/2008/10/vsssvn.html"
+author: 
+---
+<p>　　今天开会的时候，不知怎么的，提到源代码管理的问题，直接就扯到要把源代码从VSS迁移到SVN。这是我之前几次考虑过的事情，不过当时的想法是，既然是迁移，就要把所有历史记录都迁移过去，费了好大的劲，最终还是没成功。当时的问题是，vss2svn并没有转换成功，后来想想继续用VSS也并没有多大影响，于是还是继续用。今天老大就说，历史记录丢了就丢了吧，反正VSS还在，到时候实在有必要的时候，还是可以看的。这样一想，也就霍然开朗了。会后立马动手，从VSS上Get latest整个目录，然后import到SVN上，基本没费什么力气。而且趁此机会，把方案、设计文档、帮助手册、会议纪要也都传了上去。然后绑定redmine上的版本库记录，不过有点问题，据同事说，不但需要svn的客户端程序，还需要重启系统，光是重启redmine服务是不行的，我大汗！<br />　　</p>

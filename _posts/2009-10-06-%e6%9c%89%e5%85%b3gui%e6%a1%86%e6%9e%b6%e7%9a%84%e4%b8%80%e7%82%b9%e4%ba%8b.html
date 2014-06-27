@@ -1,0 +1,15 @@
+---
+layout: post
+title: "有关GUI框架的一点事"
+categories: []
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  blogger_blog: missdeer.blogspot.com
+  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
+  blogger_permalink: "/2009/10/gui.html"
+author: 
+---
+<p>　　今天偶然发现在svn trunk中的wxWidgets已经支持Ribbon了。在更新了代码后，我还特地用VC2008编译了一遍体验了一下。总的说来，可以算是Ribbon了，但感觉没有像XTP、BCG或MFC v9.0中的那么舒服。我看的是它自带的那个sample，还带着Windows标准窗口的标题栏，没有左上角的按钮和下拉菜单，也没有右上角的按钮。不知道是sample中没实现，还是wxWidgets本身就不支持。不过我想么，用wxWidgets本身就说明是重点关注它的跨平台可移植性，就不要关注这种平台特定的东西了，包括那GDI+也是。它既然号称look and feel native，那么代价就是界面不容易做得很有个性，就只适合做些严肃题材的软件了，比如IDE。<br />　　今天又看了下MSDN中对VC 2008 Feature Pack中对MFC界面增强的介绍，让我有点儿小小的郁闷，之前是过分谨慎，或者说固步自封了，没早点尝试这个增强库，而一直盯着XTP不放。今天看来，绝大部分需要的特性，在这个Features Pack中是提供了的。只不过现在还没仔细看过它的各个sample的代码，不知道它到底可以实现怎样的效果。</p>

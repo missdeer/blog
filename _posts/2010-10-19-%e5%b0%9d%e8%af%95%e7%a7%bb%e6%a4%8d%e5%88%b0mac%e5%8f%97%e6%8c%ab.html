@@ -1,0 +1,17 @@
+---
+layout: post
+title: "尝试移植到Mac受挫"
+categories: []
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  quiz: s:36:"a:2:{s:1:"q";s:0:"";s:1:"a";s:0:"";}";
+author: 
+---
+<p>　　这两天想试一下把手头这个用wxWidgets开发的工程移植到Linux和Mac，不过遇到了些困难。<br />
+　　该工程使用wxWidgets作为主GUI Framework，又嵌入了Lua解释器，将一部分界面和逻辑使用Lua脚本实现，而Lua脚本大量使用了wxLua以及诸如LPeg之类的第三方库，除此之外，主程序还使用了Boost、wxFlatNotebook、wxScintilla、wxPropertyGrid等第三方库。<br />
+　　主要的困难在移植到Mac上。目前我使用的wxWidgets是2.8.11版本，该版本在Mac上只有32位Carbon API版本，而编译Lua和其他第三方库默认出来的全是64位的，wxWidgets官方的消息是2.9.x版本有64位Cocoa API版本，但现在不稳定，还没正式发布。于是我无奈了！试了一下2.9.1的wxMSW，编译wxFlatNotebook和wxPropertyGrid都不能通过，懒得折腾了，打算等3.0版本正式发布了再说吧，说是希望2010年底前发布，鬼知道到底什么时候能出来啊，现在越来越觉得wxWidgets不给力了，各方面的！<br />
+　　至于移植到Linux上，以及将其他的Lua第三方库编译出来这些事现在倒是可以做。<br />
+　　</p>

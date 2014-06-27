@@ -1,0 +1,17 @@
+---
+layout: post
+title: Code::Blocks插件工作流程代码走读
+categories: []
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  quiz: s:36:"a:2:{s:1:"q";s:0:"";s:1:"a";s:0:"";}";
+  _wp_old_slug: ''
+author: 
+---
+<p>　　在app::OnInit()中，插件管理器先设置了一个安全模式，安全模式只是影响后续插件是否被激活。<br />
+　　在MainFrame的构造函数中，调用MainFrame::ScanForPlugins()，该函数根据配置又调用插件管理器PluginManager中的方法ScanForPlugins()扫描指定目录下的文件，该方法在指定的目录下查找dll（Windows系统）或so文件（UNIX系统），同时，需要确认当前是否以BatchBuild模式运行。所谓BatchBuild模式，可以这样理解，Code::Blocks启动后只是用于编译工程，不进行其他诸如代码编写之类的操作，所以除了编译器插件，其他的插件都不需要载入。每找到一个dll或so文件，PluginManager又会去找同名的zip文件，从zip文件中提取出manifest，manifest文件中保存了插件相关的版本号，作者，联系方式等无关紧要的信息。之后PluginManager::LoadPlugin()方法被调用，在该方法中实现了系统层面的动态链接库load并创建插件实例对象的工作。而且从这里可以看出，一个dll文件中可以有多个插件，PluginManager会依次将该dll中所有插件都创建实例对象。<br />
+　　接着MainFrame::ScanForPlugins()又调用PluginManager::LoadAllPlugins()方法，这个方法做的事情跟它的名字有点不对应，因为照我们传统的理解，之前PluginManager::LoadPlugin()已经完成了插件载入的工作。而这个LoadAllPlugins()方法只是调用了每个插件的Attach()方法，该方法做的事情可以归类为插件初始化工作，每个插件都可以有自己的独立的OnAttach()方法被PluginManager间接调用。并且每个插件类都从wxEvtHandler继承下来，可以让自己处理一些事件，比如响应菜单项点击或工具栏按钮点击等等。在Attach()中会将自己这个新创建的实例对象插入到MainFrame的event handler chain中，这样才能将事件响应流向插件实例对象。实际上Attach()就做的有意义的事只有使能了事件处理响应。<br />
+　　最后，便是做些插件在界面上的处理。比如在创建主菜单时，会让有需要的插件自己添加菜单项，并绑定事件处理函数。到此为止，插件就基本上可算是能正常工作了。</p>

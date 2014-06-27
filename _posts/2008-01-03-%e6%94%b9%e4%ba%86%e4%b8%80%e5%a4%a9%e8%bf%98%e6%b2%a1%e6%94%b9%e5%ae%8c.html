@@ -1,0 +1,15 @@
+---
+layout: post
+title: "改了一天还没改完"
+categories: []
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  blogger_blog: missdeer.blogspot.com
+  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
+  blogger_permalink: "/2008/01/blog-post_03.html"
+author: 
+---
+<p>　　说什么没有层次感，所以我就决定把ListView换掉，换成Xtreme Toolkit Pro里的Report控件。这个控件主要功能还是类似ListView的，以多列显示多个记录的各个字段内容，它多出来的功能就是能自动按指定的列分组，并排序。<br />　　于是今天就动手改，结果改了一天还没改完，工作量真有点大，毕竟也确实写了不少代码的，呵呵。而且顺便发现了一个严重的bug，以前居然都没意识到。简单描述一下，首先我从数据库中查询出所有的数据来，存放到STL容器vector中，然后每次用户通过右键菜单选择，或双击时，都是针对当前选中的项进行操作，这时就有问题了，我只是单纯地获取选中项在ListView中的序号，再对应到vector中找到那条记录，如果ListView中的内容自添加完之后一直没修改过，那么这样操作是没有问题的，但是如果通过点击ListView的头来进行过按列排序，那么这样做应该是不对了吧，这个ListView中的序号跟vector中的偏移已经不能对应上了。真险啊，幸亏现在就发现这个问题了，而且刚好反正是要修改这块代码。<br />　　另外一个问题是，需要把每条记录的唯一标志，比如vector中的偏移量，记录下来，在需要的时候可以马上获取到，这也浪费我不少时间，到下班还没搞好。<br />　　还有就是shell扩展总是有问题，问题源自于通过ADO访问Access数据库。本来我让shell扩展和主程序同时访问同一个Access文件的，后来发现主程序总是不能正常退出，看现象感觉是因为ADO访问同一个Access文件导致COM接口可能不能正常释放，所以进程退不出，到时候其它资源全释放了，却还有个残留映象在那里。于是我后来改成每次shell扩展需要查数据库时，都复制一个备份的Access文件，shell扩展就访问备份的这个。用了一段时间后，发现这样每一次查询操作都要先进行一次文件复制操作，效率太低了。于是改成让主程序每次修改了数据库后，主动生成一个备份文件，这样shell扩展就不用作文件复制操作了。但今天又发现问题了，有时候并没有生成这个备份文件，而我在shell扩展中并没有防御性的代码，直接就explorer.exe崩溃了。看来还得改呀！</p>

@@ -1,0 +1,19 @@
+---
+layout: post
+title: "代码合得有点问题"
+categories: []
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  quiz: s:36:"a:2:{s:1:"q";s:0:"";s:1:"a";s:0:"";}";
+author: 
+---
+<p>　　用了wxScintilla，我一直试图让其中用到的Scintilla代码保持跟官方CVS中的同步。现在发现，还是合得有问题了，功能没合进来，但是光是看代码，我也不知道到底哪里出错了。具体的现象是，现在官方的Scintilla是已经能直接支持多块选择了，昨天试了试我的程序是不行的。不过这个问题暂时倒不要紧，可以放到以后去修改。<br />
+　　看到SciTE开始有实验性的支持使用Lua脚本实现lexer了，不过接口还没有稳定下来。不过我猜这个特性可能不会合到Scintilla里面去，而且即使合进去了，我暂时也没有这个需求。<br />
+　　自从前些天看到TextMate的<a href="http://manual.macromates.com/en/bundles">Bundles</a>的介绍，以及<a href="http://code.google.com/p/zen-coding/">Zen Coding</a>的介绍，心里一直蠢蠢欲动！VS在有VA强大的智能提示的帮助下，或许可以不用这种方式的支持。但对于已经习惯于UNIX使用文化的人来说，这种自动代码生成方式是很符合他们的使用习惯的，而且同时又能极大地提升编码效率。我就开始琢磨着能不能也实现一下。<br />
+　　<a href="http://code.google.com/p/zen-coding/">Zen Coding</a>的效果看来，主要适用于HTML这种从SGML衍生而来的标识语言，这主要是它的语法，以及它的生成代码上的限制，所以如果不是这方面的应用，可以暂时不管它。<br />
+　　而TextMate的<a href="http://manual.macromates.com/en/bundles">Bundles</a>看起来就很让人心动了，以前只是听说过却没有直观地体验过，所以感触不深，前些天看了一些评论和操作视频以及manual，冲击太大了。当然这种机制在Windows平台上命令行工具并不流行，脚本解释器又不默认安装的环境下，可能不如Linux/Unix/Mac上那么突出，但如果能做成对少数几种工具、脚本语言的支持，也是很有诱惑力的。<br />
+　　大概想了下，如果要实现这套机制，要修改一下Scintilla中对Tab和Back Tab的实现。目前Scintilla中的Tab有两种不同的行为，如果选中整行或多行了，则会对选中行进行缩进，其他情况则是插入空格或制表符。在Bundles中或者说Tab Triggers中，Tab又多了两种行为，一个是缩写扩展，如果同时有多个扩展使用相同的缩写，则要显示AutoCompletion下拉框，另一个是缩写扩展后光标自动跳转。所以我的想法是，要在Scintilla原来的两种行为中增加缩写扩展的行为，并在内部保存一个状态，表示缩写扩展后，所有的Tab操作不再进行默认的缩进或插入空格（制表符），而是在这些时候都给个通知，让宿主程序自己处理这个操作。而宿主程序在适合的时候再发个消息给Scintilla重置那个状态，以便Scintilla又退回原来的Tab处理方式。<br />
+　　算了，不说了，先搞定调试器，再来看这个吧！</p>

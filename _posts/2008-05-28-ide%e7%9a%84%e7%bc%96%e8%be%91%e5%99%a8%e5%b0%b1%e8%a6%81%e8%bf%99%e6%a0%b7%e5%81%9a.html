@@ -1,0 +1,15 @@
+---
+layout: post
+title: IDE的编辑器就要这样做
+categories: []
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  blogger_blog: missdeer.blogspot.com
+  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
+  blogger_permalink: "/2008/05/ide.html"
+author: 
+---
+<p>　　又看到José León<a href="http://blogs.codegear.com/joseleon/2008/05/28/code-writing-helpers-in-delphi-for-php-20/">新发的blog</a>，再结合吃晚饭时，同事的抱怨，不禁羞愧难当，伟大的Borland，伟大的Delphi，哪怕是几经更名，哪怕是几经易主，曾经的IDE霸主，编辑器就是应该这样的做的。<br />　　今天花了点时间重构编辑器的auto completion、call tips模块，框架早已完成，剩下的是只让整个流程运作起来。中途发现几处笔误和遗漏，都不是大问题。清理了原来的代码，从原来的几百行的规模，拆分成现在几十个文件和类，本意是让设计更容易理解和维护，也尽量往容易进行单元测试的方向靠拢。不过等都完成后，回想起来，这样的设计仍然觉得不是很爽。类与类之前的关系略显得混乱，有些依赖关系感觉不是很符合OO的那些基本原则，但具体怎么做能更好，我却没什么头绪，大概也是因为理论理论和实践经验的两重不足引起的吧，只能靠不断修炼，逐步提升自己的exp了。<br />　　同事抱怨说自动提示功能很少能正常工作，我觉得很惭愧，当时刚做出个样子来时，心里还是比较自豪和骄傲的，不过现在事实摆在眼前，离真正可用，好用还差得很远。幸好现在已经有了思路，用lex和yacc来做，再好好设计一下，争取让这功能真正好用起来，计划花一周的时间完成。再花两天，把编辑器View的基类提取出来，以后所有需要代码编辑功能的View，只要从这个类继承，就可以得到功能基本完善的编辑特性集合。最后，花两周时间，把外部脚本扩展的框架实现。</p>

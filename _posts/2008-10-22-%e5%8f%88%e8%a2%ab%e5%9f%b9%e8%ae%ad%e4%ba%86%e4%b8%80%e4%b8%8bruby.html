@@ -1,0 +1,15 @@
+---
+layout: post
+title: "又被培训了一下ruby"
+categories: []
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  blogger_blog: missdeer.blogspot.com
+  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
+  blogger_permalink: "/2008/10/ruby.html"
+author: 
+---
+<p>　　今天又培训了一把ruby，再次让我感受了一遍ruby的强大，真是一个无所不包的魔幻型语言啊！<br />　　开始，老大先演示了一个分布式ruby包的应用，几行代码，就能实现一个服务器端组件，再几行代码，又实现了一个客户端，调用了服务器端的对象，其简便程度太让人吃惊了。这种应用很能吸引人，特别是可以做一些加密功能。但我想我还是不放心就这么去用它的，我很担心它的性能。反正WEBrick开的Gem server有内存泄漏问题，就一直让我对ruby做实际应用持有怀疑心理。在我看来，也许脚本语言的真的主要战场在字符串处理上，写个小程序也许可以应付，开发成本比起C++来确实低得多，但做稍微有点规模的应用，就还是让C++来吧。<br />　　而Lua这种，在我看来真的还是用来做为C++应用的扩展机制，描述一下插件逻辑，我想不出还有哪里能更适合它的，和还有哪个脚本语言比它更适合来做这个的了。<br />　　Ruby让我最不爽的是，对嵌入支持不好，《Programming Ruby》一书就提到，ruby不是设计成用来嵌入的。不过我在想，以我目前的需求，即使要嵌入，一个进程用一个解释器应该能满足需要了。看公司那个项目里，为了让嵌入的ruby解释器多做点事，就创建了一个又一个新的工程来嵌入，也是一种解决办法啊，哈哈。</p>

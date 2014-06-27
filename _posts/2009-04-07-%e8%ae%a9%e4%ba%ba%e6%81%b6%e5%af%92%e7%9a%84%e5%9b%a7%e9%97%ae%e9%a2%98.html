@@ -1,0 +1,15 @@
+---
+layout: post
+title: "让人恶寒的囧问题"
+categories: []
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  blogger_blog: missdeer.blogspot.com
+  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
+  blogger_permalink: "/2009/04/blog-post.html"
+author: 
+---
+<p>　　今天发现一个很囧的问题，在保存文件的时候出现堆破坏。跟踪了一下，看到的代码才让人一阵恶寒。先到文档类中的保存代码，该函数会在之后向主窗口Post一个消息，主要是把保存的文件路径发送过去，这个文件路径保存的空间是在堆里动态分配的，到了主窗口中处理该消息的代码直接把该消息Send到另一个视图，而这个视图中处理该消息的函数会取出这个路径，最后销毁这块内存。问题就出在这块内存上，原先发送方把这字符串以ANSI形式表示，后来整个工程从ANSI转换到UNICODE后，只修改了处理消息的那边，而没有跟着修改发送消息的这边，于是两边认为的内存块大小就不一样了，于是就堆破坏了。而让我恶寒的是另外一个原因，为什么要向主窗口Post个消息，再由主窗口转发一遍。一方面运行效率低下，另一方面就是接口变动后不容易找到受影响方，这次就是活生生的例子。我想，用个observer就可以缓解这些问题吧！</p>

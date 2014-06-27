@@ -1,0 +1,15 @@
+---
+layout: post
+title: "差不多封装完Xerces-C++了"
+categories: []
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  blogger_blog: missdeer.blogspot.com
+  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
+  blogger_permalink: "/2009/02/xerces-c.html"
+author: 
+---
+<p>　　其实只是封装了其中很小很小的一部分，DOM的那部分，DOM中DOMElement相关的那部分。接口是模仿那个同事的MSXML封装类来的，应该说，只有最初的灵感是来源于那个MSXML封装类的，后面真正用得最多的部分，实际上已经是被我修改过的。其中最有用的部分是，对属性和文本内容的设置和获取，针对不同的数据类型作了特化，以及对NodeList部分增加了iterator来适配STL算法。<br />　　对于这个封装的意义，或者说价值到底有多少，自我感觉，至少在现在手头这个项目中，在boost::bind、boost::lambda配合STL算法的联动操作下，让代码少了好些，不过也许带来的问题是，可读性变差，以及不再去思考是否有其他更好的方案的惰性增加。</p>

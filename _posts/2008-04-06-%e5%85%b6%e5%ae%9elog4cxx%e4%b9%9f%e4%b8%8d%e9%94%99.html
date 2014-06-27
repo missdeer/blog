@@ -1,0 +1,15 @@
+---
+layout: post
+title: "其实log4cxx也不错"
+categories: []
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  blogger_blog: missdeer.blogspot.com
+  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
+  blogger_permalink: "/2008/04/log4cxx.html"
+author: 
+---
+<p>　　简单看了看log4cxx的例子，上网找一下相差的资料，它自带的例子实在是太简单了，虽然知道它源自于log4j的移植，但到底它移植度有多少就不得而知了。从网上找到的资料看来，log4cxx对log4j的配置文件支持就很完备，直接在外面写一个配置文件，程序中只要添加一行装入配置文件的代码，然后所有的修改只要针对配置文件进行就可以了，不需要修改程序源代码，真是方便至极呀。<br />　　尝试了一下给WallpaperHelper加入日志功能，对于这样一个完全不需要追求运行性能的桌面应用程序来讲，加入日志功能似乎只有好处没有坏处，至少可以在程序出现问题的时候根据日志记录定位问题发现的现场状况。<br />　　偶然上apache的网站看了看，自从我从svn里check out出源代码来编译了一把log4cxx以后，某一天居然正式发布了0.10版本，气愤，于是只好再update一把，重新把各个VC版本的都编译一把，这个确实让我觉得有点烦，这类工作最好完全自动化，自动从svn里更新代码，自动调用ANT来编译，而且要能自动应用多种版本的VC来编译，然后分类打包好，唉！CruiseControl本来是做这种事情的好东西，不过我却没有完成利用起来！<br />　　在boost的news group上看到，1.36版本居然不打算正式支持VC7.1了，晕倒，看来迁移到VC2008还是正确的哈！</p>

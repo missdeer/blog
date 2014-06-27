@@ -1,0 +1,16 @@
+---
+layout: post
+title: "纠结的wxWidgets…和其它…"
+categories: []
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  quiz: s:36:"a:2:{s:1:"q";s:0:"";s:1:"a";s:0:"";}";
+author: 
+---
+<p>　　突然想再整一下wxMac，之前曾经编译过，也编译出静态链接和动态链接的库了，记得也生成samples的可执行文件了，今天找了一下，那些samples的可执行文件找不到了，随便敲了下make，发现连头文件都没有找到，应该是wx-config没正确执行。然后好奇看了一下readme，赫然发现wxWidgets/Mac doesn't come with any guarantee whatsoever. It might crash your harddisk or destroy your monitor. 这个太夸张啦，不敢用啦，甚至开始觉得是不是以后别的用wxMac开发的程序也要先检测一下然后不用了呢！那个杯具的CodeLite和Code::Blocks都是用wxMac的呢！反正我是不想再用了。<br />
+　　下午尝试给CodingStudio加入命令行打开文件的功能，可是怎么整都是搞得程序启动就崩溃，郁闷了！<br />
+　　于是很有些后悔当初采用了wxWidgets，而不是Qt。但是想想以当时的情况，确实再来一次，很可能还是不会用Qt。当初对Qt很是不满意它对所有控件都是自绘，而不是native的，而且觉得Qt需要moc一下很无语。最关键的是当时参考了大量CodeLite和Code::Blocks的源代码，没办法啊，对于一个新接触的GUI framework，这是最直接有效的办法了！<br />
+　　哦，对了，今天的消息，国人得到Nobel Peace Prize了，具体情况，咳咳，不明真相的童鞋，需要当一回红杏。</p>

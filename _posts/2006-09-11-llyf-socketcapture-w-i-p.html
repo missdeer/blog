@@ -1,0 +1,15 @@
+---
+layout: post
+title: LLYF SocketCapture W.I.P
+categories: []
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  blogger_blog: missdeer.blogspot.com
+  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
+  blogger_permalink: "/2006/09/llyf-socketcapture-wip.html"
+author: 
+---
+<p>　　早早地回到家，把Detours里的代码copy过来试了试，用Complete Port和Named Pipe协作完成的IPC机制看起来对高吞吐量的需求是可以很好地满足，有时候就是不得不佩服那样的人，可以把程序写得那么好。剩下要做的是，把数据分解成不同的字段，可以方便地提取并显示到ListView中去，另外就是把dll改一下，可以用global hook注入到其它的进程中去，或者用remote thread，对于没有消息循环的进程，消息hook就不起作用了，只能用remote thread来解决吧。<br />　　看了千千静听的论坛，突然想自己也写一个这样的程序，我真是疯了，总是想着自己把所有的东西都做了，主要是看不惯用不惯，但别个又不能照着我的意见来修改实现我的需求，只好自己操刀动手。不过这个难度也大了点吧。<br />　　从论坛上down到一个叫Volume Logic的音效插件，有for WMP、for Real和for Winamp的，就是没有for foobar2000的，有点不爽，换上WMP一听，惊人的效果，立马给人不想再用其它播放器的念头！就是可惜了没有foobar2000的版本，还有，似乎是有iTune的版本的，不知道什么时候能把它集成到iPod里，这样，用随身听也能听到高品质的音乐了，人类的智慧真让人佩服！</p>

@@ -1,0 +1,15 @@
+---
+layout: post
+title: "让自己的数据结构支持std::for_each"
+categories: []
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  blogger_blog: missdeer.blogspot.com
+  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
+  blogger_permalink: "/2008/03/stdforeach.html"
+author: 
+---
+<p>　　今天看到代码中有很多处遍历XML DOM的NodeList中所有元素的操作，同事用MFC的CString在MSXML上面又加了一层封装，使得MSXML用起来更加方便，但在这个NodeList的封装上，遍历操作只有通过next方法，或者以索引号遍历，我开始用他这个封装时抄的他的代码，都用while循环next方法来遍历，现在看多了，就觉得不爽了。刚好这个项目中因为用了Boost中的bind和lambda库，所以大量用了std::for_each算法，于是就想这里的遍历操作是否可以转换成用std::for_each来实现呢？<br />　　以前没做过类似的扩展STL的事，所以没有经验，不知从何开始。看了一下几本经典的STL相关的书，大概了解到要自己写个iterator类，这个类需要能支持++、--等操作符，然后NodeList的封装类也要加一些STL风格的方法，比如begin、end、size、empty等。虽然已经有所了解，但动手的时候还是没什么思路，搞了一个下午，也只弄了一点点，还没涉及到核心部分。<br />　　我对STL、GP的了解还是太少了，真应该好好学习一下，毕竟仔细想想我还没能非常熟练地掌握并使用一种语言及它主要的程序库，现在看来我只有对C/C++稍微有点基础了，但对标准库的了解却很肤浅，虽然之前也一直要用C/C++写代码，但是没怎么使用标准库，现在在重构等思想的熏陶下，不自觉地希望写出优雅清晰的代码来，好好使用标准库正是其中一种方法。</p>

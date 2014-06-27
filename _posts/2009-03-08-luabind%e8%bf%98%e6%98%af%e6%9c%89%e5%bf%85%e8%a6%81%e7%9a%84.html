@@ -1,0 +1,15 @@
+---
+layout: post
+title: Luabind还是有必要的
+categories: []
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  blogger_blog: missdeer.blogspot.com
+  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
+  blogger_permalink: "/2009/03/luabind.html"
+author: 
+---
+<p>　　写着写着，发现Luabind不是先前想的那样有了SWIG就可以抛弃了的，还是有用武之地的。<br />　　主要体现在两个地方。<br />　　一、从C++调用Lua函数。Luabind提供了两个方法，在Boost的协助下极其出色地分别实现了调用全局函数和其他可被作为函数调用的对象的调用。这两个方法都以C++模板实现了可变参数类型和可变参数个数的调用，而不是C库中printf使用的那种方法。这得益于强大的Booster::mpl。<br />　　二、提供C++中自定义类型的高度灵活的部分封装。用SWIG通过分析C++声明一股脑儿全都封装了，当然可以通过预定义宏SWIG可标识不想被封装的部分，但这需要修改C++源代码，以致于破坏C++源代码的整体风格，而且灵活性明显不行。用Luabind可以随心所欲地把任意一个类的其中几个方法封装了，这个优点是我在看了Luabind中自带的几个example才想到的，比如它演示封装了boost::regex，boost::filesystem，如果想用SWIG，几乎不可能达到目的。</p>

@@ -1,0 +1,17 @@
+---
+layout: post
+title: Ninayan W.I.P.(7)
+categories: []
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  _wp_old_slug: ''
+author: 
+---
+<p>　　添加了个图片本地缓存的功能，结果发现不是很好用。在Windows下实际使用时发现有时候装载本地文件仍然很慢，甚至不如直接从网络上加载的快。在Mac下发现压根就装载不上。初步估计是因为多处同时读写文件时有冲突，需要再仔细看看。<br />
+　　把删除消息，去fav后的响应也添加上了。<br />
+　　另外还有些细节方便的调整，比如所有显示图片的地方都添加了等待动画。<br />
+　　最后发现个奇怪的问题，在Mac下读取Friends列表有问题，json解析失败，这太诡异了。<br />
+　　今天听@<a href="http://twitter.com/shellexy">shellexy</a>说，用HTML5的话，配合JS/CSS这些东东，可以实现跨iOS/Android/WebOS/Symbian/MeeGo，呃，这也太强大了吧，而且据说<a href="http://hotot.org">Hotot</a>移植到这些平台已经是在计划中了。得好好考察一番这种开发方案了。</p>

@@ -1,0 +1,15 @@
+---
+layout: post
+title: "输入法卸载功能趋近完美了"
+categories: []
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  blogger_blog: missdeer.blogspot.com
+  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
+  blogger_permalink: "/2007/07/blog-post_18.html"
+author: 
+---
+<p>　　昨天为止，把输入法在注册表中的所有能找到的相关项都删除了，但输入法管理器中的图标还是好好的，输入法ime文件没被删除的话，也还可以切换过去正常使用。只有重启系统了才会消失，说明这样处理是不够的。<br />　　本来就知道有个小小的程序可以近乎完美地卸载输入法，不用启动就能使图标消失。今天上网把那个小东西找来，还真的挺小的，用PEiD看了一下说是用Delphi写的，没检测到压缩壳都只有20KB，应该是没用VCL了，本来还想用DeDe来反编译一把的，结果下了个DeDe来，好像不怎么会用啊，反正是反不出什么东西来。既然这么小，就用IDA试试喽，装入就分析完了。流程视图都只有一小点，从字符串表中顺藤摸瓜，找到一个叫UnloadKeyboardLayout的API调用，上Google随便一搜就看到有篇Blog写的如何用该API来卸载输入法，真是的，以前输入各种关键字都没有找到这篇Blog，还害得我大费周折地去反汇编，还好，也总算解决。<br />　　顺带还多了解一点内容，原来HKL就是输入法在Keyboard Layouts下面的子键的数值。</p>

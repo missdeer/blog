@@ -1,0 +1,25 @@
+---
+layout: post
+title: "从腾讯开放微博API说起"
+categories: []
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  quiz: s:36:"a:2:{s:1:"q";s:0:"";s:1:"a";s:0:"";}";
+  _wp_old_slug: ''
+author: 
+---
+<p>　　腾讯也<a href="http://open.t.qq.com/">开放微博API</a>了，这对于一个一贯坚持封闭的公司来说，真是个很艰难的决定。但是，眼下的互联网环境中，开放已经成了大趋势，想想<a href="http://www.facebook.com">Facebook</a>和<a href="http://twitter.com">Twitter</a>这两种SNS的代表形式，由于API的开放，第三方的应用和客户端真是百花齐放，争奇斗艳，不开放就是死。腾讯在推出微博服务的时候，我猜他们一点都不担心自己的用户数，因为他们自以为有庞大的QQ用户基数支持，只要让QQ客户端支持微博，就能顺利将用户转移过去。事实是国内使用微博的用户，绝大多数不是使用网页端，就是使用手机客户端，同时可以想像得到，目前的QQ死忠用户鉴于他们的年龄，知识构成，社交习惯等因素，很难迅速接受并支持微博这种表达方式，对他们来说，QQ签名就足以支持他们对微博这种媒体形式的需求了，那样更方便，更直观。<br />
+　　开放API，并不是说将微博功能从网页端到其他桌面端或手机端实现一遍就完事了。<a href="http://twitter.com">Twitter</a>在这方面无论是官方还是第三方都有不少的尝试，当然这也跟服务商对微博的定位有关系。比如Twitter之前说过他们做的不是社交服务，而是新闻服务，提供的是内容，所以<a href="http://twitter.com">Twitter</a>官网的上次大改版就是往这个方向上发展的，它更注重内容的展现，希望用户可以方便快捷地获取到各种信息。而国内的诸多微博服务，无一不是停留在最原始的框架下，对于信息的回溯检索，或是扩散都没有任何明显的形式的支持。就像之前ifanr对和菜头的<a href="http://www.ifanr.com/26762">访谈</a>中提到的那样，国内的微博在意识形态上仍然停留在精英制造内容，草根膜拜瞻仰的原始阶段。<br />
+　　这些天推友<a href="https://twitter.com/lucifierya">@lucifierya</a>一直在推一些他对个人知识管理的想法和实践，他主要偏重从网络上获取的信息，包括RSS、Blog、Tweet等。其实这三部分独立的，都有各种实现得很好的方案，两种或三种结合的也有一些方案，但显然就很不被重视了。再回头说腾讯，腾讯有<a href="http://reader.qq.com/">QQ阅读器</a>，有<a href="http://qzone.qq.com/">QQ空间</a>，也有<a href="http://t.qq.com/">微博</a>，三者也有简单的关联，比如<a href="http://reader.qq.com/">QQ阅读器</a>中可以看到好友最新文章，但也仅此而已了。我对<a href="https://twitter.com/lucifierya">@lucifierya</a>的一些想法深以为然，但也许因为他个人缺少对软件开发方面的知识和技能，他提供的解决方案就有点畸形。我在上Twitter的这一年来，一直在考虑自己实现一个Twitter客户端，一开始只是一个单纯的客户端，后来想法就逐渐有所延伸和扩展。单纯的客户端并不是我想要的，我的本意是需要一个获取信息，管理信息的工具。考察和试用了不少其他的服务，想法已经比较完整，但尚未明确和具体，大致如下：<br />
+　　1、连接各微博服务，当然首要是Twitter，提取微博中的网址超链接，作为一个信息源。<br />
+　　2、连接各书签分享服务，比如<a href="http://www.delicious.com/">Delicious</a>，<a href="http://readitlaterlist.com/">ReadItLater</a>，<a href="http://www.instapaper.com/">Instapaper</a>等，作为第二个信息源。<br />
+　　3、订阅RSS以及<a href="https://www.google.com/reader/">Google Reader</a>，作为第三个信息源。<br />
+　　4、方便地将超链接分享到微博和书签服务中去。<br />
+　　5、将网页主要内容提取显示。<a href="http://lab.arc90.com/experiments/readability/">Readability</a>、<a href="http://samabox.com/extensions/iReader/">iReader</a>等扩展的作用很明显，可以极大地提高用户体验，但将这功能放在浏览器中需要用户手工激活，有点繁琐，而在专业的内容阅读器中默认采用这种形式就方便了。<br />
+　　6、将所有内容条目以列表形式组织显示，如<a href="http://www.feedly.com">Feedly</a>或<a href="http://reederapp.com">Reeder</a>那样，可以看到每个条目的开头的一部分信息以及内含图片的缩略图，用户就可以直接判断是否是自己感兴趣的内容。<br />
+　　7、将所有内容条目以报纸排版显示，如QQ阅读器或<a href="http://paper.li">http://paper.li</a>那样，这样除了有上一条的好处外，更多的是一种贴近传统习惯的用户体验，至少我个人是相当喜欢这种形式，只不过QQ阅读器一页显示的内容太少，以及不能自行添加RSS订阅，而<a href="http://paper.li">http://paper.li</a>时有乱码，更新周期太长，并且导致有时候一页内空白块太多，不够美观。<br />
+　　8、用户可以对内容添加评论，评论内容和相关链接可以保存到<a href="https://docs.google.com/">Google Docs</a>上去，这样就可以移动应用了。<br />
+　　以上这些就是我总结出来的大的需求，其他小需求暂且不提。我会自己用<a href="http://qt.nokia.com/">Qt</a>慢慢实现，以目前的能力来看，至少可以实现跨Windows/Mac/Linux/Symbian/MeeGo了，也许以后Qt移植到Android和iOS上后，也会支持Android和iOS吧，这是后话了。</p>

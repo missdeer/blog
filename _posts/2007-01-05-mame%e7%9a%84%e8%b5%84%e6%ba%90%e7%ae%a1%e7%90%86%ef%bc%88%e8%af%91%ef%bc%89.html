@@ -1,0 +1,18 @@
+---
+layout: post
+title: MAME的资源管理（译）
+categories: []
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  blogger_blog: missdeer.blogspot.com
+  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
+  blogger_permalink: "/2007/01/mame.html"
+author: 
+---
+<p>　　打算研究一下MAME，所以先研究一下<a href="http://www.aarongiles.com/">Aaron Giles</a>写的几篇文章，英文的看着不是很舒服，所以<span style="color:rgb(255,0,0);font-weight:bold;">草草</span>地翻译了一下。这次放出第一篇《<a href="http://mamedev.org/docs/resource.html">Resource Management in MAME</a>》,原文在<a href="http://mamedev.org/docs/resource.html">这里</a>。</p>
+<p>MAME的资源管理<br />by Aaron Giles</p>
+<p>　　如果你在写一个驱动，或者给驱动添加状态保存功能，这时了解MAME是如何管理资源的就很重要。<br />　　以前，MAME根本不跟踪资源的使用情况的：如果你调用了malloc()，你就需要free()；如果你调用了timer_alloc()，就需要调用timer_free()等等。因为标准命令行版本的MAME一次只运行一个游戏，所以当你退出时即使留下一堆已分配的资源也没有什么实际影响。当然，那些移植版本如MacMAME―允许你在不退出的情况下停止一个游戏开始另一个游戏―会因为内存不足或其它资源分配后却不回收等问题引起程序崩溃。<br />　　在内核中使用优秀的资源管理有很明显的理由：它只使用不多的代码，并且不会很快地改变。而，在几百个驱动中用好资源管理，简直是个噩梦。驱动通过提供回调函数hook住主系统。下面列表中是一些通用驱动回调函数：<br />    DRIVER_INIT<br />    VIDEO_START/VIDEO_STOP<br />    MACHINE_INIT/MACHINE_STOP<br />　　大多数的驱动在MACHINE_INIT和VIDEO_START中分配资源，并且理论上假设它们也会在MACHINE_STOP和VIDEO_STOP回调函数中释放这些资源。实际上，这并不是一定的，这让人很头疼。而且，一些系统会在DRIVER_INIT中分配内存，但却没有比较合适的地方可以释放这些内存。我假设我们应该添加个DRIVER_STOP回调函数，但是最后却是另外一个不同的方案被采纳了。<br />　　如果你从逻辑上考虑一下，99%的情况下，你会希望在MACHINE_STOP释放在MACHINE_INIT中分配的资源。类似的，你想要在VIDEO_STOP中释放所有在VIDEO_START中分配的资源。所以，相比要求每个驱动去编写代码完成释放资源，为什么不由内核来简单地跟踪资源分配，并在适当的时候自动释放呢？这样确实可以工作得很好。<br />　　如果你看一下这些回调函数的调用顺序，它应该像这样（用伪码表示）：<br />init<br />{<br />DRIVER_INIT<br />VIDEO_START<br />reset:<br />{<br />MACHINE_INIT<br />run-the-game-until-exit-or-reset<br />MACHINE_STOP<br />}<br />if we-exited-due-to-reset then<br />loop back to reset:<br />VIDEO_STOP<br />}<br />exit</p>
+<p>　　你应该会注意到我在上面的伪码中使用了一组花括号。这会给你一点提示，应该怎样自动跟踪资源的分配－这很像在C/C++中使用局部变量。当离开这个作用域，所有被跟踪的资源在该作用域中被分配的应该自动回收。当你运行到MACHINE_STOP和VIDEO_STOP间的闭花括号，内核会释放所有从前面的开花括号以来分配的资源，包括所有在MACHINE_INIT中分配的东西，同样也会回收内核在那段时间分配的资源。类似的，当你运行到第二个闭花括号时，所有被跟踪的在DRIVER_INIT和VIDEO_START中分配的资源都会被释放。<br />请注意我说的被跟踪的资源。只有有些资源是被跟踪的，另外一些需要显式释放。例如定时器，总是被跟踪的。任何时候你在MACHINE_INIT中分配了一个定时器，它会在你退出内部作用域时被释放。实际上，通过这种方式来跟踪，定时器是不需要显式调用timer_free()，你需要依赖于资源跟踪来处理。<br />　　最明显的不被自动跟踪的资源是内存。原因是当调用malloc()后，当离开该作用域时还是有可能需要保留该内存不被释放。你可通过使用auto_malloc()替换malloc()，手动使MAME跟踪内存。auto_malloc()像malloc()那样工作除了它会在离开当前作用域时自动释放。这里你必须小心点，因为如果你在MACHINE_INIT中使用了auto_malloc()并保存了该指针在一个全局变量中，当游戏重启时MACHINE_INIT会被重新调用，那块内存会被释放。你的全局变量仍然是相同的指针值，但内存已经不存在了。正确的作法是不要使用保存在全局指针中的值，而只要简单地每次在MACHINE_INIT回调函数中都调用auto_malloc()就可以了。<br />　　另一种通用资源需要被手动跟踪的是位图。有个叫auto_bitmap_alloc()的函数可以创建位图，并在离开当前作用域时回收。<br />　　最后一种被跟踪的“资源”是新近才加的：保存状态注册。根据最近的系统的修改，你可以只注册数据到需要被保存到外部作用域(DRIVER_INIT/VIDEO_START)。这是因为如果你点击F3重启游戏，MACHINE_INIT会被调用多次，而保存状态系统不能处理重复注册(我知道，这并不难，但有其它一些更复杂的东西)。为了管理这些，当你退出一个作用域，所有你在该作用域内注册的保存的状态数据会丢失，意味着你需要再注册一次。像大多数情况下，你在MACHINE_INIT回调函数中注册，当游戏重启后你会被再一次调用MACHINE_INIT，这并不是说你需要做什么特别的，只要简单地像什么事都没发生过一样注册一遍，它就能工作得很好。<br />　　在之后的文章里，我会讲到关于保存状态的系统的更多细节，所以如果上面这些听起来有点迷糊，很快就能得到更多的认识。</p>

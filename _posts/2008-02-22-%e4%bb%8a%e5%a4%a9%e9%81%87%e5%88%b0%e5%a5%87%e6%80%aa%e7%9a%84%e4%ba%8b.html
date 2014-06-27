@@ -1,0 +1,15 @@
+---
+layout: post
+title: "今天遇到奇怪的事"
+categories: []
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  blogger_blog: missdeer.blogspot.com
+  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
+  blogger_permalink: "/2008/02/blog-post_22.html"
+author: 
+---
+<p>　　给江江写了一个小程序，用于自动从一些excel文件中复制数据到另一些excel文件。但江江说有问题，我也不知道到底哪里出问题了，于是想加入日志功能吧，这样至少可以看看代码执行的流程。可就在这里，遇到一件怪事，居然写文件写不进去内容！开始我是用C库里的fopen系函数来写文件的，但是什么都写不进去，单步调了一下，好像fopen就有问题，该函数返回的是一个FILE*，但看调试器里，该指针指向的内容是一堆0，好像就是打开失败，但它却确确实实返回一个有效的指针了，郁闷！于是我就试了一下用C++库里的fstream，开始看好像是可以的，于是我就把原来自己写的那个日志类拿过来用，反正里面写文件的代码就是用fstream的，不过这时又不正常了，只是零星写了点完全无用的数据进去，其它信息压根都没有，真是郁闷啊！<br />　　因为是用了那个日志类，所以OutputDebugString的输出还是有的，这就让我觉得很奇怪啊！因为下班了，于是也不想再继续深究下去了，反正用DebugCapture捕获这些输出，再导出到文件，也勉强是可以用了，呵呵。<br />　　不过这真是奇怪啊，完全没有任何头绪！</p>

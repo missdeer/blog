@@ -1,0 +1,15 @@
+---
+layout: post
+title: Windows下编译器内存分配释放性能对比（续）
+categories: []
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  quiz: s:36:"a:2:{s:1:"q";s:0:"";s:1:"a";s:0:"";}";
+author: 
+---
+<p>　　今天搞到了C++Builder2010，里面的bcc是6.21版本，相比bcc5.5，也是经过4个版本升级了，隐约记得在某个版本中，把CRT中的内存管理部分改用<a href="http://sourceforge.net/projects/fastmm/">FastMM</a>了，所以它的表现应该有所不同。<br />
+　　经过与<a href="?p=862">前一次</a>基本相同的测试，得到结果。从该数据中可以看到，6.21版本提升了多线程情况下的小块内存操作的性能，在1024字节以下的malloc测试中，表现优于所有其他的编译器！但在1M字节以上的测试中，还不如bcc5.5版本。而且，它的new操作耗时比malloc操作耗时多很多，大约是半倍到一倍的样子。在单线程小块内存的操作中，表现可以用技惊四座来形容，直逼OpenWatcom，甚至偶尔略有超越。但是在大块内存操作中，反而都不如原来BCC5.5。<br />
+　　详细测试用可执行程序与测试结果可以点击<a href="http://download.csdn.net/source/2051704">这里</a>下载。</p>

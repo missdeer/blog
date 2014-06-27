@@ -1,0 +1,19 @@
+---
+layout: post
+title: Qt Creator插件工作流程代码走读
+categories: []
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  quiz: s:36:"a:2:{s:1:"q";s:0:"";s:1:"a";s:0:"";}";
+  _wp_old_slug: ''
+author: 
+---
+<p>　　Qt Creator有个很风骚的插件管理器PluginManager，还有个很骚包的插件说明PluginSpec。基本上，所有的Qt程序的入口都是传统的C程序一样，代码流程从main()函数开始。<br />
+　　在main()中，先初始化用于国际化的translator，然后获取程序配置settings，接着就在栈上创建了PluginManager对象，之后为PluginManager设置搜索用的文件扩展名pluginspec，设置配置，再设置插件搜索路径。<br />
+　　设置好插件搜索路径后，PluginManager会从配置中读出被忽略的插件列表和需要强制使能的插件列表，然后开始在插件搜索路径中查找*.pluginspec文件，这类文件中记录了插件的名称，版本号，依赖插件等信息。找出所有.pluginspec文件后，就检查一下每个插件所依赖的插件的名称和版本号信息是否匹配。<br />
+　　接着再返回main()中，找出Core插件，该插件是整个Qt Creator的主框架，甚至实现了主窗口。如果Core插件有问题，Qt Creator就会打印出错信息后主动退出。<br />
+　　最后便是调用PluginManager::loadPlugins()载入所有插件。loadPlugins()首先调用PluginManager::loadQueue()以确定插件载入的先后顺序，该过程做了两件事，一是检测是否存在循环依赖的情况，这里用了一个很简单的方法，将当前的插件放入一个队列中，然后检测它所依赖的插件的依赖插件，如果新检查的插件所依赖的插件在队列中，那么说明存在循环依赖。另一件事便是安排载入顺序，同一个函数内通过递归，先递推将最被依赖的插件放入队列，然后回归将最后的插件放入队列，这样生成的便是解决了载入顺序问题的队列。得到载入顺序的队列后，便依次调用PluginSpec的loadPlugin()方法，这里它将插件状态定义为Invalid、Read、Resolved、Loaded、Initialized、Running、Stopped、Deleted共8种，loadPlugin()方法根据传入的要求的状态，进行相应的操作。Loaded时通过Qt本身支持的插件机制，装入动态链接库，之后是Initialized状态，调用每个插件的initializePlugin()方法，最后是Running状态，调用每个插件的initializeExtensions()方法。其中initializePlugin()和initializeExtensions()并没有多少区别，调用的时机也是挨着的，中间没有其他的操作。一般可以简单地这样区分，initializePlugin()中完成最最基本的插件初始化工作，包括创建插件内部的一些对象等，而initializeExtensions()中则完成那些内部对象的初始化工作。当然也可以不用严格遵守这种规则。<br />
+　　到此为止，整个Qt Creator就运行起来了，消息循环启动后，用户就可以进行操作了。</p>

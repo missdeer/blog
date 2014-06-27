@@ -1,0 +1,15 @@
+---
+layout: post
+title: "混用SWIG和Luabind的问题"
+categories: []
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  blogger_blog: missdeer.blogspot.com
+  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
+  blogger_permalink: "/2009/11/swigluabind.html"
+author: 
+---
+<p>　　花了两三天时间，总算是从头到尾看了一遍Luabind的使用手册，呃，为了确保没有漏过的内容，甚至还把整个文档都翻译了一遍。在看文档的过程中，还是比较感叹该库做得功能强大的，不过在实际用的时候就比较郁闷了。<br />　　我用Luabind绑定了一些类和函数等内容到一个模块中，用了SWIG把几个头文件处理了一遍的，把所有内容都放到同一个模块中。一开始发现在Luabind中绑定的类在Lua中死活不能用，调用成员函数时，总是说那个类是个nil，不能被index。<br />　　后来尝试了下，把Luabind中绑定的内容放在全局域中，发现居然可以了！虽然这样似乎可以工作，但我想让所有由内部C++代码提供的服务放在同一个模块中。后来想了想，把SWIG和Luabind的注册顺序换一下，改成先注册SWIG的内容，再注册Luabind的内容，嘿嘿，真的也可以了！我猜想可能Luabind的注册内容是采用追加的方式，而SWIG却是覆盖方式。这个猜想没有经过证实，只是如果真是因为这个原因的话，也是可以理解的。</p>

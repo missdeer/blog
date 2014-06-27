@@ -1,0 +1,15 @@
+---
+layout: post
+title: "继续升级程序"
+categories: []
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  blogger_blog: missdeer.blogspot.com
+  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
+  blogger_permalink: "/2007/09/blog-post_20.html"
+author: 
+---
+<p>　　MoveFileEx似乎要在同一个分区里才能移动当前运行的Exe或Dll文件，于是我只好在本地目录再新建一个子目录。还有个问题，用NULL参数登记系统重启后删除，不知道为什么不起作用，该不会是只有在临时目录下的才能自动删掉。<br />　　再抱怨一下asio，吞吐率并不高啊，不知道是不是哪里用得不对，而且太占CPU了，很介意这个事啊，要是到时候同时有几个人从这里请求文件传输，岂不是卡死了，郁闷，这是无论如何都不能接受的。<br />　　还有个界面刷新的问题，在回调函数时加入Invailidate(FALSE)，就能看到进度条在那里动了，当然还要在下面加一句PumpMessage，不过还有一点点问题，如果界面被遮盖住过，再切回来是没有显示的，只有鼠标再点一下界面，才会恢复显示。<br />　　今天又被叫去讨论了一下，真是烦死人了。还要用Excel来画流程图，画完了还要用程序来解析图的前后继承关系，烦啊！</p>

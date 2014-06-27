@@ -1,0 +1,15 @@
+---
+layout: post
+title: htmlemail by CruiseControl
+categories: []
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  blogger_blog: missdeer.blogspot.com
+  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
+  blogger_permalink: "/2008/03/htmlemail-by-cruisecontrol.html"
+author: 
+---
+<p>　　继续捣鼓CruiseControl，从头到尾看了一遍Config Reference————的目录，发现有几项东东还是挺有趣的，主要集中在所谓的“持续反馈”部分。CC能支持Email通知是早就知道了，在公司里都偷偷用公司的SMTP给notes发过，只是后来想想公司那么刻板的信息安全问题，立马取消了。今天看到有一项是htmlemail，说是可以支持发送htmlemail，以前虽然在书上或网上也看到过截图，它能把Buildresult以在Web浏览器中看到的形式发送邮箱中。但我却发现自己的都只能发送一条链接信息过来，很奇怪。<br />　　本来都快放弃了，隐约都开始怀疑别人说的真实性了，后来偶然发现控制台里的输出信息，说是找不到那些个XML格式的日志文件。再后来突然想起来，它怎么跑到CC所在目录下的logs目录中找那些日志呢，我明明把路径都设置到其它地方去了啊。不过这样也好，至少知道可能是因为这个问题引起的不能发送htmlemail了。于是马上把日志目录再次改回CC所在目录下的logs目录，再试一把，果然OK啦！<br />　　再看，CC还能支持把build result发送到blog上去呢，不过我试了一下这个在blogger.com上的blog，没成功，我估计是因为CC要求的XML RPC地址没写对，我找不到哪里有这个地址，先不管了，呵呵！</p>

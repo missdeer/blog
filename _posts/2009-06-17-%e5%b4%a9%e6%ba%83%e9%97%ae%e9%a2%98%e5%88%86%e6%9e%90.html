@@ -1,0 +1,15 @@
+---
+layout: post
+title: "崩溃问题分析"
+categories: []
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  blogger_blog: missdeer.blogspot.com
+  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
+  blogger_permalink: "/2009/06/blog-post_17.html"
+author: 
+---
+<p>　　这两天在抽空分析程序的崩溃记录，这些记录都按照版本号分别放在不同的文件夹中。早先exe文件的版本号并没有严格对应于svn revision号，周一时用一个修改PE资源的小程序搞定了这个事情，以后做这方面的事可要精确和省神多了。<br />　　今天分析到一个记录，印象中以前也有过类似的记录，一时没想起来，发现是一个线程函数数，对一个std::map调用find方法，结果在STL内部引起崩溃了。开始的时候，还以为是调用find方法时传入的参数有问题，引发了STL的某个未定义行为。于是另外写了个小程序简单验证了一下自己的猜想，结果不如自己所料。后来猜测要引用这个map的对象时，包含它的指针已经无效了。但为什么无效，我却也得不出什么结论。最后突然想到，从崩溃记录分析得到的最后堆栈信息中，看到是调用find方法后，find方法中取xtree的根节点引起的崩溃，那么是不是这个map对象本身就是有问题的了呢？灵光一闪，这个map对象是做为一个类的成员的，如果这个类的实例被销毁了，这个map对象自然也跟着被销毁，而这时如果再试图访问它，当然会有问题。<br />　　分析出来具体的原因，修改起来就比较容易了，在该类的实例被销毁时，应该通知那个线程马上结束，而且不要再试图去访问那些它的成员了。在修改这块代码的过程中，我应用了boost::thread，这大大简化和缩减了需要编写的代码。</p>

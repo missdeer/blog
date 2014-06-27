@@ -1,0 +1,15 @@
+---
+layout: post
+title: "炮轰Boost build"
+categories: []
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  blogger_blog: missdeer.blogspot.com
+  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
+  blogger_permalink: "/2009/07/boost-build.html"
+author: 
+---
+<p>　　今天在Boost的开发maillist上看到有人在抱怨<a href="http://groups.google.com/group/boost-developers-archive/browse_thread/thread/accb646b86e7c049/b9ded13b4de96588">Boost Build系统的不好用</a>，我难得耐下性子来看了看，其中提到好几个问题：Getting Start文档中没有明确的说明命令行；编译MPI库需要修改user-config.jam文件；与ICU一起编译Regex库会报静态链接和动态静态不兼容的错；解决了Regex编译时链接的问题后，用的ICU lib文件名却需要自己修改一下；编译Graph库时链接Expat时需要修改jamfile.v2文件来修改链接的lib文件名。除了MPI的问题外，其他的我也都遇到过，也都差不多自己解决了，我还真是个可以逆来顺受的人，虽然觉得很麻烦，但却想不起要求Boost来改进这些缺点。不过今天看到这个帖子后，感觉大快人心啊，哈哈！<br />　　顺便提一下，今天我找到可用通过cdb.exe来直接使用命令行对dump文件进行分析的的方法了，可以直接将分析结果在控制台上输出，这样就简单地利用管道将分析结果获取到了。这样基本解决自动分析dump文件的技术上的障碍，最多是要再自己写个小程序，可以分成两部分，分别是前端和后端。前端负责获取新的dump文件，可以是定时扫描某个文件夹，或者定时扫描email，或者通过其他的socket传输等，反正就是获取到一个新的dump，然后调用cdb.exe这个命令行，而后端则是将cdb.exe输出的结果重定向到其他地方去，可以是通过email发送出去，或者是写到数据库中，或是写到excel中，或是直接填充到WIKI上去。总之，现在怎么整都可以了。</p>

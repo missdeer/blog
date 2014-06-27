@@ -1,0 +1,15 @@
+---
+layout: post
+title: 'Ebookshelf W.I.P #6'
+categories: []
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  blogger_blog: missdeer.blogspot.com
+  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
+  blogger_permalink: "/2007/03/ebookshelf-wip-6.html"
+author: 
+---
+<p>　　把ListView改成可以多选的virtual listview，有点问题，有时候不能获取到全部的被选中的项，在csdn上也看到有人有这样的问题，不过并没有提到解决办法，只是说用普通的ListView就没有这样的问题，难道我也改回去。改回去除了显示速度变慢这个缺点外，能得到另外一个好处，就是如果从后面添加了记录，不用全部刷新整个ListView。<br />　　原来那个OnEdited的事件是可以用的，它的参数中最后一个就指明了新的标题，而指向节点的那个参数里的标题属性还是老的，这样也好呢，可以决定是不是在某些时候不应该被修改。<br />　　另外想到，应该有个搜索功能，至少能按书名，或文件路径来搜索。其次是，有点想加个ListView和TreeView间的拖拽功能。拖拽以前都没做过，不知道麻烦不麻烦，其实我觉得这个小程序最麻烦的是数据库操作了。<br />　　今天从浏览器登录到Gmail中时，突然想到，如果邮件客户端的界面可以做成像这种，应该也很炫哦，把所有相同主题的列成一个，然后可以在一个浏览窗口中统一浏览。看了一个Foxmail、Dreammail、Koomail、Outlook、Notes都是没有这种界面的，其它的客户端程序也不了解，不过Gmail这样的可能也算得上是首创的了吧。然后我就又有点发神经了，想自己写个客户端了。</p>

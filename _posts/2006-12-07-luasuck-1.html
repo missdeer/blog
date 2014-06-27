@@ -1,0 +1,15 @@
+---
+layout: post
+title: 'LuaSuck #1'
+categories: []
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  blogger_blog: missdeer.blogspot.com
+  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
+  blogger_permalink: "/2006/12/luasuck-1.html"
+author: 
+---
+<p>　　在看LuaTinker代码的过程中，惊奇地发现，它居然用了可变数量的模板参数！！这个这个这个，对我来说，不啻于晴天霹雳，《Modern C++ Design》上可是写着“Variable template parameters simply don't exist.” 我打开VC2005又试了一下，明明白白，VC7.1到VC8，都是可以这样用的。到底是哪里出问题了，谁错了……<br />　　LuaTinker在处理C++ free function的时候，是把pointer to function当作light userdata压入了virtual stack，网上到处都流传着一份不知道从哪里散发出来的用proxy手法解决的方案，感觉不如LuaTinker的爽。</p>

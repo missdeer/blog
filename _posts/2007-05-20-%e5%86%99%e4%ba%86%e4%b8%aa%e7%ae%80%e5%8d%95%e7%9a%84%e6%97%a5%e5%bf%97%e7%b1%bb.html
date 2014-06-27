@@ -1,0 +1,15 @@
+---
+layout: post
+title: "写了个简单的日志类"
+categories: []
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  blogger_blog: missdeer.blogspot.com
+  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
+  blogger_permalink: "/2007/05/blog-post_20.html"
+author: 
+---
+<p>　　基本可以满足自己使用的功能上的需求，即使发现哪里不能满足了，也可以马上自己改。不过实现得真是很难看很丑陋啊，是拿不出去见人的！而且在写这个类的时候，暴露了我的一大能力缺失，我对标准库和Boost一点都不了解，一些常用的组件应该怎么用我都不知道，全靠看帮助翻手册才勉强搞定。<br />　　这个类开始是在VC2005下写的，然后拿到BCB2006下试了下，发现BCB连Boost::function库都不能好好地支持啊？真是受不了，而我写这个类时，有一部分功能是依赖于Boost的，比如支持回调，所以如果没有Boost，这部分功能就不能支持喽，当然其它的功能还是可以用的。目前可以将消息写到控件台、OutputDebugString（也就是调试器）、文件、系统日志。其实当时有个想法是，Windows下可以写到系统日志里，Unix-like的系统下应该用Syslog，不过这个就暂时不管了，哈哈！除了可以写消息外，还可以定制消息输出的内容格式，其实是不同内容在同一行中出现的顺序，呵呵。当然，如果编译器能支持Boost，就可以用回调，可以用全局函数，或仿函数（目前还不能支持类成员函数），就可以完全定制输出消息的格式了！<br />　　除了依赖的Boost库外，全部的代码只有一个头文件，而且其它的依赖都是标准库或系统支持的库，方便啊！</p>

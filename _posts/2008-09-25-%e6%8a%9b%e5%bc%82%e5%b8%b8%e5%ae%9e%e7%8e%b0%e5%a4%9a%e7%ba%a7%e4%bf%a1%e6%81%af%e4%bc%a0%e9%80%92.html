@@ -1,0 +1,15 @@
+---
+layout: post
+title: "抛异常实现多级信息传递"
+categories: []
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  blogger_blog: missdeer.blogspot.com
+  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
+  blogger_permalink: "/2008/09/blog-post_25.html"
+author: 
+---
+<p>　　从没用过C++的异常，都是看到别的代码抛出异常来，我自己的代码里try...catch(...)，甚至从来不知道catch里到底是要什么类型的。<br />　　这次有这样一个需求，在一个比较深的调用层次的地方，不但要返回成功过失败，如果失败了，还希望能得到原因。其实这个需求之前就有了，但当时没有放在心上，觉得不做也不要紧，而且当时的想法是像Windows API那个，设置一个全局的值，即Error Code，任何操作之后都设置一下这个值，其他地方就可以直接获取到失败原因。当时想到这个方案时，心中也有点不舒服，这也是导致一直拖着不实现的一个原因。<br />　　昨天做过功能的，直接就想到用C++异常来实现。今天先看了一眼msdn，然后就决定，这么简单的需求，就不需要自己写个异常类了，直接抛个字符串出来算了。字符串内容是从资源里取的，所以最后就直接throw一个CString出来了。效果还是不错的，不过有一点是需要特别注意的是，本来都已经通过返回值知道操作不成功，就可以跳出这个流程了，但有了异常，就需要在任何可能调用到这个路径的某处上层，进行try和catch，不然程序就直接down掉了！</p>

@@ -1,0 +1,15 @@
+---
+layout: post
+title: "打方块去了"
+categories: []
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  blogger_blog: missdeer.blogspot.com
+  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
+  blogger_permalink: "/2006/10/blog-post_19.html"
+author: 
+---
+<p>　　和江江她们打方块去了，呵呵，速度也没啥提高，一直在1.2x，有点气愤，为什么我就练不快呢！<br />　　白天在公司，看了好久的《Programming In Lua》，还遇到一个C++ new的没见过的用法，去公司内部的支撑论坛问了下，好菜啊，没看过《C++ Primer》就这样水啊！我大概是从大学里开始养成的坏习惯吧，静不下心来仔细看书，总希望有个速成式的学习快餐，可以随便翻一下就能学会一些东西。大部分时候，都是看一下目录、前言、序就当是看过一本书了，到时候知道去哪里查阅就行了。<br />　　在看LuaTinker的代码的时候，还学到一招，创建匿名的对象，并直接调用返回值为该类对象引用的成员函数。有趣，这种匿名对象的生命周期好像只在当前代码行内有效。<br />　　又看了一点点LuaBind的代码，原来以前在Boost.Python的examples里看到的那种奇怪的语法，只是重载了操作符operator,和operator[]，呵呵。从云风的书上看到，如果不是忙于各种各样的日常事务，大多数的程序员一定会迷上博大精深的C++。说得一点都没错啊，现在看来C++ template的运用，对我来说就是一个很大的诱惑。<br />　　要看懂LuaTinker的代码，还是很依赖于对Lua的深入掌握，尤其是Lua提供的C API，如何让Lua脚本能调用C++里的类方法，这样的技术是LuaTinker提供的重要功能。Lua与C之间通过一个virtual stack来实现通信，所以virtual stack的操作很迷惑人了。看来还是得再多看几遍PIL，再试着自己写些代码。另外，云风的书里也有提到过怎么进行这样的封装，不过我更倾向于LuaTinker这样的方案，因为目前我是彻底被C++ template技术迷倒了！</p>

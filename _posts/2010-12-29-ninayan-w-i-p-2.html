@@ -1,0 +1,20 @@
+---
+layout: post
+title: Ninayan W.I.P.(2)
+categories: []
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  _wp_old_slug: ''
+author: 
+---
+<p>　　其实是个小功能，真正实现起来还是有点花时间的，那就是移植AutoProxy的功能。在Ninayan中的过程大致如下：<br />
+　　1、从本地读取gfwlist.txt（假如存在的话），然后应用到代理管理器中；<br />
+　　2、从googlecode的svn上下载到最新的gfwlist.txt，然后应用到代理管理器中，如果第一步已经成功执行过了，那么这步的应用到代理管理器的操作会被略过；<br />
+　　3、将下载到的gfwlist.txt替换本地那个老的gfwlist.txt。<br />
+　　应用到代理管理器也不难，首先将gfwlist.txt内容全部读出，然后Base64解码，按行分隔，除掉空行和注释行，剩下有效的规则大约是2700多条。规则分为5类，分别是关键字匹配，主机域名包含匹配，正则表达式匹配，开始字符串匹配以及一种优先级最高的强行不代理规则的匹配。<br />
+　　现在的问题是，代理似乎是能正常工作了，但感觉有点性能问题。于是我就想是不是应该想点其他办法加速这个匹配过程，比较容易想到的是做个简单的缓存，比如已经被匹配过的，需要代理的URL就保存到缓存中，以后有新的代理验证请求来的时候，先在这个缓存中找是不是已经有过，如果有了，就直接返回。这是基于这样一个假设：用户浏览的网站比较集中。而且这个缓存不能大，粗略地想想，可以保持在几十或几百个URL的容量，然后每个URL要维护一个计数，如果缓存一满，就把计数最少的删掉。不过这要注意一个问题，如果时间一长，缓存中的每个记录的计数都很大，然后新的URL就再也进不了缓存了。这种情况很容易出现，比如用户突然从某天开始关注起一个以前都不关注的网站了。其实这个问题也有个笨的简单方案，就是为每个被规则匹配成功的URL都维护一个计数，然后定期选出计数最大的一批URL进缓存。不过这些只是我现在的构想，不知道是否可用，先放着吧，这个问题不是很急。<br />
+　　最后，传张代理配置界面的截图吧，这回是真实数据了。<br />
+[caption id="attachment_1155" align="alignleft" width="300" caption="Ninayan代理配置界面完成，具有AutoProxy的功能"]<a href="http://missdeer.files.wordpress.com/2010/12/ninayan_proxysettings.png"><img src="assets/ninayan_proxysettings.png?w=300" alt="Ninayan代理配置界面完成" title="Ninayan代理配置界面完成" width="300" height="253" class="size-medium wp-image-1155" /></a>[/caption]</p>

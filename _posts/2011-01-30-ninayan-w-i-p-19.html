@@ -1,0 +1,19 @@
+---
+layout: post
+title: Ninayan W.I.P.(19)
+categories: []
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  _wp_old_slug: ''
+author: 
+---
+<p>　　终于勉强加上了一个功能比较凑合的图片浏览功能，还有很多地方需要改善。本来我的想法是UI上直接拿QML Demo PhotoViewer的代码来用的，可是昨天发现PhotoViewer中的代码会导致在Windows下程序不能切换输入法，于是只好自己写了。自己写就极大地简化了功能，才简化了代码，于是最后所有东西都放在一个QML文件中写完了，最终的效果，也就是几个视图场景切换时那个动画效果没有了。残念！<br />
+　　另外有个问题是图片下载的问题，现在的Twitter上比较流行的图床大多是被墙的，如果让QML的引擎自己通过代理下载图片，感觉不是一般的慢！所以我就觉得把这些图片事先下载到本地缓存起来似乎挺有必要的。<br />
+　　还有个比较重要的问题是全屏模式下浏览图片，默认是自动拉伸到整个显示区了，这样似乎比较影响显示性能，当然也是机器配置不是那么好的才会有这种卡的情况，在我的T43上会卡，拿到Mac mini上就流畅了。应该稍微改一下，看一下是不是在加载前就获取图片本身的尺寸，如果比显示区域大，才缩放，不大的话，就以图片本身的大小显示了，这样显示也更清晰点。<br />
+　　先到这里吧，上两张图：<br />
+[caption id="attachment_1227" align="alignleft" width="300" caption="图片浏览分类视图，现在只是按月份分类，以后也许会引入用户自定义tag，以tag分类"]<a href="http://missdeer.files.wordpress.com/2011/01/album_stack1.png"><img src="assets/album_stack1.png?w=300" alt="图片浏览分类视图" title="图片浏览分类视图" width="300" height="253" class="size-medium wp-image-1227" /></a>[/caption]<br />
+[caption id="attachment_1228" align="alignleft" width="300" caption="缩略图浏览，这是仿PhotoViewer做的，不过@shellexy说没有专业美工的情况下，还是规规矩矩照标准的方方正正做的大方。"]<a href="http://missdeer.files.wordpress.com/2011/01/album1.png"><img src="assets/album1.png?w=300" alt="缩略图浏览" title="缩略图浏览" width="300" height="235" class="size-medium wp-image-1228" /></a>[/caption]<br />
+　　还有个浏览某张图片的大图就不截了，没啥好看的。</p>

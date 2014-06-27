@@ -1,0 +1,15 @@
+---
+layout: post
+title: "我的方块W.I.P #4"
+categories: []
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  blogger_blog: missdeer.blogspot.com
+  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
+  blogger_permalink: "/2006/10/wip-4.html"
+author: 
+---
+<p>　　很奇怪，单独编译了7zDec.exe的时候，就好好的，只要是用VC7.1或VC8编译，都是可以好好地运行列表、测试和解压的，但是集成到我的方块里的时候，就出问题了，早早地便退出说OpenArchive出错了，幸亏有源代码，幸亏前些天刚刚学会在IDE里用debugger调试，经过N分钟的单步跟踪调试，发现最后到一处调用Windows的ReadFile时，总是会返回读取了0字节，这是出错的最终源头！经过几秒钟的思考，决定不用ReadFile这个API，因为源代码中通过预定义宏，来决定在Win32平台上使用依赖平台的文件操作API，而其它平台下都使用C的库函数，马上在前面把那个宏定义取消掉，果然编译通过了并正常运行解压了！加了些函数，可以把用7z格式打包好的skin文件解压到Temp目录下面，哈哈，安逸！不过很怪的是，我把画缓冲的代码注释掉了，但它还是大模大样把图都画出来了，为什么啊，撞鬼了！先不管它了，至少暂时这样可以用了，就先放着吧。<br />　　我把Lua的源代码都放进来一起编译，到luaopen_io的地方还是会崩溃，跟踪了一下是到一个sethvalue的地方，不明白为什么会这样，Lua的代码我没看懂，所以暂时只能把luaopen_io这句注释掉来拖延一下时间。好不容易从LuaTinker的官方网站上down到了0.2a版的源代码和二进制文件包，韩文还真一点点都看不懂哦！以前看到过Boost.Python的使用代码片段，发现这样的使用方式还真是独树一帜，之后大概就出现了为各种脚本语言提供粘合剂功能的库，都是使用的这种风格的，至少现在看到Lua就有Luabind和LuaTinker了，LuaTinker是个轻量级的封装，可以学习一下它的封装方法。<br />　　用SDK写程序，还是很有成就感di，嘿嘿，就是开发效率太低了。</p>

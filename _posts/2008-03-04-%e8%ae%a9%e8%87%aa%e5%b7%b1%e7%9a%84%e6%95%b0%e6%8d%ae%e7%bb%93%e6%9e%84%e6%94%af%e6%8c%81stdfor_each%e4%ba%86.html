@@ -1,0 +1,15 @@
+---
+layout: post
+title: "让自己的数据结构支持std::for_each了"
+categories: []
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  blogger_blog: missdeer.blogspot.com
+  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
+  blogger_permalink: "/2008/03/stdforeach_04.html"
+author: 
+---
+<p>　　经过几个小时的努力敲打键盘，终于让自己的数据结构支持std::for_each了。昨天我是过高地估计了其实现难度，其实看看for_each的实现代码，非常简单的算法，只要能让iterator支持前置++和提领（这是jjhou的叫法，就是对指针取值）操作符即可。这些内容昨天就知道了，但是自己没有动手做完前，总是心虚的。<br />　　实现过程基本上还算顺利，虽然老是编译不过，但VC的提示信息很详细，准确性也很好。在这个任务中，我觉得最好iterator不知道指向的类型，STL就是这样做的，也不是为了什么软件工程或者代码美感方面考虑，而是这样做对于实现者来说似乎更容易理解。<br />　　我在中间也犯了个比较严重的错误。因为NodeList已经被封装成一个类了，而我的设计里，iterator需要保存对NodeList的引用，所以我就很习惯成自然地用这个封装类了，另一方面，因为需要，NodeList封装类中也需要这个iterator类型，于是就成交叉引用了，编译都过不了。后来才想到，在iterator中使用封装类并没有得到多少好处，反而似乎增加了实现复杂度，直接用MSXML中的原始类型就行了。<br />　　嗯，略有收获，呵呵！</p>

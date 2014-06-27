@@ -1,0 +1,15 @@
+---
+layout: post
+title: "静态链接Scintilla"
+categories: []
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  blogger_blog: missdeer.blogspot.com
+  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
+  blogger_permalink: "/2007/11/scintilla.html"
+author: 
+---
+<p>　　自从大致了解了Scintilla后，就喜欢上了这个控件，一般的用法照它文档和代码中写的，只要LoadLibrary那个dll，就可以直接使用"Scintilla"为类名创建窗口了。这两天发现XML Spy也用了Scintilla，并且没有看到那个dll文件，猜想应该是静态链接进去了，所以我也想试试。<br />　　首先，当然是下载源代码，现在最新的是1.7.5版了。然后有个VC的工程文件，其实是编译出dll来的，用makefile也只能编译出dll来。要用VC自己新建一个lib静态库工程，把include、src、win32三个文件夹下的所有.h、.cxx、.rc、.cur文件都添加进来。再到项目属性里设置一下，使用多线程库。这样就能编译出一个.lib文件来了，Debug版有4MB多，Release版是3MB多。<br />　　试用一下这个新建出来的lib文件，正常创建一个工程，用的时候不用LoadLibrary了，要调用Scintilla_RegisterClasses函数，看ScintillaWin.cxx文件最后的DllMain就知道了，当然这个函数并没有在公司的头文件里声明，所以调用前自己声明一下。然后强制链接前面生成的那个lib文件，假设Release版的名为SciLexerS.lib，对应Debug版的名为SciLexerSD.lib，这时就可以编译了，在链接的时候可能会报一堆Imm打头的函数没法链接，很easy了，强制链接imm32.lib文件就可以了。<br />　　其实相比动态链接，静态链接除了发布的文件少了一个之外，没有任何优势，反正dll倒是可以由用户任意更换，有了新版本，只要替换一下dll文件就可以了，即使如果是个通用的代码编辑器，假如新版中增加了对新的语言的支持，除了替换dll文件，再更新一下配置文件就可以了。</p>

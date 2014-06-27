@@ -1,0 +1,15 @@
+---
+layout: post
+title: CodeLite源码阅读
+categories: []
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  blogger_blog: missdeer.blogspot.com
+  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
+  blogger_permalink: "/2008/07/codelite.html"
+author: 
+---
+<p>　　今天看了一段CodeLite的源代码，很小一段，从app开始看，到Frame。因为想学习使用wxWidgets，阅读现成产品的代码一种比较有效的方法。我并不知道到底有哪些程序是用wxWidgets的，到目前为止了解到的有FileZilla和Code::Blocks，以及这个CodeLite。<br />　　学习的主要目标是掌握如何创建各种类型的窗体，如果为窗体设置消息响应。如果在绝大多数情况下，都能比较快速熟练地解决这两个问题，那么基本上可以认为算是会用这个库了。<br />　　wxWidgets的处理形式跟MFC比较相似，都是有一个app类，代表当前程序，然后有frame类，表示主窗体，在frame类中再衍生出菜单、工具栏、状态栏等元素，也包括其他一些子窗体，比如CodeLite中，用到各种Pane，这些Pane通过wxAuiManager来管理，可在主窗体上依靠，或脱离主窗体浮动在外。CodeLite和Code::Blocks都用标签页（Tab）的形式作为主界面，也用标签页的形式做Pane，但两者在实现标签页时略有区别。Code::Blocks用了wxFlatNoteBook这个组件，而CodeLite则似乎是自己创建的一种组件，该组件将标签页头和页内容分成两个wxPanel来实现，标签页头部分又在这个wxPanel上使用Tab来展现出页头的效果。这样的好处是标签页头相比wxFlatNoteBook有更多的可控制选项，坏处则是需要自己写不少代码。<br />　　现在我最大的困难就在于，还是没有完全搞明白，这个界面是怎么创建起来的，一旦这个框架建立起来了，那剩下的业务逻辑部分都是比较清晰明了的，至少知道大方向上应该怎么走了。</p>

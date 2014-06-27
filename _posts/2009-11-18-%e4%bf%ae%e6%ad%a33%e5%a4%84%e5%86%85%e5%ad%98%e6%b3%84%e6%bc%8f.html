@@ -1,0 +1,15 @@
+---
+layout: post
+title: "修正3处内存泄漏"
+categories: []
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  blogger_blog: missdeer.blogspot.com
+  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
+  blogger_permalink: "/2009/11/3.html"
+author: 
+---
+<p>　　不知从什么时候起，程序退出时，VC的输出窗口中就会打印一大片内存泄漏信息。开始还没怎么在意，认为只要程序功能正常，有点儿内存泄漏实在不是什么大不了的事情。最近随着代码的增长，似乎打印出来的内存泄漏数量也随着增长了，我仍然有些想逃避，安慰自己说不定是wxWidgets的问题，其实用膝盖想都知道，这种可能性太小啦！<br />　　晚上实在忍不住，或许真是只是想证明，确实是wxWidgets的问题吧，决定看一下到底是哪里泄漏的。因为程序使用嵌入Lua，很多功能都通过脚本扩展实现了，C++的代码量不多，基本上只剩下一些主框架界面的创建和消息响应转发的工作，所以没花多少时间，通过分段屏蔽代码来检测内存泄漏的源头。<br />　　最终发现有3处，而且确实都是我自己的代码有问题。<br />　　首先是有个singleton在程序退出前没有销毁掉，好像在GoF中还是《Modern C++ Design》中说的，这种情况的singleton销不销毁影响不大，不过用Loki中的Singleton是不会有这种问题的，所以还是为了美观起见，主动销毁吧。<br />　　然后，稍稍花了点时间，发现有一处new了一个对象后把指针插入到std::map中，却发现new出的对象个数最后比map中的元素个数多几个，那么最后通过迭代map销毁这些对象时，就有几个漏掉没销毁掉了。我一时间还没想明白怎么会出现这种问题的，后来想起来，有几个对象插入时估计是使用了相同的key，于是只能在map中留下一个。程序运行表现倒是没错，这是一种奇怪的现象，但在这里是合乎逻辑的，但仍然要改掉。<br />　　最后，发现是new了wxFlatNotebook后，就有泄漏。照理说，这种有父窗口的子窗口对象创建后，wxWidgets是会负责销毁的。所以估计是wxFlatNotebook有什么特殊的要求，从sourceforge上找到它的页面，有SVN下载选项，最近一次更新是2008年的事了，估计是不会更新了。它的作者居然就是CodeLite的作者，但我发现似乎CodeLite本身就没用这个组件，作者又自己实现了一套标签系统，不过都放在CodeLite里没独立出来。对比了一下我使用的wxFlatNotebook的版本，应该是2.1版，跟CodeLite代码里放的那份是一样的，SVN trunk中的至少是2.2以后版本了。于是下载下来，还有sample，这才是最重要的，看了一下sample在主窗体的析构函数中调用了一下wxFNBRendererST::Free()。把这条语句加到我的程序中，真的没有泄漏了！<br />　　现在舒服了，不报内存泄漏了，能这么顺利地解决3处内存泄漏问题，跟程序架构有很大关系啊！</p>

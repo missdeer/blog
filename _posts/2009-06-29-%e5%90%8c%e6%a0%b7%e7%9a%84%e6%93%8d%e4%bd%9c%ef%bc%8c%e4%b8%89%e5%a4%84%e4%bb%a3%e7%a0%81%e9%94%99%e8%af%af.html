@@ -1,0 +1,15 @@
+---
+layout: post
+title: "同样的操作，三处代码错误"
+categories: []
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  blogger_blog: missdeer.blogspot.com
+  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
+  blogger_permalink: "/2009/06/blog-post_29.html"
+author: 
+---
+<p>　　今天下决心修改一个崩溃的问题，只要快速打开多个文件，再通过菜单“关闭所有”窗口时，就会崩溃，通过一次又一次的崩溃实验，分析每一次的dump记录，居然意外地发现每次崩溃最后的堆栈信息都不一样，总共有三处代码。<br />　　把这三处代码仔细推敲之后，发现确实有可能引起崩溃的原因，而这样的代码如果让我仅仅是通过正常的审视，是绝对看不出什么问题来的。修改完这三处代码，再实现，又暴露出另外一个崩溃的问题，也是那些代码附近，真是汗颜啊！</p>

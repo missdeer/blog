@@ -1,0 +1,15 @@
+---
+layout: post
+title: "继续Lua"
+categories: []
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  blogger_blog: missdeer.blogspot.com
+  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
+  blogger_permalink: "/2009/01/lua_09.html"
+author: 
+---
+<p>　　又看了一会儿PIL，以及云风blog上的一些文字，以及Lua Manual等等，终于有点眉目了。<br />　　完全可以下放权力给Lua，让它来创建wxScintilla对象，然后通过某些方法，把这个对象返回给C++，在C++看来，就是一个lua_touserdata吧。<br />　　至于如何保存和索引这个userdata，从PIL中看到，可以保存到registry中，也可以在registry中再多加一层索引，放个weak table。而索引方式，可以用一个C++指针，在Lua看来是lightuserdata，作为索引的最好方式之一，不过我还没想明白，到底怎么转化为实际生产力。倒是看清楚了些registry的操作方式，就是一个表，只不过该表在Lua栈中的索引是固定的值。还看清楚了些weak table的工作方式，weak table，也许叫weak hash或weak map更能让习惯用C++的人明白些，里面的每一条记录，都是一对key和value，而这个weak table可以将它的key，或者value，或者两个都是设置成weak的。weak的意思是说，假设我这个值（key，或value，到底是哪个，要看这table的属性，把metatable中的__mode域设成\"k\"或\"v\"）已经没人用了，就把这条记录在垃圾回收时都删掉。原来就是这么一回事，PIL中说，应用lightuserdata时，要结合weak table来用才好，并一笔带过举了个窗口消息处理的例子，我没看明白，晕！其实，我想我是知道作者的意图，我在Lua中创建了userdata，一方面要能方便地供C++和Lua两边都能使用，另一方面，要防止Lua自作主张地把userdata回收掉。用weak table大概就是为了能让程序员来控制userdata销毁的时机吧。</p>

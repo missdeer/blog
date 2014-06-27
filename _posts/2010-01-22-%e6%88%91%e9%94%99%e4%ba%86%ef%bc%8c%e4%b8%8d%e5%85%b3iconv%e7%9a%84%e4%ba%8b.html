@@ -1,0 +1,14 @@
+---
+layout: post
+title: "我错了，不关iconv的事"
+categories: []
+tags: []
+status: publish
+type: post
+published: true
+meta: {}
+author: 
+---
+<p>　　前面提到iconv转换编码搞得wxWidgets写成的程序在Scintilla刷新时崩溃，还以为是iconv引起的问题，于是决定使用ICU。<br />
+　　嗯，结果我错了，用ICU仍然有问题，有相同的问题，尽管我已经把这部分代码放到Lua中执行，对嵌入的Lua解释器，调用ICU4Lua，再调用ICU，仍然是Scintilla直接断言失败，然后崩溃，错怪iconv了！<br />
+　　经过一系列的尝试，最后发现只要把Scintilla的code page设成UTF-8就解决了，真是奇怪，原来设计936照理在本系统上也是正确的，它却仍把中文字符分成2，3部分显示。现在好了，连中文字符都作为1个字符显示了。另外发现，ICU的接口果然丰富呀，可以直接获取当前系统使用的code page，安逸！</p>

@@ -1,0 +1,15 @@
+---
+layout: post
+title: asio会合入Boost吗
+categories: []
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  blogger_blog: missdeer.blogspot.com
+  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
+  blogger_permalink: "/2007/04/asioboost.html"
+author: 
+---
+<p>　　今天在各处blog闲逛，发现有谈到asio的，这个在很早前就听说过，Boost想要合入一个网络应用开发库，于是提到了asio。以前这方面只听说过ACE，但想想也知道不可能把ACE合入Boost，一是，ACE太大了，源代码压缩的体积超过现在所有Boost库的合集，再则ACE的实现方式跟Boost的风格截然不同。<br />　　看到asio已经到了可以实用的阶段，我也索性再多看几眼。asio和其它的Boost库一样，只有头文件，而且唯一的依赖就是C++标准库和现有的Boost库。看了看从CVS取出的最新Boost代码，里面已经有asio了，但文档只有用BoostBook格式的，从它的官方网站上看到还是有html格式的，还是比较完整的，像是用doxygen生成的，照我说来，Boost里的众多库帮助文档的风格太不一致了，连表现方式都不一致，有的是html的，有的是BoostBook的，有的是man的，不过虽说不一致，它们的内容还算是详细的，但像asio做的，好像没有其它的了。<br />　　以后要是Boost有个日志库了，那就可以彻底不用ACE了，呵呵。不过还不知道asio什么会被合入进来呢，最近在maillist上也好像没有特别提到这个库啊。</p>

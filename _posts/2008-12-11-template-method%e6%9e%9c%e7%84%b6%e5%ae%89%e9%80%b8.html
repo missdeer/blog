@@ -1,0 +1,15 @@
+---
+layout: post
+title: template method果然安逸
+categories: []
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  blogger_blog: missdeer.blogspot.com
+  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
+  blogger_permalink: "/2008/12/template-method.html"
+author: 
+---
+<p>　　今天去把那几个函数重构了，第一印象中用template method pattern是可以解决的，于是翻了下GoF，里面对template method的描述基本没出我的意料之外，还是可以理解的，不过可能是受限于当年的C++技术水平，也可能是其他未道明的原因，GoF中说是在派生类中用覆盖方法实现的。<br />　　我却认定了要用callback，因为我想用boost.function和boost.bind，于是三两下就搞好了，果然很简单，而且仔细想想，似乎相比用继承的方法实现，我现在的方案有一个优点是，可以把可变逻辑控制在更小的粒度上。比如本来我是一个算法的几个步骤，其中一个步骤是调用STL中的算法，而该算法需要一个谓词，这个谓词是可变的量，该谓词要被提取出来，这可以通过boost.function和boost.bind实现得像一个closure一样，在template method的领域内不需要知道谓词的具体实现形式，它只知道它接受一个boost.function，该function接受一个参数，之后返回一个值，至于到底是用functor实现，还是C global function实现，或是C++ class static function实现等等，它不需要关注，因为boost.function会打理好一切。而如果是用继承的方法实现，可能我就需要把那整个调用STL算法的步骤提取出来了，这样粒度就大了，就削弱了原本使用template method的意图和优势了。另外还有一种方案，还是用继承，只把谓词逻辑提取出来，STL算法调用时，用boost.bind来封装，但我想这是行不通的，因为编译期并不知道要调用哪个派生类的方法。<br />　　用boost.function和boost.bind实现template method果然安逸，design pattern果然只是一种思想，而不受限于实现，哈哈！</p>

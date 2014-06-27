@@ -1,0 +1,15 @@
+---
+layout: post
+title: "从C++传递窗口给wxLua"
+categories: []
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  blogger_blog: missdeer.blogspot.com
+  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
+  blogger_permalink: "/2009/11/cwxlua.html"
+author: 
+---
+<p>　　描述一下问题，程序主框架是用C++实现的，GUI框架用的wxWidgets，有一部分功能通过嵌入Lua解释器调用Lua脚本完成，如果要在Lua脚本中用wxLua实现个对话框的这种情况下，需要一个父窗口，而最好的父窗口是由C++实现的，现在就需要能把C++中实现的窗口传递给Lua，并让wxLua作为父窗口使用。<br />　　问题根源是出于偷懒的考虑，我把C++中需要能被Lua调用的类、方法等用SWIG嚼了一遍，生成了脱水代码。这样用SWIG返回的wxWindow*跟wxLua中的wx.wxWindow就不是一种东西。<br />　　解决方案比较quick and dirty，过程略有点曲折。昨天偶然在wxWiki上看到<a href="http://wiki.wxwidgets.org/WxWidgets_For_MFC_Programmers#Associating_HWNDs_with_wxWindow_Instances">一段文字</a>，描述了如何将MFC的窗口关联到wxWidgets中，我就想如果wxLua是严格移植了wxWidgets的话，应该也很容易实现的。不过很沮丧的是SetHWND、AdoptAttributesFromHWND、Reparent这三个方法wxLua一个都没有实现！于是又去wxWidgets的Google group上找了找，发现一个叫AssociateHandle的方法，可以关联一个原始的Windows窗口句柄。到了这一步，我已经没有其他出路，只好修改wxLua的源代码，在wxLua\modules\wxbind\src\wxcore_windows.cpp这个文件中给wx.wxWindow添加一个新的方法void SetWindowHandle(long hwnd)，代码实现可以抄SetWindowStyle的，函数签名相同，里面的步骤也类似。最后要在wxWindow_methods的初始化列表中添加这个新增的方法，就可以重新编译wxLua了。<br />　　有了这个修改过的wxLua，再在自己的应用程序中暴露一个方法以便Lua获取主窗口的句柄，接口就可以在Lua中这样使用了：<br />　　local win = wx.wxWindow()<br />　　local hwnd = frame:GetMainFrameHandle()<br />　　win:SetWindowHandle(hwnd)<br />　　这个win就可以作为wxLua中创建的子窗口、对话框的父窗口了！</p>

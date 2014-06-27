@@ -1,0 +1,15 @@
+---
+layout: post
+title: 'Ebookshelf W.I.P #3'
+categories: []
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  blogger_blog: missdeer.blogspot.com
+  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
+  blogger_permalink: "/2007/03/ebookshelf-wip-3.html"
+author: 
+---
+<p>　　终于经过翻阅了手头能找到的所有关于VCL使用ADO连接数据库的资料，连猜带蒙，好不容易回忆起来怎么来用了。其实就是FieldByName()-&gt;AsXXXX的用法，后面的XXXX可以是Integer、String、Boolean等等。虽然这个用法是试出来了，不过还有不少的困难摆放在眼前，其中一个很大的拦路虎是，TreeView很难用啊！我那样的设计，要把TreeView中的每个节点对应到数据库中的一条记录，这就是比如繁琐的一件事情。还有一个原因是，我对ADO控件的了解，也仅限于直接写入SQL语句操作一下，甚至连SQL语句都是现学现卖的，临时需要了就临时看一下手册，什么select、delete、update、insert等等。这样一来，原本可能可以很简单的事情，被我弄得很麻烦了。<br />　　接下来要做的是，从数据库里读出所有TreeView所需要的数据记录，每条记录由3个字段组成，分别是节点ID、节点名称、父节点ID。强制规定第一条记录肯定是根节点，后面的记录肯定至少是根节点的孩子，在TreeView中添加了根节点后，再读出所有其它节点，并根据父节点ID依次添加上去。还有点很郁闷的是，TreeView的节点名称编辑完了，没有恰当的得到编辑后的名称的时机。有个OnEdited事件，还以为可以用，结果得到的还是编辑前的内容，有个OnEditing事件，也不能得到当前最新的内容，晕倒！以后没什么事能不用TreeView，千万别用这个这么难用的控件了。<br />　　最后想说的是，Access的数据库怎么体积这么大，只放了3张表，表里都没什么数据，那个mdb文件就有800多KB了。<br />　　唉，想想，一点技术含量都没有，不过能卖钱就好。</p>

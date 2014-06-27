@@ -1,0 +1,15 @@
+---
+layout: post
+title: Ruby语法动态提示基本完成
+categories: []
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  blogger_blog: missdeer.blogspot.com
+  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
+  blogger_permalink: "/2007/08/ruby.html"
+author: 
+---
+<p>　　可以动态地提示关键字、已定义变量、类名、类方法的自动完成了。其中，用Greta写了个变量声明的扫描器，其实是全文匹配一把，速度挺慢的，于是只好做成多线程的，现在的处理是有隐患的，以要改。另外顺便让我确认用<a href="http://www.codeproject.com/database/CppSQLite.asp">CppSQLite</a>这个封装类在MFC程序来操作<a href="http://www.sqlite.org/">SQLite 3.4.x</a>版本也是基本没有问题的，有了封装类，编码真的变得很简单很容易，完了，我已经没能力自己写代码了，全是拿别人写好的代码来拼凑一下。这样一个工具，大概拿出去卖，也是能卖的吧，呵呵。<br />　　剩下就是要做函数参数列表的动态提示了。<br />　　做完这两个特性后，就去做外部工具和脚本适配层，然后改一些问题，完善一下GT3000的封装，写一下帮助和宣传胶片，这个8月就这样过完了。<br />　　不过在业余时间，还得研究一下asio以及它自带的httpd的例子，写一下设计需求一直到概要设计为止。</p>

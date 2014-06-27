@@ -1,0 +1,15 @@
+---
+layout: post
+title: "关于Scintilla的某些快捷键输入怪异字符"
+categories: []
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  blogger_blog: missdeer.blogspot.com
+  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
+  blogger_permalink: "/2007/08/scintilla.html"
+author: 
+---
+<p>　　一直以来都存在着这个问题，当时大概看了一下Scintilla的源代码，也没有找到哪里注册处理了这些快捷键，想不到好的办法，于是就临时处理了一下，自己截获这些快捷键，发现一个截获一个，本来以为可能截获得差不多了，结果前些天发现还有没有拦截的，于是觉得有点郁闷，决定要彻底解决这个问题。<br />　　又稍微仔细地搜索了一遍Scintilla的源代码，发现确实好像没有注册这些快捷键，然后到maillist上问，作者Neil Hodgson也真的挺热心的，每封邮件都回了，由于时差的关系，加上我白天在公司不能上网，这些天我都是晚上回家写邮件，描述问题，第二天早上起来收邮件，看看他的答复。这样持续了几天，终于今天早上看到回复后，搞清楚了问题的本质。<br />　　我照他的办法在ScintillaWin.cxx的WM_SYSKEYDOWN/WM_KEYDOWN里打了断点，然后跟踪，发现这时按到那几个快捷键都是直接传给::DefWindowProc处理了。这开始让我觉得有点走不下去的感觉，后来往上看，有WM_CHAR消息的处理，于是也打了个断点，发现每次按了快捷键后，就会收到WM_CHAR消息，而且参数就是这些不可见字符的ASCII码值。Neil说这是Windows发的。我用SDK写了个小程序试了试，果然发现这是Windows的默认行为。Neil说这只能自己在程序里处理把所有这些快捷键都屏蔽了。于是我就又郁闷了，我怎么知道到底是有多少控制字符被绑定到什么键上去了。上Google搜索了一把，发现<a href="http://publib.boulder.ibm.com/infocenter/iseries/v5r4/index.jsp?topic=/rzaiw/rzaiwkeyboard.htm">一个列表</a>，呵呵，刚好列出了所有的VT100和VT220键盘的控制字符绑定。<br />　　中午的时候想了想，我不想在程序里处理拦截所有快捷键，不如直接改Scintilla的源代码，在WM_SYSKEYDOWN/WM_KEYDOWN里记录一下是否按下了Ctrl，在WM_CHAR里判断一下这个标记，如果标记置位了，并且刚好这次得到的是个控制字符，就直接退出，这样就看起来解决了，至少Windows平台上似乎没什么问题了（注：Scintilla是直接多平台的，包括Windows、MacOS、以及通过Gtk+支持的平台等）。<br />　　Neil Hodgson是个很有毅力的人啊，这东东从1998年做到现在，越来越完善，而主要作者却一直是他一个人，当然也还是有很多人为之作出了贡献。</p>

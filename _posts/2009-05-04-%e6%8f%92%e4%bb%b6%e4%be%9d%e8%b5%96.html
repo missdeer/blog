@@ -1,0 +1,15 @@
+---
+layout: post
+title: "插件依赖"
+categories: []
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  blogger_blog: missdeer.blogspot.com
+  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
+  blogger_permalink: "/2009/05/blog-post_04.html"
+author: 
+---
+<p>　　因为要使得插件支持依赖，比如在插件描述中说明，某个插件A，依赖于插件B和插件C，而插件C又依赖于插件D，那么在装载插件A之前，需要先装载插件D，再装载插件B和插件C，最后才是插件A。<br />　　这个依赖关于跟C/C++程序代码中的头文件包含处理方式几乎一模一样，典型的做法就是把这所有的依赖关系最终用一张有向图表示，这样通过DFS可以查找到是否有循环依赖，如果有，可以彻底中断装载过程，或者只是简单地把最后一个回边打断而继续装载。<br />　　最终整理出来的插件装载顺序也是很容易的。首先查找没有依赖于任何其他插件的插件，无论是理论上还是实际上，肯定是有这种插件存在的。找到这些插件后，把对这些插件的依赖关系都删掉，这样肯定又多出一些插件是已经解决依赖关系的。再把这些多出来的插件作为被依赖的关系删掉，重复前面一步操作，最终可以将所有插件都顺利装载。</p>

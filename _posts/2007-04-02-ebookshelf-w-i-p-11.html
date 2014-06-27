@@ -1,0 +1,15 @@
+---
+layout: post
+title: 'Ebookshelf W.I.P #11'
+categories: []
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  blogger_blog: missdeer.blogspot.com
+  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
+  blogger_permalink: "/2007/04/ebookshelf-wip-11.html"
+author: 
+---
+<p>　　除了界面不好看之外，功能倒是绝大部分都完成了。先是把virtual listview多选不准确的问题解决了，用了一种很土的方法，遍历每一个记录，看是否被选中。把指定文件的打开方式部分也稍微修改了一下，先主动创建进程，如果不成功，再用ShellExecute指定程序打开或用ShellExecute让Windows来决定用什么打开。还在状态栏里加了个进度条，在导出列表的时候，如果记录比较多，就可能会花比较长的时候，如果中间没有什么提示还真会让人误解，所以这时候用进度条就最合适了。顺便发现了几个小错误。另外还可能会有问题的地方是，在TreeView中填入的文字，在用SQL语句写入Access时，可能会有单引号的问题。这也是个挺让我觉得奇怪的事情，为什么SQL语句中不能用单引号，写两个单引号就没有不会报错了，但写入的就是两个单引号了，这样读出来的时候还要自己在处理一遍，把两个单引号的地方改成一个单引号显示出来。<br />　　其余的顶多是加个Shell右键菜单项吧，这个也可考虑用比较简单的方法实现，给*.*类型的文件加个项，打开的时候因为会把路径传进来，所以就可以处理了。<br />　　另外就是，做个像CyberArticle样子能收集网页上文字的程序，本来这个功能想做在Ebookshelf里的，不过感觉两个东西的功能差别还是比较大的，合在一起感觉比较怪。所以还是单独拿出来好了，关键点是要能至少支持IE6/7和Firefox 1.5/2.0。</p>

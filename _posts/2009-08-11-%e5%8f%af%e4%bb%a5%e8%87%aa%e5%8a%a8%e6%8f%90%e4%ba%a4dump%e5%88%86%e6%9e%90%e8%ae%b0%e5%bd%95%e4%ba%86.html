@@ -1,0 +1,15 @@
+---
+layout: post
+title: "可以自动提交dump分析记录了"
+categories: []
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  blogger_blog: missdeer.blogspot.com
+  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
+  blogger_permalink: "/2009/08/dump.html"
+author: 
+---
+<p>　　今天花了近一天的时间，重新写了一遍自动分析mini dump然后将分析结果提交到wiki上的程序。通过这次实践，也确认了我原先的想法是可行的，内嵌一个IE，然后通过它暴露的COM接口，进行一些基本的操作，主要有遍历已有元素，填充TextArea，提交。只是发现这些操作，全都不是阻塞的，所以具体应用的时候还是得留心一下。<br />　　晚上加班，看了一下一个公司的人写的ppt，介绍<a href="http://www.erlang.org/">Erlang</a>的，看得让我觉得有点不舒服。按我的理解来看这ppt，似乎他的意思是公司目前使用C/C++来开发电信类软件，而且有那么多的问题，而Erlang从语言的机制上就提供了不少的保障机制，可以写出更快更稳的程序来。让我感觉他在鼓吹这就是银弹。就我以为，写这个ppt的目的就不明确，或者说就算明确了，也是动机不纯，我们应该立足于眼前，如何提高公司开发人员的设计和编码水平，而不是考虑着换一种语言就妄图可以解决一堆问题。<br />　　不过总的说来，我看了《Erlang程序设计》中的前面一两章后，就觉得这是我真的需要的一种东西，也许它在保证并发上，或者FP编码风格的处理上并不完美和彻底，但就目前看来，它应该是比较适合我的需求的一个选择。</p>

@@ -1,0 +1,15 @@
+---
+layout: post
+title: "让VC7.1编译DLL时不连接C运行时库"
+categories: []
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  blogger_blog: missdeer.blogspot.com
+  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
+  blogger_permalink: "/2007/01/vc71dllc.html"
+author: 
+---
+<p>　　照着写单机的榜单，突然发现从某个修改开始，总是会把C运行时库也连接进来，真麻烦，仔细看看自己的代码，实在没必要拖个DLL呀，何况VC7.1的C库是msvcrt71.dll，是不由Windows携带的，所以要发布这个榜单的同时，就要背负需要同时发布这个dll的负担。在工程属性中把可能想到的所有的编译选项都关掉了，用depends看还是连接进来了。仔细想想，应该跟代码有关系。因为把我的代码贴到其它以前编译过不用连接C库的工程里，最后也会有C库被连接进来的。于是心一狠，在工程属性中设置连接时强制不连接C库，看它最后有什么提示。可以看到有浮点数的应用，就要求连接C库了。刚好这时浮点数的应用很简单，可以转换为整形的计算。然后再编译连接，发现是有要连接另外2个函数了，看看函数名，猜想大概跟程序运行安全相关，再到工程属性中把异常和缓冲区检测都关掉，果然可以编译连接通过了。再一步步试，最后发现是因为打开了缓冲区检测，每当程序中用到了数组的操作，就会有连接C库中的一些函数的要求。<br />　　终于搞定！</p>

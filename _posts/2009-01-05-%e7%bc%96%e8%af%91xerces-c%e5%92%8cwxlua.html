@@ -1,0 +1,15 @@
+---
+layout: post
+title: "编译Xerces-C++和wxLua"
+categories: []
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  blogger_blog: missdeer.blogspot.com
+  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
+  blogger_permalink: "/2009/01/xerces-cwxlua.html"
+author: 
+---
+<p>　　因为考虑到要跨平台，所以不能用MSXML了，而且对于MinGW能不能直接使用MSXML我都不抱希望，于是在几个开源的可跨平台的XML解析器中进行选择，并且只能是用于C/C++的。候选项包括expat、TinyXML、libxml/libxml++、Xerces-C++。我不喜欢expat的实现方式，也不习惯TinyXML的只有DOM的解析方式，而libxml/libxml++则是因为捣腾了一阵子还是没能用MinGW正确编译，最后的选择只剩下Xerces-C++。而实际上编译Xerces-C++也花了我一些时间。网站上最新的是3.0.0，倒是有VC7、VC8、VC9的编译好的包，不过我要MinGW的，所以下载下来源代码，看了一下网站上的说明，先装好msys，选好参数运行./configrue，就会生成makefile。而这生成的makefile似乎并不能直接用MinGW的make过，需要稍微修改下，也就是把其中所有的什么dirstamp目录的创建和依赖都删掉，方能编译。<br />　　编译wxLua稍微好过一点，不过一开始绕了点远路。从CVS下下来的源代码，到build/msw下找makefile.gcc文件，这个文件少了写了两个编译选项，以致于在生成库时在链接时总是去找WinMain，开始不明所以，硬是把LDFLAGS设为-shared，在编译库时是没问题了，但编译出来的.exe文件就不行了。后来发现只要添加LINK_DLL_FLAGS := -shared和LINK_MODULE_FLAGS := -shared就可以一切正常了。当然wxLua依赖于wxWidgets，所以事先要设置好WXWIN和WXCFG环境变量，而且最后面不能有反斜杠。只要设好了这两个环境变量，用VC9倒是可以很顺利地编译过。<br />　　有些时候不免要抱怨一下，开源的东西，易用性可能确实差了点。</p>

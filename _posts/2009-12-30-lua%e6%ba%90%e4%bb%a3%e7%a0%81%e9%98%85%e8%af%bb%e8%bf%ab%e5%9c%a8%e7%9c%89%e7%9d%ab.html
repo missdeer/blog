@@ -1,0 +1,15 @@
+---
+layout: post
+title: Lua源代码阅读迫在眉睫
+categories: []
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  blogger_blog: missdeer.blogspot.com
+  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
+  blogger_permalink: "/2009/12/lua_30.html"
+author: 
+---
+<p>　　今天在群里有个人问，他初始化Lua解释器后，用C代码执行一下lua_replace然后崩溃了，报没有环境。我觉得比较奇怪，看代码我觉得应该没有问题，但人家确确实实崩溃了。后来他解决了这个问题后，在群里公布解决方法。他看到一个老外的<a href="http://www.icynorth.com/forums/viewtopic.php?t=580">帖子</a>，然后照他们说的，把调用lua_replace的那个C函数放到Lua中进行调用，一切都OK了！我仍然没明白其中的所以然，后来另一个人贴了个<a href="http://blog.chinaunix.net/u1/57558/showart_2085252.html">网址</a>，是他自己写的一篇blog，其中解释了为什么在调用lua_replace时会崩溃。经过他的解释，是因为Lua的调用栈要求不为空，否则lua_replace就会崩溃，至于为什么要这样他也不明白。实际代码的解决办法就是在lua_replace前call一下Lua函数，比如前面说的，放在Lua中调用，那么理所当然调用栈中至少有本函数嘛。<br />　　我又看了几遍那篇blog，其中说到要嵌入的Lua解释器中要初始化标准库时，要用luaL_openlibs，如果用luaopen_base之类的直接调用就不行。这时我才渐渐地有点头绪。当年在嵌入Lua时，最早的时候用luaopen_base之类的是没问题的，后来确实不行了，在lua的maillist上有人告诉我要用luaL_openlibs，我还说应该不是这个原因，但他们说这是5.1.x之后才这么做的。现在回想起来，大概就是因为5.1.x修改了这部分的实现，而且看了一下luaL_openlibs的代码，确实就是把luaopen_base这些函数让给Lua来调用了，其它的没有区别了。<br />　　通过这件事，让我又一次深刻地认识到阅读分析Lua源代码的重要性，Lua本身的资料仍然太少，从源代码中可以得到很多undocumented的知识！</p>

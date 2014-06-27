@@ -1,0 +1,15 @@
+---
+layout: post
+title: "使用Apache作为Gems服务器"
+categories: []
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  blogger_blog: missdeer.blogspot.com
+  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
+  blogger_permalink: "/2008/01/apachegems.html"
+author: 
+---
+<p>　　这个想法有好几天了，在网上搜来搜去，也没找到多少有用的东西，不过今天晚上加班，还是弄到基本可用的程度了。<br />　　首先需要明确一点是，所谓的RubyGem服务器其实是一个非常普通的http服务器。在公司里那台公用服务器上，自动化组的人用ruby发布包里自带的gem_server.bat运行了一个脚本，提供gem服务。打开这个bat文件看看，其实是个Windows批处理脚本和ruby脚本混合的东西，它开头一条语句将处理流程跳转到最后，运行ruby.exe来执行自身，中间则是一段一段的html代码和ruby代码，最主要的是最后一段ruby代码，通过WEBRick包提供的功能，在本地开设了一个http服务，并动态处理远程连接的http请求。其中最重要的是yaml请求，远程客户端请求yaml文件，其实它是一个对服务器上所有的gem包的索引，有了这个索引文件，客户端知道服务器上有效的gem包版本和具体路径，然后同样是通过http协议下载需要的gem包，并安装到本地。<br />　　有了这些基础，接下来的就好办了。Apache随便哪里都能弄到，基本配置也非常简单，就是改一下端口，设置几个别名，把gem服务器常用的几个目录添加上。一般需要/、/gems/、/doc_root/、/yaml这4个路径，其中/gems/和/doc_root/就是ruby在文件系统目录的直接映射，/和/yaml要通过脚本刷新，脚本不用自己写，只要拿gem_server.bat改一下就行了，原本它是直接生成字符串返回给http客户端，这里就改成把生成的字符串写入到文件就行了。试了试gem install命令，可以用，解决！<br />　　最后再来啰嗦一下，为什么要用Apache来作为Gems服务器。因为那个gem_server.bat用ruby来启http服务器，却有非常严重的内存泄漏问题，只要客户端连接稍微多一点，内存占用就直线飚升，随随便便就能到1.5G，所以，就是不能用它！</p>

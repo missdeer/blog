@@ -1,0 +1,15 @@
+---
+layout: post
+title: "几个Scintilla/SciTE相关项目"
+categories: []
+tags: []
+status: publish
+type: post
+published: true
+meta: {}
+author: 
+---
+<p>　　<a href="http://scintilla.org/">Scintilla和SciTE</a>就不多说了，我接触到它并真正用到它，有3年多了，一直跟踪着它的最新发展。发现有几个跟它相关的项目，比如有用（有趣），值得记一下。<br />
+　　第一个要说的是<a href="http://code.google.com/p/scite-ru/">SciTE-ru</a>。这是个SciTE的增强版，大概作者是俄罗斯人吧，所以后面加个ru。SciTE从它本身的定位出发，并不会增加很多强悍的辅助功能，只能说是Scintilla有什么能力，SciTE便有什么功能。而SciTE-ru的出现则试图从第三方增强SciTE的不足之处，并修正了一些在Scintilla或SciTE中存在的小缺陷。如果对SciTE有爱，那么SciTe-ru则会让人觉得更有爱。遗憾的是我不在此列。<br />
+　　接着要说的是<a href="http://code.google.com/p/scitelatexide/">SciTE LaTeX IDE</a>。这个项目在SciTE-ru的基础上发展而来，但它的定位是成为一个好用的LaTeX编辑器。作者不但在SciTE在软件包中增加了一些编写LaTeX常用的小工具，还在界面上增加了一批方便的按钮和菜单，更重要的是作者修改了Scintilla官方的LaTeX和asymptote的lexer，却没有合入到官方代码库中去。照作者的说法是修改后的lexer要求太苛刻，会破坏原有的应用程序。我是个LaTeX的初级应用者，确实使用SciTE LaTeX IDE编写过几篇文章，觉得从编辑器的角度出发，已经算是很不错了，但如果定位是IDE，则还是差得远的。<br />
+　　最后要说的是<a href="http://code.google.com/p/scintillua/">Sicintillua</a>。这是个很有趣的Scintilla/SciTE的fork项目，它移除了所有Scintilla中使用C++编写的lexer，取而代之的是一个叫LexLPeg.cxx的文件，里面定义了两个lexer，分别是null和llpeg。对于各种已有编程语言lex支持都是通过外部的Lua脚本实现，所以用SciLexer原有的标准接口查询和设置的lexer都是llpeg，它又增加了两个接口用于设置直正的lexer。这个fork解决了一直以来就有的Scintilla增加lexer不方便的问题，因为有一拨人觉得，使用C++编写lexer并编译进Scintilla中实在麻烦，确实我也这么觉得，只不过我可以容忍，因为我直到现在都没有自己要添加lexer的需求。我简单地看了一下Scintillua的代码与官方CVS中的代码进行了比较，发现修改的地方不是很多，不过修改了一些接口，我不太喜欢，有可能的话，我要在Scintillua的基础上再出个修改版，能更方便地跟官方代码树进行融合。</p>

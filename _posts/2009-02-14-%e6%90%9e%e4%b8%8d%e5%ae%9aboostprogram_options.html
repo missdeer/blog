@@ -1,0 +1,17 @@
+---
+layout: post
+title: "搞不定boost::program_options"
+categories: []
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  blogger_blog: missdeer.blogspot.com
+  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
+  blogger_permalink: "/2009/02/boostprogramoptions.html"
+author: 
+---
+<p>　　还是搞不定，郁闷！<br />　　首先我用vc2008编译从svn中取出的boost代码，总是有问题，只能生成一些libxxx.lib，没有生成动态链接版本，这个问题在boost正式发布的版本中是不存在的，真奇怪。
+<div>　　其次，无论是正式发布的还是从svn中取出的代码，编译的boost::program_options，在与STLPort一起用时，是必定出错的。debug模式编译基本能过，但链接死活不行。release模式则索性编译不过，这个问题在取消STLPort时，就不会存在。但是如果不用STLPort，在链接时，会报符号冲突。</div>
+<div>　　如果实在不行，也没办法了，只好不用boost的需要编译的库了。boost中大部分的库是header only，这总算让我觉得比较欣慰。不过昨天看到Boost.Log以提交review了，而且看了一下它的文档，需要依赖了boost中的好多库，其中好几个需要编译的，比如boost::filesystem、boost::system、boost::date_time等等，郁闷，一直在等着boost出一个log库，准备工作还那么麻烦啊！</div>

@@ -1,0 +1,18 @@
+---
+layout: post
+title: wxWidgets项目中接管未处理异常
+categories: []
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  quiz: s:36:"a:2:{s:1:"q";s:0:"";s:1:"a";s:0:"";}";
+  _wp_old_slug: ''
+author: 
+---
+<p>　　wxWidgets本身支持对未处理异常引起崩溃的拦截和后续处理，从它的官方文档中可以看到，只要在wxApp::OnInit()中调用::wxHandleFatalExceptions(true);然后覆盖wxApp::OnFatalException函数，可以比如遍历当前进程的堆栈什么的。<br />
+　　还有种处理这种未处理异常的方法是在程序启动时（一般就是在wxApp::OnInit()中）动态装入exchndl.dll文件，接下来该dll会自动拦截未处理异常，并在崩溃的时候自动在exe文件所在目录生成一个与exe文件同名的.rpt文件，里面以纯文本记录了进程上下文等现场信息。exchndl.dll可以在<a href="http://code.google.com/p/jrfonseca/">这里</a>找到，可以看到其实它是配合一个叫Dr MinGW的现场调试器使用的，这是MinGW的方案。<br />
+　　如果是用MSVC编译器，那么有更好的方案，那便是google breakpad，它实现了Windows、Mac OS X、Linux等多个平台的dump，并且除了未处理异常，在MSVC2005之后的编译器中还包括了纯虚函数调用和CRT函数调用参数错误的捕获，另外提供了文件上传等服务，具体的编译部署可以参考<a href="http://blog.csdn.net/lapal/archive/2010/06/28/5699942.aspx">这篇</a>还有<a href="http://www.douban.com/note/93641929/">这篇</a>文章，不过我的实际使用gyp经验是，应该在breakpad的gyp所在目录开始运行python.exe yourpath/gyp --no-circular-check breakpad_client.gyp，不然会报递归溢出。之后就只要在程序运行范围内创建个google_breakpad::ExceptionHandler对象就可以了，它有各种选项，提供了很多功能，可以通过阅读google breakpad的源代码获得详细信息。<br />
+　　值得说的是，这两种接管未处理异常的方案可以同时使用，但就我个人意见是，如果是用了MSVC编译器，配合PDB文件进行dump文件分析得到的信息已经足够了。<br />
+　　最后提一下另一种拦截未处理异常的方法。除在前面提到两种方法外，<a href="http://github.com/etexteditor/e">e</a>使用了另一种方法，它没有在wxApp::OnInit添加任何代码，而是自己添加了一个WinMain函数，是的，MS官方文档给出的Windows程序的入口，在该函数中调用::wxEntry即可，在该函数后面添加IMPLEMENT_APP_NO_MAIN(CXXXApp)而不是平常用的IMPLEMENT_APP(CXXXApp)。这时，WinMain中就可以为所欲为了，比如e是自己写了__try{}__except(){}，也可以根据自己需要，用google breakpad或者exchndl.dll什么的。</p>

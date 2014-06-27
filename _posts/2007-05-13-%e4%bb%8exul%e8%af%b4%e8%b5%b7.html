@@ -1,0 +1,15 @@
+---
+layout: post
+title: "从XUL说起"
+categories: []
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  blogger_blog: missdeer.blogspot.com
+  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
+  blogger_permalink: "/2007/05/xul.html"
+author: 
+---
+<p>　　心血来潮，又去<a href="http://www.songbirdnest.com/">Songbird的网站</a>看了一下，还把编译好的Preview的安装程序，以及SVN里的源代码都下下来了。只可惜看了半天的编译说明，还是没看懂，唉，这个说明也太烦琐了，条理都不清晰。这样看来，Mozilla的XUL解决方案怎么推广得了哦，想想Adobe、MS这些大厂商的解决方案，一整套完整的流程支持，各个环节都可能会有比较完善的工具支持，而且安装部署都会很容易，一张光盘，一个ISO镜像，一个setup.exe文件就搞定所有的事，一切都准备好给人使用，有多少比例的人愿意去花那么些时间搞那么麻烦的mozilla的东西。Mozilla社区确实应该好好想想，反思一下，为什么XUL技术出来这么多年，Mozilla里也用了那么久，却一直没有被大众接受，直到现在这些大厂商出来推，才火起来。也许从技术的角度讲，各个解决方案间没有特别大的区别或差距，但是易用性、友好性方面呢，可能差得太多了。其实这也是众多开源项目的通病啊，孤芳自赏的hacker想法是走不出hacker圈子的。<br />　　装上Songbird，听了几首MP3，就把它卸载了，现在的条件用XUL技术来实现这样的桌面应用时候还早了点，连一个窗口里点菜单，点右键，来回换输入焦点都会卡好几秒钟，有几个人受得了，换回foobar2000，看起来轻巧多了。所说Firefox3.0也是基于XulRunner来实现的了，就像Songbird一样，进程管理器里可能就看不到firefox.exe了，而是一个XulRunner.exe。这样就像Java之类的了，虚拟机实现的东西，除非是开发效率或其它有什么特别突出的优点，不然是不会被大众接受的。<br />　　Mozilla能有那样好的扩展能力，其实从某方面讲，跟Eclipse、Emacs等是一个原因，那就是脚本语言和本地代码的结合。它用XUL描述界面，用C/C++实现真正的逻辑，再用JavaScript把两者结合起来。这样看来，只要能把描述界面的部分规范下来，真正的核心逻辑用C/C++实现，再设计一个良好的两者互动通信机制，那么一个弹性极佳的系统也就设计出来了！LLYF Spy中，是应该好好设计一下了，2.0可以只做预研性的设计和实现，3.0可以考虑实现成一个程序员工具平台了，只要扩展机制实现得好，可以给它添加各种扩展功能，比如编辑器，比如听MP3，比如下载上传……</p>

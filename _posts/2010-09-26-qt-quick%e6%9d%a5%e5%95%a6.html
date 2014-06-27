@@ -1,0 +1,18 @@
+---
+layout: post
+title: Qt Quick来啦
+categories: []
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  quiz: s:36:"a:2:{s:1:"q";s:0:"";s:1:"a";s:0:"";}";
+author: 
+---
+<p>　　Qt4.7.0发布有几天了，这个版本较4.6.x来说，最大的改动莫过于增加了Qt Quick。<br />
+　　Qt Quick是一套解决方案的统称，它包括一个称为declarative的framework，跟animation、state machine之类层次的东西，包括一个称为QML的声明式语言，还包括Qt Creator中辅助设计和编码的那部分。<br />
+　　开发人员可以通过名为QtDeclarative的C++模块，在自己的Qt程序中装入QML文件，并与之交互。QML语言通过一组丰富的QML元素，构建一棵对象树，以此来实现高度动态的可自定义的UI，它支持并实现了Qt的甚于QObject的类型系统，提供自动属性绑定，而且在语言层面实现了网络透明化。<br />
+　　之前一年多，我在wxWidgets程序中嵌入了Lua，并用wxLua在脚本中实现UI。相当于说，我在这方面自造了一个相当笨重且不好用的轮子。如今看来，Qt在脚本实现动态UI上的表现，就是我这几年来一直期望拥有的。不过QML并不能完全代替Qt原本的基于QWidget的UI方案，QML适用于创建大量简单的动态的UI，而QWidget则适用于创建复杂的静态UI。<br />
+ 　　从Qt4.7.0附带的几个declarative的demo看，UI效果挺炫的，在当今越来越注重外观，又越来越对开发效率有更高要求的大潮下，实在是个值得一用的方案。<br />
+　　我在Windows XP和Mac OS X 10.6上都试用了一下，感觉不错，至少demo中暂时没有发现什么严重问题。值得说一下的是，原来我在Mac OS X中安装的是Qt SDK，32位已经编译版本，发现有一部分demo运行并不正常，后来覆盖安装了64位已经编译的Qt libraries，发现那些原本不正常的demo全都正常了，真囧。不过就我看来，既然苹果官方都强烈建议开发64位程序，那就用64位的好了。</p>

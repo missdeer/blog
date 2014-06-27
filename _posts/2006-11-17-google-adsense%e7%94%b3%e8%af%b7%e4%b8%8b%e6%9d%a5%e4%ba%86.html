@@ -1,0 +1,15 @@
+---
+layout: post
+title: Google AdSense申请下来了
+categories: []
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  blogger_blog: missdeer.blogspot.com
+  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
+  blogger_permalink: "/2006/11/google-adsense.html"
+author: 
+---
+<p>　　几天前申请的Google AdSense，还以为不会下来了呢，因为我当时只是把csdn的blog地址提交了上去，那个blog已经一段时间不更新了，就是从搬到这里来开始吧。不过那里也是有近百篇的文章，总访问量也有1w多近2w了。终于收下来了，放了一个图片和一串文字的在上面，看了看美观效果影响不大。就打算放在这里来，不过有点郁闷的是，因为我是用Tor＋Vidalia＋Privoxy＋ TorButton＋Firefox这种奇怪的组合才能访问到blogger.com的，所以在定制我的blog模板时，添加Adsense总是失败。最后看到有一个添加HTML/JavaScript的，就加上去了。看了看效果，用Tor的话，会被Privoxy拦截的。用www.pkblogs.com来访问的话，就压根不显示。用.nyud.net:8090的话，可以显示，但是网页中的所有的链接都失效的。唉！看来只好首推csdn的那个blog了，以后多写点有点技术含量的blog，然后就发布到csdn blog的首页去，增加几个点击量。其它的生活娱乐方面的，都还写这里吧。<br />　　关于luaopen_io调用失败的问题，在Lua的maillist里问了一下，有人说是因为io库里有些函数的运行是依赖于Lua建立的特定的环境，所以要用lua_call来调用，要么，就直接用luaL_openlibs来引入所有标准库。看了看帮助文档，还有Lua的源代码，似乎好像就是这么回事啊！<br />　　现在看到我的方块里那一堆7z的源代码文件，就感到不爽，太多文件，充斥着我的方块的project，应该把它分离出去，对于7z、zip和rar专门做一个lib或dll，在需要的时候可以直接链接进来，而不需要添加这些源代码文件！</p>

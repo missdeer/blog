@@ -1,0 +1,19 @@
+---
+layout: post
+title: "互不兼容的Luabind/SWIG/wxLua"
+categories: []
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  quiz: s:36:"a:2:{s:1:"q";s:0:"";s:1:"a";s:0:"";}";
+  _wp_old_slug: ''
+author: 
+---
+<p>　　今天开始整理代码，突然又觉得现在嵌入Lua的方法实在太丑陋了。<br />
+　　为了连接C++和Lua，我用了Luabind、SWIG和wxLua。而主要问题在于这三者在映射C++的自定义类型时对同一个C++类型做出了不同的映射，所以不能互相兼容使用。<br />
+　　最早决定是引入wxLua的，因为一开始是确定用wxWidgets框架，并嵌入Lua做扩展，于是必然的Lua会要操作wxWidgets的类型，同时Lua扩展也会需要有一些界面需要画。但实际上，当时没搞清楚使用wxLua到底能不能满足这些需要。而经过真正使用后，才知道wxLua中的类型并不能直接用于让嵌入的Lua解释器来映射到宿主程序中的wxWidgets的类型。于是现在的状况是，wxLua和宿主程序的wxWidgets是互不相干地使用着。wxLua仍然用于画些对话框，做些文件IO之类的操作。宿主程序的wxWidgets组件却是由Luabind和SWIG来实现粘合的。<br />
+　　使用SWIG，是由于要在Lua中操作wxScintilla类型，而Scintilla有几千个常量，然后自己又定义了一堆方法，于是用SWIG感觉是顺理成章的。<br />
+　　而使用Luabind，只是觉得它的call方法很方便，基本可以做到无视函数参数个数和参数类型从C++调用Lua函数。只是马上发现，通过Luabind来调用Lua函数时，把C++对象传递过去时，即使时实际上的同一个C++对象，在Lua中表示的类型却是Luabind中的一份，跟SWIG中注册的类型全无关系，跟wxLua中的也全无关系，比如说一个wxString，三个工具/库，有三种表达方式，互不兼容。<br />
+　　于是我就觉得很丑陋了。突然就有种冲动，自己实现那么一套东西，应该是集合了SWIG和Luabind、wxLua的特点，却又能互相通用。也就是说，有工具可以自动扫描C++声明，生成胶水代码，又有库，可以自由绑定C++类型，同时又提供对wxWidgets，甚至Qt和Gtk+的绑定。其实说起来这并不是非常困难的事，只要修改一下SWIG生成代码的方式，以Luabind的方式生成胶水代码就可以，而wxLua则也以Luabind进行绑定，这样应该就是我想要的那套东西了吧。</p>

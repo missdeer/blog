@@ -1,0 +1,17 @@
+---
+layout: post
+title: Ninayan W.I.P.(13)
+categories: []
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  _wp_old_slug: ''
+author: 
+---
+<p>　　内存泄漏的问题，调得我心力交瘁，都有点神经衰弱了，甚至有点绝望，唉。以前还真没有过这种强烈的负面情绪出现过。<br />
+　　每次UI刷新，从任务管理器里看Mem Usage都会增加2-3MB，这得有多严重的泄漏啊！可是我自己的代码中new出来的对象都经过跟踪是销毁掉了的。于是又把矛头指向Qt内部，或者是QML中了。<br />
+　　本来怀疑是QML中的实现可能有问题，于是把Qt从4.7.0升级到4.7.1，貌似泄漏得更严重了。所以现在都已经不敢怀疑是Qt有问题了，开始怀疑是没有遵循Qt的用法。有些Qt返回的东西，需要程序员来负责销毁，比如QNetworkAccessManager在调用get或post后返回的QNetworkReply对象，这是多么操蛋的设计啊，指不定就是每次在哪里它自己创建出一堆对象出来要我来销毁我却不知道呢！<br />
+　　从CodeProject上下载了个Visual Leaks Detector，从说明上看，说是在msvc的jit debugger里会自动打印信息到debugging output window里的，可我实际上试了之后，发现屁都没输出一句，难道它是for MFC-based project only的？有可能的，唉！<br />
+　　简直走投无路了。</p>

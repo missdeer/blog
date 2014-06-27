@@ -1,0 +1,18 @@
+---
+layout: post
+title: DForD SourceCoding介绍
+categories: []
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  quiz: s:36:"a:2:{s:1:"q";s:0:"";s:1:"a";s:0:"";}";
+author: 
+---
+<p>　　我一直在寻找，甚至试图自己编写一个<a href="http://www.sourceinsight.com/">Source Insight</a>的替代品，主要看中它作为一个源代码阅读工具，并具有良好的通用代码编辑功能。如果一定要找出同类产品来，还真是比较难，也许<a href="http://www.activestate.com/komodo-ide">Komodo IDE</a>和<a href="http://www.slickedit.com/">SlickEdit</a>在通用代码编辑器的范围上可以往上靠，但在代码阅读器的范围内，实在很少见，可能<a href="http://www.stack.nl/~dimitri/doxygen/">doxygen</a>和<a href="http://www.scitools.com/">understand for C++</a>可以勉强算是一类，但实现方式差别很大。现在有了<a href="http://www.dfordsoft.com/cs/sc_index.htm">DForD SourceCoding</a>，总的说来，它是最接近<a href="http://www.sourceinsight.com/">Source Insight</a>定位的同类产品。<br />
+　　<a href="http://www.dfordsoft.com/cs/sc_index.htm">DForD SourceCoding</a>具有良好的中文支持，这得益于<a href="http://scintilla.org/">Scintilla</a>控件的完美实现和<a href="http://site.icu-project.org">ICU</a>的强大兼容性。<a href="http://www.sourceinsight.com/">Source Insight</a>的中文支持一直是其软肋，多年来没有什么实质性的改进，无论是保存项目文件的路径字符，还是文件中的字符，凡是中文，都很有可能出现轻重不一的问题，<a href="http://www.dfordsoft.com/cs/sc_index.htm">DForD SourceCoding</a>则完全没有这些问题。<br />
+　　<a href="http://www.dfordsoft.com/cs/sc_index.htm">DForD SourceCoding</a>使用Tab栏多文档界面，很难想像如今还有一个拥有大量用户的多文档界面的软件，居然没有Tab栏，<a href="http://www.sourceinsight.com/">Source Insight</a>就是那么一个独树一帜的软件，以至于有牛人通过逆向工程等手段，给<a href="http://www.sourceinsight.com/">Source Insight</a>开发了<a href="http://blog.csdn.net/orbit/category/139932.aspx">外挂</a>，通过外挂给<a href="http://www.sourceinsight.com/">Source Insight</a>添加Tab浏览等功能，可谓用心良苦。<br />
+　　还有一个大问题是<a href="http://www.dfordsoft.com/cs/sc_index.htm">DForD SourceCoding</a>的代码编辑器是支持代码折叠的，而<a href="http://www.sourceinsight.com/">Source Insight</a>至今仍无任何迹象显示要在这方面有所改进。代码折叠也算是众多<a href="http://www.sourceinsight.com/">Source Insight</a>用户特别期待的一个功能了，对于现在一个完整的代码编辑器，基本上可算是标准配置，可是比较遗憾的是，这个功能似乎连外挂也是不能指望上了。<br />
+　　当然<a href="http://www.dfordsoft.com/cs/sc_index.htm">DForD SourceCoding</a>也有不少缺点，比较明显的是，速度比较慢，比起<a href="http://www.sourceinsight.com/">Source Insight</a>不是差了一两个数量级。其次，<a href="http://www.dfordsoft.com/cs/sc_index.htm">DForD SourceCoding</a>的代码分析功能相比<a href="http://www.sourceinsight.com/">Source Insight</a>来说，不够精准。<a href="http://www.dfordsoft.com/cs/sc_index.htm">DForD SourceCoding</a>直接使用了<a href="http://ctags.sourceforge.net/">ctags</a>和<a href="http://cscope.sourceforge.net/">cscope</a>来进行代码分析，而<a href="http://www.sourceinsight.com/">Source Insight</a>应该是对<a href="http://cscope.sourceforge.net/">cscope</a>进行了一定的改进，而且跟编辑器结合得更紧密。另外，<a href="http://www.dfordsoft.com/cs/sc_index.htm">DForD SourceCoding</a>虽然本身是基于一个Lua脚本语言扩展的架构实现，但它并不开放这个扩展构架以便用户进行二次开发，而<a href="http://www.sourceinsight.com/">Source Insight</a>则是向用户开放了脚本扩展的能力。所以说，<a href="http://www.dfordsoft.com/cs/sc_index.htm">DForD SourceCoding</a>还需要持续改进，才能彻底战胜<a href="http://www.sourceinsight.com/">Source Insight</a>啊。<br />
+　　最后有一点值得说的是，<a href="http://www.sourceinsight.com/">Source Insight</a>比较贵，<a href="http://www.dfordsoft.com/cs/sc_index.htm">DForD SourceCoding</a>的定价才是它的一半多一点，当然这要看用户如何选择了，是否少花近100美元买80%功能的呢？</p>

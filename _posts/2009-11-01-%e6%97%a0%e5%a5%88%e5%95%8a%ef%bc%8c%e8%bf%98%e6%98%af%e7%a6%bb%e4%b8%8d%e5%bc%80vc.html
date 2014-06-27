@@ -1,0 +1,15 @@
+---
+layout: post
+title: "无奈啊，还是离不开VC"
+categories: []
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  blogger_blog: missdeer.blogspot.com
+  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
+  blogger_permalink: "/2009/11/vc.html"
+author: 
+---
+<p>　　之前说过，wxWidgets程序是用MinGW编译的，所以用到的wxLua就只好用其他编译器了，试了BCC 5.5和OpenWatcom 1.8，都因为不能顺利编译wxWidgets而放弃了，只好再掉头用回VC 2008。<br />　　既然用了VC编译wxLua，而前些天用MinGW编译的IUP等用起来又有问题，于是就索性让VC把IUP、IM、CD等其他的库也都编译了好了。因为只有最最核心的功能是用C++写的，其他的功能能用Lua的都用Lua写，所以就需要有比较完善的常用功能的库。除了wxLua、IUP这等GUI库外，剩下还需要数据库访问的，至少是能访问sqlite3的，网络通信的，XML操作的，正则表达式，MD5等散列值计算的这几方面的库。现在暂时还没编译，等到时候真正需要的时候再搞吧。<br />　　在编译和使用wxLua和IUP的过程中，遇到不少问题。<br />　　Lua脚本在require一个模块时，会去几个固定的路径下搜索名字匹配的文件，于是我照LuaForWindows的做法，把dll都放在exe程序所在目录的clibs子目录中。发现一个一直以来的错误的认识，以为一个dll在载入另一个dll时，会像exe一样首先搜索自己所在目录。错了，一般情况下是不会搜索dll所在目录的，而是搜索载入该dll的exe文件所在的目录。所以一开始总是不能正确地让wx.dll载入wxWidgets的dll，后来将wxWidgets的dll放在exe所在目录后，又报不能载入msvcp90.dll，这是VC的重发布文件，本来exe是通过manifest文件来指定这个文件的搜索路径的。所以经过试验，发现wx.dll和wxWidgets的dll是没有包含manifest资源的，只好用命令行mt.exe -manifest xxx.dll.manifest -outputresource:xxx.dll;2这样把manifest再注入进dll。命令行参数都容易理解，最后个2，我猜测是注入后的资源编号，manifest类型资源在exe中是1，在dll中是2。经过这样处理的dll，都能正确载入msvcp90.dll等重发布文件。<br />　　接着再解决dll存在位置的问题。本来这些dll只是为clibs下的dll依赖的，我当然不乐意让它们放在clibs外面，所以在网上找了一下，发现确实可以为单独的exe文件设置dll搜索路径。只要在注册表中 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths 下添加一个新的键，项的名字就是exe文件的名字，比如CodingStudio.exe，然后在这个新键中写入字段，默认字段的值为exe文件的完整路径，再添加个新的字符串，名称为“path”，值为dll所在的目录完整路径。这样不但可以在“开始”-“运行”对话框中直接输入exe文件名来启动该程序，还可以让该exe在载入dll时搜索那些目录。<br />　　编译IM时，有个im_capture库，在Windows下是依赖于DirectX的，需要先安装DXSDK，现在MS网站上只能找到2008年发布的，版本至少是9.0以后的了，这里有个问题是，im_capture用到了qedit.h文件，该文件中又包含了dxtrans.h文件，而这个文件是没有的。在网上找的方案基本上有两种，一种是在其他地方找个dxtrans.h文件，然后就行了，不过我没找到，另一个方案是修改qedit.h文件，不要包含这个文件，然后在它的开头定义4个宏：__IDxtCompositor_INTERFACE_DEFINED__、__IDxtAlphaSetter_INTERFACE_DEFINED__、__IDxtJpeg_INTERFACE_DEFINED__、__IDxtKey_INTERFACE_DEFINED__。这样就可以了，im_capture只需要DXSDK的头文件，不需要DX的什么库文件。<br />　　还有个im_wmv库，依赖于MS的Media Format SDK，可以在MS的网站上找到。其实只是需要它里面的一个叫wmvcore.lib文件，其他的头文件是不需要的，如果把头文件路径添加到搜索路径，反而编译会出错。<br />　　最后是发现，在方能iupimglib时，VC的编译器就占满CPU然后就挂死了，郁闷！只好继续用前些用MinGW编译出来的iupimglib.dll和iupluaimglib51.dll了。</p>

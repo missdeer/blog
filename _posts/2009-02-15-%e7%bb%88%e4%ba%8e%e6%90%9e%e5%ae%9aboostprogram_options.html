@@ -1,0 +1,15 @@
+---
+layout: post
+title: "终于搞定boost::program_options"
+categories: []
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  blogger_blog: missdeer.blogspot.com
+  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
+  blogger_permalink: "/2009/02/boostprogramoptions_15.html"
+author: 
+---
+<p>　　再次尝试，终于可以在WIND中使用boost::program_options了，其中付出的代价是，不能使用STLPort了，因为最直接的原因，不知道为什么，在release模式下，编译就会出错！<br />　　这之前提到过，用vc9编译boost时，会只生成几个静态链接库，而且这几个静态链接库实际上并不能正常使用，现在发现原来只要在编译前，在命令行环境中设置好vc9的路径，也就是先运行一下那个vsvars32.bat，就再进行编译就可以了。<br />　　这次编译我在命令行中添加了--buid-type=complete，耗时巨大，至少1个多小时还是因为磁盘空间不够而结束了。不过确实生成好各种类型的链接库，以目前program_options来看，共有7个库，其中2个是动态链接，分别有debug和release两个模式下的，从文件名中可以区别开来，debug下的文件名中有gd字样，而release下的是没有的。静态链接的库文件共有5个，都是libboostxxx.lib的形式，可以看到其中s表示编译器的runtime是静态链接进来了，gd则还是表示debug的意思，mt则是多线程的意思。所以照这个原则推测，其中有一个是单线程静态runtime链接版本，不过这对我来说，也没什么用了，一般说来，我写的程序肯定是使用多线程版本的runtime的。<br />　　终于搞定了，除了不能用STLPort有点遗憾！</p>

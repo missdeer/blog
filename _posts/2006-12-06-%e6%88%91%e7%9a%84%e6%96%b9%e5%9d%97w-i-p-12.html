@@ -1,0 +1,15 @@
+---
+layout: post
+title: "我的方块W.I.P #12"
+categories: []
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  blogger_blog: missdeer.blogspot.com
+  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
+  blogger_permalink: "/2006/12/wip-12.html"
+author: 
+---
+<p>　　在好几天前对MSDN的一番研读后，终于把PropertySheet显示出来了，其实真的很容易，很简单，至少比想像中的简单多了。唉，用惯了VCL，再来用SDK，实在觉得吃力。要是以前，随便拖个Form，放个TPageControl，早就完事了。现在，里面的4页Dialog一个个描就不说了，在BCB里也是需要的，然后要写Dialog的消息处理函数，一个个标准的回调过程， VCL里就只需要对自己感兴趣的事件重写处理函数就行了。然后是注册表操作，VCL里的TRegistry也是多方便，多健壮的。自己写一个类似的封装吧，不但花了不少时间，还没有TRegistry好用，昏倒，不过现在勉强能满足当前的需要了。<br />　　之后要做的，要把各个Dialog消息处理函数填完，然后是LuaSuck。这几天也读了好几遍《Programming In Lua》，还有它的Reference Manual，对Lua的了解又进了一步。Lua为了屏蔽数据类型的差异以及编码风格的统一，*<span style="font-weight:bold;color:rgb(255,0,0);">所有</span>*的与C/C++交互的数据都是通过一个virtual stack来完成的。一定要记住这一点，所有的操作都是针对那个virtual stack来的。LuaSuck的目标和TclSuck类似，①可以使C++程序与Lua程序里的变量互通，②可以在C++程序里自由调用Lua的函数过程，③可能方便地用C++函数来扩展Lua。虽然SWIG应该能很好地完成①和③，但在上次写TclSuck的过程中，我深刻地体会到库的编写的乐趣，远远大于库的使用的乐趣（晕死，真的像Andrei Alexandrescu说的那样了）。</p>

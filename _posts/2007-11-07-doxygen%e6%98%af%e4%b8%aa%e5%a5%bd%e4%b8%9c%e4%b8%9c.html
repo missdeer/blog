@@ -1,0 +1,15 @@
+---
+layout: post
+title: doxygen是个好东东
+categories: []
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  blogger_blog: missdeer.blogspot.com
+  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
+  blogger_permalink: "/2007/11/doxygen.html"
+author: 
+---
+<p>　　<a href="http://www.stack.nl/%7Edimitri/doxygen/">doxygen</a>真是个不错的东东，现在都有点爱上它了，特别是对于现在我这样的情况，我还是随时准备着要把手头的代码交接给后来的人的，所以为了减少沟通交流的时间，比较详细的文档是很重要的一步，而对于缺少设计文档的项目来说，源代码即是最好的文档。这时doxygen的作用就很明显了，在它的帮助下，可以很方便地扫描出当前项目下所有源代码中类的依赖关系，文件依赖关系，类说明，文件说明，方法说明等等等等！我现在用的办法是，先生成一个doxyfile，添加到项目中，在VC的外部工具中添加一项，调用doxygen生成该项目的文档，还是比较方便的。不过也遇到些问题，最奇怪的莫过于中文的支持了。我从官方网站上找来的1.5.x对中文支持都有问题，但从公司网上找的一个人家自己编译好的却没问题。另外一个问题是，对于不同工程中同名的类，它会只留下一个，丢掉了另外的，这就不好了。对于不同工程中的同名的文件，倒是可以通过指针建子目录来解决。不过也许是我还没用好，说不定是哪里的设置问题。</p>

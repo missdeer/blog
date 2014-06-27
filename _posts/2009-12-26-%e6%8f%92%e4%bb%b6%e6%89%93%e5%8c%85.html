@@ -1,0 +1,15 @@
+---
+layout: post
+title: "插件打包"
+categories: []
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  blogger_blog: missdeer.blogspot.com
+  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
+  blogger_permalink: "/2009/12/blog-post_26.html"
+author: 
+---
+<p>　　前几天，把所有的插件以插件为单位打包成zip了。不过不知道wxWidgets中的zip虚拟文件系统如何支持密码，至少是没找到相关的选项。现在的情况是验证了方案可行性，可以确认功能上的不缺失以及性能上的损耗在可接受的范围内，但真正实用是一定要有密码的，也就是为了保护插件中的源代码。以前还以为带了密码就不方便第三方开发插件了，现在想通了，其实只要我提供一个插件开发环境，其中自带插件打包功能，这样就可以用同一个密码了。既然wxWidgets没有简单方便的接口来支持密码zip，那就只好自己写一个这样的功能了，好在zip实在是一个很大众化的格式，源代码很容易找到。</p>

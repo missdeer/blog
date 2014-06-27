@@ -1,0 +1,15 @@
+---
+layout: post
+title: "开始写方块"
+categories: []
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  blogger_blog: missdeer.blogspot.com
+  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
+  blogger_permalink: "/2006/10/blog-post_11.html"
+author: 
+---
+<p>　　现在真的越来越懒了，只写了几行代码就不想动了。似乎DDraw在Normal模式时不能用FLIP？不确定，想不到有这么多未知问题，代码产出率太低了。白天在公司的时候，用VC6编译了unzip、7z这些，似乎还行，回到家，用VC7.1来编译，全都通过了。可以集成unzip和7z的解压缩功能了。<br />　　看来还是得好好学习一下怎么使用DX，也不用最新的技术，只要DX7的接口就行了，D3D也暂时先放下吧，DDraw和DSound最先要紧。<br />　　首先，只考虑矩形的界面，把主界面画出来，定期调用Lua脚本中的游戏逻辑，再根据Lua脚本返回的结果把方块池、预览框和道具池中的内容画出来。这样看来，似乎没有多少事，就是用DX画个界面，把Lua集成进来。还有一点要考虑的是，怎么做键盘加速和游戏录像功能，同时再考虑一下联机功能。今天在公司看到一段高精度计时器的代码，对于键盘加速，似乎有点帮助，就是定期检测按键状态，按一定速度发送WM_KEYDOWN，用IDA反汇编了kbace.dll，大概看到就是这样做的，也许具体的细节需要再研究。联机从技术上似乎也不是很有问题了，唯一需要的就是时间和毅力了。<br />　　好好学习《Windows游戏编程大师技巧》！</p>

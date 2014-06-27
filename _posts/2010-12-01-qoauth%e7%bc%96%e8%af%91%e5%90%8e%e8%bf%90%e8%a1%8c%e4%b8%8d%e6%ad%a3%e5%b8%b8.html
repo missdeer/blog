@@ -1,0 +1,18 @@
+---
+layout: post
+title: QOAuth编译后运行不正常
+categories: []
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  quiz: s:36:"a:2:{s:1:"q";s:0:"";s:1:"a";s:0:"";}";
+  _wp_old_slug: ''
+author: 
+---
+<p>　　现在不少服务都用OAuth认证了，在Qt下有QOAuth这个第三方库，它是个日本人为qTwitter这个Twitter客户端而编写的。要编译QOAuth，有几个步骤。<br />
+　　首先，编译QCA，这是个KDE下的项目，Qt下的加密算法库封装。<br />
+　　然后下载OpenSSL，需要头文件和导入库文件。编译qca-ossl，即连接QCA和OpenSSL的Qt库插件。<br />
+　　最后便可以编译QOAuth了，需要链接QCA和OpenSSL。<br />
+　　今天我试着用MinGW和MSVC2008编译QOAuth，除了编译qca-ossl时发现有个whirlpool算法分支编译不过外，其他的都编译出来了。接着我就想编译一下Qwit和qTwitter来测试一下QOAuth，结果编译倒是都能编译出来，不过最后运行有问题，在认证Twitter账号时，程序会死循环，不知道是OAuth认证的3个步骤中的哪步出错了，初步估计是第一步，因为连浏览器窗口都没弹出来。也不知道是几个库中的哪个库有问题，唉！</p>

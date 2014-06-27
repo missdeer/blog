@@ -1,0 +1,15 @@
+---
+layout: post
+title: "初学lex"
+categories: []
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  blogger_blog: missdeer.blogspot.com
+  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
+  blogger_permalink: "/2008/05/lex.html"
+author: 
+---
+<p>　　其实学的是flex，从公司网上找的，大概也是<a href="http://sourceforge.net/projects/gnuwin32/">gnuwin32</a>中的某个版本。顺便在公司网上又找了些资料来学，纯粹只是看的话，是跨不过那道坎的，所以要自己写几行来玩。生成的C代码倒是能直接用MinGW中的gcc编译，这让人觉得很舒心。开始的时候不明白，为什么写的正则表达式好像不起作用，总是把该扫描分析的文本全都打印出来了，而我明明只是想让它打印被匹配上的那些内容就行了啊，经过仔细观察，最后发现，其实是flex生成的C代码中，自动把不匹配任何自定义正则表达的内容也输出到控制台上去了。所以有两个办法可以解决此问题，一是把匹配内容输出到文件中，另一是修改下flex生成的C代码，把默认输出的那个ECHO修改了。<br />　　让它分析一个3万行的rb文件，匹配几种常见的token，如常量、变量、数字等等，速度奇快无比，可能不到1秒吧，想想我原来用Greta写的全文匹配5种模式，不知道要多久，不过幸好在不是很晚的时候发现了这个解决方案。从中已经可以看到曙光，原来我的猜想、直觉应该是正确的。flex可以解析出token，因为我需要的是其中的子模式，所以光是flex还不够，需要借助yacc（现在用bison的比较正常吧）进行语法分析。我猜即使加上了bison生成的语法分析过程，扫描那个3万行的rb文件，得到需要的结果，应该也不会超过3秒钟吧。不过另外有个问题需要注意，flex和bison生成的代码里都有一些全局变量，如果在多线程环境中使用，需要非常小心地进行同步，不过也许，自己也是可以对生成的代码略作修改的吧，尽管这些代码的可读性在我看来真的十分糟糕。</p>

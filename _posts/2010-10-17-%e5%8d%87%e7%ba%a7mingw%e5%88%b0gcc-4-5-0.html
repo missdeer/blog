@@ -1,0 +1,18 @@
+---
+layout: post
+title: "升级MinGW到GCC 4.5.0"
+categories: []
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  quiz: s:36:"a:2:{s:1:"q";s:0:"";s:1:"a";s:0:"";}";
+author: 
+---
+<p>　　一直用GCC 4.4.0，之前也尝试过将sf.net上MinGW的各个包下载下来后解压覆盖到4.5.0，但最后编译我的工程时总是std::basic_string什么的一些libstdc++-6中的一些符号链接有问题，于是就搁置下来了。<br />
+　　今天偶然到了mamedev.org上看了看，发现它用的是4.4.3，于是想试试，后来干脆又去sf.net上找官方MinGW的文件来看，居然发现一个叫MinGW-Get的在线安装程序。MinGW很喜欢提供在线安装工具，而很少提供打包好的整体的解决方案，这是让我觉得很困惑的一件事，它的在线安装工具下载速度一直以来实在不能恭维。今天试了一下MinGW-Get，下载速度还能忍受，不过第一次仍然有好几个包下载失败，又装了第二次，才把所有选中的包都下载来了。然后把新下载的文件都覆盖到原来4.4.0的目录中，开始编译测试。<br />
+　　我的工程不大，才约5万行C++代码（不包括使用工程生成的代码），但依赖于一些第三方库，比如wxWidgets，Boost，以及几个wxCode中的子库。编译wxWidgets很顺利，发现在Windows下wxWidgets的表现确实很不错，有各种编译套件可用的工程文件和makefile，至少我用MSVC和GCC基本没遇到过问题。然后是编译Boost，前两天开发的时候发现用1.44.0的Boost，用MinGW编译Thread有问题，有个符号在链接时找不到，问题在这个<a href="https://svn.boost.org/trac/boost/ticket/4614">ticket</a>里有描述，于是仍然在用1.43.0的Boost，编译是可以正常通过了，不过最后使用的时候有点问题。拉下来是编译各个wxCode的组件，包括wxPropertyGrid、wxScintilla、wxFlatNotebook，另外还有Luabind，这些也都比较顺利，唯一有点麻烦的是，由于我是使用了Boost的bjam作为编译工具，而不是传统的make什么的，bjam有个很奇怪的行为是会把编译过程中生成的.o文件都存入到一个深深的目录中，目录路径中包括编译器名，版本号，链接类型，线程模型，debug/release模式以及项目名称，而wxScintilla中由于编译出来的.o文件比较多，最后链接的时候居然报命令行太长而命令不能执行，真是太囧了。<br />
+　　最后是编译我自己的工程，该工程是一个exe文件，需要链接前面提到的这些库，在链接阶段就会报出一堆关于std::basic_string等等的符号什么的警告，这些还不是很碍事，比较严重的是说Boost.Thread里有个叫_tls_used的符号与libmingw32.a里的重定义冲突了，问题在这个<a href="https://svn.boost.org/trac/boost/ticket/4258">ticket</a>中有描述。这个问题以前也遇到过，是MinGW使用的mingwrt 3.18中引入的，只要降级到3.17就行了，还有个办法是打开Boost.Thread中tss_pe.cpp，将那个名为_tls_used的函数屏蔽掉也可以。<br />
+　　编译后发现，生成的exe不依赖于原来的mingwm10.dll了，多了个对libstdc++-6.dll的依赖，其他的倒好像没什么大的变化，只是dll都变过了，需要跟着更新。<br />
+　　将MinGW中的GCC升级到4.5.0顺利完成！</p>

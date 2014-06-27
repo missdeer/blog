@@ -1,0 +1,15 @@
+---
+layout: post
+title: "烦躁"
+categories: []
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  blogger_blog: missdeer.blogspot.com
+  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
+  blogger_permalink: "/2009/03/blog-post_30.html"
+author: 
+---
+<p>　　真的。<br />　　现在一个Lua解释器的封装类，一个插件注册表类，这样的结构是不够用的。至少需要有一个管理插件运行的模块，它可以屏蔽掉解释器的底层差异，使得使用这个模块的用户不用知道他们到底是在运行Lua脚本还是其他Ruby或是Python之类的东西。另外一点是这模块需要向不单是C++代码提供接口。也就是说，用脚本写成的插件需要使用这个接口。这个需求很合理，也很必要，不然的话，很明显的一大限制是不能再对插件进行扩展了。</p>

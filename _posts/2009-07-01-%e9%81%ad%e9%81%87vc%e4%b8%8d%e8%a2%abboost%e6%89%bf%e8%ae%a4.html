@@ -1,0 +1,15 @@
+---
+layout: post
+title: "遭遇VC不被Boost承认"
+categories: []
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  blogger_blog: missdeer.blogspot.com
+  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
+  blogger_permalink: "/2009/07/vcboost.html"
+author: 
+---
+<p>　　今天郁闷地发现，有一处代码，在CruiseControl上编译居然不过。很奇怪的是，在本地机器上编译是没问题的，而其中最大的区别就是本地以Debug模式编译，CruiseControl上则是Release模式。于是不甘心地在本地也以Release模式编译了一把试试，果然报错了。<br />　　那处代码很简单，就是调用boost::signals2的一个信号，明明白白Boost的文档和例程都是这么写的。于是拿出Boost的Example中的Hello World来编译，果然也不行。于是切换到VC2003去测试，居然过了！<br />　　同事通过Proxy上Google搜索了一遍，还真发现了有用的信息，居然是boost::signals2在1.39.0版本中的Bug，所说在SVN中已经修正了该问题，具体的信息可以从一个Google group的帖子上看到，另外一点有用的信息在CU的一个Blog上有提到，临时的解决方案也提到了，就是将_SECURE_SCL宏定义为0即可。因为暂时只有那个cpp文件中用到了这种用法，于是我在那cpp文件开头处添加了这个宏定义。但是这里又吃鳖了一次，在本地是能编译过了，在CruiseControl上还是编译不过，报的错也没变，说明那个宏定义没起作用。这时我就已经没有耐心再去仔细区别其中的差别了，差别大了去了，操作系统不同，编译器使用的SDK不同，鬼知道还有什么不同。最后抱着试试看的心理，把这个宏定义从源文件移到了工程设置中，终于编译过了！<br />　　估计那帮写Boost的人，主要还是用GCC来验证的吧！</p>

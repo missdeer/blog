@@ -1,0 +1,15 @@
+---
+layout: post
+title: 'Ebookshelf W.I.P #4'
+categories: []
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  blogger_blog: missdeer.blogspot.com
+  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
+  blogger_permalink: "/2007/03/ebookshelf-wip-4.html"
+author: 
+---
+<p>　　从数据库中读出数据并填充TreeView部分总算搞好了，用了一个递归的函数，还用了map之类的容器，把一些需要的数据保存起来，想起来，要是不知道STL这么好用的东东，还真是很麻烦呢。<br />　　之后要做的是仔细地控制TreeView。如果对TreeView进行了某个节点的改名，就应该update到数据库中去；如果TreeView中的节点少了一个，也应该把数据库中对应的那条记录delete掉；如果选择了TreeView中的某个节点，就应该把对应这个节点的所有书籍信息都select出来，并显示在ListView中，这依赖于把这些信息先保存到一个vector中，然后刷新ListView，如果信息量比较大，则对ListView的刷新速度有所要求了，因此，从一开始就应该设计好用virtual listview来实现，如果不算检索数据库的耗时，1秒钟插入显示10000条记录应该是没有问题的。<br />　　弄完了上面这些，就可以考虑其它的用户界面方面的问题了，比如加个选项，可以自动清除掉已经不存在磁盘文件的书籍记录；可以整个分类的书籍一起移动或拷贝到某个文件夹下；可以由用户配置合法的文件后缀名，并定义各自的打开方式等等。<br />　　不知不觉，又把所有的代码都写在主窗体类里去了，真是不爽，但是我又不知道如何可以把其中一些代码移出来，因为所有的代码都直接用到了一些VCL控件，控件是添加在主窗体上的，所以总是要在主窗体类里写才能找到。<br />　　在网上找到一个讲<a href="http://www.sqlite.com.cn">SQLite的中文网站</a>，里面有一些中文的文档，还是挺有用的，比如知道怎么用VC来编译SQLite的dll文件了，估计Borland的编译器也是可以的，但最简单的方法还是直接用implib工具从dll文件生成lib文件，VC的编译器套件里也可以用lib工具从def文件来生成lib文件。Access生成的文件实在感觉大了些，不爽，说不定哪天我要把它换成用SQLite的数据库。有些开源的东东还真的很不错的说！</p>

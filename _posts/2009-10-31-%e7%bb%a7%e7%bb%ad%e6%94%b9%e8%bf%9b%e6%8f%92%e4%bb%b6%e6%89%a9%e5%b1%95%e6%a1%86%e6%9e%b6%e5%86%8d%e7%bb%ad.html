@@ -1,0 +1,15 @@
+---
+layout: post
+title: "继续改进插件扩展框架再续"
+categories: []
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  blogger_blog: missdeer.blogspot.com
+  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
+  blogger_permalink: "/2009/10/blog-post_31.html"
+author: 
+---
+<p>　　今天完成了右键弹出菜单的插件扩展框架支持，基本上没有遇到什么障碍，跟原来想的一样简单。<br />　　除了这个，还把菜单、工具栏的插件扩展支持功能的代码重构了一遍，把这部分功能提取成一个独立的类，在类中完成插件扩展的相关功能，只有最终的事件消息响应函数仍然放在界面类中，这是因为才发现不是随便一个类的成员函数都可以绑定成事件处理器的。<br />　　顺便说个可能是wxWidgets的bug，动态创建的菜单，动态添加的菜单项，第一个图标总是显示不出来！<br />　　再一个是原本用SWIG生成的文件，我把它直接作为头文件，包含在另一个源文件中，而该源文件因为某些原因，经常会被重新编译，而恰恰这SWIG生成的文件体积巨大（超过25000行），所以编译要花不少时间。于是又仔细看了一下生成的这个文件，发现其实最终只是需要一个luaopen_libname的函数，这样SWIG生成的文件就可以作为源文件了，不用跟着其他文件编译了。</p>
