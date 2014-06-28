@@ -1,7 +1,8 @@
 ---
 layout: post
 title: Launch项目小结
-categories: []
+categories:
+- Shareware
 tags: []
 status: publish
 type: post
@@ -10,6 +11,11 @@ meta:
   blogger_blog: missdeer.blogspot.com
   blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
   blogger_permalink: "/2009/01/launch.html"
-author: 
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
 ---
 <p>　　这次回老家过春节，年前几天没事，就着手做那么个小东西。这个小东西的原始需求是从老大那里听来的，老大则是从其他同事那里收集来的，主要的需求是，能自动从指定的路径下找出所有可执行文件，并添加到菜单项上，点击菜单项便能运行这个可执行文件。<br />　　这个需求的意义不考虑，直接进到主题，如何实现。刚开始我以为从网上应该很容易找到一个免费或者开源的项目来满足需求，在网上逛了几圈后，只注意到两个有点关系的项目，分别是<a href="http://sourceforge.net/projects/launchy">Launchy</a>和<a href="http://www.cppblog.com/ckyap/archive/2008/10/06/63287.html">TextBox</a>。我想了想，决定整合这两个项目的特点来做，至于最原始的那个菜单项的需求，就变成一个次要特性了。<br />　　主要的设计和开发大概花掉我8天时间，而且每天投入时间应该超过8小时，所以还是比较可观的，尽管功能看起来确实简单，而且迄今还有些未实现的。<br />　　程序最终使用VS2008开发，界面用WTL写，VS2008没有WTL相关的向导，装个VisualFC插件可以简化一部分这种工作。其他用到了嵌入式数据库sqlite3，用于保存搜索到的文件信息；用到了msxml，基本是必备的配置文件解析和保存方式；用到了Lua，实现了一定程度上的外部脚本扩展；还有boost、STLPort等等。<br />　　总的说来，这个项目的最大几点收获是：一、熟悉了WTL的使用；二、熟悉了Sqlite3的嵌入；三、对用脚本语言实现C++程序的扩展，有了一点心得。还有一些与技术无关的收获：思维导图确实是一种辅助思考过程的好工具；在wiki中随时安排计划，记录进度，撰写文档是一种好的实践。</p>

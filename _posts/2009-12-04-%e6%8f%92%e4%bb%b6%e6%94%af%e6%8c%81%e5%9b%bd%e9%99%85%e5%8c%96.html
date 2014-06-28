@@ -1,7 +1,10 @@
 ---
 layout: post
 title: "插件支持国际化"
-categories: []
+categories:
+- Lua，Script
+- Plugin Framework
+- wxWidgets
 tags: []
 status: publish
 type: post
@@ -10,6 +13,11 @@ meta:
   blogger_blog: missdeer.blogspot.com
   blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
   blogger_permalink: "/2009/12/blog-post_04.html"
-author: 
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
 ---
 <p>　　宿主程序提供了界面国际化，那么插件不能提供国际化就说不过去了，至少得有这样的机制以供支撑该种需求嘛。<br />　　得益于wxWidgets对国际化的良好支持，要让嵌入的Lua解释执行的Lua脚本也能根据宿主程序的本地化信息进行正确的处理非常简单。wxWidgets中对要进行国际化的字符串用_()进行包裹，其实这是一个宏，用于调用真正的翻译功能，比如wxGetTranslation。所以在嵌入的Lua中将wxGetTranslation函数注册到Lua中即可，然后在Lua脚本的最开始处将该函数换个更简单的名字，比如_，这是最好的名字了，哈哈。这样就可以在Lua脚本中对需要进行国际化的字符串也用_()进行包裹，它会调用wxGetTranslation函数。<br />　　GNU的国际化方案套餐中，提供一个叫xgettext的工具，可以从众多编程语言的源代码文件中提取出字符串，生成po文件以供翻译生成mo文件。比较不幸的是，xgettext不能支持Lua语言，同时由于我这个项目中使用的插件描述信息中有一部分界面信息是在xml文件中的，这也是一种自定义的格式，所在很不幸地xgettext更是不能处理啊！所以我在想，我是否要先写个可以支持Lua和我这种xml格式的类似xgettext的工具呢？Poedit太扯蛋了，居然只能认它自己生成的那种po格式的文件，稍微改一点就报错了！</p>

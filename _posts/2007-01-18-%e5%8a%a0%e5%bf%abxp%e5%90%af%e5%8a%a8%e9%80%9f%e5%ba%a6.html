@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "加快XP启动速度"
-categories: []
+categories:
+- Software
 tags: []
 status: publish
 type: post
@@ -10,6 +11,11 @@ meta:
   blogger_blog: missdeer.blogspot.com
   blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
   blogger_permalink: "/2007/01/xp.html"
-author: 
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
 ---
 <p>　　突然想到的，把一些本来设置成手动的服务改成自动，或许会加快系统启动速度。果然有用，大概是因为有些服务设置成手动后，本来是需要的，在系统启动时，却还需要花时间去检测，或是在启动的后期进行启动服务，所以速度变慢了。<br />　　好不容易下到个官方命令行版的svn，上去把CodeBlocks的源代码取下来。唉，如果不是因为可执行安装包下不下来，我才懒得弄呢！不过刚好试用一下svn也好，起码比起CVS要先进，比起VSS它是免费的，比起ClearCase它小巧。<br />　　射手网真是个好网站，一般流行的片子，都能找到字幕，哈哈，现在才大致知道应该怎么找字幕。<br />　　网上很难找make和gdb的文档！有还是有的，但我想要的是用chm或pdf格式的整理好的，却很少很少。如果以后都像写我的方块那样写游戏，可以先考虑用MinGW是否可行，代价是否很大。一般说来，需要一个好的代码编辑器，所以试试CodeBlocks，需要一个强悍的调试器，就用gdb，还需要良好的工程管理，就用GNU make。不过说实话，VC加上VAX插件，绝对是在Windows环境下最牛x的开发环境，但毕竟，都是要n多money的，而前面提到的那些工具，全是GPL的。可以试一下，也许还需要一个GUI开发库，比如Delphi/BCB中的VCL、VC中的MFC，免费的有wxWidget、Fox、QT等等，但都会拖一个大大的链接库，我不需要跨平台可移植，所以，看winx的表现，似乎是可以把WTL单独剥离出来，给MinGW用的，到时候再看看，说不定，只写DirectX游戏的话，对这方面的要求不多呢！</p>

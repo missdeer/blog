@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "我的方块W.I.P #3"
-categories: []
+categories:
+- Shareware
 tags: []
 status: publish
 type: post
@@ -10,6 +11,11 @@ meta:
   blogger_blog: missdeer.blogspot.com
   blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
   blogger_permalink: "/2006/10/wip-3.html"
-author: 
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
 ---
 <p>　　堕落了。 写了几行就不想写了，去玩去了。可以画出方块池里的方块了，把Lua解释器也集成进来了，不过调用luaopen_io的时候就崩溃了，为什么呀，用的编译器是VC7.1的，自己拿Lua5.1.1的源代码来编译的lib和dll，无论静态链接还是动态链接，到这个地方调用都会崩溃。不知道如果拿源代码来一起编译，会有什么结果呢，呵呵。剩下就是很烦很杂的一些事了，游戏逻辑啊什么的，很多细节要处理。我还想到要写一个skin生成器，至少应该能在一张现有的图片上方便地定义各个元素的位置、大小这些信息，如果每次都是在图像编辑软件里慢慢画，浪费时间不说，人是要疯掉的。还有就是一定要支持压缩打包，不然光秃秃的bmp文件放在那里是很占用空间的，而且看起来很不专业的样子。试了试，一张24位色的1.38MB的bmp文件，用7z可以压缩到36KB！强悍啊，可以让它支持7z、zip和rar的解压，虽然程序启动的时候会慢点，但文件好组织啊。其实有个7z的支持就够好了，之后再考虑zip，最后考虑rar的。游戏逻辑放在Lua脚本里做，有些其它的东西就可能不好做了，比如速度检测等等。因为为了简单，Lua脚本知道的事情越少越好，所以嘛！<br />　　上网down了个Q块的外挂，不好用，呵呵。</p>

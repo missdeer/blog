@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "关于程序运行效率后续"
-categories: []
+categories:
+- Software
 tags: []
 status: publish
 type: post
@@ -10,6 +11,11 @@ meta:
   blogger_blog: missdeer.blogspot.com
   blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
   blogger_permalink: "/2007/07/blog-post_15.html"
-author: 
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
 ---
 <p>　　话说同事那任务把他整得精疲力竭，昨天加班又是继续攻关这个遗留问题。老大的看法是RichEdit在显示的时候占用太多时间是主要原因，于是同事把RichEdit换成用<a href="http://www.scintilla.org/">Scintilla</a>控件来进行显示，结果效率并不比RichEdit好，估计因为Scintilla是一个通用的文本编辑器，为了进行着色、词法分析等任务，在这种特殊场合下，并不是最优的方案。还是换回RichEdit，只好从提高字符串操作效率着手。把其中一部分操作原本使用CString的，全部改换成用C运行时库重写了一遍，尽量减少字符串复制操作，用原始的指针，同时也避免了原本非常频繁的CString对象的创建和销毁，再加上一点点从CPU优化的角度的编码技巧。最后发现似乎效果还是挺明显的，不过RichEdit内的数据如果一多，显示速度也会降下来，这个问题照我的看法，如果坚持要使用RichEdit的话，只能开个定时器，每一个固定的时间周期，把RichEdit中的数据减少一点，保证RichEdit中最多只存储一定数量，该数量应该还不至于明显影响显示速度的内容，否则就完全摒弃使用RichEdit，采用自己画的方案，因为每次只是画出显示的那一部分内容，速度应该很快，而难点是，要把所有内容缓冲到文件中，如何能在文件不断增长的情况下，快速准确地定位到需要进行显示的那部分内容。<br />　　这个事件，让我对现成库的效率都产生了怀疑的心理，MFC库的慢是为众人诟病的，但不知我更习惯使用的STL效率如果，它的string类，它的各种算法不知道应用到这种场合会是什么样的效果。必要的时候还是得靠自己手动解决，看了《软件优化技术》中的一点内容，编译器优化会帮我们做不少事情，但很多时候还得程序员帮助编译器创建更优化的条件和机会。</p>

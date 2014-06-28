@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "引入ACE"
-categories: []
+categories:
+- CPPOOPGPXP
 tags: []
 status: publish
 type: post
@@ -10,6 +11,11 @@ meta:
   blogger_blog: missdeer.blogspot.com
   blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
   blogger_permalink: "/2008/07/ace.html"
-author: 
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
 ---
 <p>　　经过小小的思想斗争，最后我终于决定引入<a href="http://www.cse.wustl.edu/%7Eschmidt/ACE.html">ACE</a>，这个颇具盛名的跨平台网络库。犹豫是因为2个原因，一是我本来没有使用ACE的经验，如果在使用过程中遇到问题也没有求助途径，另一是以前在网上看到过有人说ACE跟MFC配合使用时会有内存泄漏的问题。<br />　　但是想了想，如果直接使用socket来写的话，开发效率更低，需要编写的代码更多，更容易出错。之前也是用了boost::asio，大概是因为没用好，反正不但代码写得难看，也没有能照预料中的那样正常工作。<br />　　同事在一个小程序中使用了ACE，虽然他用的是WTL，却仍然无形中给了我一种鼓舞，最终我还是决定用吧，泄漏就泄漏吧，反正只是个小程序，不会像服务器那样长时间运行的。稍微熟悉了一下reactor的使用方法，还算容易理解。它通过类继承，虚函数覆盖的方式来响应特定的事件。相比boost::asio使用functor回调的机制，更OO一点，而对于我来说，boost::asio可能多了需要对各种对象进行管理的工作。<br />　　争取在剩下的两天里，完成点对点文件传输的功能！</p>

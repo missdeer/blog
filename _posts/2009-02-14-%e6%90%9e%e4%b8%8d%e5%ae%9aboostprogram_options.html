@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "搞不定boost::program_options"
-categories: []
+categories:
+- Software
 tags: []
 status: publish
 type: post
@@ -10,7 +11,12 @@ meta:
   blogger_blog: missdeer.blogspot.com
   blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
   blogger_permalink: "/2009/02/boostprogramoptions.html"
-author: 
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
 ---
 <p>　　还是搞不定，郁闷！<br />　　首先我用vc2008编译从svn中取出的boost代码，总是有问题，只能生成一些libxxx.lib，没有生成动态链接版本，这个问题在boost正式发布的版本中是不存在的，真奇怪。
 <div>　　其次，无论是正式发布的还是从svn中取出的代码，编译的boost::program_options，在与STLPort一起用时，是必定出错的。debug模式编译基本能过，但链接死活不行。release模式则索性编译不过，这个问题在取消STLPort时，就不会存在。但是如果不用STLPort，在链接时，会报符号冲突。</div>

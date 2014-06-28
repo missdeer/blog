@@ -1,7 +1,8 @@
 ---
 layout: post
 title: Windows开发不上msdn不行啊
-categories: []
+categories:
+- Software
 tags: []
 status: publish
 type: post
@@ -10,6 +11,11 @@ meta:
   blogger_blog: missdeer.blogspot.com
   blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
   blogger_permalink: "/2007/06/windowsmsdn.html"
-author: 
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
 ---
 <p>　　今天用WTL写一个输入法的辅助工具，到了后来，又发现Release模式下链接不了了，看来不是个别现象了，最后排查到，到了C++标准库，就会有问题，报符号定义冲突的错误。这次忍不住了，上google搜了一下，发现msdn论坛上一个帖子说，只要在设置工程属性的地方，把链接ATL为最小化CRT改成no就解决了，试了下，果然ok了。亏我当时还郁闷了一天就放弃了，看来在Windows下开发不上msdn不行啊，尤其是用VC了，就更应该上msdn的论坛了，难得有英文的这种Web形式的技术论坛，呵呵，都已经有点思维惯性了，以为老外只喜欢maillist或newsgroup的。<br />　　用WTL写了两个小程序后（都还没写完），觉得WTL真的不错，不过编译速度感觉有点慢了，不知道是不是因为这些天只是用来编译C程序，对速度的感觉已经被影响。但是生成的文件小巧啊，我到现在还没弄明白，到底什么时候，会链接进来那个msvc**71.dll之类名字的文件进来，反正这两个程序里都没链接进来，也许是因为太简单吧。<br />　　WTL形式上有点像MFC，一个窗口会有View类，一个对话框会有对话框类，然后有消息映射宏，宏里写上了对应的消息名字和消息处理函数名，再在处理函数里填上相应代码就行了。不过实质上，我也知道是极大不同的。</p>

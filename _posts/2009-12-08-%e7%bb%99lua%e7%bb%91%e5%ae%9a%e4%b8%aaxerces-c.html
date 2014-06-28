@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "给Lua绑定个Xerces-C++"
-categories: []
+categories:
+- Lua，Script
 tags: []
 status: publish
 type: post
@@ -10,6 +11,11 @@ meta:
   blogger_blog: missdeer.blogspot.com
   blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
   blogger_permalink: "/2009/12/luaxerces-c.html"
-author: 
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
 ---
 <p>　　本来是有ltxml这个库的，这个库使用TinyXML和TinyXPath，本来用着，也勉强，可以读取xml文件，但也不时地出点小问题，不过都让我规避掉了。这回是想写xml文件了，结果发现ltxml的接口我很不习惯，嗯，不喜欢，于是想自己重新写一个新的绑定。<br />　　我首先看了一下libxml2，发现它的文档和例子都不是很清晰，不想继续投入精力去研究了。剩下两个选择，MSXML和Xerces C++。这两个库我都用C++的类做了一层简单的封装，可以适配应用STL中的算法。后来想想，MSXML的那个封装因为当初只考虑配合MFC/WTL使用，所有的字符串都用CString了，而且另外一点是MSXML是只在Windows上可用，Xerces C++是跨平台的，特别是可以用gcc编译，于是最后就选择了Xerces C++。<br />　　本来我的那个封装是只针对DOM接口的，同时有4个类，分别对应DOM文档、DOM节点、DOM节点列表，以及DOM节点列表的迭代器。绑定的过程参考了ltxml的实现，但只给DOM文档和DOM节点定义了userdata，因为Lua有table，所以可以用来表示DOM节点列表。<br />　　绑定完成后，简单试用了一下，读取，写入都基本满足当前的需求，除了不知道怎么让它写入的时候进行format pretty print，老是多加个换行符，中间有空行可一点都不pretty。</p>

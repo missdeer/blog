@@ -1,14 +1,25 @@
 ---
 layout: post
 title: Ninayan W.I.P.(16)
-categories: []
-tags: []
+categories:
+- Ninayan
+- QT
+- SNS
+tags:
+- Ninayan
+- Qt
+- SNS
 status: publish
 type: post
 published: true
 meta:
   _wp_old_slug: ''
-author: 
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
 ---
 <p>　　昨天和前天晚上蛋疼地在Linux上编译Ninayan了。我用的是Mint9，也就是一个Ubuntu的修改版。在Linux上编译Qt程序有点麻烦的是需要自己编译一遍Qt，前天晚上就编译了一遍最新的qt-everywhere-opensource-src-4.7.1.tar.gz，过程比较顺利，再装上Qt Creator就可以编译出Ninayan了，简单试用了一下，很正常。而且令我比较惊讶的是，我学Hotot用了Droid Sans字体，最终的显示效果在我个人看来比Windows XP SP3和Mac OS 10.6.6上都要好，但XP SP3上加上Gdipp或MacType后，效果会有很大的提升。<br />
 　　昨天突然发现，Ninayan在Mint下不能访问https://api.twitter.com（不是被墙的缘故），测试了几次才确认是不能访问https的地址，于是想到前不久看过一篇<a href="http://warwithinme.com/2010/10/qt4-7%E4%B8%8D%E8%83%BD%E7%94%A8https/">博文</a>说Qt 4.7是有这么个bug不能访问https的，因为原来Qt 4.6带了SSL证书，而Qt 4.7没带，于是照那篇文章的作者的说法，从Qt 4.6.2里找到qt-ca-bundle.crt文件，然后每次QNetworkRequest在被post或get前都设置一下Ssl证书。结果我的情况是连编译都不通过，于是可以确认是Qt在编译时没有编译进OpenSSL了。然后找到了这篇《<a href="http://developer.qt.nokia.com/wiki/Compile_Qt_4.7_on_Ubuntu_10.10">Compile Qt 4.7 on Ubuntu 10.10</a>》，先要安装一堆的库的开发包，再来编译Qt，最后再编译Ninayan，果然就正常了！于是我就不明白那篇博文讲述的到底是个神马问题了！<br />

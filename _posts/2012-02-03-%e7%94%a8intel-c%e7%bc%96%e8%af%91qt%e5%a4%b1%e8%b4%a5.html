@@ -1,0 +1,27 @@
+---
+layout: post
+title: "用Intel C++编译Qt失败"
+categories:
+- QT
+tags:
+- Android
+- iOS
+- Ninayan
+- Windows Phone
+status: publish
+type: post
+published: true
+meta: {}
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
+---
+<p>　　之前说过想用Intel C++编译Qt来着，于是从VeryCD上找到Windows、Mac和Linux的Intel C++安装镜象不辞辛苦地下载下来安装。结果让人很沮丧啊。<br />
+　　在Windows 7中，无论编译64位版本还是32位版本，都会编译失败，我怀疑是因为Intel C++用了Visual C++的头文件引起的问题，但是我直接用MSVC2010来编译64位的Qt，虽然也是编译失败，却跟Intel C++报的错误不同，好像C++11标准的问题，在Webkit部分中有类名为nullptr，这个名字在C++11中作为保留字了。也不知道那些用MSVC2010编译成功的是用了什么参数。至于使用MSVC2008的配置，我就没兴趣编译了，因为我不喜欢MSVC2008的SxS。<br />
+　　然后在Mac中编译，32位版本也是编译失败，64位版本编译倒是全部通过了，但貌似make install不完整，那些头文件就没有复制过去，还缺了些什么不知道，反正直接把Qt源代码目录中的include目录复制过去是不能用的。于是也放弃了。<br />
+　　后来么，在Windows上下载了32位和64位的TDM GCC，编译了两个晚上才编译出来，话说那个-nomake "demos examples docs"参数不起作用啊。试了试编译Ninayan 64位，可以运行。<br />
+　　这两天看到Nokia的Qt论坛上有个叫Qt4iOS的人，说他做的Qt for iOS插件就要可以正式发布了，好期待啊。又看到有人说，Necessitas虽然还在Alpha版本，但已经可用性很高了，我看了下，现在居然已经提供4.8.0版本的for Windows/Mac/Linux的SDK了。不过在Mac上安装好后想编译Ninayan才发现，源代码还需要做些修改，比如源代码中通过预定义宏只识别了Windows/Mac/X11/Symbian/Maemon，但是这个Android不知道是什么宏，不知道上哪去查点资料看看。<br />
+　　于是最近还在网上看到的消息，是说Windows Phone的下个版本会支持C++开发，如果这样的话，Qt也会很快就支持WP开发。啊，如果Qt真能用于Android、iOS和Windows Phone的开发，那就太牛逼了。说实话，如果这些port的质量可以的话，只要价格不是太离谱，我应该会买这license去的。</p>

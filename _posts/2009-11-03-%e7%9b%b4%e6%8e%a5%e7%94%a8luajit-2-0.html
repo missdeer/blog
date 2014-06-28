@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "直接用LuaJIT 2.0"
-categories: []
+categories:
+- Lua，Script
 tags: []
 status: publish
 type: post
@@ -10,6 +11,11 @@ meta:
   blogger_blog: missdeer.blogspot.com
   blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
   blogger_permalink: "/2009/11/luajit-20.html"
-author: 
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
 ---
 <p>　　昨天发现LuaJIT2.0跟某些第三方Lua库不正常使用，于是在Lua的maillist上发了个<a href="http://article.gmane.org/gmane.comp.lang.lua.general/58900">邮件</a>问问，结果今天看到Mike Pall的<a href="http://article.gmane.org/gmane.comp.lang.lua.general/58977">回复</a>说是IUP、IM它们的代码里插入了硬编码的已经被编译成字节码的Lua脚本，而这些脚本在IUP中处理时，没有正确处理出错的情况，于是说这个不是LuaJIT的问题，应该向IUP提交这个Bug。<br />　　这让我比较纳闷，因为我不知道到底问题出在哪里，即使要向IUP提交bug，只说一句Mike Pall说的你们的代码有问题，LuaJIT2.0里不能require，而明明官方Lua和LuaJIT1.0是可以正常使用的，人家会睬我吗？<br />　　今天我又发现，在require另外一个叫iupluaim的库时，LuaJIT 2.0会崩溃！于是我想我先看看是LuaJIT中的哪行代码引起的崩溃，用VC2008创建了个解决方案，添加了代码进去，编译出Debug版本的LuaJIT，重现问题，最后发现居然是lj_vm.obj里崩溃的，而这个lj_vm.obj文件是通过一个叫buildvm.exe的程序生成的，所以VC的调试器跟踪不到它的代码里面去，唉，只好放弃了，反正也不能说一定是LuaJIT的问题，或一定是IUP的问题，只有Mike Pall才知道。<br />　　最后，我把直到昨天下午编译出来的众多第三方Lua库都用LuaJIT来require，发现2.0版本中一共有9个dll不能require，而1.0版本只有一个会崩溃。现在想想，这些2.0版本中不能require的dll都是IUP、IM和CD中的，这些库其实我暂时也用不上，IUP可以用wxLua代码，而IM和CD是跟业务基本无关的，就直接用LuaJIT 2.0就行了！</p>

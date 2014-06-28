@@ -1,7 +1,8 @@
 ---
 layout: post
 title: Compile Boost::Regex with ICU by VC7.1
-categories: []
+categories:
+- CPPOOPGPXP
 tags: []
 status: publish
 type: post
@@ -10,6 +11,11 @@ meta:
   blogger_blog: missdeer.blogspot.com
   blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
   blogger_permalink: "/2007/11/compile-boostregex-with-icu-by-vc71.html"
-author: 
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
 ---
 <p>　　Boost中的Regex需要编译后才能使用，这让人觉得有点难过，而且相比Greta，Boost::Regex居然默认是不能直接支持宽字符的，而且有个同事在那里抱着快是10年前的性能比较结果，说Greta比Boost::Regex好，真是让我觉得很不爽啊。<br />　　不过不爽归不爽，有些固有的缺陷我们还是要面对的，就说对宽字符的支持吧。看Boost::Regex的文档，只要有<a href="http://icu-project.org/">ICU</a>的支持，它也是可以的。今天我就下定决心，要用VC7.1编译一个出来。<br />　　首先从ICU的主页下载，有源代码包和几个主流平台的2进制文件包，目前最新的稳定版是3.8，不过3.8版的VC解决方案文件是for VC8的，而且连可以下载的2进制文件都是用VC8的，真郁闷，IBM那帮家伙真是不会做UCD啊！退而求其次，用3.6版的好了，它的解决方案文件就是for VC7.1的，其实我猜直接拿它的编译好的也可以用，不过自己编译的心里舒服。编译ICU很简单，什么错误都不会有，直接通过生成一堆的DLL、EXE和LIB文件分别放在bin和lib目录下。然后可以开始编译Boost::Regex。<br />　　一般说来，编译Boost用Bjam，如果没有Bjam可以直接上网下一个，或者自己拿它的源代码编译一个。然后在命令行下，转到有Jamfile.v2文件的目录下，输入bjam回车就可以了，如果要编译所有的Boost库，则可以出去逛一圈，或者睡个午觉。我这里只编译Regex，不过很遗憾的是，用Bjam直接编译我并没有居功。偶然发现相同目录下还有个vc71.mak文件，打开看看，里面有个ICU_PATH预定义选项，后面写上icu所在的路径即可，它会自动找到下面的bin、lib、include目录，不用担心。然后先运行一下vcvars32.bat，再输入nmake -f vc71.mak回车，它就会生成一堆的dll和lib文件，而且最后还会自作主张地复制到VC的bin和lib目录下去。<br />　　搞定！</p>

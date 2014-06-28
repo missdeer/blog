@@ -1,0 +1,30 @@
+---
+layout: post
+title: Ninayan W.I.P.(24)
+categories:
+- Ninayan
+- SNS
+tags:
+- Ninayan
+- Qt
+- SNS
+status: publish
+type: post
+published: true
+meta: {}
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
+---
+<p>　　实在有点不乐意做Deardawn，心理障碍克服不了啊。<br />
+　　Ninayan今天被小言一说，才发现真的是添加不了账号了，原来是之前一次为了加快启动速度的修改，把其他功能破坏掉了，不但添加不上账号，还一开始不能发布消息，只有在显示过home timeline后才可以。<br />
+　　提取了几个model类，这样的实现比较优雅。<br />
+　　几个singleton在程序退出时都正确销毁了。<br />
+　　把AutoProxy的gfwlist信息配置保存到sqlite数据库里了，可以记录每条规则的enable与否，hit次数。在每次程序退出时刷新这些信息到sqlite数据库里。<br />
+　　给几个本地数据库建了几个索引，这样可以让查询速度加快一点点吧。<br />
+　　由于占用内存比较厉害，在Windows下就用::EmptyWorkingSet每分钟清空一次工作集，其他平台不知道有什么类似的方案。但实际上在Windows下如果窗口最小化时，内存会被一下子回收好多，不知道到底是怎么回事的。<br />
+　　本地数据库读写冲突的问题还没想到比较低成本的解决方案，叹气。<br />
+　　停下来想想，现在已经实现的功能也只是玩玩而已，最有用的应该还是Google Reader支持吧，可惜没找到确认无误的API文档。</p>

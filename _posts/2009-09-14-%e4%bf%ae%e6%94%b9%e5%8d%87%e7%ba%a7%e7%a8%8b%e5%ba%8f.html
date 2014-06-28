@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "修改升级程序"
-categories: []
+categories:
+- About Job
 tags: []
 status: publish
 type: post
@@ -10,6 +11,11 @@ meta:
   blogger_blog: missdeer.blogspot.com
   blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
   blogger_permalink: "/2009/09/blog-post_14.html"
-author: 
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
 ---
 <p>　　今天花了点时间在修改升级程序。这个程序完成后，一直没有进行过有效的测试，而是直接给别人用了，呃，这里的别人指的是部门内的其他有项目升级需求的同事。实际上，至少有3个其他项目中使用了这个升级程序，但我自己却没有真实地体验过。总的说来，这个程序在功能上，基本能满足当前的绝大部分需求，从当初的质量部的地个项目中独立出来后，一次大规模重构，代码结构作了不小的调整，当然这调整的原因是原来的架构已经不能适应后面增加新特性的需求了。<br />　　曾经倒也是规划过一个比较长远的版本计划，呃，也许不能称之为版本计划，称为需求实现计划更合适一些。不过后来还是剩下几条没有实在，因为没有工作量分配过来了。今天的投入则是现在发现，在某些情况下，它会崩溃，这是最不能容忍的致使问题。不过很无奈的是，原来没有使用google breakpad来生成dump文件，现在加入了这功能后，暂时也没能把它弄崩溃，于是也压根不知道问题出在哪里。只能听天由命了！</p>

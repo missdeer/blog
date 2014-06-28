@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "老大一个怪想法"
-categories: []
+categories:
+- About Job
 tags: []
 status: publish
 type: post
@@ -10,6 +11,11 @@ meta:
   blogger_blog: missdeer.blogspot.com
   blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
   blogger_permalink: "/2007/07/blog-post_19.html"
-author: 
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
 ---
 <p>　　老大又提出一个怪想法：为了测试，让原本不支持COM的程序支持COM。在我看来，这是一种非常古怪的想法。而且他一来就说要注入，而我一开始并没有觉得注入能带来多少好处，或者说对于我们现有水平，现在掌握的技术程序来说，注入可能没有多少优势提升。后来经过稍微的讨论，我也认识到，注入可以让有些事情变得更简单一点，比如可以把窗口的消息处理过程都替换掉。但老大只是为了自动化测试，有了COM后通过脚本语言就可以直接调用相关的功能，而这个COM组件其实是个中间代理的角色，它接收脚本的测试操作请求，然后对实际的程序做相应的处理，处理后的结果再由它返回给脚本。而现在的问题是，它怎么对实际的程序做相应的处理，比如点击某个菜单项，比如点击某个工具栏按钮，这个如果是用标准Windows控件的话，或许还好办一点，但也就没有注入的必要了，可如果用的是其它非标准的组件的话，即使注入了，能做更多事情了，也还是很难达到灵活控制外部程序的目的啊！</p>

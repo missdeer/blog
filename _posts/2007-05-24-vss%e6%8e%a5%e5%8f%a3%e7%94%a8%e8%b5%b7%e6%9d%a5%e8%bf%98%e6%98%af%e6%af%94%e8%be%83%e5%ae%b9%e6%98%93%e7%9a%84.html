@@ -1,7 +1,8 @@
 ---
 layout: post
 title: VSS接口用起来还是比较容易的
-categories: []
+categories:
+- About Job
 tags: []
 status: publish
 type: post
@@ -10,6 +11,11 @@ meta:
   blogger_blog: missdeer.blogspot.com
   blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
   blogger_permalink: "/2007/05/vss.html"
-author: 
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
 ---
 <p>　　VSS提供的接口使用起来还是比较容易的，今天大概用了一下，可以把里面的内容都列出来了，估计其它的什么checkin、checkout、get latest version等也不会很复杂吧，不过没找到怎么get某个特定版本的方法，难道是从version的接口中去找？其它时间还是都花到改bug上去了，得好好研究一下需求才行了啊！另外整了一会儿日志部分，把日志输出到一起去了，当然原来的部分还是简单了点，我自己的难用了点，但信息可以多一点。<br />　　又大概看了一下Boost.Log的文档和代码，觉得这个库还是挺不错的，在网上看了<a href="http://lists.boost.org/boost-announce/2005/11/0075.php">maillist上的存档</a>，原来当时是作者自己要求不要被accepted的，因为他觉得这个接口看起来不舒服，他觉得抽空从头再设计一个新的日志库，当时说的可能需要半年或更多时间，现在半年过去了，他果然还没有什么<a href="http://www.torjo.com/">新的东西</a>拿出来。<br />　　我准备自己设计一个日志库，初始目标是完全依赖STL和Boost，先能支持标准C++的输出，和Windows环境下的输出，并针对VC编译器，加入遍历堆栈的特性！然后从<a href="http://www.crystalclearsoftware.com/cgi-bin/boost_wiki/wiki.pl?Boost.Logging">Booost wiki</a>上取一些需求。最好是能不编译就可以使用，而且不依赖那些需要编译后才能使用的Boost库，比如date_time、threads等等。其实做个简单的，花不了多少时间的。<br />　　跟小丫头打了一个多小时电话，小丫头懒洋洋的，真可爱，呵呵。</p>

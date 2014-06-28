@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "奇怪的MinGW"
-categories: []
+categories:
+- Software
 tags: []
 status: publish
 type: post
@@ -10,6 +11,11 @@ meta:
   blogger_blog: missdeer.blogspot.com
   blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
   blogger_permalink: "/2007/01/mingw.html"
-author: 
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
 ---
 <p>　　很早以前就尝试过用MinGW，总是因为遇到奇怪的问题解决不了而马上放弃。写个小程序，它硬是不照着人想的那样来，资料又奇少无比。但再想想，连MAME这么大的工程都能用它来编译，为什么呢！<br />　　配置好了编译环境，整了个makefile，写个小程序，用来生成HTML格式的文件列表的。遇到好多问题，最怪的就是，它生成的程序居然会自动解决命令行参数，比如*.*，它就自动把当前目录下的所有文件名作为参数传进去了，除非用引号包住。开始不知道原因，硬是以为它调用的库函数有bug-_-b<br />　　放弃bjam了，白天看了一下它的文档，跟Boost的耦合太强了，似乎不太适合作为通用的工程管理工具，还是用make算了，文档也多，基本上绝大部分的工作都能完成。</p>

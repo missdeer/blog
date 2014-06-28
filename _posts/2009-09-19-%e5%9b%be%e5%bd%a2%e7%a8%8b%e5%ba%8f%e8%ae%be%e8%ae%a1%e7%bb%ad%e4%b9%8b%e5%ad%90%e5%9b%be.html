@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "图形程序设计续之子图"
-categories: []
+categories:
+- Software
 tags: []
 status: publish
 type: post
@@ -10,6 +11,11 @@ meta:
   blogger_blog: missdeer.blogspot.com
   blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
   blogger_permalink: "/2009/09/blog-post_19.html"
-author: 
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
 ---
 <p>　　这次的需求中提到，能为一个图形关联一个子图，用该子图来描述该图形的内部结构信息。展现给用户的语意是，当双击一个图形时，则展示该图形关联的子图。<br />　　今天投入去实现该特性，基本没有遇到什么阻碍，因为原来的架构设计可以满足这个需要。当初把用户界面视图绘画层，图形管理器，图形对象三部分独立开来实现，所有用户操作都从视图绘画层接受，将操作信息传递给图形管理器，再由图形管理器转发给各个图形对象进行响应。在那之后，我曾经考虑过，这么做是不是有点儿过度设计，这个图形管理器的操作响应转发功能是不是多余的。现在却发现，这样的实现才刚刚好，一个子图，对应一个图形管理器，视图绘画层要始终跟踪当前起作用的图形管理器对象，任何时刻都只跟一个图形管理器进行交互。这样，没花费多少力气，只是增加了创建图形管理器，维护图形对象与图形管理器的对应关系以及销毁图形对象和图形管理器的功能，就可以实现子图功能了。<br />　　在实现这个功能时，有一个小心得，及早加入dump文件捕获功能很有用的，因为即使是开发阶段，也不是每次都在调试器中运行，所以当在自测试时偶然出现的崩溃现象，可以及早通过dump文件进行定位，而且因为是Debug版本，所以通过dump文件分析出的结果往往比较精准和明确。<br />　　除此之外，还发现一个以前没想到的现象，原来MFC中，CDocument类的OnCloseDocument方法，居然会销毁自己，及其派生类对象，如果要做些扫尾功能，放在派生类的OnCloseDocument方法中时，一定要把调用CDocument的OnCloseDocument方法放在最后。</p>

@@ -1,7 +1,8 @@
 ---
 layout: post
 title: LLYF Spy has been transplanted to BDS2006
-categories: []
+categories:
+- Software
 tags: []
 status: publish
 type: post
@@ -10,6 +11,11 @@ meta:
   blogger_blog: missdeer.blogspot.com
   blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
   blogger_permalink: "/2007/01/llyf-spy-has-been-transplanted-to.html"
-author: 
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
 ---
 <p>　　LLYF ToolBox里除了LLYF Spy，其它的都是使用BDS2006来编译的，相比BCB6，2006版本的编译器最明显最直观的改进是编译速度的巨大提升。另外，传说中的VCL改进使得更好的内存管理，导致的更佳的内存占用情况，也是值得升级过来的。另外就是，IDE界面和其它工具的改进，比如debugger，都说明，从BCB6把工程移植到BDS2006是多么应该呀！LLYF Spy一直没移植过来，是因为BDS2006中一直安装Flash的ocx控件没成功，而LLYF Spy中有个Splash窗体，尽管一直都在配置文件中把它屏蔽掉了，但当时是为了演示Flash跟本地应用的集成而添加上去的。昨天下决心去找了一下解决方法，要在BDS2006中添加ocx控件，应该先new一个package，然后再import type library，试了一下果然可以，对于有些函数说连接错误的，就把原型改一下，比如__fastcall改成__stdcall，还有就是加inline，设好obj文件的搜索路径，终于可以编译LLYF Spy了。<br />　　除了移植过去，还试图给嵌入的WebBrowser控件添加XP风格。这点当时我郁闷了很久也没想通，以为整个程序有了XP manifest就应该把它嵌入的WebBrowser也有XP风格。前几天看了一篇文章，才知道，原来是要另外作些处理。要调用InitCommonControlsEx，设置一个标记，再把shell32.dll和explorer.exe装载进来。还有种方法说是改写WebBrowser的接口，返回一个标记就可以，可是我试了不行，不知道是哪里出错了。</p>

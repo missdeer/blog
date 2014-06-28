@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "线程阻塞在连接操作"
-categories: []
+categories:
+- About Job
 tags: []
 status: publish
 type: post
@@ -10,6 +11,11 @@ meta:
   blogger_blog: missdeer.blogspot.com
   blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
   blogger_permalink: "/2009/04/blog-post_21.html"
-author: 
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
 ---
 <p>　　今天终于把升级程序的http下载部分改成多线程下载了，用的WinINet用5个线程同时下载，发现总是会有1到2个线程会阻塞在连接操作上，这是花费时间最多的地方！暂没想到好的办法，先这样了，对于大文件来说，确实能提升不少下载性能。</p>

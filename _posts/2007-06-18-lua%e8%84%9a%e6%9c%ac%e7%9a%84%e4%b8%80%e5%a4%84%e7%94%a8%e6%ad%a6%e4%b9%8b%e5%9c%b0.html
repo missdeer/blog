@@ -1,7 +1,8 @@
 ---
 layout: post
 title: Lua脚本的一处用武之地
-categories: []
+categories:
+- Lua，Script
 tags: []
 status: publish
 type: post
@@ -10,6 +11,11 @@ meta:
   blogger_blog: missdeer.blogspot.com
   blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
   blogger_permalink: "/2007/06/lua.html"
-author: 
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
 ---
 <p>　　今天突然灵光乍现，觉得这个输入法里可以嵌入Lua解释器，用来作些额外处理。当前想到的可以让Lua处理的事务主要是有些零碎的任务，比如将特定的组合字串翻译成另外的候选字串，比如在可以在词库中添加一条记录wygd，对应的五笔应该是“今天”，但在用户词库里多加一条记录对应是%%today，然后在匹配的时候发现%%，就取出后面的today，然后调用名为today的Lua函数，并把组合字串和当前的输入法模式作为参数传递给该函数，函数应该根据实际情况，返回诸如“2007年6月18日”之类的字符串，这样就可以扩展输入法的词库了，而这个词库里的内容是可以根据实际情况自动变化的，并且不需要修改输入法的源代码。不错不错，这是很好的一个使用Lua的场合啊。加入解释器后，Debug模式下ime文件是1MB左右，Release模式下是400KB，也不是很大，用UPX最高级压缩一下，可以减小到200KB左右，呵呵。</p>

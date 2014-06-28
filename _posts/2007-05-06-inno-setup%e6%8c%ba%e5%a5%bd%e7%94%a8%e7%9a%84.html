@@ -1,7 +1,8 @@
 ---
 layout: post
 title: Inno Setup挺好用的
-categories: []
+categories:
+- Software
 tags: []
 status: publish
 type: post
@@ -10,6 +11,11 @@ meta:
   blogger_blog: missdeer.blogspot.com
   blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
   blogger_permalink: "/2007/05/inno-setup.html"
-author: 
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
 ---
 <p>　　Inno Setup真的挺容易用的，小巧轻便，又免费。本来还专门整了个安装输入法的程序，把ime文件复制到系统目录下，再写一下注册表，调用一个API，最后把所有文件用WinRAR打包成自解压文件。其实这样的方案也不是不行，只是觉得自解压的界面丑了点，看起来更业余了点。于是抽空用Inno Setup整了个，ISTool才是其中的大功臣，把本来全部要用代码完成的功能分解到各个GUI窗口中进行设置。它可以完成复制文件，操作注册表，调用简单API等功能，实在太方便了。现在我这个安装程序还可以自动寻找上一次的安装路径，可以根据用户选择写入不同的内容到注册表中，用户体验应该说还是不错的，哈哈。<br />　　生成的安装程序在系统菜单上显示的“关于”选项，会弹出一个版权信息消息框，如果要改这个消息，应该改setup.e32文件中对应的信息。我开始用UltraEdit来改，但改了总是出错，于是把源代码弄来自己编译一个setup.e32，不过有一个问题是，我自己编译的体积要大好多，不知道哪里的问题，而且界面显示上有一点点问题。另外，安装程序文件查看版本的时候，在“备注”一项里，也会有固定的标识，也是可以用改资源的方法处理的，如果有代码的话，先修改一个SetupLdrVersion.rc文件，再编译成res，最后编译一把SetupLdr.e32就行了。在编译Setup.e32时，会要求有RemObjects的Pascal Script控件，下一个装上就行了。最后还有一点是，它居然不能用Delphi7来编译，看代码中的注意说，用小于7的版本，或者9都可以，9应该是2005吧，反正我在2007下面是编译过了的。</p>

@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "修改版Cruise Control"
-categories: []
+categories:
+- Software
 tags: []
 status: publish
 type: post
@@ -10,6 +11,11 @@ meta:
   blogger_blog: missdeer.blogspot.com
   blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
   blogger_permalink: "/2008/07/cruise-control.html"
-author: 
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
 ---
 <p>　　好不容易等到可以公开获取的修改版Cruise Control，装上来试了试，问题多多啊，还没有文档，这才是让人郁闷的，现在的我已经越来越习惯看文档行事了。<br />　　这个修改版的Cruise Control有一个好处是，集成了多种工具，比如代码行统计、代码风格检视、代码静态检查、代码复杂度度量、重复代码检查等等，如果光是执行一遍这些工具，用官方发布的Cruise Control也可以做到，只不过这个修改版可以对每种工具的运行结果生成一个xml格式报告，最后将这个报告merge到Cruise Control的log里去，然后又扩展了对log的解析，可以以统一的报表格式查看各种工具的运行结果。<br />　　但是这个Cruise Control集成的这些工具运行得并不稳定，首先代码行统计的好像没一次正常运行的，总是阻塞在那里，要手动杀掉进程才行，然后是复杂度度量的生成的日志因为太大，然后merge的时候老是有问题，还有就是这个改过后的Cruise Control不时地会出现运行不下去的情况，真是郁闷，当然最不爽的还数没有完整的文档，我发邮件给该项目的接口人，结果回了个邮件说还在某些产品线试用，等试点结束后让我去问各产品线的负责人，靠！</p>

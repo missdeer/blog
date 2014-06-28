@@ -1,14 +1,20 @@
 ---
 layout: post
 title: "升级到VS2010"
-categories: []
+categories:
+- CodingStudio
 tags: []
 status: publish
 type: post
 published: true
 meta:
-  quiz: s:36:"a:2:{s:1:"q";s:0:"";s:1:"a";s:0:"";}";
-author: 
+  quiz: a:2:{s:1:"q";s:0:"";s:1:"a";s:0:"";}
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
 ---
 <p>　　昨天晚上从微软官网下载了VS2010，今天上午装了后，试着把原本用VS2008编译的各个第三方库都用VS2010编译了一遍。用VS2010替换VS2008比较明显的一点好处是，没有Side by Side的困扰了，CRT库只要把两个DLL文件直接放到系统目录中就可以了。也就是说，开发好的应用程序部署要轻便了一点，不用带个VC Redist包出去了。在这一步中，不得不多谢bjam这个工具，对于换用不同的编译器的需求，适应得绰绰有余。<br />
 　　晚上又尝试把所有插件扩展脚本中用到Xerces的地方都用RapidXML了，这样又可以去掉一个DLL了，想当初一个用MinGW编译的Xerces的DLL就有4MB多，然后是一个Lua的扩展库，几百KB，前些天在宿主程序中去掉了Xerces的依赖后，换用VC编译的DLL，体积减小到1.8MB，而Lua的扩展库也减少到40KB。到了今天，可以把这个1.8MB的DLL也省了。<br />

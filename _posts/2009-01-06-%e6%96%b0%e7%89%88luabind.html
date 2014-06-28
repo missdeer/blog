@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "新版luabind"
-categories: []
+categories:
+- Lua，Script
 tags: []
 status: publish
 type: post
@@ -10,6 +11,11 @@ meta:
   blogger_blog: missdeer.blogspot.com
   blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
   blogger_permalink: "/2009/01/luabind.html"
-author: 
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
 ---
 <p>　　今天偶然看了一下luabind的官方网站，发现1月4日时有0.8版出来了，让我有点惊喜，想想上个版本0.7，是2006年1月时放出的，沉寂了20个月，2008年10月才有0.7.1。中间这漫长的近两年时间，让我都以为这个项目太监了呢。<br />　　兴匆匆地把代码下载下来。印象中，网上有人说过luabind不需要事先编译，直接把源代码加入到工程中一起编译就能用。不过我这次还是想试试把它编译成单独一个库。看到0.8只有一个Jamroot，设置好LUA_PATH和BOOST_ROOT，把bjam.exe复制过来试了几次，说找不到什么文件或者目标，晕，对bjam可是一点都不了解，也不知道从何下手。从网上看到有人说luabind只能用VC7编译，我诧异了，还是想试试MinGW的编译。直接自己输命令行g++来编译，只要设置好lua和boost的包含路径，是可以编译的，每一个.cpp文件都能编译通过。最后从0.7里提取出makefile来，这个makefile也有点问题，编译命令行参数要改一下，主要是包含路径，然后就可以用MinGW编译生成一个libluabind.a了。<br />　　这下好了，苦恼了很久的怎么让Lua脚本使用C++对象的问题应该很容易解决了。至于MDI中多个视图的问题，简单点，就每次都把当前激活窗口的视图指针传给脚本，稍微麻烦一点的，用C++写个方法来获取想要的视图指针，返回给脚本使用。昨天研究了wxScintilla.h文件，直接用SWIG就可以生成一堆胶水代码，不过还没有试过能不能正常使用，想来应该没什么问题，对SWIG的好感不是一天两天了，哈哈。</p>

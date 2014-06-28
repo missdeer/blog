@@ -1,0 +1,25 @@
+---
+layout: post
+title: "从滑动手势谈到Qt"
+categories:
+- QT
+tags:
+- Nokia
+- Qt
+status: publish
+type: post
+published: true
+meta: {}
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
+---
+<p>　　N9作为Nokia推出的唯一一部装载MeeGo系统的手机，主打宣传的是其滑动手势。<br />
+　　滑动手势在其他触摸屏设备上已经有所应用，各种移动操作系统也对其有一定的支持，但在N9上作为主推特性的滑动手势主要是基于Qt这个跨平台的开发框架实现的，因为从实现角度讲，N9装载的MeeGo系统的UI都是建立在Qt的基础之上的。<br />
+　　Qt自从被Nokia收购后，一直致力于在移动设备上的移植工作，尤其是对Symbian的支持越来越多。而MeeGo这个原本由Nokia和Intel合作开发的项目，同样做了很多跟Qt适配的工作。<br />
+　　Qt做了很多为方便实现触摸操作响应的工作，特别是后来推出的Qt Quick，彻底地让UI和业务逻辑分享。美工可以只使用非常简单的脱胎于JavaScript的声明式语言QML来构建UI，而程序员则可以专注于使用C++或JavaScript实现底层的业务逻辑。Nokia为QML提供了非常丰富的UI元素，还为Symbian系统特地实现了一组扩展的UI控件，这已经可以实现绝大多数的UI需求，各种UI元素又可以随意组合从而构建出更加复杂的应用。而且Qt还提供了多种QML与C++交互的机制，如果QML内建的UI元素不能满足实际需求，程序员可以用C++实现复杂的UI，而Qt本身又有基于CSS style sheet的UI方案和Graphics View的方案，这都让开发人员可以快速地制作出炫目的UI来。另外值得一提的是，基本上可见的QML UI元素，都为触摸操作甚至滑动手势提供了一定的支持，这从QML自带的Demo就可以看出来，不但需要的代码量非常少，而且做出的UI效果却非常时尚。<br />
+　　可以这么说，Qt推出Qt Quick这个方案，代表了应用程序开发的一个方向，快速制作精美UI的方向。基本上所有大的开发框架/解决方案都采用了类似的技术，比如微软的WPF，Mozilla的XUL，甚至Qt在开源界的长期竞争对手Gtk+也有类似的方案，即用简单的标记式、声明式的语言构建UI，减少美工们的学习负担和工作量，而使用其他功能强大、便于操控底层的语言实现业务逻辑。相比其他几个竞争对手，整体而言Qt的优势在于跨平台性好，配套的开发工具也一直在进步。但是它必然也有些缺点，比如一直以来Qt的运行效率不高，虽然Nokia收购后这在方面做了大量的努力；前不久Qt又回归了社区，Nokia成为了一个普通的贡献者，这也许会带来发展方向模糊，进度缓慢的问题，比如一直由开源社区在开发的Qt for Android的port，一年多了仍然没能正式发布。<br />
+　　总的说来，Qt是一个构建Windows、Linux、Mac OS X以及Symbian、MeeGo应用的低成本、高效率的解决方案。如果基于lighthouse机制的Android和iOS移植能尽快正式发布，那在普通消费型电子产品平台上，就真的如它的宣传语所说的Code Less, Create More, Deploy Everywhere了！</p>

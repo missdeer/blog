@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "研究了半天SMTP发送HTML"
-categories: []
+categories:
+- Software
 tags: []
 status: publish
 type: post
@@ -10,6 +11,11 @@ meta:
   blogger_blog: missdeer.blogspot.com
   blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
   blogger_permalink: "/2009/03/smtphtml.html"
-author: 
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
 ---
 <p>　　主要的内容生成功能基本完成90%了，于是就研究一下怎么把这html内容通过SMTP发送出去。原来有一个从CodeProject上找的SMTP类，直接用WinSock写的，倒是也可以正常工作，接口也很简单，而且当时沾沾自喜经过自己修改，是可以支持中文的，其实是自己土了。现在只是想把这个类再修改一下，可以直接发送html内容，不过看起来似乎有点儿复杂。<br />　　用Outlook Express发了几个邮件，用Wireshark抓来看了看，看得云里雾里。后来找到另外一个示例程序，有源代码，也可以发送html，用Wireshark看了看，发现差别还真大。最后看到一个说明里提到，RFC2110里就是讲这个的，于是马上找来瞄了几眼，终于有点儿理解了。原来Outlook Express在一封邮件里包含了2封邮件的内容，分别是html和plain text的，这样无论对方的客户端能不能支持html阅读，都可以方便地看到真正的邮件内容，当然html中的链接嵌入对象除外。</p>

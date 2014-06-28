@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "我晕std::locale"
-categories: []
+categories:
+- CPPOOPGPXP
 tags: []
 status: publish
 type: post
@@ -10,6 +11,11 @@ meta:
   blogger_blog: missdeer.blogspot.com
   blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
   blogger_permalink: "/2009/06/stdlocale.html"
-author: 
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
 ---
 <p>　　今天一个同事突然发邮件来说我的升级程序在生成文件列表时，给数字都以3个数字一段都加上了逗号，我狂晕！拿自己的debug代码试了试，发现果然如同事所言，看来是确定代码写得有问题了！<br />　　单步跟踪，最后发现我在把数字转换成字符串时，用了std::stringstream类的流输入方法，就变成那种样子了，稍微想了一下就明白过来了，以前一直都是没有逗号的，后来有过修改的地方也就是当时用ofstream写文件时，为了能支持中文的路径和文件名，在程序启动时调用了一句std::locale::global(std::locale(""));后来就有了这个问题。我狂分特啊，跟另外一个同事分享这个经验时，他还问我为什么不用boost::lexical_cast呢，其实据说boost::lexical_cast内部也是用的std::stringstream来转换的，哈哈！</p>

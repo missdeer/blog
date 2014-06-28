@@ -1,7 +1,8 @@
 ---
 layout: post
 title: Side by Side Again
-categories: []
+categories:
+- Software
 tags: []
 status: publish
 type: post
@@ -10,6 +11,11 @@ meta:
   blogger_blog: missdeer.blogspot.com
   blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
   blogger_permalink: "/2008/06/side-by-side-again.html"
-author: 
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
 ---
 <p>　　昨天随口给一个同事讲了一下怎么部署用VC2005生成的应用程序，才能解决因为先进的Side by Side技术引起的应用程序配置问题。其实我自己也是半生不熟，没有掌握到真正的精髓。今天那个同事就给我打电话，说还是没有解决这个问题。于是我就亲自出马，上午搞了半个小时，还是没搞定。于是看我原来用VC2008写的WallpaperHelper怎么弄的，以及人家的Edraw是怎么弄的。一点一点凑，最后发现那个么临界点，只要先到VC安装目录下有个redist目录，里面能找到发布用的dll和配套的manifest文件，复制出来，然后把manifest中的内容复制出来，自己填写一个新的manifest文件，作为RT_MANIFEST类型添加到exe的资源中，这样就基本解决了。而且从中看到，manifest中的版本号可能比dll的实际版本号要低，但是没关系，反而如果自己强行把manifest中的版本号改了，程序反而不能正常运行，反正照着redist目录里的那样填就行了。</p>

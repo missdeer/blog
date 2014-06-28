@@ -1,7 +1,8 @@
 ---
 layout: post
 title: MSXML删除节点
-categories: []
+categories:
+- Software
 tags: []
 status: publish
 type: post
@@ -10,6 +11,11 @@ meta:
   blogger_blog: missdeer.blogspot.com
   blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
   blogger_permalink: "/2008/12/msxml.html"
-author: 
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
 ---
 <p>　　昨天遇到一个问题，用MSXML操作XML时，删除一个子节点，可是死活删不掉。后来想到一个变通的办法，把这个子节点的标志性属性值改掉，这样其他处理过程就认不出这个节点了，就相当于删除了，很黄很暴力。<br />　　今天再去定位这个问题时，发现原来那子节点真的被删掉了。进一点试验发现，只要在删除该子节点前，先随便改一下这个子节点的一个属性值，下面的删除操作就正常了，但如果没有那个修改操作，就删不掉，真是怪事！<br />　　我当时还以为是不是因为子节点下面还有其他孙子节点，还想是不是要修改一下删除子节点的封装方法，递归地删除掉所有子孙节点呢！看来不必了！</p>

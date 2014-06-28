@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "这东东还有得做了"
-categories: []
+categories:
+- About Job
 tags: []
 status: publish
 type: post
@@ -10,6 +11,11 @@ meta:
   blogger_blog: missdeer.blogspot.com
   blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
   blogger_permalink: "/2008/01/blog-post_04.html"
-author: 
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
 ---
 <p>　　本来老大说要跟大boss去说先放缓其中一个需求的实现，结果看样子好像他也说不过，于是来跟我说要再好好讨论一下之后怎么做。下午，晚上，老大断断续续地提到过几次，都是关于那个需求的实现问题。原来的设计方案是完全行不通了的，还说下午大boss打电话给他，大boss自己在那里想了一个下午，关于工具的好多想法。把我们老大有点吓到了，一个二级部门主管，亲自过问一个工具的设计、实现细节，由此可见其重视程度，反过来讲，他是不是工作量不饱满啊，哈哈。<br />　　老大后来说了句，看来要自己做一个流程文件编辑器了。这是我从这个项目开始，就已经预见到的结果，似乎还隐隐地有点儿兴奋。不过我的想法跟老大的不一样，组里有一个三人组，对这方面技术的喜好几乎一样，认知程度也似乎很相近和类似，也就是绕着ATL、COM转，偏执地认为COM几乎可解决一切问题，什么东西都要跟COM挂上钩。这次的事情要跟COM搭上边，就是老大认为MS Office里有个Graph组件，所有的Office中的画图功能都是用它来实现的，鉴于Office中COM接口暴露得一直比较多，于是老大觉得这个Graph肯定可以通过COM来调用，为我所用，一旦研究成功，以后其它地方也是大有用武之地的。<br />　　但是在我看来，与其花时间去研究那些COM接口，似乎根本就没有任何可参考的资料，还不如研究一下图形学呢。相比之下，最大的难点在于线条的绘制，线条可以是直线、曲线，还可以有方向和端点，可以根据两端的节点移动位置而自动伸缩和旋转。研究那些COM接口，可能需要的精力和时间都不比研究图形学少，而且后者是一种通用的技术，一次学会，到处可以用，换一种平台也可以用，比如从Windows切换到Unix-like的系统，或者要在以OpenGL、DirectX之类实现的地方用，Graph那套东西就废了。<br />　　再次抱怨一下，过度的偏好，影响了客观评价能力。</p>

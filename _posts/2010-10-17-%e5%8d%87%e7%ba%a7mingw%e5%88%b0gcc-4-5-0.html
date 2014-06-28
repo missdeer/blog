@@ -1,14 +1,20 @@
 ---
 layout: post
 title: "升级MinGW到GCC 4.5.0"
-categories: []
+categories:
+- CPPOOPGPXP
 tags: []
 status: publish
 type: post
 published: true
 meta:
-  quiz: s:36:"a:2:{s:1:"q";s:0:"";s:1:"a";s:0:"";}";
-author: 
+  quiz: a:2:{s:1:"q";s:0:"";s:1:"a";s:0:"";}
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
 ---
 <p>　　一直用GCC 4.4.0，之前也尝试过将sf.net上MinGW的各个包下载下来后解压覆盖到4.5.0，但最后编译我的工程时总是std::basic_string什么的一些libstdc++-6中的一些符号链接有问题，于是就搁置下来了。<br />
 　　今天偶然到了mamedev.org上看了看，发现它用的是4.4.3，于是想试试，后来干脆又去sf.net上找官方MinGW的文件来看，居然发现一个叫MinGW-Get的在线安装程序。MinGW很喜欢提供在线安装工具，而很少提供打包好的整体的解决方案，这是让我觉得很困惑的一件事，它的在线安装工具下载速度一直以来实在不能恭维。今天试了一下MinGW-Get，下载速度还能忍受，不过第一次仍然有好几个包下载失败，又装了第二次，才把所有选中的包都下载来了。然后把新下载的文件都覆盖到原来4.4.0的目录中，开始编译测试。<br />

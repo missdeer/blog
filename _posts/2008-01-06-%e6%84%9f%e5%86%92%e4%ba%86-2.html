@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "感冒了"
-categories: []
+categories:
+- Software
 tags: []
 status: publish
 type: post
@@ -10,6 +11,11 @@ meta:
   blogger_blog: missdeer.blogspot.com
   blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
   blogger_permalink: "/2008/01/blog-post_06.html"
-author: 
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
 ---
 <p>　　昨天感冒就比较严重了，流鼻涕不说，连嗓音都变了。人也有点昏昏沉沉的，不想干活。<br />　　无所事事了快一天，下午的时候终于下决心用VBA在Excel中写个宏，可以在工具栏上添加个按钮，点击这个按钮，可以把当前sheet中的内容导出成xml格式。这是那工具的一部分，因为要维护一个人员组织结构关系数据，我当初为了实现方便简单起见，就用xml格式来表现，因为xml本来就是一个树型的结构，跟我需要的完全一致。可是后来马上就引发出另一个需求，这个xml文件需要有人维护，而如果从头开始完全手工维护则太麻烦，于是就需要有个工具，能够从另外的地方得到数据，最后生成目标xml文件。<br />　　这件事本来一直搁置在一边没管，最近因为工具已经给几位老大演示了，于是让我感觉似乎这个应该花点时间先弄一下了。我们公司特别喜欢用Excel来存储和传递数据，所以很理所当然的，这个原始数据也是放在Excel中的。于是我先是犹豫了一阵子，这个工作是用VBA写好呢，还是用VC写好呢。如果是以前，我肯定不加思索地直接硬着头皮地用VBA写了，因为不懂如何用VC操作Excel，现在不一样了，哈哈，于是再一次印证，没有选择也是一种幸福呢！<br />　　开始前天的时候用VBA写了一会儿，发现很不习惯，有点想放弃了，到时候用VC随手写一个算了。昨天下午还是决定继续用VBA写，简单定了些限制和规则，可以直接按组织层次结构生成xml格式的文件了。后来又通过Lotus Notes的COM接口，通过工号查询到该用户的域账号。<br />　　基本完成，哈哈！剩下的就是主程序在启动时，装入这个数据前，需要能自动从网上升级。另外还要做的是，要hook掉NtOpenProcess，这样一般通过Windows的任务管理器就不能杀掉我的进程了，而同时在托盘右键菜单中加入一个退出功能，退出前会要求输入验证码，现在我把这个验证码设计为当前登录域账号的SHA512值，但我想，这个算法应该能自动切换，不同的时间自动使用不同的算法，这样就用户就可能很难猜出用什么了。</p>

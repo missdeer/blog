@@ -1,0 +1,23 @@
+---
+layout: post
+title: "遇到件奇怪的事"
+categories:
+- WIND
+tags:
+- core dump
+- windbg
+status: publish
+type: post
+published: true
+meta: {}
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
+---
+<p>　　今天终于从服务器上找到几个没因为too old而被删掉的core dump文件，于是祭出WinDBG进行分析。<br />
+　　最大的障碍还是对WinDBG不熟，以及对常用的分析方法不了解。<br />
+　　不过发现一个奇怪的事情。程序是在Win API里崩溃的，该API接受两个字符串作为参数，所以一般说来我们可以认为是作为参数的字符串有问题。通过call stack终于找到最早的这两个字符串的出生地，是两个std::wstring，被const_cast<TCHAR*>强行对.c_str()的返回值进行转换然后传递出去。所以说，如果call stack没有问题的话，应该是这std::wstring对象的问题了。因为从dump文件中看到TCHAR*的值确实是指向一个不知道什么地方的地方，反正dd是看不出来的，于是dt -r查看这两个std::wstring对象，发现其中的其中的ptr域确实就是指向不知道什么地方去了。好了，奇怪的事情被我发现了，这个函数里，有两个std::wstring对象占用的是同一个内存地址！一开始我的直觉是这不可能，难道是dump文件的问题，或者是release buiding优化后就读不到正确的内容了？我看了一下代码，发现这两个对象是存在于不同的scope中的，有不同的生命周期，嗯，这是从C++对象模型的角度的说法，但实际上编译器会怎么实现，我是一点都没头绪的。我跟老大说了一下，他也认为是dump文件的问题，然后我打开第二个core dump文件，发现了同样的问题。于是虽然老大仍然坚持他的意见，我已经有点动摇了。<br />
+　　好奇怪呀呀呀！</p>

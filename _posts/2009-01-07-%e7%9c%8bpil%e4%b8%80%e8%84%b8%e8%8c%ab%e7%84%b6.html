@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "看PIL一脸茫然"
-categories: []
+categories:
+- Lua，Script
 tags: []
 status: publish
 type: post
@@ -10,6 +11,11 @@ meta:
   blogger_blog: missdeer.blogspot.com
   blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
   blogger_permalink: "/2009/01/pil.html"
-author: 
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
 ---
 <p>　　今天没干什么事，看PIL去了，结果一脸茫然。昨天兴奋地以为用luabind就能把那些问题都解决了，实际上高兴得早了点，而且我也想偷懒到极致，用SWIG生成胶水代码后，再在C++和Lua中进行无差别地使用对象。我现在的应用场景是，在C++中创建了对象，如何在需要的时候，调用Lua脚本的某个函数时，在那函数中能方便地访问到那个对象进行操作。看LuaTinker是可以把C++对象直接映射到Lua脚本的某个全局变量中去，不过我感觉使用全局变量不太好，而且是C++在主动做事。我希望的是这样一种形式，C++在调用Lua函数时，把该对象的指针作为参数传递过去，Lua函数能根据这个参数取得实际的对象，进行操作。在网上又看了些文章，感觉这应该是一种很常用的用法才对，也不知道别人是怎么用的。<br />　　初步的想法是C++创建对象时，用lua的newuserdata来分配空间，在这空间内进行创建。然后有了个地址，即指针，把这对指针和数据保存起来，可能用得到设施有registry和weak table，还有lightuserdata这种东西，但具体怎么用，还没搞明白。看PIL云里雾里，还是得写些代码实验一下。</p>

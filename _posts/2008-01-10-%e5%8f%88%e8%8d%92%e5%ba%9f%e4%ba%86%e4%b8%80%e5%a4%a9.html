@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "又荒废了一天"
-categories: []
+categories:
+- About Job
 tags: []
 status: publish
 type: post
@@ -10,6 +11,11 @@ meta:
   blogger_blog: missdeer.blogspot.com
   blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
   blogger_permalink: "/2008/01/blog-post_10.html"
-author: 
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
 ---
 <p>　　今天只是加了隐藏进程的特性。这是一段从CodeProject上找的代码，原理很简单，就是hook掉NtQuerySystemInformation。代码直接就可以编译通过，不过实际上使用的时候，发现好像只能在系统自带的任务管理器上有效果，连我自己写的那个ProcessHelper都逃不过，晕死。本来还想hook掉OpenProcess或NtOpenProcess的，不过不会弄，郁闷，先就暂时这么着吧。<br />　　今天又发现另外一个问题，程序在退出时需要很长时间，都过了MainFrame的OnClose了，进程会占满CPU近1分钟，都不知道在干什么。难道是那几个线程？以前一直都没问题的啊。而且程序启动得也是越来越慢了，想想也是会慢的，起来的时候，会连接远程数据库，打开本地数据库，打开一个UDP端口监听，起n个线程分别监视n个硬盘分区的文件系统变化，现在又多了hook API，还有Xtreme Toolkit Pro这套界面库会作不少操作，比如画出界面，又要初始化界面语言！要做的事情还真多，不慢才怪呢，比那Impeller都慢了，而且整个解决方案中已经有6个工程了，虽然有1个是原本设计的现在已经被废弃掉的服务器端，另外5个分别是客户端、Shell扩展、进程隐藏的hook用dll、远程数据库操作的COM组件，以及自动升级程序。<br />　　突然想找几本讲MFC的书看看，跑去公司图书馆一看，居然在关门整顿，白跑一趟。其实也就是想看看有什么讲画图方面的内容，这两天这样闲散下来，可以慢慢做些技术预研，呵呵，说得也太好听了点，哪需要什么预研啊，就是卷起袖子，一边试一边翻资料呗！说不定，过年前真的可以做出来哦，感觉这东东其实没多少内容，也许一个星期就能做出个粗糙的原型出来呢。只是没有上头的支持，我自己又不感拍胸脯，况且即使做了，也未必会被说好，唉，算了，走一步算一步吧。</p>

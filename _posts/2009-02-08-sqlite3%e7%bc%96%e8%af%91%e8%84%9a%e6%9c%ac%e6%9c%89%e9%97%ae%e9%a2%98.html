@@ -1,7 +1,8 @@
 ---
 layout: post
 title: sqlite3编译脚本有问题
-categories: []
+categories:
+- Software
 tags: []
 status: publish
 type: post
@@ -10,6 +11,11 @@ meta:
   blogger_blog: missdeer.blogspot.com
   blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
   blogger_permalink: "/2009/02/sqlite3.html"
-author: 
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
 ---
 <p>　　这两天才发现，用msys运行configure生成的makefile是直接编译链接有问题的，最后链接的时候总是报找不到一个什么sqlite3Backup函数。今天在源代码文件中查找了一下，发现这个函数是在backup.c文件中定义了的，所以代码有问题的可能性不大。于是看了一下生成的makefile文件，赫然发现没有编译backup.c的动作，加上后，再make一把，果然通过了。<br />　　看来sqlite3的configure脚本没有跟着更新啊！</p>

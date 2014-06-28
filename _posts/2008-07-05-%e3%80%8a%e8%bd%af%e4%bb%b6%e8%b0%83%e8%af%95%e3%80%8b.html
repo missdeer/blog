@@ -1,7 +1,9 @@
 ---
 layout: post
 title: "《软件调试》"
-categories: []
+categories:
+- Reading
+- WIND
 tags: []
 status: publish
 type: post
@@ -10,6 +12,11 @@ meta:
   blogger_blog: missdeer.blogspot.com
   blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
   blogger_permalink: "/2008/07/blog-post.html"
-author: 
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
 ---
 <p>　　从china-pub上买了本<a href="http://www.china-pub.com/39884">《软件调试》</a>，厚达1000多页的大砖头。开始拿到的前面有8页是空白，到china-pub上去说了一下，该书的责任编辑通过email跟我协商，最后又快递了一本正常的过来，我再把有问题的那本快递给她，如此服务质量，也让人称心满意了。<br />　　难得原作者用中文写成，这样就可以让我们中文读者第一时间可以读到如此重量级如此深度的精品专著。<br />　　该书从CPU（Intel x86系）对软件调试的支持、操作系统（Windows）对软件调试的支持、编译器（MS VC）对软件调试的支持三大方面进行了讲述，中间结合VC、WinDbg等实例进行讲解。<br />　　昨天晚上躺在床上，快速地浏览了一遍，让我深深感叹Windows，噢不，应该是微软的强大。微软从操作系统到开发工具，都为软件调试支持了极其强劲而且方便的支持，窥斑见豹，微软做软件是多么认真，多么负责，微软帝国的崛起除了机遇外，其自身实力和不懈努力是起主要作用的。<br />　　翻完这本书，我禁不住想自己写一个应用层的调试器，像OllyDbg那样的。粗略想一下，一个调试器需要具有的最基本的功能：反汇编、CPU寄存器读写、内存读写、单步、断点，以及跟系统相关性比较大的装载模块、内存映射、符号信息读取。这些在Windows上绝大部分都有现成的API可以完成了，除了反汇编比较麻烦点（看看IDA Pro做成什么样了，当然动态调试器是不需要这么复杂的），其他的至少从原理上看，是很简单的，困难的是细节。<br />　　嗯，WIND Is Not Debuggger……</p>

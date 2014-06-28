@@ -1,0 +1,26 @@
+---
+layout: post
+title: Ninayan W.I.P.(22)
+categories:
+- Ninayan
+- SNS
+tags:
+- Ninayan
+- Qt
+- SNS
+status: publish
+type: post
+published: true
+meta: {}
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
+---
+<p>　　首先一件很郁闷的事，貌似域名被墙了，直接用IP是可以打开本blog的，但是我暂时又不想去折腾这些了，先这么放着吧，问候下方校长18代祖宗及全体女性家属。<br />
+　　Ninayan最近动作倒是不大了，主要是先打了<a href="http://tinyurl.com/ninayanformac">Mac</a>，<a href="http://tinyurl.com/ninayanforwin32">Win32</a>和<a href="http://tinyurl.com/ninayanforlinux">Linux</a>的安装包给几个人试用了一下，结果反响很差，有点失落，难道真的定位有问题？<br />
+　　不过说起来，Ninayan现在也只是个雏形，真正的主要的理念需要的特性并没有实现，现在也只是把图片，视频和文章链接单独提取出来可以独立浏览而已，并没有做进一步的工作，比如要能打tag，可以检索，自动语义过滤，优先级排序等等。其次是RSS聚合也没做，Google Reader没实现，UI缺少专业的美工设计等等，总之可以做的工作还有很多很多。<br />
+　　另外，今天勉强让Ninayan在我的Nokia 5230上运行起来了，解决了不少问题，但最终还是由于报内存不足而自动退出。为了让Ninayan可以在5230上运行，遇到了不少问题。首先是开发环境的建立，我用的是Qt SDK 1.1 beta，这个SDK用的是Qt 4.7.2，但有bug，for S60v5的配置文件使用了for Symbian^3的配置，所以编译工程的时候会出错，要自己在工程的.pro里把opengl的配置去掉。其次是部署时，要安装Qt，还要单独安装sqlite，据说以前版本是合在一个安装包里的。最后是这两天一直在纠结的问题，运行后在TextInput获取输入焦点后，虚拟键盘没有显示出来，在Nokia的论坛和Stackoverflow上问，都没人回复，今天偶然想起qDou，试了下它在5230上至少是可以输入文字的，虽然之后会崩溃，于是发邮件问了一下作者，作者给了个网址，原来是我在TextInput控件一起放了个兄弟控件MouseArea，于是TextInput没能收到点击事件，于是虚拟键盘不会自动显示，只要自己强制调用它的openSoftwareInputPanel方法就可以了。<br />
+　　至于最后的自动退出，从现象结合网上的人们的讨论来看，似乎是因为同时请求的网络连接太多，以及内存占用过多引起的。叹气，桌面程序写惯了，散漫惯了，都不怎么注意内存的使用了，反而经常采取以空间换时间的策略，看来如果真要让Ninayan能在手机上正常跑起来的话，还得好好重新设计一下，把各种请求都放进队列里，不要一下并发几十个连接，其他的内存使用策略也得仔细看看，有点想看看侯捷翻译的那本讲内存受限系统的程序开发的书了。</p>

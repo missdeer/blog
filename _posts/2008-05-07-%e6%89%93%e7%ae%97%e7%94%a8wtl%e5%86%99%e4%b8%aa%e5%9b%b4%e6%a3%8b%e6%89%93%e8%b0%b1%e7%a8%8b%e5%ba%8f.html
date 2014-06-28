@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "打算用WTL写个围棋打谱程序"
-categories: []
+categories:
+- Shareware
 tags: []
 status: publish
 type: post
@@ -10,6 +11,11 @@ meta:
   blogger_blog: missdeer.blogspot.com
   blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
   blogger_permalink: "/2008/05/wtl.html"
-author: 
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
 ---
 <p>　　写个围棋打谱程序，这个想法好多好多年前就有了，上高中的时候就有了。大概是因为当时对围棋有点点感兴趣，纯粹的叶公好龙型的，虽说感兴趣，却没有认真学过，只是知道大致的规则而已。这些年，看<a href="http://www.stonebase.cn/stonebase/chs/index.html">StoneBase</a>的发展，觉得挺有趣的，不过它的实现不是我喜欢的方式，所以我突然又决定自己写一个，而且想了想打算用WTL来写。<br />　　开始是有点犹豫用MFC还是WTL的，因为MFC相对较熟悉一点，而且有Xtreme Toolkit Pro可以用，做炫酷的界面确实方便。但是后来想想用WTL就看中它生成的可执行文件体积小巧的优点，看看<a href="http://www.stonebase.cn/stonebase/chs/index.html">StoneBase</a>当前最新的4.6.1版本，exe文件也就只有8.24MB，而假如用XTP的话，当是它的dll就有5.5MB，还要加上MFC的dll，大概是3.6MB，这样附属的文件体积就已经超过<a href="http://www.stonebase.cn/stonebase/chs/index.html">StoneBase</a>主程序文件大小了。还有一个想法是，希望能借此机会好好学习一下WTL的使用。<br />　　至于要做得什么样的，从特性外部行为上看，可以模仿<a href="http://www.stonebase.cn/stonebase/chs/index.html">StoneBase</a>和<a href="http://www.ruijiang.com/multigo/chs/">MultiGo</a>。比如首先要能支持几种国内常见的棋谱文件格式，还要支持棋谱库，<a href="http://www.ruijiang.com/multigo/chs/">MultiGo</a>没有，<a href="http://www.stonebase.cn/stonebase/chs/index.html">StoneBase</a> 用了一个叫<a href="http://www.componentace.com/bde_replacement_database_delphi_absolute_database.htm">Absolute Database</a>的嵌入式数据库，我猜大概因为<a href="http://www.stonebase.cn/stonebase/chs/index.html">StoneBase</a>是用Delphi开发的缘故吧。我可以用SQLite来替代的，不过<a href="http://www.stonebase.cn/stonebase/chs/index.html">StoneBase</a>有一个很庞大的棋谱库，所以也需要能以某种方式读取它的数据库。需要有良好的打印支持功能，肯定很多情况下，需要把棋谱打印出来，对着纸自己敲棋子，那种感观享受不是电脑程序能比的。要有方便的棋谱输入编辑功能，要有格式转换功能等等。<br />　　具体实现上，我想尝试一下纯插件框架，也即用C++实现一组核心的功能，其他高层的业务逻辑全都使用外部脚本扩展实现。这种框架有点像Eclipse，又有点像Mozilla的XUL方案，要扩展的地方包括主菜单、工具栏、弹出式右键菜单、棋谱格式读写等。</p>

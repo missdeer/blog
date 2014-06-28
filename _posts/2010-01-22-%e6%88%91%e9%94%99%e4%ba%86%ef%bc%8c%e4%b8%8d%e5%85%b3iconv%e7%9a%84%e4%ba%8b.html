@@ -1,13 +1,19 @@
 ---
 layout: post
 title: "我错了，不关iconv的事"
-categories: []
+categories:
+- CodingStudio
 tags: []
 status: publish
 type: post
 published: true
 meta: {}
-author: 
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
 ---
 <p>　　前面提到iconv转换编码搞得wxWidgets写成的程序在Scintilla刷新时崩溃，还以为是iconv引起的问题，于是决定使用ICU。<br />
 　　嗯，结果我错了，用ICU仍然有问题，有相同的问题，尽管我已经把这部分代码放到Lua中执行，对嵌入的Lua解释器，调用ICU4Lua，再调用ICU，仍然是Scintilla直接断言失败，然后崩溃，错怪iconv了！<br />

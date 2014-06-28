@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "快到头了"
-categories: []
+categories:
+- About Job
 tags: []
 status: publish
 type: post
@@ -10,6 +11,11 @@ meta:
   blogger_blog: missdeer.blogspot.com
   blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
   blogger_permalink: "/2008/09/blog-post_17.html"
-author: 
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
 ---
 <p>　　今天狠了狠心，直接又加了一张表，把原来用XML表示的组织结构信息存储到数据库中去了，原先过高地估计了难度，其实是心里有抵制情绪，心理暗示这用二维的关系数据表来表示树型结构很不方便。其实不然，只要每一条记录里保存一个指向父节点的引用就可以了。<br />　　于是最后的攻坚战接近尾声了。权限相关的问题基本上从编码角度讲，差不多完工了，就剩下及时刷新客户端的组织结构显示了。而另一个主要问题，格式化显示流程图的问题，就我现在的猜想，问题还是出在MS SQL Server的使用上，自我感觉其他各部分的实现还是经得起推敲的。<br />　　自打从CodeProject上又重新找了一个自动更新版本号的<a href="http://www.codeproject.com/KB/macros/IncVersionVC8.aspx">插件</a>后，工程的版本号终于又能跟着每次编译而自动增长了，到今天为止，都已经到1000多了，这样好过以前要手动修改资源，但似乎有点不太专业。就我理想中的应该是，每次CruiseControl进行自动构建时，帮忙自动增长版本号，而不是我一个本地构建时进行增长。现在只有我一个人修改代码还好说，如果多人协作，目前这种做法明显行不通。</p>

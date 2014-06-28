@@ -1,7 +1,8 @@
 ---
 layout: post
 title: MinGW升级
-categories: []
+categories:
+- CPPOOPGPXP
 tags: []
 status: publish
 type: post
@@ -10,6 +11,11 @@ meta:
   blogger_blog: missdeer.blogspot.com
   blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
   blogger_permalink: "/2009/07/mingw.html"
-author: 
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
 ---
 <p>　　前些天鬼使神差地换上了<a href="http://www.mingw.org">MinGW</a>官方的<a href="http://sourceforge.net/projects/mingw/files/GCC%20Version%204/gcc-full-4.4.0-mingw32-bin-2.tar.lzma/download">4.4.0Release</a>，当时也没怎么想什么后果，只是觉得这4.4.0无论是在语言上或者库上，都向C++0x靠近了不少，就应该拿来用用。昨天兴起，启动了CruiseControl，却发现其中一个用到了wxWidgets的工程构建不通过，依次修改，修改好几次，才终于搞定。<br />　　换编译器是件大事啊，boost要重新编译，wxWidgets要重要编译，这些都是比较正规的使用了C++的库，最近一次出错，是发现我的工程在链接时找不到一些符号，而其中一大批符号的名称中都有sjlj字样，想来是异常处理机制的问题了。上官网看了一下release notes，原来它把默认的异常处理机制从sjlj换成dwarf-2了，而我原来用的<a href="http://www.tdragon.net/recentgcc/">TDM-GCC</a>是默认用sjlj的，所以只要全部重新编译工程就可以了。传说中，这个dwarf-2在没有异常时，是0开销的，不过TDM-GCC的网站上说，用dwarf-2前，要先仔细确认一下，该工程会链接到的那些DLL中如果要抛出异常，是用什么机制的，除非能保证它们也都用dwarf-2的方式或者干脆不抛异常，不然还是老实点用sjlj方式的好。不过我想，我在这方面的顾虑很小吧。</p>

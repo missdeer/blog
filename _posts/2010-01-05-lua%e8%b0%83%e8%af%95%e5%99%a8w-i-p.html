@@ -1,7 +1,8 @@
 ---
 layout: post
 title: Lua调试器W.I.P.
-categories: []
+categories:
+- Lua，Script
 tags: []
 status: publish
 type: post
@@ -10,6 +11,11 @@ meta:
   blogger_blog: missdeer.blogspot.com
   blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
   blogger_permalink: "/2010/01/luawip.html"
-author: 
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
 ---
 <p>　　今天终于把基于socket的远程调试架构搭建起来了！<br />　　昨天定位到controller给engine发送命令后，engine并没有收到，于是今天首先是开起两台机器，这样就可以用Wireshark抓包了。经过抓包发现，controller确实已经把命令发送过来了，只是engine没有正确接收。一番折腾后，参考了一下lldebug的代码，把engine端的代码从io_service.run()改成多次io_service.poll_one()，居然正常运行了。这怪我没有认真理解asio的用法，io_service居然有4个用于处理事件的方法，除前面那两个外，还有run_one()和poll()，从文档中我实在分不清到底它们有什么区别，以及分别适用于哪些使用场景。不过既然现在可以正常运行了，那我暂时也不去管它了。<br />　　socket的问题解决后，我就埋头于定位，修正controller与engine的交互过程。在我看来，这应该是状态机，controller端一个，engine端一个。不如我没有仔细考虑，只是因为现在的问题很简单，步骤不多，随便跑个例子试一下，有问题就解决，到现在基本上也是ok了。<br />　　编码过程中，发现boost::shared_ptr是个不错的东西，尤其适合于asio。比如要发送一段数据，把这段数据放在一个boost::shared_ptr中，无论它怎么传递，不用管它的生命周期。<br />　　自从远程调试架构完成以来，我就发现一个问题，从controller下发一个命令，engine要过一会儿才会作出响应，而engine反馈了信息回来，controller也要过一会儿才会显示出来。开始的时候我以为是网络传输延时的问题，后来把双机调试改成在同一台机器上调试，loopback应该够快了吧，结果仍然没什么变化。最后我想到，估计是我其中加入的延时操作引起的，如果在写之前发现队列为空，那么就一直等待，每隔1秒钟看一下队列中是否有可写的内容。所以要把这个设计改一下，不能用定时轮循，而要用事件通知，又得好好复习一遍《Windows核心编程》了。<br />　　接下来，就是实现各个调试命令了！</p>

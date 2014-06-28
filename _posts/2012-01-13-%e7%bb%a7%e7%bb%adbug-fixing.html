@@ -1,0 +1,21 @@
+---
+layout: post
+title: "继续bug fixing"
+categories:
+- About Job
+tags: []
+status: publish
+type: post
+published: true
+meta: {}
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
+---
+<p>　　又回到以前那种每次写blog都是写工作内容的流水帐的状态了么，这是不是意味着离我辞职又不远了。<br />
+　　好吧，上午还是在继续折腾SQL Server版本兼容性的bug。主要的代码昨天就修改完了，今天要提交code review，就再仔细检查了一遍，然后发现，因为多加了一个.cs文件，于是在enlistment的根目录下build所有工程的时候，某一个工程会出错。之前加了这文件，是直接在某个目录的sources文件，嗯，类似于makefile的一种文件里，添加了新增加的那个.cs文件路径就好了。于是在整个enlistment里搜遍了所有sources文件里的内容，愣是没在其他sources文件里找到有引用这些文件的。后来看了一下error log，发现它是在进入某个目录build时报的错，到该目录下又不死心地看了下sources文件，没找到要添加文件路径的地方。后来看到一个.csproj文件，打开看了一下，死马当活马医，把新文件路径加进去再build，居然通过了。艹，这个build system太贱了吧，不同的工程用不同的描述方式。<br />
+　　下午继续折腾打印设置不生效的问题。好吧，一点头绪都没有，一点进展都没有，跟几个同事讨论了下，几乎也没有有价值的提示。现在还剩下两件事可以做，一是试试其他report的打印有没有这个问题，这可以基本上确定root cause是在application层还是kernel层，大体上我现在是比较倾向于认为是kernel层的问题，大概就是打印API使用的问题。二是自己写个打印demo，仔细观察一下打印API的工作方式，也就是通过这个demo来模拟bug的运行流程。<br />
+　　好吧，我又无聊了，又写工作上的事了。</p>

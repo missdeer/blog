@@ -1,14 +1,24 @@
 ---
 layout: post
 title: Ninayan W.I.P.(18)
-categories: []
-tags: []
+categories:
+- Ninayan
+- SNS
+tags:
+- Ninayan
+- Qt
+- SNS
 status: publish
 type: post
 published: true
 meta:
   _wp_old_slug: ''
-author: 
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
 ---
 <p>　　有些问题，总是那么奇怪。因为XP里的虚拟机在跑Debian编译Qt，于是在Mac下把QML的Demo PhotoView抠过来用，本来就很吃力，还顺带发现了一个因为先后顺序问题引起的崩溃bug，终于可以在Ninayan里看到PhotoView的样子了。可是到了晚上突然发现，在Windows下不能切换输入法了，一切换Ninayan就挂死！经过一部分一部分地屏蔽代码发现，引起这个问题的似乎是VirtualDataModel中Package的一些代码。好吧，决定索性不用抠别人的代码，用自己的方法写一遍相同的UI吧。<br />
 　　上一段提到，我又蛋疼地在Debian里编译Qt了，嗯，又花了一下午。之后就是编译Ninayan，呃，我现在最大的乐趣就在于在不同的系统里编译Ninayan并用它来上Twitter了，囧rz。想来也不会有多大问题，毕竟之前在Arch和Mint里都比较顺利的，唯一大的区别是在Arch和Mint里桌面都是用Gnome，而这次Debian里用的是KDE，很花哨的感觉。言归正传，Ninayan运行得很顺利，除了字体不太好看。在Twitter上报怨了一下后，@truthurt建议自带一个开源的字体，真是个不错的主意，在Mint里的那种就很好，我后来去网上找了文泉驿的微米黑，在Debian和Arch里效果都很好。其实昨天就想过字体的问题，不过当时想到的是直接将字体装入到系统中，然后在程序中直接通过字体family名使用。今天偶然想到，其实可以程序直接载入指定路径的字体文件来使用的！不过Windows下还是用微软雅黑吧，微米黑在XP下同一个字的不同笔画都有粗细差异，真糟糕。</p>

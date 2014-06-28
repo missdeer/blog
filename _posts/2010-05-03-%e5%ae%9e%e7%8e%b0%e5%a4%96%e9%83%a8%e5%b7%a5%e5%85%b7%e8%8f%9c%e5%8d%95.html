@@ -1,16 +1,23 @@
 ---
 layout: post
 title: "实现外部工具菜单"
-categories: []
+categories:
+- CodingStudio
+- wxWidgets
 tags: []
 status: publish
 type: post
 published: true
 meta:
-  quiz: s:36:"a:2:{s:1:"q";s:0:"";s:1:"a";s:0:"";}";
-author: 
+  quiz: a:2:{s:1:"q";s:0:"";s:1:"a";s:0:"";}
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
 ---
-<p>　　这个特性以前就实现过一遍，那是在MFC+Xtreme Toolkit Pro下做的，想起当时的情形，完全没有任何规划和设计，真正的quick &amp; dirty。这回是用wxWidgets实现，总的说来要比上次方便一点，但也方便得有限。<br />
+<p>　　这个特性以前就实现过一遍，那是在MFC+Xtreme Toolkit Pro下做的，想起当时的情形，完全没有任何规划和设计，真正的quick & dirty。这回是用wxWidgets实现，总的说来要比上次方便一点，但也方便得有限。<br />
 　　此特性分为两部分，一部分是配置用户界面，用户可以实现添加，删除，修改等操作。另一部分便是菜单项以及响应。<br />
 　　配置用户界面是一个对话框，我这里用wxLua实现，代码量不大也不小，总之最近总是觉得用wxLua不是个好选择，一方面似乎不稳定，另一方面开发效率不高。用wxLua最大的好处在于字符串处理方面借势Lua，还算比较趁手。<br />
 　　菜单项和响应部分就比较低级了，基本上都是在宿主中用C++实现了接口，然后供Lua调用。其中比较重要的是创建进程部分，以前用MFC时，这种功能都是用Win32 API写的，现在用wxWidgets了，好在wx中有这样的封装，不过感觉并不方便，但也勉强能用吧。<br />

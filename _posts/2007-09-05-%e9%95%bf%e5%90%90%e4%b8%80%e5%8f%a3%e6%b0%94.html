@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "长吐一口气"
-categories: []
+categories:
+- About Job
 tags: []
 status: publish
 type: post
@@ -10,6 +11,11 @@ meta:
   blogger_blog: missdeer.blogspot.com
   blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
   blogger_permalink: "/2007/09/blog-post_05.html"
-author: 
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
 ---
 <p>　　今天老大来跟我讨论那东东的设计方案，居然说要用PHP/ASP之类的东西做个网站，把我郁闷了一把，不过好在我最后发现用这样的设计是无法比较方便地实现P2P文件传输的，最后老大只好同意照我的想法来实现了，真是有点庆幸，不然我就要郁闷了！不知道为什么他那么喜欢Web的东西，而不知道为什么我那么不喜欢Web的东西！而且那帮人真的是COM/DCOM技术的狂热爱好者，只要搭得上边的都想用这个来做，真是晕倒，而恰恰我是一点都不感冒，如果有可替代的其它技术，我就宁可不用的。有些地方不用COM实在没有其它方便的方法了，也就没办法了，比如Shell扩展之类的。<br />　　除了把设计方案讨论了一下，今天都没怎么做，还在担心那个流程图怎么画，昨天后来想了想，光是Graphviz还是不够的，Graphviz只是根据依赖关系自动给出图形，但具体的节点处于什么位置，却好像没有提到。<br />　　另外，又学到一个东西，在HTML页面中表单内容通过URL传递时，像中文之类的非标准ASCII字符，会先经过编码，以ASCII可见的方式传递，开始我看asio那个例子里面的代码，只是简单的转换，后来我把Google桌面搜索的页面改了一下，发现就变了，最后发现人家是用UTF-8编码来转换的，经过反复的试验，最后得出结论，IE打开的HTML页面如果是UTF-8保存的，就会把表单传递的内容也以UTF-8格式转换，如果以ANSI格式保存的，则也以ANSI格式转换。如果要从UTF-8转到ANSI，可以用Win32 API MultiByteToWideChar先把UTF-8转成UNICODE的，再用WideCharToMultiByte转换回ANSI就可以了。</p>

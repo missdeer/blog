@@ -1,7 +1,8 @@
 ---
 layout: post
 title: Code Insight in Delphi for PHP
-categories: []
+categories:
+- Software
 tags: []
 status: publish
 type: post
@@ -10,6 +11,11 @@ meta:
   blogger_blog: missdeer.blogspot.com
   blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
   blogger_permalink: "/2008/05/code-insight-in-delphi-for-php.html"
-author: 
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
 ---
 <p>　　偶然看到<a href="http://blogs.codegear.com/joseleon/2008/05/26/using-code-insight-in-delphi-for-php-20-i/">这篇文章</a>，Delphi for PHP已经升级到2.0了，不愧为曾经最强大的IDE生产商，把PHP的开发工具都做得这么神！<br />　　Code insight，也就是auto completion、call tips等功能的集合，想当年，第一次用Borland C++ Builder 5.0的时候，就很诧异它的auto completion，不过那个版本并不稳定，后来没多久就出了6.0，发现稳定好多，不过以现在的眼光看来，它的速度就慢了点，还看到国内有个牛人自己写了个增强插件<a href="http://shadowstar.q99.cn/">CodeFast</a>，速度，内容上都有很大提升，但极其不稳定，几乎处于不可用状态。当时用得多开心的，而且以VCL出色的设计，开发GUI程序，尤其对于初学者，有极大的鼓励作用。由此，我也就以为，Borland出的IDE是世界上最好的IDE，这个原因，也一定程度上让我不再愿意去费力气转向其他工具，包括VC。<br />　　后来用上了装了Visual Assist.X的VC，发现VAX的能力太过惊人，再后来就是工作中，直接使用VC作为开发工具，就已经离不开VAX了，VAX的智能提示功能实在是太好用了。<br />　　工作中，负责的也是一个IDE的编辑模块，其中的auto completion和call tips则是重头戏，前段时间计划着增强该功能，但一直没有动手。曾经考察过几种当前甚为流行的IDE的这个功能，包括VC（其实是VAX）、C++Builder/Delphi、Netbeans、Eclipse、Visual SlickEdit，当时的比较结果看来，C++ Builder/Delphi的似乎是其中最弱的，Netbeans的则看起来比较炫，太显得啰嗦，VAX的比较适中（可能也是因为看习惯了）。但有一条明显的需求是，当光标在下拉候选列表项中移动时，旁边应该可以弹出一个tooltip来详细描述当前被选中的项。但是项目中使用的Scintilla控件似乎并不直接提供此类支持，因此需要修改控件的源代码，而这是我最不愿意做的事情，我希望这个支持应该由官方来做。<br />　　而今看到这篇blog，则提供了一个可以学习的范例，同样是脚本语言开发环境，别个是当前业界最先进的，当然应该取其所长，补我所短了。</p>

@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "为了无界面运行Redmine"
-categories: []
+categories:
+- Shareware
 tags: []
 status: publish
 type: post
@@ -10,6 +11,11 @@ meta:
   blogger_blog: missdeer.blogspot.com
   blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
   blogger_permalink: "/2008/06/redmine.html"
-author: 
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
 ---
 <p>　　项目组把<a href="http://www.mantisbt.org/">mantis</a>换成了<a href="http://www.redmine.org/">redmine</a>，相比之下，redmine似乎提供了更多功能，也更符合我们目前的需要。redmine是一个ROR（<a href="http://www.rubyonrails.org/">Ruby On Rails</a>）应用，于是简单起见，我们使用了<a href="http://instantrails.rubyforge.org/wiki/wiki.pl">InstantRails</a>这个傻瓜包，但是，有一个问题是，我们总是在InstantRails的界面上使用Mongrel启动Redmine，于是会出现一个Ruby运行的黑窗口，一直到运行结束。<br />　　从网上找了一些资料，发现至少有两种办法可以解决这个问题。一种使用Apache之类的专业Web服务器，然后安装FastCGI，把ROR在后台运行，所有外部请求由Apache来转发。另一种是使用Mongrel_service，把mongrel注册成Windows服务，这样就可以在后台运行了。于是我想试一下第二种方案。<br />　　本来gem install mongrel_service这样一条命令似乎就可以把这个gem包安装到本地，但实际上我发现我根本不能安装任何一个远程服务器上的gem包，可能跟网络环境有关。于是我只好到它的<a href="http://mongrel.rubyforge.org/">官方网站</a>下一个gem文件下来，用gem install mongrel_service -l命令进行本地安装。这时会提示需要win32-service包，于是到Rubyforge上去找到<a href="http://rubyforge.org/projects/win32utils/">官方发布</a>，也下载到本地安装，然后又提示说要windows-pr，下来安装以提示说要windows-api、继续下来安装，继续提示说要win32-api，再下来安装，然后反向这个顺序依次安装，到了后来，提示win32-service的版本要是≥0.5.2或＜0.6.0的，而我装的是0.6.1的，于是只好反安装，rubyforge上又找不到0.5.2的，从其他地方搜了一个源代码包，解开后，执行命令ruby win32-service.gemspec，会生成gem包文件，再来安装，又提示要VC，而且经过试验，如果是用的InstantRails 2.0中的Ruby，则要用6.0版本的VC才能正常编译。终于mongrel_service也安装好了，可以注册一个Windows服务器，启动这个服务，则用ruby运行一个rails应用，我这里就是redmine了，当然redmine需要MySQL支持，不想直接使用Instantrails了，把MySQL也添加到服务中，Apache是不需要了，启动这2个服务，就能无界面运行redmine了，哈，开源的东西，还真是有点麻烦呢！</p>

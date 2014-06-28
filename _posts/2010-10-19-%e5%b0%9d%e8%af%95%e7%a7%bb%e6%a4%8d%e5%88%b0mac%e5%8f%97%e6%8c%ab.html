@@ -1,14 +1,21 @@
 ---
 layout: post
 title: "尝试移植到Mac受挫"
-categories: []
+categories:
+- CodingStudio
+- wxWidgets
 tags: []
 status: publish
 type: post
 published: true
 meta:
-  quiz: s:36:"a:2:{s:1:"q";s:0:"";s:1:"a";s:0:"";}";
-author: 
+  quiz: a:2:{s:1:"q";s:0:"";s:1:"a";s:0:"";}
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
 ---
 <p>　　这两天想试一下把手头这个用wxWidgets开发的工程移植到Linux和Mac，不过遇到了些困难。<br />
 　　该工程使用wxWidgets作为主GUI Framework，又嵌入了Lua解释器，将一部分界面和逻辑使用Lua脚本实现，而Lua脚本大量使用了wxLua以及诸如LPeg之类的第三方库，除此之外，主程序还使用了Boost、wxFlatNotebook、wxScintilla、wxPropertyGrid等第三方库。<br />

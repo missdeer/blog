@@ -1,0 +1,24 @@
+---
+layout: post
+title: clang for Windows
+categories:
+- CPPOOPGPXP
+tags:
+- Clang
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '2'
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
+---
+<p>　　这两天在Windows下折腾clang。这东东前端是支持C/C++/Objective-C/Objective-C++，后端一般是用LLVM的。在Mac OS X上貌似用得很好，可以生成OSX和iOS的app，貌似在Linux或FreeBSD上也支持得不错的样子，不过在Windows上就纠结了。<br />
+　　首先，clang还是依赖gcc的crt和headers的。于是在Windows上基本上是用MinGW套件的。但是同样是MinGW，不同的人都能编译出不同的东西来，版本众多，质量也不同，貌似还是MinGW官方编译的版本最为稳定，MinGW-w64的x64版本貌似就压根编译不了clang。<br />
+　　众多32位版本的MinGW都可以编译clang，但是，编译出来的clang貌似就是能自举了，真是遗憾，也不知道是不是我哪里弄错了，4.4.0版本是报BFD模块中有个内部错误，4.6.3版本是在链接时报错，4.7.x版本则是编译第一个文件就报命令行参数错误。<br />
+　　我是在msys中编译的，值得提一下的是，它每次都要做rebuild all才行，incremental build貌似是不行的。还有就是perl中的pod2html.bat在msys中是用不了的，所以在make install时都会报错的。<br />
+　　最后要注意，编译clang前，需要修改下llvm\tools\clang\lib\Frontend\InitHeaderSearch.cpp中MinGW的头文件搜索路径。最简单的办法是硬编码增加搜索路径，但是这样你的MinGW和clang就只能存放在固定的位置了。我看了一下clang dev去年4月的maillist中一个thread，其他他们就是没找到一个高效低成本的方案来解决这个问题。于是我就自己用了一种quick & dirty的方案。先查找clang所在目录是否有gcc.exe，没有就找PATH环境变量中有没有，再没有就试试各个分区根目录下有没有mingw目录，如果能找到gcc.exe，就运行gcc.exe -v命令，得到target和version，这样就可能得到搜索路径了。自己写了大约200行代码，粘贴到<a href="http://pastebin.com/kFaXQw6w" title="这里" target="_blank">这里</a>了。</p>

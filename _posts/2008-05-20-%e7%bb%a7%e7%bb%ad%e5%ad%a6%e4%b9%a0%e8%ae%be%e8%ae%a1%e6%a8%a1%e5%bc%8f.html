@@ -1,7 +1,9 @@
 ---
 layout: post
 title: "继续学习设计模式"
-categories: []
+categories:
+- CPPOOPGPXP
+- Reading
 tags: []
 status: publish
 type: post
@@ -10,6 +12,11 @@ meta:
   blogger_blog: missdeer.blogspot.com
   blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
   blogger_permalink: "/2008/05/blog-post_20.html"
-author: 
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
 ---
 <p>　　还是没干什么事，看了一阵书，话说昨天把《设计模式解析》第二版还掉了，其实旁边的同事又马上借回来了，于是乎我就拿来看看，看得囫囵吞枣的，不过也比直接看GoF的要省力得多。其实一直以来我都很少会认真仔细地从头到尾看完一本技术类书籍，很多书甚至是只看了前言、序，或者目录就直接丢到一边了。虽是这样，就算没完整看完一本书，像那种武侠小说中描述的那样，像我这样的小虾，向大师学习时，能领悟到个一招半式也是受用无穷的了。<br />　　到今天为止，大致了解了Adapter、Facade、Bridge、Strategy、Abstract Factory这几种模式。简单地说来，Adapter是为了转换接口，Facade则是为了封装并简化接口，Bridge说是把抽象和实现解耦，在我看来，实际是把几种不同类的概念分类，避免组合爆炸，Strategy是为了封装算法，Abstract Factory则是封装一系列相关的类的实例化过程。在阅读《设计模式解析》的过程中，我还发现一个比较明显的现象，有些模式，或者说有些解决问题的方案，其实都是通过将问题细化，将较细粒度的变化进行封装来实现的。比如书中讲述Strategy模式时，一开始例举的是直接继承，在论述了该例的缺点后，才抛出新的方法，其实就是把更小更精确粒度的变化提取出来并进行封装。在讲述Bridge模式时，也有类似的倾向和做法。再回想《重构》一书中，作者Martin Fowler则是更激进的做法，如果要给一段代码添加注释，则把这段代码提取出来，用有意义的函数名来阐述代码的作用。这从另一角度促使了小粒度代码段的生成。<br />　　《设计模式解析》一书的写作风格也是让人比较舒服的。作者会花一些章节进行理论或实际例子的讲述，再用一些章节描述模式，再讲述一些通用的理论，如此穿插的作法，反正我书看得少，正是第一次看到，感觉比较容易让人接受并领悟。</p>

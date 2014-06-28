@@ -1,0 +1,20 @@
+---
+layout: post
+title: Ninayan W.I.P.(25)
+categories:
+- Ninayan
+tags: []
+status: publish
+type: post
+published: true
+meta: {}
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
+---
+<p>　　这两天在给Ninayan添加Google Reader支持。Google Reader是Google众多服务中少数几个不开放官方API的服务之一，但仍然有众多第三方的客户端或官网增强辅助工具出现。好在有几个很好的人，把他们研究Google Reader的成果公布出来了，我主要参考<a href="http://blog.martindoms.com/2009/08/15/using-the-google-reader-api-part-1/">这篇</a>和<a href="http://code.google.com/p/pyrfeed/wiki/GoogleReaderAPI">这篇</a>文档，再加上自己通过抓包工具观察官网的行为，现在基本已经得到实现一个Google Reader客户端所需要的所有资料。<br />
+　　不过现在有点头疼的是，要把Google Reader强塞到已经比较完整紧凑的架构中去，有不少需要调整的地方。比如新增一种账号类型，这种类型的账号就不同于以往的SNS账号，总之整个继承体系都被我修改过了。然后是界面交互的部分，也需要做不少的设计。<br />
+　　还有一点感受是，这个API不知道是不是Google本身的风格如此（我没用过Google其他服务公开的API，所以没有经验），还是说根本就没为第三方开发好好设计过，总感觉不太好用，虽然功能上都能实现，但不太方便。</p>

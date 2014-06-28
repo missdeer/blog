@@ -1,14 +1,24 @@
 ---
 layout: post
 title: Ninayan W.I.P.(12)
-categories: []
-tags: []
+categories:
+- Ninayan
+- SNS
+tags:
+- Ninayan
+- Qt
+- SNS
 status: publish
 type: post
 published: true
 meta:
   _wp_old_slug: ''
-author: 
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
 ---
 <p>　　本来排除在计划外的事情，今天又去搞了，就是支持Twip4。前一天也折腾过一下，没弄好，这回问了一下Twip4的作者@yegle，他开始说是计算数字签名时用https://api.twitter.com/作为base string就行了。我试了下不行，后来他又说试试T模式吧，有几个客户端是经过实践T模式没问题的。于是一下子就明白过来了。<br />
 　　Twip4有T模式和O模式两种工作模式。T模式是完全的透明转发，Twip基本上不做任何处理，所以要请求oauth token和oauth token secret时原本是向https://api.twitter.com/oauth/access_token请求的，同时也是拿https://api.twitter.com/oauth/access_token作为base string计算数字签名的，在使用T模式的代理时，只要向http://www.myproxy.com/oauth/access_token请求就行了，仍然用https://api.twitter.com/oauth/access_token作为base string计算数字签名，这样就能无障碍获取oauth token和oauth token secret了。至于O模式，我看了下TweetDeck和Mixero的表现，发现它们也并不向O模式Twip请求oauth token和oauth token secret，或者请求了也没结果。所以我就推测其实O模式是没这功能的，O模式自己有consumer key和consumer secret，所以自己有一套oauth token和oauth token secret，但不是给客户端用的，即使客户端用自己有效的oauth token和oauth token secret发送给Twip请求，Twip也会把http header和url parameters里的东西处理一遍，用自己的那套oauth token和oauth token secret计算出来的东西替换掉。所以我想如果用O模式也要让用户可以无障碍认证的话，需要软件自己提供一个透明代理，软件先拿用户名和密码从那透明代理处获取oauth token和oauth token secret，然后在其他发布消息，收取消息时用O模式代理，就可以解决这个问题了。<br />

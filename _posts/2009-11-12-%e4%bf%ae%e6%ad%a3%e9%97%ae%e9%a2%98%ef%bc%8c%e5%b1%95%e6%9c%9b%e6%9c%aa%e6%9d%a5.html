@@ -1,7 +1,9 @@
 ---
 layout: post
 title: "修正问题，展望未来"
-categories: []
+categories:
+- CodingStudio
+- Lua，Script
 tags: []
 status: publish
 type: post
@@ -10,6 +12,11 @@ meta:
   blogger_blog: missdeer.blogspot.com
   blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
   blogger_permalink: "/2009/11/blog-post_2924.html"
-author: 
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
 ---
 <p>　　经过定位，方法很简单，在有怀疑的地方加入跟踪语句，打印栈大小，发现确实还是在那几个地方，栈中项的数量稳步增加，这才想到，会不会是从表中获取某个元素后，那个表还在栈中呢？看了下文档，也没有相关的说明，只好先作这个假设。在调用表中的函数后，应该弹出两个值，这样修改后，果然过了一个多小时也没退出，而且看栈中的项也确实没泄漏的。<br />　　昨天修正了对TeX代码高亮的问题。原本发现有TEX和LATEX两种lexer，如果直接设置好lexer的话，LATEX只能着色，没有代码折叠，而TEX有代码折叠，不能着色。看了代码似乎也都不用设置什么关键字字符串的，没办法只好到scintilla的maillist上问一下，Neil回复说SciTE中用的是TEX。于是我又看了一下TEX的properties文件，发现还有4个专用的property要设置，加上后果然好了。开源就是开源，只有通用的scintilla接口文档，却没有针对每个lexer的文档，唉！<br />　　昨天还写了个小程序，用于将原本给另外一个程序用的Scintilla的所有lexer的语言配置文件从xml格式转换成现在正在进行的这个程序可用的 lua脚本。这是个很省事的活，不过这小程序也是花了不少时间修改，因为要生成的lua脚本也在不停地修改。从这看出，xml真是一种存储数据的好格式 啊，可以方便地转换为其他格式。要是SciTE的配置文件也是xml的就好咯，想当初为了把众多lexer的配置从properties格式转换成 xml，可是花了我好几个晚上的业余时间的。<br />　　接下来应该要实现其他一些基本的功能，以及好好考虑下如何实现针对不同lexer的各种功能。</p>

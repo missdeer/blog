@@ -1,15 +1,21 @@
 ---
 layout: post
 title: Code::Blocks插件工作流程代码走读
-categories: []
+categories:
+- Plugin Framework
 tags: []
 status: publish
 type: post
 published: true
 meta:
-  quiz: s:36:"a:2:{s:1:"q";s:0:"";s:1:"a";s:0:"";}";
+  quiz: a:2:{s:1:"q";s:0:"";s:1:"a";s:0:"";}
   _wp_old_slug: ''
-author: 
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
 ---
 <p>　　在app::OnInit()中，插件管理器先设置了一个安全模式，安全模式只是影响后续插件是否被激活。<br />
 　　在MainFrame的构造函数中，调用MainFrame::ScanForPlugins()，该函数根据配置又调用插件管理器PluginManager中的方法ScanForPlugins()扫描指定目录下的文件，该方法在指定的目录下查找dll（Windows系统）或so文件（UNIX系统），同时，需要确认当前是否以BatchBuild模式运行。所谓BatchBuild模式，可以这样理解，Code::Blocks启动后只是用于编译工程，不进行其他诸如代码编写之类的操作，所以除了编译器插件，其他的插件都不需要载入。每找到一个dll或so文件，PluginManager又会去找同名的zip文件，从zip文件中提取出manifest，manifest文件中保存了插件相关的版本号，作者，联系方式等无关紧要的信息。之后PluginManager::LoadPlugin()方法被调用，在该方法中实现了系统层面的动态链接库load并创建插件实例对象的工作。而且从这里可以看出，一个dll文件中可以有多个插件，PluginManager会依次将该dll中所有插件都创建实例对象。<br />

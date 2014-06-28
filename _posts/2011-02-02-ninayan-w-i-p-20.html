@@ -1,18 +1,28 @@
 ---
 layout: post
 title: Ninayan W.I.P.(20)
-categories: []
-tags: []
+categories:
+- Ninayan
+- SNS
+tags:
+- Ninayan
+- Qt
+- SNS
 status: publish
 type: post
 published: true
 meta:
   _wp_old_slug: ''
-author: 
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
 ---
 <p>　　已经不记得有几个大年三十的晚上是在电脑前写代码度过了，今年破天荒的因为客厅里电视在放春晚，打偶然走过去看几眼。<br />
 　　今天把超链接处理模块重构了，之前那个实现在Mac下崩溃得比较频繁，但在Windows和Linux下却不是很多。对于这个现象我有点疑惑，虽然说代码确实是写得有问题，但为什么只有在Mac才比较明显呢。好在Mac下崩溃了打印出来的栈回调信息比较详细，几乎能跟踪到最终引起崩溃的代码行。<br />
 　　原来的实现把所有中间数据结构以指针的形式保存在一个list里，然后在自认为结束的时候销毁对象。这样的做法本没有什么问题，关键是我在操作这个list时并没有考虑重入的情况。于是重构主要做了两个重大修改，一是在list中直接保存对象，而不是指针，这样更不容易写错；二是对list操作大部分情况下都加mutex锁住。顺便也修正了些其他的小问题，比如原来即使是基于embed.ly的服务识别url是图片还是视频也有问题，其实embed.ly是返回了这个类型的。<br />
 　　另外，今天还把主界面针对360*640分辨率修改了一下，因为Nokia的S60v5和Symbian^3现在几个机型都是用这个分辨率的。至此，图片浏览特性的实现暂时告一段落，接下来该实现文章阅读了。昨天大致研究了一下Readability，发现它在Firefox表现那么风骚，结果在QtWebkit下总是返回不能分析的错误。不知道是DOM树的实现还是JavaScript引擎的问题。难道真要我移植一个C++版本，这实在太费时费力，还不好维护了。<br />
 　　最后，上个最新界面截图。<br />
-[caption id="attachment_1232" align="alignleft" width="300" caption="针对360*640分辨率设计的UI"]<a href="http://missdeer.files.wordpress.com/2011/02/ui_for_symbian.png"><img src="assets/ui_for_symbian.png?w=300" alt="针对360*640分辨率设计的UI" title="针对360*640分辨率设计的UI" width="300" height="182" class="size-medium wp-image-1232" /></a>[/caption]</p>
+[caption id="attachment_1232" align="alignleft" width="300" caption="针对360*640分辨率设计的UI"]<a href="http://www.missdeer.com/wp-content/uploads/2011/02/ui_for_symbian.png"><img src="assets/ui_for_symbian-300x182.png" alt="针对360*640分辨率设计的UI" title="针对360*640分辨率设计的UI" width="300" height="182" class="size-medium wp-image-1232" /></a>[/caption]</p>

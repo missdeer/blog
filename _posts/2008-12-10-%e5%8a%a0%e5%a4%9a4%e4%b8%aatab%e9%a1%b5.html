@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "加多4个tab页"
-categories: []
+categories:
+- About Job
 tags: []
 status: publish
 type: post
@@ -10,6 +11,11 @@ meta:
   blogger_blog: missdeer.blogspot.com
   blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
   blogger_permalink: "/2008/12/4tab.html"
-author: 
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
 ---
 <p>　　今天整了一天，把原来的一个列表，整成了5个tab页分成的5个列表，每个列表显示不同的内容。<br />　　这次是深切体会到当初设计的草率，把许多应该放在文档类中的数据成员和方法都放到视图类去了，结果现在本来还是同一份数据，要给多个视图共享使用时，就需要大量的修改。<br />　　不过这样的修改从长远看来，说不定是塞翁失马。不光结构上有调整，在某些接口实现上，也有修改。总的说来，比又前更合理，更简单。<br />　　当然一天下来，功能匆匆忙忙实现了，代码实现细节上却没有多加考虑，还是需要后续重构的。比如有一份代码，在4个视图类里各写了一遍，应该是用模板方法可以重构掉的，还有份代码，在2个视图类里各写了一遍。以前遇到这种情况可能会头痛一下，现在有了之前的使用boost.funciton和boost.bind的经验，应该很自然地能解决了。<br />　　本来这个需求并不是最紧急的，但是一方面我自己比较想做，另一方面，它涉及到的面比较广，早弄好，其他部分也方便点。</p>

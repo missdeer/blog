@@ -1,7 +1,8 @@
 ---
 layout: post
 title: MSXML格式化输出
-categories: []
+categories:
+- Shareware
 tags: []
 status: publish
 type: post
@@ -10,6 +11,11 @@ meta:
   blogger_blog: missdeer.blogspot.com
   blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
   blogger_permalink: "/2008/04/msxml.html"
-author: 
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
 ---
 <p>　　一直以来只用MSXML进行XML操作，在Windows平台上，确实是一个非常非常好的XML操作库。只是一直以来有点不爽的是，用它的save方法保存的东东，用记事本之类的纯文本编辑器打开看，是没有缩进格式的，就是直直的一行数据一直写完为止。想过一些办法，但最终还是放弃了，libxml2里有个叫xmllint的小程序，可以格式化一个xml文件，不过毕竟是第3方工具了，而且它依赖的是libxml，不是msxml。<br />　　下决心在google上搜了一番，英文的不知道搜什么关键字，中文的倒是找着几篇，最后觉得CSDN上的<a href="http://blog.csdn.net/net_lover/archive/2004/07/27/53601.aspx">一种方法</a>比较适合我目前的情况，因为我就是用MSXML DOM的。例子是用JavaScript写的，转换成VC还费我一点功夫，不过最后总算大体满足要求了，但是还是有个老问题，用它保存的东东，最后字符编码改成UTF-16了，而且强行插入不了Processing Instruction，晕。</p>

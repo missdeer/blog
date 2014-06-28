@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "看到Chrome的可执行代码差分算法"
-categories: []
+categories:
+- Software
 tags: []
 status: publish
 type: post
@@ -10,6 +11,11 @@ meta:
   blogger_blog: missdeer.blogspot.com
   blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
   blogger_permalink: "/2009/07/chrome.html"
-author: 
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
 ---
 <p>　　无意中在一个讨论组中看到Chrome的新differential算法Courgette（http://dev.chromium.org/developers/design-documents/software-updates-courgette）的讨论，其中提到一个Develper Channel从190.1到190.4的升级例子：完整升级包：10,385,920字节，一般bsdiff算法：704,512字节，而Courgette算法：78,848字节，近十倍的空间效率提升啊！真是太恐怖了，直到今天我才知道，原来对于二进制补丁，也是有这种优化算法的，汗啊！http://neugierig.org/software/chromium/notes/2009/05/courgette.html 这篇文章也对这个算法进行了介绍。大体上，Courgette算法目前是基于x86体系的，适用于exe、dll等可执行文件补丁，它会将这些新旧版本二进制码进行反汇编，在反汇编的基础上进行比较，据说是将二进制文件中所有的internal pointer/reference的地址重新符号化, 然后再计算differential，得到补丁。<br />　　另外一个博客中也有一篇讲优化二进制补丁算法的，http://blog.csdn.net/housisong/archive/2006/04/11/658863.aspx。<br />　　由此我想到我们现在的自动升级程序，都是完整文件下载替换的，土了啊！</p>

@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "日产代码500行"
-categories: []
+categories:
+- About Job
 tags: []
 status: publish
 type: post
@@ -10,6 +11,11 @@ meta:
   blogger_blog: missdeer.blogspot.com
   blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
   blogger_permalink: "/2007/12/500.html"
-author: 
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
 ---
 <p>　　今天看到什么代码圈复杂度度量的理论和工具等等内容，找个<a href="http://www.campwoodsw.com/sourcemonitor.html">Source Monitor</a>对我这两个月来写的一体化平台的代码嚼了一遍，发现我基本上写了约20000行代码，当然，包括注释和空行。无心算了一下，以一个月20天计算，两个月来我平均日产代码500行呀！有种说不出的感觉，没想到我写代码是这样的。光是看数量20000行似乎并不多，前不久数的时候才14000。但从日产量看，这个数字太高了，我自己对自己的要求是有200就不错了。然后从Source Monitor的分析数据看，有不少地方写的复杂度高了点，最高的是21，从公司的宣传ppt上看，大概4、5之类的比较合适吧。不过我顺便让它分析了一把Impeller的代码，那编辑器模块一初始化函数，复杂度是137，哇哈哈，真吓人，还有好些八九十的。不过这也不能说明多少其它的含义，最多只能说，也许我这点代码的可维护性比Impeller中的要好一点点。那也是归功于doxygen的推动和促进，如果不是因为一直想着要留一份可以生成良好文档的代码，我也不会写那么多注释了。当然另外一部分原因是，对Boost库的逐渐了解和熟悉，在Boost的帮助下，有不少代码可以简化。<br />　　明后天就要把这两个月来的东西拿出去见人了，希望一切顺利啊！</p>

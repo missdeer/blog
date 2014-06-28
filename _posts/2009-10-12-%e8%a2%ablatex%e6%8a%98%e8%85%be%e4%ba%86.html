@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "被LaTeX折腾了"
-categories: []
+categories:
+- Software
 tags: []
 status: publish
 type: post
@@ -10,6 +11,11 @@ meta:
   blogger_blog: missdeer.blogspot.com
   blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
   blogger_permalink: "/2009/10/latex.html"
-author: 
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
 ---
 <p>　　昨天一时好奇，从网上下载了CTeX 2.8 Beta1来，安装好后，尝试着编译原来的一个纯英文的文档和一个Beamer做的幻灯片，结果发现全都有问题。首先是编译速度非常非常慢，CPU占满。然后是原来用grphicx的地方，直接插入png的语句编译不过。最后是发现Beamer包的应用和bibtex联用的地方，最后一次pdflatex编译时，编译不过。<br />　　速度慢倒暂时也忍了。至于插入png的语句编译不过，通过网上找到的资料，下载了个ImageMagick，里面有个convert.exe，可以将png转换成eps，而实际上这eps也只有在普通文档中是可用的，在Beamer中仍然要用png，这是让人很郁闷的地方，几方处理方式不一致，是让写程序的人很头疼的事。<br />　　好吧，这些都是可以放一边的。最最关键的是，那个幻灯片编译不过呀！如果不编译最后一次，那参考文献就不行了。于是继续上网找办法，发现一会儿工夫有了CTeX 2.8 Beta2，嗯，实际上我是很有心理准备的，这么一个小Beta号的变更，是不会有大变动的，但仍然不死心地尝试了一下，果然不出所料还是不行的。于是在CTeX的网站上看到正式发布的2.7.1.42版本CTeX，仍然不行。期间还试过有个CTeXLive2008的集成包，呃，也是不行的！<br />　　我相当的郁闷！于是上CTeX的论坛上发帖求助，直到今天有个管理员给了个2.4的CTeX下载路径，才算最终搞定！对于这种不了解的东西，不能随便升级了，要升级前也得对能正常工作的旧版本做好备份工作，以便及时回滚啊！<br />　　昨天差不多搞了整整一天，幸亏现在网速快了，不然还得花更多的时间呢。被LaTeX折腾了，教训啊！</p>

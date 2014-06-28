@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "终于解决Lua中任意使用C++对象"
-categories: []
+categories:
+- Lua，Script
 tags: []
 status: publish
 type: post
@@ -10,6 +11,11 @@ meta:
   blogger_blog: missdeer.blogspot.com
   blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
   blogger_permalink: "/2009/02/luac.html"
-author: 
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
 ---
 <p>　　仰天长啸三声，哈哈哈！一直没想出或找到什么办法可以比较方便地解决这个问题。我的需求是，在C++中随时可能生成一些对象，而这些对象随时可能需要被Lua获取并进行一些操作。<br />　　在网上转了很久，看过LuaBind，还有一些文章。只有LuaTinker有一个可以把C++对象映射到Lua全局变量的方法，似乎有点接近了。但实际上离我的需求还是有点距离，比如它需要由C++代码知道这是给Lua用的，并主动把对象映射过去，而且是映射到Lua的全局变量中，通用性不够。我希望C++代码可以不跟Lua交互，其次，应该由Lua主动去获取它需要的C++对象，这样Lua可以自己决定把这个对象保存到什么地方。<br />　　今天又看了一下SWIG的文档，发现SWIG对Lua的封装做得实在太好了，它可以封装出自定义类型的指针，例子代码中以FILE *作了示范，想了想，我在C++中写个函数，返回相应的对象指针不就行了！试了试，果然可以，这下终于搞定了，可以继续写编辑器了。昨天还在想，有一部分Scintilla的初始化工作，代码好长，虽然初始化内容是保存在配置文件中的，但是配置项多，而且互相之间比较独立，C++代码仍然需要一个配置基一个配置项地写，我就觉得这部分应该交给Lua去做。这里Lua的功能除了原有的保存配置的功能外，还兼任了使配置生效的责任，而且仍然保留了原来配置文件的不需要重新编译主程序就能修改行为的优点。这个思路是对的，但技术难点就是Lua如何操作那个编辑器，这下好了，没问题啦，SWIG真是个好东西，还要Luabind之类的C++ Wrapper干什么！</p>

@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "感觉到有点压力了"
-categories: []
+categories:
+- About Job
 tags: []
 status: publish
 type: post
@@ -10,6 +11,11 @@ meta:
   blogger_blog: missdeer.blogspot.com
   blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
   blogger_permalink: "/2007/11/blog-post_13.html"
-author: 
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
 ---
 <p>　　今天上午，一个同事打电话，问些关于某个名义上由我维护的工具的事情。问题的缘由是，该工具现在使用的时候有些不正常，于是我就推脱说现在忙于另外一个项目。最后她就生气了，其实我心里也不爽。下午的时候去看了看现象，其实我觉得不一定是工具有问题，可能工具使用的机制就是有问题的，如果是机制有问题的话，就一时半会儿也不好解决了。这个工具说原理，其实并不复杂，无非是个函数hook，只不过同我们平常接触到的不一样，它是针对运行在单板上的软件的，单板运行VxWorks操作系统，使用PPC的CPU，用Tornado（其实是GCC 2.9x）编译，应用的典型场景是，在运行Windows系统的PC机上写好代码用Tornado编译一把，然后用这个工具把编译好的东东上载到单板上，并通过用户操作给指定的函数hook一下。有了hook，当然是有unhook操作，问题是有些情况下，unhook不成功！据了解，出问题的情况是分hook什么函数而定的，有的函数hook了就很容易直接宕掉，我粗略估计了一下，这些函数很可能是因为被调用得太过频繁，有些操作来不及做，就阻塞了，比如要把消息发回给PC上的显示终端，于是很可能就宕掉，但这也只是我的猜测。<br />　　另一方面，现在手头的这个项目，渐渐时间少起来了，我要争取本月底前拿出一个基本可用的但可以很不完善的原型出来，至少可以让那些头头们不要总在那里烦人。不过真的动手的时候才发现，其实有不少问题是很花时间的，当时的构思是不够仔细的，不够推敲的。<br />　　有点烦啊！<br />　　afei打电话来说下周就要出去了，估计走之前也没时间再出来了。</p>

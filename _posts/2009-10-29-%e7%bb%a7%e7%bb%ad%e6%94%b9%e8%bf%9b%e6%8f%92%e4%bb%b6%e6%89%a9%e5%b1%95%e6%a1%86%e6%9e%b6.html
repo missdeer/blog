@@ -1,7 +1,10 @@
 ---
 layout: post
 title: "继续改进插件扩展框架"
-categories: []
+categories:
+- Plugin Framework
+- Shareware
+- wxWidgets
 tags: []
 status: publish
 type: post
@@ -10,6 +13,11 @@ meta:
   blogger_blog: missdeer.blogspot.com
   blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
   blogger_permalink: "/2009/10/blog-post_29.html"
-author: 
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
 ---
 <p>　　这两天又用wxWidgets，不得不感叹一下，资料实在太少了，只有一个现成的manual，其他时候就只有看看CodeLite、Code::Blocks的源代码了！<br />　　到今天为止，修改了脚本扩展的功能，可以在一个描述文件中定义多个扩展的信息。对于主菜单来说，倒是勉强够用了，不过当时因为想让描述文件中对扩展的描述尽量通用，将其他的信息都写到脚本里去了，现在看来如果要对工具栏也使用脚本扩展，那么这种方式实在太不方便了点，还是应该把这种静态配置信息的都放在xml格式的描述文件中，脚本中应该只有动态的逻辑。所以还需要修改。<br />　　今天又忘了，wxWidgets的程序如果使用Lua扩展，而扩展又装载wxLua的话，wxLua的二进制文件不能用和wxWidgets程序相同的wxWidgets二进制动态链接库，不然会出现各种奇怪的问题。这是让我目前比较头痛的问题。我现在是用MinGW来编译wxWidgets和相关工程，那么一来wxLua就只能用VC或其他编译器编译了，但我今天试了OpenWatcom和Borland C++ 5.5，连wxWidgets都编译不过，郁闷！</p>

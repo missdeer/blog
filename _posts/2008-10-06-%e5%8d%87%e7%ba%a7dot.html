@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "升级dot"
-categories: []
+categories:
+- About Job
 tags: []
 status: publish
 type: post
@@ -10,6 +11,11 @@ meta:
   blogger_blog: missdeer.blogspot.com
   blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
   blogger_permalink: "/2008/10/dot.html"
-author: 
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
 ---
 <p>　　今天偶然发现有一个图，dot会崩溃，换到2.20.x版本后，就没问题了，看来在适当的时候，升级是很有必要的。但是同时又引出一个新问题，高版本dot生成的svg格式，里面使用的坐标系比以前的复杂了，居然出现了科学计数法和负数，这让原来勉强能工作的格式化后活动框的定位又不行了。经过一番研究，发现在svg的开头有一个transform属性，该属性的值分成三部分，其中一部分是translate，经过试验发现，该translate的值加到下面的坐标系中的值，刚好能对应上以前使用的那种方式的坐标系统表示的值。于是乎，也就是说，又要多一步操作了。<br />　　升级到高版本的dot，同时也带来一个新问题，就是如果发布这个dot套装。反正我是不想在我的安装程序里面再执行一遍Graphviz的安装程序了，像Wireshark一样，感觉不是很舒服。之前的低版本（好像是2.05.x还是2.15.x）dot，很简单，一个exe文件，五六个dll就搞定了。而新版本的dot而远远不是，经过在一台没装过Graphviz的机器上实验发现，比较省事的一个办法是，复制dot.exe和所有同目录下的dll，一个config文件，一个msvcr80.dll和对应的manifest文件，以及Graphviz安装目录下的lib和etc目录下所有内容，大了不少啊！<br />　　今天又想了想，要是有个服务器端的话，有些事情可以容易得多。比如今天突然给了我一堆域账号，我要一个一个在MS SQL Server里先添加账号，再把账号添加到数据库中，很是麻烦，如果有了服务器端，就不需要这步了，最多自己维护一个自定义的很简单的列表；有了服务器端，可以通过服务器端对所有客户端进行广播，而现在的架构如果来做广播，似乎有些不伦不类；如果有了服务器端，就可以优化网络连接和数据传输，从而对系统响应的速度有所提升。不过很大的一个坎，如果有了服务器端，开发、调试的难度将大大增加，维护工作量也随之增加。</p>

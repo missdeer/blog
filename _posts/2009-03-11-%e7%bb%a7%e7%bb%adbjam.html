@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "继续bjam"
-categories: []
+categories:
+- Software
 tags: []
 status: publish
 type: post
@@ -10,6 +11,11 @@ meta:
   blogger_blog: missdeer.blogspot.com
   blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
   blogger_permalink: "/2009/03/bjam_11.html"
-author: 
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
 ---
 <p>　　bjam编译Windows下的rc文件不用特别指定，就像其他C/C++代码文件一样，直接放个文件名就行了，它能自动认出来，并调用相应的资源编译器来，只不过生成的二进制文件后缀还是跟代码文件编译出来的一样，不过并不影响最后的链接过程。<br />　　对于debug或release下使用不同配置的情况，需要至少每一种情况写一遍目标，同样如果是不同的toolset也这么处理。<br />　　今天把一个使用WTL写的工程用bjam系统编译了一把，果然也不是很麻烦，不过需要写不少特定的参数，bjam的默认配置不够用了，所以这样的情况还是不适合用bjam的。简单地说来，适合用bjam的场合，至少是没有一个好用的IDE的情况下。<br />　　想起直接在bjam里用wx-config来生成的编译选项，居然会出错，因为wx-config的输出后面多了个回车，用make就没影响，而链接选项在bjam中也没影响。没办法，去网上找到wx-config的源代码，只有一个文件，不过有几千行，稍微找了一下输出的代码，把末尾的回车换行去掉，再试了下，果然可以了。</p>

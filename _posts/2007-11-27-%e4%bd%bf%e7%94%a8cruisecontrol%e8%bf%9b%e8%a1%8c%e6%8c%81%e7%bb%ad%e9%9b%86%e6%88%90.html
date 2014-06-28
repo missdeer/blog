@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "使用CruiseControl进行持续集成"
-categories: []
+categories:
+- CPPOOPGPXP
 tags: []
 status: publish
 type: post
@@ -10,6 +11,11 @@ meta:
   blogger_blog: missdeer.blogspot.com
   blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
   blogger_permalink: "/2007/11/cruisecontrol.html"
-author: 
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
 ---
 <p>　　其实我根本不懂什么叫持续集成，为什么要每日构建，但是我还是很喜欢用<a href="http://cruisecontrol.sourceforge.net/">CruiseControl</a>，我喜欢让它能为我写的每一个程序都构建一个项目。其实我也根本没怎么利用CruiseControl的多少功能，我只是让它在我点击按钮时从VSS中下载源代码编译最后打包而已。<br />　　今天下午花了大概2、3个小时的时间，把我在做的那个项目放到组内服务器上的CruiseControl上去了，因为是我在自己本地建了一个VSS库，所以先要把VSS库的目录共享给服务器，然后慢慢配置ANT脚本，而且相比我自己的机器，服务器上少了很多东西，比如没有Xtreme Toolkit Pro，没有Boost，没有Inno Setup，没有doxygen，没有upx。一一复制过去，经过10来次的试验，总算大致可以了，但还是少了用doxygen生成文档的步骤，后来想想暂时也不需要让人家看到这个源代码的文档，所以也先搁下了。<br />　　回到家，也暂时不想写代码了，就整一下自己机器上的那份CruiseControl，上次系统还原后，移动硬盘再接上去后，盘符全都变了，我也不想再冒险去改。改过脚本里的一些东西，但原来的那个编辑器的项目还是没能全部一次pass。今天仔细改了改，不光可能是CruiseControl脚本有问题，连VC的环境配置也有问题，当时没把一些必要的路径设好，比如Scintilla的头文件路径，Xtreme Toolkit Pro的路径等等。顺便把SocketHelper也加上去了，心里那个舒服呀！其实我对ANT脚本没了解，里面很多写死的路径，每次如果有变动，要改很多地方，这是很让人郁闷的。</p>

@@ -1,0 +1,26 @@
+---
+layout: post
+title: "嵌入的CLR引用销毁的C++对象的问题"
+categories:
+- About Job
+- CPPOOPGPXP
+tags:
+- Android
+- Cocoa Touch
+- core dump
+- iOS
+- Qt
+status: publish
+type: post
+published: true
+meta: {}
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
+---
+<p>　　今天彻底打酱油了，我们shared dev team也只剩下我，老大和Jason三个人了。因为晚上2点才睡，才睡了不到6个小时，于是下午就坐在办公椅上睡了近1个半小时，最后是被他们讨论一个bug的声音吵醒的，啊哈哈，老大还说让我看一下，现在只有我在这方面有经验了，我囧，我完全没经验的说，后来还是Sherman厉害啊！<br />
+　　再后来，就跟老大讨论了一会儿C++ singleton的实现，以及跨DLL数据引用等等。问题是有个Watson的bug，我从一次crash的call stack中发现，程序在调用_exit后，该程序中的static object应该是已经瞬间被无声息地干掉了，所谓无声息的，就是说，连它的析构函数都没被调用的。但这时嵌入的CLR还需要做一部分扫尾的工作，而恰恰是这扫尾工作又反过来调用了那个貌似已经被干掉的static object，于是程序crash了。当然这只是我的猜测，我猜测嵌入的CLR就是要生存周期长一点，于是一直在代码中试图找一下它是怎么从C++端嵌入CLR的，然后怎么用CLR的。我发现的情况貌似是这样的，先用Managed C++写了一个dll，这个dll可以在DllMain，还可以导出函数，而据我前些天才知道的知识，.NET编写的普通的DLL形式的assembly跟原本的DLL不一样，没有DllMain的。而这个DLL通过导出函数返回一个对象的指针，这个exe程序通过GetProcAddress获取导出函数，再调用这导出函数获取对象指针。这个返回的对象呢，是个CLR Bridge，也就是说，通过这个对象，可以从C++端创建CLR中的对象，调用CLR对象中的方法等等。也就是说，从代码中，我没看到Jeffray Richter在《CLR via C#》中说的那种CLR host的方法。现在我仍然在怀疑，是不是我代码没看全，但我确实之前也在整个代码目录下搜索文本，没有那几个用于host CLR的API调用。似乎有点跑题了。然后我就跟老大说了一下我发现的这些情况，略微讨论了一会儿，老大表示自己也不知道，唔，其实我也不指望他知道，只是有这么一种想跟人分享自己的发现的欲望而已。基本上，我就觉得这很可能是此bug的root cause了，但老大说可能只是个cause，而不是root cause，好吧，其实就是缺少验证而已。一个比较有说服力的验证方法是自己用C++写个小程序，然后用相同的方法调用CLR中的代码，最后能制造出同样的crash，只是我最近木有动力去做这些事而已。另外就是，即使确定了这是个root cause，简单地说来，这个root cause应该就是对象销毁的顺序不对，这是可以肯定的，但之后也不好fix，因为这个程序实在太庞大了，有很多对象，然后引用关系也很复杂，以我目前对它的了解程度，根本没能力对理顺这个关系，于是也就fix不了了。而且还有个另外的问题是，那个static object是该程序中用于实现singleton的一种方式，我觉得比较奇怪，老大说，这是为了应付多线程的情况。还有种应用多线程的singleton实现方式是在create instance时加锁，唔。关于这个话题，在前段时间看到TopLanguage group中有个讨论，提到boost中某个库中的singleton实现，貌似很干净的实现，不用锁，也不是static object，能适应多线程，囧，具体的不记得了，貌似boost中有好几个子库中都有自己的singleton的实现，得再去看看代码才行，另外好像《Modern C++ Design》里也有对多线程singleton实现的讨论，春节放假看看去。<br />
+　　话说，今天还看到Mono，发现除了有Mono Touch外还有Mono for Android，不过免费试用版都只能在emulator上跑，最便宜的个人版license也要399刀。不禁大骂Qt的不给力，为毛只能为Symbian和MeeGo用，Android port至今还在alpha 3，beta和rc都遥遥无期，更别说正式release了。而iOS port则压根貌似没人做了，叹气。我在想，如果Qt现在如果有Android和iOS的port像现在的Mono那么高的成熟度，我说不定真会去花这钱买license，囧！</p>

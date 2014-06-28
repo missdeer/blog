@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "自定义保存文件对话框"
-categories: []
+categories:
+- Software
 tags: []
 status: publish
 type: post
@@ -10,6 +11,11 @@ meta:
   blogger_blog: missdeer.blogspot.com
   blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
   blogger_permalink: "/2008/10/blog-post_18.html"
-author: 
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
 ---
 <p>　　早就想在保存文件时，能让用户顺便多输入点信息了，于是自定义保存文件对话框的需求就提上来了。在网上搜了一遍，各种方法倒是不少，不过都跟我想像中的有点区别，我想在MFC中做，就希望能尽量的简单方便。于是就搁下了，直到前天，在公司里想起这件事，问了问同事，同事给我一个例子，VC6写的工程，看了觉得很简单，但是回家自己弄还是不行。昨天又跟同事交流了一下，再加上晚上在网上找资料，结合着弄，终于成功了。<br />　　首先，添加一个对话框资源，加上需要的各种控件，最重要的是要加一个ID为stc32的控件，可以是Static，至于大小、位置，可以之后慢慢调整，以及对话框的风格要加上WS_CHILD。<br />　　然后，给该对话框添加类，基类就选CDialog好了，生成代码后，把基类从CDialog改为CFileDialog，尤其要注意，CFileDialog的构造函数需要更多的参数。<br />　　再之后，要给m_ofn成员初始化一下，先是dwFlags要有OFN_ENABLETEMPLATE，再lpTempate要指定到刚才活到的对话框资源。<br />　　最后，就是看情况，重载几个虚函数，比如OnFileNameOk，OnFileNameChange等等。<br />　　搞定！</p>

@@ -1,20 +1,26 @@
 ---
 layout: post
 title: "基本实现ZenHTML"
-categories: []
+categories:
+- CodingStudio
 tags: []
 status: publish
 type: post
 published: true
 meta:
-  quiz: s:36:"a:2:{s:1:"q";s:0:"";s:1:"a";s:0:"";}";
-author: 
+  quiz: a:2:{s:1:"q";s:0:"";s:1:"a";s:0:"";}
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
 ---
 <p>　　<a href="http://code.google.com/p/zen-coding/">ZenCoding</a>由2部分组成，<a href="http://code.google.com/p/zen-coding/wiki/ZenCSSPropertiesEn">ZenCSS</a>和ZenHTML。其中ZenCSS只要简单的查表替换就可以实现，而ZenHTML相对要复杂得多。为了比较完整地给CodingStudio添加ZenCoding支持，花费了我一周时间，当然这一周我也是堕落了，工作时间和效率都很不乐观。<br />
 　　本来我已经发现用LPeg实现ZenCoding将是非常合适的解决方案，但看了一两天LPeg的文档后，还是有点迷糊，再看看ZenHTML的规则很少，硬编码实现也不是太复杂。<br />
 　　首先扫描是否当前表中已经有对应的项，如果没有，则下一步。<br />
 　　匹配E+E，将表达式按+分隔成多个子表达式，然后针对每个子表达式进行处理。<br />
-　　对子表达式匹配E&gt;E，将子表达式按&gt;分隔成多个包含关系的表达式，对各个表达式分别进行处理。<br />
+　　对子表达式匹配E>E，将子表达式按>分隔成多个包含关系的表达式，对各个表达式分别进行处理。<br />
 　　对表达式匹配E#name和E.name，到这步之后，E就可以查表了，而name部分仍然需要继续处理。<br />
 　　对name匹配E*N$和E*N，到这步后，就可以获取到所有信息了，然后向前回溯，组合成最终的字符串。<br />
-　　我这里的实现跟官方ZenCoding还是有点区别，官方ZenHTML是先匹配E&gt;E，再匹配E+E的，我想我还是得照官方的改一下的。</p>
+　　我这里的实现跟官方ZenCoding还是有点区别，官方ZenHTML是先匹配E>E，再匹配E+E的，我想我还是得照官方的改一下的。</p>

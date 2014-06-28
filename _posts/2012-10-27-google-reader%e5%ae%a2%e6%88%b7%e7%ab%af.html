@@ -1,0 +1,23 @@
+---
+layout: post
+title: Google Reader客户端
+categories:
+- Life
+tags:
+- Google Reader
+- SANSASORI
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '2'
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
+---
+<p>　　最近有很认真地在写一个Google Reader客户端，仍然是使用的Qt，一切为了跨平台嘛。之前Ninayan用QML写的UI，虽然能做出一些比较炫的效果，但没有一个优秀的美工，再炫的效果最后得到的都是不好的用户体验。于是这次使用了传统Widget来做UI，感觉还不错，中规中矩的，源代码也放在<a href="https://github.com/missdeer/SANSASORI">github</a>上了。<br />
+　　到现在为止，Google Reader的客户端功能基本上实现了，可能还有些小细节需要修改。前两天因为工作上的关系，找了点资料在看怎么提高socket的效率，公司那个产品全部是用的select模型，貌似Qt的QNetworkAccessManager类也是用的select，这个东西的好处在于大多数的系统都直接支持，思路也简单，但是对于追求高吞吐率的情况下，就得用各个系统内核各有的一套东西了，比如Windows下得用完成端口，Linux下，2.6以后版本的内核得用epoll/AIO，BSD/Mac下又有kqueue等等，可谓是八仙过海各有神通啊。然后我就又找到了asio，这个库以前用过Boost里的那个版本，没用好，当时的感觉是资料太少了，性能太差了，后来也都是尽量避开自己写socket相关的代码，直到后来用Qt中的QNetworkAccessManager。这两天抑制不住地想把QNetworkAccessManager改成用asio实现，以达到各平台优化的尽量大吞吐率。忍住！<br />
+　　基本功能完成后，我就开始想着把程序改成插件架构，以插件的形式支持从不同的源获取信息，比如Twitter，Facebook，国内的微博等等，也以插件的形式支持把当前内容分享到不同的宿。其实从功能上来说，跟Ninayan是有很大重叠的，毕竟当时写Ninayan也是为了做一个信息获取工具，只不过从UI的设计上限制了操作方式，最终在用户体验上会有很大的差别。</p>

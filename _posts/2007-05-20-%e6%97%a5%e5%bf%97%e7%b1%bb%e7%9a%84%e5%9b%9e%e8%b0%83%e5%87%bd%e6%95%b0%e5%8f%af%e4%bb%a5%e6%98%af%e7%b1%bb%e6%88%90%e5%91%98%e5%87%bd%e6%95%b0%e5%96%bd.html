@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "日志类的回调函数可以是类成员函数喽"
-categories: []
+categories:
+- Shareware
 tags: []
 status: publish
 type: post
@@ -10,6 +11,11 @@ meta:
   blogger_blog: missdeer.blogspot.com
   blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
   blogger_permalink: "/2007/05/blog-post_4609.html"
-author: 
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
 ---
 <p>　　下午躺在床上突然想到，原来在TclSuck中是怎么做的，看了一下，这么简单，虽然不想给日志类加个模板参数，所以不能有模板成员变量，但一个作为回调的成员函数属于哪个类是未知的，所以一定要用模板，要把这个信息保存起来，只要先定义一个普通的非模板类作为基类，给这个基类添加一个虚函数，再从这个基类派生成一个模板类，就可以保存相应的类型信息了，而日志类中保存的是基类的指针，所以那个虚函数的作用也很明显了，狠一点的，可以把那个虚函数声明为纯虚函数，因为基类实在不需要让它做什么事，只是为了中间过渡一下而已！<br />　　傍晚去百草园见了一下hover，他进上研所了，来深圳大队培训，周四就走。吃完饭回到家，给afei打了个电话，她却告诉我belovedog也在大队培训，还说下午她们去见面的时候忘记叫我了，我当然要埋怨死afei了，于是给belovedog打电话，约时间见面。<br />　　熟识的人进公司越来越多了，从普通校友，到老乡，到同班同学，还有……</p>

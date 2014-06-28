@@ -1,14 +1,20 @@
 ---
 layout: post
 title: "一无所获，寸步难行"
-categories: []
+categories:
+- CodingStudio
 tags: []
 status: publish
 type: post
 published: true
 meta:
-  quiz: s:36:"a:2:{s:1:"q";s:0:"";s:1:"a";s:0:"";}";
-author: 
+  quiz: a:2:{s:1:"q";s:0:"";s:1:"a";s:0:"";}
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
 ---
 <p>　　作为一个文本编辑器，一个IDE，不能通过命令行参数打开一个文件，是很说不过去的，于是我就想加这个功能，不料却意外地困难！<br />
 　　首先考虑当前没有已经运行的本程序的进程，通过命令行参数指定一个文件后，最wxApp::OnInit的最后返回前，主窗口已经正常创建显示后，可以将文件路径传递给主窗口，让主窗口打开这个文件。照理说，这应该是一个很平常很普通很正规的流程吧，结果不知道为什么，打开文件这个操作会让程序崩溃。<br />

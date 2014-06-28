@@ -1,7 +1,8 @@
 ---
 layout: post
 title: std::copy_if？
-categories: []
+categories:
+- CPPOOPGPXP
 tags: []
 status: publish
 type: post
@@ -10,6 +11,11 @@ meta:
   blogger_blog: missdeer.blogspot.com
   blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
   blogger_permalink: "/2009/09/stdcopyif.html"
-author: 
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
 ---
 <p>　　几天没有正儿八经写代码了，今天又咬牙写了一会儿。在完成一个新功能后，开始重构原来的代码，把其中用于BOOST_FOREACH的地方都检查了一遍，看能不能重构掉。在刚有BOOST_FOREACH的时候，我还是觉得它很简单很方便很易用的，也许是当时觉得写for循环来迭代遍历容器步骤繁琐了一点儿。自从用上了boost::bind和boost::lambda以后，渐渐习惯了作用STL中的算法来操作容器，到现在，看BOOST_FOREACH都觉得很不舒服。<br />　　今天看到的几个BOOST_FOREACH，最后被我改得只剩下一处。其中有一处，需要用copy_if算法，而STL中明显是没有这个东东的，看《C++标准程序库》一书说的，如果要这样的功能，得用remove_copy_if，它是copy和remove_if的结合体。结果我开始用的时候没有仔细看它的使用说明，拿来便用，运行结果总是和我预期的刚好相反。我一开始总以为remove_copy_if，是先像remove_if那样，把满足op为true的元素都移动到容器的最后，然后把这些元素都copy到另一个容器中。实际上是我想差了，应该是它会把源区间内的所有元素都尝试copy到另一个容器中，在copy过程中会把满足op为true的元素剔除掉。我大汗，这个算法的设计实在不好，我就觉得很纳闷，当年那帮大佬们怎么硬是不提供copy_if呢？<br />　　回到家看了看boost sandbox中的algorithm库，里面已经实现了copy_if，以及其他几个很实用的算法，看注释似乎是作为TR2存在的，可能会加到C++0x中，但那实在是遥遥无期啊！</p>

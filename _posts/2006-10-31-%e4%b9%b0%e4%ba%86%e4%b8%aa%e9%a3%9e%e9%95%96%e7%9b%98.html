@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "买了个飞镖盘"
-categories: []
+categories:
+- Software
 tags: []
 status: publish
 type: post
@@ -10,6 +11,11 @@ meta:
   blogger_blog: missdeer.blogspot.com
   blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
   blogger_permalink: "/2006/11/blog-post.html"
-author: 
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
 ---
 <p>　　下班后吃完饭，先坐车到九鼎皇，那里有个文体用品批发商店，进去买了个28块钱的飞镖盘，顺便买了三支镖，8块钱。回家丢了几个，看来便宜的东西质量是不好哈，那针眼很明显，而且镖尾不正 ，容易飞歪了。<br />　　把afei的blog从头到尾翻了一遍，还有几处零星地提到我的，呼呼。<br />　　TclSuck差不多已经把C++调用Tcl函数部分都封装完成了。接下来可以加入变量访问控制部分了。好在发现了，原来Tcl调用C++函数时，会把第一个函数名当作第0个参数传入，就像就像就像（好几处好几个文档提到的）C程序main函数的参数那样。这部分要分成两部分，一部分是调用全局函数（类静态函数也属于这类），另外一部分是调用类成员函数。对于已经完成的部分，真的是很难看的一种实现，而且完全失去了运行期效率。不过在外部表现上看来，它真的能让client application以一种比较优雅而且方便的方式来调用Tcl中的函数，呵呵。</p>

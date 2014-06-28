@@ -1,14 +1,24 @@
 ---
 layout: post
 title: Ninayan W.I.P.(10)
-categories: []
-tags: []
+categories:
+- Ninayan
+- SNS
+tags:
+- Ninayan
+- Qt
+- SNS
 status: publish
 type: post
 published: true
 meta:
   _wp_old_slug: ''
-author: 
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
 ---
 <p>　　脑袋混沌了一天，终于基本上搞定超链接处理的功能了。<br />
 　　最开始是由于我使用的处理流程的关系，选择一个合适的数据结构让我头疼了好久，最后决定使用一个list，每个元素是一个结构体，每个结构体由两部分组织，一部分是URL列表，该列表会按短网址还原后的处理顺序存储URL，另一部分则是对该URL的描述，描述的字段包括当前是否已经完成全部的还原操作，最后一个URL能不能被embed.ly拆成两个新的URL列表，代表视频的html和html5等信息。<br />

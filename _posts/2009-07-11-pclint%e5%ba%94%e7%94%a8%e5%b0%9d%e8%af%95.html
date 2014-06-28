@@ -1,7 +1,8 @@
 ---
 layout: post
 title: PCLint应用尝试
-categories: []
+categories:
+- CPPOOPGPXP
 tags: []
 status: publish
 type: post
@@ -10,6 +11,11 @@ meta:
   blogger_blog: missdeer.blogspot.com
   blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
   blogger_permalink: "/2009/07/pclint.html"
-author: 
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
 ---
 <p>　　本来我一直是觉得VS2008自带的Prefast在这方面的需求足够了，不过似乎老雷对于PCLint有着近乎宗教般的狂热信仰和崇拜，时不时地催促一下。<br />　　不过在公司里的项目中，折腾了不少时间，仍然没能正常使用，总是要么只输出一些头文件中的检测信息，要么就索性什么都没有输出。后来同事发现，这似乎是跟我们的代码包含的头文件关系太复杂有关，他从其他项目里随便找个cpp文件来，用PCLint就是很正常地检测了cpp中的问题。<br />　　昨天晚上回到家，从网上找到PCLint v8.00x，并从官方网站上找到最新的适用于v8.00的.lnt文件，然后开始PCLint的再次尝试。惊喜地发现，自己写的一个MFC小程序用PCLint确实可以正常输出些内容。但想想公司里的另外一个小项目，也是很简单的头文件包含关系啊，为什么就不能正常使用呢？最终还是没有找到确切的原因，太奇怪了，网上随便搜索了一下，关于PCLint的问题定位方面的资料几乎没有，全是些基本使用说明。<br />　　比较了一下，PCLint的速度真是慢得可以，似乎比Prefast慢很多很多。<br />　　在试用了PCLint和Prefast后，我发现它们对提高代码质量有客观上的能力和辅助作用，但我觉得人才是最主要的因素，我在短短的试用过程中，突然醒悟，很多时候是纯粹为了通过它们的检测而机械地修改代码，怎么能躲避它们的检查就怎么改，而完全丧失了作为一个有责任心有进取心的开发人员应该具有的致力于编写出优质无错的代码的积极心态，这实在是一件很恐怖的事情。再联想一下，对于衡量代码质量的其他静态指标，比如圈复杂度，重复代码行统计等，也有相同的问题。为了降低某个函数的圈复杂度，就无所不用其极地运用一些诡异手法，只是为了骗过工具的检查，反而降低了代码的可读性可维护性。<br />　　程序员啊，真是一个让人头疼的群体。</p>

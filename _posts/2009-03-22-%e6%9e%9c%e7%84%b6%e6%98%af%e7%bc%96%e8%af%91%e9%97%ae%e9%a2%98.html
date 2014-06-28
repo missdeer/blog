@@ -1,7 +1,9 @@
 ---
 layout: post
 title: "果然是编译问题"
-categories: []
+categories:
+- Lua，Script
+- Plugin Framework
 tags: []
 status: publish
 type: post
@@ -10,6 +12,11 @@ meta:
   blogger_blog: missdeer.blogspot.com
   blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
   blogger_permalink: "/2009/03/blog-post_22.html"
-author: 
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
 ---
 <p>　　因为怀疑，所以去确认了一把。自己也懒得编译了，直接从网上找了个人家编译好的wxLua，人家是用VC8编译的，我的工程是用MinGW编译的，结果真的可以加载了，我狂晕！不管了，大不了到时候提供个Lua for Windows的安装包链接。<br />　　再回来说插件的问题。昨天主菜单是能运行起来了，不过发现有个不爽的地方。因为插件是放在一个指定目录下的，搜索出来的顺序可不是人能控制的，于是添加到菜单上的顺序也是乱的，这就不好了。由此引出另一个需求，对于一个插件应该可以定义多个菜单项，这样至少可以让这一个插件中的菜单项保持可控的顺序。</p>

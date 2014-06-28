@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "嵌入Python真辛苦啊"
-categories: []
+categories:
+- Lua，Script
 tags: []
 status: publish
 type: post
@@ -10,6 +11,11 @@ meta:
   blogger_blog: missdeer.blogspot.com
   blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
   blogger_permalink: "/2008/11/python.html"
-author: 
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
 ---
 <p>　　两年前，就嵌入过python，那时宿主程序是用C++Builder开发的，python还是2.4，没用第三方库，完全用python C API直接操作，而且当时要暴露的接口不多，才4个C函数，当然还是费了不少力气。嵌入python的目的是为了主程序可以实现外部脚本扩展，只有一个很简单的应用场景，点击一个菜单项，就执行一个py文件。首先是要让它能执行起来，python文档有很多C API，例程却极少，记得当时连接1个半月每天至少到后半夜2点才睡，最后累得上wc连掀马桶盖的力气都快没有了。而且很大的问题是，在家里自己的电脑上终于可以跑起来了，拿到公司的电脑上却不行，每天只能晚上回家调，白天再到公司测试，很郁闷，我已经忘了最后是怎么搞的，反正是最后发现在公司的电脑上缺少一个site.py文件，直到这一刻才发现，这是python官方发布包中的一个文件，当时是自己放了一个0字节的文件在那里搞定的。那次这么多精力的投入真是不值，做出东西来本来想得个满分的，结果只打了个C，而且当时指定了4名专家评审，结果只有2个专家发表了评论，另2个还没评论就走到下一环节，直接C了，唉！<br />　　今天又看到很久之前写的计算hash值用的小程序CryptTool，核心功能早已完成，就是计算字符串，或文件的hash值，包括多种算法，比如MD2、MD4、MD5、SHA1、SHA256等等等等。后来出于尝试的心理，想给程序加上外部脚本扩展的功能，准备支持Lua、Python、Ruby三种脚本，而且不自己写粘合代码了，而是采用SWIG自动生成。Lua和Ruby的支持很快就完成了，可是Python的却一直有问题，网上翻了不少代码，以前C++Builder中的那个代码也翻出来，都是有问题，那时就搁下来，今天又心血来潮地想弄一下。<br />　　最主要的困难还在于对Python缺少了解，但这并不能成为借口，Lua和Ruby不就好好地嘛！这里我用的方法是把外部脚本文件作为module，import进来，但是一直返回一个空指针。实在没办法，PyErr_Print打印的内容又是输出到控制台的，而我的是个标准的MFC写的GUI程序，所以只好另外建了个控制台的测试工程，幸好模块独立性较好，几个文件拷过去略作修改就可以了。通过控制台输出的出错信息才知道，原来是import时，还会连带着import一些python自己的库，于是把python的lib目录添加到sys.path里。另外，如果说import这外部脚本文件时，报找不到该名字的module，就把脚本文件所在的路径也添加到sys.path里。终于可以在import时，执行一遍该脚本了！不过还有另外一个问题解决不了，就是调用Py_Finalize崩溃！在网上找了一圈，也有一些老外遇到这个问题，不过要么就是没有下文，要么就是给出的解决方案不适合我这种情况。因为我是import来执行脚本的，当没有Py_Finalize，而同一进程内再import时，就不会再执行了，作为外部扩展，有一个办法是定义一个基本规范，脚本中一定要实现一个指定名字的方法，再由宿主程序来调用这个方法，但这太不友好了。其实如果能用PyRun_File之类的API来强制运行一个文件的话，也是可以达到目的的，但还是绕回原来的路上去了，我这里PyRun_File这类API死活不能正常执行一个脚本文件，天呐！<br />　　于是还剩下一个遗留问题，怎么能解决脚本每次都能执行的问题呢？嵌入Python真辛苦啊！</p>

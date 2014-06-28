@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "高兴得太早了"
-categories: []
+categories:
+- About Job
 tags: []
 status: publish
 type: post
@@ -10,6 +11,11 @@ meta:
   blogger_blog: missdeer.blogspot.com
   blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
   blogger_permalink: "/2008/09/blog-post_18.html"
-author: 
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
 ---
 <p>　　又去受了一回气，要把google桌面搜索，google地图的功能都做进来了，真是痴人说梦话，还总是说没工作量，神经病！<br />　　今天把格式化显示时乱码的问题解决了。其实不是MS SQL Server那里引起的，而是从Excel读取数据后转换成XML中间格式就出错了。如果是原始的干净数据，是没有问题的，只有当原来已经有同名的流程已经存在时，跟新的流程数据进行合并时，才会不正常，主要是没把连接线中记录的两端的图形节点uuid值改换回旧的，于是跟图形节点中的uuid值对应不上了，生成的dot文件中又是以uuid来作为节点标识的，当然出错了。<br />　　另外又发现一个判断上下级关系的方法写得有问题，光是看代码就看出来了，果然他们实际试用的时候也是不正常的。但实际上这部分代码我都是纯粹凭想像写出来了，根本没经过什么测试。主要原因还在于这部分代码跟界面绑在一起了，都不好用CppUnit进行单元测试，所以逻辑正确性都不能保证了，看来抽时间还是得把这部分重构一遍，不要跟界面绑定了！<br />　　今天又偶然看到一个可以Visual Studio 2005和2008下使用的重构<a href="http://www.devexpress.com/Products/Visual_Studio_Add-in/Refactoring/">Refactor!™ Pro for Visual Studio</a>，在公司里找到一个似乎是免费版的，装了后在VS2005上看了看效果，从界面上看很酷啊，哈哈，不过公司里只用VS2003，真是遗憾啊，只能继续用VAX里带的那点重构功能了，尽管大部分情况下也勉强够用了！</p>

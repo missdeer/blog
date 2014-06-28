@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "相比之下SVN比VSS更好用"
-categories: []
+categories:
+- Software
 tags: []
 status: publish
 type: post
@@ -10,6 +11,11 @@ meta:
   blogger_blog: missdeer.blogspot.com
   blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
   blogger_permalink: "/2008/08/svnvss.html"
-author: 
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
 ---
 <p>　　最近这段时间，SVN和VSS混用，有些工程是放在SVN里的，有些是放在VSS里的，但总的说来，感觉SVN更好用些，也许VSS 2005已经提供了各种现代化的特性，但直到现在，我还只是以VSS 6.0的眼光看待。<br />　　SVN在编辑前不需要check out，这点我就很喜欢，在VS 2005中，可以设置得让IDE自动check out出来，但离开了IDE，还是得自己去做这点操作。现在我用的VS 2003，就会自行弹出个check out确认对话框，这让用过SVN的人觉得很不耐烦。尤其是在某些情况下一个操作会要求先后对多个文件进行编辑，这时VS 2003就会不厌其烦地一次又一次地提醒要check out每一个文件，比如要编辑资源，就会要改.rc文件和resource .h文件，如果是添加一个新的类，就会要求编辑.h和.cpp文件等等。<br />　　但是SVN也有很让人头痛的问题，比如它完全依靠文件夹下的.svn文件夹工作，而且似乎很容易出错，出错了还不容易修复，VSS就很少这类问题。还有就是似乎代码仓库也有类似的毛病，容易出错，出错也也不容易修复。<br />　　今天得到一个经验，如果一次性要添加很多文件夹和文件到仓库中，最好不要用add和commit操作，而是用import。前者需要2步人为的操作，所以感觉要花费更多的时间。今天我就是需要添加4个文件，总共有130MB左右的数据量吧，n多个文件，用add还正常，commit时还会执行adding操作，然后是send content，到中途不知为何就阻塞在那里了，等了一会儿耐不住性子就x了窗口，到仓库里delete掉看到的几个文件夹，却有一个文件夹之后总是add不了了。后来改用import，就全加上去了，汗！<br />　　但是如果是一点一点来的话，我更愿意接受SVN这种工作方式。</p>

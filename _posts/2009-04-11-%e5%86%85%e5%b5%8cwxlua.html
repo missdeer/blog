@@ -1,7 +1,9 @@
 ---
 layout: post
 title: "内嵌wxLua"
-categories: []
+categories:
+- Lua，Script
+- wxWidgets
 tags: []
 status: publish
 type: post
@@ -10,6 +12,11 @@ meta:
   blogger_blog: missdeer.blogspot.com
   blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
   blogger_permalink: "/2009/04/wxlua.html"
-author: 
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
 ---
 <p>　　之前因为使用wxLua，发现如果宿主exe使用的wxWidgets动态链接库如果和wxLua使用的一样，则不能在Lua中正常加载wxLua。虽然可以通过使用不同的wxWidgets动态链接库文件来规避这个问题，但实在是很丑陋的一件事情。<br />　　今天想起来，能不能把wxLua内嵌到宿主exe中呢，这样就都使用同一份wxWidgets了。于是看了一下wxLua的代码，代码文件组织是很清晰的，很快就明白了各个文件夹下的文件是什么作用的。使用wxLua的一种方案是，它最后需要编译生成一个叫wx.dll的文件，Lua中可以直接require这个wx模块来使用。打开它的VC工程来看，也就是那么几个文件编译出来的，直接照它的样子把这些需要的文件添加我的工程中，然后编译，看情况需要修改的有几处：因为我的工程用了WXUSINGDLL宏，但这个宏会让wxLua中的一些类变成dll linkage的，所以要把这几处编译开关修改一下；有一个for wxLua的wxApp派生类，删掉；还有一处最主要的，luaopen_wx函数，有一个wxLuaState的对象，要改成直接在创建对象时把lua_State指针传过去，其他有些分析命令行参数之类的代码也是多余的可以删掉。另外还有个问题，在VC9里cell控件的代码中有一个GetRef方法，链接时报错，很诡异，搞不明白，暂时屏蔽掉那行代码。<br />　　经过这么一番折腾，终于可以直接在exe中用内嵌的Lua解释器使用wxLua了！</p>

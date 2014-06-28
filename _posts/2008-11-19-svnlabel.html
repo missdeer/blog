@@ -1,7 +1,8 @@
 ---
 layout: post
 title: SVNLabel
-categories: []
+categories:
+- Software
 tags: []
 status: publish
 type: post
@@ -10,6 +11,11 @@ meta:
   blogger_blog: missdeer.blogspot.com
   blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
   blogger_permalink: "/2008/11/svnlabel.html"
-author: 
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
 ---
 <p>　　今天把CruiseControl上的label改成svn的revision号了，在公司发现个问题，有一个项目里总是不能正确取到svn的revision号，虽然构建了，但从web上看不到结果，没有日志，晕！回到家，也改了一下，又发现另外一个限制，其实这个可能要算是svn的限制，当时我把源代码从vss迁移到svn时，所有项目都是放在一个目录下的，所以现在svn里各个项目的源代码commit后revision号是累加的，并不是各个项目独立的，于是在CruiseControl上显示的就是几个项目用了相同的revision号了，晕！不过第二个问题应该影响不大，因为照我现在的应用场景，一个时刻只会对某个项目的源代码修改，只要CruiseControl是一直开着的，出现这种冲突的机会也不多。</p>

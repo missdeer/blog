@@ -1,7 +1,8 @@
 ---
 layout: post
 title: bjam有点意思
-categories: []
+categories:
+- Software
 tags: []
 status: publish
 type: post
@@ -10,6 +11,11 @@ meta:
   blogger_blog: missdeer.blogspot.com
   blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
   blogger_permalink: "/2009/03/bjam.html"
-author: 
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
 ---
 <p>　　在编译Luabind成独立的库时，顺便学了一下bjam。bjam在某些场合下挺有用的，如果之前用的是make，再来用bjam，感觉就是用过汇编之后来用高级脚本语言。<br />　　折腾了一阵子后，我的感觉就是bjam几乎是完全给boost设计的。其中最突出的特点是，编译器无关。它在这方面做不了少工作，只要指定一个toolset，它就能自动查找编译器所在的路径，而且不用关心编译命令行，因为大部分常用的选项它都提供自己的抽象方式来表达。还有就是它似乎有良好的可扩展性，在boost的源代码目录下有几bjam的工作目录，下面有几个子目录，里面分别存放着一些jam文件，在写jamfile时，可以import模块进来用。<br />　　我捣鼓了一阵，把自己一个工程，里面有几十个C++源文件，从GNU make转成了bjam工程。感觉有点新鲜，但总的说来，它应该是适用于这样的场合：工程是可移植的，即要跨操作系统，跨编译器。</p>

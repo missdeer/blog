@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "谁是最可爱的库"
-categories: []
+categories:
+- CPPOOPGPXP
 tags: []
 status: publish
 type: post
@@ -10,6 +11,11 @@ meta:
   blogger_blog: missdeer.blogspot.com
   blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
   blogger_permalink: "/2008/11/blog-post_28.html"
-author: 
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
 ---
 <p>　　这个标题很恶心，不过暂时想不出更能容易我现在心情的话来了，就先这么着吧。我就是想表示一下对boost的崇敬和感激之情！<br />　　昨天发现用boost.graph可以解决我的问题。今天还是继续昨天的遗留问题，boost.graph确实跟STL那样，提供了抽象的，类型无关（真的无关么？我不确定，但我猜应该是）的算法，但是为了能用它，也着实费了我好些功夫。<br />　　我只是为了用它的DFS算法，找出一个有向图中的环。为了配合它的使用，我把之前的代码都丢掉了，重新写了一遍，不过逻辑似乎更清晰了。为了取得里面的back edge，要提供一个回调函数，而这个回调函数的参数类型都是模板参数，而这个参数却是包含了我需要的back edge信息。这就困扰了我大半天。翻了很久的帮助文档，也胡乱看了不少它的examples，最后终于发现有一个source函数和target函数，可以取出edge中的前后两个vectex。<br />　　解决了，就像一个同事说的，舒了一口气！<br />　　昨天还顺便统计了一下我在工程中主动用到的boost库，一共有9个，分别是utility、foreach、bind、function、lambda、graph、conversion、format、tribool，如果没有boost，我的日子应该会难过得多吧，呵呵。</p>

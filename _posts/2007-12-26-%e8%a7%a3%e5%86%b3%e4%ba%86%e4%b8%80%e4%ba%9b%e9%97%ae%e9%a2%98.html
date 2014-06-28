@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "解决了一些问题"
-categories: []
+categories:
+- About Job
 tags: []
 status: publish
 type: post
@@ -10,6 +11,11 @@ meta:
   blogger_blog: missdeer.blogspot.com
   blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
   blogger_permalink: "/2007/12/blog-post_26.html"
-author: 
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
 ---
 <p>　　今天专心把几个比较严重的问题整了一下。<br />　　首先是程序在退出的时候，全弹出出错消息框，我都不清楚这个问题是什么时候开始有的，无奈之下，把那些遗留在那里的，暂时没用上的，准备以后有机会用的代码绝大部分都删掉了，最后发现是由于文件系统实时监控引起的。<br />　　我估计是因为一个驱动器一个线程来监视，最后程序退出时没有让线程自己返回，而是强制结束，可能就会有问题。于是我就在OnClose时向每个驱动器都创建个临时文件，这样ReadDirectoryChangeW就会返回，线程就有机会主动退出了。试了一下，有时候还是不正常，通过打印消息看到并不是每个线程都能正常退出。后来通过在线程中打断点试了试，发现好像其它线程还挂在EnterCriticalSection上了，就是说还没主动退出就被强制结束了。于是我通过减少临界区的执行时间，暂时解决了这个问题。我猜，也许在OnClose中每创建个临时文件后加入一点延时，也可以达到目的吧，不过仅仅是猜测罢了，呵呵。<br />　　解决了这个崩溃的问题后，转向内存泄漏问题。本来一开始是只有一处36字节的泄漏，一直没找到原因。后来不知道加入了什么代码，有七八处不同大小的泄漏，这让人看了觉得很不爽。通过在程序开始处加入_CrtSetBreakAlloc语句，可以让程序在启动时如果分配了指定序号的内存块时自动断下。马上发现有一处是因为一个singleton没有在退出时主动delete，加上就行。后来，又发现其他几处是因为UDP服务器端的问题，该模块基于asio写成，调试器自动在io_service相关的代码处断下了，看了看代码，我估计是退出时服务器没有释放必要的资源引起的，确实，当时因为不熟悉asio，也不熟悉socket，所以都是胡乱拼凑的代码。再看了一下asio自带的那些例子代码，在退出时主动关闭socket，内存泄漏果然都消失了。<br />　　只是最后还是剩下那一直以来的36字节泄漏，调到晚上还是没找到原因。尝试用Windbg，还是没解决，不过我确实也不会用Windbg，郁闷！</p>

@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "恢复系统的心得"
-categories: []
+categories:
+- Software
 tags: []
 status: publish
 type: post
@@ -10,6 +11,11 @@ meta:
   blogger_blog: missdeer.blogspot.com
   blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
   blogger_permalink: "/2008/12/blog-post_8514.html"
-author: 
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
 ---
 <p>　　从学校出来后，重装系统的次数大大减少，自从买了个本本，只是恢复过一次，今天是第二次，当然不算帮别人装的。<br />　　为了减少工作量，有些小小的算不上技巧的伎俩。记得第一次恢复是用的光盘，今天拿出光盘，发现读不出来了，大概是光驱的问题，于是直接选择恢复到出厂设置，反正我的恢复光盘中的内容跟出厂设置差不了多少。<br />　　选好后，可以去干点别的事，比如我就出去边吃饭边看电视去了，这样不知道总共花了多少时间，最后一直到设置机器名和用户名密码的地方，这时才需要人工介入。首先需要安装中文支持的MUI包，装完跑到控制面板里设置一下语言，使得界面上可以正常显示那些能完善支持中文的软件。<br />　　然后是安装那些必备的软件。<br />　　对于那些绿色版、免安装版、安装后更改文件夹后仍然可用的软件，则应该放在非系统分区中。这样下次恢复系统了，使用可以直接使用。比较典型的是Foxmail、QQ、Firefox（它要通过命令行参数实现）等等。<br />　　对于必须要运行安装程序才能使用的软件，则根据一般建议安装在系统分区，这样在恢复系统时，也能自动清理掉。这样软件包括Visual Studio、Office（虽然现在实际上不装这个了）等等。<br />　　接着是安装系统补丁。有个比较省事的办法，是装个360安全卫士，用它一扫描，发现所有的hotfix，自动下载自动安装，又可以去做些其他事情了。我就打了一会儿游戏，还去洗碗，整理床被等等，哈哈。<br />　　做完这些，基本上可算是恢复系统了，但实际上要花很多时间，对于我来说，似乎需要6、7个小时才能搞定！</p>

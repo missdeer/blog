@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "重构ReviewTools"
-categories: []
+categories:
+- About Job
 tags: []
 status: publish
 type: post
@@ -10,6 +11,11 @@ meta:
   blogger_blog: missdeer.blogspot.com
   blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
   blogger_permalink: "/2008/04/reviewtools.html"
-author: 
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
 ---
 <p>　　今天决定开始对代码审查辅助工具动手，结果发现这个代码写得太复杂了，彻底晕死！本来看起来似乎是个很简单的小程序，功能也算比较简单，就是能添加一些信息，把这些信息保存到一个文件，到需要时能从文件中读出这些信息，另外一个功能是能把信息输出到Excel文件中，或者以一定规则输出到Lotus Notes中。<br />　　结果发现，为了跟Excel和Lotus Notes交互，必然使用到了COM接口，然而奇怪的是，原来那个作者把对Excel和Lotus Notes的操作简单地用VBS封装了一遍，结果是另一种脚本COM组件的形式出现，再在MFC程序中调用这些脚本组件，实在是不必要。<br />　　其次，因为本程序设计的是能在Source Insight中激活并添加信息，所以需要Source Insight的扩展来支持，也许是Source Insight的宏能力比较弱，原作者就设计成在C盘根目录下放置一个很小的cmdline.exe，让宏直接把所有信息当作命令行参数传入给这个小程序，通过它来调用主程序，于是为了在不同进程间传递数据，便把这个主程序设计成了一个进程外组件了。唉，又是COM，烦死人了。我也要把它改成不用COM的，用Event、File Mapping、Metux、Command Line Parameter应该能解决这个问题。<br />　　再次，界面上有个TreeView，TreeView的Data域不知道绑了多少数据上去，晕死！关键是不要绑MSXML的COM接口指针上去啊！<br />　　最后，我要在这个基础上重构的话，工作量比重新做一个大概少不了多少了！</p>

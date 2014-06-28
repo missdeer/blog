@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "多线程下载有问题"
-categories: []
+categories:
+- About Job
 tags: []
 status: publish
 type: post
@@ -10,6 +11,11 @@ meta:
   blogger_blog: missdeer.blogspot.com
   blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
   blogger_permalink: "/2009/04/blog-post_23.html"
-author: 
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
 ---
 <p>　　给升级程序加了多线程http下载后让同事试用，结果今天他打来电话报怨下载速度太慢了，甚至比以前单线程的时候还慢。用netmeeting看了一下，发现本来预计有5个线程同时下载的，现在居然是5个线程一个接一个地进行下载，这样明天会比单线程的要慢了，因为多了几次等待网络连接的时间，而且事实上自从改用多线程后才明显感觉到有时候一个网络连接的等待是好久，可能是十几秒。我在虚拟机里又试用了一下，还是5个线程并行的，那就郁闷了！<br />　　后来又想到一些可以改进的地方，但没动手，只是记到todo list里了。<br />　　唉，钱好少！</p>

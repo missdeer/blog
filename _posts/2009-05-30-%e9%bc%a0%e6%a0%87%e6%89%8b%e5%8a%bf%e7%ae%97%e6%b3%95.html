@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "鼠标手势算法"
-categories: []
+categories:
+- Software
 tags: []
 status: publish
 type: post
@@ -10,7 +11,12 @@ meta:
   blogger_blog: missdeer.blogspot.com
   blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
   blogger_permalink: "/2009/05/blog-post_30.html"
-author: 
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
 ---
 <p>　　今天看到一篇文章，讲鼠标手势算法，觉得有点意思。现在不少软件都有了鼠标手势支持，尤其是浏览器，几乎成了高级用户的标准配置了。<br />　　这算法分为4步。<br />　　一、过滤鼠标移动动作。如下图所示，这步过程把一连串的鼠标移动动作中幅度过小的动作过滤掉。这跟系统配置也有点关系，不同的配置下，记录鼠标移动的速率等量纲有所不同。</p>
 <p>　　二、限制鼠标移动方向。如下图所示，对于简单的鼠标手势支持，只支持上下左右4个方向，就把其他方向的动作都归并到这4个方向中。一般就是比较一下上下方向和左右方向的差值，取大的那个作为最后的方向。</p>

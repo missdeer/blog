@@ -1,14 +1,20 @@
 ---
 layout: post
 title: LuaJIT2与Luabind打架了
-categories: []
+categories:
+- Lua，Script
 tags: []
 status: publish
 type: post
 published: true
 meta:
-  quiz: s:36:"a:2:{s:1:"q";s:0:"";s:1:"a";s:0:"";}";
-author: 
+  quiz: a:2:{s:1:"q";s:0:"";s:1:"a";s:0:"";}
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
 ---
 <p>　　其实这个问题老早就有了，当时还在Lua的maillist上提过，不过当时我只是发现LuaJIT2在执行Lua脚本时，如果Lua脚本调用了不存在的C函数时会使宿主崩溃，Mike Pall同学（LuaJIT的作者）倒是很爽快地解决了这个问题。后来发现，Mike Pall解决的只是一部分，我这里因为用到了Luabind，通过Luabind来调用执行Lua函数，如果Lua脚本又调用到不存在的C++函数，进程就会无声无息地退出，而如果是官方Lua的话，则是会老老实实地打印那些出错信息出来。<br />
 　　昨天忍无可忍了，就又向Lua maillist发了封<a href="http://article.gmane.org/gmane.comp.lang.lua.general/64949" target="_blank">邮件</a>，今天发现Mike Pall和Daniel Wallin（Luabind的作者）争起来了，呵呵。Mike Pall说问题在Linux上和Windows/x64上都没能重现，不知道Windows/x86出了什么问题，可能是Luabind重复抛出异常了，Daniel Wallin则说Luabind只是简单地调用了lua_error，他倒是能在虚拟机的Windows环境下重现问题，最后他又给出了一段<a href="http://article.gmane.org/gmane.comp.lang.lua.general/64973" target="_blank">简化后的代码</a>，只要lua_error调用后面有C++对象的析构，LuaJIT就会出问题。<br />

@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "我的方块W.I.P #13"
-categories: []
+categories:
+- Shareware
 tags: []
 status: publish
 type: post
@@ -10,6 +11,11 @@ meta:
   blogger_blog: missdeer.blogspot.com
   blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
   blogger_permalink: "/2006/12/wip-13.html"
-author: 
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
 ---
 <p>　　实践是一种很好的学习方式。加了个类，也算是学习别人的样子，尽自己的力抽象一下，把配置模块提取出来了。属性对话框得花很多时间啊，这时就体现出一个好的GUI库的必要性了，可以大大地节省编码时间。那只给我一个念头：以后除了要用DX的游戏程序，其它的一定不再不用VCL了，VCL太好用了，其它的Framework也没试过，不喜欢MFC的结构，WTL不知道咋样。或者自己写一套简单的？看CSDN Blog上有个人一直在宣传自己做的一个基于WTL的<a href="http://blog.csdn.net/xushiweizh/">GUI库</a>嘛，我不需要非常齐全的功能，我只要一些常用控件就行了。<br />　　现在发现Singleton是种很有用的技巧。在使用过程中发现，如果一个类被实现为Singleton了，一定要顺便把析构函数也声明为非public的，这样就不会不小心把它delete掉了。Metaprogramming还是非常值得学习一下的！</p>

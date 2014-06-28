@@ -1,7 +1,8 @@
 ---
 layout: post
 title: rdoc流程
-categories: []
+categories:
+- Software
 tags: []
 status: publish
 type: post
@@ -10,6 +11,11 @@ meta:
   blogger_blog: missdeer.blogspot.com
   blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
   blogger_permalink: "/2008/11/rdoc.html"
-author: 
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
 ---
 <p>　　今天听同事讲了rdoc的处理流程，他完全是通过阅读rdoc的源代码来理解的，而且似乎他根本没有多少编译原理的基础的，汗！<br />　　总的说来，通过他的讲解，我了解到，rdoc的处理流程基本也是分为词法分析和语法分析阶段。首先，应该说有一个词法分析器生成器，叫SLex，然后由RubyLex提供规则，其实是一组正则表达式，SLex可以说是有一个正则表达式引擎，根据这些规则，生成token，提供给RubyParser使用，基本上是lex/flex做的事情。然后RubyParser根据这些token解析出class和model，建立起相关的实例，解析出相关的注释信息，通过yaml写到文件中。这里有点虎头蛇尾了，不过大体上也能表达清楚想要的意思了。<br />　　比较佩服的就是同事仅凭这些ruby源代码，就看到流程来，我怀疑要我上的话，如果没有这些编译原理的知识作铺垫，应该达不到他这样的程度吧！</p>

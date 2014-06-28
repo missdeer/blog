@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "努力写好代码"
-categories: []
+categories:
+- CPPOOPGPXP
 tags: []
 status: publish
 type: post
@@ -10,6 +11,11 @@ meta:
   blogger_blog: missdeer.blogspot.com
   blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
   blogger_permalink: "/2008/09/blog-post_27.html"
-author: 
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
 ---
 <p>　　前几天偶然lint了一把我在做的项目的源代码，结果发现近千个error。这让我比较困惑，大致看了一下，有不少是我并不期望它进行检查的，但又不能简单地把这类检查项屏蔽掉，所有就不知道怎么办了，lint应该是有意义的，但具体要怎么做，做到什么程度，我就完全没有头绪了，如果仅仅是为了减少错误项的输出而屏蔽检查项，那就失去lint的意义了。<br />　　我还是比较努力地希望自己能尽量写出一些优雅少错的代码的，也尝试在实际工作中使用一些方法和理念。今天在公司定位崩溃报告模块的问题，最后发现读取PE文件版本信息就有问题，但本来出于该模块的特殊性，很难直接在IDE里调试该模块，经过一些时间的折腾后，给取PE文件版本信息的类写了个单元测试，用CppUnit来跑，就算被测代码逻辑有问题，调试起来也方便多了！于是我又想到，这单元测试还真是个好东西，为什么我（们）就是不愿意做呢？我想主要原因还是在于，对TDD对项目进度的影响仍然没有足够的信心。另外再扯远点，我有点不想用CppUnit了，总感觉有点麻烦，现在这类框架倒也不少，google、Boost都有单元测试框架，其他还有什么UnitTest++、CppUnitLite等等，可选择的范围倒是不小，但我有一个顾虑是，这些框架输出的报告能不能像CppUnit那样跟CruiseControl日志合并呢！<br />　　另外再说说重构。我现在倒也确实有这样的倾向了，不断地在重构和实现功能这两个角色之间来回切换，也很习惯这种工作方式。看这个项目的代码，虽然没有翻天覆地的变化，但确实也有不少的改变，而且代码量也比最高峰时期少了20000行左右，这个比例不小啊，1/4多。不过我还是很明显感觉自己在重构这方面有待提高，首先是缺少理论方面的学习，然后再来考虑怎么应用到实际的编码中去。真的要抽时间好好读一读书架上那几本书了！</p>

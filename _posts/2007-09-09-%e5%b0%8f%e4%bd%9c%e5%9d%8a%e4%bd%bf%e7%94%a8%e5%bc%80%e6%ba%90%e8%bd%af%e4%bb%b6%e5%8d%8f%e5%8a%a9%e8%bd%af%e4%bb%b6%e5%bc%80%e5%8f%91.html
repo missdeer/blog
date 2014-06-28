@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "小作坊使用开源软件协助软件开发"
-categories: []
+categories:
+- Shareware
 tags: []
 status: publish
 type: post
@@ -10,6 +11,11 @@ meta:
   blogger_blog: missdeer.blogspot.com
   blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
   blogger_permalink: "/2007/09/blog-post_09.html"
-author: 
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
 ---
 <p>　　这是一个总结，也是一个开端。所谓总结，即是到现在我已经发现并已尝试使用过这些东西，现在整理一下，罗列出来。所谓开端，即是从现在开始，我要好好使用这些东西，应用到实际中去，提高效率或减轻负担。<br />　　小作坊，适合于个人单干，或小型几人十几人的团队，如果对于大型的团队，我觉得我们公司那套其实挺不错的，毕竟人家花了我也不知道多少钱从IBM引进来的。所以小作坊有一点很明显的区别是，资源很有限，从硬件到软件，从资金到人力，都是很匮乏的。这里罗列出来的东东，全部都是开源的，而且是相对比较成熟的，就是为了应对上面提到的小作坊的各种可能面临的困难和不足。另外还要提到的是，这里讲的是“协助”软件开发，其实是针对整个软件开发周期中各阶段的活动，而不是单纯的在编码调试阶段的活动。最后一点，这是面向Windows环境下使用VC/Delphi等桌面应用开发人员的方案。<br />1、建模——<a href="http://staruml.sourceforge.net/en/">StarUML</a><br />这个东东据说是个韩国人开发的，用Delphi写成，功能也许没有Rational Rose那么强悍霸道，但用来画个UML图、序列图什么的，已经足够了，而且安装包才20MB左右，快速轻巧。想想Rose需要多少钱，其实我也不知道，嘿嘿！<br />2、版本控制——<a href="http://tortoisesvn.tigris.org/">TortoiseSVN</a><br />当然用SVN，传说中CVS的替代者，而Tortoise这个shell扩展真的方面。在Windows下用SVN如果不用命令行，就用它了，没啥好说的。不过说实话，VSS也不错，尤其是2005版文件传输效率较6.0提高了不少，而且和VC的IDE集成得很好。所以见仁见智了，对于不用VS工具的，就强烈推荐这个东东了。在单机上可以直接找个文件夹作为仓库就可以直接使用。<br />3、项目管理——<a href="http://www.openworkbench.org/">Open Workbench</a><br />项目管理？我用得上吗，我自己也怀疑。但它号称可以和MS的Project匹敌，本来是一个公司开发的，后来捐献给开源社区，貌似他们也比较有钱的说，安装包还是用InstallShield做的。我大概最多也就是用来作作日程安排而已吧。<br />4、持续集成——<a href="http://cruisecontrol.sourceforge.net/">Cruise Control</a><br />不用多说了，就用Cruise Control了，刚刚才学会，其实也没咋学，就是把同事那个脚本抄来改了改，真的挺好用挺喜欢的，现在最新版已经是2.7.1了，拿2.5上可用的脚本直接就能正常使用，而且比起2.5来，还少了乱码问题。<br />5、Bug跟踪——<a href="http://www.mantisbt.org/">Mantis</a><br />Bug跟踪系统好像很多，商业的、开源的都有，比如FrogCreek，BugZilla、BugFree等等，选择Mantis只是因为我已经有点习惯它了，主页上有打包好的，直接运行一个批处理文件就能正常工作，特别提醒一下，要把config_default_inc.php和config_inc.php里的SMTP配置都改好，然后默认的账号administrator和它的密码root，这个我颇花了点时间去搞，开始没看明白帮助，晕！<br />6、开发文档编写——<a href="http://www.doxygen.org">doxygen</a><br />也就是在写代码的时候插入一些规定格式的注释，然后运行一把doxygen，就能从中提取出内容生成多种格式的文档。不过似乎好像，我自己很少写注释的说，只有开源的项目才这样做得比较多。<br />7、用户帮助文档编写——<a href="http://www.ctex.org/HomePage">CTeX</a><br />也没啥好多说的，用户帮助文档Windows上以chm/html格式的最为流行，很多大型软件公司的产品都会配上PDF格式的manual。如果想生成PDF格式的帮助文档，就用CTeX吧，这个东东还真的不错，相比Word来，完全相反的两种思想和作法。Word一开始会觉得上手很容易，所见即所得，但是内容格式一多，再进行修改什么的就很容易乱，而TeX则相反，一开始觉得很麻烦，所想即所得，但是一旦初稿已经形成，再进行修改什么的，就不容易乱了，呵呵。<br />8、安装程序制作——<a href="http://www.jrsoftware.org/isinfo.php">Inno Setup</a><br />以前用过Wise，感觉还不错，不过人家是商业软件。后来找到了Inno Setup，就喜欢上了。它用Pascal的脚本，可以调用Windows的API，可以完成很多高级的任务。其它还有NSIS之类的也应该不错，但没用过，暂不考虑了，而InstallShield一方面是商业软件，另一方面好像显得有点杀鸡用牛刀的感觉，嘿嘿。<br />　　就是这些了。</p>

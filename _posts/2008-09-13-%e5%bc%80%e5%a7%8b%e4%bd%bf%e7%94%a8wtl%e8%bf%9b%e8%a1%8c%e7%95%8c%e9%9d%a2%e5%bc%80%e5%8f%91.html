@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "开始使用WTL进行界面开发"
-categories: []
+categories:
+- WIND
 tags: []
 status: publish
 type: post
@@ -10,6 +11,11 @@ meta:
   blogger_blog: missdeer.blogspot.com
   blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
   blogger_permalink: "/2008/09/wtl.html"
-author: 
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
 ---
 <p>　　有点受不了MFC那比较累赘的几个在超大dll，同是Windows平台下做GUI开发，我只好选择了WTL。其实我已经比较习惯MFC那套东西，并没有发现多少网上说的种种使用MFC的不爽，相反我觉得还是挺安逸的，甚至对于使用了四五年VCL的我来说，MFC也没多少不方便的，虽然相对于VCL来说，MFC根本算不上可视化，但我也不清楚为什么自己仍然能这么乐于退回使用这种原始的framework呢！现在唯一让我觉得不爽的竟然是它要拖几个dll文件，也好，刚好学习一下WTL。对于目前我的状态来说，最大的困难是可参考的资料过少，市面上还没发现哪本图书是讲怎么使用WTL的，唯一的一份教程则是CodeProject上那流传甚广多少年前的那几篇文章。<br />　　之前也用过WTL写过一个对话框程序。还有一个输入法辅助程序，本来期望是用它来做皮肤生成器的，结果和众多其他我写的程序一样，只是开了个头，然后就丢下了。如今要写一个比较大的程序，我自己也估计不好规模会有多少，猜一下大概C++代码行会过万吧，另外我希望大部分逻辑都是使用外部脚本扩展来完成。<br />　　虽然几乎一点经验都没有，但还好有现成的<a href="http://code.google.com/p/pnotepad/source/checkout">代码</a>可以参考，特别巧的是，我那程序中也需要一个代码编辑功能，本来就想好是用Scintilla的，但是我不懂如果在WTL中使用这种自定义的窗口，刚好就可以抄袭那些代码了，哈哈！<br />　　编辑器能正常显示出来了，接下来要把TabbingFramework和DockingFramework加进去，之后再考虑其他问题！</p>

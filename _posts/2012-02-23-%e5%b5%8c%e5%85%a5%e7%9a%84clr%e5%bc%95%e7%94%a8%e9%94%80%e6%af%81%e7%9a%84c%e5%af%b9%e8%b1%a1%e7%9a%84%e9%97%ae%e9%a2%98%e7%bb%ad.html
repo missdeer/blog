@@ -1,0 +1,23 @@
+---
+layout: post
+title: "嵌入的CLR引用销毁的C++对象的问题续"
+categories:
+- About Job
+- Technic
+tags:
+- dotNET
+status: publish
+type: post
+published: true
+meta: {}
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
+---
+<p>　　前面的blog中，网友sali98提到可以用#pragma init_seg(compiler)等来安排全局对象的构造和析构顺序。这倒是我以前没有想到的，不过经过实际测试后，发现这个方案并不能解决我的问题。<br />
+　　在原来的定位结果中，以为单纯是嵌入的CLR对象晚于C++对象的销毁引起的问题，实际上问题要稍微复杂一点。首先，上次提到的使用_exit引起的对象无声息的消失，不是主要问题。这里调用_exit是在之前有个人把exit换掉的结果，他以为_exit不会调用对象的析构函数，于是不会引起析构时资源销毁时机不正确的问题。事实上这个fix是不起作用的，因为从call stack来看，_exit对嵌入的CLR似乎不起那个作用，而且无论是exit还是_exit都会在对象正常或不正常销毁后仍然有消息循环存在，消息循环中某些处理代码仍然会继续运行，而那些代码也是有可能会引用已消失的singleton的。<br />
+　　最早我想的解决方案是基于这样的想法，既然是C++的singleton在被销毁后没经检验就来使用，那么就把singleton改好一点就行了，我想过《Modern C++ Design》中提到的Phoenix Singleton，也看过一些boost中的Singleton的实现。不过后来都感觉太麻烦，没必要。于是今天试了一个很简单的方法，增加一个static bool变量，标记当前singleton是否有效，然后在每个非static的method开头都先判断一下。简单测试一下，倒是能勉强工作了，不过发现另外一个问题，这样的singleton不止一个！而且另一个不好的地方是，每个非static的method都要修改一下，不必要的改动太多。<br />
+　　今天又看了一下crash的call stack，我就觉得单纯修改singleton的实现似乎不是很高效。于是我就想，是不是有办法在调用exit或_exit前就自己写代码把CLR卸载掉，把消息循环停掉？以我对.NET的粗浅的了解，我觉得嵌入的CLR是应该可以主动卸载掉的，只不过也许某些正在使用的资源会成为阻碍，这个要仔细调研一下。而停掉消息循环这个，感觉也是可以的，增加个标记，在消息循环里判断一下，可以自己主动跳出循环。</p>

@@ -1,7 +1,8 @@
 ---
 layout: post
 title: ACE还可以try...catch
-categories: []
+categories:
+- Software
 tags: []
 status: publish
 type: post
@@ -10,6 +11,11 @@ meta:
   blogger_blog: missdeer.blogspot.com
   blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
   blogger_permalink: "/2009/01/blog-post_14.html"
-author: 
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
 ---
 <p>　　今天稀里糊涂地试了一下，把线程里的run_reactor_loop给try了一下，居然有用，欣喜若狂。现在想想真是糊涂啊，这也太扯了吧！<br />　　不过话说回来，那块的代码在上次写完后，一直心有余悸，不敢再去动它，也不愿意再看它，有点反胃的感觉。今天下决定看了看，还真发现几处bug，有没关闭句柄的，有没有添加消息映射的而处理代码却是写好了的。今天这么一整，至少崩溃问题又要少一些吧！<br />　　虽然现在用ACE已经勉强能够运行了，可我还是有点想再换回用boost::asio去。当年用boost::asio也不知道是哪里出错了，死活不能好好地连接上再互相发点数据，现在有了这点儿用ACE的基础，而且比起当初boost::asio也是正式release的版本很久了，也许一方面是我用得不对，也有可能另一方面是因为我用的从svn里直接check out出来的代码确实有点儿问题呢！</p>

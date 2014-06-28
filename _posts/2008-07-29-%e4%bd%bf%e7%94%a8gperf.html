@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "使用gperf"
-categories: []
+categories:
+- Software
 tags: []
 status: publish
 type: post
@@ -10,6 +11,11 @@ meta:
   blogger_blog: missdeer.blogspot.com
   blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
   blogger_permalink: "/2008/07/gperf.html"
-author: 
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
 ---
 <p>　　昨天就想把其中一段代码，一堆if...else比较字符串的代码替换成用gperf生成的hash来进行分派，但是昨天想了想我根本不会用gperf呀，晕死，于是想着回家上网找点资源。结果回到家还是什么都忘了，光顾着看小说和聊天了。<br />　　今天到公司里看到那段代码才想起来，昨天晚上堕落去了，于是有点儿沮丧。后来偶然发现，嘿嘿，在资料共享区有几篇关于gperf的文章，看来是我跟同事的唠叨发挥作用了。看了一下，发现它的输入格式虽然有点学了lex/yacc的样子，却比它们简单多了，而且我的需求也是非常简单，就是可能会有6种不同的字符串，我现在想让它能自动映射到一个枚举值。gperf的秉承了开源命令行软件的一贯作风，虽然只是那么小小一个功能，也提供了好几个命令行选项，幸亏有比较详细的中文说明，再加上功能实在不复杂，试了几次，就可以了。跟最新的flex/bison一样，我用了cygwin中版本号3.0.3的gperf，它也支持输出C++代码，这是我比较喜欢的一点，毕竟C代码混在C++中还是感觉有点别扭的。<br />　　另外一点说不上技巧的小提示，如果对生成的hash函数不放心，可以写个单元测试用例，跑一遍就安心啦，而且这种hash函数一般的应用场合下不会有太多的映射关系，看人家ruby用在识别关键字上，也就是几十个而已，单元测试遍历一个所有的映射关系，写一遍就一劳永逸，不错不错，哈哈。<br />　　这个小工具值得推广，以后凡是遇到3个或以上字符串需要比较时，就可以考虑用gperf来做这种工作，不但代码运行效率高，而且代码可维护性也上去了，一举两得。</p>

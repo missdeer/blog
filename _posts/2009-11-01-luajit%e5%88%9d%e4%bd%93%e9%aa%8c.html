@@ -1,7 +1,8 @@
 ---
 layout: post
 title: LuaJIT初体验
-categories: []
+categories:
+- Lua，Script
 tags: []
 status: publish
 type: post
@@ -10,6 +11,11 @@ meta:
   blogger_blog: missdeer.blogspot.com
   blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
   blogger_permalink: "/2009/11/luajit.html"
-author: 
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
 ---
 <p>　　偶然看到<a href="http://blog.codingnow.com/2009/11/luajit2_beta_release.html">云风blog</a>上讲到<a href="http://article.gmane.org/gmane.comp.lang.lua.general/58814">LuaJIT2.0 Beta发布了</a>，于是很好奇地到它的<a href="http://luajit.org/">官方网站</a>上看了看。以前也是听说过有这个东西的，不过以前根本不用Lua这东西，看过也就忘了。<br />　　这个东东据说是从API到ABI都是兼容官方Lua的最新版本的，所以一般说来，用官方Lua做的事情，用LuaJIT也可以做。但是它的强项在于，它执行Lua脚本比官方Lua要快，最慢的是快一点点，大概一点几倍，好的情况下能达到几十倍。<br />　　这次说的2.0 Beta版本据说是VM部分跟1.x版本来说完全重写了，效率又是提升了n倍。这个效率有提升，其他代价也几乎没有，这等好事不能错过，于是下载了它的源代码来体验一把。<br />　　它的编译方法跟官方Lua的很像，反正很容易。在Windows平台最后会生成一个dll文件一个exe文件，这点跟官方Lua也是很类似。只要在编译的时候保证dll的文件名，这样就可以把这个dll拿到其他嵌入Lua的项目中去用了，那些项目的源代码是不用修改的，因为API兼容嘛，而且好像也不需要重新编译，因为ABI兼容嘛。<br />　　经过短暂的体验后，发现Beta果然是Beta啊，直接require那iuplua只报什么call nil value，另外就是我自己的那个嵌入Lua的程序会崩溃，具体就没有定位了。而这些问题在1.1.5版的LuaJIT中是不存在的，所以2.0要能正式Release应该还需要一段时间。</p>

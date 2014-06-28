@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "郁闷，成质量部的人了"
-categories: []
+categories:
+- About Job
 tags: []
 status: publish
 type: post
@@ -10,6 +11,11 @@ meta:
   blogger_blog: missdeer.blogspot.com
   blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
   blogger_permalink: "/2008/07/blog-post_11.html"
-author: 
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
 ---
 <p>　　睡得少，白天果然很吃力，这是已经亲身验证过无数遍了。<br />　　本来想着是上午给个新的编译版本让他们测试一下，结果发现，一个最最最基本的功能都不能用，直接弹出消息框。其实是COM接口抛了个异常，虽然我没有用try...catch来处理，但最后还是被我挂接的未处理异常过滤函数捕获到了，弹出个没有内容的消息框。<br />　　于是下午调了近2个小时来定位哪里出的错，因为我自己的电脑上无论怎么样都是正常的，而别人的电脑上无论怎么样都是不正常的。猜了几次，最后想到一个地方，Excel中的CShapes::SelectAll方法，不知道哪里吃错药了，只要一调用该方法，它就抛个异常出来，倒是可以用try...catch捕获到，但却没有什么实际意义，因为我不知道这为什么错了，我以为这就是最正确的用法。<br />　　冥思苦想了1个小时，毫无进展，于是上楼去找老大诉苦，我当然不会指望老大知道怎么解决这个问题，而只是想让老大知道我很郁闷很痛苦。<br />　　再回到座位上，照老大说的，把自己的进展，遇到的困难写邮件抄送给所有相关人，这样至少让他们自己我还是在干活的。一直到下班的时间，质量部负责这事的人跑来跟我说，这二三四季度的绩效考评放到质量部来做了，我彻底郁闷了，成质量部的人了！不要逼我啊！</p>

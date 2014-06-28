@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "又靠了次老外"
-categories: []
+categories:
+- Software
 tags: []
 status: publish
 type: post
@@ -10,6 +11,11 @@ meta:
   blogger_blog: missdeer.blogspot.com
   blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
   blogger_permalink: "/2009/02/blog-post_11.html"
-author: 
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
 ---
 <p>　　前不久为了使得MSXML输出到文件的内容有良好的缩进格式，在网上又转了一圈，最后终于在一个老外的论坛里看到一段代码，使用SAX的方法，果然可以几乎完美运行。再也不用以前找到的使用xslt的方法了，使用xslt的方法是很久以前在国内哪个网站上找的一段javascript代码，自己翻译成了C++的，最后效果不是很令人满意，主要有两个缺点。一是文档开头的处理指令没了，要在额外添加，二是对于没有文本内容的节点，它还是会添加一个结束标记，累赘冗余。<br />　　这两天在写WIND时突然遇到的问题，本来只是使用STLPort替换了VC9自带的STL实现，用着也没什么问题，后来想试试boost::program_options，结果在编译时，报boost::program_options的lib跟WIND编译时使用的标准库不一致，一猜就晓得是因为当初编译boost::program_options没有使用STLPort编译，于是想重新编译一把。翻了好几遍boost自带的文档，也没找到具体的方法，在网上又转了几圈，还是没发现有效的方法。今天又是偶然在一个老外的论坛上，看到一个<a href="http://www.gamedev.net/community/forums/topic.asp?topic_id=466708">回复</a>，简单试了试bjam果然可以正常运行下去了，唉！<br />　　又靠了次老外。</p>

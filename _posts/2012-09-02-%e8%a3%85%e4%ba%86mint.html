@@ -1,0 +1,25 @@
+---
+layout: post
+title: "装了Mint"
+categories:
+- Software
+tags:
+- Linux
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '2'
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
+---
+<p>　　买硬盘有一段时间了，当时的想法是可能要做Linux平台的开发，所有自己家里的机器上也得正儿八经地装个Linux某个发行版，于是纠结了很久，终于在京东上花了总共780块大洋买了个WD的绿盘2T。结果把硬盘装入机器后，只是分了十几个分区，就再也没动静了。<br />
+　　后来过了大概2、3周吧，实在对自己鄙视得受不了了，翻出两个8G的U盘来，一个是花了20块大洋从淘宝买的，谁料想过了没多久公司（已经是前公司了）又因为十周年纪念每人发了一个8G的U盘。于是从网上找资料看了一下，在Windows系统下用一个叫Win32Image Writer的程序把Linux发行版的ISO镜像写到U盘里，就可以从U盘启动安装了。<br />
+　　先是装了个Debian 6，用的GNOME，装好后发现屏幕闪得厉害，估摸着是显卡驱动的问题，据说ATI的显卡Linux就是支持不怎么好，我的是Radeon HD 4540，从网上找了一圈各种解决方案，试了各种配置和开源闭源驱动，都没效果，很失落。本来对Debian的印象很好的，就是一种运行速度快，而且稳定的发行版，因为曾经在公司用VirtualBox装了LinuxMint和Debian同时编译clang，发现在Debian下要快不少。可是现在的闪屏问题使得这个系统处于基本不可用的状态。后来我还试了换GNOME为KDE，果然没用。于是知彻底绝望了。<br />
+　　因为Debian的闪屏问题搞不定，于是只好试着装装Ubuntu12.04这种小白发行版，它果然一装上就所有驱动都搞定了，不光是我那块显卡，连在10.04时需要自己找相同芯片其他牌子无线网卡的驱动源代码来自己编译安装才能使用的Fast无线网卡都直接驱动了。真是让人感叹果然是个适合我等小白使用的发行版。本以为问题就这样搞定了，于是下载了qt呀，qt creator呀，clang呀之类的源代码，都编译了使用。可是好景不长，不到两个星期，就出现各种问题。比如启动特别慢，在红黑屏要停留很久，一开始都以为是启动不了了，后来才发现是因为需要时间很长。再后来，各种已有的分区不能自动挂载了。虽然可以自己敲命令挂载，但终归让人心里极其不爽。到现在，居然不能关机了，一直停在关机logo界面里了。失望透顶，Ubuntu是从7.x以来，各个版本都装过的，窃以为最不稳定的Linux发行版，没有之一。<br />
+　　今天实在对Debian和Ubuntu失望之极，打算再换个发行版试试。之前在VirtualBox中用过不短时间的Arch，Fedora，openSUSE和Mandriva，对于Arch和Gentoo，我就担心显卡问题搞不定。对于后三者，不是很喜欢它们的包管理机制。于是最后打算看看Mint吧。以前在VirtualBox中也装过Mint，现在公司里还装着用呢，它默认不使用GNOME或KDE，而是使用Mate或Cinnamon，感觉挺精致的。在装Mint还是LMDE之间犹豫了一会儿，后来看LMDE用的是Debian的testing源，在我看来相当于放弃了Debian的稳定性这一大优势，所以还是用Mint吧。安装过程仍然一样，写入U盘可以当Live盘启动，然后安装，很快很傻瓜。而且我之前装Debian和Ubuntu把它们的/home都放到同一个分区，而且两个系统中都用相同的用户名，在Mint中也这样做，就可以直接使用以前做好的一些把配置写到/home目录的软件的配置了。<br />
+　　Mint用了近一天了，感觉不错，就看它能用多久吧。</p>

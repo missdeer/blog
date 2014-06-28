@@ -1,7 +1,8 @@
 ---
 layout: post
 title: UNICODE与Scintilla合用的问题
-categories: []
+categories:
+- Software
 tags: []
 status: publish
 type: post
@@ -10,6 +11,11 @@ meta:
   blogger_blog: missdeer.blogspot.com
   blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
   blogger_permalink: "/2008/12/unicodescintilla.html"
-author: 
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
 ---
 <p>　　今天做另外一个工具的一点维护工作，需求是通过用户输入的宏名，宏值，类名，函数名以有函数返回值，工具要能自动到指定的文件中找到指定的位置，自动插入生成代码。本来这个需求是上个版本就已经实现了的，今天只是对需求有略微一点修改。可是最大的问题是，今天发现以前实现的这个根本不能用啊，文件是能找到，可是位置却是错的，根本毫无联系。<br />　　调试了很久，实现过程是首先利用MSR的greta来找到参考标记，取得标记的位置，然后插入生成的代码。一开始怀疑是取得标记的位置不对，其实冷静地想想，这种可能性几乎不存在。不过我还是傻傻地加入代码，看标记位置取回的字符串内容，毫无疑问，肯定是对的。接着怀疑是Scintilla的插入方法有问题，同样事后想想，这种可能性也微乎其微。不过我也不死心地，加入代码，看该位置的Scintilla文本，果然已经是不正常的内容了。<br />　　正在束手无策之时，突然不知怎的，灵光一闪，可能是因为看到其他一个项目中使用多字节编码的greta，觉得可能是这里引起的问题。greta在匹配文本时，在unicode情况下，一个中文字符和一个英文字符都是一占一个长度，而此时Scintilla还是以多字节方式处理，一个中文字符占两个长度，所以greta算出的位置对scintilla来说并不能对应上。想通了这一点，立即将工程编译选项切换到多字节方式编译，果然就正常了。<br />　　这次遇到这个问题，也能为以后实现相关需求，或者解决类似问题，提供了极大的参考价值。</p>

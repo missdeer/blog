@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "日志程序库"
-categories: []
+categories:
+- Software
 tags: []
 status: publish
 type: post
@@ -10,6 +11,11 @@ meta:
   blogger_blog: missdeer.blogspot.com
   blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
   blogger_permalink: "/2007/05/blog-post_19.html"
-author: 
+author:
+  login: missdeer
+  email: missdeerme@163.com
+  display_name: missdeer
+  first_name: "樊"
+  last_name: "杨"
 ---
-<p>　　昨天审视了一下那些概念，猛然发现一个严重的Bug的原因，原来一直是因为我对BSTR等的概念不了解，才造成了这样的问题，哈哈，纠正一个严重bug的感觉真爽啊！现在也许真的是可以把那个任务搁一会儿了！除非到时候又有什么新的需求，或者要对某一块内容重构，对，有一块，现在的设计很傻很笨，缺少灵活性和弹性，如果要扩充新的内容，就比较麻烦，而且如果那个结构内容一多，就看起来特别怪异。<br />　　突然很想自己写一个简单的日志系统，那个胖子曾经还跟我吹牛他们设计日志系统的时候参考了ACE的很多东西，我看了一下，只不过是每天新建个文件，把文件名、行号和消息内容写进去而已啊，只能说它真的是个日志，根本没有所谓的系统的概念！<br />　　要日志系统，就看<a href="http://www.cs.wustl.edu/%7Eschmidt/ACE.html">ACE</a>、<a href="http://pantheios.sourceforge.net/">Pantheios</a>、<a href="http://logging.apache.org/log4cxx">log4cxx</a>、<a href="http://log4cpp.sourceforge.net/">log4cpp</a>、<a href="http://log4cplus.sourceforge.net/">log4cplus</a>、<a href="http://www.torjo.com/">Boost.log</a>（没被Boost接受）。其中log4cxx、log4cpp、log4cplus都是从log4j派生来的，后两个都好久没有更新了，log4cxx最后的发布版也是好久以前的了，svn里倒是可以取出最新的版本，不过对于Windows平台来说，它没了直接的VC的工程文件了，需要用<a href="http://ant.apache.org/">ANT</a>才能编译了，看过它的文档，功能还是很强大的，大概是得益于log4j的强大吧，而且它可以支持配置文件。ACE里的日志功能，设计得也是很强大，它还能自动缩进输出消息，这点比较有趣，但是使用时需要链接整个ACE库，这就比较不爽了，要是能单独把日志部分提取出来，或许用的人还多一点。Pantheios基于<a href="http://www.synesis.com.au/software/stlsoft/">STLSoft</a>这个库，功能也很不错，它使用Syslog协议，这个协议在<a href="http://www.faqs.org/rfcs/rfc3164.html">RFC3164</a>有描述，甚至自己在Windows平台上实现了这个协议。不过我除了Boost，很不习惯再用其它的非标准通用库了，所以这个Pantheios就这样被我cancel掉了。大概看了一个Boost.log的文档，发现大部分需要的功能，它确实也都有了，或许不如ACE的强大，但之后也存在着不小的提升空间，不知道当时Boost怎么没有接受它，现在它好像被搁置下来了，也没在maillist里提起过了，而我看<a href="http://boost-consulting.com/vault/">boost-consult的vault</a>上<a href="http://boost-consulting.com/vault/index.php?action=downloadfile&amp;filename=logging.zip&amp;directory=&amp;PHPSESSID=fv29jg8g4iav6inaiuhatrorn1">那个</a>，照那个样子，应该不会被接受的，看来要让Boost加入一个日志库，还得等待一段时间了！<br />　　所以近期一段时间内自己写个小巧适用的，还是有点必要的哈！不过有一点很重要的是，需要能同时让VC7.1/VC8/BCB5.6.4/BCB5.81编译，最好还能在Unix-like的系统上用Syslog协议。</p>
+<p>　　昨天审视了一下那些概念，猛然发现一个严重的Bug的原因，原来一直是因为我对BSTR等的概念不了解，才造成了这样的问题，哈哈，纠正一个严重bug的感觉真爽啊！现在也许真的是可以把那个任务搁一会儿了！除非到时候又有什么新的需求，或者要对某一块内容重构，对，有一块，现在的设计很傻很笨，缺少灵活性和弹性，如果要扩充新的内容，就比较麻烦，而且如果那个结构内容一多，就看起来特别怪异。<br />　　突然很想自己写一个简单的日志系统，那个胖子曾经还跟我吹牛他们设计日志系统的时候参考了ACE的很多东西，我看了一下，只不过是每天新建个文件，把文件名、行号和消息内容写进去而已啊，只能说它真的是个日志，根本没有所谓的系统的概念！<br />　　要日志系统，就看<a href="http://www.cs.wustl.edu/%7Eschmidt/ACE.html">ACE</a>、<a href="http://pantheios.sourceforge.net/">Pantheios</a>、<a href="http://logging.apache.org/log4cxx">log4cxx</a>、<a href="http://log4cpp.sourceforge.net/">log4cpp</a>、<a href="http://log4cplus.sourceforge.net/">log4cplus</a>、<a href="http://www.torjo.com/">Boost.log</a>（没被Boost接受）。其中log4cxx、log4cpp、log4cplus都是从log4j派生来的，后两个都好久没有更新了，log4cxx最后的发布版也是好久以前的了，svn里倒是可以取出最新的版本，不过对于Windows平台来说，它没了直接的VC的工程文件了，需要用<a href="http://ant.apache.org/">ANT</a>才能编译了，看过它的文档，功能还是很强大的，大概是得益于log4j的强大吧，而且它可以支持配置文件。ACE里的日志功能，设计得也是很强大，它还能自动缩进输出消息，这点比较有趣，但是使用时需要链接整个ACE库，这就比较不爽了，要是能单独把日志部分提取出来，或许用的人还多一点。Pantheios基于<a href="http://www.synesis.com.au/software/stlsoft/">STLSoft</a>这个库，功能也很不错，它使用Syslog协议，这个协议在<a href="http://www.faqs.org/rfcs/rfc3164.html">RFC3164</a>有描述，甚至自己在Windows平台上实现了这个协议。不过我除了Boost，很不习惯再用其它的非标准通用库了，所以这个Pantheios就这样被我cancel掉了。大概看了一个Boost.log的文档，发现大部分需要的功能，它确实也都有了，或许不如ACE的强大，但之后也存在着不小的提升空间，不知道当时Boost怎么没有接受它，现在它好像被搁置下来了，也没在maillist里提起过了，而我看<a href="http://boost-consulting.com/vault/">boost-consult的vault</a>上<a href="http://boost-consulting.com/vault/index.php?action=downloadfile&filename=logging.zip&amp;directory=&amp;PHPSESSID=fv29jg8g4iav6inaiuhatrorn1">那个</a>，照那个样子，应该不会被接受的，看来要让Boost加入一个日志库，还得等待一段时间了！<br />　　所以近期一段时间内自己写个小巧适用的，还是有点必要的哈！不过有一点很重要的是，需要能同时让VC7.1/VC8/BCB5.6.4/BCB5.81编译，最好还能在Unix-like的系统上用Syslog协议。</p>
