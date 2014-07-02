@@ -23,5 +23,4 @@ author:
 <p>　　根据@zhangh109的建议，修改了一下界面，浏览文章有三种模式，在启动界面现在就只有一个入口Article View，在Article View中再添加切换浏览模式的入口。另外了加个图片浏览的视图，在启动界面中把原来About的入口替换掉了，About则移到原来的Quit按钮处。<br />
 　　URL处理部分今天还是没有搞定，不过思路清晰了很多，估计明天就可以完成总体的框架，到时候图片浏览部分应该就可以很快实现，而文章浏览部分需要把Readability的JavaScript代码移植过来，本来如果可以直接用它的那些JavaScript代码是最好的方案，可是之前我曾尝试过，不知道为什么内嵌的Webkit在装载完页面后，直接运行那个代码是没有作用的。所以干脆也不研究它了，直接移植成C++的，用Qt的接口操作Webkit的DOM树来解决吧。想来这移植工作需要花一些时间吧。<br />
 　　贴两张修改后的截图吧。<br />
-[caption id="attachment_1192" align="alignleft" width="300" caption="新的启动界面，只有5个带图标的按钮了，Quit按钮被换成About，About被换成ImageView，原来3种文章浏览视图都合并到Article View中。"]<a href="http://www.missdeer.com/wp-content/uploads/2011/01/newstartpage.png"><img src="assets/newstartpage-300x253.png" alt="新的启动界面" title="新的启动界面" width="300" height="253" class="size-medium wp-image-1192" /></a>[/caption]<br />
-[caption id="attachment_1193" align="alignleft" width="300" caption="Article View底部有3种浏览模式的切换按钮，就是原来在启动界面上的可伸缩列表视图，分栏视图和报纸视图。"]<a href="http://www.missdeer.com/wp-content/uploads/2011/01/articleView.png"><img src="assets/articleView-300x253.png" alt="Article View" title="Article View" width="300" height="253" class="size-medium wp-image-1193" /></a>[/caption]</p>
+</p>

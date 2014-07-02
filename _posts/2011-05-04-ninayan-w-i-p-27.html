@@ -17,6 +17,5 @@ author:
   last_name: "杨"
 ---
 <p>　　一直准备把Ninayan移植到手机上去的。但是之前尝试把它移植到S60上不太顺利，simulator上跑得基本正常，一部署到手机上，就会自动退出，我估计是由于内存占用太多，或者同时并发的网络连接过多。写惯了桌面程序，确实对于这种资源受限环境的程序开发有点束手无策。于是就丢下暂时不管了。<br />
-[caption id="attachment_1373" align="alignleft" width="300" caption="Ninayan上iPhone"]<a href="http://www.missdeer.com/wp-content/uploads/2011/05/x2_5d70c38.jpg"><img src="assets/x2_5d70c38-300x225.jpg" alt="Ninayan上iPhone" title="Ninayan上iPhone" width="300" height="225" class="size-medium wp-image-1373" /></a>[/caption]<br />
 　　这次打算尝试一下iOS开发。几个月前就买了本《iPhone SDK 3开发指南》，一直没怎么看，这最近两个星期又是看书又是看视频的，总算有点儿明白怎么个过程了。不过不同的屏幕大小，对于UI的需求也不一样，在iPhone这种屏幕受限的环境中，也只能尽量把有用的UI元素挤到一块了。我习惯的做法是先把界面画出来，然后给每个菜单项啊，按钮啊什么的加上功能……这是我10来年来养成的习惯，从一开始涉及GUI开发就自己形成的习惯。有了UI后，要移植Ninayan到iOS上，只需要找一个JSON解析库，一个OAuth库，其他的iPhone SDK就够了。<br />
 　　今天又折腾了下，可以直接点击列在工具栏中的超链接按钮，直接显示链接接的内容，分为图片，视频和文章三个类型。最后又揪出整个程序中最头疼的一个问题，Sqlite数据库的使用，总有冲突，叹气。不过在线显示内容的功能勉强能用了。</p>
