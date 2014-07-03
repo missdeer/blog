@@ -11,6 +11,14 @@
 <a title="Share to WeChat" href="#" class="bds_weixin" data-cmd="weixin"></a>
 <a title="Share to Tencent Weibo" href="#" class="bds_tqq" data-cmd="tqq"></a>
 <a title="Share to QQZone" href="#" class="bds_qzone" data-cmd="qzone"></a>
+<a title="Share to Douban" href="#" class="bds_douban" data-cmd="douban"></a>
+<a title="Share to 163 Weibo" href="#" class="bds_t163" data-cmd="t163"></a>
+<a title="Share to Sohu Weibo" href="#" class="bds_tsohu" data-cmd="tsohu"></a>
+<a title="Share to Fanfou" href="#" class="bds_ff" data-cmd="ff"></a>
+<a title="Save to Youdao Note" href="#" class="bds_youdao" data-cmd="youdao"></a>
+<a title="Save to Qingbiji" href="#" class="bds_qingbiji" data-cmd="qingbiji"></a>
+<a title="Save to Sohu Kanshou" href="#" class="bds_kanshou" data-cmd="kanshou"></a>
+<a title="Mail Share" href="#" class="bds_mail" data-cmd="mail"></a>
 </div>
 <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
 <!-- end of baidu JIA -->
