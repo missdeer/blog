@@ -21,4 +21,8 @@ UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTy
 
 我也没想明白为什么，只好不用这些东西。
 
-有了自定义的AppDelegate，剩下的跟网上众多iOS Push Notification的简介文章基本一样了。不过折腾证书真是要纠结死我了。
+有了自定义的AppDelegate，剩下的跟网上众多iOS Push Notification的简介文章基本一样了。
+
+不过折腾证书真是要纠结死我了。
+
+最后是写个发送消息的程序，当然是用Go了，放在服务器端，在github找到不少可以用的代码，我就选了[这个](https://github.com/anachronistic/apns)，非常简单易用啊。
