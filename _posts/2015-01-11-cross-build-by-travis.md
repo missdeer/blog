@@ -11,13 +11,13 @@ published: true
 
 可以看看以下几个repo，README上就列出了所有二进制可执行文件的下载链接：
 
-- https://github.com/missdeer/toto
-- https://github.com/missdeer/TaobaoMobileImageResizer
-- https://github.com/missdeer/ifconfig
-- https://github.com/missdeer/KellyBackend
-- https://github.com/missdeer/KellyWechat
-- https://github.com/missdeer/MiaoCoffee
-- https://github.com/missdeer/ReadabilityProxy
+- [toto](https://github.com/missdeer/toto)
+- [TaobaoMobileImageResizer](https://github.com/missdeer/TaobaoMobileImageResizer)
+- [ifconfig](https://github.com/missdeer/ifconfig)
+- [KellyBackend](https://github.com/missdeer/KellyBackend)
+- [KellyWechat](https://github.com/missdeer/KellyWechat)
+- [MiaoCoffee](https://github.com/missdeer/MiaoCoffee)
+- [ReadabilityProxy](https://github.com/missdeer/ReadabilityProxy)
 
 有这个念头还是因为看到两个github上的项目引起的。一个是[Gobuild.io](https://github.com/gobuild/gobuild3)，它提供了Go程序的自动编译和下载服务，另一个是[rapidjson](https://github.com/miloyip/rapidjson)，它实现了自动生成文档并通过github pages显示的功能。于是我就想到可以把这两个功能合并起来。
 
