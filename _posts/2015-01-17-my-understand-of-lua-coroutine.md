@@ -65,7 +65,7 @@ final_task(t1 + t1)
 	
 ```
 
-这段代码的运行结果跟前面的代码一模一样。代码的区别就在于没有使用coroutine，而且把原来作为coroutine的函数task拆成了两个函数`prepare_env`和`final_task`。用coroutine的好处在于一个函数涵盖了整个任务的逻辑，思维连贯。不用coroutine的做法就需要在每次yield的地方分界，拆成几个零碎的小函数。两种不同的编程风格，不在于谁好谁坏，只有看个人的喜好，以及当时的场景，选择哪种更合适。
+这段代码的运行结果跟前面的代码一模一样。代码的区别就在于没有使用coroutine，而且把原来作为coroutine的函数`task`拆成了两个函数`prepare_env`和`final_task`。用coroutine的好处在于一个函数涵盖了整个任务的逻辑，思维连贯。不用coroutine的做法就需要在每次yield的地方分界，拆成几个零碎的小函数。两种不同的编程风格，不在于谁好谁坏，只有看个人的喜好，以及当时的场景，选择哪种更合适。
 
 联想到现在非常火爆的Node.js，其实使用Lua coroutine的这种编程风格非常适合做Reactor模式的socket并发编程。每个socket连接一个task coroutine，用于处理数据，处理完后yield回主函数，让主函数做select/epoll，拣取出有变化的socket，找到对应的coroutine就resume进去处理数据，如此循环，就能做到Node.js这种重IO轻计算的任务。现在有个叫[Luvit](https://luvit.io/)的项目，是用Lua实现像Node.js的框架，但它貌似模仿得过头了，也是用回调函数的风格，这就失去了Lua用coroutine的原汁原味，既讨不得Lua社区的好，又吸引不了其他已经被Node.js吸引走的人。
 
