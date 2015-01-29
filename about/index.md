@@ -4,9 +4,9 @@ layout: page
 comments: yes
 ---
   
-##[missdeer](http://about.me/missdeer) 
+##[missdeer](https://about.me/missdeer) 
 
-* 个人主页: [http://minidump.info](http://minidump.info)
+* 个人主页: [https://minidump.info](https://minidump.info)
 * Email: [missdeer at dfordsoft dot com](mailto:misdeer@dfordsoft.com)      
 * github : [https://github.com/missdeer](https://github.com/missdeer)   
 * bitbucket: [https://bitbucket.org/missdeer/](https://bitbucket.org/missdeer/)
