@@ -2,7 +2,7 @@ markdown: redcarpet
 redcarpet:
     extensions: ["fenced_code_blocks", "tables", "highlight", "strikethrough"]
 permalink: /:year/:month/:title/
-url: http://blog.minidump.info
+url: https://blog.minidump.info
 author: missdeer
 highlighter: pygments
 paginate: 40 
