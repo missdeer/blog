@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "性能问题解决了"
-categories: job
+categories: Job
 description: Thumbnail Service的性能问题解决了
 tags: coding websocket golang
 ---

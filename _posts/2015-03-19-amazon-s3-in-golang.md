@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Go语言操作Amazon S3"
-categories: job
+categories: Job
 description: Go语言操作Amazon S3
 tags: Golang "Amazon S3"
 ---

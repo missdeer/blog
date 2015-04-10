@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "工作近况"
-categories: job
+categories: Job
 description: 工作近况
 tags: golang
 ---

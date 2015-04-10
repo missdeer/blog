@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "重构IPC协议"
-categories: job
+categories: Job
 description: 重构IPC协议
 tags: IPC socket
 ---

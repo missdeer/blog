@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Relay Bugs"
-categories: job
+categories: Job
 description: Relay Bugs
 tags: coding
 ---

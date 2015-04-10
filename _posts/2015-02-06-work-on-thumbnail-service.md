@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Work on Thumbnail Service"
-categories: job
+categories: Job
 description: Work on thumbnail service
 tags: golang server client websocket
 ---

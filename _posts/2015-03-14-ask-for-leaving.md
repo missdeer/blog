@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "要离职了"
-categories: job
+categories: Job
 description: 要离职了
 tags: job
 ---

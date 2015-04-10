@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "netlink需要root权限"
-categories: job
+categories: Job
 description: netlink需要root权限
 tags: netlink root linux
 ---

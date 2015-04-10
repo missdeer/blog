@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "重构Relay项目"
-categories: job
+categories: Job
 description: 重构Relay项目
 tags: coding socket network multithread Boost asio
 ---

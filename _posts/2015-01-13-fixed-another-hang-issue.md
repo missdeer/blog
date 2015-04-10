@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "又修正一个线程挂死的问题"
-categories: job
+categories: Job
 description: 又修正一个线程挂死的问题
 tags: coding
 ---
