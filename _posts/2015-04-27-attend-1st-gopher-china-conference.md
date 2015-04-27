@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "参加第一届Gopher China大会"
-categories: Tech
+categories: Technic
 description: 参加第一届Gopher China技术大会
 tags: Golang
 ---
