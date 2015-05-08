@@ -67,6 +67,14 @@ tags: Qt LeanCloud Mobile iOS Android
 
 ```
 ios {
+    INCLUDEPATH += $$PWD/ios
+    HEADERS += \
+        $$PWD/ios/QtAppDelegate.h \
+        $$PWD/ios/QtAppDelegate-C-Interface.h
+
+    OBJECTIVE_SOURCES += \
+        $$PWD/ios/QtAppDelegate.mm
+        
     QMAKE_LFLAGS += -F$$PWD/avoscloud-ios-sdk-v3.1.1.1
     LIBS += -framework CFNetwork \
         -framework AVOSCloud  \
