@@ -35,7 +35,14 @@ ln -s ../../../../../crystax/libs/armeabi-v7a/libcrystax.so libcrystax.so
 
 最后还有一个问题要解决，就是`libcrystax.so`需要一起打包进APK中，这有两个办法：
 
-1. 在Qt Creator的Projects页，Build Android APK区，可以添加Additional Libraries，把这个so添加过去应该就可以了。这种方法的缺点是设置不能带走，因为设置保存在.pro.user文件中。
-2. 在`ANDROID_PACKAGE_SOURCE_DIR`目录下，根据你的项目的目标机器平台建立文件夹，比如`ndroid/libs/armeabi-v7a`，把`libcrystax.so`文件放到这个目录中就行了。这种方法的缺点是要多复制一个文件，比较累赘。
+- 在Qt Creator的Projects页，Build Android APK区，可以添加Additional Libraries，把这个so添加过去应该就可以了。其实就是在.pro文件中添加了一段内容：
+
+```
+contains(ANDROID_TARGET_ARCH,armeabi-v7a) {
+    ANDROID_EXTRA_LIBS = crystax/libs/armeabi-v7a/libcrystax.so 
+}
+```
+
+- 或者，在`ANDROID_PACKAGE_SOURCE_DIR`目录下，根据你的项目的目标机器平台建立文件夹，比如`ndroid/libs/armeabi-v7a`，把`libcrystax.so`文件放到这个目录中就行了。这种方法的缺点是要多复制一个文件，比较累赘。
 
 这样就像官方Android NDK那样直接编译，链接，部署和运行了。
