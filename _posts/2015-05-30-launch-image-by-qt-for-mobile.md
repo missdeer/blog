@@ -34,7 +34,7 @@ ios {
 
 在Android上是另外一种方法。
 
-- 首先，把图片文件放在android/res/drawable目录下，如图![](/media/2015-05-30/androidspalshscreen.png)
+- 首先，把图片文件放在android/res/drawable目录下，如图![](/media/2015-05-30/androidsplashscreen.png)
 - 然后，在android/res/layout目录下创建一个splash.xml文件，内容为
 
 ```xml
