@@ -63,3 +63,39 @@ tcp        0      0 :::443                      :::*                        LIST
 ```
 
 最后，如果自己有IPv6环境，就访问一下，没有的话可以在[http://ipv6-test.com/validate.php](http://ipv6-test.com/validate.php)测一下看看是否生效。
+
+BTW，我这blog也是支持IPv6的。
+
+```
+$ dig blog.minidump.info ANY 
+
+; <<>> DiG 9.8.3-P1 <<>> blog.minidump.info ANY
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 59877
+;; flags: qr rd ra; QUERY: 1, ANSWER: 4, AUTHORITY: 2, ADDITIONAL: 4
+
+;; QUESTION SECTION:
+;blog.minidump.info.		IN	ANY
+
+;; ANSWER SECTION:
+blog.minidump.info.	5	IN	A	104.28.31.28
+blog.minidump.info.	5	IN	A	104.28.30.28
+blog.minidump.info.	5	IN	AAAA	2400:cb00:2048:1::681c:1f1c
+blog.minidump.info.	5	IN	AAAA	2400:cb00:2048:1::681c:1e1c
+
+;; AUTHORITY SECTION:
+minidump.info.		4211	IN	NS	anna.ns.cloudflare.com.
+minidump.info.		4211	IN	NS	ed.ns.cloudflare.com.
+
+;; ADDITIONAL SECTION:
+ed.ns.cloudflare.com.	84448	IN	A	173.245.59.111
+ed.ns.cloudflare.com.	84448	IN	AAAA	2400:cb00:2049:1::adf5:3b6f
+anna.ns.cloudflare.com.	63572	IN	A	173.245.58.102
+anna.ns.cloudflare.com.	63572	IN	AAAA	2400:cb00:2049:1::adf5:3a66
+
+;; Query time: 165 msec
+;; SERVER: 64.104.123.245#53(64.104.123.245)
+;; WHEN: Wed Jul 22 09:58:33 2015
+;; MSG SIZE  rcvd: 265
+```
