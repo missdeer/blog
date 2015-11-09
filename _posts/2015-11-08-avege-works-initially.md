@@ -3,7 +3,7 @@ layout: post
 title: "Avege初步能工作了"
 categories: Shareware
 description: Avege初步能工作了
-tags: Golang GFW 
+tags: Golang GFW raspberrypi gateway redsocks shadowsocks
 ---
 之前说过想做个类redsocks的实现，纠结了一些天看代码后，现在终于用Go做了个初步能工作的版本出来，名字叫Avege，依然是某[女推友](https://twitter.com/avege)的id。
 
