@@ -3,7 +3,7 @@ layout: post
 title: "T43上的Fedora做翻墙网关"
 categories: Linux
 description: T43上的Fedora做翻墙网关
-tags: GFW shadowsocks
+tags: GFW shadowsocks gateway
 ---
 今天回老家了，老家用的是便宜的移动宽带，之前用着也没多不爽，因为也一直没怎么用，就是用来看小说了，虽然也发现移动的墙要高一些，但也凑合着过了。
 
