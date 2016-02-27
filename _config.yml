@@ -1,6 +1,3 @@
-markdown: redcarpet
-redcarpet:
-    extensions: ["fenced_code_blocks", "tables", "highlight", "strikethrough"]
 permalink: /:year/:month/:title/
 url: https://blog.minidump.info
 author: missdeer
