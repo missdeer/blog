@@ -15,7 +15,7 @@
 
     <script type="text/javascript" >
         var ishttps = 'https:' == document.location.protocol ? true: false;
-        if(ishttps == false && location.host != "127.0.0.1:4000){
+        if(ishttps == false && document.location.hostname != "blog.minidump.info" ){
             location.href = location.href.replace("http://", "https://");
         }
     </script>
