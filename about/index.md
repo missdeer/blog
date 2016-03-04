@@ -13,7 +13,7 @@ comments: yes
 - 后有2年从事自由职业。
 - 之后在Wicresoft工作1年。
 - 2012年7月-2015年4月供职于TVU Networks。
-- 2015年4月至今从事Cisco Jabber客户端开发。
+- 2015年4月至今供职于亚创博彦。
 
 在[bitbucket](https://bitbucket.org/missdeer)和[github](https://github.com/missdeer)有一些我以前写的或现在正在写的并放出源代码的东西。当然，还有一些现在仍然在写但并没有放出源代码的东西。
 
