@@ -13,7 +13,7 @@ tags: Qt sqlite
 2. 调用`sqlite3_initialize`，这个函数到底什么作用我也不清楚，看文档也没看明白，只说在嵌入式系统上要调，工作站系统上没必要，但这里如果不调用的话，下一步调用`sqlite3_create_function`就会crash，囧；
 3. 实现正则表达式匹配函数，供sqlite3回调；
 4. 将上一步实现的函数注册到sqlite3中，通过调用`sqlite3_create_function`完成;
-5. 编译链接时要提供与Qt使用的相同版本的sqlite3.c和sqlite3.h，Qt 5.7用的是3.11.1.0版本，如果版本不一致，则数据库打开后不能close，或者close就crash。
+5. 编译链接时要提供与Qt使用的相同版本的sqlite3.c和sqlite3.h，因为这里调用了sqlite的C接口函数，而Qt虽然封装了sqlite，却没有暴露这些函数出来，只能自己链接一份了。Qt 5.7用的是3.11.1.0版本，如果版本不一致，则数据库打开后不能close，或者close就crash。
 
 代码如下：
 
