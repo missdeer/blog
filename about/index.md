@@ -20,15 +20,15 @@ comments: yes
 项目经验：
 
 - Cisco Jabber，企业级IM客户端(目前工作，C++)
-- Thumbnail service，大数据量图片存储与分发
-- Message service，实时消息转发与推送
-- Relay service，音视频媒体流分发
-- TVUTransporter，音视频媒体流网络传输
-- Microsoft Dynamics AX，SE
-- CodingStudio，TeX、Lua等语言的集成开发环境
-- Ninayan，多平台多协议SNS客户端
-- Process Integrated Management System，流程集成管理系统
-- Impeller，基于Ruby的自动化测试脚本集成开发环境
+- Thumbnail service，大数据量图片存储与分发(@TVU Networks)
+- Message service，实时消息转发与推送(@TVU Networks)
+- Relay service，音视频媒体流分发(@TVU Networks)
+- TVUTransporter，音视频媒体流网络传输(@TVU Networks)
+- Microsoft Dynamics AX，SE(@Wicresoft)
+- CodingStudio，TeX、Lua等语言的集成开发环境(@自由职业)
+- Ninayan，多平台多协议SNS客户端(@自由职业)
+- Process Integrated Management System，流程集成管理系统(@华为)
+- Impeller，基于Ruby的自动化测试脚本集成开发环境(@华为)
 
 个人自我评价：
 
