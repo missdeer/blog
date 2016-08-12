@@ -19,7 +19,7 @@ comments: yes
 
 项目经验：
 
-- Cisco Jabber，企业级IM客户端
+- Cisco Jabber，企业级IM客户端(目前工作，C++)
 - Thumbnail service，大数据量图片存储与分发
 - Message service，实时消息转发与推送
 - Relay service，音视频媒体流分发
