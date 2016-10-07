@@ -11,9 +11,9 @@ tags: Golang CJK UTF-8
 
 Go team提供了CJK几种常见编码的encoder和decoder，所以这很方便了：
 
-```golang
+```go
 
-mport (
+import (
 	"bytes"
 	"errors"
 	"io/ioutil"
