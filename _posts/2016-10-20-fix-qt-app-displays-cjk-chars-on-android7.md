@@ -26,4 +26,4 @@ tags: Qt Android
     qApp->setFont(font);
 ```
 
-再另外，macOS上JDK可能会有多个，javac可能有多少，其实只要在`/Library/Java/JavaVirtualMachines/`下面找就行了，选个最高的版本号，比如`/Library/Java/JavaVirtualMachines/jdk1.8.0_40.jdk/Contents/Home/`，Qt Creator上编译Android app需要设置这个Home路径。
+再另外，macOS上JDK可能会有多个，javac可能有多个，其实只要在`/Library/Java/JavaVirtualMachines/`下面找就行了，选个最高的版本号，比如`/Library/Java/JavaVirtualMachines/jdk1.8.0_40.jdk/Contents/Home/`，Qt Creator上编译Android app需要设置这个Home路径。
