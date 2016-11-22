@@ -20,7 +20,8 @@
     <link href="/media/css/screen.css" rel="stylesheet">
   </head>
   <body>
-      <div id="main" class="container">
+      <div id="container">
+      <div id="main" role="main">
         <header>
         <div class="buttons">
           <a href="/" class="ss-icon" title="Go to homepage">home</a>
@@ -35,6 +36,7 @@
         <article class="content">
         {{ content }}
         </article>
+    </div>
         <footer>
         <p><small>Powered by <a href="https://github.com/mojombo/jekyll" target="_blank">Jekyll</a> | Free hosted at <a target="_blank" href="https://github.com/missdeer/blog">Github</a> | Copyright 2006 - {{site.time | date:"%Y"}} by <a target="_blank" href="https://resume.minidump.info">missdeer</a>| Theme from <a target="_blank" href="https://github.com/dashjim/dashjim.github.com">DashJim</a></small></p>
         </footer>
