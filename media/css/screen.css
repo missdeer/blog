@@ -79,8 +79,8 @@ body>div {
     width: 70%;
 		/*
     min-width: 32em;
-    max-width: 50em;
 	*/
+    max-width: 100%;
     padding: 3em 3em 1.5em;
     margin: 3em auto;
     background-color: #fff;
