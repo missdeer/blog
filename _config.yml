@@ -2,4 +2,5 @@ permalink: /:year/:month/:title/
 url: https://blog.minidump.info
 author: missdeer
 highlighter: rouge
-paginate: 40 
+paginate: 40
+gems: [jekyll-paginate]
