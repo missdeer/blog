@@ -4,15 +4,6 @@ layout: default
 
 <section class="post">
 {{ content }}
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- BlogAds -->
-<ins class="adsbygoogle"
-    style="display:inline-block;width:468px;height:60px"
-    data-ad-client="ca-pub-3435940217424489"
-    data-ad-slot="9166587836"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
 </section>
 <section class="meta">
 <hr/>
@@ -33,7 +24,7 @@ layout: default
 {% endif %}
 {% if page.tags %}
 <span class="tags">
-  tagged with 
+  tagged with
   {% for tag in page.tags %}
   <a href="/tags/#{{ tag }}" title="{{ tag }}">{{ tag }}</a>&nbsp;
   {% endfor %}
@@ -71,7 +62,7 @@ $(window).load(function() {
         $(img).parent().before('<p>NOTE: This image was resized. To view it full-size, click on the image.</p>');
         //$(img).parent().after('<p style="text-align:right;background:none;margin:0;padding-right:3px">Image resizing script by <a href="http://aetus.net/217/programming/automatically-resize-large-images-with-javascript/">Aetus Designs</a>.</p>');
       };
-      
+
       for (var i = 0; i < imgs.length; i++) {
         // Set a variable for the current image to make the code make more sense.
         var img = imgs[i];
@@ -82,7 +73,7 @@ $(window).load(function() {
           // If it can scale perfectly.
           if (old_ratio === min_ratio) {
             resize_image(img, minht, minwt);
-          } 
+          }
           // We need to do some magic now.
           else {
             var newdim = [img.height, img.width];
