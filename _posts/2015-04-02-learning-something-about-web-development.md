@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "学点Web开发"
-categories: coding
+categories: Coding
 description: 打算学点Web开发，尤其是前端
 tags: Web
 ---

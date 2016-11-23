@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "让Qt的sqlite插件支持REGEXP查询"
-categories: coding
+categories: Coding
 description: 让Qt的sqlite插件支持REGEXP查询
 tags: Qt sqlite
 ---

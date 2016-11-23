@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "生成iOS Push Notification证书"
-categories: coding
+categories: Coding
 description: 生成iOS Push Notification证书
 tags: iOS PushNotification certificate
 ---

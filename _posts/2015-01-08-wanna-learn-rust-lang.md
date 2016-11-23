@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "想学一下Rust"
-categories: coding
+categories: Coding
 description: 想学一下Rust
 tags: Rust Go
 ---

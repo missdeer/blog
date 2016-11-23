@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Qt for Android中使用CrystaX NDK替换官方Android NDK"
-categories: coding
+categories: Coding
 description: Qt for Android中使用CrystaX NDK替换官方Android NDK
 tags: Qt Android NDK CrystaX
 ---

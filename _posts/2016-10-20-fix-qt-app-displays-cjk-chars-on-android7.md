@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "修正Qt app在Android 7上显示中文字符"
-categories: coding
+categories: Coding
 description: 修正Qt app在Android 7上显示中文字符
 tags: Qt Android
 ---

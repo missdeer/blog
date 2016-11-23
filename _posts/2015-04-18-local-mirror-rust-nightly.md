@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "本地镜像Rust nightly build"
-categories: coding
+categories: Coding
 description: 建立Rust nightly build的本地镜像以加速升级过程
 tags: Rust nightly
 ---

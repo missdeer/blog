@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "一次WinDBG调试的心得"
-categories: coding
+categories: Coding
 description: 一次使用WinDBG调试程序后的心得
 tags: WinDBG
 ---

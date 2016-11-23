@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "设置Android app的preview screen"
-categories: coding
+categories: Coding
 description: 设置Android app的preview screen
 tags: Android Qt 
 ---

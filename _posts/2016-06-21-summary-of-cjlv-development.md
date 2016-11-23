@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "某日志查看程序开发小结"
-categories: coding
+categories: Coding
 description: 某日志查看程序开发小结
 tags: Qt
 ---

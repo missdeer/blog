@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "QML元素在Android上的Scaling"
-categories: coding
+categories: Coding
 description: QML元素在Android上的Scaling
 tags: QML QtQuick Android Scaling
 ---

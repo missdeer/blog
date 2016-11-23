@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "准备学习C++11和C++14"
-categories: coding
+categories: Coding
 description: 准备学习C++新标准
 tags: cpp C++11 C++14
 ---

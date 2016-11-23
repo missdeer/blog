@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "程序被Google Breakpad挂住了"
-categories: coding
+categories: Coding
 description: 程序被Google Breakpad挂住，退出不能
 tags: breakpad
 ---

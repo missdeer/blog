@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "学好数据结构很重要"
-categories: coding
+categories: Coding
 description: 今天早上csdn的人打电话来催了，让我快点提交应用
 tags: coding software shareware
 ---

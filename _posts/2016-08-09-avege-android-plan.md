@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "avege Android版的计划"
-categories: coding
+categories: Coding
 description: 移植avege到Android的计划
 tags: GFW Android avege Go
 ---

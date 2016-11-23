@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "我对Lua coroutine的理解"
-categories: coding
+categories: Coding
 description: 我对Lua coroutine的理解
 tags: Lua coroutine thread fiber goroutine
 ---

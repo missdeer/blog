@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Go语言中将其他编码字符转换为UTF-8"
-categories: coding
+categories: Coding
 description: Go语言中将其他编码字符转换为UTF-8
 tags: Go UTF-8
 ---

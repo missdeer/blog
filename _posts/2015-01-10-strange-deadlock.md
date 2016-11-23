@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "奇怪的死锁"
-categories: coding
+categories: Coding
 description: 奇怪的死锁问题
 tags: Linux deadlock process
 ---
