@@ -3,7 +3,7 @@ layout: post
 title: "修改DNS导致Nexus手机连不上WIFI"
 categories: mobile
 description: 修改DNS导致Nexus手机连不上WIFI
-tags: dns nexus mobile wifi
+tags: DNS nexus mobile wifi
 ---
 之前给avege的DNS解析功能加了黑名单白名单，然后就直接部署在家里的树莓派上了，昨天晚上突然发现妹子的Nexus 5和我的Nexus 6全都连不上WIFI了，右上角的WIFI图标一直显示着感叹号。换热点，重启路由器，重启手机WIFI开头都没有，我想了想这两天来做的事情，基本确定是因为avege的DNS解析功能导致的。
 

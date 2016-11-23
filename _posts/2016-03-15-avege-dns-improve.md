@@ -3,7 +3,7 @@ layout: post
 title: "改进avege的dns解析功能"
 categories: Shareware
 description: 改进avege的dns解析功能
-tags: avege dns
+tags: avege DNS
 ---
 原本avege就是有一个解决dns污染的方案的，是参照ChinaDNS的原理写的，简单说来就是同时请求国内和国外的DNS server，当收到结果的IP被认为是国外时，丢弃国内DNS server的结果，只取国外DNS server的结果，不然就取国内DNS server的结果。这是基于一些基本的假设，比如总是国内DNS server先返回结果，比如GFW不会使用国内IP来污染。
 
