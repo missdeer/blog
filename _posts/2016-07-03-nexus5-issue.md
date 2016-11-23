@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Nexus5出问题了"
-categories: mobile
+categories: Mobile
 description: Nexus5 屏幕抖动，继而花屏
-tags: Nexus mobile
+tags: Nexus Mobile
 ---
 周四周五的时候妹子跟我说她的Nexus 5屏幕在抖动，当时我也没放在心上，只想着可能是系统或某个app的缘故，等抽空把数据备份一下，然后还原出厂设置试一下。结果拖延症一拖也就过去了，昨天妹子出去参加什么沙龙去了，晚上回来手机已经抖得几乎没法用了，我就着急想把数据备份一下，主要就是（垃圾）微信聊天记录，照片以及通讯录。结果一插到电脑上，干脆花屏了！然后妹子就大发脾气。
 

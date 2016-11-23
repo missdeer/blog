@@ -3,7 +3,7 @@ layout: post
 title: "近期小结和计划"
 categories: life
 description: 近期小结和计划
-tags: mobile Shareware
+tags: Mobile Nexus Shareware
 ---
 从淘宝花了几十块钱买了个Nexus 5的尾插排线，然后自己掰开后盖换上，Nexus 5复活了！有点小遗憾是我的手工不好，换上后不是很紧凑的样子。
 
