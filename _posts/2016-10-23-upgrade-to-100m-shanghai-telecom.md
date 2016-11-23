@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "升级到电信100M宽带"
-categories: life
+categories: Life
 description: 家里的宽带升级到电信100M
 tags: ISP
 ---

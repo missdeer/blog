@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Blog开启https支持并强制使用"
-categories: life
+categories: Life
 description: Blog开启https支持并强制使用
 tags: blog jekyll https
 ---

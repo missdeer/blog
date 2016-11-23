@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "开始卖咖啡"
-categories: life
+categories: Life
 description: 开始卖咖啡
 tags: coffee tea
 ---

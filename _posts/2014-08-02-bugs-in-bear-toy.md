@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "薰衣草小熊长虫"
-categories: life
+categories: Life
 description: 妹子的薰衣草小熊里面长了很多米虫出来
 tags: toy Bridestowe
 ---

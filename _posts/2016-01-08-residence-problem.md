@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "户口不好迁啊"
-categories: life
+categories: Life
 description: 户口问题困难重重
 tags: 
 ---

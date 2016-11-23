@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "近期小结和计划"
-categories: life
+categories: Life
 description: 近期小结和计划
 tags: Mobile Nexus Shareware
 ---

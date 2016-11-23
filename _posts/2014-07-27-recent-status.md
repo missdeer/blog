@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "近况"
-categories: life
+categories: Life
 description: 近况
 tags: car startup
 ---

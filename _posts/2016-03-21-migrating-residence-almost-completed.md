@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "户口基本迁过去了"
-categories: life
+categories: Life
 description: 户口基本算迁过去了
 tags: life
 ---

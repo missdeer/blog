@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "回家了"
-categories: life
+categories: Life
 description: 回老家了
 tags: life
 ---

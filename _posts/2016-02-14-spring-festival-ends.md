@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "春节结束"
-categories: life
+categories: Life
 description: 春节结束
 tags: 
 ---

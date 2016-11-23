@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "迁户口第一步完成"
-categories: life
+categories: Life
 description: 迁户口第一步完成
 tags: life
 ---

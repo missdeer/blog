@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "近期的一些事"
-categories: life
+categories: Life
 description: 近期发生的一些事
 tags: 
 ---

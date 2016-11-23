@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "另外租个房子"
-categories: life
+categories: Life
 description: 另外租了房子
 tags: life
 ---

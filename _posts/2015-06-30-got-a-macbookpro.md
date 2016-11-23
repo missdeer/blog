@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "到手一台13吋Retina MBP"
-categories: life
+categories: Life
 description: 到手一台13吋Retina MBP
 tags: MBP
 ---

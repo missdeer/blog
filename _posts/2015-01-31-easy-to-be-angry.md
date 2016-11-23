@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "最近脾气很暴躁"
-categories: life
+categories: Life
 description: 最近脾气很暴躁
 tags: life
 ---

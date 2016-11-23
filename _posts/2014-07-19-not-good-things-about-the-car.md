@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "诸事不顺"
-categories: life
+categories: Life
 description: 今天的一些不顺利的事
 tags: car
 ---

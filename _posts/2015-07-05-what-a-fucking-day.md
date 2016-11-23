@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "糟糕的一天天"
-categories: life
+categories: Life
 description: 烦
 tags: life
 ---

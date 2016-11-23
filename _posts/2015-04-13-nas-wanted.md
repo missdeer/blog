@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "想要个NAS"
-categories: life
+categories: Life
 description: 想要个NAS
 tags: NAS
 ---
