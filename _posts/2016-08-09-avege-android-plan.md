@@ -3,7 +3,7 @@ layout: post
 title: "avege Android版的计划"
 categories: coding
 description: 移植avege到Android的计划
-tags: GFW Android avege Golang
+tags: GFW Android avege Go
 ---
 前些天看到有人移植了[SSR Android版](https://github.com/glzjin/shadowsocksr-android)，我就顺便看了看代码，结合网上的[一篇文章](http://ct2wj.com/2016/02/28/shadowsocks-android-source-code-analysis/)，觉得似乎挺简单的，它（官方也）用Java/Scala写了个外壳和启动VPN service，其他功能是几个用C写的程序共同完成，包括redsocks，tun2socks，ss-tunnel，ss-local，pdnsd。
 

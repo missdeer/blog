@@ -3,7 +3,7 @@ layout: post
 title: "计划做个类Redsocks的新实现"
 categories: coding
 description: 计划做个类Redsocks的新实现
-tags: redsocks golang GFW gateway shadowsocks
+tags: redsocks Go GFW gateway shadowsocks
 ---
 前段时间用ss-redir实现了后端是shadowsocks的翻墙网关，虽然真的实现了全局域网自动翻墙，但仍然留下了各种不足。
 

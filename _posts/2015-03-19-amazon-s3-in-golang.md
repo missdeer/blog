@@ -3,7 +3,7 @@ layout: post
 title: "Go语言操作Amazon S3"
 categories: Job
 description: Go语言操作Amazon S3
-tags: Golang "Amazon S3"
+tags: Go Amazon S3
 ---
 之前提到的Thumbnail Service是用准备用Amazon S3来存储的，因为图省事，网管找了个[s3fs](https://github.com/s3fs-fuse/s3fs-fuse)把S3 bucket直接mount到本地，于是就当成本地目录一样读写。今天网管突然提到S3连接并发和性能的问题，找了篇[文章](http://www.cyclecomputing.com/blog/aws-s3-performance-tip-using-dataman-to-increase-concurrency-leads-to-500-mbps-upload-speed/)看了看，大概意思是并发过多或过少性能都不好（废话）！
 

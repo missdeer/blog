@@ -1,13 +1,13 @@
 ---
 layout: post
-title: "Golang在CJK编码和UTF-8间转换"
+title: "Go在CJK编码和UTF-8间转换"
 categories: coding 
 description: 纯Go实现在CJK和UTF-8间进行编码转换 
-tags: Golang CJK UTF-8 
+tags: Go CJK UTF-8 
 ---
 之前也折腾过，但是没完美解决，最近在爬些数据，然后想保存成统一的编码，于是自然而然地有编码转换的问题，在网上找最多的解决方案是通过CGO调用iconv实现，这个方案在mac或Linux之类的系统上很好解决，因为基本上都会有iconv的链接库，即使没有，一条命令就装上了，但在Windows上就麻烦些，首先Windows上用CGO就要稍微麻烦点，需要首先装一个gcc编译器，比如MinGW或其衍生品。我的系统上有个msys2，上面也有iconv的链接库，直接从网上go get一个iconv的go封装package就会通过CGO试图寻找那些归档文件，但它会说找不到mingwex和mingw32的归档文件，这个问题可以通过在CGO_LDFLAGS环境变量中设置链接器搜索路径解决。
 
-虽然这样可以在Windows上也编译生成链接了iconv的程序，但实际上我跑不起来这个程序，双击或直接在console中敲命令行都没有任何反应，也不报错，完全无法定位，于是我只好再想找一个纯Go实现的解决方案，[还真有](http://mengqi.info/html/2015/201507071345-using-golang-to-convert-text-between-gbk-and-utf-8.html)！
+虽然这样可以在Windows上也编译生成链接了iconv的程序，但实际上我跑不起来这个程序，双击或直接在console中敲命令行都没有任何反应，也不报错，完全无法定位，于是我只好再想找一个纯Go实现的解决方案，[还真有](http://mengqi.info/html/2015/201507071345-using-Go-to-convert-text-between-gbk-and-utf-8.html)！
 
 Go team提供了CJK几种常见编码的encoder和decoder，所以这很方便了：
 
@@ -19,11 +19,11 @@ import (
 	"io/ioutil"
 	"strings"
 
-	"golang.org/x/text/encoding/japanese"
-	"golang.org/x/text/encoding/korean"
-	"golang.org/x/text/encoding/simplifiedchinese"
-	"golang.org/x/text/encoding/traditionalchinese"
-	"golang.org/x/text/transform"
+	"Go.org/x/text/encoding/japanese"
+	"Go.org/x/text/encoding/korean"
+	"Go.org/x/text/encoding/simplifiedchinese"
+	"Go.org/x/text/encoding/traditionalchinese"
+	"Go.org/x/text/transform"
 )
 
 // ToUTF8 convert from CJK encoding to UTF-8

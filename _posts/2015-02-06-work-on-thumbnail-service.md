@@ -3,7 +3,7 @@ layout: post
 title: "Work on Thumbnail Service"
 categories: Job
 description: Work on thumbnail service
-tags: golang server client websocket
+tags: Go server client websocket
 ---
 这个项目很早前就听说要做了，一直拖拖拖，我实在很想做这个东西，周一就跟TL说，然后就简单谈了一下，确定了架构和分工，于是就开始了。
 

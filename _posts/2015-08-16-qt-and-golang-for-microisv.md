@@ -3,7 +3,7 @@ layout: post
 title: "micro ISV使用Qt和Go开发"
 categories: coding
 description: micro ISV使用QT和Go开发
-tags: Qt golang microISV
+tags: Qt Go microISV
 ---
 实在没想到什么好写的了，充数来了。
 
