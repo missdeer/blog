@@ -4,7 +4,23 @@
     {% if paginator.previous_page %}
         <a class="newer-posts pagination__newer btn btn-small btn-tertiary" href="{{ paginator.previous_page_path }}#blog">&larr; 最近</a>
     {% endif %}
+
+      {% if paginator.page == 1 %}
+      <span class="pagination__page-number" style="line-height:2.5;">1</span>
+      {% else %}
+      <a href="/page/1/#blog" style="line-height:2.5;">1</a>
+      {% endif %}
+
+    {% for count in (2..paginator.total_pages) %}
+      {% if count == paginator.page %}
+      <span class="pagination__page-number" style="line-height:2.5;">{{count}}</span>
+      {% else %}
+      <a href="/page/{{count}}/#blog" style="line-height:2.5;">{{count}}</a>
+      {% endif %}
+    {% endfor %}
+    <!--
     <span class="pagination__page-number">{{ paginator.page }} / {{ paginator.total_pages }}</span>
+    -->
     {% if paginator.next_page %}
         <a class="older-posts pagination__older btn btn-small btn-tertiary" href="{{ paginator.next_page_path }}#blog">更早 &rarr;</a>
     {% endif %}
