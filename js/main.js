@@ -19,7 +19,7 @@ $(document).ready(function() {
     $('.main-post-list').removeClass('hidden');
   }
 
-  if (window.location.pathname.substring(0, 5) == "/tag/") {
+  if (window.location.pathname.substring(0, 6) == "/tags/" || window.location.pathname.substring(0, 12) == "/categories/") {
     $('.panel-cover').addClass('panel-cover--collapsed');
   }
 
@@ -46,7 +46,7 @@ $(document).ready(function() {
 
       $('.navigation-wrapper').toggleClass('animated bounceInDown animated bounceOutUp');
     }
-    
+
     $('.btn-mobile-menu__icon').toggleClass('fa fa-list fa fa-angle-up animated fadeIn');
   });
 });
