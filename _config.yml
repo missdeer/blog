@@ -1,6 +1,49 @@
+# Basic
+title: 类库大魔王的领地
+subtitle: 其实只是一些流水帐，慎入
+welcome_message: <a href="https://resume.minidump.info" target="_blank">我的简历</a>
+description: 各种无聊，灌水，没营养。
+creator: <a href="https://minidump.info">@missdeer</a>
+
+url: "https://blog.minidump.info"
+
 permalink: /:year/:month/:title/
-url: https://blog.minidump.info
-author: missdeer
-highlighter: rouge
-paginate: 40
+
+# Format
+highlighter: plain
+
+# supported colors: blue, green, purple, red, orange or slate. If you need clear, leave it empty.
+cover_color: red
+
+# The blog button should not be removed.
+blog_button:
+    title: Blog
+    description: Visit blog
+
+# Navigation buttons in the front page.
+nav:
+    - {title: Apps, description: 我写过的一些程序, url: 'https://www.dfordsoft.com'}
+    # - {title: Another Button, description: A button, url: 'http://example.com'}
+
+# Pagination
 gems: [jekyll-paginate]
+paginate: 10
+paginate_path: "page/:num/"
+
+# Comment
+comment:
+    #disqus: vno-jekyll
+    duoshuo: missdeer
+
+# Social
+social:
+    weibo: missdeer
+    github: missdeer
+    twitter: missdeerme
+    gplus: 105535865242455061069
+    mail: missdeer@dfordsoft.com
+
+# Google Analytics
+ga:
+    id: UA-52744860-1
+    host: blog.minidump.info

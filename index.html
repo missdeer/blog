@@ -1,53 +1,20 @@
 ---
-title: 类库大魔王的领地
-layout: page
+layout: default
 ---
 
-<ul class="listing">
-{% for post in paginator.posts %}
-  {% capture y %}{{post.date | date:"%Y"}}{% endcapture %}
-  {% if year != y %}
-    {% assign year = y %}
-    <li class="listing-seperator">{{ y }}</li>
-  {% endif %}
-  <li class="listing-item">
-    <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-    <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-  </li>
-{% endfor %}
-</ul>
+<div class="main-post-list hidden">
 
-<div id="post-pagination" class="paginator">
-
-  {% if paginator.previous_page %}
-    {% if paginator.previous_page == 1 %}
-    <a href="/"><上一页</a>
-    {% else %}
-    <a href="/page{{paginator.previous_page}}"><上一页</a>
-    {% endif %}
-  {% else %}
-    <span class="previous disabled"><上一页</span>
-  {% endif %}
-
-      {% if paginator.page == 1 %}
-      <span class="current-page">1</span>
-      {% else %}
-      <a href="/">1</a>
-      {% endif %}
-
-    {% for count in (2..paginator.total_pages) %}
-      {% if count == paginator.page %}
-      <span class="current-page">{{count}}</span>
-      {% else %}
-      <a href="/page{{count}}">{{count}}</a>
-      {% endif %}
+  <ol class="post-list">
+    {% for post in paginator.posts %}
+    <li>
+      <h2 class="post-list__post-title post-title"><a href="{{ post.url }}" title="访问 {{ post.title }}">{{ post.title }}</a></h2>
+      <p class="excerpt">{{ post.content | strip_html | strip_newlines | truncate: 250 }}&hellip;</p>
+      <div class="post-list__meta"><time datetime="{{post.date | date: date_to_xmlschema}}" class="post-list__meta--date date">{{ post.date | date: "%F"}}</time> &#8226; <span class="post-list__meta--tags tags">{{ post.tags }}</span><a class="btn-border-small" href={{ post.url }}>继续阅读</a></div>
+      <hr class="post-list__divider" />
+    </li>
     {% endfor %}
+  </ol>
 
-  {% if paginator.next_page %}
-    <a class="next" href="/page{{paginator.next_page}}">下一页></a>
-  {% else %}
-    <span class="next disabled" >下一页></span>
-  {% endif %}
-  (共{{ paginator.total_posts }}篇)
+  {% include pagination.html %}
+
 </div>
-
