@@ -5,7 +5,27 @@ layout: default
 <article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
     <div class="post-meta">
-      <time datetime="{{page.date | date: date_to_xmlschema}}" itemprop="datePublished" class="post-meta__date date">{{page.date | date: "%F"}}</time> &#8226; <span class="post-meta__tags tags">{{page.tags}}</span>
+      <time datetime="{{page.date | date: date_to_xmlschema}}" itemprop="datePublished" class="post-meta__date date">{{page.date | date: "%F"}}</time> &#8226;
+      {% if page.categories %}
+      <span class="tags">
+        In category
+        {% for cat in page.categories %}
+        <a href="/categories/#{{ cat }}" title="{{ cat }}">{{ cat }}</a>&nbsp;
+        {% endfor %}
+      </span>
+      {% endif %}
+      {% if page.tags %}
+      <span class="tags">
+        , tagged with
+        {% for tag in page.tags %}
+        <a href="/tags/#{{ tag }}" title="{{ tag }}">{{ tag }}</a>&nbsp;
+        {% endfor %}
+      </span>
+      {% endif %}
+      <br />
+      <span class="author">
+        <a href="https://minidump.info">{{ site.author }}</a>程序员，C++/Golang, Windows/Linux, Qt for Mac OSX/iOS/Android，前端游戏和美工不会，学点web前端努力转全栈。
+      </span>
     </div>
     <h1 class="post-title">{{ page.title }}</h1>
   </header>
