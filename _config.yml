@@ -1,7 +1,7 @@
 # Basic
 title: 类库大魔王的日常
 subtitle: 没错，其实就是一些流水帐
-welcome_message: 我的技能点：C++/Golang, Windows/Linux, Qt for Mac OSX/iOS/Android，前端、游戏和美工不会，正学点Bootstrap/jQuery/vue.js试图转全栈。
+welcome_message: 我的技能点：C++/Golang, Windows/Linux, Qt for Mac OSX/iOS/Android，服务器/客户端开发。苦于Web前端、游戏和美工不会，正学点Bootstrap/jQuery/vue.js试图转全栈。
 description: 各种吐槽，倒苦水，开坑，立Flag。毫无营养，慎入！
 creator: <a href="https://minidump.info">@missdeer</a>
 author: 类库大魔王/missdeer
@@ -18,13 +18,13 @@ cover_color: green
 
 # The blog button should not be removed.
 blog_button:
-    title: Blog
-    description: 阅读Blog
+    title: 博客
+    description: 阅读博客文章
 
 # Navigation buttons in the front page.
 nav:
-    - {title: Apps, description: 我写过的一些程序, url: 'https://www.dfordsoft.com'}
-    - {title: Resume, description: 我的简历, url: 'https://resume.minidump.info'}
+    - {title: 软件, description: 我写过的一些曾经试图卖钱的程序, url: 'https://www.dfordsoft.com'}
+    - {title: 简历, description: 我的简历, url: 'https://resume.minidump.info'}
 
 # Pagination
 gems: [jekyll-paginate]
