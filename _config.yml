@@ -1,9 +1,10 @@
 # Basic
-title: 类库大魔王的领地
-subtitle: 其实只是一些流水帐，慎入
-welcome_message: <a href="https://resume.minidump.info" target="_blank">我的简历</a>
-description: 各种无聊，灌水，没营养。
+title: 类库大魔王的日常
+subtitle: 没错，其实就是一些流水帐
+welcome_message: 我的技能点：C++/Golang, Windows/Linux, Qt for Mac OSX/iOS/Android，前端、游戏和美工不会，正学点Bootstrap/jQuery/vue.js试图转全栈。
+description: 各种吐槽，倒苦水，开坑，立Flag。毫无营养，慎入！
 creator: <a href="https://minidump.info">@missdeer</a>
+author: 类库大魔王/missdeer
 
 url: "https://blog.minidump.info"
 
@@ -18,12 +19,12 @@ cover_color: green
 # The blog button should not be removed.
 blog_button:
     title: Blog
-    description: Visit blog
+    description: 阅读Blog
 
 # Navigation buttons in the front page.
 nav:
     - {title: Apps, description: 我写过的一些程序, url: 'https://www.dfordsoft.com'}
-    # - {title: Another Button, description: A button, url: 'http://example.com'}
+    - {title: Resume, description: 我的简历, url: 'https://resume.minidump.info'}
 
 # Pagination
 gems: [jekyll-paginate]
