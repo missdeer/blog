@@ -17,5 +17,9 @@
        <p class="excerpt">{{ current.content | markdownify | strip_html | strip_newlines | truncate: 150 }}&hellip;</p>
        <div class="post-list__meta"><time datetime="{{current.date | date: date_to_xmlschema}}" class="post-list__meta--date date" style="line-height:2.5;">{{current.date | date: "%F"}}</time> &#8226; <span class="post-list__meta--tags tags" style="line-height:2.5;">{% if current.categories %}{% for cat in current.categories %}<a href="/categories/#{{ cat }}" title="{{ cat }}">{{ cat }}</a>&nbsp;{% endfor %}{% endif %}</span><a class="btn-border-small" href={{current.url}}>全文阅读</a></div>
    </div>
+   {% else %}
+   <div class="read-more-item">
+       <span class="read-more-item-dim"><a href="/#blog" title="还没写，我正在绞尽脑汁想，点击返回目录">下一篇</a></span>
+   </div>
    {% endif %}
 </section>
