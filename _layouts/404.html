@@ -1,0 +1,21 @@
+---
+layout: default
+---
+
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+var time = 3; //时间,秒
+
+function Redirect(){
+window.location = "https://blog.minidump.info/#blog";
+}
+var i = 0;
+function dis(){
+document.all.placeholder.innerHTML = "没有这个页面诶，" + (time - i) + "秒后返回博客首页";
+i++;
+}
+timer=setInterval('dis()', 500);//显示时间
+timer=setTimeout('Redirect()',time * 1000); //跳转
+
+//-->
+</SCRIPT>
