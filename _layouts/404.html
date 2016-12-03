@@ -11,7 +11,7 @@ window.location = "https://blog.minidump.info/#blog";
 }
 var i = 0;
 function dis(){
-document.all.placeholder.innerHTML = "没有这个页面诶，" + (time - i) + "秒后返回博客首页";
+document.all.placeholder.innerHTML = "没有这个页面诶，" + (time - i) + "秒后返回<a href="/#blog">博客首页</a>";
 i++;
 }
 timer=setInterval('dis()', 500);//显示时间
