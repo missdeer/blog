@@ -1,21 +1,43 @@
----
-layout: default
----
+<!DOCTYPE html>
+<html>
+    <SCRIPT LANGUAGE="JavaScript">
+    <!--
+    var time = 3; //时间,秒
 
-<SCRIPT LANGUAGE="JavaScript">
-<!--
-var time = 3; //时间,秒
+    function Redirect(){
+    window.location = "https://blog.minidump.info/#blog";
+    }
+    var i = 0;
+    function dis(){
+    document.all.s.innerHTML = "没有这个页面诶，" + (time - i) + "秒后返回<a href="/#blog">博客首页</a>";
+    i++;
+    }
+    timer=setInterval('dis()', 500);//显示时间
+    timer=setTimeout('Redirect()',time * 1000); //跳转
 
-function Redirect(){
-window.location = "https://blog.minidump.info/#blog";
-}
-var i = 0;
-function dis(){
-document.all.s.innerHTML = "没有这个页面诶，" + (time - i) + "秒后返回<a href="/#blog">博客首页</a>";
-i++;
-}
-timer=setInterval('dis()', 500);//显示时间
-timer=setTimeout('Redirect()',time * 1000); //跳转
+    //-->
+    </SCRIPT>
 
-//-->
-</SCRIPT>
+  {% include head.html %}
+
+  <body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="fa fa-list btn-mobile-menu__icon"></i>
+        <i class="fa fa-angle-up btn-mobile-close__icon hidden"></i>
+    </span>
+
+    {% include side-panel.html %}
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner">
+            <span id="s"></span>
+            {% include footer.html %}
+        </div>
+    </div>
+
+    {% include external.html %}
+
+  </body>
+
+</html>
