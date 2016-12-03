@@ -5,17 +5,7 @@ categories:
 - Job
 - Technic
 tags:
-- dotNET
-status: publish
-type: post
-published: true
-meta: {}
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
+- dotNETmeta: {}
 ---
 <p>　　前面的blog中，网友sali98提到可以用#pragma init_seg(compiler)等来安排全局对象的构造和析构顺序。这倒是我以前没有想到的，不过经过实际测试后，发现这个方案并不能解决我的问题。<br />
 　　在原来的定位结果中，以为单纯是嵌入的CLR对象晚于C++对象的销毁引起的问题，实际上问题要稍微复杂一点。首先，上次提到的使用_exit引起的对象无声息的消失，不是主要问题。这里调用_exit是在之前有个人把exit换掉的结果，他以为_exit不会调用对象的析构函数，于是不会引起析构时资源销毁时机不正确的问题。事实上这个fix是不起作用的，因为从call stack来看，_exit对嵌入的CLR似乎不起那个作用，而且无论是exit还是_exit都会在对象正常或不正常销毁后仍然有消息循环存在，消息循环中某些处理代码仍然会继续运行，而那些代码也是有可能会引用已消失的singleton的。<br />

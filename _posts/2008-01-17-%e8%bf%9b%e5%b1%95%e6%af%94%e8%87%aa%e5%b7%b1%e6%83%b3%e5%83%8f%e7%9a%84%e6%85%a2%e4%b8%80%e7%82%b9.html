@@ -3,19 +3,5 @@ layout: post
 title: "进展比自己想像的慢一点"
 categories:
 - Job
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  blogger_blog: missdeer.blogspot.com
-  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
-  blogger_permalink: "/2008/01/blog-post_17.html"
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
 ---
 <p>　　已经有好几次了，在比较重要的时候，总以为自己能很快处理完。这次也是，但从今天的进度看来，总的说起来比自己想像的要慢一点，不过基本还算是正常的。<br />　　今天遇到一个很奇怪的事情，主要还在于自己对MFC架构了解不够。在Doc/View架构中，Doc类有一个方法用于串行化，我就想当然地以为将数据保存到文件中时，应该在这个方法中添加代码，但没有用它提供的串行化对象，直接获取到文件名，就一古脑儿地把所有数据写入到文件中去了。可是却发现，执行完后，文件却是空的，并且怎么也找不到原因，单步调试的时候发现，写入文件的代码是正确的，数据确实是写入了，可是后来不知道哪里又被清空了。最后很无奈，在默认的OnSaveDocument调用完后再来用我自己的代码写文件，就没事了，既然最终目的是达到了，我也就没去深究原来的方法为什么有问题，据我现在的猜测，可能是要把在那个串行化的方法中把数据输入到那个串行化对象中，之后MFC会自动把该串行化对象中保存的数据写入到文件中去，当然这只是我的胡乱臆想，呵呵。<br />　　自我感觉这次做这个特性代码结构是我个人有史以来水平较好的一次，不知道是不是真的是因为代码写多了，不知不觉就会水平有所增长，总感觉现在这个架构，层次划分，类的设计，都很让自己满意，呵呵。我觉得我就是不会那啥瀑布模型，就是不适应，那对架构设计要求太高了，对architecture的抽象能力要求也太高了，我就只能适合用一下像XP那样的方法，一边写一边重构，但是我又不用TDD，所以还是很奇怪的。<br />　　再感叹一下，强大的Boost，不用白不用！</p>

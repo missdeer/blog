@@ -4,7 +4,7 @@ title: 使用Travis服务交叉编译Go程序
 categories: Coding
 description: 使用Travis服务交叉编译Go程序
 tags: travis Go
-published: true
+
 ---
 
 昨天花了一天时间，把github上几个Go程序通过travis实现交叉编译，再把编译生成的二进制可执行文件push回github上的prebuilt branch，这样每次有新的commit后，都会自动生成各个支持平台的最新的二进制可执行文件，相当方便。

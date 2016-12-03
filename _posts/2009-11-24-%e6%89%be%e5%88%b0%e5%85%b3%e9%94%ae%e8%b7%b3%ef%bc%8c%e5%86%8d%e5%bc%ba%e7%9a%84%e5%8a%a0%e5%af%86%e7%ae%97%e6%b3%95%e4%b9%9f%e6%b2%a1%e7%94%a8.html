@@ -3,19 +3,5 @@ layout: post
 title: "找到关键跳，再强的加密算法也没用"
 categories:
 - Cryptography
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  blogger_blog: missdeer.blogspot.com
-  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
-  blogger_permalink: "/2009/11/blog-post_24.html"
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
 ---
 <p>　　突然想研究一下软件注册机制中使用比较强的加密算法，能带来什么效果。说到比较强的加密算法，用非对称的算法应该是公认的比较好的选择。流行的大概有<a href="http://en.wikipedia.org/wiki/RSA">RSA</a>、<a href="http://en.wikipedia.org/wiki/ElGamal">ElGamal</a>和<a href="http://en.wikipedia.org/wiki/Elliptic_curve_cryptography">ECC</a>了。翻出几本买了好久，都没仔细看过的书，最后发现我的数学基础实在很差，这方面的思维分析能力也很差，最终大致能看懂原理的只有RSA算法。RSA算法的强度建立在大素数因子分解的基础上，只要选择足够大的两个大素数，当然还要受制到当前主流硬件运算能力，就能保证一定意义上的安全。<br />　　目前有很多开源的加密算法库和大数运算库，可以提供RSA算法的实现，比如<a href="http://www.shamus.ie/">MIRACL</a>、<a href="http://www.cryptopp.com/">Crypto++</a>、<a href="http://libtomcrypt.com/">LibTomCrypt</a>等等。结果发现MIRACL只能免费用于非商业用途，而LibTomCrypt的接口让我比较迷惑而不会用，剩下的Crypto++倒是可以正常使用，接口设计得也非常方便易用，缺点是体积大了点，而且很早以前在网上看到过有人说它有些算法可能涉及到一些版权、专利的问题。<br />　　最后是使用RSA实现软件注册算法的问题，从书上看到，注册机使用RSA私钥对用户名进行解密，解密的结果则作为注册码，用户拿到该注册码，输入到软件注册界面后，软件使用RSA公钥对注册码加密，能得到用户名？不过我发现，在用Crypto++进行计算时发现，随便取的一个字符串作为密文用私钥根本解密不了啊，会抛异常说无效的密文，其次，使用公钥进行加密时，也有限制，对明文的长度有限制，根本不能对很长的，可能是密文的字符串进行加密呀！倒是用RSA进行签名是可以的，这种签名方式就与MD5、SHA之类的单向散列算法效果类似了，只能确认明文是否被修改过。<br />　　不过我到PEDIY的论坛上问了问，其实采用多强的加密算法没多少区别，只要破解者能找到最后判断的语句，找到关键的那条跳转语句，就可以爆破了，前面的那些复杂的加密解密运算全做无用功了。汗！</p>

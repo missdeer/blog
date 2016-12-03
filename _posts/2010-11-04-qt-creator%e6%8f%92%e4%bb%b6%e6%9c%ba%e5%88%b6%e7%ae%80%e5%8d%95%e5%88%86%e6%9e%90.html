@@ -3,20 +3,8 @@ layout: post
 title: Qt Creator插件机制简单分析
 categories:
 - Plugin Framework
-- Qt
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  quiz: a:2:{s:1:"q";s:0:"";s:1:"a";s:0:"";}
+- Qt  quiz: a:2:{s:1:"q";s:0:"";s:1:"a";s:0:"";}
   _wp_old_slug: ''
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
 ---
 <p>　　Qt Creator的插件机制比起CodeLite和Code::Blocks来要强大得多。每个插件至少有一个dll文件（以Windows平台为例），还有一个必须的.pluginspec文件。插件的基本信息在.pluginspec文件中描述，包括插件的名称、版本、版权、作者、基本信息、分类、网站等，最重要的一点是有依赖的插件信息。支持插件依赖可以获取得大的灵活性和可扩展能力，这点CodeLite和Code::Blocks都没做到，因为单靠一个动态链接库很难实现这种依赖关系的描述。<br />
 　　插件的实现同CodeLite和Code::Blocks类似，都放在dll中，但它的实现有点像是糅合了两者的作法，但又有所改进。Qt Creator应用程序本身的exe基本上只是实现了一个插件管理器，其他的IDE相关的业务逻辑全是由插件实现，甚至于主窗口也是放在一个叫Core的插件中实现。Qt Creator又定义了一组组的接口让插件实现，这点看来跟CodeLite比较像；但是它又基本上将接口的实现，至少是头文件全暴露了，插件在实现这些接口的时候可以直接调用它依赖的插件的服务，而不是通过接口调用，这点上看又有点像Code::Blocks的做法，我个人不是很喜欢这种暴露过多信息的做法，尤其是如果作为一个商业项目，应该尽量少地提供各种内部信息，当然Qt Creator本身作为一个开源项目，大概在这方面就比较随意了，如果全部用接口的形式交互的话，大概工作量会增多，跟实现一遍COM差不多了。<br />

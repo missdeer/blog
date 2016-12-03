@@ -3,19 +3,5 @@ layout: post
 title: bjam编译不了资源
 categories:
 - CPPOOPGPXP
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  blogger_blog: missdeer.blogspot.com
-  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
-  blogger_permalink: "/2009/07/bjam.html"
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
 ---
 <p>　　从网上找到一份Windows下的Intel C++ v11，装了来试了试，发现居然用bjam的话，不能正确为编译资源文件生成命令行，可是试了一下它集成在VC中的功能，似乎又是可以编译过去的，看来是bjam的问题了。在网上随便搜索了一下，也没找到什么有用的信息。打开Boost.Build.v2目录中的那些.jam文件，看不懂哇！<br />　　另外，boost也是需要单独使用icc编译了，才能为其所用，而且icc是和msvc一样可以支持auto link的，这点倒是不错。但是最不爽的是，wxWidgets似乎没有提供icc用的工程文件或者makefile啊，郁闷！</p>

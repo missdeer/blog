@@ -3,19 +3,5 @@ layout: post
 title: debugger
 categories:
 - Software
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  blogger_blog: missdeer.blogspot.com
-  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
-  blogger_permalink: "/2006/09/debugger.html"
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
 ---
 <p>　　今天一天写了几行脚本，为什么效率这么低呢，只是添加了个生成chm文件的功能，就花了8个小时！如果是用C/C++这样的语言来表达的话，我会不会更快一点？我怀疑，不确定，算了，随它去了，反正勉强能符合我自己的要求了。<br />　　一个好用的debugger还真是重要哈，以前在Lotus Notes上用Lotus Script写Agent的时候， 就已经发现了这一点，但当时也只是觉得大概这样的debugger只适合这样的脚本语言，这两天突然发现在BDS中的debugger也是很好用的，我真是土，用BCB那么久，一直没用过它的debugger，自己汗一个先，知道我以前调程序有多复杂多麻烦多痛苦了吧。最早在DOS下用QBasic或TC写程序时，调程序都是通过打印语句输出变量的值来做的，后来大概过了2年左右迁移到Windows上时，居然...居然是用MessageBox来显示变量值来调试的-_-b主要是VCL里的字符串和数值之间相互转换很方便，所以...唉，闻道有先后，术业有专攻嘛（又想起那个家伙）。用MessageBox有一个不好，就是会打断程序的执行，要人为介入使它继续。后来发现了OutputDebugString，其实是先发现了一个它的捕获程序DebugTrack，才知道有这个函数的存在，还依样写了个简单的版本，这个方法跟我在DOS下调程序几乎是一样了，输出一些变量的值，来跟踪程序的执行，好就好在不用打断程序，而且又用stdarg.h的一些宏，把它封装得像printf一样，可以方便地用一个接口来输出不同类型的值！直到前两天，才发现集成在IDE那个debugger，用起来就像调Lotus Script和VBA程序一样简单方便，还可以用CodeGuard，居然能自己检测出内存泄漏，哈哈，太好了，在日志文件中甚至能指出是哪一行分配的内存没被释放。啊，我真是太土了！<br />　　今天买了2号中午12点的机票了，计划5号下午回来，最晚6号上午吧，要回来要回来要回来，过中秋，呵呵。</p>

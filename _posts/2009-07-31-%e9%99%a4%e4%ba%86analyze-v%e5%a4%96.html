@@ -3,19 +3,5 @@ layout: post
 title: "除了!analyze -v外"
 categories:
 - WIND
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  blogger_blog: missdeer.blogspot.com
-  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
-  blogger_permalink: "/2009/07/analyze-v.html"
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
 ---
 <p>　　今天发现，对于core dump文件的分析，除了!analyze -v外，还可以.frame一下，再x或者dt一下的。不过也就只能这么一下了，而且不知道为什么，那时x或dt出来的对于之前调用栈中的内存，显示都是读取错误，而且有时候看地址似乎也真的不对。<br />　　由于发现了x和dt这样的命令，于是今天在分析core dump时也稍微卖力了点，不过最后我却又不得不怀疑我这样的理解是不是正确的，因为有两个core dump到最后分析出来都是因为类指针为空而对它进行提领，而看代码实现是很不像会出现这种指针为空的情况啊！我大汗！<br />　　还是得继续学习啊！</p>

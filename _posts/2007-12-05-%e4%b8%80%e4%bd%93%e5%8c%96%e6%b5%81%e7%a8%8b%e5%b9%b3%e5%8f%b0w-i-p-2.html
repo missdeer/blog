@@ -3,19 +3,5 @@ layout: post
 title: "一体化流程平台W.I.P."
 categories:
 - Job
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  blogger_blog: missdeer.blogspot.com
-  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
-  blogger_permalink: "/2007/12/wip_05.html"
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
 ---
 <p>　　今天把Icon Overlay改了改，很奇怪的是，代码跟昨天的一样，今天把图标放到DLL的资源中，就可以显示了，晕。<br />　　上午改了Icon Overlay后，下午就集中精力搞P2P通信，还真是比较费时间哦，以前写的操作数据库的代码就有不少问题，另外就是，std::map在不同的线程中操作好像就算没有同步的问题也会直接崩溃，郁闷，于是换成std::vector，当然调试的时候也陷入到了一个陷阱中，明明是要主动发送个消息给对方，再等待对方的回应，可是调试的时候有一段时间不知道为什么对方会不停地发送回应回来，所以我都没给对方发消息，结果这边的状态就没准备好，晕。<br />　　因为要调试Socket，所以不得不用于抓包程序，装了个Ethereal 0.99版，里面带的是WinPCap 3.1版，装了后找不到网卡，于是没办法，换用Wireshark，里面用的是4.0版的WinPCap，很好，很强大，还支持表达式的filter。</p>

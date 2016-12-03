@@ -3,19 +3,5 @@ layout: post
 title: "解决程序不支持老机器的问题"
 categories:
 - CodingStudio
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  blogger_blog: missdeer.blogspot.com
-  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
-  blogger_permalink: "/2009/12/blog-post_10.html"
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
 ---
 <p>　　昨天偶尔发现，在笔记本上编译的工程在台式机上启动即崩溃。一开始的时候我认为是因为lua装入的一些第三方库dll没有设置好依赖的dll路径和正确的manifest配置，后来发现问题不是那么简单。<br />　　首先是我用了LuaJIT的dll，而之后发现LuaJIT要求CPU支持SSE2指令集的，我那台式机是2002年的配置，当然没有。换成官方Lua后，问题仍然存在。<br />　　接着发现，安装程序没有把配置文件复制到正确的文件夹下。看了一下安装程序的脚本，果然没写对。但是当把配置文件的路径修改正确后，问题仍然存在。<br />　　因为台式机上装了Win2000ProSP4，WinXPProSP2和Win2003，所以当XP上仍然不能运行时，我切换到Win2000和Win2003上进行测试，发现问题同样存在。我考虑了一下两台机器软硬件的区别，猜想是不是仍然是软件配置的问题。于是我在笔记本上用VirtualBox建了个干净的XP系统，第一次运行时，居然报了个错，说ltxml加载不成功。幸好我前天已经自己写了个Xerces C++的绑定，而且用于的地方现在还不多，立马全都把使用ltxml的地方改成用xerces的。之后虚拟机上可以正常运行了。<br />　　到了这一点，说明可以排除安装部署的问题。再想想两台机器的区别，台式机上的3个系统都是原生的中文版系统，而笔记本上和虚拟机上的都是英文版的，其中笔记本上的打了个可以处理中文的多国语言包。我有点怀疑会不会是因为这个缘故，但又觉得可能性不大，如果真是这个原因的话就不好处理了。我试着把安装后的那些mo文件都删掉，结果仍然没用。<br />　　最后我没有办法了，只好修改源代码，从程序开始处依次加入日志，看到底在哪一步引起崩溃的。经过逐步排查，最后定位到使用Crypto++的初始化RSA公钥的对象构造时崩溃了，连异常都没有抛出。这时我想到了LuaJIT对CPU的要求，猜想会不会Crypto++编译时也受CPU的影响。用CPU-Z看了一下虚拟机的CPU，是跟宿主的CPU几乎相同的。不再继续猜想，直接在台式机上编译了一遍Crypto++，拿到笔记本上可以链接上，再把exe复制到台式机上，程序也可以正常运行了。<br />　　至此，问题解决！这时我不禁有些担心，我这样一直用笔记本写的程序会不会都有这种问题，一遇到老机器，就会罢工呢！</p>

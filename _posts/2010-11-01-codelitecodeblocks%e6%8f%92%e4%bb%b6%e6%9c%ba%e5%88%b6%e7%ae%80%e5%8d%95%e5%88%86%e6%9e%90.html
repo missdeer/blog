@@ -2,20 +2,8 @@
 layout: post
 title: CodeLite/Code::Blocks插件机制简单分析
 categories:
-- Plugin Framework
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  quiz: a:2:{s:1:"q";s:0:"";s:1:"a";s:0:"";}
+- Plugin Framework  quiz: a:2:{s:1:"q";s:0:"";s:1:"a";s:0:"";}
   _wp_old_slug: ''
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
 ---
 <p>　　昨天查看了一下CodeLite和Code::Blocks的源代码，了解了一下它们的插件机制的实现情况，还是非常简单的。<br />
 　　CodeLite宿主程序是一个单独的exe文件（Windows平台下），插件都是单独的dll文件。宿主程序首先声明了一组接口，这组接口定义了宿主程序可以提供给插件使用的各种服务，比如访问当前编辑器等，然后宿主程序实现这组接口。接着再声明一组接口，这组接口需要每个插件都提供自己的实现，另外，插件还需要提供几个dll标准的导出函数，用于查询插件的基本信息，比如返回版本号，返回接口创建后的实例等，这跟Windows的COM很像，只不过COM规范更完善得多。插件要实现的接口包括在菜单中添加自己的菜单项，添加工具栏等。CodeLite启动后，扫描文件夹，取出各个插件dll，查询出接口实例指针，调用插件实现的接口，并将宿主程序自己实现的服务接口指针传递给插件，这样插件就可以反过来访问宿主中的数据。<br />

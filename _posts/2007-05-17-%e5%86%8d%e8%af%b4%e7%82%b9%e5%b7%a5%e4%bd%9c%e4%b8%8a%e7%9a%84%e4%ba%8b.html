@@ -3,19 +3,5 @@ layout: post
 title: "再说点工作上的事"
 categories:
 - Job
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  blogger_blog: missdeer.blogspot.com
-  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
-  blogger_permalink: "/2007/05/blog-post_17.html"
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
 ---
 <p>　　手头的工作算是可以暂时告一个段落了，但不知道为什么，也许是不够自信吧，总觉得会有什么bug突然冒出来，然后就得一把屎一把尿的debug。其实大概想想，大多数会蹦bug出来的地方，基本上在前段时间做demo的时候发现并解决了的，这几天也就是把原来那个demo的代码合并到他们的代码库里，并改一下界面上的一部分代码，加了个用OLE实现的拖拽，这个拖拽效果比直接判断鼠标动作来实现的效果好看多了。给TreeView加了图标，感觉就是爽很多啊！<br />　　用了几天MFC后，突然觉得其实MFC挺好用的，甚至比VCL还好用-_-b说这话真是很冒风险，会被人口水淹死的。不过呢，可能是我自己的问题，用了几天Xtreme Toolkit Pro后，迷上了这样的界面库。说起来其实它也没有什么创新，都是模仿的别人，大部分是MS的，MS就是牛x啊，Shell、Office、VS等等等等推陈出新的界面风格，引得无数Windows桌面应用软件竞相模仿。<br />　　另外一个让我觉得使用MFC好过使用VCL的地方是，自从VC7.1出来后，VC已经成为众多C++程序库兼容的首要需求了，确实让人感觉，它的编译器已经比Borland的要好了。<br />　　再回来说在公司整的那玩意儿，我负责的模块其实真的是很小很小的一个模块，总的代码量大概就是几百行吧！今天下午感到无所事事了，还改了一下输出Debug信息的类，让它能根据宏定义分别实现向文件输出，向OutputDebugString输出，向那个程序的输出窗口输出。昨天看了下boost-consult上的vault，有个logging，想做个日志库合入Boost，看过代码后，觉得以这样的水平，是肯定不会让Boost接受的，一个小小的日志库，居然还要求Boost::thread和Boost::date&amp;time，而这两库都是需要编译后才能使用的，这就对人们使用logging造成了巨大的障碍！另外，代码实现的风格已经库的使用等编程手法上看，目前也不是很细致，远称不上大师水平。最后就是，现在它实现的功能也挺有限的！看过ACE的日志功能的介绍，觉得功能还比较强大，曾经也想过自己写个日志库，现在想来，日志库的实现可能比较麻烦，至少功能上应该达到ACE的水平，不过如果真要静下心来慢慢写，也不是不可能完成的。</p>

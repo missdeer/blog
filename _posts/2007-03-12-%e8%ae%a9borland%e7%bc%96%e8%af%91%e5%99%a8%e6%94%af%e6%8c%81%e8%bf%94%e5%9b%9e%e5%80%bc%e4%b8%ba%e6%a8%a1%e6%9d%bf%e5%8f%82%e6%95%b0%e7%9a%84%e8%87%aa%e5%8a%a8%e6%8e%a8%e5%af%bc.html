@@ -3,20 +3,6 @@ layout: post
 title: "让Borland编译器支持返回值为模板参数的自动推导"
 categories:
 - CPPOOPGPXP
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  blogger_blog: missdeer.blogspot.com
-  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
-  blogger_permalink: "/2007/03/borland_12.html"
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
 ---
 <p>　　昨天说到，用Borland最新的C++编译器在编译模板的时候，对于成员函数模板的情况，如果只是函数返回值是模板参数时，是不会自动选择对应的特化版本的，而一直使用泛化版本，而VC至少8.0版是能自动选择的，记得当时用7.1写TclSuck时也用到了这样的特性，所以应该也是直接支持的。<br />　　不过，现在发现了让Borland编译器也能自动选择的作法，其实很简单，只要在成员模板声明和定义的地方加些东西就可以了，仔细看下面的代码，比较和昨天的代码的不同点，呵呵：
 <pre><b>class</b> kk<br />{<br /><b>public</b>:<br /> <b>template</b>&lt;<b>typename</b> T&gt;<br /> <b>static</b> T test()<br /> {<br />     T t;<br />     cout &lt;&lt; <span style="color: rgb(0, 0, 255);">"general edition"</span> &lt;&lt;endl;<br /> }<br /> <b>template</b>&lt;&gt;<br /> <b>static</b> <b>int</b> test&lt;<b>int</b>&gt;()<br /> {<br />     <b>int</b> i;<br />     cout &lt;&lt; <span style="color: rgb(0, 0, 255);">"int edition"</span> &lt;&lt;endl;<br /> }<br /><br /> <b>template</b>&lt;<b>typename</b> T&gt;<br /> T test2()<br /> {<br />     T t;<br />     cout &lt;&lt; <span style="color: rgb(0, 0, 255);">"2 general edition"</span> &lt;&lt;endl;<br /> }<br /> <b>template</b>&lt;&gt;<br /> <b>int</b> test2&lt;<b>int</b>&gt;()<br /> {<br />     <b>int</b> i;<br />     cout &lt;&lt; <span style="color: rgb(0, 0, 255);">"2 int edition"</span> &lt;&lt;endl;<br /> }<br /><br /> <b>template</b>&lt;<b>typename</b> T&gt;<br /> <b>void</b> test3(T t)<br /> {<br />     cout &lt;&lt; <span style="color: rgb(0, 0, 255);">"3 general edition"</span> &lt;&lt;endl;<br /> }<br /> <b>template</b>&lt;&gt;<br /> <b>void</b> test3(<b>int</b> t)<br /> {<br />     cout &lt;&lt; <span style="color: rgb(0, 0, 255);">"3 int edition"</span> &lt;&lt; endl;<br /> }<br />};<br /></pre>

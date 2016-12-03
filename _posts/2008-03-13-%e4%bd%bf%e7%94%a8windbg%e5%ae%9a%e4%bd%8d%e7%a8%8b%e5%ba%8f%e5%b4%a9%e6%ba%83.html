@@ -3,19 +3,5 @@ layout: post
 title: "使用Windbg定位程序崩溃"
 categories:
 - Software
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  blogger_blog: missdeer.blogspot.com
-  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
-  blogger_permalink: "/2008/03/windbg.html"
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
 ---
 <p>　　今天突发奇想，看到Edraw的一个软件包里有个CrashReport程序，觉得这个功能真是很值得放到自己的工程中去。想想大概原理就是使用dbghelp.dll库中的Debug API来实现，不过具体细节我是一点都不懂。记起以前在公司网上看到有人提到过FileZilla就有这样的功能，可以在程序崩溃的那一刻记下程序堆栈，函数调用栈，寄存器等有用信息。于是我马上找来FileZilla代码，运气也好，刚好找到2.x版本的，因为3.0以上版本的源代码包中是不带这部分代码了。这部分代码模块独立性做得相当好，只要把那几个文件抠出来加入自己的工程，几乎不用怎么修改就可以工作了。要做试验的话，可以来个除0错误，或者向空指针写入值，然后运行，就会弹出消息框，并生成2个文件，一个是文本格式的简要信息，另一个是二进制格式的core dump。又在公司网上找到一篇用Windbg分析core dump文件的简要介绍，马上拿来试试，还真是好用，设置好symbol目录和source目录，它能自动从网上下载缺少的symbol文件，并能自动打开源代码文件跳转到引起崩溃的那行代码上，真是太爽啦。以后再定位程序莫名崩溃问题，要方便简单多啦。</p>

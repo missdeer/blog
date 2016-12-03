@@ -2,19 +2,7 @@
 layout: post
 title: "基本完成context视图"
 categories:
-- CodingStudio
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  quiz: a:2:{s:1:"q";s:0:"";s:1:"a";s:0:"";}
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
+- CodingStudio  quiz: a:2:{s:1:"q";s:0:"";s:1:"a";s:0:"";}
 ---
 <p>　　把ctags封装了一把，其实是CodeLite中的codelite_indexer，因为它已经把ctags提取出来了，不过是5.6版本，又对C++部分做了些修改，不过我不清楚这些修改有什么作用。有点奇怪的是，如果在Lua中用的话，只能提取一次tags，再试图提取tags的话会出错，就我现在猜测可能是里面有些全局状态，用过后没有恢复。于是我只好用Rings了，这是个在Lua的state里再创建一个state来执行代码，master state和slave state之间基本可以互不影响，但也可以传递些数据。这样我就每次都是在一个新new出来的Rings的slave state里调用一次ctags。在封装ctags的时候发现codelite_indexer没有把gnu regex编译进去，这需要指定几个宏定义，看makefile就知道了。<br />
 　　现在已经可以将所有文件都提取一遍tags，并存入数据库中了。而context视图都是在数据库中查找可能匹配的符号信息的。但这需要保证当前数据库中的符号是正确的最新的，所以一个合适的自动更新符号数据库的机制就很有必要，现在还没想好要怎么弄，既要有及时性，又要求不能影响用户的操作体验。<br />

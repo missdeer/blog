@@ -4,19 +4,5 @@ title: "加载不了wxLua"
 categories:
 - Lua，Script
 - wxWidgets
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  blogger_blog: missdeer.blogspot.com
-  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
-  blogger_permalink: "/2009/03/wxlua.html"
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
 ---
 <p>　　弄了一整天，插件框架基本上运行起来了，至少主菜单部分能出来了，证明这套机制是没什么大问题了，剩下的没解决的都属性主菜单的问题，而不是插件框架的。<br />　　不过之后郁闷地发现，用MinGW编译的使用了wxWidgets的工程，不能使用wxLua，无论是通过C API加载，还是通过Lua代码加载，都不成功。用VC编译的工程就不存在这个问题，如果是普通的工程，没用wxWidgets的工程，也是可以加载的。于是我猜测是不是因为加载相同的wxWidgets而冲突了啊！因为wxLua是用MinGW编译的，还没试过用VC编译来wxLua来试试。开始还怀疑是不是因为路径的问题，或者是用了Luabind的问题，或者是用了SWIG的问题，后来实验发现好像都不是。<br />　　用VC编译了wxLua来试试吧，如果还是不行，就没办法了，只好不在扩展脚本中使用wxLua了，唉！本来还以为用wxWidgets的工程用wxLua是绝妙的搭配呢，大不了再试试IUP之类的呗。</p>

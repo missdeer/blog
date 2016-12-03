@@ -3,19 +3,5 @@ layout: post
 title: Loki::Factory挺好用
 categories:
 - CPPOOPGPXP
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  blogger_blog: missdeer.blogspot.com
-  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
-  blogger_permalink: "/2009/07/lokifactory.html"
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
 ---
 <p>　　这两天在做一个特性，其中一段很经典的根据不同的类型id来创建不同的对象的代码，想到了《Modern C++ Design》中的那个实现，马上找来Loki用。<br />　　非常简洁的代码，定义一个基类，然后就可以根据类型id来创建对象了，如果创建对象的时候需要一些参数，也很容易，另外定义一个Loki::Seq就可以了。<br />　　每个派生类可以在源文件中用一个匿名的namespace保护起来进行注册，这样就彻底达到了只要加入该源文件，就有该类，不加入该源文件，就没有该类。不需要修改其它任何代码。<br />　　挺好用的！</p>

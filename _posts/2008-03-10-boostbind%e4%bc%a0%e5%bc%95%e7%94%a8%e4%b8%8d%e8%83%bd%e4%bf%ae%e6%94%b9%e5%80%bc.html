@@ -3,19 +3,5 @@ layout: post
 title: Boost::bind传引用不能修改值
 categories:
 - CPPOOPGPXP
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  blogger_blog: missdeer.blogspot.com
-  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
-  blogger_permalink: "/2008/03/boostbind.html"
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
 ---
 <p>　　今天偶然发现，用boost::bind传递了一个std::vector的引用过去，想在那个绑定的函数里修改这个std::vector的内容，结果居然在函数里的好像是另外一个容器，对外面的那个std::vector压根没有影响。幸亏发现得早，但也已经写了好几处这样的代码了，不过总算都改过来了。<br />　　也不知道是我哪里用错了，还是boost::bind本来就不能支持，晕！</p>

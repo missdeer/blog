@@ -3,19 +3,5 @@ layout: post
 title: "该死的ADO，该死的SQLServer，该死的XML"
 categories:
 - Job
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  blogger_blog: missdeer.blogspot.com
-  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
-  blogger_permalink: "/2008/02/adosqlserverxml.html"
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
 ---
 <p>　　当时还为自己的设计沾沾自喜、得意洋洋，觉得这样的想法、这样的灵感、这样的架构简直就是神来之笔，谁知结果带来的是无休止的崩溃，找不到原因的异常！<br />　　因为需要对流程支持历史版本，也即如果新的流程里删掉了旧的里的活动，但活动里又有关联内容时，流程图在显示的时候，需要把表示活动的图形也显示出来，而boss又认死了excel这个东东，所有流程图的内容都要在Excel中编辑完成，可Excel里又没有记录修改动作历史，于是乎，我的设计隆重登场了。我先把Excel中的内容转换成XML保存下来，然后当Excel有了变化，再分析一遍转化成XML，跟原来的XML比较合成一把，这样似乎就能在那么丑陋的设计中以自以为比较优雅的方式实现这个需求了。结果问题也来了，原来的数据表结构要修改，需要为每个流程记录增加一个存放这转化后的XML内容的字段，而恰好MS SQL Server 2005中有那么一个叫XML的字段类型，于是欢天喜地、兴高采烈地用上了，于是又花了一天才勉强做得像以前已经完成的那种程度。因为XML里可能有各种字符，而且可能非常非常长，所以用合成SQL语句来insert、update、select是很难受的做法，又出于我对ADO的不熟悉，好不容易找到设置Field的Value属性的方法，结果在存放、获取XML数据里花了我今天近一天以及之前的那些时间！<br />　　在写入XML时就陷阱重重，第一条xml处理指令的存在就很可能引起崩溃，简单说来，我保持了GB2312的编码方式，里面有中文，它就不让我写进去，一update就崩溃，现在想来，也许用UTF-8不会有这样的问题，嗯！但我还是作了个很恶心的决定，要写入之前，跳过前面的这条指令！接着在取出时，总是会在后面加入一堆乱七八糟的东西，又花了好多时间，最后决定，自己在字符串中查找结束标志，之后的全部丢弃，才好不容易让MSXML的DOMDocument接收了，而且是不能让它直接load文件，得自己把文件里的内容读出来，加上那个xml处理指令，再loadXML，晕死！<br />　　不容易啊，不过也算是经验教训了，下次再遇到这样的事就应该能省很多时间，不过我猜下次的机会不多了，不已经烦透了，我要去做其它的东西去。可能还是会让我去做Impeller的部分工作吧，我要让它支持灵活的外部扩展，我要让Source Insight消失！</p>

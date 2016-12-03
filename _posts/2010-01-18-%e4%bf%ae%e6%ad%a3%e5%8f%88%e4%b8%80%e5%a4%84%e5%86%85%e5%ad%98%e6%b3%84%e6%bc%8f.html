@@ -3,17 +3,7 @@ layout: post
 title: "修正又一处内存泄漏"
 categories:
 - CodingStudio
-tags: []
-status: publish
-type: post
-published: true
-meta: {}
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
+ {}
 ---
 <p>　　前两天偶然发现，又有内存泄漏了。昨天仍然在写Lua脚本，于是没怎么管它，今天早上起来wc时，突然觉得这内存泄漏实在是眼中钉，肉中刺，一定要解决。<br />
 　　首先是发现，只有在程序中打开过文件后，才会有内存泄漏，而且泄漏的数量跟打开文件的数量似乎是成正比的。于是开始查看打开文件部分的代码，发现这部分代码实在写得太简单了，几乎不存在泄漏的机会，绝大部分函数都是立马将请求转发到Lua脚本去了，我假设Lua脚本不会出现泄漏。<br />

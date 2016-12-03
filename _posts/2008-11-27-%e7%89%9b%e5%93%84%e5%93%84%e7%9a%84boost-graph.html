@@ -3,19 +3,5 @@ layout: post
 title: "牛哄哄的boost.graph"
 categories:
 - CPPOOPGPXP
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  blogger_blog: missdeer.blogspot.com
-  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
-  blogger_permalink: "/2008/11/boostgraph.html"
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
 ---
 <p>　　偶然发现需要一个遍历有向图的算法，而且遍历不是主要目的，而是为了找出所有环。翻了一下《算法导论》和《算法概论》，对遍历算法有了个大概的印象，用DFS或BFS就可以，不过要找出环，就晕了。<br />　　同事说只要记住游走的路径，如果在一条路径遇到已经访问过的节点，就是环了。虽然说起来简单，但我想用代码实现起来我还是觉得吃力的。<br />　　另一个同事说，用boost.graph好了，我早想到了，但出于天生的那点畏惧感，总觉得没那么简单。抱着试试看的心理，看起boost.graph的文档来，惊讶地发现，原来这些常用的图算法都已经封装好了，只要以规定的格式准备好图的数据信息，然后调用一两个函数，就能实现遍历或找出环，实在是太牛了！</p>

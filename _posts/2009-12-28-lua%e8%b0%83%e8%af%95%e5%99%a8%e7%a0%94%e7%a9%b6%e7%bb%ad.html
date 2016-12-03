@@ -3,19 +3,5 @@ layout: post
 title: Lua调试器研究续
 categories:
 - Lua，Script
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  blogger_blog: missdeer.blogspot.com
-  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
-  blogger_permalink: "/2009/12/lua_28.html"
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
 ---
 <p>　　本来以为自己对如何实现一个Lua调试器已经有了足够的知识储备，于是今天就提枪上马，结果无奈地发现，说是一回事，自己做是另一回事。我最终的目标是要达到<a href="http://www.unknownworlds.com/decoda">Decoda</a>那样的效果，但一开始只能慢慢一步一步来，先实现类似<a href="http://luaforge.net/projects/lldebug/">lldebug</a>的debuggee部分。但是就算是这样小步开始，也仍然困难重重，很多问题其实我都没有吃透。<br />　　首先是发现在sethook时，只有按line回调是正常的，而call和return都没有回调，这让我感到很迷惑，无论是用C代码的hook还是Lua代码的hook，都是存在这个问题，而且用lldebug是正常的。所以我最早怀疑跟Lua代码有关的猜测也不成立了，只好试图从lldebug的源代码中寻找答案，当然寻找到的lldebug源代码跟我的代码没有本质的区别。最后过了很久才隐约记起来，我用的是LuaJIT，好像它对debug库的支持是有些跟官方Lua不同的地方。于是立马换回官方Lua，发现果然无论是C代码还是Lua代码都照预期的执行了。<br />　　之后是发现，hook的回调是能正常执行了，但程序还是自顾自地跑下去了，那怎么处理单步和断点呢。然后是回头看lldebug代码，发现是在hook回调函数中，处理完对应的事件后，应该要等待命令。一开始我还想不通，要怎么等待命令啊，后来突然明白过来了，比如我这个是控制台操作的，那么在这里接收一个控制台的输入就行了，不就变成运行一下，停一下了嘛！<br />　　我写了两个测试脚本，用于观察Lua的debug库三种hook回调的行为。发现Lua在执行一个脚本文件时，首先是将整个脚本文件看作一个整体，用Lua的话说，应该是一个chunk，而它执行这个chunk是个call操作，所以执行一个脚本文件会先有一个call回调，在整个文件执行完后，会有一个return回调。如果一个脚本文件中又执行了另一个脚本文件，那么就可以到嵌入call/return回调。当执行的代码是一个函数的定义时，会先在函数的end行有一个line回调，然后在函数的function行有一个line回调。当执行的代码是一次函数调用，那么会先在函数体（参数列表后面）的第一行有一次call回调，然后再在该行有一次line回调，在结束函数时，先在函数end行有一次line回调，再在该行有一次return回调。<br />　　再之后是开始考虑要支持哪些调试命令，以及怎么实现。简单地看了一下别的调试器的实现，我就暂定要支持step into，step over，run to cursor，breakpointp这几个操作了，step into大概是最容易实现的，就是debug库中按line回调即可。step over可能稍微麻烦一点，应该先假设是按line回调来处理，如果从该操作开始第一次回调的是call，那么应该记录下call的次数，并计数return回调的次数，直到return回调的次数跟call回调次数相同，再下一次line回调就达到step over的效果了。run to cursor也比较简单，按line回调直到当前光标所在行即可。breakpoint跟run to cursor的处理方法一样。<br />　　除此之外要注意的是coroutine的创建，会返回一个lua_State，所以需要拦截这个创建函数，对这个新创建出来的lua_State也sethook。因此在调试器中还得为不同的lua_State保存各自的调试上下文。<br />　　以上都是不考虑执行效率的做法，在云风的blog上有<a href="http://blog.codingnow.com/2009/05/lua_debugger.html">一篇文章</a>，讲到他设计的一个提高调试器执行脚本效率的方案，似乎是勉强能提高一点性能，但要求用户修改Lua脚本来定期轮循调试器是否有新命令下发。其实在这个基础上，我们可以更进一步，修改Lua脚本的工作由调试器完成，对用户透明。而且定期轮循可以修改成只要下了断点的行的最前面自动插入一个调试器定义的函数调用，也就是将执行控制权再次转移到调试器中。这就比较像C/C++调试器中插入int3的做法了，如果断点是固定的话，那么调试器执行脚本的效率将几乎是无损耗的。除了效率上的提升外，各个调试命令的实现也将变得更加容易。但这个方案有一个问题是，这插入断点指令的操作必然是在脚本文件在被执行前完成的，如果在调试运行过程中有新增断点，那么仍然得退出原来的那种靠debug库line回调的方式了，除非重新启动调试。</p>

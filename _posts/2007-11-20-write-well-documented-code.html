@@ -3,19 +3,5 @@ layout: post
 title: Write well documented code
 categories:
 - Software
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  blogger_blog: missdeer.blogspot.com
-  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
-  blogger_permalink: "/2007/11/write-well-documented-code.html"
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
 ---
 <p>　　在开始决定使用<a href="http://www.stack.nl/%7Edimitri/doxygen/index.html">doxygen</a>后，一直有种隐形的强迫之力，促使我为自己写的代码作好注释。今天经过一番小小的努力后，到晚上加班时，终于可以warning free地用doxygen为我那个工程生成暂时令自己还比较满意的文档了。心里不免有些小小的成就感，心想这样的场合下写的代码，就是应该这样作好注释，为文件、类、变量、函数等等各种元素进行标记。<br />　　现在我用doxygen的方式还是比较落后的。先用doxywizard生成一个doxfile，然后把这个doxfile添加到VC的解决方案里，注意保存路径也是要和解决方案一起的，这样以后方便。再在VS的IDE里有个外部工具菜单项，添加一条指向doxygen.exe，参数当然是doxfile，路径是和解决方案的一样，运行目录也是和解决方案的一样，这样就在菜单上多出一项doxygen来。为图方便，可以写几个自动添加注释的宏，并把它们绑定到快捷键上去。目前我自己用的有为文件、类、函数以及普通目的几种定制了宏，定制宏的目的是一方面可以生成符合doxygen要求的格式注释，另一方面有些内容是可以自动填好的，比如文件名、作者、日期等等，当然这样的宏还是很低级很落后的，最好是能把这样的功能跟Visual Assist X之类的插件集成在一起，可以自动识别出函数名、类名等更高级的信息，并生成相应的注释，不过现在在还没找到更好的办法之前，就先这样将就一下吧。最后就是点击那个菜单项，运行doxygen，生成文档。<br />　　doxygen提供了很多选项，也支持非常多的关键字。在使用的时候，我也是一边摸索一边尝试，唯一的资料就是它自带的文档，在开源的项目中算是很不错的了。不过始终让我觉得郁闷的是，为什么中文的老有问题，好在现在有一个别人的自编译版本，1.5.1的能比较完整地支持中文了，先暂时这么用着。<br />　　另外有些经验。对于同一项目中不同目录下的同名文件，可以通过写路径来让doxygen区分出两个文件的不同，而且要注意的是，这个路径它是大小写敏感的。对于文件名唯一的文件，只要写出文件名即可。<br />　　注释写在头文件中比写在实现文件中要好，而且最好声明和实现完全一致，比如函数参数列表。注释中标识参数时，只要写参数变量名即可，不用写定义的类型，而且变量名要和声明时的完全一致。<br />　　doxygen支持todo list，它会把它单独列出来，比较方便，当然现在的MS和CodeGear的IDE也有对todo list支持。<br />　　最好对每个有点作用的变量、函数、文件、类（结构、枚举）、宏定义等都作注释，这样看起来比较舒服。<br />　　对于ATL中使用STDMETHOD(xxx)(yy,zz)这类形式的声明，如果doxygen认不出来，可以改成STDMETHODIMPL xxx(yy,zz)这样的形式，就可以了，不过我没试过其它选项，说不定哪里设置一下，前面的那种形式就能很好地识别出来了。<br />　　最好装上<a href="http://www.graphviz.org/">Graphviz</a>，让doxygen使用它来生成类图、被调用图，很好，很强大。<br />　　还有就是要坚持，要循序渐进，在新定义一个变量，一个类，一个函数时，就给它添加注释，嗯，这样就能写出一份well documented code了！</p>

@@ -3,19 +3,5 @@ layout: post
 title: "可以用bjam做点事了"
 categories:
 - Software
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  blogger_blog: missdeer.blogspot.com
-  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
-  blogger_permalink: "/2009/03/bjam_12.html"
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
 ---
 <p>　　今天把一个用了wxWidgets、Xerces-C++、luabind的工程用bjam写了个构建脚本，可以用MinGW来编译，也可以用VC来编译，这就是bjam的好处，很少需要关心不同编译器的命令行参数。<br />　　经过这次实践，还发现alternative的选择原来是要跟它的属性完全对应上才行。比如一个目标，写了toolset和variant以及threading，则在命令行中要把这三个全都设置上，不然它就说找不到匹配的目标。这让我有点头痛，假如我只想在命令行上选择toolset，而让其他两个属性固定死，那怎么办。<br />　　不过还算可以了，目前基本能满足实际需求了。</p>

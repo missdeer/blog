@@ -3,19 +3,5 @@ layout: post
 title: "读《重构》ing"
 categories:
 - Reading
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  blogger_blog: missdeer.blogspot.com
-  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
-  blogger_permalink: "/2008/03/ing.html"
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
 ---
 <p>　　这两天在看Martin Fowler大牛的《重构》，之所以不写是《Refactoring》，是因为我看的是jjhou和gigix的翻译版。《Refactoring》我已经买了两年了，基本上没拿出来瞟过一眼，也幸亏没瞟，前些天偶然拿出来翻了翻，发现里面的用语太偏了，n多不认识的单词，汗颜！不像《C++ Templates》，当年每天早上翻几页，居然也看了十几章。<br />　　《重构》一书由jjhou和gigix来翻，质量上基本还是可以保障的，反正感觉比较信得过他们两人，至少应该极少可能会出现翻错的情况吧。也幸亏是看这本中文版，让我对那些个古怪的名称有了比较感性的认识。<br />　　Martin Fowler大牛在书中罗列了几十种所谓的坏味道（bad smell），然后简洁地描述了一遍针对各种坏味道可以采取的措施。我现在也才看完这部分，但马上发现，要能在项目进行时重构，在个人技能上需要能嗅探出坏味道，在工具支持上需要有像<a href="http://www.wholetomato.com/">VAX</a>这样的辅助，在开发方式上还需要有TDD之类的有效质量保障体系支持。第一项，通过对该书的学习，以及之前的积累和以后的长期坚持，应该不成问题。第二项，现在新版的VAX都是有支持的，以前用VAX基本只是用了它的自动完成提示功能，现在才发现这个Refactoring菜单项的功能是多么强大多么好用。第三项我就有点迷茫和动摇了。其实有时候我也想用TDD的，可是一方面总感觉信心不足，写Test case本身就是一件很花时间的事情，我不敢保证这个投入是否值得，另一方面我现在基本全是用C++/MFC写程序，绝大部分代码都紧紧地跟界面耦合在一起了，要用CppUnit来还真不容易，除非先重构一遍，把所有业务逻辑都提取出来，再用CppUnit来进行测试，但是如果真要通过UI来跟用户交互的怎么办呢？这个我暂时不知道应该怎么做，但如果不用TDD来进行重构，感觉有点形似神不似，而且重构后的代码质量也不好保证，所以还是得尽量往那个方向走。</p>

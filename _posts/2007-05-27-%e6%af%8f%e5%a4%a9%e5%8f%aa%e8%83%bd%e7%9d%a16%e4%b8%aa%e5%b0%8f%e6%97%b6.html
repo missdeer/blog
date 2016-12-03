@@ -3,19 +3,5 @@ layout: post
 title: "每天只能睡6个小时"
 categories:
 - Software
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  blogger_blog: missdeer.blogspot.com
-  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
-  blogger_permalink: "/2007/05/6.html"
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
 ---
 <p>　　真可怜，虽然是周末，明明是个让人睡懒觉的日子，可是每到那个时间点，就会自动醒来，然后睡不着，然后翻来覆去也睡不着，然后躺着觉得狠狠的无聊，然后起来开电脑！<br />　　昨晚睡下之前，发现了让日志类的表现像标准流一样的方法，其实很简单，就是加个成员变量，是一个标准流的对象，然后用一个方法把它的引用返回出去，外部用户就可以用标准流提供的各种设施了。不过这样有一个东西我还没搞明白，怎么知道人家一次IO完成了呢，我只是希望能通过它来接受用户的输出，之后我要把这些输出处理一下再用我的方式输出，这个时机我就不知道了。现在的办法是，到下一次再输出上一次保存的内容，很不爽啊，很不可靠啊！估计方法还是有的，只是我不知道而已。<br />　　于是可以不用一个特定的结束符了。还加了个过滤功能，比较有趣。用了一堆编译开关的代码调试起来还真是麻烦的呢，因为很可能写的某段代码是从来没被编译到的，所以错误一直都不会暴露出来。比如这个日志类，涉及到是否是Win32平台、是否是UNICODE编译、是否带有Boost库，几个分支一混合，就是n多种情况，哪那么容易都覆盖到啊！</p>

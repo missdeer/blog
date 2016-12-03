@@ -3,19 +3,5 @@ layout: post
 title: "调了一天ACE"
 categories:
 - Job
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  blogger_blog: missdeer.blogspot.com
-  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
-  blogger_permalink: "/2008/08/ace.html"
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
 ---
 <p>　　上周没调完，今天接着调，调了一天，勉强可以实现点对点文件传输了，但还剩下不少问题，比如我会在服务器端先读入整个文件，如果该文件很大很大，岂不是很占内存，如果超过了物理内存的容量，要动用虚拟内存，岂不是效率又会降低不少！这只是众多问题中的一个，还有其他各种问题，只能走一步算一步了，关键是先把容错性做好，不要动不动就崩溃。<br />　　现在的情况是一个程序里，又当服务器端，又当客户端，两边我都是用reactor实现的，其实我对其中的工作原理一窍不通，只不过抓来几个例子，照着书上写的拼凑起来，好在调试工具还算好用，加上一点点的抽丝剥茧，总算理出点头绪，也得到些经验教训。<br />　　首先，不要为了图省事而使用那个全局单件reactor对象，我开始的时候服务器和客户端共用这个对象，后来觉得不妥，把客户端的改成一个客户端连接临时生成一个reactor，使用调试工具发现勉强可以用了，服务器端却不会自动调用handle_output，后来把服务器端的那个reactor也换成自己生成的，竟然也可以了，也许是我没用对，但反正现在它几乎能运行起来了。<br />　　其次，无论reactor是用在服务器端还是客户端，都要run_reactor_event_loop一把，这个调用一直不返回，大概直到end_event_loop之后才返回吧，所以要另开一个线程来调用，除非是不想干其他事情了。这样，还可以看到一点，就是在适当的时机，要调用这个结束的方法。这和boost.asio的做法很相像。<br />　　再次，发现ACE_Message_Queue里居然只能存入16个最初压入的记录，后面再压入的全都被丢掉了，也不知道是不是有方法可以扩充到更多个数的，或者我觉得STL里的deque也不错，可以在头尾任意一端进行存取，不过ACE_Message_Queue似乎可以通过模板参数指定线程同步等选项，deque大概就完全要靠程序员自己把握了。<br />　　最后，要调socket程序，拥有和掌握好用的调试工具实在很重要，Wireshark这个开源的东东实在不错，只不过公司里居然装WinPCap是受限的，不过那个检查工具是防君子不防小人，好在可以通过改注册表中的卸载项来骗过它。另外从公司网上找到几个可以模拟TCP/UDP的Server/Client的小程序，很容易用，有这样的工具，就可以先调试其中的服务器端或客户端，等这样单独的调得差不多了，就可以进行联调。不然同时联调的话，出了错还不知道到底是哪边的问题。</p>

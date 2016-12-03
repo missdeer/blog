@@ -3,19 +3,5 @@ layout: post
 title: "又被XML摆了一道"
 categories:
 - Software
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  blogger_blog: missdeer.blogspot.com
-  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
-  blogger_permalink: "/2008/11/xml.html"
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
 ---
 <p>　　要做一个配置界面，用户通过该界面可以修改一些系统配置项。本来配置项是一直都有的，不过不需要用户修改，都写死在配置文件中，这次有了新需求。大体上分成两个部分，一部分用于操作配置文件，另一部分当然是用户界面！<br />　　配置文件是XML格式的，用MSXML组件的CString封装版本来操作，用这样封装版本的好处主要有三点：一、所有接口都用CString而不用BSTR，方便与MFC程序交互；二、封装的方法中有一些简单的出错处理；三、有一种简单的用于跟STL中算法适配的迭代器，方便操作节点列表。<br />　　问题出现了，图省事，我直接在界面类中获取配置操作类中的DOM数据结构，想直接在界面类中遍历XML，结果发现每个节点想取属性时都会异常。开始怀疑是迭代器封装有bug，于是换了几种访问元素的方法，还是异常。后来猜测难道是不同线程使用COM的原因，想想也没有多线程啊，加上CoInitialize和CoUninitialize，还是异常！于是病急乱投医，想会不会把操作XML的代码全都放在配置操作类中，就好了呢。说干就干，因为要根据读出的配置信息操作界面，所以需要一个通知界面类的方式，我选择了callback，又因为callback是个界面类中的一个成员函数，所以越弄越复杂，最后为了能少写点代码，或者说看起来直观点，动用了boost.function，其实不用它也不会麻烦多少。好不容易全都改过来了，还是异常！我已经接近崩溃的边缘了，再异常就是我神经要异常了！<br />　　所谓柳暗花明，最后无意间看了看配置文件的内容，猛然发现根节点下的第一个子节点是条注释！用DOM解析时，注释也是一种节点啊，昏，耗费掉我差不多2个小时，又被XML摆了一道。</p>

@@ -3,19 +3,5 @@ layout: post
 title: VC操作Excel生成统计图
 categories:
 - Software
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  blogger_blog: missdeer.blogspot.com
-  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
-  blogger_permalink: "/2009/03/vcexcel.html"
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
 ---
 <p>　　老雷说，画图功能可以让Excel来做，我曾经还抱着试试看的心理在网上找有没有免费的代码可以方便地生成各种柱状图、饼图的，没找到，也实现懒得自己去画了，于是硬着头皮去用Excel了。<br />　　VC的程序操作Excel，而且不光是为了存取数据，所以用COM是最正规最有效最理想的方法。如果是用MFC，可以让IDE自动生成其中的某几个接口的封装类，这样的好处是封装得比较高层，使用起来更方便简单一点。如果直接导入类型库，会生成整个类型库内所有的接口和类型的封装，不过是底层一点，最多是用一下COM智能指针封装的接口，可以少处理一些引用计数的问题。<br />　　先可以录一个宏，查看VBA代码，就基本知道要用哪些接口的哪些方法了，但实际上如果用VC通过COM来操作，会发现跟VBA的结果经常有些出入。这让我有点纳闷。不过今天整了一天，总算勉强完成任务了。</p>

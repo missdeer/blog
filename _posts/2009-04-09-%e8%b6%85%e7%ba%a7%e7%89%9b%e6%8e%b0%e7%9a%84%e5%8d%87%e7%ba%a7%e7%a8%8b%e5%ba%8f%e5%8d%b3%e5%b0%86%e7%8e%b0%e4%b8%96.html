@@ -3,19 +3,5 @@ layout: post
 title: "超级牛掰的升级程序即将现世"
 categories:
 - Job
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  blogger_blog: missdeer.blogspot.com
-  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
-  blogger_permalink: "/2009/04/blog-post_09.html"
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
 ---
 <p>　　发现在有很多事可以做，发现自己一件都不想做，哈哈！<br />　　今天老大跟我说，是不是忘了件事，那个gem升级也得做进升级程序中去。我说那不是说另外还要用wxRuby做个程序的嘛。老大说，这种建功立业的好机会，怎么可以让。我狂晕！<br />　　找原来开发这个功能的同事咨询了一下基本原理，发现简单得令人发指，当然这种实现方案在我看来也是丑陋得一塌糊涂。看了一下他的代码，发现原来真的是那么一回事，基本的代码结构和思路都是很清晰的，除了有一些废旧的注释和代码。<br />　　我开始头痛界面的问题。原来的实现使用了<a href="http://www.codejock.com/">XTP</a>的ReportControl，我想这么一个原本应该尽量精简轻巧的升级程序现在已经被我弄得渐渐肥大起来了，再加个XTP就太恶心啦！而且另外一个问题也已经浮现，越来越多的命令行参数，已经让眼下那种依次比较字符串的方式不再继续适用，引入boost::program_options也势在必行，天哪！</p>

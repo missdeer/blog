@@ -3,19 +3,5 @@ layout: post
 title: "升级程序还有得做哦"
 categories:
 - Job
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  blogger_blog: missdeer.blogspot.com
-  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
-  blogger_permalink: "/2007/09/blog-post_19.html"
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
 ---
 <p>　　今天接着做升级程序，本来以为大部分的技术问题都已经解决了，实际上，还是很花了不少工夫，有些问题想都想不到。<br />　　通过http下载昨天就差不多搞定了，今天发现，用asio来下载，很占CPU啊，全都占满了。以至于，好不容易通过boost::function把进度回调加进去后，界面不能得到及时的刷新。<br />　　还有，因为我想看起来更人性化一点，就希望是一个文件一个文件地下载，然后替换更新，也就是如果是exe或dll文件，在运行时，也是需要能不动声色地把它替换掉的。依靠以前的一点点模糊残缺的记忆，MoveFileEx可以达到目的，它可以把运行中的文件移动到其它地方，还可以登记让文件在下次系统启动时被删掉。不过中间遇到一点问题，怎么也移动不了一些文件，后来发现只要该文件长度为0，就不能移动，真是奇怪。不过还好，这个情况在实际应用中几乎不会出现。<br />　　现在，几乎所有的技术难点都差不多搞定了，只是要实现好，还是要花些时间，精雕细琢嘛。看来这周能把这个升级程序整完就不错了。</p>

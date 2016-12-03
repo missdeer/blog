@@ -3,19 +3,5 @@ layout: post
 title: "该死的_SECURE_SCL"
 categories:
 - CPPOOPGPXP
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  blogger_blog: missdeer.blogspot.com
-  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
-  blogger_permalink: "/2009/07/securescl.html"
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
 ---
 <p>　　昨天开始，就有人发现最近的版本不正常，严重不正常，甚至都不能启动！这是个极端致命的问题啊，于是开始有同事着手定位。昨天没有进展，顺延到今天，今天上午也没有进展，下午的时候人都慌了，于是3个人投入进来定位问题。最初只是通过dump文件发现，在启动程序时，会自动加载文件，并通过正则表达式分析该文件，而这正则表达式使用的是boost::regex，可是在创建boost::regex对象时，它的构造函数就崩溃了，没有抛异常。那大量的时间就花在分析为什么构造函数会崩溃上。而且比较诡异的是，Debug版本是没有问题的，只有Release版本才不正常。于是全部人都切换成Release进行编译、定位。直到很后来，另一个同事发现，只要在该程序的任何处使用到boost的东西，就会崩溃！这没法活了！于是我们不约而同地想到，这应该是编译选项引起的问题。从回溯CruiseControl上的编译版本，发现最后一次表现正常的构建之后，有7次提交记录，才构建出下一个版本，范围可以缩小到这7次提交记录中。其中只有一次是我在工程设置中定义了一个预处理宏_SECURE_SCL=0，为了在VS2008的Release模式下编译过1.39.0版本boost::signals2的代码！把这个预处理宏去掉，并暂时注释掉因为没有这个宏而编译不过的boost::signals2应用代码，编译，发现一切又都恢复正常了！<br />　　该死的_SECURE_SCL，看来只能等1.40的boost了！</p>

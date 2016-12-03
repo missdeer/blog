@@ -3,19 +3,5 @@ layout: post
 title: google test和google mock
 categories:
 - CPPOOPGPXP
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  blogger_blog: missdeer.blogspot.com
-  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
-  blogger_permalink: "/2009/03/google-testgoogle-mock.html"
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
 ---
 <p>　　今天在公司里看到google test和google mock，又好奇心起，看了看，觉得比起CppUnit来真的简洁不少，而且CppUnit没有一个好用的用于插桩的框架，那Mockpp和Mockcpp都有很明显的很影响使用的这样那样的限制和缺点，而google提供的这两个框架则比较好地解决了这些问题。<br />　　回到家又上网下载gtest试试，它有msvc的解决方案文件，也有GNU make的makefile。不过msvc倒是能直接编译通过，而MinGW则是不行的，要改些地方。首先要将MINGW的识别宏添加到GTEST_OS_WINDOWS宏定义中，然后在几处使用了SEH的地方，__try/__except都是VC才用的东西的，只要再在编译开关处把MINGW去掉。这样gtest库是可以编译通过了，不过有一个自测试文件gtest_unitest.cc却还是有问题，要加个文件头包含limits.h，这样就可以全部编译通过了。<br />　　又顺带看了一下googlemock，它依赖于tr1。在公司里，我什么都没修改，直接用VS2008编译过了，在家里却不行，总是报VC的xtr1common文件中的什么tr1没开启。上网找了下解决方法，加入boost就行了，不过我试了发现从trunk中取到的boost不知为什么不行，最后还是从googlemock的官方网站上下载到一个他们从boost 1.36.0中提取出来的tr1中tuple部分，这样在编译包含路径中添加boost和tr1的路径，就可以编译过了。但它在源代码中明确限制了只能使用VS2005或更高版本来编译，看来要用在MinGW中是有点困难了。</p>

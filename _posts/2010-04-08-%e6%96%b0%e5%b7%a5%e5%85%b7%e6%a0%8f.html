@@ -2,19 +2,7 @@
 layout: post
 title: "新工具栏"
 categories:
-- CodingStudio
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  quiz: a:2:{s:1:"q";s:0:"";s:1:"a";s:0:"";}
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
+- CodingStudio  quiz: a:2:{s:1:"q";s:0:"";s:1:"a";s:0:"";}
 ---
 <p>　　昨天偶然发现CodeLite已经升级到2.5版本了，作者还真是孜孜不倦啊。下载下来看了一下，发现最明显的是界面上的变化，工具栏变漂亮了。于是我又好奇心起来了，找来它的源代码看看，原来是用wxAuiToolBar类而不是原来的wxToolBar。于是昨天我先在自己的程序里把主工具栏也换了一下，感觉是很爽。昨天还加了最近打开的历史文件记录和解决方案记录，一直弄到晚上9点才基本搞定，一开始没搞清楚怎么处理2个wxFileHistory对象。<br />
 　　今天开始着手增强Code Snippet。前天已经想通了，现在的插件机制基本上算得上强悍，就不用完全照搬TextMate的Bundle了，只是Tab trigger还是不错的。我的决定只要把code snippet部分做得跟Tab trigger差不多就行了，以后再完善一个插件机制，提供一个插件开发包就行了。<br />

@@ -2,19 +2,7 @@
 layout: post
 title: TeXCoding进度
 categories:
-- CodingStudio
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  quiz: a:2:{s:1:"q";s:0:"";s:1:"a";s:0:"";}
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
+- CodingStudio  quiz: a:2:{s:1:"q";s:0:"";s:1:"a";s:0:"";}
 ---
 <p>　　前次说到可以做一个TeX编辑的完整工具，于是这两天都投入进去了，AutoCompletion倒是也实现得勉强可用了，自我感觉至少比SciTELaTeXIDE的做得好一点点吧，Code Snippet也实现了，具体配置是抄SciTELaTeXIDE的，还有Outline也实现了，用正则表达式每一行都匹配了一遍，其中对一个大字符串按换行符分割是用Lua自己的string.gmatch的，这个模式匹配方法还是很好用的。今天一天都花在实现LaTeX编译之类的命令上去了，其实就是直接调用TeX系统中的可执行文件，完全的体力活啊，而且有一点的是，我对TeX的了解只是一点儿皮毛，很多命令都不知道的，这就使得我只能看SciTELaTeXIDE有哪些命令了，还剩下一点点，争取明天全部完成，就可以真正开始写用户手册了。<br />
 　　抱怨一下QT Creator，真是比较另类啊，选了用Release方式编译，最后链接仍然是用Debug链接的，真是土死了，还一直没找到在哪里设置链接子系统是用console还是windows，默认都用console了，只好手动修改下它自动生成的makefile。</p>

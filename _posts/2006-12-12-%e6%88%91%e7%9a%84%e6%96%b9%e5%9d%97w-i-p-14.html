@@ -3,19 +3,5 @@ layout: post
 title: "我的方块W.I.P #14"
 categories:
 - Shareware
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  blogger_blog: missdeer.blogspot.com
-  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
-  blogger_permalink: "/2006/12/wip-14.html"
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
 ---
 <p>　　一边看MSDN，一边敲键盘，终于可以实现属性对话框的各种基本功能了。Apply、OK、Cancel都可以按标准Windows应用程序的样子做动作了。要吸引别人在某平台上做开发，详细的文档和丰富的例子是一大诱惑呀！<br />　　看到CSDN Blog上有人在讨论wxWidget、QT、GTK+，反正我觉得，在Windows平台，要省事就用VCL、如果想用MS技术，用就WTL、或者就纯手工打造SDK慢慢画吧，就像我现在写方块一样。游戏平台的丰富程度令人咋舌，手机、掌机、家用机等等等等，对于小游戏来说，手机和掌机应该是以后可以考虑开辟的一块市场，对于网络游戏，像QQ游戏那种，Linux版或许也可以吸引一部分用户，不太确定，可能国外的用Linux的人更多点吧。<br />　　把属性对话框的界面部分全部实现后，再弄LuaSuck吧，有了LuaSuck才能弄Skin和游戏逻辑脚本支持，不过Skin只要能读取Lua脚本中的几个变量的值就够了，只要确定了接口就行了，游戏逻辑脚本，其实也就是调用几个固定名字的Lua函数，不过LuaSuck还是要做的。另外就是，要写个Skin打包工具，可以比较直观地在现成的图片上定义相应的属性，生成Lua配置脚本，再用7z打包。完成了这些，才能再考虑联网的问题！晕！</p>

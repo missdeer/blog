@@ -3,19 +3,5 @@ layout: post
 title: "单机3.0的打榜功能"
 categories:
 - Software
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  blogger_blog: missdeer.blogspot.com
-  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
-  blogger_permalink: "/2006/10/30.html"
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
 ---
 <p>　　好奇，看了一下coolkuai3.0的打榜功能，从网站上看到有几个trc文件，从文件名看，就是支持各种不同类型的打榜功能的，再打开coolkuai3.0，随便打一种榜，查看一下该进程的模块信息，果然发现它装载了一个在临时文件夹中的trc文件，再看一下这个trc文件的PE信息，没有导入信息，只有几个导出函数 Core/GetCore/OnAfterAction/OnBeforeAction/OnGameStart，用PEiD看也看不出是用什么编译的，反正体积很小，都只有3、4KB，也不像是用ASPack处理过的。oneaddone在这点上做得挺好的，用户根本不用管要下载什么文件来支持新的玩法，只需要知道在那里点选一下，就可以了。</p>

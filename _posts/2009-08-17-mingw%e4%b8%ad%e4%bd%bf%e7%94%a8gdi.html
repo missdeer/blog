@@ -3,19 +3,5 @@ layout: post
 title: MinGW中使用GDI+
 categories:
 - Shareware
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  blogger_blog: missdeer.blogspot.com
-  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
-  blogger_permalink: "/2009/08/mingwgdi.html"
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
 ---
 <p>　　昨晚坚持到1点多，做了两件事：1、验证GDI+在MinGW中的使用；2、编译wxWidgets中access这个sample。<br />　　GDI+在MinGW中的使用，在网上有不少方法，但绝大多数是不行的，至少都有点小小的问题需要自己修改一下。我本来是没想过有这方面的需求的，也是因为最近想用用GDI+，就顺便想试试MinGW是否也可以。很快就搞定了，先到<a href="http://wxmax.googlecode.com/files/gdiplus_includes.zip">这里</a>下载一个包含GDI+的头文件和库文件的包，然后把所有头文件解压出来放到MinGw的include目录下面，再把库文件放到MinGW的lib目录下面，其实我没用这个包里的libgdiplus.a文件，而是用reimp.exe重新生成了一个。网上有篇文章说，reimp.exe后面的参数是GDIPlus.dll，其实是错的，看一下reimp.exe自带的命令行参数说明就知道，人家明明是接受一个IMPLIB嘛，所以要跟GDIPlus.lib，之后会生成libgdiplus.a和gdiplus.def文件。这些文件准备好后，可以试着写个小程序编译一下，我就没自己写，直接试着用MinGW编译wxWidgets，带GDIPlus编译，中间会报两个错，错误提示很明显，只要打开那两个文件，把它报错的地方，定义类成员函数的签名的地方，不用加类名作用域就可以了。<br />　　编译access则花了我不少时间，因为其中不少时间是在等待wxWidgets库的编译。如果使用默认的编译选项，最后可能也可以得到一个可执行程序，但在运行时会弹出消息框说要定义一个什么wxUSE_ACCESSIBLITY之类的宏。这时可以修改一下access的makefile，在编译命令行中加入这个宏定义。再编译时，可能到最后一步是说某些符号链接找不到。我当时的第一反应是，编译wxWidgets时没有定义这个宏，于是修改src/msw/setup.h中的定义，将这个宏的值设为1，再编译，到最后也是说找不到一些符号链接，这才意识到是没有链接相应的库，还是修改makefile，加上-loleacc，给wxWidgets和access的makefile都要加，就可以正常编译过了，运行access也可以正常工作了。</p>

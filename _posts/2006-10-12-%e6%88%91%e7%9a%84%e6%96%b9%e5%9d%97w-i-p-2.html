@@ -3,19 +3,5 @@ layout: post
 title: "我的方块W.I.P #2"
 categories:
 - Shareware
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  blogger_blog: missdeer.blogspot.com
-  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
-  blogger_permalink: "/2006/10/wip-2.html"
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
 ---
 <p>　　把MoveWindow的问题改好了，也不知道是哪里出问题了，反正就是这样改了一下就好了，可以缩放成想要的大小了，还把画界面的位置也计算了一下，可以直接画在Client的左上角（0,0）的位置了，哈哈。另外一点就是，把Clipper也弄好了，本来是设置了Clipper，就画不出东西来，后来看了一下返回的错误码，说是BltFast不能Clip，换用Blt就好了，虽然说如果是用软件实现的Blt速度会没有BltFast快，但MSDN上说也只是快了10%而已，更何况它说在硬件Blt的条件下，两者是没有区别的。其实速度不速度现在来看，根本不重要，因为一个小小的方块游戏，对动画要求实在不高，完全用GDI做也可以比较流畅地实现的，要是我开始就是在BDS下用VCL的TImage来写，估计已经快到了可以玩的程度的，呵呵，不过这样也好，学一下C SDK和DX。看了一下DX8里的samples，里面的代码写得真是整齐啊！顺便加了个图标，不过还不清楚为什么没能在窗口左上角显示出来。 本来打算把画方块池的功能完成的，但是人懒了，动了一下就不想动了，呵呵，慢慢来吧。<br />　　在看maillist的时候，偶然看到有人提到什么时候用Lua，突然得到提示，为什么不用Lua来做配置文件呢。我还老老实实地用ini文件或者xml文件，要解析也得再研究一下用Win32 API直接怎么解析，以前都是用VCL里封装好的类，唉！这样也好，只要写好一个Lua的交互模块，就可以既用作配置文件解析，又用作游戏逻辑定义了，一举两得啊！<br />　　想了想，skin里要定义的数据还是有点多哦，包括主界面图片大小，方块池位置，预览框位置，道具池位置，系统按钮位置，功能按钮位置。<br />　　白天考虑了Lua脚本中需要定义的游戏逻辑，包括move_left、move_right、move_down、speed_down、rotate_next、rotate_prev、on_timer、on_cycle、game_start、game_init等。在初始化的时候需要提供一些基本的信息，比如游戏等级等，另外就是对脚本应该有校验，MD5算法比较合适。</p>

@@ -3,19 +3,5 @@ layout: post
 title: "我是个换肤论者"
 categories:
 - Shareware
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  blogger_blog: missdeer.blogspot.com
-  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
-  blogger_permalink: "/2007/06/blog-post_12.html"
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
 ---
 <p>　　“换肤论者”，呵呵，这个名词是在公司内部一个论坛上看到的，说的是一位同事说sogou输入法可以换成好多不同的外观，然后下面就有另外一位同事说，原来是个换肤论者。现在我发现，我也是个换肤论者，上<a href="http://www.sogou.com/pinyin/skins/index.php">sogou的网站</a>看看，有好多比较漂漂的皮肤，然后又看到像<a href="http://www.freeime.com/">极点中文</a>之类的五笔输入法也是可以直接支持换肤的，想我用的五笔加加就不行，虽然当年它刚出来时用的组合框和候选框合一的界面新颖大气，可是这么多年过去了，也看腻了。无聊了，于是打算把我自己在整的那个输入法弄成可以换肤的，呵呵，大概的样子就像sogou那样，可以让候选框使用不规则形状，其实是用一张图片加掩码来合成一个region，再设成窗口的形状。用google在<a href="http://www.codeguru.com">codoguru</a>上搜到<a href="http://www.codeguru.com/Cpp/G-M/bitmap/usingregions/article.php/c1751/">一段代码</a>，可以把一个bmp转换成region，太好了，直接套上，真的可以直接显示不规则窗口呀，好开心！不过昨天发现问题，先是大红色（RGB(255,0,0)）的掩码不起作用，但粉红色（RGB(255,0,255)）的可以，单步跟踪到那段代码里面，发现是GetRValue等操作的时候在对一个色彩值取值时好像顺序错了，于是自己改了一下，改成大红色的也可以了，但其实没改对。后来又发现，对于超过一定高度的图片，窗口只能显示出上面一部分，又找了好久，把一些有用没用的代码都删掉，还是没找到原因，一直搞到后半夜2点，弄得心力交瘁啊。今天回来一下，原来在每次重画窗口时有一个MoveWindow操作，里面把高和宽都写死了，高只写了个90，所以只要超过90个像素高度的图片来操作，都会有问题。然后又发现，有一张淡蓝色掩码的，也没有正确的合成region，再跟踪了一会，又是那边取色彩值的地方的问题，又改了一下，现在也可以了，不知道是原本代码中的问题，还是其它什么问题，因为代码中提供的示例程序，是用黑色（RGB(0,0,0)）这样特殊的值来演示的，可能并不能很好地测试到。<br />　　关于在Firefox中不能显示的原因，所说是因为自由拼音输入法并没有完全按照IME框架来写的，所以有问题，难道我要去找DDK中的那个例子来看看，然后重新写了一个。<br />　　不过说实话，自由拼音中的结构真的有点乱，而且效率也不行，特别是词库组织方面，比较土。尤其是后来被另一位作者加了五笔功能，代码更乱，连用UNICODE编译都会有问题。真要好的话，真的不如好好学一下IME框架，能支持UNICODE从头开始写一个。<br />　　目前已知问题：<br />1、有些程序下弹不出候选窗口；<br />2、有时候词库会乱，要重新打开一遍输入法才行；<br />3、有时候会引起程序死掉，今天在公司里用Word就碰到过，所以不能用于重要场合；<br />4、拼音的词组词库有问题；<br />5、有时候状态窗口也显示不出来；<br />6、还有很多其它小问题。</p>

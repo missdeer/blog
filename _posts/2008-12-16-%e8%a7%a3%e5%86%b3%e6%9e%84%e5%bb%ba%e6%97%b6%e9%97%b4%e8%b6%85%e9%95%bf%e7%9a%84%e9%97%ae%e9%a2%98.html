@@ -3,19 +3,5 @@ layout: post
 title: "解决构建时间超长的问题"
 categories:
 - Job
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  blogger_blog: missdeer.blogspot.com
-  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
-  blogger_permalink: "/2008/12/blog-post_16.html"
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
 ---
 <p>　　今天终于搞明白为什么昨天构建我的项目要2个小时了，原来是内存耗完了！<br />　　本来一直没这种问题的，也就昨天突然发现，我的项目集成构建一次，最多的时候要206分钟，瀑布汗！当时还以为是中间的哪个环节出问题了被阻塞在那里了，看了下进程状态都是好的，主要的时间都花在doxygen生成文档上了。但看看doxygen也是正常的，有条不紊地dot。<br />　　其实昨天就已经搞好了，因为当时发现本来2GB的物理内存，又设了2GB的虚拟内存，可是看看整个系统的内存使用量居然也是3GB多。关了一票的没用的进程，包括普通应用程序和系统服务，发现又变快了。<br />　　今天重启了系统，同样关掉那些没用的服务和应用程序，再看CruiseControl，终于恢复正常了，15分钟就能完整地执行完一次构建！<br />　　唉，服务器资源还是有限啊！</p>

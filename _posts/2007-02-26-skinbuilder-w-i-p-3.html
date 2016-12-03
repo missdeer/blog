@@ -3,19 +3,5 @@ layout: post
 title: 'SkinBuilder W.I.P #3'
 categories:
 - Shareware
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  blogger_blog: missdeer.blogspot.com
-  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
-  blogger_permalink: "/2007/02/skinbuilder-wip-3.html"
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
 ---
 <p>　　春节过年回家，因为上不了网，反而出乎意料地拿出不少时间来写SkinBuilder。一点一点地完善，总是觉得有很多地方要改进，呵呵。<br />　　现在已经实现方块池和预览框使用固定大小的矩形框，不再用进行确定；可以选择矩形的颜色、粗细、实心或空心；Lua脚本格式的配置文件生成，全是自己用iostream写的，因为要写的内容和格式都很简单；可以查看已有哪些生成；重新load已有的task和配置文件进行再次编辑；能用7z格式打包，这点是通过直接调用7z.exe来实现的；导出时，检查必需项是否齐全，包括背景图片和配置文件，导出后子窗体的标题作相应的修改；打包时，把背景图片和配置文件都改名，对于jpeg格式的图片能自动转换成bmp格式的；有了一个splash窗口，其实是用about窗口；重新load后能画出已有的矩形框，这个还费了点时间，原因是试验的时候总是使用黑色的，刚好不容易看出来，所以一直以为没作好，晕；文件关联，包括打开方式、图标、单一进程实例打开，不是很花时间，一部分代码还是在机场里等飞机的时候写的，呵呵；打开task文件能改变子窗体标题，这也是应该的；工具栏暂时被我屏蔽了，懒得写了，呼呼；本来打算做的无限次undo/redo的，后来想想，意义不大了，因为任何时候新画的都能把以前画的覆盖掉，还要undo干吗！<br />　　LuaSuck写了一段，写不下去了，一来对C++泛型编程的了解远远不够深入，另一方面对Lua与C++的交互方法也不够了解，先整了些够用的功能。应该再好好研究一下LuaTinker和LuaBind，它们都是面向Lua 5.0的，直接放在5.1里好像会有些问题。<br />　　SkinBuilder就先这样告一段落了，接下来是连连看，然后是方块。晕！</p>

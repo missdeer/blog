@@ -3,19 +3,5 @@ layout: post
 title: x和dt偶尔还是有些用处的
 categories:
 - WIND
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  blogger_blog: missdeer.blogspot.com
-  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
-  blogger_permalink: "/2009/08/xdt.html"
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
 ---
 <p>　　事实证明，x和dt偶尔还是有些用处的，有几个core dump记录，经过分析后，嗯，是x或dt后，发现就是在倒数第二次或倒数第三次调用某个对象的方法时崩溃的，而崩溃的原因就是因为那个指向对象的指针其实是个0，只要调用的方法引用了什么成员变量，那么对不起，保证完成“死给你看”的任务。想来，在知道用x和dt前，那些问题我估计是分析不出什么结果来的。<br />　　今天，抱着试试看，用VC9重新全部编译了一下Scintilla，发现真可以用了。在这之前的几天里，偶然发现只要向Scintilla发送什么消息，应用程序就会崩溃，还以为是CVS里的代码有问题。<br />　　这软件的问题啊，真是个很缠人的事啊！</p>

@@ -3,19 +3,5 @@ layout: post
 title: Office2007的改进之处？
 categories:
 - Job
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  blogger_blog: missdeer.blogspot.com
-  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
-  blogger_permalink: "/2008/09/office2007.html"
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
 ---
 <p>　　今天突然想到，之前遇到的两个操作Excel的问题，该不会是在2007里对2003版本的修正吧！<br />　　最早使用COM操作Excel2003出现的问题是，在我的电脑上，打不开Excel文件，硬是说没有正确的序列号，我分特，公司花了那么大一笔钱买了license的！想了一些办法，仍然没有解决，为了不影响进度，忍痛在512MB内存的机器上装了个2007版的Office，但是奇怪的是，如果直接运行Excel 2003 SP2，编译文件什么的，都是好好的。<br />　　第二个问题是，突然一夜之间，所有的使用Excel 2003的机器上，都不能对图形全选操作了，用鼠标是可以选择的，但如果通过代码来SelectAll则必定异常，无论是在VBA中，还是通过COM接口操作，屡试不爽！很无语的是，当时定位了好久，也因为只有我自己的开发机上是用的Excel 2007，根本暴不出这个问题，最后找到出错处后，仍然束手无策，一狠心，再也不copy图片了，而是提取出各个图形节点的位置信息，自己用GDI一个一个画出来，同时带来很严重的失真现象。自己画的线条没有抗锯齿，没能好好计划节点内的文字大小和位置，没能按照连接线的原始图样进行绘制，不过总算也勉强能蒙混过关。<br />　　第三个问题是，发现解析所有图形节点时，发现多了一两条不可见的line，但是同样一个文件拿到我的机器上，通过Excel 2007的接口解析，却没有这两条line，瀑布汗！所以图形在我的机器上显示的好好的，到了别人的机器上就多出一个虚线矩形框和一个实线矩形框，只好额外写几句来特殊处理一下！<br />　　我猜，第二个问题和第三个问题，会不会是由同一个原因引起的，会不会是由于2003和2007版本之间的一点不兼容性引起的，2003创建的文件被2007编辑过后，再拿到2003上去就会有点表现不正常？还是说本来就是2003就有问题了，只不过2007上有了改进？</p>

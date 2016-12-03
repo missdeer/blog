@@ -3,19 +3,5 @@ layout: post
 title: "渐渐习惯用Lua写代码了"
 categories:
 - Lua，Script
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  blogger_blog: missdeer.blogspot.com
-  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
-  blogger_permalink: "/2009/11/lua.html"
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
 ---
 <p>　　今天本来打算把那几个菜单项的功能完成的，不过后来又转去做其他事情了，计划执行力不强啊，唉！<br />　　要在Lua中操作xml，在现在的软件开发中，这是个很常见的需求，xml已经变得无处不在了。在神作PIL中提到的是用expat库，呃，我只会用DOM，所以只好找其他的库了。前些天在luaforge上看到一个叫ltxml的，才0.2版本之后就没更新过了，用的是TinyXPath和TinyXML，我决定好好考察一下。<br />　　它没有文档，只有一个readme后面四五行C代码示例，不过这足够了，看一下那个cpp文件中注册的方法，基本可以猜出用法。总的说来，先require，再用xml.open方法打开xml文件，然后就可以用TiXMLDocument的select等方法得到TiXMLNode，就跟我熟悉的用C++操作DOM的做法一样了。<br />　　说起来TinyXML的表现不差，基本能满足我当前的需要，我有点儿后悔当年花了那么大力气将Xerces C用VC2008编译了一遍，又绞尽脑汁用MinGW编译了一遍，还自己封装了一把，以适应STL中的算法。对于我来说，它太庞大了，让我畏惧，那么大一个却仍然要让Xalan来处理XSLT和XPath。同样，libxml和libxslt给我的印象也差不多，它们甚至没能让我顺利编译！<br />　　昨天说到的，现在程序崩溃总是无声无息地自动退出了。今天想了想，其实之前好像也想到过，会不会是因为LuaJIT的缘故，于是换了官方的Lua的dll来用，果然在原本会引起退出的地方，Lua只是而压了条错误信息到栈中，LuaJIT的行为没跟Lua一致啊！在Lua list上发了个邮件问问，结果一个老表说他没能重现，问我有没有证据，我汗，用Wink录了个8MB的操作录像，然后发现这maillist限制最大附件是40KB，严重超标，还要等人审查。总结一下崩溃的条件，在Lua代码中调用第三方C/C++代码注册的类和方法，如果方法、成员不存在，就会退出。而Lua是能处理成将其识别为一个nil，然后报不能在nil上进行函数调用之类的话。<br />　　总之，一切在向好的方向发展，甚至自己已经能渐渐地习惯于写Lua代码了，不像之前那样非C/C++不爽！</p>

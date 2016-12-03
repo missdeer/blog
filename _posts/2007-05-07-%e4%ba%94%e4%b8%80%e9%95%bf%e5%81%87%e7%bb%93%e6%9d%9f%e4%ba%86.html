@@ -3,19 +3,5 @@ layout: post
 title: "五一长假结束了"
 categories:
 - Shareware
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  blogger_blog: missdeer.blogspot.com
-  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
-  blogger_permalink: "/2007/05/blog-post_07.html"
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
 ---
 <p>　　五一长假终于结束了，这是最省钱的一次长假了，只买了个双肩背包和一瓶15ml的眼部护理凝胶，呵呵。本来还跟小丫头说，每次长假是一次比一次花得多，小丫头就说我就是这样变穷的。<br />　　代码结构改掉，引出的问题还真的挺多的。因为希望能尽量减少对VCL的依赖，于是不用IntToHex，改用Boost::Format，突然发现有很严重的性能问题，调了好一会儿，甚至想过要放弃而改回VCL，最后发现，只要合理地整改程序结构，多余的操作不做，速度自然就提上去了。不过让我还是有点担心的是，Boost::Format是不是真有性能问题。暂时也不管了，反正能满足要求了，而且把AnsiString::Pos也换成用Boost::string_algo来实现。另外还有一个问题是，TCanvas还没能去掉，应该直接换用API画。<br />　　其实这次代码重构的一大目的是为了把原来写在MainForm类中的3000行代码精减，初步目标是控制在1000行以内，如果能更少就更好了。另外一个目的是要把不同类型的功能划分成不同的模块来实现，这样也是为了能更好更方便地支持多种类型的插件和协件。<br />　　再次，这回要把各种全局设置、协件、插件、外部工具等设置都做到同一个设置对话框里去，所以想要一个更好看点的界面，看到Foxmail里那个不错，观察了一下是用了TZlistbox控件，网上找了一下，好像是付费的。如果直接用TListBox就太土了点，又观察了一下VS2003里的向导，是用HTML做的，原来是没注意过的，也是因为MS用HTML做的界面经常做得像Native程序一样，所以也看不大出来，上次听同事说起过，今天看了一下，就是几个HTML文件在那里切换，自己实现几个接口就行了。当然，今天又得到一个教训是，在这种情况下，能让脚本做的事，就尽量让脚本做，放在C++里增加了不少复杂度，而且某群人说过比较极端却也不无道理的话，“一行脚本顶一百行C++代码”。比如原来我嵌入的WebBrowser里面没有XP风格，后来发现只要加一句HTML代码就行了。还有，一直没解决的屏蔽F5刷新的问题，在网上找了找，其实几行JavaScript代码就搞定了。<br />　　最后，看到有个叫ShowHTMLDialogEx的API，可以直接弹出个对话框浏览HTML文件哦，比较方便。</p>

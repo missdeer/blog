@@ -3,19 +3,5 @@ layout: post
 title: socket还是有问题
 categories:
 - Job
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  blogger_blog: missdeer.blogspot.com
-  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
-  blogger_permalink: "/2007/12/socket.html"
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
 ---
 <p>　　自从写完那段代码，一直以来都有问题，服务器端读内容时，总是返回一个错误码，结果什么都读不到。都不知道是服务器端写得有问题，还是客户端的代码有问题，仔细看了看asio带的那些个例子的代码，尤其是里面的http服务端和客户端以及chat的服务端和客户端，下午在那里找原因，一会儿以为是服务端的问题，一会儿又以为是客户端的问题，结果到最后还是没找到具体原因，郁闷。<br />　　看来一个好用的调试工具是不可少了。但是用Wireshark抓包的结果看，客户端是确实把内容发送过来了，只是看netstat看连接状态立马变成CLOSE_WAIT，然后连接消失，现在我又怀疑是客户端的问题。</p>

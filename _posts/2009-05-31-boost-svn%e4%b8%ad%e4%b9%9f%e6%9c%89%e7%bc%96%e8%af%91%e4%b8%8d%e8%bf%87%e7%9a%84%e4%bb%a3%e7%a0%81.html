@@ -3,19 +3,5 @@ layout: post
 title: boost svn中也有编译不过的代码
 categories:
 - CPPOOPGPXP
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  blogger_blog: missdeer.blogspot.com
-  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
-  blogger_permalink: "/2009/05/boost-svn.html"
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
 ---
 <p>　　回到家，习惯性地更新了一下boost svn中的代码，从来都最多只看一下哪些文件更新了，至于具体更新了什么内容，却从来没有关心过，也不是我能关心的。<br />　　然后整了一下自己写的一些代码。<br />　　再之后是继续整前几天放假时写的一个小程序，结果突然发现编译不过了！开始还怀疑该不会是VC出问题了吧，重启了一下VC，没用！于是看了一眼出错信息，定位到出错代码行，是boost::signals2中的一个叫signal_template.hpp的文件中。众所周知boost的代码只有超人才能看得懂，而我很幸运地不是超人，所以就看不懂啦！折腾了一阵，也没有办法，后来猛然看到这代码中明显是语法错误嘛！我猛烈地faint啊，原来超人也会犯错儿呀！尝试了一下把这语法错误修正，结果编译时报的是其他地方的错了，这我就不晓得是什么原因了。无奈之下，为了能正常编译我的程序，只好回退到之前一次提交的内容去了！<br />　　目瞪口呆！</p>

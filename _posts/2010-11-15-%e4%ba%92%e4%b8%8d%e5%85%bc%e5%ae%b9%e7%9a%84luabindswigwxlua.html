@@ -3,20 +3,8 @@ layout: post
 title: "互不兼容的Luabind/SWIG/wxLua"
 categories:
 - GUI Framework
-- Lua，Script
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  quiz: a:2:{s:1:"q";s:0:"";s:1:"a";s:0:"";}
+- Lua，Script  quiz: a:2:{s:1:"q";s:0:"";s:1:"a";s:0:"";}
   _wp_old_slug: ''
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
 ---
 <p>　　今天开始整理代码，突然又觉得现在嵌入Lua的方法实在太丑陋了。<br />
 　　为了连接C++和Lua，我用了Luabind、SWIG和wxLua。而主要问题在于这三者在映射C++的自定义类型时对同一个C++类型做出了不同的映射，所以不能互相兼容使用。<br />

@@ -3,19 +3,5 @@ layout: post
 title: Lua调试器三步走
 categories:
 - Lua，Script
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  blogger_blog: missdeer.blogspot.com
-  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
-  blogger_permalink: "/2010/01/lua.html"
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
 ---
 <p>　　估计这个Lua调试器是最近几个月来遇到的最具有技术挑战性的特性了，大概要分三步走。<br />　　首先，确定使用远程调试架构。用C++实现与用户交互的操作程序和与Lua解释器交互的执行部分。现在仍然在这个阶段。昨天差不多把socket通信的部分搭起来了，这也花了我不少精力，是用boost.asio做的，实然觉得自己对boost.asio的了解增进了很多，也突然觉得其实boost.asio似乎挺好用的。但是仍然有点小问题，比如我本来希望执行部分作为C/S结构中的客户端，它能在连接上服务端后立马写点数据给服务端，可是似乎总是没写出去，要先收到些东西再写才会成功。不过现在暂时不管这个问题，今天在写与Lua解释器交互的部分，发现代码真的是越来越多喽，一个又一个新的类被创建出来，真是面向对象惹的祸呀！没写完，中间脑袋稀里糊涂的，明天继续。<br />　　接着，把与用户交互的操作程序改写成Lua，并与宿主程序集成，可以在IDE的编辑器上就让用户进行操作和反映调试器执行结果。这里要注意的是，到底到时候要放多少代码是在宿主程序中实现的，多少代码又是让Lua脚本实现的，又有多少代码是用C++写成作为Lua的扩展库的，几部分又是如何交互的。<br />　　最后，把调试执行部分改成dll，以便注入到被调试进程中去，这样就可以调试任何嵌入了Lua解释器的程序了，只要Lua解释器是个dll即可。注入后，要hook掉几个Lua的C API，包括获取lua_State，装入文件。这里应该要注意的是，使用Lua解释器的C API不能直接调用和链接了，要动态获取API地址了，这样才能使用注入进程的那个Lua解释器的dll了，不过其实可能不需要这么复杂，只要额外说明如果要用本软件调试的话，要求用我指定的Lua解释器的dll和lib即可。我觉得这点是可以做到并且在某些情况下必须做到的，因为曾经还听人说过，很多内嵌Lua的游戏，都是静态链接Lua的，所以既使我能注入，也hook不到那些C API的。</p>

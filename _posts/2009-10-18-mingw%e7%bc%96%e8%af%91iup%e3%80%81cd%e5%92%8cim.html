@@ -3,19 +3,5 @@ layout: post
 title: MinGW编译IUP、CD和IM
 categories:
 - Lua，Script
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  blogger_blog: missdeer.blogspot.com
-  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
-  blogger_permalink: "/2009/10/mingwiupcdim.html"
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
 ---
 <p>　　知道<a href="http://www.tecgraf.puc-rio.br/iup/">IUP</a>应该是去年的事，有个叫<a href="http://luaforwindows.luaforge.net/">LuaForWindows</a>的集合，里面就带了一个，上网了解了一下，知道还有一起的<a href="http://www.tecgraf.puc-rio.br/im/">IM</a>和<a href="http://www.tecgraf.puc-rio.br/cd/">CD</a>。<a href="http://luaforwindows.luaforge.net/">LuaForWindows</a>已经提供了使用MSVC2005编译好的二进制文件，不过我不喜欢。我打算用<a href="http://www.mingw.org/">MinGW</a>编译一把。<br />　　开始的时候我以为可以直接用自带的makefile编译。结果是我花了半天时间，在<a href="http://www.mingw.org/">msys</a>里编译，还试图根据编译时报的出错信息，来修改makefile。在msys编译失败后，我尝试看那个自带的makefile，以为用<a href="http://www.tecgraf.puc-rio.br/tecmake/">TecMake</a>可以编译通过，事实又是让我那么的失望！<br />　　最后，经过我对makefile的简单解读和分析，我决定自己写下个<a href="http://www.boost.org">bjam</a>的编译脚本。总的说来，我深信bjam是很适合用来编译库的，毕竟boost就是一堆的库。经过近一天的努力，除了那些需要依赖OpenGL、Windows Media SDK、DirectX等额外库支持的库，其他的基本都被我编译出来了。<br />　　本来bjam是可以支持一次编译多个工程（库），或只编译一个工程（库）的，不过那种bjam脚本我还不会写，我只能分别为IUP、CD和IM各写了一个bjam编译脚本。看来还是得再深入学习一下啊！</p>

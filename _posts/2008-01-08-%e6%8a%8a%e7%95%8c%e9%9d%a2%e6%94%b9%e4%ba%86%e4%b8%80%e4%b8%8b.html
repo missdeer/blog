@@ -3,19 +3,5 @@ layout: post
 title: "把界面改了一下"
 categories:
 - Job
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  blogger_blog: missdeer.blogspot.com
-  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
-  blogger_permalink: "/2008/01/blog-post_08.html"
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
 ---
 <p>　　今天把界面改了一下，本来默认用的Xtreme Toolkit Pro库的时候加载的资源是用英文的，但我的程序界面是中文的，虽然粗略地说可以使用，但毕竟感观上还是有点影响的，于是下决心看了一下它自带的sample，有一个就是演示了如果切换成其它语言的。把它里面的几个函数直接抠出来，贴到我的程序里，再把translations目录都复制过去，就能切换了。不过有点郁闷的是，用VC7.1编译这些资源dll时，有十几个编译不过去，不知道哪里出问题，还好我最需要的中文能编译出来，所以也先暂时不管这么多了。<br />　　一直想给列表上加个cool点的tooltip，可是换成了XTP的Report控件后，就再也找不到办法了，也只好暂时放弃了。<br />　　之后就一直无所事事。画图的方案还得上面的那些人拍板决定，所以我也懒得再花心思。最后快下班的时候翻出ruby来看看如何集成进C/C++程序中来。说起来我个人感觉，Ruby这套机制相比Lua、Python、TCL来，是最难用的了，太丑太傻了。不过也许是我用C/C++的思维太习惯了，以前看Lua、TCL的那套，很明显就是继承了C的思想，看到Ruby这套就觉得恶心了。每次调用一个脚本中的函数，都需要提供一个回调函数，这让我觉得很不爽，也许是我没用对，也许是它真的本来就是这样，而且《Programming Ruby》一书中就说，Ruby原本就不是设计用来嵌入到其它地方的语言，我再抱怨有什么用呢。</p>

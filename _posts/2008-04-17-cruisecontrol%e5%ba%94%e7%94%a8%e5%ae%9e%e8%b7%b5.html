@@ -3,19 +3,5 @@ layout: post
 title: CruiseControl应用实践
 categories:
 - CPPOOPGPXP
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  blogger_blog: missdeer.blogspot.com
-  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
-  blogger_permalink: "/2008/04/cruisecontrol.html"
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
 ---
 <p>　　自从知道CruiseControl之后，一直很喜欢这个东东。这回项目组里开始兴起XP、Agile、Refactoring这些东东，于是我就想着希望能尽可能地向书上、网上写的那样，把CI搞起来，现在这个CruiseControl只用来编译一个发布版本的，照他们的说法，不是持续集成，而是持续编译，而且这里连持续编译都算不上，因为不是自动定时轮循的，而是手工去点一下那个force build按钮。鉴于我一个人在做一个项目，中间也没人过问，极大的自由度，照负责人的说法，试验田。呵呵，这次我就把CppUnit和Code Metric集成了进来。<br />　　我首先弄的是Code Metric。工程是用VC++开发的，于是用了一个在公司内被推广的工具<a href="http://www.campwoodsw.com/sourcemonitor.html">Source Monitor</a>，开始时没有仔细看它的帮助文档，还冒冒然给作者发了封邮件，问他能不能提供一个命令行版本。作者还好，回了封邮件说，Source Monitor本来就是支持命令行的，可以通过写一个XML格式的命令文件，通过命令行进行相关的代码度量工作，简单试了试，果然可以，基本能满足要求。然后又看到Contrib目录下有几个XML文件，通过ANT来转换Source Monitor生成的XML文件，太好了，又学到一招简单易用的，通过几个xsl文件，把Source monitor生成的度量数据用html格式呈现出来，在CruiseControl中没找到合适的地方显示，就只好把这些svg、html文件都拷贝到artifacts目录下。<br />　　然后弄CppUnit。CppUnit其实是个好东西，好处不用多说，但坏处在于它是JUINT的Cpp port，所以某些第三方的支持就不如JUINT的好。比如ANT是直接支持JUINT的，CPPUNIT就不行。另外，CPPUNIT原生支持的XML导出测试报告并不兼容CruiseControl的输入。走了一小点弯路，在网上搜了一下，发现CPPUNIT有个Contrib下的xsl文件，可以把它的原生XML输出转换成JUINT的XML格式输出，于是乎，就可以被CruiseControl接受了，哈哈。便宜说一下，似乎正式发布的源代码包里是没有这个xsl的，但从1.11.0开始就已经有这个了，需要自己从CVS里找。</p>

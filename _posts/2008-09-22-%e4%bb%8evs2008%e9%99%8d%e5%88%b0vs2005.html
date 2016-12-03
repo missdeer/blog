@@ -3,19 +3,5 @@ layout: post
 title: "从VS2008降到VS2005"
 categories:
 - WIND
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  blogger_blog: missdeer.blogspot.com
-  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
-  blogger_permalink: "/2008/09/vs2008vs2005.html"
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
 ---
 <p>　　本来想用VS2008来写WIND的，但是这两天遇到几个问题，不得不降到VS2005来用。<br />　　首先是装了Refactor!Pro，在VS2008编辑器变得迟缓无比，敲几下键盘，就会死半分钟，这是无论如何不能忍受的，于是在Refactor!Pro的配置项里改了一番，卡死的情况有所好转，但仍然处于不可用状态！而且在退出VS的时候，会写一个巨大的cache文件，工程中没有多少个文件，都会写入100多MB，估计随着代码量的增加，这个文件的体积也会不断飚升。<br />　　其次是，我从PN中抠出来的Scintilla相关的代码，一添加到工程中后，VS2008就会updating intellisense，而且只updating到半途，VS就崩溃了，屡试不爽，无论是从命令行打开该工程，或者是从界面上打开该工程，都会updating直到崩溃！<br />　　于是，我万般无奈下，尝试用VS2005。降级倒是很容易，直接用文本编辑器打开.sln和.vcproj文件，把里面最开头几行中的版本号改小就行了。再用VS2005打开工程，写几行代码，编译一把，似乎倒是没有在VS2008中的那些问题，只好先用VS2005来写了，生在中国可真幸福。<br />　　这倒都只是IDE的问题，我猜如果只是直接从命令行来编译整个解决方案的话，应该不会有问题吧，而且升级也方便，只是改几个版本号。只是是否有这个必要，一定要用VS2008来编译。以后再说吧，本来最主要的也只是为了体验一下Refactor!Pro重构的快感。</p>

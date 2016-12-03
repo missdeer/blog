@@ -3,19 +3,5 @@ layout: post
 title: "向SQLServer2005存xml"
 categories:
 - Software
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  blogger_blog: missdeer.blogspot.com
-  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
-  blogger_permalink: "/2009/02/sqlserver2005xml.html"
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
 ---
 <p>　　今天终于解决了向SQLServer2005存xml时使用的字符集的问题了。<br />　　年后第一天上班，看到年前一个邮件，说是有个文件导不进去。拆下来跟踪了一下，发现是中间生成的xml文件不完整，通过简单的试验，直觉告诉我是字符集的问题，因为我将这xml文档的字符编码设成gb2312了，而鬼知道别人会写些什么特殊字符进来。把文本粘贴到UltraEdit中看了一下，果然有一个非gb2312范围的字节。我想，这种情况都出现了，无论如何都不能再继续用gb2312了，只能往utf-8之类的方向去考虑了。实验证明，以utf-8编码的xml文档是完整的，可是又回到一年前的问题，utf-8编码的xml文档写不到SQLServer 2005中xml类型的字段中，只能写gb2312的。<br />　　实在没办法，这方面没有人可以提供相关的经验指导，只好去看SQLServer2005的online help，好在是中文的，随便翻了一会儿。中间联想到，会不会是MSXML保存时并没有真正转换编码，实际上当然不是。又联想到，该不会是因为没有BOM吧，结果我没有去试。后来偶然看到其中一段说明，可以用utf-16，而且不在乎有没有BOM，如临大赦啊！<br />　　用ADO写回去时，先读出整个文件，因为开头的BOM的原因，需要再用SysAllocStringByteLen生成一个BSTR，不能直接用_bstr_t，再填回数据库，就可以了！</p>

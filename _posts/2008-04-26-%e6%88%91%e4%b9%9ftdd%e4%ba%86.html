@@ -3,19 +3,5 @@ layout: post
 title: "我也TDD了"
 categories:
 - CPPOOPGPXP
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  blogger_blog: missdeer.blogspot.com
-  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
-  blogger_permalink: "/2008/04/tdd.html"
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
 ---
 <p>　　TDD，即所谓的测试驱动开发，哈哈，我也开始用了。项目负责人花了两天时间总算建起一个可以正常跑起来的CppUnit工程，经过另外一个同事的验证，确实也能加入测试用例来跑。于是我兴高采烈地加入几个正儿八经的测试用例，结果发现用例是跑起来了没错，可是当从VC中想直接check in源代码到VSS中去时，VC就不干了，说两个工程不在同一个起始目录下。因为正式的功能代码是直接从原来的工程那里引用过来的，而偏偏测试工程是放在平行的目录下，因此有了这样的问题。万般无奈之下，只好亲自动手，把测试工程也移入正式工程的目录下，修改一下路径包含，一切OK，check in也没问题了。<br />　　几乎所有看得到的讲到TDD的书、资料上都说，在写功能代码前，要先写好测试用例。但是我发现直接这样做还是比较困难的，我现在的做法基本上是先想好，会有哪些功能类，然后就写好对应的测试类，再写好功能类中的成员函数声明，并用Visual Assist X生成一个空的函数实现，再跑到测试类中添加对应的测试函数，这样测试工程应该还是能跑起来。接着，我基本没按书上说的那样按部就班先写好测试函数内容再写功能函数内容，而是两边来回切换，一边写一点切换到另外一边再写一点，来回倒几次后，也基本都完成了。我不知道我这样做有没有什么不好的地方，反正用CppUnit这样做，进行单元测试确实方便，对于一些算法性的函数实现，直接在功能实现工程中往往不好测试，而放在CppUnit的测试工程里，则是再合适不过了。比如今天从别处抠来一段用WinINet进行Http下载的代码，略作修改，放在测试工程里测试，太方便了。<br />　　另外还有点体会是，设计模式是一定要学的，但总觉得GoF的《设计模式》看得太乏味，太枯燥，太艰苦了。Bob大叔的《敏捷软件开发》，Martin Fowler的《重构》都是要认真看的，还有《重构与模式》、《修改代码的艺术》、《反模式》都要好好看一下。提升个人能力，这些是必经之路。</p>

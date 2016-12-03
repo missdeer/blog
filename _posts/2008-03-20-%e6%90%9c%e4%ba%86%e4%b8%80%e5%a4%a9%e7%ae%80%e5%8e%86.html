@@ -3,19 +3,5 @@ layout: post
 title: "搜了一天简历"
 categories:
 - Job
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  blogger_blog: missdeer.blogspot.com
-  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
-  blogger_permalink: "/2008/03/blog-post_20.html"
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
 ---
 <p>　　简直想吐啊，太无聊了，又完不成任务，要求那么多，根本是浪费时间嘛。有空写个程序来自己搜简历得了。大概的想法就是调用IE的接口，几乎所有的IE页面上的元素都可以通过COM接口访问到，除了验证码不能自动识别外，其它部分应该都可以用程序完成。另外还有个问题是，输入email和手机号后，要点击一个按钮看是否重复，这时它会弹出一个MessageBox，这该如何处理，我猜IE也是有接口可以屏蔽掉这个alert的，或者说可以直接把整个javascript脚本都替换掉，不过也仅仅是猜想而已。最熟悉的做法是在后台开个线程，监视是否有MessageBox弹出，然后自动获取MessageBox上的内容，再自动点一下那个确定按钮，呵呵。<br />　　不过想法虽好，到时候极有可能就不了了之了，这写个程序还是挺花精力的，呵呵。</p>

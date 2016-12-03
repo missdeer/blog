@@ -3,19 +3,5 @@ layout: post
 title: XUL，也不错的一种选择
 categories:
 - Shareware
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  blogger_blog: missdeer.blogspot.com
-  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
-  blogger_permalink: "/2008/05/xul.html"
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
 ---
 <p>　　今天在公司网上看到一人发了个<a href="http://www.activestate.com/Products/komodo_ide/index.mhtml">Komodo IDE</a>，装来看了看，猛然发现它是基于<a href="http://www.mozilla.org/projects/xul/">Mozilla XUL</a>技术实现的，有点诧异，居然还真有用XUL技术开发的商业软件。然后就跟公司里的另外一个人讨论了一下，那人比较了解XUL，在去年还做过技术选型工作。<br />　　从中我了解到，有一种叫Remote XUL的技术，可以使得通过Firefox浏览某个页面，界面效果跟通用的桌面软件差不多，但实际上却真真实实是部署在远程服务器上的。其他能达到类似的效果的有JAVA <a href="http://en.wikipedia.org/wiki/Applet">Applet</a>，或者MS的<a href="http://en.wikipedia.org/wiki/Activex">ActiveX</a>，好像Adobe现在在搞的<a href="http://www.adobe.com/products/air/">AIR</a>也差不多，有种让人惊艳的感觉。看来该是有必要学一点这方面的新技术了，一直以来觉得跟Web相关的，都不是很感冒，但现在看来，它混淆了B/S和C/S，即桌面和浏览器的概念，很有意思啊，比如，假设有一种能适应各种浏览器的这类技术，那么做一个Web版的IDE什么的也不是问题了。<br />　　除了这种远程部署的界面技术，还有其灵活的可扩展框架也是让我感兴趣的。那人的胶片中对<a href="http://wiki.eclipse.org/index.php/Rich_Client_Platform">Eclipse RCP</a>和Mozilla XUL进行了简单的比较，结论是更看好XUL的，不过我个人的观点看来，两者单纯从可扩展性上讲，各有优缺点，不相上下吧。XUL体系使用C/C++实现具体的界面控件，然后用XML描述界面布局和事件响应，用<a href="http://en.wikipedia.org/wiki/JavaScript">JavaScript</a>完成实际的业务逻辑，响应XML中定义的事件，调用C++代码作出具体的动作。XUL要创建出新的界面控件比较困难，只能用已有的控件组合成新控件，所以像Firefox就实际上提供了扩展和插件两种不同的机制，扩展就完成只使用XML和JavaScript实现，而插件就可以实现比较高级的像内嵌<a href="http://www.adobe.com/products/flashplayer/">Flash</a>播放器之类的功能。总之，简单看来，相比Eclipse的实现方案，XUL并没有哪里特别不如，或哪点特别突出，只能说也是一种不错的机制。倒是让我多了解了一种扩展方式，自己设计可扩展的软件架构时，倒是要好好考虑一下了。</p>

@@ -10,18 +10,8 @@ tags:
 - Mac
 - Ninayan
 - Qt
-- SNS
-status: publish
-type: post
-published: true
-meta:
+- SNSmeta:
   _wp_old_slug: ''
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
 ---
 <p>　　今天觉得Ninayan大部分功能已经实现了，也差不多快可以发布beta版了，于是要打包，先解决Windows和Mac上的打包问题。<br />
 　　Windows上一直以来我都习惯用Inno Setup了，所以在如何制作安装包的问题上并不纠结，InnoIDE和ISTool都是很方便的工具，主要的问题在于解决Qt的插件的部署。Ninayan在Windows上也是用GCC（MinGW）编译的，相比VS2008，少了个SxS的问题，只要带两个dll一起发布就行了。Qt本身有一种简单但比较有用的插件机制，它的字符编码支持CJK，图形文件格式支持，数据库驱动等等都是由插件实现的。也就是说$(QTDIR)/plugins下的东西都要跟着发布，而且程序代码中需要自己在main()中，app对象创建后及时调用QCoreApplication::addLibraryPath()添加plugins的路径。另外由于用到了QtWebKit和QML，QDeclarativeEngine对象也需要指定一下qmlwebkitplugin插件的目录，把$(QTDIR)/imports/QtWebKit目录打包进去，然后在代码中调用QDeclarativeEngine::addImportPath()添加路径，这样整个目录就是发布的所有内容了。<br />

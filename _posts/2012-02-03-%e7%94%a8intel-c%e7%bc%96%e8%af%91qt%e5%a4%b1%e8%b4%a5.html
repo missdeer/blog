@@ -7,17 +7,7 @@ tags:
 - Android
 - iOS
 - Ninayan
-- Windows Phone
-status: publish
-type: post
-published: true
-meta: {}
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
+- Windows Phonemeta: {}
 ---
 <p>　　之前说过想用Intel C++编译Qt来着，于是从VeryCD上找到Windows、Mac和Linux的Intel C++安装镜象不辞辛苦地下载下来安装。结果让人很沮丧啊。<br />
 　　在Windows 7中，无论编译64位版本还是32位版本，都会编译失败，我怀疑是因为Intel C++用了Visual C++的头文件引起的问题，但是我直接用MSVC2010来编译64位的Qt，虽然也是编译失败，却跟Intel C++报的错误不同，好像C++11标准的问题，在Webkit部分中有类名为nullptr，这个名字在C++11中作为保留字了。也不知道那些用MSVC2010编译成功的是用了什么参数。至于使用MSVC2008的配置，我就没兴趣编译了，因为我不喜欢MSVC2008的SxS。<br />

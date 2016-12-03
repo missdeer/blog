@@ -3,19 +3,5 @@ layout: post
 title: "轻车熟路的需求实现"
 categories:
 - Job
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  blogger_blog: missdeer.blogspot.com
-  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
-  blogger_permalink: "/2008/12/blog-post_08.html"
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
 ---
 <p>　　今天去整编辑器了，加上了函数定义的跳转功能，总共大概花了4个小时左右吧，因为没有功能良好的语法解析器支持，所以基本没什么技术含量可言了，就是判断一下当前光标所在位置的单词，假设该单词是一个类的方法名，去数据库中查询一下该方法所在的文件路径和行号，如果有多条记录，则弹出个对话框，列出所有的位置，让用户自己选一个。<br />　　下午的时候跟老大说，老大竟然说我做那么快，看来以后得多分点任务。我郁闷！不过做这部分的时候，倒确实有点轻车熟路的感觉。添加对话框，给对话框添加必要的控件，给控制添加必要的消息响应，等等。以及添加新的类，在类中实现该它实现的功能。<br />　　不过又想到语法解析器，没有它，做什么都是残废的，唉，什么时候一定要抽时间实现一个。</p>

@@ -2,19 +2,7 @@
 layout: post
 title: "我只是想插几个图而已"
 categories:
-- TeX
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  quiz: a:2:{s:1:"q";s:0:"";s:1:"a";s:0:"";}
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
+- TeX  quiz: a:2:{s:1:"q";s:0:"";s:1:"a";s:0:"";}
 ---
 <p>　　今天总算咬牙把手册编造完了，一共22页，包括封面和目录。偶然发现在用Adobe Reader浏览这PDF时，在某几页会猛烈地闪烁，一顿一卡的，除了那几页有比较多的图片外，也没其他特别之处了。而同样的文件用FoxIt浏览，就没这问题，而且似乎连字体都要更清晰一点。<br />
 　　这就让我觉得很费解，很有点不爽，于是我打算尝试一下XeLaTeX。卸载了CTeX 2.4.6，然后装上了CTeX 2.8.0.125，因为这个版本里有XeTeX。简单看了一下网上的说明，要用XeTeX，基本不用修改什么，只是比较重要的一点是源文件要用UTF-8保存，当然这只对中文之类的双字节字符来说需要，我这个文档全是英文的，也就不存在这个问题了。然后直接用xelatex.exe编译，一步生成PDF。不过最后出来的效果，却让我很不满意。具体表现在，所有在figure或figwindow中的图片，都没有进行合适的自动缩放，而这点在LaTeX中是做得比较好的。我不知道是哪里的问题，在网上搜了一阵子，也没有提到只字半语。于是又试了一下latex.exe，好家伙，这个版本看到插入png格式的图片竟然报错说缺少什么RoundBox信息。我没折了，撤！<br />

@@ -3,19 +3,5 @@ layout: post
 title: "要被Excel整死了"
 categories:
 - Job
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  blogger_blog: missdeer.blogspot.com
-  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
-  blogger_permalink: "/2009/03/excel.html"
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
 ---
 <p>　　今天发现原来我的机器上一直跑得好好的程序，到其他机器上就不行了。于是另外找了个装了Win2003和MS Office2003的机器上调试，发现首先我用了一个Excel2003中不存在的接口，Excel2007中是有的。于是绕了个圈子也勉强达到原来的目的了。<br />　　接着发现把图表copy到系统剪切板中再取出来存成图片的文件不行了，根本枚举不到GIF类型的剪切数据。在网上找了个剪切板观察工具，发现确实没有那个数据，不是程序的问题，原来Excel2003的接口功能就是要比Excel2007弱。于是绕了好远的路，换个接口，把图表当成图片copy到剪切板中，发现剪切板中有Meta file picture类型的数据，再用Win32 API把这数据保存成文件。很扯的是这文件不知道是不是需要什么句柄释放操作，反正直接是不能修改或删除的，不过还好能复制。接着用GDI+把这个wmf文件转换成jpg或gif。结果郁闷地发现，转换后的图表背景变成全黑的了，想了好多办法，转来转去都是黑的，只有wmf和png看起来是白的。其实大概是透明的，整了好久都没办法，下班的时候跟老雷说起这个事情，老雷说先设置一下背景色。我真想拍一下自己的脑袋，怎么就没想到这点呢！<br />　　明天再去弄了。</p>

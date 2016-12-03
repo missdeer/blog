@@ -3,19 +3,5 @@ layout: post
 title: boost::signals的应用
 categories:
 - CPPOOPGPXP
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  blogger_blog: missdeer.blogspot.com
-  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
-  blogger_permalink: "/2009/05/boostsignals.html"
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
 ---
 <p>　　今天跟一个同事讨论起在项目中使用boost::signals，发现有些情况下很适合，比如我们的程序有时候会做些耗时的操作，而且这些操作过程中可能会去访问子窗口，而子窗口却不一定继续有效，于是可能就会有问题了。原来的办法是保存好这些子窗口的句柄，然后给它发消息。但有了signals就可以稍微做得更好一点，把子窗口的类从boost::signals::trackable继承过来，这样子窗口对象销毁时，会自动把它从信号槽中移除，不再需要自己费心管理它是否有效。另外一点的好处，也是boost的各种类惯用的手段，做为回调，只要签名相同，即有唯一确定的返回值和参数列表，而不用在乎它最终是什么形式，全局函数也好，仿函数也好，成员函数也好，都可以作为回调。<br />　　从1.39.0开始，boost中有了signals2，相比signals，它有不少改进，但在我看来最主要的是线程安全和header only。其他的用法倒还是和signals一样。不过无论是boost::signals还是boost::signals2，似乎都没有办法解决一个问题，就是Windows GUI的多线程操作。还是得另外想办法啊！<br />　　烦躁！</p>

@@ -3,19 +3,5 @@ layout: post
 title: "使用iconv转换字符编码"
 categories:
 - Job
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  blogger_blog: missdeer.blogspot.com
-  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
-  blogger_permalink: "/2008/09/iconv.html"
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
 ---
 <p>　　昨天从网上查到，要让dot支持中文，必须得把dot文件保存成UTF-8编码，可是我用C Runtime、MFC CFile、C++ iostream都只会保存成ASCII的，于是不可避免地要再多一道工序把字符编码转换一下。<br />　　从一开始我就想到了iconv。先拿来它的可执行文件，在控制台上尝试了几次，原来是要把中文的设置为gbk才行，如果是ascii或者gb_2312-80都是不行的。知道iconv确实是可以将编码转换后，就放心大胆地在程序中使用iconv库了。从公司归档库中找得到的只有1.9版的，但好在.h文件和.lib文件都有，看了一下头文件中的声明，猜猜也就是先iconv_open，然后iconv、最后iconv_close共三步操作而已。于是先把文件都读出来，然后iconv。可是死活不能把转换后的内容存放到目的缓冲区中，而源缓冲区，以及返回值，还是源数据长度和目的数据长度却都是对的，实在不得要领。这样郁闷了好久，还是不得其法，于是准备直接用iconv.exe来转换算了。<br />　　iconv.exe转换时会把转换后的结果直接在控制台输出，可以通过管道重定向到文件中，可是在程序中要得到这个结果就遇到了些挫折。首先想到的当然是CreateProcess，然后通过管道捕获输出，可是发现这新生成的进程一直不结束，我估计是哪个参数没设对，这个API的参数也太多了点，昏厥！放弃，试了试C runtime函数system，倒是可以直接像在控制台上写一个有重定向的命令行，可是在执行时，会出来两个黑的控制台窗口，这用户体验也太差了！再放弃，看了看ShellExecute这个API，但好像不能重定向。<br />　　还是转回来用iconv库吧！最后还是从网上找了一段代码，先要iconv传入几个空指针的调用，再一行一行地从源文件中读出内容，再一行一行地调用iconv，最后一行一行地写入目的文件，这样居然就行了，大汗淋漓！</p>

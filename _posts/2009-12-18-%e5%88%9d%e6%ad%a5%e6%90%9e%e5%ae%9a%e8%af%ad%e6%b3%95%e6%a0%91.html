@@ -4,19 +4,5 @@ title: "初步搞定语法树"
 categories:
 - CPPOOPGPXP
 - Lua，Script
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  blogger_blog: missdeer.blogspot.com
-  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
-  blogger_permalink: "/2009/12/blog-post_18.html"
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
 ---
 <p>　　看了两天小说，呃，又堕落了。由于已经看完了，今天就比较认真地折腾起flex和bison。其实之前已经把lex和yacc脚本写完大部分了，至少可以从控制台打印结果出来了。今天就修改一下yacc脚本，把原来打印到控制台的内容保存在内存中，到时候转储成xml格式。因为只是要显示在界面的树视图中，我想了想，也就只有函数定义值得这么显示一下，所以也就只处理了这部分。<br />　　总的说来，感觉yacc有点土，它只能接受一种输入接口，而我用flex时发现可以生成C++代码，所以要给bison用的话，仍然需要把这个C++类的接口再适配成bison可用的C接口。<br />　　这种任务果然是实践性非常强的工作，本来看过一些资料，当然，能找到的资料也基本内容一样，翻来覆去那么几句话几个例子，等到自己要做时，不时地有些迷惑，只得慢慢尝试，倒也捣鼓出来了。<br />　　在yacc中可以为每个token或type指定一个union中的某个成员，其实这个成员的指定只在规则描述段中的action中有用，就我看来各种资料、教程中说的那一堆实在是扰乱视线。对于一个C/C++程序员来说，这种用法只是万千技巧中的一种，实在没必要说得那么严肃仔细，好像不那么用就不行了似的。<br />　　再说个我觉得yacc土的地方，由于这种格式上的限制，在action中只能访问一些全局的变量、对象等，至少在思维逻辑上很不连贯，其实lex也有这个问题。要我说，比较让现代化的做法是它应该生成一个类，每组action触发时，应该调用该类中的某个回调函数或虚函数，这里形式有好几种，都可以考虑，不知道boost.spirit是不是这种形式的，也许ANTLR等其他类似的工具就是这么做的。<br />　　最后抱怨一下，Lua Reference Manual中附录的complete syntax不能直接用的，至少不能直接用于yacc，有好些地方似乎没写全。</p>

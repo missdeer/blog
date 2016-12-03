@@ -3,19 +3,5 @@ layout: post
 title: Side by Side的MFC9.0 DLL和GDI+异形窗体
 categories:
 - Shareware
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  blogger_blog: missdeer.blogspot.com
-  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
-  blogger_permalink: "/2008/04/side-by-sidemfc90-dllgdi.html"
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
 ---
 <p>　　自从用上了VC2008，用它来编译日历程序，就开始被Windows先进的Side by Side技术困扰着。其实说被它困扰有点过分了，毕竟是自己水平太臭，眼界太窄，见识太少。在开发机上怎么整都是好好的可以运行的，换个机器就不行了。盲人摸象般的整了几天，还是没能解决，代码是在家里写的编译的，拿着可执行文件到公司的机器就是不能正常运行。昨天晚上又在网上搜索了很久很久，终于在MSDN上看到<a href="http://msdn2.microsoft.com/zh-cn/library/ms235291%28VS.80%29.aspx">一篇文章</a>，虽然是以VC2005来讲的，但对VC2008是一样的原理，按照上面说的分好目标目录，做好安装包，今天拿到公司一试，果然没有原先那个什么应用程序配置错误的消息框了，终于解决这个让我郁闷了几天的问题。<br />　　不过今天偶然发现，我用GDI+实现异形窗体，在Win2003下不能显示，在公司网上找了个别人写的也是用GDI+画窗体的，也是不能显示。但装了个雪狐日历精灵的早期版本看了看，它也是用GDI+画的，却能好好地显示在上面，应该是那段代码有问题，唉，看来得用虚拟机装上2000/XP/2003，做好全面的测试才行了，不在实际的环境中运行还真不知道会出什么问题呢！</p>

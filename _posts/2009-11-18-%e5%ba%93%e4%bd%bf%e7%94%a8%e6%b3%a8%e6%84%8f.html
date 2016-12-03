@@ -4,19 +4,5 @@ title: "库使用注意"
 categories:
 - CPPOOPGPXP
 - wxWidgets
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  blogger_blog: missdeer.blogspot.com
-  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
-  blogger_permalink: "/2009/11/blog-post_18.html"
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
 ---
 <p>　　上午整了一两个小时，在wxWidgets程序中使用第三方库wxPropGrid，结果发现在VC2008中链接时有几个warning，虽然看起来刺眼，但似乎是可以正常运行的，也没有很在意。然后用MinGW编译链接，最后链接不通过，报未定义的符号，而这些符号是之前用VC2008时报warning的那几个，这就说明不是库编译得有问题，就是本身程序编译得有问题。<br />　　我先把焦点放在库上，wxPropGrid是编译成静态库的，这不但编译链接选项不同，连有个宏定义（静态库是WXMAKINGLIB_PROPGRID，动态库是WXMAKINGDLL_PROPGRID）都不同。我仔细观察了该宏定义对源代码的影响，并参考了wxScintilla的做法，发现区别很小，基本可以忽略。于是我琢磨着如果实在不行了，把wxPropGrid编译成动态库试试。正在这么打算的时候，突然想起来，这个宏定义在主程序中没定义啊！一定是这个原因！于是修改了主程序的配置，加上了这个宏定义，重新编译，发现果然有效，VC中也不报warning了，MinGW中也可以链接通过了！<br />　　其实这是个老问题了，只是平时很少遇到这种情形，一时没想起来。</p>

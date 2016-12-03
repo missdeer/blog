@@ -3,19 +3,5 @@ layout: post
 title: "新版本实现新需求"
 categories:
 - Job
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  blogger_blog: missdeer.blogspot.com
-  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
-  blogger_permalink: "/2008/10/blog-post_15.html"
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
 ---
 <p>　　今天继续昨天的工作，要能给流程也添加关联的文档和子流程，当时评审需求的时候，我还以为没多少工作量的，这两天做起来才发现，大大地错了，要做的事还是很多的，不过幸好当时也是怀着一点小心思，多报了点。<br />　　首先，数据库处理模块需要增加相应的接口，因此COM组件也同样需要加一下封装。然后，核心业务处理模块需要封装数据库处理模块的接口。最后是界面响应增加入口，而且界面响应有三处需要增加入口的。<br />　　有了添加关联，同时也就需要查询和删除功能，都需要做不少事情。而之前的代码写得也略微复杂了点，现在增加代码时，发现有不少需要重构的。自从读了《重构》后，把这种活动看作理所当然的，不知假如我没读过该书，仍然遇到这样的事情，会怎么处理呢？<br />　　后来偶然看了一下版本计划，发现这些需求竟然不是要求最近这个版本实现，而是再下一个版本，这下我就怵了，宝贵的时间就这么消耗掉了。于是马上掉头做另一个需求，要能实现关联超链接。这时，又发现一个UCD的问题，关联时，弹出太多对话框了，版本历史上最多的时候有3个对话框需要用户进行交互，现在已经减少为2个，但还是不爽，应该在1个对话框里把所有这些都搞定，于是再次重构！<br />　　没完！</p>

@@ -3,19 +3,5 @@ layout: post
 title: Lua调试器研究
 categories:
 - Lua，Script
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  blogger_blog: missdeer.blogspot.com
-  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
-  blogger_permalink: "/2009/12/lua.html"
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
 ---
 <p>　　准备自己实现一个Lua的调试器，以前没做过这方面的工作，所以只好拿现成的开源代码来研究了。<br />　　比较容易找到的调试器代码有好几个，比如<a href="http://luaforge.net/projects/lldebug/">lldebug</a>，<a href="http://www.keplerproject.org/remdebug/">RemDebug</a>以及<a href="http://wxlua.sourceforge.net/">wxLua</a>中的那个调试器，各自的实现方式有所不同，但万变不离其宗的是都使用了Lua自己的debug库sethook功能。还有个共同点就是远程调试的架构，而且都是用socket实现的。<br />　　RemDebug完全用Lua写成，一个只有两个文件，加在一起代码才500多行。其中一个文件中实现的是调试引擎，负现各种调试功能的实现，另一个文件是用于实现人机交互的接口。<br />　　lldebug是个日本人写的，简单看了一下，也是跟RemDebug类似分成两部分实现。它的人机交互部分就比较高级，用wxWidgets实现了一个GUI，可以直接在上面打断点，单步，查看回调栈，查看变量等等，可算是debugger部分，另外实现一个单独的程序用于执行Lua脚本，这里可称为debuggee，其实也就是在执行Lua脚本前设置一下调试选项，以及拦截一些Lua的C API。<br />　　wxLua带了一个调试功能，它跟lldebug比较像的一点，有一个独立的程序执行Lua脚本作为debuggee。另一部分则是用C/C++实现的Lua接口，可以由用户自己用Lua脚本来实现debugger，这是它相较于前两者比较独特的一点。<br />　　通过sethook实现的调试器，要特别关注coroutine的处理。<br />　　我一直比较羡慕的是<a href="http://www.unknownworlds.com/decoda">Decoda</a>的那种功能，简单说来就是它可以直接调试其他嵌入了Lua解释器的应用程序执行的Lua脚本。当时我一直想不清楚这是怎么实现的，只是看到它向被调试的应用程序进程注入了一个dll，于是猜测它拦截了应用程序对Lua的C API的调用，而拦截了C API后要做些什么我就不知道了。现在想起来，似乎也就是只要在应用程序执行Lua脚本前，对lua_State设置hook，于是就跟前面提到的那些传统调试器一样了。但另外要注意的问题是，抢在什么时候将这个dll注入，应该拦截哪些C API。如果能在应用程序创建Lua解释器前注入，那么拦截lua_open就可以了，通过修改PE文件的导入表，基本可以达到这个目的。如果不能保证注入的时机，那么比较合适的被拦截C API应该是lua_load，但要注意的是拦截后设置hook时应该注意一个lua_State只要设置一次hook就行了。</p>

@@ -4,19 +4,5 @@ title: "有点想通了"
 categories:
 - Lua，Script
 - WIND
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  blogger_blog: missdeer.blogspot.com
-  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
-  blogger_permalink: "/2009/02/blog-post_05.html"
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
 ---
 <p>　　昨天又看了一下《Contributing To Eclipse》，思路有点清晰了，应该有一个任何地方都能访问到的地方，Eclipse中叫插件注册表，存放着所有插件的描述信息，这样无论是核心还是插件，都可以随时读取到与自己相关的插件的所有必要信息，实现相应的功能。<br />　　之前还疑惑，与界面相关的插件处理流程会自相矛盾，现在看来应该能解决了。首先需要确认一点，暴露被扩展点的，无论是核心还是插件，都可以从插件注册表中读取扩展的信息，比如菜单项名称，这样就可以添加一个新的菜单项，以及维护一个处理关系，Eclipse中有个某某proxy的机制，这形式不重要，关键是暴露被扩展点的那个部分应该在添加了新的菜单项后，能在菜单项被点击时，准确地知道哪个菜单项被点击了，并依赖插件注册表找到对应的处理流程，以我目前的情况而言，即对应的Lua脚本文件，Lua脚本模块名称，以及处理函数名称，然后将这些信息提交给插件运行模块来运行，插件运行模块则又要与插件装载模块合作，如果运行时发现没有对应的模块或函数，则要先装载对应的脚本文件到解释器中。</p>

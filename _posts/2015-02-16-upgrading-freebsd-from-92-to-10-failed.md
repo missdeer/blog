@@ -4,7 +4,7 @@ title: 升级FreeBSD从9.2到10.0失败
 categories: os
 description: 升级FreeBSD从9.2到10.0部分失败
 tags: FreeBSD
-published: true
+
 ---
 
 昨天想在装在T43上的FreeBSD上编译些软件，结果不是缺这个库就是那个so版本号不对，应该都是上次试图将9.2升级到10.0失败后rollback造成的。我就觉得现在这系统虽然能运行，但连个程序都编译不了，那跟废了有什么区别啊，果断再次试图升级。

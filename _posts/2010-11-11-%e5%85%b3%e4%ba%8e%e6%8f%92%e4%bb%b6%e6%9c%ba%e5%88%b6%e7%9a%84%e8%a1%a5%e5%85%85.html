@@ -2,20 +2,8 @@
 layout: post
 title: "关于插件机制的补充"
 categories:
-- Plugin Framework
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  quiz: a:2:{s:1:"q";s:0:"";s:1:"a";s:0:"";}
+- Plugin Framework  quiz: a:2:{s:1:"q";s:0:"";s:1:"a";s:0:"";}
   _wp_old_slug: ''
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
 ---
 <p>　　首先，之前我说过，现在的CodeLite没有一个很大的包罗万象的dll了，这个说法不是很准确了。因为确实仍然有一个叫libcodeliteu.dll的文件，只不过里面包含的内容确实不介Code::Blocks的那个dll是包含了完整的几乎所有的功能，而是只包含了一些跟IDE业务关系不大，却是比较底层而又基础的通用功能。<br />
 　　其次，CodeLite的插件使用C链接的方式导出几个知名函数，用于创建插件对象，查询插件信息等。而Code::Blocks的插件则不然，它们没有这样的知名函数，而只是从几个规定的插件基类中选择一个进行派生，而这个派生类又声明成dll导出，同时，又在定义插件的cpp开头处定义一个全局对象，用于注册本插件。该全局变量接受两个参数，分别是字符串类型的插件名字，以及泛型的插件类类型（也就是说，是个模板参数）。注册插件的那个全局对象保存了插件类类型，在需要的时候可以生成一个插件对象。所以这样可以省掉那几个知名函数，代价是需要导出插件类，容易暴露过多实现细节。感觉CodeLite的方法比较传统，但应该适用于多种编译器，而Code::Blocks的方法就Quick & Dirty一点，跟C++编译器的绑定就比较紧密了。从软件工程的角度讲，我倾向于CodeLite的方案，从项目进展的角度讲，我倾向于Code::Blocks的方案。<br />

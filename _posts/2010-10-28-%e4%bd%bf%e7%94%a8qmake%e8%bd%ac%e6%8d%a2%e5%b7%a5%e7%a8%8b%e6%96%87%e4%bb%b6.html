@@ -2,19 +2,7 @@
 layout: post
 title: "使用qmake转换工程文件"
 categories:
-- Qt
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  quiz: a:2:{s:1:"q";s:0:"";s:1:"a";s:0:"";}
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
+- Qt  quiz: a:2:{s:1:"q";s:0:"";s:1:"a";s:0:"";}
 ---
 <p>　　原本用Qt Creator生成工程文件.pro，然后通过qmake -spec macx-xcode xxx.pro可以生成Xcode可用的工程文件，但是说实话Xcode还是用得不习惯，至少我常常用的在class中声明一个函数后，用Visual Assist X可以在右键菜单中直接将其在cpp文件中生成函数框架，但Xcode中还要自己一个字一个字地敲进去，而且这个过程中输入类名都没有自动完成了。当然整个的编辑功能上，Xcode已经比Qt Creator强出太多了。<br />
 　　今天有人跟说我了下同样可以转换成VC的工程文件的，只是多了个参数，要这样用qmake -spec win32-msvc2008 -t vcapp xxx.pro，这样就可以生成.vcproj文件了，自己创建个空的解决方案就行了。注意在用qmake前，先在PATH中设置好Qt的bin目录路径，然后运行一下vsvars32.bat，这样qmake就能把所有东西都设置好了，用VS2008打开后是可以直接编译链接的。这样就可以在VS2008中编码调试了，赞！</p>

@@ -4,19 +4,5 @@ title: "使用wxWidgets一天有感"
 categories:
 - Shareware
 - wxWidgets
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  blogger_blog: missdeer.blogspot.com
-  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
-  blogger_permalink: "/2008/12/wxwidgets.html"
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
 ---
 <p>　　幸亏有Code::blocks和CodeLite两个的源代码可以参考，可以省事不少，不过还是发现，要像现在用MFC一样的比较熟练地使用wxWidgets仍需要先阅读一些基本的资料，当然wxWidgets的manual也是必不可少的。<br />　　学习一种新的GUI框架的使用方式，关键还是在于了解并掌握它的消息处理机制。通常见到的GUI系统都是消息驱动的，所有所有的编程框架都不可避免地要有一套自己的消息处理机制，而且这套机制的设计好处，直接影响到整个框架的运行效率和使用效率。<br />　　总的说来，我感觉目前wxWidgets已经有点庞杂，好处是有些问题可以有多种解决方案，坏处是增加了学习成本以及降低运行效率。总觉得它不但最终生成的可执行文件体积大，而且运行效率太低。不过似乎用gcc编译出来的代码，运行效率也不如用VC编译出来的。假设能用Intel编译器来编译，是不是运行效率能更高呢？<br />　　现在用wxWidgets来写程序，还有个比较麻烦的问题是，跟用MFC开发相比，缺少一个好用的开发工具。以目前凡事都追求效率的情况来讲，写程序早已不是随便找个文本编辑器就能写代码的时代了，不光要有基本的文本编辑能力，其他自动完成、重构、提示、引用跳转、向导等等，无不影响着程序员的心情，以及开发效率。从这方面讲，目前已经没有哪个环境能跟VC+MFC比了。用vc也能写wxWidgets程序，但跟开发MFC程序相比，它缺了各种向导，比如Property视图，可以直接为各种系统消息、命令ID生成对应的函数声明，还有常用类派生的虚函数实现。<br />　　不过，总算起步了！</p>

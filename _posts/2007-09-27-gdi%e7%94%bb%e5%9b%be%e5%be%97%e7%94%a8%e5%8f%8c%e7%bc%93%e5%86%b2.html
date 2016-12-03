@@ -3,19 +3,5 @@ layout: post
 title: GDI画图得用双缓冲
 categories:
 - Job
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  blogger_blog: missdeer.blogspot.com
-  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
-  blogger_permalink: "/2007/09/gdi.html"
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
 ---
 <p>　　今天总算写了一点代码，画图部分，不过效果果然如预期的那样不好，是一定要换用双缓冲才行的啊，不然那么多个对象在那里重绘，闪烁是让人不能容忍的。不过放假前还有3天呢，应该能完成的吧，我没做过复杂的程序，所以没做过设计，也不会在写代码前就做设计，现在突然要写点复杂的了，就觉得很多地方是原来就想不到的，就被遗漏了。<br />　　可以用Boost真是爽啊，虽然网上也不乏有人在那里批判Boost哪里设计得不好哪里太花哨哪里不实用，但对于我等来说，Boost真的是有点神化的东西。<br />　　疯丫头不知道是不是真在那里那么忙哦，昨天发的邮件，今天才回，总算看到了，估计把她急坏了，哈哈，我就是要这样逗她玩，现在要抓住所有我能发现的机会来这样逗她，嘿嘿。<br />　　晚上吃完晚饭，出去压了一会儿公司的路，回到办公位的时候已经7点40多分了，就被同事们笑了。呵呵，最搞笑的是，有一个同事连续两天晚上看到我跟mm在外面走，真是有缘呀，哈哈。<br />　　把Impeller的代码下下来，但是编译就不过，本来是用CruiseControl来弄的，连哪里出错了都看不到，而我的机器又不能用VC来打开这个解决方案，只好换用那老爷机2003来打开，发现还是编译不过，不过总算大概知道哪里出错了。我想的是要自己整个私有版本，可以像SourceInsight那样以工程方式管理和浏览代码，初步只要能简单地支持C/C++即可。这是基于ctags来完成的，现在想来，要把ctags部分封装一下，改成一个dll，生成的tag信息经过简单的处理要写入sqlite数据库中，以后可以随时更新查询。既然是私有版本，就应该能把没用的东西都除掉，比如那些跟支撑的绑定等等，增加了体积不说，不稳定性肯定也是随之增加，还拖慢了速度。</p>

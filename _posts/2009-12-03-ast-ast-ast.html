@@ -3,19 +3,5 @@ layout: post
 title: AST, AST, AST...
 categories:
 - Lua，Script
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  blogger_blog: missdeer.blogspot.com
-  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
-  blogger_permalink: "/2009/12/ast-ast-ast.html"
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
 ---
 <p>　　上午花了几个小时修改了Auto Completion功能后，用起来的感觉已经超过LuaForWindows中带的SciTE了。于是又开始寻找起可以分析Lua代码并生成AST的东西，google了大半天，发现了几个Lua项目，一个ANTLR的文本，最后都可耻地放弃了！因为那些Lua项目全都由于这样那样原因而不可用，而ANTLR，呃，我试了下，它是用LL分析的，语法元素的分析顺序不能直接为我所用，而且我在之前一点都不了解ANTLR这个东西，我甚至翻遍网络，找不到怎么让它在需要的时候记录下行号！后来又翻了一下Lua的源代码，呃，说实话真没习惯它几乎每次函数调用都有一个回调函数的用法，嗯，我真的只会一点C++了，放弃！<br />　　真是个头痛的问题啊！我觉得我还是退回去，老老实实地再温习一下编译原理，用flex和bison自己写一个分析模块吧，毕竟Lua的语言核心真的很小很小！</p>

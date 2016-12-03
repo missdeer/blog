@@ -4,19 +4,5 @@ title: "先把框架搭起来再说"
 categories:
 - Shareware
 - wxWidgets
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  blogger_blog: missdeer.blogspot.com
-  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
-  blogger_permalink: "/2008/12/blog-post_15.html"
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
 ---
 <p>　　一直沉迷于网络小说，完全属于玩物丧志的类型！今天无聊完，郁闷完，打开VS来，决定先把框架搭起来再说。<br />　　总的说来，这是一个需要用外部脚本和配置文件协同扩展才能让业务逻辑正常运行的系统，而C++部分纯粹是为了实现用脚本比较困难的核心功能。虽然想了很久很久了，但一直迟迟没动手，玩物丧志是主因。<br />　　另一个不太重要的借口是，没找到好用的开发工具。微软的一个很好的实践是dogfood，很早以前看《微软的秘密》一书时就知道这个了，前些天听那微软的专家交流时，又看到这个，觉得很有趣。像Code::Blocks和CodeLite都是典型的dogfood，使用自己来做为开发工具。而我目前还处于一片空白的阶段，被Visual Assist X惯坏了的我又受不了其他工具的弱智，于是一直停在那里。今天想通了，就用VS来作开发环境好了，先用VC编译一个debug的wxWidgets，要retail版本时，就写好makefile，用gcc来编译。<br />　　这次恢复系统后，只装了个VS2008，这一方面可以让我不至于为众多的选择而分心，同时也减少多版本并存而可能出现的各种奇怪问题。前两天把原本只能用VS2005打开的WIND工程尝试着用VS2008打开，居然没崩溃，高兴之余把用WTL封装了的Scintilla代码也精简了一把，删掉了几千行代码，这下应该更不会崩溃了吧！</p>

@@ -4,19 +4,5 @@ title: "继续改进插件扩展框架后续"
 categories:
 - Plugin Framework
 - wxWidgets
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  blogger_blog: missdeer.blogspot.com
-  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
-  blogger_permalink: "/2009/10/blog-post_30.html"
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
 ---
 <p>　　今天修改了插件扩展的描述方式，把菜单项、工具栏按钮的标题、路径和帮助文本，工具栏按钮的图片等信息，全都写到xml描述文件中，这样一弄，lua脚本确实精简了很多。到现在为止，已经可以正常地通过插件扩展实现主菜单和工具栏的点击响应了，如果要说更新界面状态，也不是很麻烦，也就是多添加一个消息连接而已。<br />　　再说右键弹出菜单，我粗略地想了想，应该不是很麻烦，也就是添加到各自的扩展点下即可。其实直到现在，我才想起来，我这种实现方式，其实应该跟Windows传统的GUI资源编程基本思路是一样的。主菜单用一个编号标识，然后是菜单项信息，需要足够多的信息可以标识出菜单项的位置（路径），然后是给菜单项添加消息响应。工具栏的实现也是类似，所以如果要支持右键弹出菜单，也沿用那套思路就行了。<br />　　昨天说到，如果在插件扩展中使用wxLua，那么wxLua不能使用宿主程序使用的wxWidgets二进制文件，于是我今天想用IUP来试试。我从CVS里取出IUP的代码，然后用MinGW编译出所有的dll文件，可是用的时候发现总是报IupClipboard符号在指定的dll中找不到，而我用depends看是有的，郁闷！但是用LuaForWindows里的dll是可以的，可是它是用VS2005编译的，要带一个VC2005的redist，不爽啊！<br />　　另外一个问题是，本来以为脚本扩展时用了wxLua，而宿主程序也用了wxWidgets，两个之间可以无阻碍地互相使用各种控件，今天才发现，当时太想当然了。我用SWIG封装了宿主程序中的一些代码，比如wxFrame，在wxLua中是不认识这种封装的，两种不是相同的类型。所以现在只能精心挑选一组必需的，常用的代码来用SWIG封装，现在让它生成的包括scintilla和scilexer以及wxcintilla的声明后，生成的文件有近30000行，编译要花不少时间。说起来，我应该再仔细研究一下SWIG的用法先。<br />　　这两天用wxWidgets，有时候感觉它比MFC、VCL要灵活，比WTL要易懂。这也许很偏面。不过我最不满的是它的资料太少，以及运行效率不高。<br />　　</p>

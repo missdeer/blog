@@ -3,19 +3,5 @@ layout: post
 title: crash report
 categories:
 - WIND
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  blogger_blog: missdeer.blogspot.com
-  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
-  blogger_permalink: "/2008/07/crash-report.html"
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
 ---
 <p>　　以前对这方面没有多少关注，只是偶然看到LuaEdit用了个叫madExcept的库，可以让Delphi程序在运行时如果崩溃了弹出个看起来比较牛的对话框，显示一些当前进程和当前系统的相关信息，并可以让用户选择是否将这份报告通过email发送回开发者。当时很好奇这是怎么做到的，很希望在自己的程序中也集成进这个功能，但很遗憾地发现，这个库只适用于Delphi，而我偏偏就不是用Delphi的。<br />　　后来，偶然，没错，以是偶然，看到公司网上有人说FileZilla有一部分这种代码，于是找来看了看，才大致了解了基本原理，并直接把这段代码抠出来用在了项目中，但到目前为了，这个功能虽然加进去了，却还没有发挥实际的功用。因为这段代码针对使用VC编译的程序会生成一个dump文件，该文件需要配合编译时的源代码以及编译器生成的pdb文件协同工作才会有实际用途，而我们的项目没有一个良好的机制把各个发布版本配套的源代码和pdb文件归档。<br />　　这些天看了《软件调试》，稍微了解了Windows的错误报告机制，觉得这是一种能很好改善用户体验，帮助开发团队改进软件的方法。<br />　　前段时间读Code::Blocks和CodeLite的源代码时，发现在Windows平台下编译时它们都动态装入了一个叫exchndl.dll的动态链接库，却只是装入，没做其他任何事情。根据代码注释中的只言片语，加上后来去down了Dr.mingw的源代码，发现这个dll就是做了捕获未处理异常，生成报告的工作。<br />　　于是，我就有了现在这个想法，也许这个想法就是微软的错误报告机制的简装版。首先，确定这套机制由三大部件协同完成：1、未处理异常捕获；2、反馈崩溃信息；3、分析处理崩溃信息。在具体实现时，可按这三部分分别处理，未处理异常捕获，就像exchndl.dll一样，只需要提供一个dll，应用程序只需要装入后，什么也不用管了；反馈崩溃信息，可以另外再写个客户端，将报告信息（文件）传送给服务器端；分析处理崩溃信息，也就放在服务器端了，可以自动作些简单的分析（像WinDBG那样的，配合对应的源代码和pdb，可以找到引起崩溃的代码行），根据这代码行，可以给用户显示个html页面，说明一下崩溃原因等等，当然这需要一定的人工介入，而且也是三部分中最复杂的。这些工作都可以通过微软提供的技术来实现，但还是有不小的工作量，比如像WinDBG那样结合pdb和源代码分析dump文件，这都是调试器的一部分功能了，另外再显示html页面，肯定是需要有先例通过人工编制一个页面。<br />　　而且这套机制似乎有个最大的不足，是只适用于VC编译的程序。也许其他的编译套件（Borland、DigitalMars、OpenWatcom、Intel……）也提供了类似的机制，但可能没有VC的完善，不需要人工分析即可定位到源代码行，这是何等方便啊！</p>

@@ -3,17 +3,7 @@ layout: post
 title: "打印设置bug几乎搞定"
 categories:
 - Job
-tags: []
-status: publish
-type: post
-published: true
-meta: {}
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
+ {}
 ---
 <p>　　把Charles Petzold的关于打印的那章代码拿来都试了一遍，发现PopPad工程里的过程就是我想要看的。对比了一下代码，沮丧地发现貌似两者只有获取到DC的方法不同，PopPad里是PrintDlg返回的，而bug里的代码是通过CreateDC创建的。但之后也发现了，这个代码很奇怪啊，不但有CreateDC，还有CreateIC，经过调试发现，大部分时候都是在调用CreateIC的，这让我纠结了好一会儿，想不明白为什么要调用CreateIC，MSDN上明明说的CreateIC返回的DC是不能用来画东西上去的，只能用来查询信息的。又经过几次调试，发现CreateDC是在打印前在调用了n次CreateIC后最终会被调用一次的，这时候才发现，传给CreateDC的DEVMODE*居然里面的dmCopies值一直是1，而我明明需要的是2啊！于是我就猜，是不是application层把明明是2个copies合并成1个了，然后相当于只打印1个copy，于是打印机的设置只对第1份copy起作用。因为这个猜想，又小小地郁闷了一把，该不会要去调试application层的X++代码吧。不过马上，在kernel层的call stack乱翻，翻到其中一个地方，硬是把所有dmCopies值都改成1了！把这行代码注释掉试了下，果然如愿可以把设置应用到第2份copy上了。我猜，当时这代码的作者大概是考虑到不是所有的打印机都支持multi copies的，所以干脆把这个字段都改成1了。然后就是写邮件啦啦啦啦啦！<br />
 　　这事一了，人突然就松懈下来了。</p>

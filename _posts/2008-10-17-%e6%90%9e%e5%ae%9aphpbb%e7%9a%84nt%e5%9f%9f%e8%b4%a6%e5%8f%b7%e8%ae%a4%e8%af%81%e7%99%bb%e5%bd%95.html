@@ -3,19 +3,5 @@ layout: post
 title: "搞定phpBB的NT域账号认证登录"
 categories:
 - Job
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  blogger_blog: missdeer.blogspot.com
-  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
-  blogger_permalink: "/2008/10/phpbbnt.html"
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
 ---
 <p>　　当时看到phpBB后台有选项可以选择认证方式，有三种，分别是DB、Apache和LDAP，我就觉得要糟，老大知道后肯定会要求用NT域账号方式认证登录。<br />　　果然昨天下班后，老大就发了邮件，说最晚下周要搞定这个问题。我郁闷啊，其实我早就开始想办法去寻找解决办法了，当时直接切换到LDAP认证时，提示说LDAP扩展没有安装，而用Apache认证方式时，说什么账号名要一致云云。<br />　　到网上找了很久，也没有发现有价值的内容，倒是sf.net上有个for phpBB 2.x版本的mod，可以使得支持LDAP认证，不过我装的是3.0.2，而且下载下来那个mod，我都根本不知道即使我装的是2.x版本的，怎么应用上去，所以此路不通。<br />　　不过看到Apache认证方式，再结合项目组用VisualSVN Server搭建的SVN服务器，给我一点思路。我是可以通过Apache来实现NT域账号认证的，再让phpBB来使用Apache的认证结果。虽然思路是有了，但实际上，我根本不懂Apache的配置文件要怎么写，看了半天它的手册，也不知所云，只知道它是有mod可以支持ldap认证的。最后实在没办法，抱着试试看的心情在公司网上发了个帖子询问，终于有个人回复了，问他要了点例子参考，果然OK了！<br />　　基本搞定phpBB的NT域账号认证登录问题！</p>

@@ -3,19 +3,5 @@ layout: post
 title: "输入法变大好多"
 categories:
 - Shareware
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  blogger_blog: missdeer.blogspot.com
-  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
-  blogger_permalink: "/2007/07/blog-post_07.html"
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
 ---
 <p>　　昨天今天翻看五笔爱好者论坛几年前讨论大熊猫输入法的老帖子，发现一些有趣的想法，比如词库用数据库来实现。<br />　　今天就动手把SQLite3.4版的代码下下来，并加入输入法的工程一起编译，看起来好像编译是没问题，不知道实际用的时候怎么样。<br />　　另外想到的是，要让输入法能直接使用sogou拼音输入法的皮肤，也就是ssf格式的文件，其实也是zip文件，只是后缀名改了，于是要加入unzip的代码，而既然加了zip格式的解压功能，索性把rar格式的解压也加进去算了。这两块的代码因为直接就测试使用了，还真出现了一些问题。首先是unrar的代码都是.hpp和.cpp后缀的，而整个输入法的工程原来一直只用C，所以要用extern "C"来修饰一下。然后发现unrar的文件包含关系还真是奇怪，它会直接include那些cpp文件，但如果直接把那些cpp文件加到工程里来编译是会出错的，这从它的makefile中也可以看出来，并不直接编译其中几个cpp文件，但也不能把它们直接删掉，真是奇怪啊！再后来的问题是，因为我想反正输入法最后生成的就是一个动态链接库嘛，让它多导出几个函数可以让辅助工具使用，所以加入RARDLL预定义宏，指示把rar代码编译成DLL，再把几个函数名写到def中去，这样就可以导出这些函数了。但还会有问题，再加个预定义宏SILENT，就能正常运行通过了。之后出问题的是unzip的代码，首先unzip的代码并不能自动覆盖已有的同名文件，所以只好在调用前先把目标文件夹内的文件都删掉。后来看起来好像运行得还算正常，但突然发现，release模式下，不能直接激活输入法，在激活时会调用unzip来解压文件，这时就直接崩溃了。但如果是先用rar或7z格式的皮肤，就不会崩溃，再切换到zip格式的文件，用unzip也不会崩溃，比较怪异。最怪异的是，这只有在release模式下直接运行会出错，如果是通过VC下的调试器，或OllyDbg这样的调试器里运行，就算是release也不会出错。这就导致问题很难定位了，本来就没有多少调试方面的措施在输入法里，而这又是第三方库的代码。想到debug模式的是没这问题的，于是又想到编译链接选项里动脑筋，经过少量的试验，最后发现，只要加上了缓冲区检查编译选项，release模式的也不会崩溃了。唉，VC的这些选项还真是大有学问啊！<br />　　今天一下加入了3个开源库，于是趁机把版权声明也整理了一下，呵呵，一个小小的输入法还用到了不少东西呢，现在就有7z、unzip、unrar、lua，还有从网上找来的一小段一小段的代码，以后辅助工具里估计还会加入Boost的东西。最后用debug模式生成的ime文件有1.9MB，用release模式生成的有1.04MB，用upx的--best选项压缩一下，最小也有近500KB，一个五笔输入法做到这种程度不容易啊，哈哈。而且还不是最终成品，成品应该还会再大点点。</p>

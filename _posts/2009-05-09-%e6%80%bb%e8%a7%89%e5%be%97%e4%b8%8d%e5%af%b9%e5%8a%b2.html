@@ -3,19 +3,5 @@ layout: post
 title: "总觉得不对劲"
 categories:
 - Plugin Framework
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  blogger_blog: missdeer.blogspot.com
-  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
-  blogger_permalink: "/2009/05/blog-post_09.html"
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
 ---
 <p>　　这两天在公司里，做那个插件架构，到昨天为止，大概实现了一半了，不过总觉得不对劲。这是一个没有经过实践检验的方案，看了那些已经完成的代码，再联想一下完全完成后的可能的模样，心里老是有点不爽，担心内存占用会不会太大了。<br />　　现在这个设计是在<a href="http://missdeer.blogspot.com/2009/03/lua.html">原来的基础</a>上修改来的，主要的修改是在一个插件中可以定义多个扩展，插件只是扩展的容器，扩展才是真正实现可扩展性的设施。于是相比原来的设计，现在有了两种独立的对象，插件和扩展，而原来一个插件中只定义一个扩展，在代码实现时可以只定义一种对象。于是现在这种情况下，对现实世界的描述，大约会多出近一倍的信息量吧，这些信息如果全部保存到内存中，预计消耗会很大。本来这些信息是通过配置文件描述的，如果不全保存到内存中，就要能实时解析配置文件，这对运行速度也是一个考验，而且能否快速方便地检索到需要的配置文件目前也是个未知数。<br />　　崩溃！</p>

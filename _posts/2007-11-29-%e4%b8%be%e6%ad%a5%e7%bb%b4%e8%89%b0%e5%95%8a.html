@@ -3,19 +3,5 @@ layout: post
 title: "举步维艰啊"
 categories:
 - Job
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  blogger_blog: missdeer.blogspot.com
-  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
-  blogger_permalink: "/2007/11/blog-post_29.html"
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
 ---
 <p>　　今天本来打算把几个功能串起来调试一番的，谁知道只是为了找出最开始的一个bug都花了近一天的时间，SQL Server的字段类型太多了，同样是为了存放一段文本，就有好几种看似都可以的选择，结果在用ADO操作的时候，死活就是抛异常。同样的代码，跑在Access上就好好的，到SQL Server下就不正常，真让我郁闷死了。花了好多好多的时候，排除了各种可能的因素，最后发现有两个字段只要select了就会异常。后来终于想到，会不会是字段类型的问题，尝试着改了几种不同的字段类型，终于有一种就顺利pass了，唉！<br />　　另外还遇到一个很恶心的问题，当时根本没想到。Excel在打开文件后，什么都不动直接关闭，文件也会被修改！这就让我的基于hash的机制几乎彻底瘫痪，郁闷。老大给我想了个办法，每次在程序中打开之前，先把文件设成只读的，关闭后再改回去。嗯，这样在我的程序里至少是暂时没什么问题了，不过我心里还是觉得很不爽，这个基于Excel的方案从一开始我就觉得很反感，可是时间不够啊，不然我肯定更乐意自己定一种格式，做一个编辑器。</p>

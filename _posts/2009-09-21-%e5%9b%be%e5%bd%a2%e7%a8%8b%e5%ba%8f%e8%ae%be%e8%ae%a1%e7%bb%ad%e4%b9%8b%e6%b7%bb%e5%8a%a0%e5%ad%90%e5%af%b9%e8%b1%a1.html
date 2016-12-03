@@ -3,19 +3,5 @@ layout: post
 title: "图形程序设计续之添加子对象"
 categories:
 - Software
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  blogger_blog: missdeer.blogspot.com
-  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
-  blogger_permalink: "/2009/09/blog-post_21.html"
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
 ---
 <p>　　今天大概花了两个小时吧，加了右键菜单添加子对象的功能。这个功能的实现，有几个部分需要关注。<br />　　首先是图形绘制部分。这是需要修改最少的部分，因为之前的工作已经实现了子图，子对象就是在子图中添加的对象，只需要在相应的响应函数中实现添加子图，在对应的图中添加对象即可。<br />　　其次是右键菜单动态生成。这部分也不是很麻烦，只要识别出当前点击位置是什么图形，该图形在业务意义上可以拥有哪些子对象，就可以拼装出一个完整的右键菜单。<br />　　最后是花了不少精神的配置信息读取部分。本来配置信息都是从配置文件中读取的，因为并没有对配置文件与配置项的对应关系做严格的限制，所以原先的设计中，把配置项的信息基本上都是做成实时读取的，今天又要拿来用一次，就显得原来的设计似乎不是很方便。不过我还是没做更多的改进，仍然沿用原来的做法，实时读取某个对象可以拥有的子对象的类型信息和其他描述信息，以便于添加到右键菜单和后面的创建子对象 。<br />　　今天的任务基本完成。数了一下代码量，这个项目总共才4.7Kloc，挺少的，很出乎我自己的意料之外。这么算来，假设我在这个项目中已经投入20天，那么有效产量大约是230行每天，比自己订的目的500行每天少了一半多啊！</p>

@@ -3,19 +3,7 @@ layout: post
 title: "重复发明了个不咋样的轮子"
 categories:
 - Plugin Framework
-- wxWidgets
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  quiz: a:2:{s:1:"q";s:0:"";s:1:"a";s:0:"";}
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
+- wxWidgets  quiz: a:2:{s:1:"q";s:0:"";s:1:"a";s:0:"";}
 ---
 <p>　　今天看到推友<a href="http://twitter.com/liancheng">@liancheng</a>说Mozilla/WPF/QT/GNOME3都同质化了，大体的意思是指这几种方案都把表现层和逻辑层分离得很独立，复杂的，高度重用的，平台相关的部分，用C/C++之类的语言实现成组件，表现层用XML描述界面，用CSS之类的样式描述skin，再用如JS之类的脚本语言描述运算逻辑粘合组件和界面。<br />
 　　我最早了解到这种架构是几年前Firefox开始大肆流行，网上这类技术文章也大量涌现。当时也是很惊叹于Firefox的扩展机制如此灵活，却对它的开发环境很是鄙视，而且用于表述逻辑的脚本语言是用JS这个我完全没了解过的东西，所以看过介绍后，就丢到一边了。后来也偶尔听说WPF、XAML之类的东西，但对.NET一直没啥好感，于是也没研究。最近几个月跟个网友讨论，提到QT的界面方案，大体上也是知道QT也采用这种架构了，而且也确实一直计划着做完眼前的这组东西后，以后全面转向QT了，但仍一直没抽出时间来研究。<br />

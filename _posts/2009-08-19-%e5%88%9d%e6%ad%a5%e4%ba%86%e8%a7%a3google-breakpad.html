@@ -3,19 +3,5 @@ layout: post
 title: "初步了解google-breakpad"
 categories:
 - WIND
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  blogger_blog: missdeer.blogspot.com
-  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
-  blogger_permalink: "/2009/08/google-breakpad.html"
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
 ---
 <p>　　第一次知道<a href="http://code.google.com/p/google-breakpad/">google-breakpad</a>这个东西，是一篇讲chrome使用的开源库的文章，当时也只是一带而过，心想这功能也能做成多平台的？<br />　　最近还是因为项目的需要，原本已经有一个这种实现的，是从FileZilla的2.x版本中抠出来的，不过有些时候会生成不了dump，让人觉得诧异，还有一些是生成了dump，但最后发现栈回调的信息太缺乏可参考的价值了。我估摸着，这可能跟如何使用dbghelp.dll里的函数的方式有关系，而这google-breakpad在我看来可能是当前功能实现得最好的一个了，就打算好好了解一下。<br />　　从svn里取得到的代码，解决方案是用于VC2005的，大概google内部VC都是用的2005吧，看到好些它的开源项目都是。直接用VC2008打开，自动转换版本后，也可以直接编译。主要看src\client\windows\目录下的代码就可以了，一般而言可以用到的有3个lib文件，分别是crash_generation.lib、exception_handler.lib、crash_report_sender.lib。如果用户程序只是为了能生成minidump，直接链接exception_handler.lib就可以了，crash_generation.lib已经被它包含了，而crash_report_sender.lib顾名思义是可以将文件发送到某个地方的，从代码上看，是通过http的上传功能来实现的，不过还没研究。另外还有一个GUI的演示程序，crash_generation_app.exe，可以测试除0异常，CRT函数参数无效异常以及纯虚函数调用异常。<br />　　通过阅读crash_generation_app.exe的代码可以大体上了解google-breakpad的使用方法。google-breakpad将这么一个小功能分成几部分来实现，首先，它分为服务器和客户端两部分，这两部分都可以生成minidump，但应用场景不同。用户程序出现未处理异常时，被ExceptionHandler捕获到，该模块会根据当前进程是否已连接到一个服务器，来决定由谁来生成minidump。在crash_generation_app.exe中默认是会去连接一个服务器的，所以如果服务器没有问题，则是由服务器来生成minidump的。而且服务器生成minidump不限于当前进程，它通过Event得到客户端的dump请求，通过管道进行其他数据的传递。使用C/S结构的好处是，可以尽量减少对被dump进程的影响，代价则是大大增加了代码实现的复杂性。如果没有可连接的服务器，客户端也可自己生成minidump，这部分的实现上网上的所有有关这个主题的代码，基本上都是相同的。唯一有点区别的是，网上其他的代码一般只接管了未处理异常，而google-breakpad则还可以接管CRT函数无效参数异常和纯虚函数调用异常。<br />　　在crash_generation_app.exe的实现中，使用服务器dump的方式，最后返回的结果总是说没成功，而实际是dump文件是生成了的，这应该算是个bug吧。还有个问题是，如果一开始尝试连接到服务器后，后来服务器又被关掉了，那之后的dump会全都失败，这可能是因为演示的缘故，没有仔细编写这种异常流程的处理代码吧。另外，算是小瑕疵吧，用google-breakpad默认好像是不能自定义dump文件的名字，只能指定个保存路径，最后的文件名是随机生成的uuid。<br />　　总的说来，对于有这方面需求的应用，使用google-breakpad是个不错的选择，它做了不少工作。</p>

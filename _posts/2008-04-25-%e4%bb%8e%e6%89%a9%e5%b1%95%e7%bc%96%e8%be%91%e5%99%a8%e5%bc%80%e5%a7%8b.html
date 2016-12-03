@@ -3,19 +3,5 @@ layout: post
 title: "从扩展编辑器开始"
 categories:
 - Plugin Framework
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  blogger_blog: missdeer.blogspot.com
-  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
-  blogger_permalink: "/2008/04/blog-post_25.html"
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
 ---
 <p>　　重构auto completion和call tips模块，因为总体设计都被改得天翻地覆，而且决定开始使用TDD的方式进行，所以进度相对来说慢了些，更因为我自己一直静不下心来好好干活，真是令人烦恼啊！<br />　　话说其他一些相对可独立分类的小特性大部分已被我清理出来，但剩下还有一些杂七杂八的功能，我却不想再动了，因为从很早的时候就考虑好了这部分功能不应该由C++代码完成，而应该由host提供的扩展机制使用外部extension实现。但是现在的情况看来，这扩展机制短期内是不会加入的，因为老大似乎不支持这样的做法。另外一点是，组内大概除了我，也再没有其他人有足够深厚的兴趣和迫切的需求实现这么一个框架。<br />　　最早虽然想到了要用扩展，但并没有考虑很多，只是觉得只要能用内部嵌入的那个Ruby解释器执行一段脚本，而那个解释器同时也能访问到内部的一些数据结构和算法，应该就能处理目前的需求了。当时预见得到的需求也确实简单，比如点击一个菜单项，在当前光标位置插入一个字符串，该字符串可能是当前日期或时间等等。我当时想法相当单纯，甚至想的是菜单项还是依旧在资源管理器中画好，消息映射也还是添加好，最后实现的时候再调用Ruby解释器解释一个外部的脚本文件就可以了。即使这样简单，也比纯粹使用C++实现有一定的优势，至少如果需要修改实现逻辑，就只需要修改那个脚本文件，不再需要修改C++代码，不需要重新编译。<br />　　但是自从前几天快速翻看了一遍《Contributing to Eclipse》之后，我就想，要做就做得灵活点，也许不要求完全跟Eclipse一样那么强大有弹性，但也至少要满足以下几个要求：<br />1、在主菜单、弹出式菜单、工具栏（、状态栏）上都可以扩展；<br />2、在扩展之上还可以预留扩展点继续扩展；<br />3、既然用脚本扩展，那么扩展加载应该也像Eclipse那样“懒加载”；<br />4、需要有一种打包策略，足以支持起复杂的多文件的扩展。<br />　　暂时就只想到这些，嗯！重构完auto completion和call tips，就悄悄做这个。</p>

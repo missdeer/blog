@@ -3,19 +3,5 @@ layout: post
 title: "丰富Scintilla的AutoCompletion"
 categories:
 - Shareware
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  blogger_blog: missdeer.blogspot.com
-  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
-  blogger_permalink: "/2008/05/scintillaautocompletion.html"
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
 ---
 <p>　　今天又读了一点Scintilla的源代码，因为要达到现在比较流行的AutoCompletion的下拉列表，旁边还能显示一个tooltip描述选中项，那种效果，所以要先熟悉一下代码流程。<br />　　总结一下思路，要至少增加2个消息，用于显示或隐藏描述选中项的tooltip用。增加1个回送通知，用于告诉用户有机会对选中项进行额外操作，这里也就是显示这tooltip。修改listbox的显示方式，主要有效内容要加粗，其他的不加粗。修改选中项上屏函数，用于过滤出确实要上屏的内容。<br />　　总的说来，工作量似乎并不大，但实际上我却很懒得动手，而且为了以后发展的需要，最好这部分功能能合入官方源代码中，而确实Scintilla的原作者Neil Hudgson曾经说过，自己不会去做这个功能，并且并没有说，即使别人贡献了这样的代码，他一定会合入。<br />　　今天顺便看了一会儿notepad++的源代码，有几个小功能还值得学习，不过我个人认为这代码写得并不好，至少不如Scintilla的代码，但有些设计确实不错，而且它还能支持简单的插件。但我认为它最不好的是，似乎它使用自己修改的Scintilla，这样它的通用性就不好了。</p>

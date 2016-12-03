@@ -3,17 +3,7 @@ layout: post
 title: Lua调试器W.I.P.
 categories:
 - Lua，Script
-tags: []
-status: publish
-type: post
-published: true
-meta: {}
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
+ {}
 ---
 <p>　　话说我已经怀疑起engine和controller都反应慢是由于延时轮循引起的，于是下定决心要改成通知的方式。翻了一篇Jeffrey大牛的《Windows核心编程》，发现只要用Event机制就可以实现了。不过如果直接用API来操作Event，我就有点儿不爽了，现在这个项目我比较希望它能在源代码层次尽可能地平台无关。于是又在Boost文档是找了一遍，发现thread库中似乎有对应的设施，其实这是可以理解的，本来就是线程间通信，同步的机制嘛，thread库虽说比较轻量级，但有这么个功能也是理所当然的。修改完代码，测试了一下，果然无论engine还是controller都是立马响应了，安逸呀！<br />
 　　昨天又去了一趟4S店，没想到买个车上个牌有这么麻烦，还要等于1月15日才能在这边上，于是只好再去领了张临时牌照，可以拖到15日了。回来后就没什么心思继续写代码了，唉，我的意志力真是薄弱地几乎没有！<br />

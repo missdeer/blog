@@ -3,19 +3,5 @@ layout: post
 title: "热替换不成功的bug"
 categories:
 - Shareware
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  blogger_blog: missdeer.blogspot.com
-  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
-  blogger_permalink: "/2009/09/bug.html"
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
 ---
 <p>　　升级程序中有一个热替换功能，呃，这个热替换，其实是我自己发明的词，意思是如果EXE、DLL之类的文件正在执行，文件是不能删除的，那么升级时也要能被替换成新版本的文件，而不需要相应的进程退出，这就是所谓的热替换。<br />　　之前也一直陆陆续续有bug报上来，说热替换不成功，但有时候又是成功的，于是也一直没放在心上，把它归结于Windows这个API可能有问题，当然更可能是自己用得不对。直到昨天自己再一次调试时，发现一个诡异的现象。升级程序的可执行文件叫updater.exe，其中加载了dbghelp.dll，当我升级这两个文件时，必然需要热替换了，结果发现，在文件下载完后，替换确实成功了，dbghelp.dll确实已经是新版本的了，可是当升级程序在弹出提示框，提示用户升级完成后，用户点击确定，提示框消失，那个dbghelp.dll文件又诡异地变回旧版本了！一连试了几次，都是如此，简直就是灵异事件了。<br />　　当然，不可能真是灵异，这种单线程的逻辑调试起来还是比较简单的，单步跟踪了一会儿，就发现，原来在在提示框消失后，会调用一个结束处理过程，这个过程中首先会判断当前是否正在升级，如果是，则中断升级过程，并把已经替换掉的文件还原回去。而刚好这段代码写得有问题，把是否正在升级的标志置位，放在调用这个结束处理过程后了，于是总是会发生回滚还原的操作。问题的解决很容易，只是调整一下两个过程的调用顺序就可以了。</p>

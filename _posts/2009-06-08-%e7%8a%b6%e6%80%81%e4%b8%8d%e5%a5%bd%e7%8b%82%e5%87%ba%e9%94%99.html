@@ -3,19 +3,5 @@ layout: post
 title: "状态不好狂出错"
 categories:
 - CPPOOPGPXP
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  blogger_blog: missdeer.blogspot.com
-  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
-  blogger_permalink: "/2009/06/blog-post.html"
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
 ---
 <p>　　今天写代码，出了不少错，都是很低级的，状态不好啊。<br />　　先是连接一个MySQL数据库，从一个表中Select一些记录出来，死活没数据，还以为是SQL语句有问题，用其他客户端去运行，发现SQL语句是正常的。然后换了一条SQL语句，同样是Select的，发现又可以了，一步一步排查，发现是那个表中查不到数据，另外一个表中查得到数据，突然发现原来我连的MySQL地址不是我想要的那个！<br />　　接着是从XML格式的配置文件中读取配置信息，发现有的配置项好像怎么都读不出来，一直都是使用默认的值，后来才发现在判断值是否为空的时候，多写了个感叹号！<br />　　好不容易磕磕碰碰地调试通过了，编译了一个Release版本，用Inno Setup打了个包，放到目标机器上去运行，发现居然没反应，而且不巧的是我什么调试手段都没有，也没有什么日志。后来通过MessageBox发现，似乎配置信息读取又有问题了。然后发现如果是直接用Debug版本是正常的，于是想调试一下Release的，结果不知道应该设置什么选项，调试不了！只好通过OutputDebugString来打些信息出来。经过一番搏斗，发现原来我把装载配置文件的那条语句外面套了一个ASSERT，我狂晕！<br />　　以我现在的水平，状态好的时候，最多一个月也就能产1w行代码，而且代码质量还不能保证，唉，怎么才能让新写的代码跑得稳定呢！</p>

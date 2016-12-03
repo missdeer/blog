@@ -3,19 +3,5 @@ layout: post
 title: "之后一段时间要做的事情"
 categories:
 - Job
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  blogger_blog: missdeer.blogspot.com
-  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
-  blogger_permalink: "/2007/08/blog-post.html"
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
 ---
 <p>　　编辑器重构昨天就基本已经完成，今天好像没做什么事，就是讨论了一天各种事务。其实对于编辑器，我还是有很多想法的，看到<a href="http://www.scintilla.org/">SciTE</a>和<a href="http://sourceforge.net/projects/notepad-plus/">notepad++</a>的表现，还有UltraEdit，就想把它们有的，都做进来，前两者就是Scintilla控件的最好功能展现。尤其是下午看了一下8月份的<a href="http://www.csdn.net/">《程序员》</a>杂志，刚好有个专题介绍现在流行的几个RoR用IDE，心更痒了，想把所有好的东西全加上去。至少，能用脚本进行扩展是我特别想要的，我甚至想做个DLL做个适配层，工具可以动态地加载该DLL，该DLL可以接受各种外挂的脚本解释器，这样没有这个DLL工具还是能正常工作，除了脚本扩展。另外一个想法是，好像<a href="http://research.microsoft.com/projects/greta/">Greta</a>这个库有点点问题，也不知道是不是代码写得有问题，所以我又想，能不能做个正则表达式库的适配层，这样也可以挂接不同的正则表达式库了，比如除了Grata外还有用于C/C++系的boost::regex、ATL::Regex、PCRE等等，这样就像UltraEdit一样了，用户可以选择自己习惯的那种。<br />　　现在最大的问题是，语法解析，我要做一个动态提示功能，这需要随时知道一个变量的类型，而这对于Ruby这么动态的语言来说，真是太难了。<a href="http://www.sun.com/">SUN</a>为<a href="http://www.netbeans.org/">Netbeans</a>专门开了个代号为<a href="http://wiki.netbeans.org/wiki/view/Schliemann">Schliemann</a>的Generic Language Support Framework项目，它可以动态地通过由用户自行添加正则表达式和语法规则（现在流行用巴科斯范式吗？不清楚），来动态地增加对新语言的词法解析和语法解析，这比Scintilla现在的做法要更灵活，不需要编译器，有个文本编辑器写规则就行了。我当然做不了这么好，所以现在只能依赖SciLexer.dll或者另寻出路，看了一下<a href="http://sourceforge.net/projects/ctags/">ctags</a>，好像对Ruby的支持不如对C/C++的好，它解析不出变量的最初定义的地方，难道自己写一个简单的够用的，因为目前面向的用户应该绝大多数情况下只会用到Ruby语言中很小一个子集的特性。<br />　　早上去讨论了一下另一个任务的需求，果然我最开始的想法是正确的，看来老大的理解能力或者是个人喜好影响了他的判断力啊！今天讨论了一下，老大出来就有点惊奇地说，看来要做一个像电驴一样的东西了。呵呵，其实我当初最早看到这个很原始，未经过整理的需求时，就已经断定会是这样的结果，只是当时老大一心想用Sharepoint，我也不好多说，还似模似样地给他用<a href="http://www.microsoft.com/downloads/details.aspx?FamilyId=D51730B5-48FC-4CA2-B454-8DC2CAF93951&amp;displaylang=en">SharePoint Service3.0</a>建了站来看看，当时转项目部1个月，全在看这个资料了，呼呼，浪费好多时间。<br />　　现在就要来网络通信了，一个支持P2P的东东，可以做的事情真是太多了，呵呵。一个集中式服务器只提供索引及账号管理功能，其它的都在客户端完成。我有点想试一下Google桌面搜索的那种界面，在本地建一个http服务器，然后用IE跟用户交互。不过生成HTML页面有没有现成的办法呢，还有HTML的表现力是强，但如果要让用户输入很多零散的信息，这样也很难处理哦。至于http服务器，记得boost的开发邮件列表里有提到过一个基于asio的项目，一时找不到URL了，可能可以用一下。先分解一下设计需求吧，反正有一个季度时间来做，这个东西有点感兴趣哦！</p>

@@ -3,19 +3,5 @@ layout: post
 title: "买了点日用品"
 categories:
 - Water
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  blogger_blog: missdeer.blogspot.com
-  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
-  blogger_permalink: "/2006/11/blog-post_12.html"
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
 ---
 <p>　　跑去对面小区里面买了张窗帘，没想到不够宽，唉，不知道是窗子上标的尺寸有问题，还是这窗帘本来就尺寸不对呢。买了张床单，呵呵，1.6米宽的，以前只有张1米宽的，搬了家之后一直垫席子，没什么机会用，床单买了也只是为了看起来更像样一点点，因为其实对于我个人来说，垫席子的话，只要有被子，过冬应该也是没问题的，因为还有睡袋和一张小垫子呢。还花了3.5元买了个很薄的塑料脸盆，终于有脸盆了，最终一直因为没有自己的脸盆，每天早上总是跑到厨房那边去用z3的脸盆，呵呵。 现在要慢慢学习自己照顾自己的生活起居，慢慢添置家用，慢慢学会享受生活。<br />　　从网上down了一百多张桌面，又打开WallpaperHelper来用了下，我自己都觉得难用，郁闷，还是重头再写一个好点的，总是有各种各样奇怪的问题，甚至连定时器都会有问题，总感觉是因为用了NeoWin的原因，这个NeoWin的实现方式有点不好，只好不用了。<br />　　我应该好好想一想，哪些应用可以使用嵌入式的脚本语言来扩展其功能。现在脚本语言太流行了，Python、Ruby是大红大紫，稍微弱势一点的Lua、Tcl等，也是各有各的用处。自从写了一遍TclSuck后，感觉一般的脚本语言的glue code轻量级实现我基本也会了，有了这样的glue code，做两边的实现很自然，可以各自用各自的思维习惯，但到底嵌入了脚本语言支持后可以用来做些什么，我还很迷茫，一点想法都没有。我的方块是唯一一个看起来可以用Lua的场合，其它的实在不知道了。比如WallpaperHelper，需要用脚本嵌入的支持么？我不知道。所以需要好好规划，考虑一下。公司的自动化体系将要全面从Tcl切换到Ruby，我觉得很诧异，这样的变革应该是不提倡的吧，实在看不出来目前公司的自动化系统把Tcl实现换成Ruby有什么好处，反倒是需要大量的重复开发，至少底层支撑是要全部从头来过了。不过我也不需要再想那么多，因为这跟我没多少关系了。我要做的是，先考虑一下TclSuck的实现，能否把Functor的支持加进去，然后分别实现一个LuaSuck、RubySuck乃至PythonSuck，因为我只要一个轻量级的，单纯STL依赖的库，我不想要一个还会对Boost有依赖的库。当然不是说我讨厌Boost，相反，我很喜欢Boost，这是个大宝藏，但Boost怎么说都是个第三方的库，要自行编译才能使用，更何况对于这样的glue code我不需要那么多的功能。</p>

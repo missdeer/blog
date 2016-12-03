@@ -3,19 +3,5 @@ layout: post
 title: MySQL还不错
 categories:
 - Software
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  blogger_blog: missdeer.blogspot.com
-  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
-  blogger_permalink: "/2009/03/mysql.html"
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
 ---
 <p>　　老雷要一个自动发汇报邮件的程序，这个任务落到我的头上，于是我这周开始整这玩意儿。所有的数据几乎都是存放在MySQL里的，一个是RedMine的内容，另一个是组里自己开发应用程序使用情况统计工具，服务器端也使用的MySQL。今天我发感叹地跟开发那应用程序使用情况统计工具的同事说，幸亏你们当时选用了MySQL，不然还要更麻烦一点，比如万一选了个Access或者Sqlite3，还不能方面地远程访问。如果是SQL Server，还得使用一套不同的数据库访问方法。<br />　　通过这两天使用mysql++来访问MySQL的经历，我感觉无论是MySQL引擎，还是暴露的API，都挺不错的。大概是因为ADO访问SQL Server用得有点反胃了。那段经历让我觉得最为不爽的是，如果SQL写得有点问题，就会抛异常，而且这异常就是catch不了，因此很难排错。这次用mysql++在这方面就做得不错，异常可能catch到，而且给出的出错信息很准确，定位很方便。另外有点值得一提的是，mysql++里有一个重载了很多类型转换符的String类，呵呵，这也是一种办法啊，不过使用operator+时却遇到了点小麻烦。<br />　　开发这个程序最大的收获大概就是这个了，大部分情况下，可以用MySQL来代替MS SQL Server了。再扯远点，Access也有点不好的，打开的时候特别慢，用Sqlite就挺快的，而且Sqlite3还是是弱类型的，呵呵。</p>

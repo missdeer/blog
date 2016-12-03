@@ -3,20 +3,6 @@ layout: post
 title: "游戏驱动（译）"
 categories:
 - Emulator
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  blogger_blog: missdeer.blogspot.com
-  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
-  blogger_permalink: "/2007/01/blog-post_08.html"
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
 ---
 <p>　　终于把这篇也整了，原文在<a href="http://mamedev.org/docs/drivers.html">这里</a>，同样，还是有些没懂起的。</p>
 <p>游戏驱动<br />by Aaron Giles<br />　　可能关于MAME怎样工作的最常见的问题是：我应该怎么编写驱动？为了理解怎么编写驱动，你需要理解驱动是怎样连接到MAME中去的，以及众多的驱动相关的难点是什么。这篇文章向你提供在从最顶层的，驱动需要些什么的概况。以后的文章会讲述这些以外的细节。<br />　　开始，你得先看一下driver.c里的代码。实际上这个模块做的，只是生成了MAME支持的所有驱动的指针的列表。问题是每个驱动，需要选声明一下：<br />extern struct GameDriver driver_puckman;<br />extern struct GameDriver driver_puckmana; ...<br />　　然后所有的驱动被声明了，我们要这样声明一个驱动的列表：<br />const struct GameDriver *drivers[] = {<br />&driver_puckman, &amp;amp;driver_puckmana, ..., 0 };<br />　　使用C语言来做这事很烦人，因为它需要我们为每个驱动添加2个东西到driver.c，在顶部的一个声明和最底部的列表中的表项。实际上，在用一些好用的预处理魔法去简化这些事情前，我们已经这样做了好多年。如果你是一个C专家，你可能会指出来，也可能不会，没关系。重要的是，要把驱动添加到主列表中，你只要用特定的DRIVER宏这样声明一次就行了：<br />DRIVER( puckman ) DRIVER( puckmana ) ...<br />　　这样把表项插入到列表中，和其它表项一起，你的驱动就已经可以被MAME通过主驱动列表正式引用了！当然，这也是说你实际上需要一个GameDriver对象，用在MAME其它的地方，用相同的名字，用于成功地连接到应用中。那应该怎样正确地定义一个游戏驱动？<br />　　基本的GameDriver结构非常简单。它提供一个很基础的信息列表，关于这个驱动的，记录了绝大部分的描述性数据（游戏名，制造商，年份等）和指向其它用于描述游戏使用的硬件的结构的一些指针。比起你自己定义和使用GameDriver结构，你应该简单地使用宏来填充所有的细节内容。如果你看一下驱动目录中任何一个文件的底部，你会看到大量的这种宏用于描述驱动：<br />GAME( 1980, puckman,  0,       pacman, pacman, 0, ROT90, "Namco", "PuckMan (Japan set 1)", GAME_SUPPORTS_SAVE )<br />GAME( 1980, puckmana, puckman, pacman, pacman, 0, ROT90, "Namco", "PuckMan (Japan set 2)", GAME_SUPPORTS_SAVE )<br />...</p>

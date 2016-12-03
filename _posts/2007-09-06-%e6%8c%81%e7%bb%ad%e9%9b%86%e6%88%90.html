@@ -3,19 +3,5 @@ layout: post
 title: "持续集成"
 categories:
 - CPPOOPGPXP
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  blogger_blog: missdeer.blogspot.com
-  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
-  blogger_permalink: "/2007/09/blog-post_06.html"
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
 ---
 <p>　　今天突然想起来，要一个同事教我怎么冒烟。项目组里用的是<a href="http://cruisecontrol.sourceforge.net/">CruiseControl</a>这个持续集成框架，通过编写xml格式的脚本，可以让它自动从版本控制系统里获取最新的代码，自动编译，自动打包，最后进行发布。同事大致给我讲了一个需要进行修改的三个xml配置文件的用途及里面一些元素的使用方法，然后我就开始在自己的电脑上进行实验，开始遇到一点困难，怎么都弄不好。先是要用它来启一个Web服务器，好像自带的是<a href="http://www.apache.org/">apache</a>，因为要用JSP，还要用<a href="http://ant.apache.org/">ANT</a>，所以还得装JDK，装好JDK却不知道还得在环境变量里添加一个JAVA_HOME设到JDK的目录去，所以总是连网页都显示不出来，后来在同事的指点下，设好环境变量，页面终于出来了。不过取代码、编译、发布的过程总是失败，最后发现，好像是首先，指定的路径不能再空格，即使是使用8.3格式也不行，然后，得小心地设置各个源代码、工程等的存放路径，这样才能继续，保证编译时能取到正确的工程文件。其实到后来才了解到本质，就是一堆命令行的集合，只不过有些常用的功能它提供更方便的命令来执行，比如文件操作、版本控制管理系统操作等等。<br />　　现在，我给自己也建了个本地的CruiseControl，可以每天冒烟了，哈哈，这有一个好处，每天可以自己设定一个时间，然后让它自己运行，编译完后执行安装程序的脚本，制作好安装包，再压缩打包，最后就是一个完整的程序包。<br />　　仔细想想，转项目部后的近半年，还是学了一些有用的东西。比如除了这个外，还有MFC编程，至少现在能用MFC＋<a href="http://www.codejock.com/">Codejock</a>的库写些简单的程序了，使得我现在几乎完全放弃使用C++Builder/Delphi了。对COM编程也有了很肤浅的了解，对Scintilla的使用方法的了解……等等等等，说不定对我以后都有帮助。<br />　　现在要做的一体化平台已经决定用<a href="http://www.boost.org">Boost</a>了，老大应该也不会太反对了，因为我的方案已经基本确定，Demo都给他看过了，现在可以好好使劲用一把Boost中的一堆堆让人眼花缭乱的模板了，哈哈哈哈，真是开心！</p>

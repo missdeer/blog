@@ -3,19 +3,5 @@ layout: post
 title: "让SMTP支持中文"
 categories:
 - Software
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  blogger_blog: missdeer.blogspot.com
-  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
-  blogger_permalink: "/2008/11/smtp.html"
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
 ---
 <p>　　项目里要有发送邮件的功能，想法非常简单，公司有个SMTP服务器，通过它直接就可以发送到notes中了。网上SMTP的源代码也是一堆一堆的，找了一个CodeProject上的，加上base64编解码也只有4个文件，接口非常简单，于是稍微改了一下，base64本来我就有，就只需要加入2个文件就可以了，附件也能正常发送，很是满意。不过上周五的时候突然发现，主题和内容中的所有中文都变成乱码了，有点气馁，随便又找了几个其他的代码，也是一样。<br />　　今天闲起无事，就想改一下。只知道在哪里看到过说要用base64，就能解决这个问题。尝试着先把主题编码了，发现收到后就是编码后的字符串了，这也是预料之中的。上公司的论坛发了个帖，没人回复。后来自己忍不住了，用Outlook Express写了个邮件，主题和内容都是中文，然后打开Wireshark，抓包，比较了一下CodeProject上那个代码发送的，看出区别了，原来也就是加上个charset="gb2312"，再base64，就搞定啦！</p>

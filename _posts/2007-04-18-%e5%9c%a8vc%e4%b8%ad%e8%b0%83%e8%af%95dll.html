@@ -3,19 +3,5 @@ layout: post
 title: "在VC中调试DLL"
 categories:
 - Software
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  blogger_blog: missdeer.blogspot.com
-  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
-  blogger_permalink: "/2007/04/vcdll.html"
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
 ---
 <p>　　输入法最后的文件后缀虽说一般是ime，但它是个地地道道的dll文件。有过几年地狱般的调试经历，好不容易从MessageBox升级到OutputDebugString，最后终于进化到用IDE里集成的debugger。不过一直以来都是只对完整的可执行文件进行调试跟踪，对dll还没有相关的经验，尽管也写过几个，但那都太简单了，基本不用跟踪就可以正常工作啦。现在的输入法就复杂了，开始没想通怎样可以进行源码级调试，还是退回到OutputDebugString，编译连接一把，在记事本中试一下。后来想想，它应该可以attach相关进程进行调试吧，白天在公司也看到过一个文档，讲的是怎么在VC的IDE里进行相应的设置。其实非常简单，在项目属性里，把调试一页中的命令设为notepad.exe就行了。随便在源代码中打个断点，启动调试，VC会弹出消息框说notepad.exe没有调试信息，不用管，继续，notepad.exe运行后，切换输入法到这个被调试的输入法，如果程序走到断点这里了，就会被断下来了，变量窗口、输出窗口都跟调试exe文件时一模一样，哈哈。有一点需要追加说明一下，这个dll文件一定要放到能被load的地方，像普通的dll的话，放在和exe文件相同的目录就行，输入法就需要先安装一遍，这时ime文件是需要放在系统目录下的，所以方便起见可以直接在项目属性里把最终的输出文件指定到系统目录下就行了。<br />　　另外再说一点和UNICODE相关的事。为了和国际接轨，程序使用UNICODE似乎是最好的方法，我就先在输入法安装程序中做试验，一个百来行的小程序，用UNICODE选项进行编译，结果还真发现了问题，有个字符串在写入注册表时总是写不全，这让我很奇怪。同样的代码改用多字符集编译连接就没有问题。看看代码我已经都尽量用各种字符操作的宏了，最后发现原因，_tcslen在UNICODE的情况下，2个字节只算为1，在写入注册表REG_SZ类型的键值时，需要指定字符串长度，所以其实只指定为实际占用空间的一半了，这种情况就需要特别处理。虽然发现了这个问题，在这么个小程序里还影响不是很大，而且很容易暴露问题，但要是输入法程序是用UNICODE编译的不知道还会有什么问题呢！怪不得<a href="http://www.wbfans.com/bbs/">极U</a>被炒得这么火！</p>

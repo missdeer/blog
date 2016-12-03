@@ -4,17 +4,7 @@ title: "换用Intel C++编译Qt"
 categories:
 - Qt
 tags:
-- Qt
-status: publish
-type: post
-published: true
-meta: {}
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
+- Qtmeta: {}
 ---
 <p>　　春节放假时有一天突然想到Qt是支持用Intel C++编译的，有icc的mkspec，而且Intel C++在Windows、Mac和Linux都有，还能生成32位和64位的可执行文件，于是就想试一下，如果确实可行，以后就不用GCC了，虽然GCC也很好。<br />
 　　比较囧的是，在Windows上，Intel C++除了最核心的编译器，其他的都是用Visual C++的，比如运行时，甚至包括nmake，于是很不幸的是nmake貌似不能通过命令行参数指定并行编译，只能单线程编译了，纠结。<br />

@@ -3,19 +3,5 @@ layout: post
 title: sqlite3的Blob操作，变异……
 categories:
 - Shareware
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  blogger_blog: missdeer.blogspot.com
-  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
-  blogger_permalink: "/2009/06/sqlite3blob.html"
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
 ---
 <p>　　本来想当成二进制数据一样把文本内容以Blob形式存入Sqlite3的，结果整了半天，虽然最后存是存进去了，好像不是像我预想中的那样写二进制的Blob，而是就是作为文本存入了。不过倒是知道了对于大块数据的操作，在简单的SQL语句中不能方便地实现时，可以用sqlite3_bind系列API，在SQL语句中可以用问号作为占位符，然后将数据bind到各个占位符上去。这样一来的SQL语句要用statement来执行。<br />　　存进去后，取出来也是一个问题，本来以为Blob么，二进制么，还专门从别处移植了一段代码过来，结果那段代码可能有点点问题。反正最后我也是看出来了，因为我是原样照搬地把数据存入的，那么还是原样取出来就行了，我大汗！真不知道如果哪天我真要存入一段二进制数据时，应该怎么办了！大概，存入的方式也要跟着改吧。</p>

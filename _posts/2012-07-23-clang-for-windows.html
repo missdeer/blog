@@ -4,18 +4,8 @@ title: clang for Windows
 categories:
 - CPPOOPGPXP
 tags:
-- Clang
-status: publish
-type: post
-published: true
-meta:
+- Clangmeta:
   _edit_last: '2'
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
 ---
 <p>　　这两天在Windows下折腾clang。这东东前端是支持C/C++/Objective-C/Objective-C++，后端一般是用LLVM的。在Mac OS X上貌似用得很好，可以生成OSX和iOS的app，貌似在Linux或FreeBSD上也支持得不错的样子，不过在Windows上就纠结了。<br />
 　　首先，clang还是依赖gcc的crt和headers的。于是在Windows上基本上是用MinGW套件的。但是同样是MinGW，不同的人都能编译出不同的东西来，版本众多，质量也不同，貌似还是MinGW官方编译的版本最为稳定，MinGW-w64的x64版本貌似就压根编译不了clang。<br />

@@ -4,7 +4,7 @@ title: 新项目计划——密码管理
 categories: Shareware
 description: 有了几个idea做新项目
 tags: shareware Qt Go Financing
-published: true
+
 ---
 
 这两天看论坛，又想到两个对我来说比较有用的东西。其中一个是密码管理。

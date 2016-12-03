@@ -3,19 +3,5 @@ layout: post
 title: "除了!analyze -v外什么都不行"
 categories:
 - WIND
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  blogger_blog: missdeer.blogspot.com
-  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
-  blogger_permalink: "/2009/08/analyze-v.html"
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
 ---
 <p>　　那些个core dump，都是我抠了FileZilla早期版本中的源代码出来，利用DbgHelp.dll的功能整出来的mini dump，本来有点迷惑的为什么查看变量内容时，老说访问内存错误，又翻了一会儿书才偶然发现，原来是这mini dump本来就只保存了寄存器和栈回调的信息，这也可以理解了，不然加上完整的内存dump，怎么可能只有几十KB大小。于是只好很沮丧地得出一个结论：对于mini dump，除了!analyze -v外，还真的什么都不行。</p>

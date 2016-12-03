@@ -4,19 +4,5 @@ title: TclSuck支持类成员函数扩展了
 categories:
 - CPPOOPGPXP
 - Lua，Script
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  blogger_blog: missdeer.blogspot.com
-  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
-  blogger_permalink: "/2006/11/tclsuck_08.html"
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
 ---
 <p>　　基本上没怎么费事儿，比原先想象的工作量要少好多，甚至处理分发函数和map都是用的同一个。就是保存函数指针的实现跟原来的不一样，从R (*f)(...)这样的形式变为R (C::*f)(...)这样了，多了一个C，其它就是一路走下来，没什么难点。<br />　　而且，顺便把tcl_state::close()改了一下，刚好可以用来释放map里保存的那些东西。<br />　　不过，还是没想好，怎么实现functor的调用，如果实现了这个，就可算是一个完整的C++ wrapper了，呵呵。</p>

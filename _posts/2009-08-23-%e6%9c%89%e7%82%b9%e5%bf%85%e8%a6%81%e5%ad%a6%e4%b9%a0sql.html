@@ -3,19 +3,5 @@ layout: post
 title: "有点必要学习SQL"
 categories:
 - Software
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  blogger_blog: missdeer.blogspot.com
-  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
-  blogger_permalink: "/2009/08/sql.html"
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
 ---
 <p>　　话说，我并不是计算机科班出身，因此很多基础的知识都是不知道的。这不，发现SQL真是有必要要好好学习一下了。最近在很多地方用到了数据库来存储东西，于是不可避免地需要写些SQL，最最基本的SELECT、INSERT、UPDATE还是会点的，不过也仅限于在单表中进行操作。<br />　　前两天发现一个可以显著提高在Sqlite3中SELECT性能的方法，那就是建索引。因为IDE需要AutoCompletion和Calltip功能，而用于这两个功能的数据都是存在一个sqlite3数据库中，该数据库目前已经有不少数据了，光是一张记录了方法的表，就有1万多条记录，从中SELECT是经常要做的操作，所以能提高点性能是很有意义的事。自从给该表建了索引后，至少感觉上非常明显，AutoCompletion几乎没有任何停顿就提示出来了，而以前的话，有个明显的停顿，虽然这个停顿的时间并不长，但已经能让人感觉出来了。这只是一点，让我觉得学习一下SQL有好处的地方，就让我尝到了莫大的甜头。还有一点就是，有不少地方的SELECT的条件，是从这次其他的SELECT中取得的数据，而我全部都是分成一条SELECT一次操作来进行的，我想，如果能把这些SELECT合并成一条语句，应该还是能再提高点运行速度吧。</p>

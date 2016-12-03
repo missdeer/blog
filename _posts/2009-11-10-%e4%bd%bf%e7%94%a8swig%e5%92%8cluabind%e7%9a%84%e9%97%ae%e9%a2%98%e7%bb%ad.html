@@ -4,19 +4,5 @@ title: "使用SWIG和Luabind的问题续"
 categories:
 - Lua，Script
 - Plugin Framework
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  blogger_blog: missdeer.blogspot.com
-  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
-  blogger_permalink: "/2009/11/swigluabind_10.html"
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
 ---
 <p>　　这几天似乎渐渐进入了正轨，发现并解决了一堆的问题。<br />　　从github上下载的0.9版Luabind可能不稳定，毕竟是没有正式发布，之前没有经过仔细的试用，后来实际用的时候总是这也不行那也不行，万般无奈之下退回到正式发布的0.8.1版。两个版本确实有不少区别，至少源文件个数都不一样。在实际使用的过程中发现，0.8.1中如果注册一个类时，无论有没有注册它的构造函数和析构函数，都要求它们是public可见的，而0.9似乎没这个限制。<br />　　比较郁闷的是，没找到一个可靠的办法，把一个类中的STL的容器类型的成员变量传给Lua。Luabind中有个return_stl_iterator策略，似乎是可以把它传给Lua，也能在Lua进行迭代，但是在应用程序退出时，就会报未处理异常。我想以后如果真的一定有传容器的需求，可以试一下SWIG。<br />　　在Lua和C++之间传递字符串是个很头痛的问题。C++中的字符串类型太多了，几乎每种框架或大规模类库，都会有至少一种自己的字符串实现类。在wxWidgets中用的是wxString，但跟Lua交互的最好就是C的字符数组。如果是只读的访问，那还是比较容易处理的，Luabind默认处理了std::string类型的转换，SWIG中只要包含了std_string.i，也是差不多透明地处理了。但是如果要把字符串作为输出参数，那就头痛了，Luabind中是有out_value策略和pure_out_value策略，但实际上我发现在Lua中用的时候程序就崩溃了。暂时也不想再深究这个问题了，顶多在必要的时候考虑修改一下接口了。<br />　　又是才发现，SWIG和Luabind中注册的类型是不能互相混用的。比如SWIG中注册的某个函数，返回一个类的实例，而Luabind中又注册了这个类的话，是不能作为那个返回值的类型的。所以有时候可能需要在两边都注册一遍某个类型。比较安慰的是，基本数据类型还是能混用的，呵呵。<br />　　对于有缺省值参数的函数，SWIG会自动封装成多个函数，每个函数使用相同的名字，只是参数列表不同。而Luabind一次只能注册一个函数，那个完整参数列表的函数，如果想要达到SWIG那样的效果，大概只能自己老老实实一个一个注册上。<br />　　再有是Luabind中，不能随便注册char*类型参数的函数，要注册得指定out_value策略，不过说到这里我就有点疑惑，Luabind好像不支持多个策略的啊，如果有多个参数要指定策略怎么办？而且虽然我没经过测试，但我想除了char *外，其他的自定义类型作为参数的，都有这个问题吧！</p>

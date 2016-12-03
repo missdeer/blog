@@ -4,19 +4,5 @@ title: "嵌入Lua即可"
 categories:
 - Lua，Script
 - wxWidgets
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  blogger_blog: missdeer.blogspot.com
-  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
-  blogger_permalink: "/2009/01/lua.html"
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
 ---
 <p>　　今天又看了一下wxLua，其实很简单一回事只要把用CVS下载来的wxLua源代码编译一下，生成一个wx.dll文件（当然是在Windows平台下的），该文件依赖于wxMSW的两个dll，分别是wxmsw28u.dll和wxmsw28u_stc.dll，如果用不同的编译器，或者编译选项，可能会有不同的文件名后缀（注，不是扩展名）。我是用MinGW最新扩展4.3.2 TDM-2来编译的，把编译出来的dll放到搜索路径下，用lua.exe就可以直接运行wxLua自带的几个例子程序了，比如auidemo.wx.lua。<br />　　开始时，还在想到底是嵌入一个纯粹的Lua解释器，还是嵌入wxLua。其中的区别就是嵌入wxLua可能会需要多点C/C++代码加到工程中，作为胶水代码连接lua代码和wxWidgets。现在发现，其实不用管这么多了，只要嵌入一个纯粹的Lua解释器就够了，再设定好搜索路径，即package.cpath，就可以自由地装载wxLua了，其他的第三方库也可以用了，比如LuaXML、LuaZip等等。<br />　　我仰天长笑，接下来的问题是，如何让外部的Lua脚本识别出各个scintilla控件。MDI界面必定会有多个Scintilla视图，怎么能让脚本方便自主地获取到自己需要操作的那个视图呢？</p>

@@ -3,20 +3,6 @@ layout: post
 title: Borland的编译器不支持成员函数模板特化
 categories:
 - CPPOOPGPXP
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  blogger_blog: missdeer.blogspot.com
-  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
-  blogger_permalink: "/2007/03/borland.html"
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
 ---
 <p>　　用的是BDS2006，看版本号是5.82版的编译器了，相比以前即BCB6里带的编译器，虽然没有评估过有多少改进，明显的只是编译速度较之以前大大提高了。今天为了LuaSuck，一边改LuaTinker一边编译，发现它居然对成员函数模板的特化视而不见！<br />　　用的BDS2006里的编译器，这样试一下：
 <pre><b>class</b> kk<br />{<br /><b>public</b>:<br />    <b>template</b>&lt;<b>typename</b> T&gt;<br /><br />    <b>static</b> T test()<br />    {<br />        T t;<br />        cout &lt;&lt; <font color="#0000FF">"general edition"</font> &lt;&lt;endl;<br />    }<br />    <b>template</b>&lt;&gt;<br />    <b>static</b> <b>int</b> test()<br />    {<br />        <b>int</b> i;<br />        cout &lt;&lt; <font color="#0000FF">"int edition"</font> &lt;&lt;endl;<br />    }<br /><br />    <b>template</b>&lt;<b>typename</b> T&gt;<br /><br />    T test2()<br />    {<br />        T t;<br />        cout &lt;&lt; <font color="#0000FF">"2 general edition"</font> &lt;&lt;endl;<br />    }<br />    <b>template</b>&lt;&gt;<br />    <b>int</b> test2()<br />    {<br />        <b>int</b> i;<br />        cout &lt;&lt; <font color="#0000FF">"2 int edition"</font> &lt;&lt;endl;<br />    }<br /><br />    <b>template</b>&lt;<b>typename</b> T&gt;<br /><br />    <b>void</b> test3(T t)<br />    {<br />        cout &lt;&lt; <font color="#0000FF">"3 general edition"</font> &lt;&lt;endl;<br />    }<br />    <b>template</b>&lt;&gt;<br />    <b>void</b> test3(<b>int</b> t)<br />    {<br />        cout &lt;&lt; <font color="#0000FF">"3 int edition"</font> &lt;&lt; endl;<br />    }<br />};<br /><br /><br /><b>int</b> main(<b>int</b> argc, <b>char</b>* argv[])<br />{<br />    kk k;<br />    k.test&lt;<b>int</b>&gt;();<br />    kk::test&lt;<b>int</b>&gt;();<br />    k.test2&lt;<b>int</b>&gt;();<br />    k.test3&lt;<b>int</b>&gt;(<font color="#0000A0">2</font>);<br />    k.test3&lt;&gt;(<font color="#0000A0">4</font>);<br /><br />    <b>return</b> <font color="#0000A0">0</font>;<br />}</pre>

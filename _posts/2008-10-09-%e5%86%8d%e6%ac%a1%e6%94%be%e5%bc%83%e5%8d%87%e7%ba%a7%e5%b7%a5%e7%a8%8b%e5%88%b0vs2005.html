@@ -3,19 +3,5 @@ layout: post
 title: "再次放弃升级工程到VS2005"
 categories:
 - Job
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  blogger_blog: missdeer.blogspot.com
-  blogger_author: missdeerhttp://www.blogger.com/profile/18003139432457999590noreply@blogger.com
-  blogger_permalink: "/2008/10/vs2005.html"
-author:
-  login: missdeer
-  email: missdeerme@163.com
-  display_name: missdeer
-  first_name: "樊"
-  last_name: "杨"
 ---
 <p>　　本以为今天闲一点了，可以干点其他事了，于是琢磨着把工程从VS2003升级到VS2005。升级的事，之前一直有想，但一直由于这样那样的原因而放弃了。这次又动了这样的想法，一方面是因为VS2005上才有Refactor!，另一方面是换了高版本的dot后，dot本身就带有8.0版本的crt dll，所以想着如果把7.1版本的crt dll换掉，感觉会舒服一点。<br />　　先看了看最基本的ACE和XTP有VS2005编译出来的lib和dll，然后开始升级工程。这次学聪明了点，不停靠VS2005自己的升级功能，而是直接自己编辑.sln和.vcproj文件。基本上只要把版本号改了，就可以了。为了回退方便，我先复制了各个.sln和.vcproj文件，并改名，然后才改版本号。再用VS2005打开，编译链接。这个过程倒没出多少问题，2005和2003最大的几点区别是，2005中对字符串操作的函数作了扩展，其次是manifest的引入。这都没有引起多少麻烦的事，只略作修改就可以了。<br />　　最后却因为另外一个没想到过的问题而促使我放弃了升级：编译太慢！真是没想到啊，也不知道是本来VS2005的编译器就比较慢，还是说这个编译器在遇到某些情况就会性能降低，比如使用了大量模板等等。反正最后我忍无可忍了，rebuild一次，就要好久好久，2003下明显要快得多，没多少犹豫，决定还是继续使用VS2003吧，顺便庆幸了一下，Impeller幸亏不是用VS2005编译的，不然会多花多时间啊！</p>
