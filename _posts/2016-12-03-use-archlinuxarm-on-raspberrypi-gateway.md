@@ -3,7 +3,7 @@ layout: post
 title: "使用Archlinux做树莓派翻墙网关"
 categories: embed
 description: 使用Archlinux ARM系统做树莓派翻墙网关
-tags: Archlinux RaspberryPi GFW Go GccGo
+tags: Archlinux raspberrypi GFW Go GccGo
 ---
 
 从妹子家里拿回来的树莓派1B不知道出了什么问题，开机只能跑个一两天，之后就连不上网了，从路由器看它也掉线了，只能断电重启才能再次连上。连续遇到两次，我也没耐心继续耗下去了，打算重装系统，原本用着Raspbian，1B的机能实在差了点，于是想着装Archlinux这种比较轻量级的试试，另外一个想用Archlinux的原因是它的官方仓库里一般会有比较新的GccGo安装包，avege用Go开发，试试GccGo编译是否会有更好的性能表现。

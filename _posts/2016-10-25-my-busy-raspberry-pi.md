@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "我忙碌的树莓派"
-categories: Life
+categories: embed
 description: 我的树莓派很忙
 tags: raspberrypi
 ---

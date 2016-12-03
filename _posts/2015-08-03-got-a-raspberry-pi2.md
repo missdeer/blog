@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "到手一台树莓派2代"
-categories: hardware
+categories: embed
 description: 到手一台树莓派2代
 tags: raspberrypi
 ---
