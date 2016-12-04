@@ -25,7 +25,7 @@ tags: travis Go
 
 - 添加repo的travis支持，并且设置成只有.travis.yml文件存在时才触发，这样可以避免自动push到其他branch时被触发build进入死循环。
 - travis本身可以设置多种不同Go版本实现持续构建，但这里我只需要随便选一种就行了。关键是我会再调用一个自己的shell 脚本实现交叉编译。
-- 自己的shell脚本自动从[Go.org](https://Go.org/dl/)下载最新的Linux amd64的Go工具链包，再参考[这篇文件](http://dave.cheney.net/2013/07/09/an-introduction-to-cross-compilation-with-go-1-1)生成交叉编译工具链，然后为自己的Go程序交叉编译，最后push回github。
+- 自己的shell脚本自动从[golang.org](https://golang.org/dl/)下载最新的Linux amd64的Go工具链包，再参考[这篇文件](http://dave.cheney.net/2013/07/09/an-introduction-to-cross-compilation-with-go-1-1)生成交叉编译工具链，然后为自己的Go程序交叉编译，最后push回github。
 - 要push回github，需要在github的setting页面得到一个github token，把这个40个字符长度的字符串填到travis的项目setting的environment variable中去，名字定为GH_TOKEN。也可以直接用travis encryt命令（需要`gem install travis`先）生成一个加密后的字符串直接写到.travis.yml中，但这种方法有时候travis并不能每次都正确读到，不知道什么原因。
 - 最后一点要注意的是，生成的二进制文件不要push到master branch，因为会死循环触发travis，所以要另外建个空branch，可以用`git checkout --orphan prebuilt`和`git rm --cache -r .`命令创建一个名为prebuilt的空branch，再随便添加个空文件`touch README.md`，`git add README.md`，`git ci -m "(+)add README"`，就可以push到github去了`git push origin prebuilt`。
 

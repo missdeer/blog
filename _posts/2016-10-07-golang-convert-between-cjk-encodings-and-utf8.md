@@ -19,11 +19,11 @@ import (
 	"io/ioutil"
 	"strings"
 
-	"Go.org/x/text/encoding/japanese"
-	"Go.org/x/text/encoding/korean"
-	"Go.org/x/text/encoding/simplifiedchinese"
-	"Go.org/x/text/encoding/traditionalchinese"
-	"Go.org/x/text/transform"
+	"golang.org/x/text/encoding/japanese"
+	"golang.org/x/text/encoding/korean"
+	"golang.org/x/text/encoding/simplifiedchinese"
+	"golang.org/x/text/encoding/traditionalchinese"
+	"golang.org/x/text/transform"
 )
 
 // ToUTF8 convert from CJK encoding to UTF-8
