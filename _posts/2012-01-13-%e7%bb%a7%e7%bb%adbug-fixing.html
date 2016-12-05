@@ -3,7 +3,7 @@ layout: post
 title: "继续bug fixing"
 categories:
 - Job
- {}
+
 ---
 <p>　　又回到以前那种每次写blog都是写工作内容的流水帐的状态了么，这是不是意味着离我辞职又不远了。<br />
 　　好吧，上午还是在继续折腾SQL Server版本兼容性的bug。主要的代码昨天就修改完了，今天要提交code review，就再仔细检查了一遍，然后发现，因为多加了一个.cs文件，于是在enlistment的根目录下build所有工程的时候，某一个工程会出错。之前加了这文件，是直接在某个目录的sources文件，嗯，类似于makefile的一种文件里，添加了新增加的那个.cs文件路径就好了。于是在整个enlistment里搜遍了所有sources文件里的内容，愣是没在其他sources文件里找到有引用这些文件的。后来看了一下error log，发现它是在进入某个目录build时报的错，到该目录下又不死心地看了下sources文件，没找到要添加文件路径的地方。后来看到一个.csproj文件，打开看了一下，死马当活马医，把新文件路径加进去再build，居然通过了。艹，这个build system太贱了吧，不同的工程用不同的描述方式。<br />
