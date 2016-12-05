@@ -2,8 +2,8 @@
 layout: post
 title: Qt Creator插件工作流程代码走读
 categories:
-- Plugin Framework  quiz: a:2:{s:1:"q";s:0:"";s:1:"a";s:0:"";}
-  _wp_old_slug: ''
+- Plugin Framework  
+  
 ---
 <p>　　Qt Creator有个很风骚的插件管理器PluginManager，还有个很骚包的插件说明PluginSpec。基本上，所有的Qt程序的入口都是传统的C程序一样，代码流程从main()函数开始。<br />
 　　在main()中，先初始化用于国际化的translator，然后获取程序配置settings，接着就在栈上创建了PluginManager对象，之后为PluginManager设置搜索用的文件扩展名pluginspec，设置配置，再设置插件搜索路径。<br />

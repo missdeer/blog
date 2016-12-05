@@ -2,7 +2,7 @@
 layout: post
 title: "代码合得没问题，哈哈"
 categories:
-- Shareware  quiz: a:2:{s:1:"q";s:0:"";s:1:"a";s:0:"";}
+- Shareware  
 ---
 <p>　　前次说到，我觉得我把wxScintilla的代码合得有问题了，我的程序中使用了wxScintilla不能多选。其实是我毛躁了，没认真看Scintilla的文档。其实当时我也是浏览了一遍代码的，发现在wxScintilla中处理用户输入后，就直接转发到Scintilla的平台无关的代码中去了，而这部分平台无关代码我基本是严格复制了官方Scintilla的代码，所以照理是应该没问题的。昨天在整理<a href="?page_id=880">《Free Software Collection》</a>一文时，考虑到用什么软件来替代UltraEdit，结果发现SciTE的列编辑模式已经可以做得跟UltraEdit很接近了，看了看修改版的SciTE-Ru，也同样如此。当时我还有点怀疑是不是需要在容器应用程序中做单独的处理，想想又有点不太可能。看了一下SciTE-Ru的配置文件，发现是有这么个选项的，后来就去看Scintilla的文档了，看到在Multiple Selection & Virtual Space一节里，确实有相应的设置选项。<br />
 　　土了啊，代码合得没问题，哈哈！</p>

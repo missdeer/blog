@@ -3,7 +3,7 @@ layout: post
 title: "一次从栈中寻找被优化到寄存器中的局部变量指针的经历"
 categories:
 - Job
-- WIND  _edit_last: '2'
+- WIND  
 ---
 <p>　　上周基本解决了一个dump文件分析的问题。<br />
 　　一开始，问题没有弄复杂，只是从最后异常看到call stack，大体得出某个类的指针为NULL，却被继续使用，然后fix的话只要在被使用前判断一下是否不为NULL就行了。<br />

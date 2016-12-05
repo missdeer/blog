@@ -2,7 +2,7 @@
 layout: post
 title: "实现命令行打开文件"
 categories:
-- CodingStudio  quiz: a:2:{s:1:"q";s:0:"";s:1:"a";s:0:"";}
+- CodingStudio  
 ---
 <p>　　之前我说过，作为一个文本编辑器，一个IDE，不能通过命令行参数打开一个文件，是很说不过去的。前面试图加入这个功能，结果遇到了些问题，经过昨天和今天的奋战，终于搞定了。<br />
 　　其实就是发现用wxWidgets的IPC机制怎么都不能正常运行，于是最后我想到了直接用Boost的InterProcess库，这个库也是跨平台可移植的，基本处于符合我的要求的范围内。<br />

@@ -2,8 +2,8 @@
 layout: post
 title: wxWidgets项目中接管未处理异常
 categories:
-- wxWidgets  quiz: a:2:{s:1:"q";s:0:"";s:1:"a";s:0:"";}
-  _wp_old_slug: ''
+- wxWidgets  
+  
 ---
 <p>　　wxWidgets本身支持对未处理异常引起崩溃的拦截和后续处理，从它的官方文档中可以看到，只要在wxApp::OnInit()中调用::wxHandleFatalExceptions(true);然后覆盖wxApp::OnFatalException函数，可以比如遍历当前进程的堆栈什么的。<br />
 　　还有种处理这种未处理异常的方法是在程序启动时（一般就是在wxApp::OnInit()中）动态装入exchndl.dll文件，接下来该dll会自动拦截未处理异常，并在崩溃的时候自动在exe文件所在目录生成一个与exe文件同名的.rpt文件，里面以纯文本记录了进程上下文等现场信息。exchndl.dll可以在<a href="http://code.google.com/p/jrfonseca/">这里</a>找到，可以看到其实它是配合一个叫Dr MinGW的现场调试器使用的，这是MinGW的方案。<br />
