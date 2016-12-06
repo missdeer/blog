@@ -19,7 +19,9 @@ $(document).ready(function() {
     $('.main-post-list').removeClass('hidden');
   }
 
-  if (window.location.pathname.substring(0, 6) == "/tags/" || window.location.pathname.substring(0, 12) == "/categories/") {
+  if (window.location.pathname.substring(0, 6) == "/tags/"
+    || window.location.pathname.substring(0, 12) == "/categories/"
+    || window.location.pathname.substring(0, 7) == "/about/") {
     $('.panel-cover').addClass('panel-cover--collapsed');
   }
 
