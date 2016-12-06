@@ -9,6 +9,17 @@ layout: page
 {% endfor %}
 </div>
 
+<script src="/media/js/jquery.tagcloud.js" type="text/javascript" charset="utf-8"></script>
+<script language="javascript">
+$.fn.tagcloud.defaults = {
+    size: {start: 1, end: 1, unit: 'em'},
+      color: {start: '#e6e0f8', end: '#3333ff'}
+};
+
+$(function () {
+    $('#tag_cloud a').tagcloud();
+});
+
 <ul class="listing">
 {% for cat in site.categories %}
   <li class="listing-seperator" id="{{ cat[0] }}">{{ cat[0] }}</li>
@@ -21,14 +32,4 @@ layout: page
 {% endfor %}
 </ul>
 
-<script src="/media/js/jquery.tagcloud.js" type="text/javascript" charset="utf-8"></script>
-<script language="javascript">
-$.fn.tagcloud.defaults = {
-    size: {start: 1, end: 1, unit: 'em'},
-      color: {start: '#e6e0f8', end: '#3333ff'}
-};
-
-$(function () {
-    $('#tag_cloud a').tagcloud();
-});
 </script>
