@@ -19,6 +19,7 @@ $.fn.tagcloud.defaults = {
 $(function () {
     $('#tag_cloud a').tagcloud();
 });
+</script>
 
 <ul class="listing">
 {% for cat in site.categories %}
@@ -31,5 +32,3 @@ $(function () {
 {% endfor %}
 {% endfor %}
 </ul>
-
-</script>
