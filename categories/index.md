@@ -9,18 +9,6 @@ layout: page
 {% endfor %}
 </div>
 
-<script src="https://dn-istkani.qbox.me/js/jquery.tagcloud.js" type="text/javascript" charset="utf-8"></script>
-<script language="javascript">
-$.fn.tagcloud.defaults = {
-    size: {start: 1, end: 1, unit: 'em'},
-      color: {start: '#e6e0f8', end: '#3333ff'}
-};
-
-$(function () {
-    $('#tag_cloud a').tagcloud();
-});
-</script>
-
 <ul class="listing">
 {% for cat in site.categories %}
   <li class="listing-seperator" id="{{ cat[0] }}">{{ cat[0] }}</li>
@@ -32,3 +20,15 @@ $(function () {
 {% endfor %}
 {% endfor %}
 </ul>
+
+<script src="https://dn-istkani.qbox.me/js/jquery.tagcloud.js" type="text/javascript" charset="utf-8"></script>
+<script language="javascript">
+$.fn.tagcloud.defaults = {
+    size: {start: 1, end: 1, unit: 'em'},
+      color: {start: '#e6e0f8', end: '#3333ff'}
+};
+
+$(function () {
+    $('#tag_cloud a').tagcloud();
+});
+</script>
