@@ -1,29 +1,8 @@
 ---
 layout: default
 ---
-<SCRIPT LANGUAGE="JavaScript">
-<!--
-var time = 10; //时间,秒
-
-function Redirect(){
-window.location = "https://blog.minidump.info/#blog";
-}
-var i = 0;
-function dis(){
-document.all.s.innerHTML = "没有这个页面诶，" + (time - i) + "秒后返回<a href="/#blog">博客首页</a>";
-i++;
-}
-timer=setInterval('dis()', 1000);//显示时间
-timer=setTimeout('Redirect()',time * 1000); //跳转
-
-//-->
-</SCRIPT>
-
 <article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
-    <div class="post-meta">
-      <time datetime="{{page.date | date: date_to_xmlschema}}" itemprop="datePublished" class="post-meta__date date">{{page.date | date: "%F"}}</time> &#8226; <span class="post-meta__tags tags">{{page.categories}}</span>
-    </div>
     <h1 class="post-title">{{ page.title }}</h1>
   </header>
 
@@ -32,3 +11,19 @@ timer=setTimeout('Redirect()',time * 1000); //跳转
     <span id="s"></span>
   </section>
 </article>
+
+<script type="text/javascript">
+(function() {
+    var time = 10; //时间,秒
+    function Redirect(){
+        window.location = "https://blog.minidump.info/#blog";
+    }
+    var i = 0;
+    function dis(){
+        document.all.s.innerHTML = "没有这个页面诶，" + (time - i) + "秒后返回<a href="/#blog">博客首页</a>";
+        i++;
+    }
+    timer=setInterval('dis()', 1000);//显示时间
+    timer=setTimeout('Redirect()',time * 1000); //跳转
+})();
+</script>
