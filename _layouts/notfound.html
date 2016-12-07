@@ -13,16 +13,16 @@ layout: default
 </article>
 
 <script type="text/javascript">
+var time = 10; //时间,秒
+function Redirect(){
+    window.location = "https://blog.minidump.info/#blog";
+}
+var i = 0;
+function dis(){
+    document.getElementById('s').innerText = "Return in " + (time - i) + " seconds.";
+    i++;
+}
 (function() {
-    var time = 10; //时间,秒
-    function Redirect(){
-        window.location = "https://blog.minidump.info/#blog";
-    }
-    var i = 0;
-    function dis(){
-        document.getElementById('s').innerText = "Return in " + (time - i) + " seconds.";
-        i++;
-    }
     timer=setInterval('dis()', 1000);//显示时间
     timer=setTimeout('Redirect()',time * 1000); //跳转
 })();
