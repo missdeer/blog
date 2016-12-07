@@ -7,16 +7,15 @@ layout: default
   </header>
 
   <section class="post">
-    {{ content }}
-    <span id="s"></span>
+    <span id="s">{{ content }}</span>
   </section>
 </article>
 
 <script type="text/javascript">
-var time = 10; //时间,秒
+var time = 5; //时间,秒
 var i = 0;
 function TickCount(){
-    document.getElementById('s').innerText = "Return in " + (time - i) + " seconds.";
+    document.getElementById('s').innerText = "没有这个页面诶，" + (time - i) + "秒后返回首页";
     i++;
 }
 (function() {
