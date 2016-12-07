@@ -20,7 +20,7 @@ layout: default
     }
     var i = 0;
     function dis(){
-        document.all.s.innerHTML = "没有这个页面诶，" + (time - i) + "秒后返回<a href="/#blog">博客首页</a>";
+        document.getElementById('s').innerText = "Return in " + (time - i) + " seconds.";
         i++;
     }
     timer=setInterval('dis()', 1000);//显示时间
