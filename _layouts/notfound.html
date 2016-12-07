@@ -14,16 +14,15 @@ layout: default
 
 <script type="text/javascript">
 var time = 10; //时间,秒
-function Redirect(){
-    window.location = "https://blog.minidump.info/#blog";
-}
 var i = 0;
-function dis(){
+function TickCount(){
     document.getElementById('s').innerText = "Return in " + (time - i) + " seconds.";
     i++;
 }
 (function() {
-    timer=setInterval('dis()', 1000);//显示时间
-    timer=setTimeout('Redirect()',time * 1000); //跳转
+    timer=setInterval('TickCount()', 1000);//显示时间
+    timer=setTimeout(function(){
+        window.location = "https://blog.minidump.info/#blog";
+    },time * 1000); //跳转
 })();
 </script>
