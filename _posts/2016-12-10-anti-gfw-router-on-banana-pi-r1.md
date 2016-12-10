@@ -8,7 +8,7 @@ tags: Router gfw ARM BananaPi
 
 前面一直在说要把极路由和树莓派换掉，其实这个念头有很久很久了，最早是一年多前就想攒个小主机或家庭服务器，由于NUC、Gen8的价格远远超出我的预算，所以后来就考虑像占美之类的小主机，还是觉得贵，再后来考虑过二手的Atom主板来组，在淘宝翻了几天，觉得水很深，想来想去还是ARM板比较合适，偶然发现[Banana Pi R1](http://www.banana-pi.org.cn/r1.html)这块ARM板，CPU和内存其实跟最新版的树莓派从数据上看差不多，但关键是它有千兆网口，而且是5个口，1个WAN和4个LAN口！然后偶然发现了[Banana Pi的官方Telegram群](https://telegram.me/bananapicn)，询问了一些我关心的问题后，觉得R1是很适应我的需求，于是上淘宝买一块，昨天收到，包括一块板子，一块散热片，一块TF卡，一个输出5V3A DC的电源。贪便宜在另一家拍了一个外壳，快一周了也没发货，郁闷。
 
-昨天晚上就开始折腾，本来打算装Archlinux的，不过这个比树莓派上的要麻烦，本来我想照archlinuxarm.org上[for Cubieboard 2的安装说明](https://archlinuxarm.org/platforms/armv7/allwinner/cubieboard-2)做的，但除了拷入archlinux的文件外，还需要另外刷入对应的uBoot bootloader的，但是我并不能确定它用的是哪一个包，照网卡某个帖子说的刷了linux-sunxi的某个uBoot bootloader和Cubieboard 2的boot.scr，然后板子并不能点亮，于是我便放弃了，还是老老实实刷Raspbian吧，开箱即用，适合小白。
+昨天晚上就开始折腾，本来打算装Archlinux的，不过这个比树莓派上的要麻烦，本来我想照archlinuxarm.org上[for Cubieboard 2的安装说明](https://archlinuxarm.org/platforms/armv7/allwinner/cubieboard-2)做的，但除了拷入archlinux的文件外，还需要另外刷入对应的uBoot bootloader的，但是我并不能确定它用的是哪一个包，照网上[某个帖子](http://forum.lemaker.org/thread-23135-1-1.html)说的刷了linux-sunxi的某个uBoot bootloader和Cubieboard 2的boot.scr，然后板子并不能点亮，于是我便放弃了，还是老老实实刷Raspbian吧，开箱即用，适合小白。
 
 Raspbian镜像也是从[Banana Pi的官网](http://www.banana-pi.org.cn/r1-download.html)上下载的(我居然没用官网上那个archlinux镜像试试！)，写到TF后直接就能点亮板子了。然后跟树莓派上一样，从路由器上找到DHCP分配给它的IP，从SSH登录进去，用户名密码分是pi和bananapi，这个密码是我猜出来的，竟然没在哪里看到有说明！之后便是运行`raspi-config`，扩大分区容量，调整时区等等。到此为止，我就拥有了一个可以运行的基本的ARM系统了，之后便是进行翻墙路由器的配置。
 
