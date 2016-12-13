@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "配合STL使用的可调用体的演进"
+title: "供STL使用的可调用体的演进"
 categories: CPPOOPGPXP
-description: 配合STL使用的可调用体（Callable Entities）的演进
+description: 供给STL使用的可调用体（Callable Entities）的演进
 tags: cpp C++11 STL Boost
 ---
 
