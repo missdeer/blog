@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "写了个DDNS客户端"
-categories: Coding
+categories: Shareware
 description: 写了个伪动态DNS客户端
 tags: DDNS DNSPOD Cloudflare Oray pubyun
 ---
