@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "《沉睡魔咒》"
-categories: film
+categories: 
+- Film &amp; ACG  
 description: Disney出品的童话故事
 tags: film
 ---

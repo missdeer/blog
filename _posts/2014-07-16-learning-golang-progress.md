@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Go语言学习进展"
-categories: Coding
+categories: Go
 description: 已经能用Go语言写小程序了
 tags: Go
 ---

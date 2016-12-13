@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "修改DNS导致Nexus手机连不上WIFI"
-categories: mobile
+categories: Mobile
 description: 修改DNS导致Nexus手机连不上WIFI
 tags: DNS Nexus Mobile WIFI
 ---

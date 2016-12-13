@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "某日志查看程序开发小结"
-categories: Coding
+categories: Qt
 description: 某日志查看程序开发小结
-tags: Qt
+tags: Qt Log Sqlite3
 ---
 这几天写了个查看日志的程序，日志是公司里产品项目用户log4cxx生成的，用于定位问题。以前看到过其他同事自己开发的这类程序，但都只限于他们自己使用，等他们离职了，就基本失传了，尽管他们是交接给其他同事了。
 

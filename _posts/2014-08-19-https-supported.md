@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "支持https"
-categories: yiili
+categories: Startup
 description: yiili支持https了
 tags: https ssl 
 ---

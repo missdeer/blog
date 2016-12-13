@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "使用Qt实现iOS push notification"
-categories: Coding
+categories: Qt
 description: 使用Qt实现iOS push notification
 tags: Qt iOS PushNotification
 ---

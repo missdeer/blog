@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "近况"
-categories: Coding
+categories: Startup
 description: 最近正在关注的内容
 tags: Coding
 ---

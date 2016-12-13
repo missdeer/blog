@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "完成Memcached/Redis支持"
-categories: Coding
+categories: Startup
 description: 给Yiili添加了Memcached/Redis支持
 tags: Memcached Redis
 ---

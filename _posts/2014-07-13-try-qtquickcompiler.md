@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "初试QtQuickCompiler"
-categories: Coding
+categories: Qt
 description: 尝试了下用QtQuickCompiler编译istkani
 tags: Qt QtQuick QtQuickCompiler istkani JIT C++
 ---

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "T43上的Fedora做翻墙网关"
-categories: Linux
+categories: gfw
 description: T43上的Fedora做翻墙网关
 tags: GFW shadowsocks gateway
 ---

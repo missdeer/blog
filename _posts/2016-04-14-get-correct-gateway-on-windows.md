@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Windows上获取正确的网关信息"
-categories: Coding
+categories: Job
 description: Windows上获取正确的网关信息
 tags: gateway WinAPI
 ---

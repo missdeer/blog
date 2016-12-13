@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "遇到的一个网络编程的bug"
-categories: Coding
+categories: Job
 description: 遇到了一个纠结很久的网络编程的bug
 tags: socket bug
 ---

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Qt for Mobile集成LeanCloud"
-categories: Coding
+categories: Qt
 description: Qt for Mobile集成LeanCloud SDK
 tags: Qt LeanCloud Mobile iOS Android
 ---

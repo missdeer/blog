@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "最近的网络开发工作"
-categories: Coding
+categories: Job
 description: 最近的socket开发工作
 tags: Coding socket asio
 ---

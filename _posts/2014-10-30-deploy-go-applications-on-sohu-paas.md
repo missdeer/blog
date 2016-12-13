@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "部署Go程序到搜狐云景PaaS"
-categories: Coding
+categories: Go
 description: 部署Go程序到搜狐云景PaaS
 tags: Coding Cloud Go
 ---

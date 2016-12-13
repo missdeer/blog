@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Go语言Unmarshal GBK编码的XML"
-categories: Coding
+categories: Go
 description: 默认不支持UTF-8以外其他编码的XML文档Unmarshal
 tags: Go GBK XML
 ---
