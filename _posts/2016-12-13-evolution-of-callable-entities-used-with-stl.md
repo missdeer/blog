@@ -65,7 +65,7 @@ std::for_each(coll.begin(), coll.end(),
 
 “道祖”的“道经”让那些牛人们知道了C++的模板还可以这么玩！于是最顶尖的那拨人纷纷证道成神，Boost被搞出来极大地扩展了C++语言的能力和库的用途。
 
-Boost提供了几个与函数（可调用体相关的几个库）：
+Boost提供了几个与函数（可调用体）相关的几个库：
 
 - Bind
 - Function
@@ -81,7 +81,7 @@ std::find_if(coll.begin(), coll.end(),
             boost::bind(std::greater<int>(), _1, 42));
 ```
 
-其中`std::modulus<int>()`接受两个参数，而`boost::bind`把`_1`占据的位置留给`std::find_if`塞过来的容器元素了，后面再绑定一个其他的参数，比如这里是常量`2`。
+其中`std::modulus<int>()`接受两个参数，而`boost::bind`把`_1`占据的位置留给`std::find_if`塞过来的容器元素了，后面再绑定一个其他的参数，比如这里是常量`42`。
 
 这便是Boost.Bind的玩法，它就是扩展了`std::bind1st`和`std::bind2nd`的用法，它不用因为传入的参数该处的位置不同而换一个名字，它只要把参数位置互换即可：
 
