@@ -2,7 +2,7 @@
 layout: post
 title: GFW是越来越过分
 categories:
-- Software
+- gfw
 ---
 <p>　　所谓道高一尺，魔高一丈。虽然blogspot.com不停地被GFW封掉，但当时还有pkblogs.com和inblogs.net来作转向。可是现在，连它们两个也惨遭毒手了，GFW真是越来越过分了。不过它没有过分到像几年前那样，把google也封掉，所以为了突破GFW的封锁，在 google上搜了一遍，还真找到一些方法。<br />　　这些方法的只限于如何访问blogspot.com，因为实际上，后台blogger.com好像一直没被限制。其实比较好的方法是，自己弄个域名来转向。还有个方法是，用BloggerSpaces的服务。不过有更简单好用的方法。一个是利用 google的translate服务，先翻成繁体中文，再翻成简体中文，损失不是很大，只是要用一个长长的URL，以及对用非中文表示的文字，中间的空格都会被删掉，影响原意，还有个缺点是，当鼠标光标移动到文字上方时，会自己选定一段文字，弹出一个消息框来，比较烦人。再有一个方法，就是改浏览器设置。先把这段代码保存到文件（假设为c:\proxy.pac）：</p>
 <p>function FindProxyForURL(url,host)　{<br />　　   if(dnsDomainIs(host, ".blogspot.com"))　{<br />　　　　       return "PROXY 72.14.219.190:80";<br />　　   }<br />}<br />　　以Firefox为例，打开Firefox，依次点击Tools->Options->Advanced->Network- > Settings...->选中Automatic proxy configuration URL，在下面填写：file:///C:/proxy.pac。这要，就可以直接用missdeer.blogspot.com来访问啦。如果是IE，也是类似，Tools -> Internet Options -> Connections -> LAN settings -> Use automatic configuration script, 再指向文件，要填成file:///C:\proxy.pac。<br />　　唉，不过这样的方法都只有我自己知道了，真是悲哀啊，只能自娱自乐了。</p>

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Qt for Mobile程序设置启动图片"
-categories: Coding
+categories: Qt
 description: "Qt for Mobile程序设置启动图片"
 tags: Qt iOS Android
 ---

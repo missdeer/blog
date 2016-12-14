@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "新品上架"
-categories: shop
+categories: Startup
 description: 妹子们的淘宝店新品上架
 tags: shop taobao
 ---

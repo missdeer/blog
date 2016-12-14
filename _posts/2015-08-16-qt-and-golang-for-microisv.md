@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "micro ISV使用Qt和Go开发"
-categories: Coding
+categories: Startup
 description: micro ISV使用QT和Go开发
 tags: Qt Go microISV
 ---

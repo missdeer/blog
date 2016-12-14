@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Go在CJK编码和UTF-8间转换"
-categories: Coding 
+categories: Go 
 description: 纯Go实现在CJK和UTF-8间进行编码转换 
 tags: Go CJK UTF-8 
 ---

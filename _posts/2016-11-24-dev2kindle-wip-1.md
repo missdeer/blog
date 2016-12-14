@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "dev2kindle WIP(1)"
-categories: Coding
+categories: Shareware
 description: dev2kindle开发进度
 tags: Kindle RSS
 ---

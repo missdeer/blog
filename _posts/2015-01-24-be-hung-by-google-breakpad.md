@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "程序被Google Breakpad挂住了"
-categories: Coding
+categories: Job
 description: 程序被Google Breakpad挂住，退出不能
-tags: breakpad
+tags: breakpad cpp
 ---
 很长一段时间来，一直偶尔有发现进程在收到SIGTERM或SIGKILL后，仍然不能完全退出。之前总以为是sighandler写得有问题，还怀疑过是SIGTERM不够强力，需要用SIGKILL，事实证明其实都没关系。
 

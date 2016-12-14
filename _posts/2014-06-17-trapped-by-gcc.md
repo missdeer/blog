@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "被GCC坑了一把"
-categories: Coding
+categories: Job
 description: 被GCC坑了一把
 tags: Coding
 ---

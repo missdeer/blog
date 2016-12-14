@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "在Mac上给Qt程序用Developer ID签名"
-categories: Shareware
+categories: Qt
 description: 在Mac上给Qt程序用Developer ID签名
 tags: Qt Mac 
 ---

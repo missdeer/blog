@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "计划做个类Redsocks的新实现"
-categories: Coding
+categories: Shareware
 description: 计划做个类Redsocks的新实现
 tags: redsocks Go GFW gateway shadowsocks
 ---
