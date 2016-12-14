@@ -142,7 +142,7 @@ std::for_each(v.begin(), v.end(),
               boost::lambda::_1 = boost::lambda::bind(foo, boost::lambda::_1));
 ```
 
-这段代码把容器`v`里的每一个元素让函数`foo`嚼一遍，再吐回给`v`。
+这段代码把容器`v`里的每一个元素让函数`foo`嚼一遍，再吐回给`v`。注：这个`boost::lambda::bind`不是`boost::bind`。
 
 然后它可以使用一些简单的运算符表达式：
 
