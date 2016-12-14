@@ -54,7 +54,7 @@ html {
   max-height: 100%; }
 
 body {
-  font-family: "PT Serif", Georgia, Times, "Times New Roman", serif, "Pingfang CS",  "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif, "ff-tisa-web-pro-1", "ff-tisa-web-pro-2", "Lucida Grande", "Hiragino Sans GB", "Hiragino Sans GB W3";
+  font-family: "Roboto","Calibri","PT Serif", Georgia, Times, "Times New Roman", serif, "Pingfang CS",  "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif, "ff-tisa-web-pro-1", "ff-tisa-web-pro-2", "Lucida Grande", "Hiragino Sans GB", "Hiragino Sans GB W3";
   font-size: 1.1em;
   color: #666666;
   -webkit-font-smoothing: antialiased; }
@@ -83,7 +83,7 @@ h5,
 h5 {
   margin-top: 1.0em;
   margin-bottom: .5em;
-  font-family: "PT Serif", Georgia, Times, "Times New Roman", serif, "Pingfang CS",  "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif, "ff-tisa-web-pro-1", "ff-tisa-web-pro-2", "Lucida Grande", "Hiragino Sans GB", "Hiragino Sans GB W3";
+  font-family: "Roboto","Calibri","PT Serif", Georgia, Times, "Times New Roman", serif, "Pingfang CS",  "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif, "ff-tisa-web-pro-1", "ff-tisa-web-pro-2", "Lucida Grande", "Hiragino Sans GB", "Hiragino Sans GB W3";
   font-weight: lighter;
   color: #333333;
   -webkit-font-smoothing: antialiased; }
@@ -122,7 +122,7 @@ em {
 blockquote {
   padding: 10px 20px;
   margin: 0 0 20px;
-  font-family: "PT Serif", Georgia, Times, "Times New Roman", serif, "Pingfang CS",  "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif, "ff-tisa-web-pro-1", "ff-tisa-web-pro-2", "Lucida Grande", "Hiragino Sans GB", "Hiragino Sans GB W3";
+  font-family: "Roboto","Calibri","PT Serif", Georgia, Times, "Times New Roman", serif, "Pingfang CS",  "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif, "ff-tisa-web-pro-1", "ff-tisa-web-pro-2", "Lucida Grande", "Hiragino Sans GB", "Hiragino Sans GB W3";
   font-weight: lighter;
   font-size: 1.1em;
   border-left: 3px solid #BF1827; }
@@ -227,7 +227,7 @@ td:last-child {
   color: #999999; }
 
 .intro {
-  font-family: "PT Serif", Georgia, Times, "Times New Roman", serif, "Pingfang CS",  "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif, "ff-tisa-web-pro-1", "ff-tisa-web-pro-2", "Lucida Grande", "Hiragino Sans GB", "Hiragino Sans GB W3";
+  font-family: "Roboto","Calibri","PT Serif", Georgia, Times, "Times New Roman", serif, "Pingfang CS",  "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif, "ff-tisa-web-pro-1", "ff-tisa-web-pro-2", "Lucida Grande", "Hiragino Sans GB", "Hiragino Sans GB W3";
   font-size: 1.3em;
   font-weight: lighter;
   color: #999999; }
@@ -358,7 +358,7 @@ hr {
   color: #FFF; }
 
 .panel-subtitle {
-  font-family: "PT Serif", Georgia, Times, "Times New Roman", serif, "Pingfang CS",  "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif, "ff-tisa-web-pro-1", "ff-tisa-web-pro-2", "Lucida Grande", "Hiragino Sans GB", "Hiragino Sans GB W3";
+  font-family: "Roboto","Calibri","PT Serif", Georgia, Times, "Times New Roman", serif, "Pingfang CS",  "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif, "ff-tisa-web-pro-1", "ff-tisa-web-pro-2", "Lucida Grande", "Hiragino Sans GB", "Hiragino Sans GB W3";
   font-size: 1.3em;
   font-weight: lighter;
   letter-spacing: 3px;
