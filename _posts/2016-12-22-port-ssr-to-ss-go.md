@@ -6,7 +6,7 @@ description: 将SSR的混淆和协议插件移植到Go的实现
 tags: Go GFW shadowsocks
 ---
 
-这几天断断续续地移植着SSR的一个混淆插件tls1.2_ticket_auth，至今仍然没能正常工作起来，忧郁啊。稍微记录一点读[ss-go](https://github.com/shadowsocks/shadowsocks-go)和[ssr](https://github.com/breakwa11/shadowsocks-csharp)/[ssr-libev](https://github.com/breakwa11/shadowsocks-libev)的代码所得，以便日后翻阅。
+这几天断断续续地移植着SSR的一个混淆插件tls1.2_ticket_auth，至今仍然没能正常工作起来，忧郁啊。稍微记录一点读[ss-go](https://github.com/shadowsocks/shadowsocks-go)和[ssr-csharp](https://github.com/breakwa11/shadowsocks-csharp)/[ssr-libev](https://github.com/breakwa11/shadowsocks-libev)的代码所得，以便日后翻阅。
 
 本身ss协议的定义已经有公开的[文档](http://shadowsocks.org/en/spec/protocol.html)了，很简单，每个客户端连接服务端时，最开始是一串随机数iv，长度依不同的加密算法而不同，加密算法本身以及算法使用的key而是由用户自己保证客户端和服务端一致。之后是1个字节的目标地址类型，目前有3种，分别是IPv4，IPv6和域名，再之后是分别是4字节，16字节和255字节长的目标地址，接着2字节长的目标端口，然后才是真正的数据，这数据是经过加密的。
 
