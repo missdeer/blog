@@ -15,3 +15,7 @@ tags: Go GFW shadowsocks
 ----
 
 目前C#版支持的混淆方法我这儿算是都支持了，就协议部分还在头疼中。等把最新的3个协议实现后，我打算把avege开源出去。昨天看到原版ss libev版加入了obfs4实现，Surge据说也支持了，我觉得obfs4的实现比较累，先暂时不考虑吧。
+
+----
+
+现在在Win7/8/10上要用Wireshark抓本地回环的包，用Winpcap开混杂模式不行了，得装[npcap](https://github.com/nmap/npcap)，起源据说是几年前中国[某位学生](https://github.com/hsluoyz)的GSoC项目，佩服。
