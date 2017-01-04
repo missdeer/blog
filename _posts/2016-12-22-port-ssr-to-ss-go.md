@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "SSR混淆插件Go版移植手记（一）"
+title: "SSR混淆协议Go版移植手记（一）"
 categories: Shareware
 description: 将SSR的混淆和协议插件移植到Go的实现
 tags: Go GFW shadowsocks

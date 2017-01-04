@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "SSR混淆插件Go版移植手记（四）"
+title: "SSR混淆协议Go版移植手记（四）"
 categories: Shareware
 description: 完成auth_sha1_v4, auth_aes128_md5, auth_aes128_sha1
 tags: Go GFW shadowsocks

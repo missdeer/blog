@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "SSR混淆插件Go版移植手记（三）"
+title: "SSR混淆协议Go版移植手记（三）"
 categories: Shareware
 description: 完成http_simple/http_post/random_head混淆插件
 tags: Go GFW shadowsocks

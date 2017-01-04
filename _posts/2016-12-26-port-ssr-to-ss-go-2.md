@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "SSR混淆插件Go版移植手记（二）"
+title: "SSR混淆协议Go版移植手记（二）"
 categories: Shareware
 description: tls1.2_ticket_auth混淆功能完成了
 tags: Go GFW shadowsocks
