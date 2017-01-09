@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Raspbian上安装使用华为E8372"
-categories: Life
+categories: embed
 description: 最近情况
 tags: Gitea Raspbian USB
 ---
