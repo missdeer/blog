@@ -3,6 +3,8 @@ title: 文章列表
 layout: page
 ---
 
+共 {{  site.posts.size  }} 篇文章：
+
 <ul class="listing">
 {% for post in site.posts %}
   {% capture y %}{{post.date | date:"%Y"}}{% endcapture %}
