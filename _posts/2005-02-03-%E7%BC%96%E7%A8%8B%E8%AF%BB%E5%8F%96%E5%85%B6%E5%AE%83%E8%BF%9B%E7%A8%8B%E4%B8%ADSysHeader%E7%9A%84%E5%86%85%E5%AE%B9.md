@@ -7,7 +7,7 @@ description: 编程读取其它进程中SysHeader的内容
 tags: 
 ---
 
-\begin{verbatim}
+```cpp
 void __fastcall TMainForm::GetHeaderContent()
 {
         //TODO: Add your source code here
@@ -61,4 +61,4 @@ void __fastcall TMainForm::GetHeaderContent()
       CloseHandle(hProcess);
     }
 }
-\end{verbatim}
+```

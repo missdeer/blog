@@ -13,4 +13,4 @@ tags:
 
 反正得想办法弄个稳定点的空间来~~~
 
-先放出个链接来：\url{http://missdeer.spymac.net/soft/LLYFSpy.rar}
+先放出个链接来：http://missdeer.spymac.net/soft/LLYFSpy.rar

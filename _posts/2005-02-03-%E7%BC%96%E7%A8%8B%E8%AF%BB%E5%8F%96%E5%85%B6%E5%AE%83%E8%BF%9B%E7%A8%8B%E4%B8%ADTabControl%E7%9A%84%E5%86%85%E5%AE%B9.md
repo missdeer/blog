@@ -7,7 +7,7 @@ description: 编程读取其它进程中TabControl的内容
 tags: 
 ---
 
-\begin{verbatim}
+```cpp
 void __fastcall TMainForm::GetTabControlContent()
 {
         //TODO: Add your source code here
@@ -60,4 +60,4 @@ void __fastcall TMainForm::GetTabControlContent()
       CloseHandle(hProcess);
     }
 }
-\end{verbatim}
+```

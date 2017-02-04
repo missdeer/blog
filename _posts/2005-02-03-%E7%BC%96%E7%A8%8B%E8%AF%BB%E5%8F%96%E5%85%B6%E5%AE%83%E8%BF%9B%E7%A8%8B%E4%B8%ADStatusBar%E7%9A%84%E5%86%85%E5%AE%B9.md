@@ -7,7 +7,7 @@ description: 编程读取其它进程中StatusBar的内容
 tags: 
 ---
 
-\begin{verbatim}
+```cpp
 void __fastcall TMainForm::GetStatusBarContent()
 {
         //TODO: Add your source code here
@@ -50,4 +50,4 @@ void __fastcall TMainForm::GetStatusBarContent()
       CloseHandle(hProcess);
     }
 }
-\end{verbatim}
+```

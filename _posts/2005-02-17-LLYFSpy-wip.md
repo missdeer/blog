@@ -15,7 +15,7 @@ tags:
 
 今天偶然发翻看到以前在论坛上看到修改BCB/Delphi 程序的任务栏菜单的帖子，于是把代码贴来用用，真的不错，以前写程序时，总是觉得任务栏菜单上缺了几项，感觉怪怪的。现在好了，像其它用VC，GCC写的程序一样了，作者已经不知道是哪位了，在这里先感激一下，代码如下：
 
-\begin{verbatim}
+```cpp
 class TForm1 : public TForm
 {
 __published: // IDE-managed Components
@@ -55,5 +55,6 @@ void __fastcall TForm1::FormShow(TObject *Sender)
 {
     ShowWindow(Application->Handle, SW_HIDE);
 }
-\end{verbatim}
-如果程序只有这么一个自己写的窗体，这样就行了，如果要有其它的弹出的比如ModalDialog 时，还要在Show 的时候稍微加点代码。这样，就比较完美了\textasciicircum\_\textasciicircum 
+```
+
+如果程序只有这么一个自己写的窗体，这样就行了，如果要有其它的弹出的比如ModalDialog 时，还要在Show 的时候稍微加点代码。这样，就比较完美了@_@

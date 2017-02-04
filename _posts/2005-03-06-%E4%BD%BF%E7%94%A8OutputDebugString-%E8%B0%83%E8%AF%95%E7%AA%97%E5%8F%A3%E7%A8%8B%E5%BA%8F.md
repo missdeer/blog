@@ -16,11 +16,11 @@ tags:
 
 于是，照着它的参考文档，自己写了个截获OutputDebugString 输出的程序LLYF DebugCapture。
 
-DebugCapture 完全按照这份文档(\url{http://www.unixwiz.net/techtips/outputdebugstring.html})中的方法来捕捉调试输出：
+DebugCapture 完全按照[这份文档](http://www.unixwiz.net/techtips/outputdebugstring.html)中的方法来捕捉调试输出：
 
 先建立一个新线程，在线程中循环：
 
-\begin{verbatim}
+```cpp
 void __fastcall TCaptureDBString::Execute()
 {
     /****************************************************************************
@@ -97,20 +97,22 @@ void __fastcall TCaptureDBString::Execute()
            LeaveCriticalSection(&CriticalSection);
         }
 }
-\end{verbatim}
+```
+
 其中用于内存映射进行数据传递的结构如下：
 
-\begin{verbatim}
+```cpp
 struct dbwin_buffer {
         DWORD   dwProcessId;
         char    data[4096-sizeof(DWORD)];
 };
-\end{verbatim}
+```
+
 这样，我也可以不用借助其它debugger 进行像DOS 下的调试了。
 
 如果要更像printf 一点，还可以对OutputDebugString 加上一个Wrapper：
 
-\begin{verbatim}
+```cpp
 #include <stdio.h>
 #include <stdarg.h>
 /*************************************************
@@ -128,5 +130,6 @@ void OutputDebugPrintf(LPCTSTR ptzFormat, ...)
  OutputDebugString(tzText);
  va_end(vlArgs);
 }
-\end{verbatim}
+```
+
 调用OutputDebugPrintf 就可以像printf 进行格式化输出了，哈哈。

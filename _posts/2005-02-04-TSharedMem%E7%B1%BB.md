@@ -7,7 +7,7 @@ description: TSharedMem类
 tags: 
 ---
 
-\begin{verbatim}
+```cpp
 /// SharedMem.h
 
 class TSharedMem
@@ -164,4 +164,4 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
  if (!SharedMem.IsUnique()) return 0; //判断不是唯一的，就退出
   ................
 }
-\end{verbatim}
+```

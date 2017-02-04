@@ -7,8 +7,9 @@ description: 关于OutputDebugString 的模拟
 tags: 
 ---
 
-从\url{http://www.unixwiz.net/techtips/outputdebugstring.html}这篇文章中可以知道，通过简单的几步设置，便可模拟OutputDebugString，可以用下面的代码描述：
-\begin{verbatim}
+从[这篇文章](http://www.unixwiz.net/techtips/outputdebugstring.html)中可以知道，通过简单的几步设置，便可模拟OutputDebugString，可以用下面的代码描述：
+
+```cpp
 struct dbwin_buffer {
         DWORD   dwProcessId;
         char    data[4096-sizeof(DWORD)];
@@ -47,5 +48,6 @@ void MyOutputDebugString(LPCTSTR lpOutputString)
       ReleaseMutex(hMutex);  
     }                         //if(hMutex != NULL)
 }
-\end{verbatim}
+```
+
 但，事实上，我在VS.NET2003 的环境下，并不能向它的debugger 输出任何内容，而且检测到并没有这个内存映射区域，也没有这2个Event，但同时，它仍能很好地拦截系统OutputDebugString 的输出，看来它是通过API Hook 之类的其它手段了。但我没有验证，尽管上面这段代码和OutputDebugString 产生的输出都能很好地被LLYF DebugCapture 这些程序拦截到。
