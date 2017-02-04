@@ -13,4 +13,4 @@ tags:
 
 其实很多时候，都是使用者自己的问题啊！Just take a screen snap！
 
-\includegraphics[width=15cm]{ph.jpg}
+[![](/assets/csdn/ph.jpg)]
