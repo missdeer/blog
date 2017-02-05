@@ -61,16 +61,15 @@ BYTE * TSharedMem::Buffer()
 }
 
 ///  end of SharedMem.cpp
-\end{verbatim}
-TSharedMem类，可以根据构造函数的参数，进行创建或打开相应的内存映射文件。
+```
+
+`TSharedMem`类，可以根据构造函数的参数，进行创建或打开相应的内存映射文件。
 
 内存映射文件可用于进程间数据共享。数据共享带来的便利，可从这2个例子中看出。
 
-
-
 1、进程间传递数据。这是在一例用远程线程注入DLL进行Edit框字符探测。
 
-\begin{verbatim}
+```cpp
 /// dllmain.cpp
 
 #include <Windows.h>
@@ -109,12 +108,13 @@ void GetPassword()
   
  }
 }
-\end{verbatim}
-上面，导出函数GetPassword 从共享内存中获知Edit 窗口句柄，然后发送消息探测Edit 窗口中的Text，再将Text 写回共享内存。这个程序可用VC2003 编译生成dll 文件。
+```
+
+上面，导出函数`GetPassword`从共享内存中获知Edit 窗口句柄，然后发送消息探测Edit 窗口中的Text，再将Text 写回共享内存。这个程序可用VC2003 编译生成dll 文件。
 
 下面，是宿主程序将DLL 文件注入被探测进程内，并通过共享内存将被探测Edit 窗口句柄传递过去，程序可在BCB6 中编译：
 
-\begin{verbatim}
+```cpp
 void __fastcall TMainForm::GetEditContent()
 {
     char chBuffer[65535];
@@ -150,10 +150,11 @@ void __fastcall TMainForm::GetEditContent()
     ContentMemo->Lines->Add(chBuffer);
     CaptionEdit->Text = chBuffer;
 }
-\end{verbatim}
-2、创建单一实例进程。这是TSharedMem 类出现的最原始的动机和目的。只要在WinMain 开头添加这么几句：
+```
 
-\begin{verbatim}
+2、创建单一实例进程。这是`TSharedMem`类出现的最原始的动机和目的。只要在`WinMain`开头添加这么几句：
+
+```cpp
 int APIENTRY _tWinMain(HINSTANCE hInstance,
    HINSTANCE hPrevInstance,
    LPTSTR    lpCmdLine,
