@@ -25,7 +25,7 @@ blog_button:
 nav:
     - {title: 索引, description: 所有博客文章索引, url: '/fulllist', target: '_self'}
     - {title: 链接, description: 友情链接, url: '/links', target: '_self'}
-    - {title: 关于, description: 关于这个博客, url: '/about', target: '_self'}
+    - {title: 关于, description: 关于这个博客关于我, url: '/about', target: '_self'}
 
 # Pagination
 gems: [jekyll-paginate]
