@@ -6,8 +6,8 @@ layout: default
   <header class="post-header">
     <div class="post-meta">
       <time datetime="{{page.date | date: date_to_xmlschema}}" itemprop="datePublished" class="post-meta__date date">{{page.date | date: "%F"}}</time>
-      {% if page.categories %}&#8226; <span class="tags">In category {% for cat in page.categories %}<a href="/categories/#{{ cat }}" title="{{ cat }}">{{ cat }}</a>&nbsp;{% endfor %}</span>{% endif %}
-      {% if page.tags %}&#8226; <span class="tags">Tagged with {% for tag in page.tags %}<a href="/tags/#{{ tag }}" title="{{ tag }}">{{ tag }}</a>&nbsp;{% endfor %}</span>{% endif %}
+      {% if page.categories.size > 0 %}&#8226; <span class="tags">In category {% for cat in page.categories %}<a href="/categories/#{{ cat }}" title="{{ cat }}">{{ cat }}</a>&nbsp;{% endfor %}</span>{% endif %}
+      {% if page.tags.size > 0 %}&#8226; <span class="tags">Tagged with {% for tag in page.tags %}<a href="/tags/#{{ tag }}" title="{{ tag }}">{{ tag }}</a>&nbsp;{% endfor %}</span>{% endif %}
       &#8226; <span class="tags"><a href="/fulllist/" title="全部文章列表">全部文章列表</a></span>
     </div>
     <h1 class="post-title">{{ page.title }}</h1>
