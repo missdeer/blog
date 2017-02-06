@@ -13,6 +13,10 @@ layout: commentablepage
 
 停了近1年半没写博客，2014年终于找到一个比较满意的Jekyll theme，在github上重新开始写blog，继续记流水账。
 
+## 关于我
+
+我的简历在[这里](https://resume.minidump.info/)。
+
 <link rel="stylesheet" type="text/css" href="https://dn-istkani.qbox.me/css/pay.css">
 <section class="read-more">
 <div>

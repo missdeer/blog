@@ -23,7 +23,7 @@ blog_button:
 
 # Navigation buttons in the front page.
 nav:
-    - {title: 简历, description: 我的简历, url: 'https://resume.minidump.info', target: '_blank'}
+    - {title: 索引, description: 所有博客文章索引, url: '/fulllist', target: '_self'}
     - {title: 链接, description: 友情链接, url: '/links', target: '_self'}
     - {title: 关于, description: 关于这个博客, url: '/about', target: '_self'}
 
