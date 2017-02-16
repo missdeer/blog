@@ -3,7 +3,7 @@ layout: post
 title: "设备对局域网网速的影响"
 categories: network
 description: 路由器、网关等设备对局域网网速的影响
-tags: Router Gateway LAN raspberrypi
+tags: Router gateway LAN raspberrypi
 ---
 
 屋里的网络突然变得很慢，连打开百度首页、电信首页都非常吃力，转圈很久仍然有不少图片不能加载出来，重启了光猫和所有路由器，仍然没有改善，最后是通过打电话给电信客服，让客服在他们那边重启了一下什么设备或是线路才搞定。
