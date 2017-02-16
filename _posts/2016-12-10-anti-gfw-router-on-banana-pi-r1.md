@@ -3,7 +3,7 @@ layout: post
 title: "用Banana Pi R1做一个翻墙路由器"
 categories: Router
 description: 用Banana Pi R1做一个翻墙路由器
-tags: Router gfw ARM BananaPi
+tags: Router GFW ARM BananaPi
 ---
 
 前面一直在说要把极路由和树莓派换掉，其实这个念头有很久很久了，最早是一年多前就想攒个小主机或家庭服务器，由于NUC、Gen8的价格远远超出我的预算，所以后来就考虑像占美之类的小主机，还是觉得贵，再后来考虑过二手的Atom主板来组，在淘宝翻了几天，觉得水很深，想来想去还是ARM板比较合适，偶然发现[Banana Pi R1](http://www.banana-pi.org.cn/r1.html)这块ARM板，CPU和内存其实跟最新版的树莓派从数据上看差不多，但关键是它有千兆网口，而且是5个口，1个WAN和4个LAN口！然后偶然发现了[Banana Pi的官方Telegram群](https://telegram.me/bananapicn)，询问了一些我关心的问题后，觉得R1是很适应我的需求，于是上淘宝买一块，昨天收到，包括一块板子，一块散热片，一块TF卡，一个输出5V3A DC的电源。贪便宜在另一家拍了一个外壳，快一周了也没发货，郁闷。

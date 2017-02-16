@@ -3,7 +3,7 @@ layout: post
 title: "让Qt的sqlite插件支持REGEXP查询"
 categories: Qt
 description: 让Qt的sqlite插件支持REGEXP查询
-tags: Qt sqlite
+tags: Qt Sqlite3
 ---
 仍然是日志查看程序，突然想要加个按正则表达式的查询，记得sqlite是支持REGEXP的，不过sqlite[官方文档](https://www.sqlite.org/lang_expr.html)上说了，需要程序自己提供一个进行正则匹配的函数，然后调用`sqlite3_create_function`来实现。
 
