@@ -25,4 +25,5 @@ layout: page
     <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
   </li>
 {% endfor %}
+  <li class="listing-seperator">我在 {{ year }} 年共写了 {{ counter }} 篇文章</li>
 </ul>
