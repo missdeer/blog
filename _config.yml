@@ -1,9 +1,9 @@
 # Basic
 title: 类库大魔王的日常
 subtitle: 一本流水帐
-welcome_message: "C++/Golang, Windows/Linux/macOS, server/client development"
+welcome_message: "C++/Golang, Windows/Linux/macOS, iOS/Android, server/client development"
 description: 各种吐槽，倒苦水，开坑，立Flag。毫无营养，慎入！
-creator: <a href="https://minidump.info">@missdeer</a>
+creator: <a href="https://minidump.info" target="_blank">@missdeer</a>
 author: 类库大魔王/missdeer
 
 url: "https://blog.minidump.info"
