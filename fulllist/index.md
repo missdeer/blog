@@ -16,7 +16,6 @@ layout: page
       <li class="listing-seperator">我在 {{ year }} 年共写了 {{ counter }} 篇文章</li>
       <hr class="post-list__divider">
     {% endif %}
-    <li class="listing-seperator">{{ y }}</li>
     {% assign year = y %}
     {% assign counter = 0 %}
   {% endif %}
