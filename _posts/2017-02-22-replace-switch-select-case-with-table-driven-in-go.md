@@ -1,12 +1,12 @@
 ---
 layout: post
-title: "用表驱动替换if-else/switch-case/select-case"
+title: "Go语言用表驱动替换if-else/switch-case/select-case"
 categories: Go
-description: 用表驱动替换if-else/switch-case/select-case
+description: Go语言用表驱动替换if-else/switch-case/select-case
 tags: avege Go
 ---
 
-没心情给avege做新功能，就断断续续做些重构工作，用[gocyclo](https://github.com/fzipp/gocyclo)看出来很多函数的圈复杂度都很高，常规的做法，除了把一个大函数拆成几个小函数外，还要对代码逻辑进行调整，比较可观的做法是把`if-else`，`switch-case`和`select-case`替换掉。
+没心情给[avege](https://github.com/avege/avege)做新功能，就断断续续做些重构工作，用[gocyclo](https://github.com/fzipp/gocyclo)看出来很多函数的圈复杂度都很高，常规的做法，除了把一个大函数拆成几个小函数外，还要对代码逻辑进行调整，比较可观的做法是把`if-else`，`switch-case`和`select-case`替换掉。
 
 Go对C的`switch-case`结构做了扩展，`switch`后的表达式值除了可以是整形外，还可以是字符串，`case`后可以同时接几个常量值，这使得我这样有多年C/C++使用经历的人一下子很喜欢用`switch-case`:
 
