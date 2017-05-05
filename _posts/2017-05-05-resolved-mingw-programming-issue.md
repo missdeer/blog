@@ -31,7 +31,7 @@ tags: MinGW
 
   这是因为Lua源代码中定义的函数名`LoadString`跟Windows SDK中的宏LoadString冲突了，可以通过在lundump.c文件开头处添加：
 
-  ```
+  ```cpp
   #ifdef _WIN32
     #pragma push_macro("LoadString")
     #undef LoadString
@@ -40,7 +40,7 @@ tags: MinGW
 
   结尾处添加：
 
-  ```
+  ```cpp
   #ifdef _WIN32
     #pragma pop_macro("LoadString")
   #endif
