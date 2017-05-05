@@ -65,3 +65,7 @@ tags: MinGW
 ----
 
 另外，通过msys2安装的Qt可以直接使用msys2安装的库，比如quazip依赖的zlib，可以直接使用`pacman -S mingw-w64-x86_64-zlib`安装，之后`LIBS += -lz`即可，其他的诸如Boost，Lua之类的也可以如此直接使用。
+
+----
+
+最后我想说的是，用MinGW编译出来的程序运行起来似乎比用MSVC编译出来的程序运行要慢，肉眼可见的慢。
