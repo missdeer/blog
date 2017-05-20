@@ -20,7 +20,7 @@ tags: Boost
 
   {% gist missdeer/70446cefa67602e1c9800dc0b4ec6bc0 %}
 
-* Android平台的最复杂，昨天晚上折腾到12点多，今天又折腾了一个白天，终于搞定。网上有许多各种方案，在Linux，Windows，macOS上都有，我在Windows 10上折腾了很多次都不行，最后在macOS上成功了。首先，仍然是先构建bjam：
+* Android平台的搞了很久，昨天晚上折腾到12点多，今天又折腾了一个白天，终于搞定。网上有许多各种方案，在Linux，Windows，macOS上都有，我在Windows 10上折腾了很多次都不行，最后在macOS上成功了。首先，仍然是先构建bjam：
 
   ```shell
   ./bootstrap.sh
@@ -31,8 +31,12 @@ tags: Boost
   ```
   import option ; 
     
-  using gcc : intel : i686-linux-android-g++.exe ;
-  using gcc : arm : arm-linux-androideabi-g++.exe ;
+  using gcc : x86 : i686-linux-android-g++ ;
+  using gcc : x86_64 : x86_64-linux-android-g++ ;
+  using gcc : mipsel : mipsel-linux-android-g++ ;
+  using gcc : mips64el : mips64el-linux-android-g++ ;
+  using gcc : aarch64 : aarch64-linux-android-g++ ;
+  using gcc : arm : arm-linux-androideabi-g++ ;
    
   option.set keep-going : false ; 
   ```
@@ -41,17 +45,10 @@ tags: Boost
 
   ```shell
   export androidNDKRoot=$HOME/android-ndk-r14b
-  export PATH=$androidNDKRoot/toolchains/arm-linux-androideabi-4.9/prebuilt/darwin-x86_64/bin/:$androidNDKRoot/toolchains/x86-4.9/prebuilt/darwin-x86_64/bin/:$PATH
   ```
 
   最后运行bjam进行编译：
 
-  ```shell
-  ./bjam link=static threading=multi threadapi=pthread target-os=android toolset=gcc-arm 
-  define=BOOST_MATH_DISABLE_FLOAT128 \
-  include=$androidNDKRoot/sources/cxx-stl/gnu-libstdc++/4.9/include \
-  include=$androidNDKRoot/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi/include \
-  include=$androidNDKRoot/platforms/android-21/arch-x86/usr/include
-  ```
+  {% gist missdeer/488f5e01cd21ea072770e33325fc58eb %}
 
-  这样可以编译出armeabi架构的静态库，如果要编译出x86版本的，把`toolset`改成`gcc-intel`即可，不过我没试过。
+  这样可以编译出armeabi等共6种目前官方NDK支持的架构的静态库。
