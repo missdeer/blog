@@ -13,6 +13,8 @@ layout: commentablepage
 
 停了近1年半没写博客，2014年终于找到一个比较满意的Jekyll theme，在github上重新开始写blog，继续记流水账。
 
+2017年8月将Pages托管到Coding.net，以期在中国大陆能获得更好的访问速度。
+
 ## 关于我
 
 我的简历在[这里](https://resume.minidump.info/)。
