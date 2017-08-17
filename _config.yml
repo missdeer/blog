@@ -34,8 +34,10 @@ paginate_path: "page/:num/"
 
 # Comment
 comment:
-    disqus: missdeer
-    #duoshuo: missdeer
+    #disqus: missdeer
+    valine:
+        id: g0mzo0XbC3fdm9x3QozgEF45-gzGzoHsz
+        key: 5nIWNiYeU0fqd2YpoVzF4Bir
 
 # Social
 social:
