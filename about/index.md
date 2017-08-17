@@ -19,7 +19,7 @@ layout: commentablepage
 
 我的简历在[这里](https://resume.minidump.info/)。
 
-<link rel="stylesheet" type="text/css" href="https://dn-istkani.qbox.me/css/pay.css">
+<link rel="stylesheet" type="text/css" href="/css/pay.css">
 <section class="read-more">
 <div>
   <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
@@ -29,14 +29,14 @@ layout: commentablepage
     </button>
     <div id="QR" style="display: block;">
         <div id="wechat" style="display: inline-block">
-          <a href="https://dn-istkani.qbox.me/assets/images/wepay.jpg" class="fancybox" rel="group">
-          <img id="wechat_qr" src="https://dn-istkani.qbox.me/assets/images/wepay.jpg" alt="missdeer WeChat Pay">
+          <a href="/assets/images/wepay.jpg" class="fancybox" rel="group">
+          <img id="wechat_qr" src="/assets/images/wepay.jpg" alt="missdeer WeChat Pay">
           </a>
           <p>微信扫一扫</p>
         </div>
         <div id="wechat" style="display: inline-block">
-          <a href="https://dn-istkani.qbox.me/assets/images/alipay.jpg" class="fancybox" rel="group">
-          <img id="alipay_qr" src="https://dn-istkani.qbox.me/assets/images/alipay.jpg" alt="missdeer AliPay">
+          <a href="/assets/images/alipay.jpg" class="fancybox" rel="group">
+          <img id="alipay_qr" src="/assets/images/alipay.jpg" alt="missdeer AliPay">
           </a>
           <p>支付宝扫一扫</p>
         </div>
