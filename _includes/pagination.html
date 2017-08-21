@@ -2,20 +2,20 @@
 
 <nav class="pagination" role="navigation">
     {% if paginator.previous_page %}
-        <a class="newer-posts pagination__newer btn btn-small btn-tertiary" href="{{ paginator.previous_page_path }}#blog">&larr; 最近</a>
+        <a class="newer-posts pagination__newer btn btn-small btn-tertiary" href="{{ "{{ paginator.previous_page_path }}#blog" | prepend: site.baseurl }}" >&larr; 最近</a>
     {% endif %}
 
       {% if paginator.page == 1 %}
       <span class="pagination__page-number" style="line-height:2.5;">1</span>
       {% else %}
-      <a href="/#blog" style="line-height:2.5;">1</a>
+      <a href="{{ "/#blog" | prepend: site.baseurl }}" style="line-height:2.5;">1</a>
       {% endif %}
 
     {% for count in (2..paginator.total_pages) %}
       {% if count == paginator.page %}
       <span class="pagination__page-number" style="line-height:2.5;">{{count}}</span>
       {% else %}
-      <a href="/page/{{count}}/#blog" style="line-height:2.5;">{{count}}</a>
+      <a href="{{ "/page/{{count}}/#blog" | prepend: site.baseurl }}" style="line-height:2.5;">{{count}}</a>
       {% endif %}
     {% endfor %}
     <!--
