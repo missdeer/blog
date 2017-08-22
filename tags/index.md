@@ -15,13 +15,13 @@ layout: page
 {% for post in tag[1] %}
   <li class="listing-item">
   <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+  <a href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title }}">{{ post.title }}</a>
   </li>
 {% endfor %}
 {% endfor %}
 </ul>
 
-<script src="/media/js/jquery.tagcloud.js" type="text/javascript" charset="utf-8"></script>
+<script src={{ "/media/js/jquery.tagcloud.js" | prepend: site.baseurl }} type="text/javascript" charset="utf-8"></script>
 <script language="javascript">
 $.fn.tagcloud.defaults = {
     size: {start: 1, end: 1, unit: 'em'},
