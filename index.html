@@ -7,13 +7,13 @@ layout: default
   <ol class="post-list">
     {% for post in paginator.posts %}
     <li>
-      <h2 class="post-list__post-title post-title"><a href="{{ post.url }}" title="访问 {{ post.title }}">{{ post.title }}</a></h2>
+      <h2 class="post-list__post-title post-title"><a href="{{ post.url  | prepend: site.baseurl }}" title="访问 {{ post.title }}">{{ post.title }}</a></h2>
       <p class="excerpt">{{ post.content | strip_html | strip_newlines | truncate: 250 }}&hellip;</p>
       <div class="post-list__meta">
         <time datetime="{{post.date | date: date_to_xmlschema}}" class="post-list__meta--date date" style="line-height:2.5;">{{ post.date | date: "%F"}}</time>
         {% if post.categories.size > 0 %}<span class="post-list__meta--tags tags" style="line-height:2.5;">&#8226; In category {% for cat in post.categories %}<a href="{{ "/categories/#{{ cat }}" | prepend: site.baseurl }}" title="{{ cat }}">{{ cat }}</a>&nbsp;{% endfor %}</span>{% endif %}
         {% if post.tags.size > 0 %}<span class="post-list__meta--tags tags" style="line-height:2.5;">&#8226; Tagged with {% for tag in post.tags %}<a href="{{ "/tags/#{{ tag }}" | prepend: site.baseurl }}" title="{{ tag }}">{{ tag }}</a>&nbsp;{% endfor %}</span>{% endif %}
-        <a class="btn-border-small" href={{ post.url }}>全文阅读</a>
+        <a class="btn-border-small" href="{{ post.url  | prepend: site.baseurl }}">全文阅读</a>
       </div>
       <hr class="post-list__divider" />
     </li>
