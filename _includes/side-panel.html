@@ -1,11 +1,11 @@
-<header class="panel-cover {% if page.layout == 'post' or page.layout == 'page' or page.layout == 'commentablepage' or page.layout == 'notfound' %}panel-cover--collapsed{% endif %}" style="background-image: url('/assets/images/background-cover.jpg')">
+<header class="panel-cover {% if page.layout == 'post' or page.layout == 'page' or page.layout == 'commentablepage' or page.layout == 'notfound' %}panel-cover--collapsed{% endif %}" style="background-image: url({{"/assets/images/background-cover.jpg"  | prepend: site.baseurl }})">
   <div class="panel-main">
 
     <div class="panel-main__inner panel-inverted">
     <div class="panel-main__content">
 
-        <a href="{{ "/#blog" | prepend: site.baseurl }}" title="前往阅读 {{ site.title }} 的博客" class="blog-button"><img src="{{ "/assets/images/avatar.png" | prepend: site.baseurl }}" width="80" alt="{{ site.title }} logo" class="panel-cover__logo logo" /></a>
-        <h1 class="panel-cover__title panel-title"><a href="{{ "/#blog" | prepend: site.baseurl }}" title="前往阅读 {{ site.title }} 的博客" class="blog-button">{{ site.title }}</a></h1>
+        <a href="{{ "/#blog" | prepend: site.baseurl }}" title="前往阅读 {{ site.title }}" class="blog-button"><img src="{{ "/assets/images/avatar.png" | prepend: site.baseurl }}" width="80" alt="{{ site.title }} logo" class="panel-cover__logo logo" /></a>
+        <h1 class="panel-cover__title panel-title"><a href="{{ "/#blog" | prepend: site.baseurl }}" title="前往阅读 {{ site.title }}" class="blog-button">{{ site.title }}</a></h1>
         {% if site.subtitle %}
         <span class="panel-cover__subtitle panel-subtitle">{{site.subtitle}}</span>
         {% endif %}
