@@ -3,7 +3,7 @@ title: 关于这个博客
 layout: commentablepage
 ---
 
-从2003年开始写blog，最早在博客驱动，早已关闭，数据没导出。
+从2003年开始写blog，最早在博客驱动，早已关闭，数据没导出。（2018年1月17日，偶然发现csdn上有[归档](http://blog.csdn.net/missdeer/article/month/2004/10)，但每篇文章都只能看到最前面一部分，csdn真是太垃圾了。
 
 后来（2004年11月）csdn提供blog服务就开始在csdn上写，但是csdn的blog非常不稳定，在2006年时转移到blogspot。后来发现csdn上的blog账号被黑，有人在上面发了一堆广告，直接被运营商关闭，数据没导出。很久以后（2017年2月4日）偶然发现一个备份，于是导入。
 
