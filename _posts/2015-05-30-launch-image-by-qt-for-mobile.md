@@ -11,7 +11,7 @@ Qt for Mobile默认是用了一张纯黑的图片作为程序启动图片，所�
 
 在iOS上传统的做法，可以在Xcode上分别为第一种屏幕设置launch image。但是由于Qt for Mobile的特殊性，一旦用qmake重新生成了xcodeproj bundle，那些修改就丢失了，要再设置一遍，这样就比较麻烦。其实是有一劳永逸的办法的：
 
-- 首先，按Apple的要求生成各个屏幕对应launch image文件，文件名也要统一按要求的来，如图![](/media/2015-05-30/ioslaunchimagefiles.png)
+- 首先，按Apple的要求生成各个屏幕对应launch image文件，文件名也要统一按要求的来，如图![](../../../media/2015-05-30/ioslaunchimagefiles.png)
 - 然后，在Info.plist中设定launch image的文件名前缀
 
 ```xml
@@ -34,7 +34,7 @@ ios {
 
 在Android上是另外一种方法。
 
-- 首先，把图片文件放在android/res/drawable目录下，如图![](/media/2015-05-30/androidsplashscreen.png)
+- 首先，把图片文件放在android/res/drawable目录下，如图![](../../../media/2015-05-30/androidsplashscreen.png)
 - 然后，在android/res/layout目录下创建一个splash.xml文件，内容为
 
 ```xml
