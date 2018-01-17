@@ -22,7 +22,9 @@ $(document).ready(function() {
   if (window.location.hostname == "blog.minidump.info") {
       $('.coding-ann').removeClass('hidden');
       $('.coding-footer').removeClass('hidden');
-      $('.github-fotter').addClass('hidden');
+      $('.coding-post-url').removeClass('hidden');
+      $('.github-footer').addClass('hidden');
+      $('.github-post-url').addClass('hidden');
   }
 
   if (window.location.pathname.substring(0, 6) == "/tags/"
