@@ -15,7 +15,7 @@ layout: default
 
   <section class="post">
     {{ content }}
-    <p><strong>本文地址：</strong><pre class="highlight"><a href="{{ page.url | prepend: site.baseurl  }}">{{ site.url }}{{ page.url }}</a></pre></p>
+    <p><strong>本文地址：</strong><pre class="highlight"><a href="{{ page.url | prepend: site.baseurl  }}">{{ page.url | prepend: site.baseurl  }}</a></pre></p>
   </section>
 </article>
 
