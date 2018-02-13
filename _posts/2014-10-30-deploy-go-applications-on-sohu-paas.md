@@ -3,7 +3,7 @@ layout: post
 title: "部署Go程序到搜狐云景PaaS"
 categories: Go
 description: 部署Go程序到搜狐云景PaaS
-tags: Coding Cloud Go
+tags: coding Cloud Go
 ---
 之前注册了搜狐云景PaaS，被送了100元的券，不过当时看了一下发现不支付Go程序，于是就没玩下去了。前几天连续收到几封邮件，说钱要花完了，也没放在心上，觉得反正玩不了，就随它去吧。今天在v2ex上看到有人说可以免费送3个月的使用配额，于是又上后台看了一下，发现它居然使用限制那么少，可以自己在配置文件中指定要运行的程序路径，这样就可以部署Go程序了，立马把之前在京东云上部署的[ifconfig](http://ifconfig.jd-app.com)在搜狐云景上也部署了[一个](http://ifconfig.sohuapps.com)，感觉还不错。
 

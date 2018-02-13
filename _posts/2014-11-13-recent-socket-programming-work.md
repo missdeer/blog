@@ -3,7 +3,7 @@ layout: post
 title: "最近的网络开发工作"
 categories: Job
 description: 最近的socket开发工作
-tags: Coding socket asio
+tags: coding socket asio
 ---
 之前说过，我把一个项目中的程序线程数都尽量减少了，差不多就是一个程序用一个线程来跑一个event loop来服务所有socket，结果这几天发现似乎性能有点跟不上了。
 

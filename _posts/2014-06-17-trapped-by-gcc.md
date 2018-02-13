@@ -3,7 +3,7 @@ layout: post
 title: "被GCC坑了一把"
 categories: Job
 description: 被GCC坑了一把
-tags: Coding
+tags: coding
 ---
 前几日在重构一个小模块。这个模块的架构本来就很畸形，因为它被要求在不同的设备不同的平台不同的endpoint上运行不同的逻辑，却要做在一个模块里，能给用户一个.a或.lib就可以使用。于是第一版的实现中就有一个变量来区分当前endpoint是哪个，开始还好，后来越来越多的if条件判断endpoint来运行不同的逻辑，代码就丑到令我觉得恶心。于是我就蠢蠢欲动了好久，最后看重构的工作量也不是很大，就跟design这块的小leader打了个招呼开始重构了。
 

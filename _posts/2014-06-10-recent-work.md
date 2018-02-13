@@ -3,7 +3,7 @@ layout: post
 title: "近况"
 categories: Startup
 description: 最近正在关注的内容
-tags: Coding
+tags: coding
 ---
 忘了从何时起，就不太乐意写blog了，一直在长草。前两天从知乎网友Jim处扒来一个非常简洁明快的Jekyll theme，于是打算写点文字除除草。
 
