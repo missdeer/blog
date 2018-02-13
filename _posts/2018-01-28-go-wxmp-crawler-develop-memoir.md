@@ -3,7 +3,7 @@ layout: post
 title: "Go微信公众号爬虫踩坑实录"
 categories: Coding
 description: Go语言开发微信公众号爬虫踩坑实录
-tags: Golang
+tags: Go
 ---
 
 用Go开发微信公众号爬虫，踩到一些坑，记录如下。
