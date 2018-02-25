@@ -64,7 +64,7 @@ backend miaops
 
 ![work flow - https://www.plantuml.com/plantuml/svg/UDfjqh5Emp0G1k3TJ-6H3f58M_P2zmuL6-hWsYTYufoZyxc5ZQVXmNWIZgOf8OaKATRt_v5-IzaaDiIv2KgbscDho3GQeuETQU0n-5VK5f211d5bq9t9CmDgfWo3Y3q7U8haWFOnezj6GY1TFintdYjlQuIKT3bVsCOGIH-3iRLIEvcbJTi6RmtxYAcJb2Zu8vpqYvAZlfpLeSigqr9y_xWMWKv0fVGi5cLVwNGfokUnhaHp6kjQbF9ONUGamVVdbpp_8nH_QmiK7SxNHN4Rhswt4EnNNz-NNhVzZ-xk5xqkPtKr_NmzfT_LKqMbDe1EVeiVECc-cG00](../../../media/2018-02-23/haproxy-workflow.svg)
 
-可以通过浏览器打开`http://haproxy-ip/stats`查看HAProxy的运行状况：
+可以通过浏览器打开`http://haproxy-ip:8099/stats`查看HAProxy的运行状况：
 
 ![HAProxy stats](../../../media/2018-02-23/haproxy-stats.png)
 
