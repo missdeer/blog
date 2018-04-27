@@ -19,13 +19,30 @@ tags: Router BananaPi
 * DNS解析。内网资源的域名只有内网的DNS服务能解析，这也可以通过frp解决，在占美x86小主机上开一个非标准端口，比如6001，再通过[dnsmasq](https://github.com/imp/dnsmasq)把那几个内网域名指向该非标准端口就可以了，其他默认的不变：
 
 ```
-
+server=208.67.222.222#5353
+server=/.domain1.com/127.0.0.1#6001
+server=/.domain2.com/127.0.0.1#6001
+server=/.domain3.com/127.0.0.1#6001
+server=/.domain4.com/127.0.0.1#6001
+server=/.domain5.com/127.0.0.1#6001
+server=/.domain6.com/127.0.0.1#6001
 ```
 
 * 分流。本来已经在Banana Pi强制所有海外IP走代理，现在只要把内网资源的IP分流到占美主机上的socks5端口即可。在Banana Pi上编译一个[redsocks](https://github.com/darkk/redsocks)，redsocks可以把流量导到socks5端口。再修改一下iptables设置：
 
 ```
-
+-A SS -d 127.0.0.0/8 -j RETURN
+-A SS -d 192.168.0.0/16 -j RETURN
+-A SS -d 169.254.0.0/16 -j RETURN
+-A SS -d 172.16.0.0/12 -j RETURN
+-A SS -d 224.0.0.0/4 -j RETURN
+-A SS -d 240.0.0.0/4 -j RETURN
+-A SS -p tcp -d 10.0.0.0/8 -j REDIRECT --to-ports 58096
+-A SS -p tcp -d 173.36.0.0/14 -j REDIRECT --to-ports 58096
+-A SS -p tcp -d 172.0.0.0/8 -j REDIRECT --to-ports 58096
+-A SS -p tcp -d 171.70.124.0/14 -j REDIRECT --to-ports 58096
+-A SS -p tcp -d 72.163.0.0/16 -j REDIRECT --to-ports 58096
+-A SS -p tcp -j REDIRECT --to-ports 58097
 ```
 
 其中58096是redsocks开的端口，58097是统一海外代理。
