@@ -10,7 +10,7 @@ tags: Router BananaPi
 
 首先，找到一个用于搭建内网隧道的反向代理工具[frp](https://github.com/fatedier/frp)，通过它在家里开一个服务端，在公司开客户端，于是家里的机器上就有了一个socks5端口，通过该端口就可访问到公司内网的资源了。于是网络拓扑大体如下图所示：
 
-![https://www.umlgen.com/svg/UDfpA2v9B2efpStXvKhEoIzDKKZEpor8pAjKgERbKW22lFoKL8NopBoK_F9YXMY860YufERaFEtVy7HF_xCvkruiRWs7A34qW2Y9HTATcPkOZAmrqpSn6QwgbfSBPdD6VcugYhL5-QKbgKN8MfqIyu1G8I1J8UBfefaljgz_FcKZfeKU8G7EoBgUzYvulg-lmiBiwOR-9pjs0nsCgSSn05b7a9cnWK6PaKAufvidfbgNrBBCv5H352l0GV5yojONBHDnQJ12rl1ypPGNwpOycxC6lnvZ54jsRdusTpz-3Nue6YQqFD-u-rbdDxANmI4EYr5TNJjeCFDoWUC9MG0Q_heQ1fgwu4154t8CuEK2XXk40mqK314Z315Z314_NYw7rBmKO2e40A02n7C0](../../../media/2018-04-27/topo.svg)
+![https://www.umlgen.com/svg/UDfpA2v9B2efpStXvIhEpimhI2nAp5N8ICnBAI_AB2b9pLCeAIfDvULApialJL58piyjICohLAZcvL80Whpyb5I5yioybFpoOeLeY1W8kAJcv3pjt_1qJ_-pERjUB6uDXoWnD80eYKNIdPcRc8oiDTCtCHckgfQN2sPpHdvkAegrHVcb9Qb5o5gT4lE0K24WKo7YwQAPBxQlVpvb8wQ57Y41piYwdlOkUBwlhyB2xEc6_YSxTWCTZAd7CG1PHv2PiO51cP52kAUR9wPQbzIopEHKGnGhm47nVChM5oqJSMamGjRmVCsK5-isF9kp1hyUOnHBTcv-DdS_VWr-A1ecj3pVkFjPPpUoby4X3ejHNLqxQ33pSe7Z2La06lww6WQQkk10HHDo3E3b0eORX0CD50mH8mmHOmmHFrukXzIy560A1G0bkixu](../../../media/2018-04-27/topo.svg)
 
 我把服务端放在占美x86小主机上，Banana Pi只负责[拨号、路由和X墙](../../../2016/12/anti-gfw-router-on-banana-pi-r1/)。
 
