@@ -68,7 +68,6 @@ server=/.domain6.com/127.0.0.1#6001
 -A SS -d 127.0.0.0/8 -j RETURN
 -A SS -d 192.168.0.0/16 -j RETURN
 -A SS -d 169.254.0.0/16 -j RETURN
--A SS -d 172.16.0.0/12 -j RETURN
 -A SS -d 224.0.0.0/4 -j RETURN
 -A SS -d 240.0.0.0/4 -j RETURN
 -A SS -p tcp -d 10.0.0.0/8 -j REDIRECT --to-ports 58096
