@@ -16,7 +16,41 @@ tags: Router BananaPi
 
 有了隧道，我之前是写了一个pac文件，把公司常用的几个顶级域名全部走代理，浏览器之类能支持pac文件的程序就能工作了，但程序如果不支持pac文件就歇菜了。要实现无缝访问，还需要做几件事。
 
-* DNS解析。内网资源的域名只有内网的DNS服务能解析，这也可以通过frp解决，在占美x86小主机上开一个非标准端口，比如6001，再通过[dnsmasq](https://github.com/imp/dnsmasq)把那几个内网域名指向该非标准端口就可以了，其他默认的不变：
+* DNS解析。内网资源的域名只有内网的DNS服务能解析，这也可以通过frp解决，在占美x86小主机上开一个非标准端口，比如6001，加上之前说的反向代理，frp客户端侧的配置文件如下：
+
+```
+[common]
+server_addr = ip.address.at.home
+server_port = 7000
+
+[http_proxy_on_windows]
+type = tcp
+remote_port = 6001
+plugin = http_proxy
+use_encryption = true
+use_compression = true
+
+[socks5_proxy_on_windows]
+type = tcp
+remote_port = 6002
+plugin = socks5
+use_encryption = true
+use_compression = true
+
+[dns_proxy_on_windows1]
+type = udp
+remote_port = 6001
+local_ip = dns.server.ip1.at.company
+local_port = 53
+
+[dns_proxy_on_windows2]
+type = udp
+remote_port = 6002
+local_ip = dns.server.ip2.at.company
+local_port = 53
+```
+
+* 再通过[dnsmasq](https://github.com/imp/dnsmasq)把那几个内网域名指向该非标准端口就可以了，其他默认的不变：
 
 ```
 server=208.67.222.222#5353
