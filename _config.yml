@@ -23,7 +23,7 @@ blog_button:
 
 # Navigation buttons in the front page.
 nav:
-    - {title: 索引, description: 所有博客文章索引, url: '/fulllist', target: '_self'}
+    - {title: 归档, description: 所有博客文章归档, url: '/fulllist', target: '_self'}
     - {title: 链接, description: 友情链接, url: '/links', target: '_self'}
     - {title: 关于, description: 关于这个博客关于我, url: '/about', target: '_self'}
 
