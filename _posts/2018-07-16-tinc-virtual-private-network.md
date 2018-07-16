@@ -10,7 +10,7 @@ tags:
 
 经过近一天的折腾，终于把公司两台iMac，家里一台Linux HTPC，以及Linode东京1一台VPS用tinc连起来了。tinc的安装配置使用都非常简单，只不过网上的资料比较零散，有一些还是错的，其实只要看[linode的一篇文章](https://www.linode.com/docs/networking/vpn/how-to-set-up-tinc-peer-to-peer-vpn/)以及[tinc的官方文档](https://tinc-vpn.org/documentation/tinc.pdf)，基本能解决所有tinc相关问题。
 
-tinc的工作方式依赖于tuntap，现在的Linux发行版基本上都已经带了tuntap驱动，所以直接从官方仓库使用相应的命令安装tinc就能工作。在macOS上则需要自己安装一个tuntaposx驱动，可以通过`brew cask install tuntap`进行安装，也可以自己从[网上](http://tuntaposx.sourceforge.net/download.xhtml)下载安装包手动安装，甚至可能直接安装一个[tunnelblick](https://tunnelblick.net/)都会自动装一个驱动。如果用命令行`kextstat |grep -e tun -e tap` 看一下是否已经安装成功，如果没有任何输出，则需要自己安装，如果用`brew cask`或手动安装失败报错，则看一下`/Library/Extensions`目录是否有`tap.kext`和`tun.kext`两个目录，如果有，则通过以下命令装载：
+tinc的工作方式依赖于tuntap，现在的Linux发行版基本上都已经带了tuntap驱动，所以直接从官方仓库使用相应的命令安装tinc就能工作。在macOS上则需要自己安装一个tuntaposx驱动，可以通过`brew cask install tuntap`进行安装，也可以自己从[网上](http://tuntaposx.sourceforge.net/download.xhtml)下载安装包手动安装，甚至可能直接安装一个[tunnelblick](https://tunnelblick.net/)都会自动装一个驱动。可以用命令行`kextstat |grep -e tun -e tap` 看一下是否已经安装成功，如果没有任何输出，则需要自己安装，如果用`brew cask`或手动安装失败报错，则看一下`/Library/Extensions`目录是否有`tap.kext`和`tun.kext`两个目录，如果有，则通过以下命令装载：
 
 ```bash
 sudo kextload /LibraryExtensions/tap.kext
@@ -32,16 +32,21 @@ sudo mkdir -p /etc/tinc/netname/hosts
 `tinc-up`/`tinc-down`在Linux下和macOS下的命令也许略有不同，比如我的`tinc-up`在Linux下是这样的：
 
 ```bash
-
+#!/bin/sh
+ip link set $INTERFACE up
+ip addr add 192.168.88.3 dev $INTERFACE
+ip route add 192.168.88.0/24 dev $INTERFACE
 ```
 
 在macOS下则是这样的：
 
 ```bash
-
+#!/bin/sh
+ifconfig $INTERFACE 192.168.88.5 192.168.88.2 mtu 1500 netmask 255.255.255.0
+route add -net 192.168.88.5 192.168.88.2 255.255.255.0
 ```
 
-同样`tinc-down`也要使用平台相应的命令
+同样`tinc-down`也要使用平台相应的命令。
 
 然后在`/etc/tinc/netname/hosts`目录下，创建一个与`tinc.conf`文件中`Name`项的值相同的名字的文件，比如`Name = node1`，则创建文件名为`node1`。`node1`的内容主要大概是这样：
 
