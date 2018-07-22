@@ -1,6 +1,6 @@
 ---
 title: 分类
-layout: page
+layout: tagpage
 ---
 
 <div id='tag_cloud'>
@@ -20,5 +20,3 @@ layout: page
 {% endfor %}
 {% endfor %}
 </ul>
-
-{% include tagcloud.html %}
