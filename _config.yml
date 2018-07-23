@@ -42,10 +42,10 @@ comment:
 # Social
 social:
     home: https://minidump.info
-    weibo: missdeer
+    #    weibo: missdeer
     github: missdeer
     twitter: missdeerme
-    gplus: 105535865242455061069
+    #    gplus: 105535865242455061069
     mail: me@minidump.info
 
 # Google Analytics
