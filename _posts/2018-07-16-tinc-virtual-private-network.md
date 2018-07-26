@@ -3,7 +3,7 @@ layout: post
 title: "使用tinc构建虚拟专网"
 categories: network
 description: 使用tinc构建虚拟专网
-tags: 
+tags: tinc
 ---
 
 之前写过一篇文章讲如何[在家里无缝访问公司网络](../../../2018/04/access-internal-network-seamless/)，用的是[frp](https://github.com/fatedier/frp/)的方案，但正如使用[ngork](https://ngrok.com/)一样，frp也会莫名其妙地突然不工作，而且几乎没有什么错误信息可供调查。后来知道了有[zerotier](https://www.zerotier.com/)这个东西，相对来说还是比较稳定的，速度也凑合，免费额度可以在一个网络中添加最多100个设备，但是流量通过别人的服务器总归有点不爽，直到最近知道了[tinc](https://www.tinc-vpn.org/)这个东西，可用于创建点对点的虚拟专网。
