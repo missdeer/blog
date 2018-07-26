@@ -21,7 +21,10 @@
     如果你看不到评论框，说明Disqus又被墙了……
   {% elsif site.comment.valine.id %}
     <script type="text/javascript" src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <!--
     <script type="text/javascript" src="https://panjunwen.com/assets/js/Valine.min.js"></script>
+    -->
+    <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
     <div id="comments" class="comments"></div>
     <script>
       new Valine({
@@ -30,8 +33,8 @@
           smiles_url: 'https://blog.minidump.info/media/smiles',
           notify: false,
           verify: false,
-          app_id: '{{ site.comment.valine.id }}',
-          app_key: '{{ site.comment.valine.key }}',
+          appId: '{{ site.comment.valine.id }}',
+          appKey: '{{ site.comment.valine.key }}',
           placeholder: '随便说两句吧~'
       });
     </script>
