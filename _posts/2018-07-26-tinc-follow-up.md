@@ -22,6 +22,18 @@ Subnet = 192.168.66.0/24
 sudo tincd -n bignet -kHUP
 ```
 
+设置流量转发，修改`/etc/sysctl.conf`：
+
+```
+net.ipv4.ip_forward=1
+```
+
+执行以下命令使其生效：
+
+```bash
+sudo sysctl -p
+```
+
 修改路由器`192.68.66.1`上的静态路由：
 
 ```bash
