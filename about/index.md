@@ -17,7 +17,7 @@ layout: commentablepage
 
 ## 关于我
 
-我的简历在[这里](https://resume.minidump.info/)。
+我的简历在[这里](https://minidump.info/fanresume/)。
 
 <link rel="stylesheet" type="text/css" href="{{ "/css/pay.css" | prepend: site.baseurl }}">
 <section class="read-more">
