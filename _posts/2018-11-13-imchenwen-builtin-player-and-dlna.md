@@ -12,6 +12,16 @@ tags: Qt MPV DLNA
 
 于是翻出一年半前就停滞开发的imchenwen，经过三周的折腾，基本实现了内置播放器和DLNA投屏的功能。目前内置播放器功能比较完善，可以流畅观看绝大多数的视频包括电视直播，DLNA投屏倒是能投了，但是进度条要么不好拖，要么干脆不能拖，不过目前勉强够用了。
 
+一些screenshots：
+
+![内置播放器](../../../media/2018/11/13/builtinplayer.jpg)
+
+![选项设置](../../../media/2018/11/13/configuration.png)
+
+![电视直播](../../../media/2018/11/13/livetv.png)
+
+![地址解析](../../../media/2018/11/13/resolved.png)
+
 大概说一下开发要点：
 
 1. 内置播放器是通过引入libmpv解决的，github上有libmpv官方的Qt使用的[示例](https://github.com/mpv-player/mpv-examples/tree/master/libmpv/qt_opengl)，非常简单易用，但是用老式的被deprecated的opengl-cb接口，新的render API用法官方示例是没有，但我通过看另一个项目[MoonPlayer](https://github.com/coslyk/moonplayer)的用法，再自己连蒙带猜也试出来了，不直接用那代码的原因是imchenwen是基于QWidget的实现，MoonPlayer是基于QML的实现。后来发现另外有个[Media Player Classic Qute Theater](https://github.com/cmdrkotori/mpc-qt)的项目，就是直接用QWidget+render API的实现的，看到得晚了。
