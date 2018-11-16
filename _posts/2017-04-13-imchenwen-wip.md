@@ -3,7 +3,7 @@ layout: post
 title: "imchenwen WIP"
 categories: Shareware
 description: imchenwen开发进度
-tags: Qt Boost
+tags: Qt Boost imchenwen
 ---
 
 imchenwen的进展不快，这段时间主要在做两件事：

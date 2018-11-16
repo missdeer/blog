@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "新坑：imchenwen，用外部播放器观看在线视频"
-categories: imchenwen
+categories: Shareware
 description: 用外部视频播放器观看在线视频
-tags: Qt Go
+tags: Qt Go imchenwen
 ---
 
 不知道怎么想的，突然开了个新坑，因为[bilibili mac client](https://github.com/typcn/bilibili-mac-client)并不能好好地工作，所以自己写一个也挺好玩的。
