@@ -14,13 +14,13 @@ tags: Qt MPV DLNA imchenwen
 
 一些screenshots：
 
-![内置播放器](../../../media/2018-11-13/builtinplayer.jpg)
+![内置播放器](https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/media/2018-11-13/builtinplayer.jpg)
 
-![选项设置](../../../media/2018-11-13/configuration.png)
+![选项设置](https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/media/2018-11-13/configuration.png)
 
-![电视直播](../../../media/2018-11-13/livetv.png)
+![电视直播](https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/media/2018-11-13/livetv.png)
 
-![地址解析](../../../media/2018-11-13/resolved.png)
+![地址解析](https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/media/2018-11-13/resolved.png)
 
 大概说一下开发要点：
 

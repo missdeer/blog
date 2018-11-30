@@ -8,19 +8,19 @@ tags: Qt
 
 最近这段时间都在写一个叫UMLGen的GUI程序，从名字可以看出，就是一个用来画UML图的工具，与大多数现有的WYSIWYG（所见即所得）的UML画图工具（比如Visio，StarUML等等）不同的是，UMLGen使用代码的形式来描述UML图的呈现，与LaTeX的思想类似，即WYTIWYG（What You Think Is What You Get，所想即所得），我个人认为这种方式特别适合程序员使用。现在可用性已经很好了，主窗口截图如下：
 
-![UMLGen main window](../../../media/2018-03-31/mainwindow2.png)
+![UMLGen main window](https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/media/2018-03-31/mainwindow2.png)
 
 程序是用Qt写的，开发过程中还是遇到一些坑，记录一下。
 
 * QtSvg模块实现的SVG标准有限，不能支持某些SVG，比如下面两张图，使用Firefox或Chrome浏览器查看，一切正常，用QtSvg则惨不忍睹。
 
-![math](../../../media/2018-03-31/math.svg)
+![math](https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/media/2018-03-31/math.svg)
 
-![math error](../../../media/2018-03-31/math-error.png)
+![math error](https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/media/2018-03-31/math-error.png)
 
-![latex](../../../media/2018-03-31/latex.svg)
+![latex](https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/media/2018-03-31/latex.svg)
 
-![latex error](../../../media/2018-03-31/latex-error.png)
+![latex error](https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/media/2018-03-31/latex-error.png)
 
 除了换个支持完整的SVG库，就只能在这些时候不用SVG，改用PNG了。用PNG格式的问题是后端导出的PNG格式都是带白色背景的，而SVG是无背景透明的，这是我情愿尽量使用SVG格式的原因。
 
