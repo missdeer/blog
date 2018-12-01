@@ -10,7 +10,7 @@ tags: Qt Go imchenwen
 
 目前已经完成了基本的功能，可以通过右键菜单调起外部的播放器观看几大主流视频网站，可以自行设置使用的播放器路径及参数，也可以自行选择要观看的视频质量。
 
-![截图](https://pbs.twimg.com/media/C7aCzxgU8AEsJ1k.png:large)
+![截图](../../../media/2017-03-23/imchenwen.png)
 
 目前存在的一些问题：
 
