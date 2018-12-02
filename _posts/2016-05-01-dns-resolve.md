@@ -18,4 +18,4 @@ DNS污染主要是两种，一是丢包，二是抢答，两种方式基本上�
 * PCap_DNSProxy，28小朋友至今一直在积极更新，用C++开发，依赖libpcap/Winpcap，从驱动层抓捕到DNS解析返回的UDP包，把GFW抢答的包丢弃，以此来获得纯净DNS解析结果。实际上如何辨别出一个DNS应答包是抢答的是件很费神的事，28小朋友对此也有点诲莫如深。除此之外它还有一系列跟DNS解析相关的功能，比如CNAME hosts之类的。
 * dnsmasq+china domain list。我觉得这是最unix-like style的方案，作者Felix Yan也是Archlinux的开发者，维护了一个包含几千个域名的国内网站域名列表，配合dnsmasq，可以让这些域名走国内的DNS服务器解析，其他域名默认走纯净DNS解析。
 
-[avege的方案](https://blog.minidump.info/2016/03/avege-dns-improve/)基本上糅合了以上几种方案中简单又有效的部分，目前基本工作正常。唯一比较遗憾的是没有直接支持DNSCrypt。
+[avege的方案](../../../2016/03/avege-dns-improve/)基本上糅合了以上几种方案中简单又有效的部分，目前基本工作正常。唯一比较遗憾的是没有直接支持DNSCrypt。

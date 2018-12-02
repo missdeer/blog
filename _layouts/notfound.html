@@ -16,13 +16,13 @@ layout: default
 var time = 5; //时间,秒
 var i = 0;
 function TickCount(){
-    document.getElementById('s').innerHTML = "<p>没有这个页面诶，" + (time - i) + "秒后返回<a href=\"/#blog\">首页</a>看看吧~</p>";
+    document.getElementById('s').innerHTML = "<p>没有这个页面诶，" + (time - i) + "秒后返回<a href=\"https://minidump.info/blog/#blog\">首页</a>看看吧~</p>";
     i++;
 }
 (function() {
     timer=setInterval('TickCount()', 1000);//显示时间
     timer=setTimeout(function(){
-        window.location = "https://blog.minidump.info/#blog";
+        window.location = "https://minidump.info/blog/#blog";
     },time * 1000); //跳转
 })();
 </script>

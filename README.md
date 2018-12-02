@@ -2,4 +2,4 @@ missdeer's blog
 
 ----
 
-Please visit https://blog.minidump.info for the details.
+Please visit https://minidump.info/blog/ for the details.
