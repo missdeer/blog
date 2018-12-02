@@ -15,11 +15,13 @@ layout: commentablepage
 
 2017年8月将Pages托管到Coding.net，以期在中国大陆能获得更好的访问速度。
 
+2018年12月重新切换回Github Pages作为hosting，同时将所有JS/CSS/图片等静态资源通过jsDelivr CDN加速。
+
 ## 关于我
 
 我的简历在[这里](https://minidump.info/fanresume/)。
 
-<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/css/pay.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/css/pay.min.css">
 <section class="read-more">
 <div>
   <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
