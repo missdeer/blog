@@ -22,3 +22,5 @@ pages的SSL证书。原来的二级域名就在linode上用nginx加了个301跳�
 最后，是修正leancloud上的评论记录，把原本在`https://blog.minidump.info/`上的评论全部转移到`https://minidump.info/blog/`上了。
 
 所以现在时间可能主要花在blog域名的DNS解析(cloudflare家在大陆似乎并不好)，301跳转，HTML文件下载这三部分了，其他上了CDN的静态资源应该比以前会快很多吧。
+
+另外有一个问题，更新了blog，新增/修改的内容不能立即同步到`https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/`这个路径下，要把`gh-pages`换成git commit的hash id，可能要过2天才会同步，这点略显繁琐。
