@@ -6,14 +6,14 @@
     {% endif %}
 
       {% if paginator.page == 1 %}
-      <span class="pagination__page-number class="btn-border-small"" style="line-height:2.5;">1</span>
+      <span class="pagination__page-number btn-border-small" style="line-height:2.5;">1</span>
       {% else %}
       <a class="btn-border-small" href="{{ "/#blog" | prepend: site.baseurl }}" style="line-height:2.5;">1</a>
       {% endif %}
 
     {% for count in (2..paginator.total_pages) %}
       {% if count == paginator.page %}
-      <span class="pagination__page-number class="btn-border-small"" style="line-height:2.5;">{{count}}</span>
+      <span class="pagination__page-number btn-border-small" style="line-height:2.5;">{{count}}</span>
       {% else %}
       <a class="btn-border-small" href="{{ "/page/" | prepend: site.baseurl }}{{count}}/#blog" style="line-height:2.5;">{{count}}</a>
       {% endif %}
