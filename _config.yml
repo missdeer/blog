@@ -12,7 +12,6 @@ permalink: /:year/:month/:title/
 markdown: kramdown
 
 plugins:
-  - jekyll-plantastisch
   - jekyll-paginate
   
 # Format
