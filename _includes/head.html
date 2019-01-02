@@ -30,4 +30,7 @@
             enable_page_level_ads: true
       });
   </script>
+  {% if page.use_math %}
+      {% include mathjax-support.html %}
+  {% endif %}
 </head>
