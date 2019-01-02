@@ -27,8 +27,8 @@ nav:
     - {title: 链接, description: 友情链接, url: '/links/', target: '_self'}
     - {title: 关于, description: 关于这个博客关于我, url: '/about/', target: '_self'}
 
+gems: [jekyll-plantastisch, jekyll-paginate]
 # Pagination
-gems: [jekyll-paginate]
 paginate: 15
 paginate_path: "page/:num/"
 
