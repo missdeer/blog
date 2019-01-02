@@ -26,7 +26,11 @@ nav:
     - {title: 归档, description: 所有博客文章归档, url: '/archive/', target: '_self'}
     - {title: 链接, description: 友情链接, url: '/links/', target: '_self'}
     - {title: 关于, description: 关于这个博客关于我, url: '/about/', target: '_self'}
-
+    
+plugins:
+  - jekyll-plantastisch
+  - jekyll-paginate
+  
 gems: [jekyll-plantastisch, jekyll-paginate]
 # Pagination
 paginate: 15
