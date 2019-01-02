@@ -9,7 +9,7 @@ author: 类库大魔王/missdeer
 url: "https://minidump.info/"
 
 permalink: /:year/:month/:title/
-markdown: maruku
+markdown: kramdown
 # Format
 highlighter: rouge
 
