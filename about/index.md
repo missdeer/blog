@@ -25,11 +25,11 @@ layout: commentablepage
 <section class="read-more">
 <div>
   <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
-    <div style="line-height:2.5;">感觉本博客不错，不妨小额赞助我一下！</div>
+    <div style="line-height:2.5;">感觉本博客不错，不妨小额鼓励我一下！</div>
     <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
       <span>打赏</span>
     </button>
-    <div id="QR" style="display: block;">
+    <div id="QR" style="display: none;">
         <div id="wechat" style="display: inline-block">
           <a href="https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/wepay.jpg" class="fancybox" rel="group">
           <img id="wechat_qr" src="https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/wepay.jpg" alt="missdeer WeChat Pay">
