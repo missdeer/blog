@@ -75,6 +75,8 @@ tags: Qt Alfred Derfla
 
 3. 基于Lua语言的配置文件格式，theme、skin、extension的配置全部使用Lua语言编写。优点是可以通过当前具体环境进行特定的配置，比如Windows下的可执行文件名是以`.exe`结尾，其他平台都没有这个后缀，又比如在不同平台上要使用不同大小的字体才能获得相近的视觉效果等等。同时也可以从主程序侧（C++）暴露一些接口给Lua侧使用。缺点是运行期修改不方便。
 
+4. 主程序使用Qt/C++编写，所以支持在Windows、macOS、Linux等系统上运行。
+
 Roadmap：
 
 1. 更多的extension，提供更丰富实用的功能。
