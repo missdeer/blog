@@ -20,4 +20,13 @@ App的功能相当的简单，启动后主界面是一个大大的圆形按钮�
 
 最后贴几张app界面截图：
 
-![按钮](https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/media/2019-04-26/8.jpg ){:width="250px" height="445px"}![报告](https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/media/2019-04-26/7.jpg ){:width="250px" height="445px"}![点图](https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/media/2019-04-26/6.jpg ){:width="250px" height="445px"}![折线图](https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/media/2019-04-26/5.jpg ){:width="250px" height="445px"}![曲线图](https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/media/2019-04-26/4.jpg ){:width="250px" height="445px"}![柱状图](https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/media/2019-04-26/3.jpg ){:width="250px" height="445px"}![百分比柱状图](https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/media/2019-04-26/2.jpg ){:width="250px" height="445px"}![比例柱状图](https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/media/2019-04-26/1.jpg ){:width="250px" height="445px"}
+<center class="half">
+    <img src="https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/media/2019-04-26/8.jpg" width="250" height="445" alt="按钮"/>
+    <img src="https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/media/2019-04-26/7.jpg" width="250" height="445" alt="报告"/>
+    <img src="https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/media/2019-04-26/6.jpg" width="250" height="445" alt="点图"/>
+    <img src="https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/media/2019-04-26/5.jpg" width="250" height="445" alt="折线图"/>
+    <img src="https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/media/2019-04-26/4.jpg" width="250" height="445" alt="曲线图"/>
+    <img src="https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/media/2019-04-26/3.jpg" width="250" height="445" alt="柱状图"/>
+    <img src="https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/media/2019-04-26/2.jpg" width="250" height="445" alt="百分比柱状图"/>
+    <img src="https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/media/2019-04-26/1.jpg" width="250" height="445" alt="比例柱状图"/>
+</center>
