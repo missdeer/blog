@@ -6,13 +6,13 @@ description: 使用CoreDNS搭建无污染DNS服务
 tags: GFW DNS CoreDNS
 ---
 
-我之前整理过在国内搭建无污染DNS的[一些方法](../../../2016/05/dns-resolve/)，github上各种轮子也层出不穷，但基本原理几乎不变。自从半年多前开始用CoreDNS，我觉得可以不用dnsmasq/overture/chinadns这些轮子了，CoreDNS完全符合我的需求：
+我之前整理过在国内搭建无污染DNS的[一些方法](../../../2016/05/dns-resolve/)，github上各种轮子也层出不穷，但基本原理几乎不变。自从半年多前开始用[CoreDNS](https://github.com/coredns/coredns)，我觉得可以不用dnsmasq/[overture](https://github.com/shawn1m/overture)/chinadns这些轮子了，CoreDNS完全符合我的需求：
 
 * 无污染
 * 国内CDN友好
 * 跨平台，支持多种CPU、操作系统
 
-CoreDNS的来头不小，它的作者是最好的开源[DNS package](https://github.com/miekg/dns)的作者，CoreDNS底层也使用了这个package。大名鼎鼎的k8s使用CoreDNS进行服务发现。CoreDNS基本沿用了[Caddy](https://caddyserver.com/)的插件架构，所以CoreDNS的配置文件的语法跟Caddy的配置文件语法相同。
+CoreDNS的来头不小，它的[作者](https://github.com/miekg)是最好的开源[DNS package](https://github.com/miekg/dns)的作者，CoreDNS底层也使用了这个package。大名鼎鼎的k8s使用CoreDNS进行服务发现。CoreDNS基本沿用了[Caddy](https://caddyserver.com/)的插件架构，所以CoreDNS的配置文件的语法跟Caddy的配置文件语法相同。
 
 一个最简单的配置文件可以是这样：
 
@@ -26,7 +26,7 @@ CoreDNS的来头不小，它的作者是最好的开源[DNS package](https://git
 
 将配置保存为文件`Corefile`，运行命令`sudo coredns -conf Corefile`，即可在本地同时监听TCP和UDP 53端口，将所有UDP查询请求转发到`8.8.8.8`再返回，可以通过`dig @::1 -p 53 twitter.com`进行测试。
 
-但是这个配置文件在国内几乎是没用的，原因是`8.8.8.8`是老大哥重点关注对象，直接访问得到的结果都是二手信息。一个好一点的方案是使用非标准端口，比如：
+但是这个配置文件在国内几乎是没啥用的，原因自然是`8.8.8.8`乃老大哥重点关注对象，直接访问得到的结果都是二手信息。一个好一点的方案是使用非标准端口，比如：
 
 ```
 .:53{
