@@ -160,7 +160,7 @@ curl -s -L git.io/corefile | bash
 
 到此为止，就已经得到国内CDN友好的无污染DNS解析服务了。
 
-我还想得到更多，比如去广告！github上有非常多的列表，包括广告和有害软件等等，CoreDNS官方尚未提供一个block插件，好在已经有一些非官方的实现，比如https://github.com/missdeer/block/，可以用如下的方式使用：
+我还想得到更多，比如去广告！github上有非常多的列表，包括广告和有害软件等等，CoreDNS官方尚未提供一个block插件，好在已经有一些非官方的实现，比如[block](https://github.com/missdeer/block/)，可以用如下的方式使用：
 
 ```
 .:53{
@@ -176,7 +176,7 @@ curl -s -L git.io/corefile | bash
 }
 ```
 
-如果遇到的请求域名是在列表中，则会返回`NXDOMAIN`。
+非常浅显易懂。如果遇到的请求域名是在列表中，则会返回`NXDOMAIN`。
 
 最后一个问题，由于`proxy`插件和`block`插件都不是官方内置插件，从CoreDNS官方下载页下载的可执行程序并不包括这两个插件，所以需要自己编译CoreDNS。
 
