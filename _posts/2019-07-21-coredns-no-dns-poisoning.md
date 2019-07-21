@@ -164,9 +164,9 @@ curl -s -L git.io/corefile | bash
 
 ```
 .:53{
-	  block https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts
-	  block https://mirror1.malwaredomains.com/files/justdomains
-	  block https://s3.amazonaws.com/lists.disconnect.me/simple_ad.txt
+    block https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts
+    block https://mirror1.malwaredomains.com/files/justdomains
+    block https://s3.amazonaws.com/lists.disconnect.me/simple_ad.txt
     forward . 127.0.0.1:5301 127.0.0.1:5302 127.0.0.1:5303 {
         except www.taobao.com
     }
