@@ -1,21 +1,32 @@
 <section class="post-comments">
   {% if site.comment.disqus %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/disqusjs@1.2/dist/disqusjs.css">
+    <script src="https://cdn.jsdelivr.net/npm/disqusjs@1.1/dist/disqus.js"></script>
     <div id="disqus_thread"></div>
     <script>
 
-    var disqus_config = function () {
-        this.page.url = "{{ page.url | prepend: site.baseurl | prepend: site.url }}";
-        this.page.identifier = "{{ page.url }}";
-    };
+    // var disqus_config = function () {
+    //     this.page.url = "{{ page.url | prepend: site.baseurl | prepend: site.url }}";
+    //     this.page.identifier = "{{ page.url }}";
+    // };
 
-    var disqus_shortname = '{{ site.comment.disqus }}';
+    // var disqus_shortname = '{{ site.comment.disqus }}';
 
-    (function() { // DON'T EDIT BELOW THIS LINE
-        var d = document, s = d.createElement('script');
-        s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-            (d.head || d.body).appendChild(s);
-        })();
+    // (function() { // DON'T EDIT BELOW THIS LINE
+    //     var d = document, s = d.createElement('script');
+    //     s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    //     s.setAttribute('data-timestamp', +new Date());
+    //         (d.head || d.body).appendChild(s);
+    //     })();
+
+        
+    var dsqjs = new DisqusJS({
+        shortname: '{{ site.comment.disqus }}',
+        siteName: '{{ site.title }}',
+        api: 'https://disqus.skk.moe/disqus/',
+        apikey: '7rR6S5Yd3py9ubI7MV7SVqYadJTOGO4LmpclVulDvIDv48KgDCSAECTqIBpqCjlJ',
+        admin: '{{ site.comment.disqus }}'
+    });
     </script>
     <noscript>要查看<a href="http://disqus.com/?ref_noscript"> Disqus </a>评论，请启用 JavaScript</noscript>
     如果你看不到评论框，说明Disqus又被墙了……
