@@ -1,47 +1,26 @@
-<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/css/pay.min.css">
-<section class="read-more">
-<div>
-  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
-    <div>
-    <script src="https://js.stripe.com/v3"></script>
-    <button id="buy-me-a-cocacola-button"
-        role="link">
-        <span>请我喝罐可乐</span>
-    </button>
-    <script>
-    var stripe = Stripe('pk_live_tyj6HryOAzYDsRHA3uYjVHIq');
+<script src="https://js.stripe.com/v3"></script>
+<script>
+var stripe = Stripe('pk_live_tyj6HryOAzYDsRHA3uYjVHIq');
 
-    var buyMeACocacolaButton = document.querySelector('#buy-me-a-cocacola-button');
-    buyMeACocacolaButton.addEventListener('click', function () {
-        stripe.redirectToCheckout({
-        items: [{
-            sku: 'sku_FfVDZvhOKOxwCH',
-            quantity: 1
-        }],
-        successUrl: 'https://minidump.info/blog{{ page.url }}',
-        cancelUrl: 'https://minidump.info/blog{{ page.url }}'
-        });
+function buy_me_cola() {
+    stripe.redirectToCheckout({
+    items: [{
+        sku: 'sku_FfVDZvhOKOxwCH',
+        quantity: 1
+    }],
+    successUrl: 'https://minidump.info/blog{{ page.url }}',
+    cancelUrl: 'https://minidump.info/blog{{ page.url }}'
     });
-    </script>
-    <button id="buy-me-a-coffee-button"
-        role="link">
-        <span>请我喝杯咖啡</span>
-    </button>
-    <script>
+}
 
-    var buyMeACoffeeButton = document.querySelector('#buy-me-a-coffee-button');
-    buyMeACoffeeButton.addEventListener('click', function () {
-        stripe.redirectToCheckout({
-        items: [{
-            sku: 'sku_FfVEVxmUzZB1pm',
-            quantity: 1
-        }],
-        successUrl: 'https://minidump.info/blog{{ page.url }}',
-        cancelUrl: 'https://minidump.info/blog{{ page.url }}'
-        });
+function buy_me_coffee() {
+    stripe.redirectToCheckout({
+    items: [{
+        sku: 'sku_FfVEVxmUzZB1pm',
+        quantity: 1
+    }],
+    successUrl: 'https://minidump.info/blog{{ page.url }}',
+    cancelUrl: 'https://minidump.info/blog{{ page.url }}'
     });
-    </script>
-    </div>
-  </div>
-</div>
-</section>
+}
+</script>
