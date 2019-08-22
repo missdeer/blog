@@ -27,13 +27,13 @@
         <span>请我喝罐可乐</span>
     </button>
     <script>
-    var stripe = Stripe('pk_test_8wGtVZjOymtYUdZLYef1vyWC');
+    var stripe = Stripe('pk_live_tyj6HryOAzYDsRHA3uYjVHIq');
 
     var buyMeACocacolaButton = document.querySelector('#buy-me-a-cocacola-button');
     buyMeACocacolaButton.addEventListener('click', function () {
         stripe.redirectToCheckout({
         items: [{
-            sku: 'sku_FfUycod9x0LTSi',
+            sku: 'sku_FfVDZvhOKOxwCH',
             quantity: 1
         }],
         successUrl: 'https://minidump.info/blog/',
@@ -51,7 +51,7 @@
     buyMeACoffeeButton.addEventListener('click', function () {
         stripe.redirectToCheckout({
         items: [{
-            sku: 'sku_FfV0euLeuN8dfy',
+            sku: 'sku_FfVEVxmUzZB1pm',
             quantity: 1
         }],
         successUrl: 'https://minidump.info/blog/',
