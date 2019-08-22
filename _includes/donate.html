@@ -20,6 +20,7 @@
           <p>支付宝扫一扫</p>
         </div>
     </div>
+    <div style="line-height:2.5;font-size:12px;">如果你有Visa、MasterCard之类的国际银行卡，也可以考虑以下选项：</div>
     <div>
     <script src="https://js.stripe.com/v3"></script>
     <button id="buy-me-a-cocacola-button"
@@ -36,8 +37,8 @@
             sku: 'sku_FfVDZvhOKOxwCH',
             quantity: 1
         }],
-        successUrl: 'https://minidump.info/blog/',
-        cancelUrl: 'https://minidump.info/blog/'
+        successUrl: 'https://minidump.info/blog{{ page.url }}',
+        cancelUrl: 'https://minidump.info/blog{{ page.url }}'
         });
     });
     </script>
@@ -54,8 +55,8 @@
             sku: 'sku_FfVEVxmUzZB1pm',
             quantity: 1
         }],
-        successUrl: 'https://minidump.info/blog/',
-        cancelUrl: 'https://minidump.info/blog/'
+        successUrl: 'https://minidump.info/blog{{ page.url }}',
+        cancelUrl: 'https://minidump.info/blog{{ page.url }}'
         });
     });
     </script>
