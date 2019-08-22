@@ -21,28 +21,5 @@ layout: commentablepage
 
 我的简历在[这里](https://minidump.info/fanresume/)。
 
-<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/css/pay.min.css">
-<section class="read-more">
-<div>
-  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
-    <div style="line-height:2.5;">感觉本博客不错，不妨小额鼓励我一下！</div>
-    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
-      <span>打赏</span>
-    </button>
-    <div id="QR" style="display: none;">
-        <div id="wechat" style="display: inline-block">
-          <a href="https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/wepay.jpg" class="fancybox" rel="group">
-          <img id="wechat_qr" src="https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/wepay.jpg" alt="missdeer WeChat Pay">
-          </a>
-          <p>微信扫一扫</p>
-        </div>
-        <div id="wechat" style="display: inline-block">
-          <a href="https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/alipay.jpg" class="fancybox" rel="group">
-          <img id="alipay_qr" src="https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/alipay.jpg" alt="missdeer AliPay">
-          </a>
-          <p>支付宝扫一扫</p>
-        </div>
-    </div>
-  </div>
-</div>
+{% include donate.html %}
 </section>
