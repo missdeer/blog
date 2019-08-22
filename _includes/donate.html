@@ -1,0 +1,65 @@
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/css/pay.min.css">
+<section class="read-more">
+<div>
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div style="line-height:2.5;">感觉本文不错，不妨小额鼓励我一下！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>打赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+        <div id="wechat" style="display: inline-block">
+          <a href="https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/wepay.jpg" class="fancybox" rel="group">
+          <img id="wechat_qr" src="https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/wepay.jpg" alt="微信扫一扫">
+          </a>
+          <p>微信扫一扫</p>
+        </div>
+        <div id="wechat" style="display: inline-block">
+          <a href="https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/alipay.jpg" class="fancybox" rel="group">
+          <img id="alipay_qr" src="https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/alipay.jpg" alt="支付宝扫一扫">
+          </a>
+          <p>支付宝扫一扫</p>
+        </div>
+    </div>
+    <div>
+    <script src="https://js.stripe.com/v3"></script>
+    <button id="buy-me-a-cocacola-button"
+        role="link">
+        <span>请我喝罐可乐</span>
+    </button>
+    <script>
+    var stripe = Stripe('pk_test_8wGtVZjOymtYUdZLYef1vyWC');
+
+    var buyMeACocacolaButton = document.querySelector('#buy-me-a-cocacola-button');
+    buyMeACocacolaButton.addEventListener('click', function () {
+        stripe.redirectToCheckout({
+        items: [{
+            sku: 'sku_FfUycod9x0LTSi',
+            quantity: 1
+        }],
+        successUrl: 'https://minidump.info/blog/',
+        cancelUrl: 'https://minidump.info/blog/'
+        });
+    });
+    </script>
+    <button id="buy-me-a-coffee-button"
+        role="link">
+        <span>请我喝杯咖啡</span>
+    </button>
+    <script>
+
+    var buyMeACoffeeButton = document.querySelector('#buy-me-a-coffee-button');
+    buyMeACoffeeButton.addEventListener('click', function () {
+        stripe.redirectToCheckout({
+        items: [{
+            sku: 'sku_FfV0euLeuN8dfy',
+            quantity: 1
+        }],
+        successUrl: 'https://minidump.info/blog/',
+        cancelUrl: 'https://minidump.info/blog/'
+        });
+    });
+    </script>
+    </div>
+  </div>
+</div>
+</section>
