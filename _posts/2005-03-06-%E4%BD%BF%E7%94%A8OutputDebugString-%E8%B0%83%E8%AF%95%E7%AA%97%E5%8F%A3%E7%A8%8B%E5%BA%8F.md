@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: 使用OutputDebugString 调试窗口程序
 categories: 
  - imported from CSDN

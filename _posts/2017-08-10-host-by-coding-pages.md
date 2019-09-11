@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "把blog托管到Coding Pages"
 categories: blog
 description: "把blog托管到Coding Pages"

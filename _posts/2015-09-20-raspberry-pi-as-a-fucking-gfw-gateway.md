@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "树莓派做翻墙网关"
 categories: embed
 description: 树莓派做翻墙网关

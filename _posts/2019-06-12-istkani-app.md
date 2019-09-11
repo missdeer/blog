@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "双色球技术派app"
 categories: Shareware
 description: 双色球技术派app

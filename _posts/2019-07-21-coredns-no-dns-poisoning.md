@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "CoreDNS搭建无污染DNS"
 categories: gfw
 description: 使用CoreDNS搭建无污染DNS服务

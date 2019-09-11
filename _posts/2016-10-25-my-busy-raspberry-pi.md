@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "我忙碌的树莓派"
 categories: embed
 description: 我的树莓派很忙

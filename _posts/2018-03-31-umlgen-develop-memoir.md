@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "UMLGen开发踩坑"
 categories: Shareware
 description: UMLGen开发踩坑

@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "参加第一届Gopher China大会"
 categories: Go
 description: 参加第一届Gopher China技术大会

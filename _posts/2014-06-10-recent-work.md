@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "近况"
 categories: Startup
 description: 最近正在关注的内容

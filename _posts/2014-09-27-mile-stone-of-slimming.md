@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "减肥里程碑"
 categories: Life
 description: 第一阶段减肥成果显著

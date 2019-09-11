@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "Blog开启https支持并强制使用"
 categories: Life
 description: Blog开启https支持并强制使用

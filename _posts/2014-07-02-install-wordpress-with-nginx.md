@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "Nginx上安装Wordpress"
 categories: Software
 description: Nginx上安装Wordpress遇到的问题

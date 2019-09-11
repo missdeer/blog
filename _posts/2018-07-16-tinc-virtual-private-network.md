@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "使用tinc构建虚拟专网"
 categories: network
 description: 使用tinc构建虚拟专网

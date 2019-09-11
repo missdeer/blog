@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "《沉睡魔咒》"
 categories: 
 - Film &amp; ACG  

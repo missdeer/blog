@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: LLYF Album W.I.P
 categories: 
  - imported from CSDN

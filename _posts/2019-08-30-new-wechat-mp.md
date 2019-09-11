@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "开了个微信公众号《软件开发谈》"
 categories:  CPPOOPGPXP
 description: 开了个微信公众号《软件开发谈》，发些Go，C++，软件工程方面的文章

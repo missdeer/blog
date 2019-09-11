@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "近期小结和计划"
 categories: Life
 description: 近期小结和计划

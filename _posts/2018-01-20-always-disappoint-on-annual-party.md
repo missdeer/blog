@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "开一次年会，失一次望"
 categories: Life
 description: 开一次年会，失一次望

@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "Qt for Android中使用CrystaX NDK替换官方Android NDK"
 categories: Qt
 description: Qt for Android中使用CrystaX NDK替换官方Android NDK

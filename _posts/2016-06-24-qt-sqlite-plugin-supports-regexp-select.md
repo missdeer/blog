@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "让Qt的sqlite插件支持REGEXP查询"
 categories: Qt
 description: 让Qt的sqlite插件支持REGEXP查询

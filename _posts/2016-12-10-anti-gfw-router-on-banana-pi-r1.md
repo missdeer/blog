@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "用Banana Pi R1做一个翻墙路由器"
 categories: Router
 description: 用Banana Pi R1做一个翻墙路由器

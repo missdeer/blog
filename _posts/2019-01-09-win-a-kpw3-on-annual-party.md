@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "年会中奖KPW3一台"
 categories: Life
 description: 公司年会中三等奖，Kindle PaperWhite 3一台

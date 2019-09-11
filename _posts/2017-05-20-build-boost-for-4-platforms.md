@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "为4个平台编译Boost"
 categories: CPPOOPGPXP
 description: 为Windows，macOS，Android，iOS平台编译Boost

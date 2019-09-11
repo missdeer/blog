@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "Go语言操作Amazon S3"
 categories: Job
 description: Go语言操作Amazon S3

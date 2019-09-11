@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "SSR混淆协议Go版移植手记（一）"
 categories: Shareware
 description: 将SSR的混淆和协议插件移植到Go的实现

@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "纯净DNS解析"
 categories: gfw 
 description: 纯净DNS解析

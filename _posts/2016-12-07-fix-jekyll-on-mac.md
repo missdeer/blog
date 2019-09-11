@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "修复mac上的jekyll"
 categories: Software
 description: 修复mac上的jekyll

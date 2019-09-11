@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: Happy,BDS2006 Installed!
 categories: 
  - imported from CSDN

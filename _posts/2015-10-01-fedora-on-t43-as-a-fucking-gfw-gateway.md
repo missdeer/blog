@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "T43上的Fedora做翻墙网关"
 categories: gfw
 description: T43上的Fedora做翻墙网关

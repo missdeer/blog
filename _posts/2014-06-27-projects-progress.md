@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "项目进展"
 categories: Startup
 description: 项目进展

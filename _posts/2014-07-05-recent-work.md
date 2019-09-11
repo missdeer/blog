@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "工作近况"
 categories: Job
 description: 工作近况

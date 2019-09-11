@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "HAProxy for SS(R)"
 categories: gfw
 description: "HAProxy for SS(R)"

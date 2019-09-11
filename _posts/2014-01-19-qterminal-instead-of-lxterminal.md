@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "使用qterminal替代LXTerminal"
 categories: Software
 description: 使用qterminal替代LXTerminal

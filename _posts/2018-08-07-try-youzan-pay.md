@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "试用基于有赞云的个人网站在线收款解决方案"
 categories: Shareware
 description: 试用基于有赞云的个人网站在线收款解决方案

@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: 最近的想法
 categories: idea
 description: 最近的想法

@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "抓取网络小说到Kindle更新"
 categories: Shareware
 description: 抓取网络小说到Kindle更新

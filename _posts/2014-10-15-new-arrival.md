@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "新品上架"
 categories: Startup
 description: 妹子们的淘宝店新品上架

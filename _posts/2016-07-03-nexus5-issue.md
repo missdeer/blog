@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "Nexus5出问题了"
 categories: Mobile
 description: Nexus5 屏幕抖动，继而花屏

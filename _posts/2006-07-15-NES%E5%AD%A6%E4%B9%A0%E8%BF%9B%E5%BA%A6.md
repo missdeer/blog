@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: NES学习进度
 categories: 
  - imported from CSDN

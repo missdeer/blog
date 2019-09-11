@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "QML元素在Android上的Scaling"
 categories: Qt
 description: QML元素在Android上的Scaling

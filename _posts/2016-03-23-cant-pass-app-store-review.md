@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "进球啦app提交app store审核不通过"
 categories: Shareware
 description: 进球啦app提交app store审核不通过

@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "istkani在App Store于八月份成功卖出两份"
 categories: Shareware
 description: istkani在App Store成功破处

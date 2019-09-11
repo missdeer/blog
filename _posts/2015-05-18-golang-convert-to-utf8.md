@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "Go语言中将其他编码字符转换为UTF-8"
 categories: Go
 description: Go语言中将其他编码字符转换为UTF-8

@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "C++11 lambda表达式tips"
 categories: CPPOOPGPXP 
 description: "一些C++11 lambda表达式使用注意事项"

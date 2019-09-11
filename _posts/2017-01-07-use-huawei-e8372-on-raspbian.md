@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "Raspbian上安装使用华为E8372"
 categories: embed
 description: 最近情况

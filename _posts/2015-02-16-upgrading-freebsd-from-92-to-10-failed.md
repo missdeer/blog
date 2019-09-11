@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: 升级FreeBSD从9.2到10.0失败
 categories: os
 description: 升级FreeBSD从9.2到10.0部分失败

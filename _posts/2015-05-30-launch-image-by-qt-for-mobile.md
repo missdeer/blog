@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "Qt for Mobile程序设置启动图片"
 categories: Qt
 description: "Qt for Mobile程序设置启动图片"

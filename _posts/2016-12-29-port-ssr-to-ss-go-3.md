@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "SSR混淆协议Go版移植手记（三）"
 categories: Shareware
 description: 完成http_simple/http_post/random_head混淆插件

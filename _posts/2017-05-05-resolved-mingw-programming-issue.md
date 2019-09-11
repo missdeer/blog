@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "几个使用MinGW开发遇到的问题"
 categories: CPPOOPGPXP
 description: 解决了几个使用MinGW做开发遇到的问题

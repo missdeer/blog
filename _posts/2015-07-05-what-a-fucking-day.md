@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "糟糕的一天天"
 categories: Life
 description: 烦

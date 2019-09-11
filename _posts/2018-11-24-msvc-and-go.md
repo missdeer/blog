@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "MSVC与Go语言混合开发"
 categories: Go
 description: MSVC与Go语言混合开发

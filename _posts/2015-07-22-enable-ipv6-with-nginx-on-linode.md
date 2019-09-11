@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "Linode上nginx开启IPv6支持"
 categories: network
 description: Linode上nginx开启IPv6支持

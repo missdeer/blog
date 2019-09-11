@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "近期的一些事"
 categories: Life
 description: 近期发生的一些事

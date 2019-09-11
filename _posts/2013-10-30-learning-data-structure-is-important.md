@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "学好数据结构很重要"
 categories: Coding
 description: 今天早上csdn的人打电话来催了，让我快点提交应用

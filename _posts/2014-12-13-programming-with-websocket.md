@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "websocket程序开发"
 categories: Job
 description: websocket程序开发

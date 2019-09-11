@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: 多系统共享Delphi
 categories: 
  - imported from CSDN

@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "准备学习C++11和C++14"
 categories: CPPOOPGPXP
 description: 准备学习C++新标准

@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "使用Qt实现iOS push notification"
 categories: Qt
 description: 使用Qt实现iOS push notification

@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "第一账房的债权匹配管理系统完成了"
 categories: Shareware
 description: 第一账房的债权匹配管理系统第一版完成了

@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "三清山两日游"
 categories: Life
 description: 江西三清山两日游

@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "最近脾气很暴躁"
 categories: Life
 description: 最近脾气很暴躁

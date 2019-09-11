@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "家中网络问题一则"
 categories: network
 description: 家中网络问题一则

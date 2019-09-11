@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "开始卖咖啡"
 categories: Life
 description: 开始卖咖啡

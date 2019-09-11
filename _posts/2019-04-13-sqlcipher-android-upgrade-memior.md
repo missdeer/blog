@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "SQLCipher Android平台升级踩坑"
 categories: Job
 description: "SQLCipher Android平台升级踩坑"

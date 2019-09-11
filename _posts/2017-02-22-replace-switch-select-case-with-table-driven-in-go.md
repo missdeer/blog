@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "Go语言用表驱动替换if-else/switch-case/select-case"
 categories: Go
 description: Go语言用表驱动替换if-else/switch-case/select-case

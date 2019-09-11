@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "更换blog托管"
 categories: blog
 description: 更换blog托管

@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "旧版本Protobuf在Serializing方法crash"
 categories: Job
 description: 旧版本Protobuf在Serializing方法crash

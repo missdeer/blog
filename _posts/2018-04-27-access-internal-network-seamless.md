@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "在家里无缝访问公司网络"
 categories: network
 description: 没有VPN，在家里无缝访问公司网络

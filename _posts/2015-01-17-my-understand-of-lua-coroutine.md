@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "我对Lua coroutine的理解"
 categories: Coding
 description: 我对Lua coroutine的理解

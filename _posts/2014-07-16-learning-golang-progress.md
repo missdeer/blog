@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "Go语言学习进展"
 categories: Go
 description: 已经能用Go语言写小程序了

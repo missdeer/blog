@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "Work on Thumbnail Service"
 categories: Job
 description: Work on thumbnail service

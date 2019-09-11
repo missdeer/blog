@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "Go语言Unmarshal GBK编码的XML"
 categories: Go
 description: 默认不支持UTF-8以外其他编码的XML文档Unmarshal

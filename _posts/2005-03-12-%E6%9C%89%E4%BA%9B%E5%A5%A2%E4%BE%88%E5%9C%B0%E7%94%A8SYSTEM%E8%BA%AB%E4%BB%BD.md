@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: 有些奢侈地用SYSTEM身份
 categories: 
  - imported from CSDN

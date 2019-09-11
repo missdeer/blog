@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "imchenwen WIP"
 categories: Shareware
 description: imchenwen开发进度

@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "初读《七周七并发模型》"
 categories: Reading
 description: 初读《七周七并发模型》

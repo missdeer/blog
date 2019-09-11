@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: TSharedMem类
 categories: 
  - imported from CSDN

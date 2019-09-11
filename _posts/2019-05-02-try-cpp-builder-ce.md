@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "试用C++ Builder社区版"
 categories: Editor，IDE
 description: 试用C++ Builder社区版

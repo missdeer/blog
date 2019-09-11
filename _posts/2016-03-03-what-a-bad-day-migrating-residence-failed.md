@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "好糟糕，户口果然迁不了"
 categories: Life
 description: 好糟糕，户口果然迁不了，不折腾了

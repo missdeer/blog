@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "抓取网络小说到Kindle"
 categories: Shareware
 description: 使用kindle阅读网络小说

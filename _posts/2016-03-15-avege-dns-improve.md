@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "改进avege的dns解析功能"
 categories: Shareware
 description: 改进avege的dns解析功能

@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "使用Archlinux做树莓派翻墙网关"
 categories: embed
 description: 使用Archlinux ARM系统做树莓派翻墙网关

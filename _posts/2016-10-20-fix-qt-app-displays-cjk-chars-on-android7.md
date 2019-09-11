@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "修正Qt app在Android 7上显示中文字符"
 categories: Qt
 description: 修正Qt app在Android 7上显示中文字符

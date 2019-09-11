@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "想学一下Rust"
 categories: Coding
 description: 想学一下Rust

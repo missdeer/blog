@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "avege Android版的计划"
 categories: Shareware
 description: 移植avege到Android的计划

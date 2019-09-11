@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "想要个NAS"
 categories: Life
 description: 想要个NAS

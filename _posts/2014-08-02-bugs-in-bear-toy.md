@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "薰衣草小熊长虫"
 categories: Life
 description: 妹子的薰衣草小熊里面长了很多米虫出来

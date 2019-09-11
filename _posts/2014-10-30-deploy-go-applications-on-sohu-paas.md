@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "部署Go程序到搜狐云景PaaS"
 categories: Go
 description: 部署Go程序到搜狐云景PaaS

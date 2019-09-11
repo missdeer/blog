@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "老是分给我dump文件分析crash bug"
 categories: Job
 description: 老是分给我dump文件分析crash bug

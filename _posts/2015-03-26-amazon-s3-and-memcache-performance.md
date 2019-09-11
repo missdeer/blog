@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "Amazon S3和ElastiCache的传输性能"
 categories: Job
 description: 用Amazon EC2连接Amazon S3和ElastiCache的传输性能

@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "终于把Netgear R6300v2固件刷了"
 categories: Router
 description: 终于把Netgear R6300v2固件刷了

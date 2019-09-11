@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "Relay Bugs"
 categories: Job
 description: Relay Bugs

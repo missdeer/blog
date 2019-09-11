@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "一种Firefox同步失败的情况"
 categories: Software
 description: 一种Firefox同步失败的情况

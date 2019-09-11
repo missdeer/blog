@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "到手一台13吋Retina MBP"
 categories: Life
 description: 到手一台13吋Retina MBP

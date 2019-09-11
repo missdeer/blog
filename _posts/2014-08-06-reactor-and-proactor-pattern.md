@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "Reactor和Proactor模式"
 categories: Coding
 description: 网络编程的两种模型

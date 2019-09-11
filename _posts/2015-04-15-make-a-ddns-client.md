@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "写了个DDNS客户端"
 categories: Shareware
 description: 写了个伪动态DNS客户端

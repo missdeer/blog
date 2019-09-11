@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "测试还是必要的"
 categories: Coding
 description: 程序写完后，系统的测试还是必要的

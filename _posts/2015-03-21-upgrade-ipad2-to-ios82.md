@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "把iPad2升级到iOS8.2"
 categories: iOS
 description: 把iPad2升级到iOS8.2了

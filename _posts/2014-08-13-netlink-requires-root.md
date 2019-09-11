@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "netlink需要root权限"
 categories: Job
 description: netlink需要root权限

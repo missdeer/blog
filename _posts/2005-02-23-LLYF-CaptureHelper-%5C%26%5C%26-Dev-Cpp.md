@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: LLYF CaptureHelper && Dev-Cpp
 categories: 
  - imported from CSDN

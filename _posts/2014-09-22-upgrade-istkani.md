@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "升级istkani"
 categories: Shareware
 description: 升级istkani

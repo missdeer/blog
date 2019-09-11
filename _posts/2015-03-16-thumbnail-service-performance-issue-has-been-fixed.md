@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "性能问题解决了"
 categories: Job
 description: Thumbnail Service的性能问题解决了

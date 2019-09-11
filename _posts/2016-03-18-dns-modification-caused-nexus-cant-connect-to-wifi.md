@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "修改DNS导致Nexus手机连不上WIFI"
 categories: Mobile
 description: 修改DNS导致Nexus手机连不上WIFI

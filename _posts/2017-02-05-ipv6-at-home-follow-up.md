@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "在家部署IPv6后续"
 categories: network
 description: 搞定二级路由Netgear R6300v2支持IPv6

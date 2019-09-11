@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "dev2kindle WIP(1)"
 categories: Shareware
 description: dev2kindle开发进度

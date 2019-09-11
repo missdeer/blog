@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "对Go不够熟练"
 categories: Go
 description: 使用Go语言编写代码不够熟练

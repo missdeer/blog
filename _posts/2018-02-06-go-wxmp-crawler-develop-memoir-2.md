@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "Go微信公众号爬虫踩坑实录（二）"
 categories: Coding
 description: Go微信公众号爬虫踩坑实录

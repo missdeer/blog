@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "程序被Google Breakpad挂住了"
 categories: Job
 description: 程序被Google Breakpad挂住，退出不能

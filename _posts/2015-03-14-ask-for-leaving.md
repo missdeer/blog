@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "要离职了"
 categories: Job
 description: 要离职了

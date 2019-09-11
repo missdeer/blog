@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "Avege初步能工作了"
 categories: Shareware
 description: Avege初步能工作了

@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "SSR混淆协议Go版移植手记（二）"
 categories: Shareware
 description: tls1.2_ticket_auth混淆功能完成了

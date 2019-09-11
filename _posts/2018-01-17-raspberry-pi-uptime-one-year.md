@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "树莓派uptime达到365天"
 categories: embed
 description: 树莓派uptime达到365天

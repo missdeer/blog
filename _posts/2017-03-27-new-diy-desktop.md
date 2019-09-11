@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "新装了个台式机"
 categories: device
 description: 旧台式机几乎报废，新装了个

@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "更少的线程"
 categories: Job
 description: 程序使用更少的线程

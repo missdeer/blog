@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "Azure China功能缺失"
 categories: Cloud
 description: Azure China缺少点功能，还是AWS合适

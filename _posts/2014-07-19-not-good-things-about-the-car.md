@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "诸事不顺"
 categories: Life
 description: 今天的一些不顺利的事

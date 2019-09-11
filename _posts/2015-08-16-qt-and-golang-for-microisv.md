@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "micro ISV使用Qt和Go开发"
 categories: Startup
 description: micro ISV使用QT和Go开发

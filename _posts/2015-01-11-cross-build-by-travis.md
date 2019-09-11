@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: 使用Travis服务交叉编译Go程序
 categories: Go
 description: 使用Travis服务交叉编译Go程序

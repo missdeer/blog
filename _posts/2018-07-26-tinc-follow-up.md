@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "tinc后续"
 categories: network
 description: tinc后续

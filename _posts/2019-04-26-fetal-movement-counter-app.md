@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "胎动计数器app"
 categories: Shareware
 description: 写了个app给老婆数胎动

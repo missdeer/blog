@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "生成iOS Push Notification证书"
 categories: Coding
 description: 生成iOS Push Notification证书

@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "初试QtQuickCompiler"
 categories: Qt
 description: 尝试了下用QtQuickCompiler编译istkani

@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "imchenwen进度：内置播放器和DLNA投屏"
 categories: Shareware
 description: imchenwen进度：内置播放器和DLNA投屏

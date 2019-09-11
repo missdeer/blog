@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "升级到电信100M宽带"
 categories: network
 description: 家里的宽带升级到电信100M

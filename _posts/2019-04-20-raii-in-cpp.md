@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "C++中RAII的实现手法"
 categories: CPPOOPGPXP
 description: C++11以后RAII的一种实现手法

@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "SSR混淆协议Go版移植手记（五）"
 categories: Shareware
 description: tls1.2_ticket_auth和auth_sha1_v4基本可以正常工作了

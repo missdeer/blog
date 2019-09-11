@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "遇到的一个网络编程的bug"
 categories: Job
 description: 遇到了一个纠结很久的网络编程的bug

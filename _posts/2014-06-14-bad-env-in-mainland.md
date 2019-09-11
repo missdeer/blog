@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "国内的环境真是恶劣啊"
 categories: Internet 
 description: 国内的网络环境真是恶劣

@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "Qt for Mobile集成LeanCloud"
 categories: Qt
 description: Qt for Mobile集成LeanCloud SDK

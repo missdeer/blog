@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "最近的网络开发工作"
 categories: Job
 description: 最近的socket开发工作

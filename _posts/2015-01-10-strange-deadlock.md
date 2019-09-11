@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "奇怪的死锁"
 categories: Job
 description: 奇怪的死锁问题

@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "到手一台树莓派2代"
 categories: embed
 description: 到手一台树莓派2代

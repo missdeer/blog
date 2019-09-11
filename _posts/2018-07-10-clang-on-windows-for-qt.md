@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "Clang on Windows for Qt"
 categories: CPPOOPGPXP
 description: Clang on Windows for Qt

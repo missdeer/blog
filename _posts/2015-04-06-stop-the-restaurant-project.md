@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "饭店项目暂停了"
 categories: Shareware
 description: 饭店项目暂停了

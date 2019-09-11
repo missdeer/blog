@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "Avege开源了"
 categories: Shareware
 description: Avege开源了

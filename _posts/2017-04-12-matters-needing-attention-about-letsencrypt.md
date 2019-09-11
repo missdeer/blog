@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "Let's Encrypt注意事项"
 categories: Cryptography
 description: 使用Let's Encrypt遇到点问题

@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "在Mac上给Qt程序用Developer ID签名"
 categories: Qt
 description: 在Mac上给Qt程序用Developer ID签名

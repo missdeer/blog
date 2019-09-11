@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: 关于OutputDebugString 的模拟
 categories: 
  - imported from CSDN

@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "AlphaGo赢了两局"
 categories: gochess
 description: AlphaGo赢了两局

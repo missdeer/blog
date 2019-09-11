@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "另外租个房子"
 categories: Life
 description: 另外租了房子

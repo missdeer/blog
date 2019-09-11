@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "被GCC坑了一把"
 categories: Job
 description: 被GCC坑了一把

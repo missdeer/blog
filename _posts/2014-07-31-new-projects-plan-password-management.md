@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: 新项目计划——密码管理
 categories: Shareware
 description: 有了几个idea做新项目

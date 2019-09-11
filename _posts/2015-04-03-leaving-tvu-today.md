@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "今天从TVU离职了"
 categories: Job
 description: 今天正式从TVU离职了

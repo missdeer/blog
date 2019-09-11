@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "设置Android app的preview screen"
 categories: Coding
 description: 设置Android app的preview screen

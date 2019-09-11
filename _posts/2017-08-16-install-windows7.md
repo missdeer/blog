@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "一次装Windows的经历"
 categories: Life
 description: "一次装Windows的经历"

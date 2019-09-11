@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "Qt Creator使用clang-cl"
 categories:  CPPOOPGPXP
 description: "Qt Creator使用clang-cl"

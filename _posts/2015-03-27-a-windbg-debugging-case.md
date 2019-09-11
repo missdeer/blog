@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "一次WinDBG调试的心得"
 categories: Job
 description: 一次使用WinDBG调试程序后的心得

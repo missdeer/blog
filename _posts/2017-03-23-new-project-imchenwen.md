@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "新坑：imchenwen，用外部播放器观看在线视频"
 categories: Shareware
 description: 用外部视频播放器观看在线视频

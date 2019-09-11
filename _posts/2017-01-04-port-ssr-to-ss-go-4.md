@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "SSR混淆协议Go版移植手记（四）"
 categories: Shareware
 description: 完成auth_sha1_v4, auth_aes128_md5, auth_aes128_sha1

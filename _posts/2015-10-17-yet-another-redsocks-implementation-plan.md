@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "计划做个类Redsocks的新实现"
 categories: Shareware
 description: 计划做个类Redsocks的新实现

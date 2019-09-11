@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title: "某日志查看程序开发小结"
 categories: Qt
 description: 某日志查看程序开发小结

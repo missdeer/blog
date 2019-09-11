@@ -1,5 +1,6 @@
 ---
 layout: post
+author: missdeer
 title:  "第一篇"
 categories: Life
 description: 现在对自己建一个blog一点都没有兴趣，对Wordpress更是没兴趣，就选择在github上放这些内容。
