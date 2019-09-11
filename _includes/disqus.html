@@ -1,17 +1,14 @@
 <section class="disqus">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/disqusjs@1.2/dist/disqusjs.css">
-    <script src="https://cdn.jsdelivr.net/npm/disqusjs@1.1/dist/disqus.js"></script>
     <div id="disqus_thread"></div>
-    <script>
-    // https://github.com/SukkaW/DisqusJS
-    var dsqjs = new DisqusJS({
-        shortname: '{{ site.comment.disqus }}',
-        siteName: '{{ site.title }}',
-        api: "https://api.skk.moe/disqus/",
-        apikey: '7rR6S5Yd3py9ubI7MV7SVqYadJTOGO4LmpclVulDvIDv48KgDCSAECTqIBpqCjlJ',
-        admin: '{{ site.comment.disqus }}'
-    });
+    <script type="text/javascript">
+        var disqus_shortname = '{{site.disqus}}'; 
+        var disqus_developer = 0;
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = window.location.protocol + '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
     </script>
-    <noscript>要查看<a href="http://disqus.com/?ref_noscript"> Disqus </a>评论，请启用 JavaScript</noscript>
-
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 </section>
