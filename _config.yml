@@ -1,57 +1,62 @@
-# Basic
-title: 挖井
-subtitle: 类库大魔王的挖井日记
-welcome_message: 
-description: 挖一口属于自己的井
-creator: <a href="https://minidump.info" target="_blank">@missdeer</a>
-author: 类库大魔王/missdeer
-
-url: "https://minidump.info/"
-
+# Site
+name: "挖井"
+title: "类库大魔王的挖井日记"
+description: "挖一口属于自己的井"
+logo: 'assets/images/logo.png'
+favicon: 'assets/images/logo.png'
+google_analytics: 'UA-52744860-1'
+disqus: 'missdeer'
+#mailchimp-list: 'https://wowthemes.us11.list-manage.com/subscribe/post?u=8aeb20a530e124561927d3bd8&amp;id=8c3d2d214b'
+include: ["_pages"]
 permalink: /:year/:month/:title/
-markdown: kramdown
 
+# Authors
+authors:
+  missdeer:
+    name: missdeer
+    display_name: 类库大魔王
+    gravatar: e56154546cf4be74e393c62d1ae9f9d4
+    email: me@minidump.info
+    web: https://minidump.info
+    twitter: https://twitter.com/missdeerme
+    description: "C++、Go多年用户，擅长跨平台(Windows/macOS/iOS/Android)应用架构设计与开发."
+
+# Plugins
 plugins:
   - jekyll-paginate
-  
-# Format
-highlighter: rouge
-
-# supported colors: blue, green, purple, red, orange or slate. If you need clear, leave it empty.
-cover_color: green
-
-# The blog button should not be removed.
-blog_button:
-    title: 博客
-    description: 阅读博客文章
-
-# Navigation buttons in the front page.
-nav:
-    - {title: 归档, description: 所有博客文章归档, url: '/archive/', target: '_self'}
-    - {title: 链接, description: 友情链接, url: '/links/', target: '_self'}
-    - {title: 关于, description: 关于这个博客关于我, url: '/about/', target: '_self'}
-      
-# Pagination
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-archives
+    
+# Archives
+jekyll-archives:
+  enabled:
+    - categories
+  layout: archive
+  permalinks:
+    category: '/category/:name/'
+    
+# Pagination 
 paginate: 15
-paginate_path: "page/:num/"
+paginate_path: page/:num/
+    
+# Other
+markdown: kramdown
 
-# Comment
-comment:
-    disqus: missdeer
-    #valine:
-    #    id: g0mzo0XbC3fdm9x3QozgEF45-gzGzoHsz
-    #    key: 5nIWNiYeU0fqd2YpoVzF4Bir
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    block:
+      line_numbers: true
 
-# Social
-social:
-    home: https://minidump.info
-    #    weibo: missdeer
-    github: missdeer
-    twitter: missdeerme
-    #    gplus: 105535865242455061069
-    mail: me@minidump.info
+# Adsense (change to "enabled" to activate, also your client id and ad slot. Create a new ad unit from your Adsense account to get the slot.)
+adsense: "disabled"
+adsense-data-ad-client: "ca-pub-3412143450191416"
+adsense-data-ad-slot: "1363087678"
 
-# Google Analytics
-ga:
-    id: UA-52744860-1
-    host: blog.minidump.info
+# Lazy Images ("enabled" or "disabled")
+lazyimages: "enabled"
+
+exclude: [changelog.md, LICENSE.txt, README.md, Gemfile, Gemfile.lock]
