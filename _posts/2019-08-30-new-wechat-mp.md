@@ -5,6 +5,7 @@ title: "开了个微信公众号《软件开发谈》"
 categories:  CPPOOPGPXP
 description: 开了个微信公众号《软件开发谈》，发些Go，C++，软件工程方面的文章
 tags: Go cpp C++11 C++14 C++17
+featured: true
 ---
 
 前段时间开了一个微信公众号**《软件开发谈》**，可以通过搜索ID“**softwaredevtalk**”找到，也可以通过扫描文末二维码找到，主要发些与我本职工作相关的Go、C++、软件工程方面的文章。到目前为止发了十几篇文章都是罗列了些modern C++的新特性：
