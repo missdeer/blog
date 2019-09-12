@@ -11,6 +11,7 @@ image: https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/media/2019-08-30/mp-we
 
 前段时间开了一个微信公众号**《软件开发谈》**，可以通过搜索ID“**softwaredevtalk**”找到，也可以通过扫描文末二维码找到，主要发些与我本职工作相关的Go、C++、软件工程方面的文章。到目前为止发了十几篇文章都是罗列了些modern C++的新特性：
 
+- [C++17特性：扩展using声明](https://mp.weixin.qq.com/s/dhRXCcYbHCzMu57793NbWA)
 - [C++17特性：折叠表达式](https://mp.weixin.qq.com/s/kmtA7_e_OJKBfCRPqaEzXw)
 - [Modern C++特性：聚合初始化](https://mp.weixin.qq.com/s/62gUSuY3iWJzNpHFJgKwvA)
 - [Modern C++特性：lambda表达式](https://mp.weixin.qq.com/s/z9kBdasiD_jjpkZZGqBHtA)
