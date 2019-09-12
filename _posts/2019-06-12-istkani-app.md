@@ -5,6 +5,7 @@ title: "双色球技术派app"
 categories: Shareware
 description: 双色球技术派app
 tags: Qt iOS istkani
+image: https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/media/2019-06-12/1.png
 ---
 
 这个app在2014年就上架过，除了一开始送出去一堆兑换码以外，以每月大约不到1个付费用户的速度卖出过几份。后来也就更新过1个版本，后来就懒得更新了，直到2017年10月因长期不更新被下架了。

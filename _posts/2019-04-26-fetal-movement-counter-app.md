@@ -5,6 +5,7 @@ title: "胎动计数器app"
 categories: Shareware
 description: 写了个app给老婆数胎动
 tags: iOS Android
+image: https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/media/2019-04-26/8.jpg
 ---
 
 自从知道怀孕28周起要数胎动，我就花了几天时间写了个简单的app给老婆数胎动用。

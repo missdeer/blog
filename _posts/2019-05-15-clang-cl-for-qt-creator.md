@@ -5,6 +5,7 @@ title: "Qt Creator使用clang-cl"
 categories:  CPPOOPGPXP
 description: "Qt Creator使用clang-cl"
 tags: Clang Qt
+image: https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/media/2019-05-15/add-clang-cl.png
 ---
 
 之前已经[在Windows上用clang编译Qt程序](https://minidump.info/blog/2018/07/clang-on-windows-for-qt/)，但当时的Qt Creator并没有好好地支持，所以需要在控制台上直接使用命令行进行编译。今天偶然发现最新的Qt Creator已经支持`clang-cl`套件了，试了一下效果不错。

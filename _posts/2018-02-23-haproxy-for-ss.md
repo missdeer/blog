@@ -5,6 +5,7 @@ title: "HAProxy for SS(R)"
 categories: gfw
 description: "HAProxy for SS(R)"
 tags: GFW shadowsocks HAProxy
+image: https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/media/2018-02-23/haproxy-workflow.svg
 ---
 
 昨天在喵帕斯tg群里看到一张HAProxy的截图，经过了解，原来是梅林固件自带的，真是不错的想法。

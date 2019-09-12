@@ -5,6 +5,7 @@ title: "在家里无缝访问公司网络"
 categories: network
 description: 没有VPN，在家里无缝访问公司网络
 tags: Router BananaPi
+image: https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/media/2018-04-27/topo.svg
 ---
 
 有时候在家里时想访问公司网络，干点活（真是个好员工），主要就是开开内网的网页，连连内网的IM（Cisco Jabber）。本来这个事情只要有一个VPN就可以搞定了，但是！但是我没有权限申请VPN，于是只好另辟蹊径了。
