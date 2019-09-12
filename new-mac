@@ -5,6 +5,8 @@ day=`date +%d`
 title="$year-$month-$day-$1.md"
 echo '---' > "_posts/$title"
 echo 'layout: post' >> "_posts/$title"
+echo 'author: missdeer' >> "_posts/$title"
+echo 'featured: false' >> "_posts/$title"
 echo 'title: ""' >> "_posts/$title"
 echo 'categories: ' >> "_posts/$title"
 echo 'description: ' >> "_posts/$title"
@@ -17,6 +19,8 @@ case ${editor} in
     -m) open /Applications/MacDown.app/ --args "$PWD/_posts/$title"
         ;;
     -t) open /Applications/Typora.app/ --args "$PWD/_posts/$title"
+        ;;
+    -k) open /Applications/KarenMeu.app/ --args "$PWD/_posts/$title"
         ;;
     *) vim "_posts/$title"
         ;;
