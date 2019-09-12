@@ -17,6 +17,8 @@ layout: commentablepage
 
 2018年12月重新切换回Github Pages作为hosting，同时将所有JS/CSS/图片等静态资源通过jsDelivr CDN加速。
 
+2019年9月觉得[Medium](https://medium.com/)的主题很舒服，找了[Mediumish](https://github.com/wowthemesnet/mediumish-theme-jekyll/)换上。
+
 ## 关于我
 
 我的简历在[这里](https://minidump.info/fanresume/)。
