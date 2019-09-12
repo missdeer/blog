@@ -22,4 +22,3 @@ layout: commentablepage
 我的简历在[这里](https://minidump.info/fanresume/)。
 
 {% include donate.html %}
-</section>
