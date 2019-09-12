@@ -1,6 +1,7 @@
 ---
 layout: post
 author: missdeer
+image: https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/media/2006-08-27/ph.jpg
 title: LLYF ProcessHelper W.I.P.
 categories: 
  - imported from CSDN

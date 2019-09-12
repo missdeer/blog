@@ -5,6 +5,7 @@ title: "Qt for Mobile程序设置启动图片"
 categories: Qt
 description: "Qt for Mobile程序设置启动图片"
 tags: Qt iOS Android
+image: https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/media/2015-05-30/androidsplashscreen.png
 ---
 Qt for Mobile默认是用了一张纯黑的图片作为程序启动图片，所以一开始程序启动时会出现1到几秒的黑屏，机器越慢，这个时间越长，比较不美观，我们可以自己动手设置上适合的图片。
 
