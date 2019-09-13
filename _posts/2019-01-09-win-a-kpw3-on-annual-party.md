@@ -2,9 +2,9 @@
 layout: post
 author: missdeer
 title: "年会中奖KPW3一台"
-categories: Life
+categories: Kindle
 description: 公司年会中三等奖，Kindle PaperWhite 3一台
-tags: Kindle
+tags: Kindle KPW KPW3
 ---
 
 昨晚公司，本来都有点不太想去，因为往年的经历开一次年会失一次望，不如回家陪妹子。跟妹子聊起这个事，妹子倒劝我还是去参加吧，抽奖奖品我确实很想要一台带背光的Kindle，家里已有的Kindle4和DXG都没背光，晚上吊顶的灯光不适合看。于是还是去参加了，还当了一回苦力拉了几箱东西，包括所有抽奖奖品去酒店。
