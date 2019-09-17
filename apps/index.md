@@ -30,6 +30,11 @@ layout: page
       <hr class="post-list__divider" />
     </li>
     <li>
+      <h4 class="post-list__post-title post-title"><a href="" title="CodeInspector"> &#8226; CodeInspector &#8226; 尚未发布</a></h4>
+      <p class="excerpt">从汇编角度观察C/C++、Go、Swift、D、Rust、Pascal等编程语言编译器底层工作原理。</p>
+      <hr class="post-list__divider" />
+    </li>
+    <li>
       <h4 class="post-list__post-title post-title"><a href="https://minidump.info/blog/2018/01/getnovel-wip/" title="getnovel"> &#8226; getnovel</a><a href="https://github.com/missdeer/getnovel" target="_blank"> &#8226; 已开源</a></h4>
       <p class="excerpt">抓取网络小说，并打包成Kindle等设备可用的Mobi、epub、PDF格式，看书更舒服。</p>
       <hr class="post-list__divider" />
