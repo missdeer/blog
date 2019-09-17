@@ -6,6 +6,7 @@ title: "为了舒服地写微信公众号，我写了个文章编辑器"
 categories: Shareware
 description: 为了能舒服地在微信公众号上写文章，我特地写了个基于Markdown的编辑器
 tags: Markdown
+image: https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/media/2019-09-17/mainwindow1.png
 ---
 
 前段时间突然心血来潮开通了一个[微信公众号](../08/new-wechat-mp/)，虽然至今为止也才写了十几篇文章，但是用了官方文章编辑器和一票第三方文章编辑器后，我决定自己写一个。
