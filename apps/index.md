@@ -1,6 +1,7 @@
 ---
 title: 我开发的软件
 layout: page
+comments: yes
 ---
 <div class="main-post-list">
   <ol class="post-list">
@@ -53,3 +54,6 @@ layout: page
 
 </div>
 
+{% include donate.html %}
+
+{% include comments.html %}

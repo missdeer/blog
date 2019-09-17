@@ -1,6 +1,7 @@
 ---
 title: 关于这个博客
-layout: commentablepage
+layout: page
+comments: yes
 ---
 
 从2003年开始写blog，最早在博客驱动，早已关闭，数据没导出。（2018年1月17日，偶然发现csdn上有[归档](http://blog.csdn.net/missdeer/article/month/2004/10)，但每篇文章都只能看到最前面一部分，csdn真是太垃圾了。
@@ -24,3 +25,5 @@ layout: commentablepage
 我的简历在[这里](https://minidump.info/fanresume/)。
 
 {% include donate.html %}
+
+{% include comments.html %}
