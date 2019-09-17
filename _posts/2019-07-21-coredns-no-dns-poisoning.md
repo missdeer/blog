@@ -5,6 +5,7 @@ title: "CoreDNS搭建无污染DNS"
 categories: gfw
 description: 使用CoreDNS搭建无污染DNS服务
 tags: GFW DNS CoreDNS
+image: https://www.oddeye.co/documentation/images/coredns.png
 ---
 
 我之前整理过在国内搭建无污染DNS的[一些方法](../../../2016/05/dns-resolve/)，github上各种轮子也层出不穷，但基本原理几乎不变。自从半年多前开始用[CoreDNS](https://github.com/coredns/coredns)，我觉得可以不用dnsmasq/[overture](https://github.com/shawn1m/overture)/chinadns这些轮子了，CoreDNS完全符合我的需求：
