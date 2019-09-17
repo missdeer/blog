@@ -20,7 +20,7 @@ layout: page
       <hr class="post-list__divider" />
     </li>
     <li>
-      <h4 class="post-list__post-title post-title"><a href="https://minidump.info/blog/2019/06/istkani-app/" title="双色球技术派"> &#8226;  双色球技术派 &#8226; 尚未发布</a></h4>
+      <h4 class="post-list__post-title post-title"><a href="https://minidump.info/blog/2019/06/istkani-app/" title="双色球技术派"> &#8226;  双色球技术派 &#8226; 被下架，等待再次上架</a></h4>
       <p class="excerpt">功能强大，资讯丰富的中国福利彩票双色球辅助选号工具。</p>
       <hr class="post-list__divider" />
     </li>
