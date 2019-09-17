@@ -5,6 +5,11 @@ layout: page
 <div class="main-post-list">
   <ol class="post-list">
     <li>
+      <h4 class="post-list__post-title post-title"><a href="https://minidump.info/blog/2019/09/a-new-markdown-editor/" title="KarenMeu"> &#8226; KarenMeu &#8226; 尚未发布</a></h4>
+      <p class="excerpt">基于Markdown实时预览的微信公众号文章编辑器，支持多种渲染引擎和预览主题/风格，也可以作为一款通用的Markdown编辑器。</p>
+      <hr class="post-list__divider" />
+    </li>
+    <li>
       <h4 class="post-list__post-title post-title"><a href="https://minidump.info/blog/2019/04/fetal-movement-counter-app/" title="胎动计数器"> &#8226; 胎动计数器</a><a href="https://itunes.apple.com/cn/app/id1455433423" title="胎动计数器" target="_blank"> &#8226; 已上架iOS App Store</a></h4>
       <p class="excerpt">怀孕28周起要数胎动，我就花了几天时间写了个简单的app给老婆数胎动用。</p>
       <hr class="post-list__divider" />
