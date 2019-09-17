@@ -190,7 +190,7 @@ cd coredns
 make
 ```
 
-CoreDNS使用了go modules机制，所以在`make`过程中会自动下载依赖的package。其中一些package是放在诸如`golang.org/x/`的路径下的，所以需要自备梯子，可以全局翻，也可以通过`HTTP_PROXY`环境变量指定，或者使用国内的一些镜像（如果你信得过的话）。
+CoreDNS使用了go modules机制，所以在`make`过程中会自动下载依赖的package。其中一些package是放在诸如`golang.org/x/`的路径下的，所以需要自备梯子，可以全局翻，也可以通过`HTTP_PROXY`环境变量指定，或者使用国内的一些镜像（如果你信得过的话）通过`GOPROXY`环境变量指定。
 
 如果要加入以上两个插件，则在`make`前，要修改`plugin.cfg`文件，加入以下两行：
 
@@ -199,7 +199,7 @@ block:github.com/missdeer/block
 proxy:github.com/coredns/proxy
 ```
 
-再`make`，就会把这两个插件编译进去。
+再`make`，就会把这两个插件编译进去。如果发现没有编译进去，可以先执行一下`go generate coredns.go`再`make`。
 
 如果要给其他平台交叉编译CoreDNS，需要先以当前平台为参数`make`一次，再以目标平台为参数进行`make`，因为第一次`make`时会调用`go generate`跑两个程序，如果不是当前平台的可执行文件是跑不起来的。
 
