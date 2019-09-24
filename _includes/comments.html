@@ -1,7 +1,7 @@
 <section class="post-comments">
   {% if site.comment.disqus %}
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/disqusjs@1.2/dist/disqusjs.css">
-    <script src="https://cdn.jsdelivr.net/npm/disqusjs@1.1/dist/disqus.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/disqusjs@1.2/dist/disqusjs.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/disqusjs@1.1/dist/disqus.min.js"></script>
     <div id="disqus_thread"></div>
     <script>
     // https://github.com/SukkaW/DisqusJS
@@ -15,7 +15,7 @@
     </script>
     <noscript>要查看<a href="http://disqus.com/?ref_noscript"> Disqus </a>评论，请启用 JavaScript</noscript>
   {% elsif site.comment.valine.id %}
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/leancloud/javascript-sdk@3.5.0/dist/av-min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/leancloud/javascript-sdk@3.5.0/dist/av-min.min.js"></script>
     <script src='https://cdn.jsdelivr.net/gh/DesertsP/Valine/dist/Valine.min.js'></script>
     <div id="comments" class="comments"></div>
     <script>
