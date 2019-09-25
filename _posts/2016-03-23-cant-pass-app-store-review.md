@@ -1,5 +1,6 @@
 ---
 layout: post
+image: https://blogimg.minidump.info/2016-03-23-cant-pass-app-store-review.md
 author: missdeer
 title: "进球啦app提交app store审核不通过"
 categories: Shareware

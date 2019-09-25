@@ -1,5 +1,6 @@
 ---
 layout: post
+image: https://blogimg.minidump.info/2005-01-31-LLYF-ProcessHelper%E5%A2%9E%E5%BC%BA%E5%8F%8ALLYF-Spy%E5%BC%80%E5%A7%8B.md
 author: missdeer
 title: LLYF ProcessHelper增强及LLYF Spy开始
 categories: 

@@ -1,5 +1,6 @@
 ---
 layout: post
+image: https://blogimg.minidump.info/2015-07-18-sell-coffee.md
 author: missdeer
 title: "开始卖咖啡"
 categories: Life

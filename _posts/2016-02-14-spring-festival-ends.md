@@ -1,5 +1,6 @@
 ---
 layout: post
+image: https://blogimg.minidump.info/2016-02-14-spring-festival-ends.md
 author: missdeer
 title: "春节结束"
 categories: Life

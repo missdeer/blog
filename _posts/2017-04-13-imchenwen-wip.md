@@ -1,5 +1,6 @@
 ---
 layout: post
+image: https://blogimg.minidump.info/2017-04-13-imchenwen-wip.md
 author: missdeer
 title: "imchenwen WIP"
 categories: Shareware

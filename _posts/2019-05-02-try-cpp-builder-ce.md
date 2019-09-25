@@ -1,11 +1,11 @@
 ---
 layout: post
+image: https://blogimg.minidump.info/2019-05-02-try-cpp-builder-ce.md
 author: missdeer
 title: "试用C++ Builder社区版"
 categories: Editor，IDE
 description: 试用C++ Builder社区版
 tags: C++
-image: https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/media/2019-05-02/vcldesign.png
 ---
 
 偶然在Embarcadero的营销邮件中发现现在C++ Builder有Community Edition即社区版可以免费下载使用，想当年从大一买了自己第一台电脑开始，也曾用过6年左右C++ Builder写了些小程序，为了情怀也得试用一下。

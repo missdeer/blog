@@ -1,5 +1,6 @@
 ---
 layout: post
+image: https://blogimg.minidump.info/2015-01-08-wanna-learn-rust-lang.md
 author: missdeer
 title: "想学一下Rust"
 categories: Coding

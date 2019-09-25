@@ -1,5 +1,6 @@
 ---
 layout: post
+image: https://blogimg.minidump.info/2014-08-13-netlink-requires-root.md
 author: missdeer
 title: "netlink需要root权限"
 categories: Job

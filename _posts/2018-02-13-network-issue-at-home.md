@@ -1,11 +1,11 @@
 ---
 layout: post
+image: https://blogimg.minidump.info/2018-02-13-network-issue-at-home.md
 author: missdeer
 title: "家中网络问题一则"
 categories: network
 description: 家中网络问题一则
 tags: Router BananaPi
-image: https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/media/2018-02-13/topo.svg
 ---
 
 某天早上起来，发现屋里手机、电脑都上不了网了，照惯例先后重启了一下路由器和WIFI中继，都不管用，感觉问题有点严重了。

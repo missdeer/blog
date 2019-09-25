@@ -1,5 +1,6 @@
 ---
 layout: post
+image: https://blogimg.minidump.info/2015-10-28-testing-is-necessary.md
 author: missdeer
 title: "测试还是必要的"
 categories: Coding

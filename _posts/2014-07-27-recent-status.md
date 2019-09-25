@@ -1,5 +1,6 @@
 ---
 layout: post
+image: https://blogimg.minidump.info/2014-07-27-recent-status.md
 author: missdeer
 title: "近况"
 categories: Life

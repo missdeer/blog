@@ -1,5 +1,6 @@
 ---
 layout: post
+image: https://blogimg.minidump.info/2014-06-17-trapped-by-gcc.md
 author: missdeer
 title: "被GCC坑了一把"
 categories: Job

@@ -1,11 +1,11 @@
 ---
 layout: post
+image: https://blogimg.minidump.info/2018-03-31-umlgen-develop-memoir.md
 author: missdeer
 title: "UMLGen开发踩坑"
 categories: Shareware
 description: UMLGen开发踩坑
 tags: Qt
-image: https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/media/2018-03-31/mainwindow2.png
 ---
 
 最近这段时间都在写一个叫UMLGen的GUI程序，从名字可以看出，就是一个用来画UML图的工具，与大多数现有的WYSIWYG（所见即所得）的UML画图工具（比如Visio，StarUML等等）不同的是，UMLGen使用代码的形式来描述UML图的呈现，与LaTeX的思想类似，即WYTIWYG（What You Think Is What You Get，所想即所得），我个人认为这种方式特别适合程序员使用。现在可用性已经很好了，主窗口截图如下：

@@ -1,5 +1,6 @@
 ---
 layout: post
+image: https://blogimg.minidump.info/2015-03-14-ask-for-leaving.md
 author: missdeer
 title: "要离职了"
 categories: Job

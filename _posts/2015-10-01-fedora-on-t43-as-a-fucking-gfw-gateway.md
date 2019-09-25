@@ -1,5 +1,6 @@
 ---
 layout: post
+image: https://blogimg.minidump.info/2015-10-01-fedora-on-t43-as-a-fucking-gfw-gateway.md
 author: missdeer
 title: "T43上的Fedora做翻墙网关"
 categories: gfw

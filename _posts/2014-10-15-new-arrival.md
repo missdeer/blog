@@ -1,5 +1,6 @@
 ---
 layout: post
+image: https://blogimg.minidump.info/2014-10-15-new-arrival.md
 author: missdeer
 title: "新品上架"
 categories: Startup

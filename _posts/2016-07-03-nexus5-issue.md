@@ -1,5 +1,6 @@
 ---
 layout: post
+image: https://blogimg.minidump.info/2016-07-03-nexus5-issue.md
 author: missdeer
 title: "Nexus5出问题了"
 categories: Mobile

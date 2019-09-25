@@ -1,5 +1,6 @@
 ---
 layout: post
+image: https://blogimg.minidump.info/2006-02-02-LLYF-MD5Checker-WIP.md
 author: missdeer
 title: LLYF MD5Checker W.I.P
 categories: 

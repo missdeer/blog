@@ -1,5 +1,6 @@
 ---
 layout: post
+image: https://blogimg.minidump.info/2014-10-30-deploy-go-applications-on-sohu-paas.md
 author: missdeer
 title: "部署Go程序到搜狐云景PaaS"
 categories: Go

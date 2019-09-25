@@ -1,5 +1,6 @@
 ---
 layout: post
+image: https://blogimg.minidump.info/2015-06-30-got-a-macbookpro.md
 author: missdeer
 title: "到手一台13吋Retina MBP"
 categories: Life

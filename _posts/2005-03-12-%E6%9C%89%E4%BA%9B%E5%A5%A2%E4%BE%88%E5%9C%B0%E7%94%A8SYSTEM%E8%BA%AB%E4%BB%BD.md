@@ -1,5 +1,6 @@
 ---
 layout: post
+image: https://blogimg.minidump.info/2005-03-12-%E6%9C%89%E4%BA%9B%E5%A5%A2%E4%BE%88%E5%9C%B0%E7%94%A8SYSTEM%E8%BA%AB%E4%BB%BD.md
 author: missdeer
 title: 有些奢侈地用SYSTEM身份
 categories: 

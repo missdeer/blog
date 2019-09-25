@@ -1,5 +1,6 @@
 ---
 layout: post
+image: https://blogimg.minidump.info/2015-04-13-nas-wanted.md
 author: missdeer
 title: "想要个NAS"
 categories: Life

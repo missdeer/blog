@@ -1,5 +1,6 @@
 ---
 layout: post
+image: https://blogimg.minidump.info/2014-11-14-network-programming-bugs.md
 author: missdeer
 title: "遇到的一个网络编程的bug"
 categories: Job

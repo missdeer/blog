@@ -1,5 +1,6 @@
 ---
 layout: post
+image: https://blogimg.minidump.info/2017-11-04-novel-to-mobi.md
 author: missdeer
 title: "抓取网络小说到Kindle"
 categories: Shareware

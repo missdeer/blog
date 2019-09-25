@@ -1,5 +1,6 @@
 ---
 layout: post
+image: https://blogimg.minidump.info/2017-04-12-matters-needing-attention-about-letsencrypt.md
 author: missdeer
 title: "Let's Encrypt注意事项"
 categories: Cryptography

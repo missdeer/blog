@@ -1,5 +1,6 @@
 ---
 layout: post
+image: https://blogimg.minidump.info/2015-04-18-local-mirror-rust-nightly.md
 author: missdeer
 title: "本地镜像Rust nightly build"
 categories: Coding

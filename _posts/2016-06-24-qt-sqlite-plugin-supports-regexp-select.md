@@ -1,5 +1,6 @@
 ---
 layout: post
+image: https://blogimg.minidump.info/2016-06-24-qt-sqlite-plugin-supports-regexp-select.md
 author: missdeer
 title: "让Qt的sqlite插件支持REGEXP查询"
 categories: Qt

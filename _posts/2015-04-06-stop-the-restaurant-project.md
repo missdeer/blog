@@ -1,5 +1,6 @@
 ---
 layout: post
+image: https://blogimg.minidump.info/2015-04-06-stop-the-restaurant-project.md
 author: missdeer
 title: "饭店项目暂停了"
 categories: Shareware

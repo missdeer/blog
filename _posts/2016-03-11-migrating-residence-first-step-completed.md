@@ -1,5 +1,6 @@
 ---
 layout: post
+image: https://blogimg.minidump.info/2016-03-11-migrating-residence-first-step-completed.md
 author: missdeer
 title: "迁户口第一步完成"
 categories: Life

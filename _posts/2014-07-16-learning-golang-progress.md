@@ -1,5 +1,6 @@
 ---
 layout: post
+image: https://blogimg.minidump.info/2014-07-16-learning-golang-progress.md
 author: missdeer
 title: "Go语言学习进展"
 categories: Go

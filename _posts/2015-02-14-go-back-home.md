@@ -1,5 +1,6 @@
 ---
 layout: post
+image: https://blogimg.minidump.info/2015-02-14-go-back-home.md
 author: missdeer
 title: "回家了"
 categories: Life

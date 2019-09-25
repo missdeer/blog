@@ -1,5 +1,6 @@
 ---
 layout: post
+image: https://blogimg.minidump.info/2014-11-15-ios-push-notification-with-qt.md
 author: missdeer
 title: "使用Qt实现iOS push notification"
 categories: Qt

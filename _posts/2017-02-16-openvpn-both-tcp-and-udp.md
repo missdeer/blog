@@ -1,5 +1,6 @@
 ---
 layout: post
+image: https://blogimg.minidump.info/2017-02-16-openvpn-both-tcp-and-udp.md
 author: missdeer
 title: "OpenVPN同时监听TCP和UDP端口"
 categories: network

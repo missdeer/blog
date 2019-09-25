@@ -1,5 +1,6 @@
 ---
 layout: post
+image: https://blogimg.minidump.info/2017-12-11-replace-expat-with-libxml.md
 author: missdeer
 title: "将expat替换为libxml"
 categories: Job

@@ -1,5 +1,6 @@
 ---
 layout: post
+image: https://blogimg.minidump.info/2015-01-30-blog-uses-https.md
 author: missdeer
 title: "Blog开启https支持并强制使用"
 categories: Life

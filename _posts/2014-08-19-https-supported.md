@@ -1,5 +1,6 @@
 ---
 layout: post
+image: https://blogimg.minidump.info/2014-08-19-https-supported.md
 author: missdeer
 title: "支持https"
 categories: Startup

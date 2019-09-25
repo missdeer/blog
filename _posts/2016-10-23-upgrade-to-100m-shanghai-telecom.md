@@ -1,5 +1,6 @@
 ---
 layout: post
+image: https://blogimg.minidump.info/2016-10-23-upgrade-to-100m-shanghai-telecom.md
 author: missdeer
 title: "升级到电信100M宽带"
 categories: network

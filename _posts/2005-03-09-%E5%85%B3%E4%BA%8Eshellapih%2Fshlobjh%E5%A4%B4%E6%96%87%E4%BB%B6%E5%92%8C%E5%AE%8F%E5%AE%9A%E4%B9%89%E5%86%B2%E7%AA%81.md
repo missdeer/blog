@@ -1,5 +1,6 @@
 ---
 layout: post
+image: https://blogimg.minidump.info/2005-03-09-%E5%85%B3%E4%BA%8Eshellapih%2Fshlobjh%E5%A4%B4%E6%96%87%E4%BB%B6%E5%92%8C%E5%AE%8F%E5%AE%9A%E4%B9%89%E5%86%B2%E7%AA%81.md
 author: missdeer
 title: 关于shellapi.h/shlobj.h头文件和宏定义冲突
 categories: 

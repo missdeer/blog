@@ -1,5 +1,6 @@
 ---
 layout: post
+image: https://blogimg.minidump.info/2014-06-21-trapped-by-incompatible-interface-3rdparty-libraries.md
 author: missdeer
 title: "被第三方库接口变化给坑了"
 categories: Coding

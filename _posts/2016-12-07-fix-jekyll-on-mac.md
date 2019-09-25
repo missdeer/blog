@@ -1,5 +1,6 @@
 ---
 layout: post
+image: https://blogimg.minidump.info/2016-12-07-fix-jekyll-on-mac.md
 author: missdeer
 title: "修复mac上的jekyll"
 categories: Software

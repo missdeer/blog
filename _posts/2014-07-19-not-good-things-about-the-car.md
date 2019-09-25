@@ -1,5 +1,6 @@
 ---
 layout: post
+image: https://blogimg.minidump.info/2014-07-19-not-good-things-about-the-car.md
 author: missdeer
 title: "诸事不顺"
 categories: Life

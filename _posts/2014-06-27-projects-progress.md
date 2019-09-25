@@ -1,5 +1,6 @@
 ---
 layout: post
+image: https://blogimg.minidump.info/2014-06-27-projects-progress.md
 author: missdeer
 title: "项目进展"
 categories: Startup

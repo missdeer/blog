@@ -1,5 +1,6 @@
 ---
 layout: post
+image: https://blogimg.minidump.info/2018-07-26-tinc-follow-up.md
 author: missdeer
 title: "tinc后续"
 categories: network

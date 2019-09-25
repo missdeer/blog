@@ -1,5 +1,6 @@
 ---
 layout: post
+image: https://blogimg.minidump.info/2018-01-20-always-disappoint-on-annual-party.md
 author: missdeer
 title: "开一次年会，失一次望"
 categories: Life

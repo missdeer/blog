@@ -1,5 +1,6 @@
 ---
 layout: post
+image: https://blogimg.minidump.info/2015-01-13-fixed-another-hang-issue.md
 author: missdeer
 title: "又修正一个线程挂死的问题"
 categories: Job

@@ -1,5 +1,6 @@
 ---
 layout: post
+image: https://blogimg.minidump.info/2017-08-16-install-windows7.md
 author: missdeer
 title: "一次装Windows的经历"
 categories: Life

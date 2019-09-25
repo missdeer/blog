@@ -1,5 +1,6 @@
 ---
 layout: post
+image: https://blogimg.minidump.info/2015-03-19-amazon-s3-in-golang.md
 author: missdeer
 title: "Go语言操作Amazon S3"
 categories: Job

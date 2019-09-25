@@ -1,5 +1,6 @@
 ---
 layout: post
+image: https://blogimg.minidump.info/2016-03-15-avege-dns-improve.md
 author: missdeer
 title: "改进avege的dns解析功能"
 categories: Shareware

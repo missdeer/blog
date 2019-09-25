@@ -1,5 +1,6 @@
 ---
 layout: post
+image: https://blogimg.minidump.info/2018-01-03-getnovel-wip.md
 author: missdeer
 title: "抓取网络小说到Kindle更新"
 categories: Shareware

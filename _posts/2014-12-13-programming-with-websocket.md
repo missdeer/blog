@@ -1,5 +1,6 @@
 ---
 layout: post
+image: https://blogimg.minidump.info/2014-12-13-programming-with-websocket.md
 author: missdeer
 title: "websocket程序开发"
 categories: Job

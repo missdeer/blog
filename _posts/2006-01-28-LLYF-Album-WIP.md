@@ -1,5 +1,6 @@
 ---
 layout: post
+image: https://blogimg.minidump.info/2006-01-28-LLYF-Album-WIP.md
 author: missdeer
 title: LLYF Album W.I.P
 categories: 

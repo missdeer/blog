@@ -1,5 +1,6 @@
 ---
 layout: post
+image: https://blogimg.minidump.info/2017-05-20-build-boost-for-4-platforms.md
 author: missdeer
 title: "为4个平台编译Boost"
 categories: CPPOOPGPXP

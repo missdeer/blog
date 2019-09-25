@@ -1,5 +1,6 @@
 ---
 layout: post
+image: https://blogimg.minidump.info/2005-03-05-LLYF-Spy-WIP-%5C%26%5C%26-Others.md
 author: missdeer
 title: LLYF Spy WIP && Others
 categories: 

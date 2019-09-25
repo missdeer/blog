@@ -1,5 +1,6 @@
 ---
 layout: post
+image: https://blogimg.minidump.info/2015-01-17-my-understand-of-lua-coroutine.md
 author: missdeer
 title: "我对Lua coroutine的理解"
 categories: Coding

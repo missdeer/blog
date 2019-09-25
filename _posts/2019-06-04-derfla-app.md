@@ -1,11 +1,11 @@
 ---
 layout: post
+image: https://blogimg.minidump.info/2019-06-04-derfla-app.md
 author: missdeer
 title: "Derfla，快捷应用启动器"
 categories: Shareware
 description: "Derfla，快捷应用启动器"
 tags: Qt Alfred Derfla
-image: https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/media/2019-06-04/lfs.png
 ---
 
 这是好几年前就开的坑，当年是对标[Launchy](https://www.launchy.net/)，后来推翻重写，想对标[Alfred](https://www.alfredapp.com/)，到目前为止，也仅仅是完成了很少几个功能，很多精力和时间都花在UI上了。一开始是照Launchy的完全图片自绘，最近加上了Alfred风格的UI。

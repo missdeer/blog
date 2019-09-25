@@ -1,5 +1,6 @@
 ---
 layout: post
+image: https://blogimg.minidump.info/2015-07-22-enable-ipv6-with-nginx-on-linode.md
 author: missdeer
 title: "Linode上nginx开启IPv6支持"
 categories: network

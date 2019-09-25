@@ -1,5 +1,6 @@
 ---
 layout: post
+image: https://blogimg.minidump.info/2016-08-02-flush-netgear-r6300v2-firmware.md
 author: missdeer
 title: "终于把Netgear R6300v2固件刷了"
 categories: Router

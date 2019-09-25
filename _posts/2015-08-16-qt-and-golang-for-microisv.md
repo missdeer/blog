@@ -1,5 +1,6 @@
 ---
 layout: post
+image: https://blogimg.minidump.info/2015-08-16-qt-and-golang-for-microisv.md
 author: missdeer
 title: "micro ISV使用Qt和Go开发"
 categories: Startup

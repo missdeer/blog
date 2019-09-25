@@ -1,5 +1,6 @@
 ---
 layout: post
+image: https://blogimg.minidump.info/2015-12-26-rent-another-room.md
 author: missdeer
 title: "另外租个房子"
 categories: Life

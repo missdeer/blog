@@ -1,5 +1,6 @@
 ---
 layout: post
+image: https://blogimg.minidump.info/2018-12-03-blog-hosting-switch.md
 author: missdeer
 title: "更换blog托管"
 categories: blog

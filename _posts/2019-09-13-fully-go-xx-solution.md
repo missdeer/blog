@@ -1,12 +1,12 @@
 ---
 layout: post
+image: https://blogimg.minidump.info/2019-09-13-fully-go-xx-solution.md
 author: missdeer
 featured: false
 title: "全Go科学上网解决方案"
 categories: gfw
 description: 全部使用Go编写的程序实现科学上网
 tags: GFW Go
-image: https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/media/2019-09-13/coredns.png
 ---
 
 本来由于使用网关的方式进行科学上网一直工作得比较稳定，所以很久都没折腾科学上网相关的东西了。前不久用了几年的Banana Pi突然连不上了，通过socks5+pac的方式也勉强应付了。今天回到老婆娘家，发现两个月前还工作得好好的树莓派不知道什么时候已经点不亮了。不禁感叹ARM板似乎不太耐操啊，以后还是尽量只用x86的工控机之类的吧。

@@ -1,5 +1,6 @@
 ---
 layout: post
+image: https://blogimg.minidump.info/2015-01-31-easy-to-be-angry.md
 author: missdeer
 title: "最近脾气很暴躁"
 categories: Life

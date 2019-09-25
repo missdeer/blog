@@ -1,5 +1,6 @@
 ---
 layout: post
+image: https://blogimg.minidump.info/2005-02-04-TSharedMem%E7%B1%BB.md
 author: missdeer
 title: TSharedMem类
 categories: 

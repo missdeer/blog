@@ -1,11 +1,11 @@
 ---
 layout: post
+image: https://blogimg.minidump.info/2018-12-01-imchenwen-WIP-optimization.md
 author: missdeer
 title: "imchenwen进度：优化"
 categories: Shareware
 description: imchenwen进度：优化
 tags: Qt imchenwen
-image: https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/media/2018-12-01/shortcut.png
 ---
 
 这段时间主要是做了些优化。

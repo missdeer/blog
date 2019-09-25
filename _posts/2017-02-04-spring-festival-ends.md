@@ -1,5 +1,6 @@
 ---
 layout: post
+image: https://blogimg.minidump.info/2017-02-04-spring-festival-ends.md
 author: missdeer
 title: "过完年了"
 categories: Life

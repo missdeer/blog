@@ -1,5 +1,6 @@
 ---
 layout: post
+image: https://blogimg.minidump.info/2014-12-21-recent-ideas.md
 author: missdeer
 title: 最近的想法
 categories: idea

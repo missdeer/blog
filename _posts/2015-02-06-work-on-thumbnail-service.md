@@ -1,5 +1,6 @@
 ---
 layout: post
+image: https://blogimg.minidump.info/2015-02-06-work-on-thumbnail-service.md
 author: missdeer
 title: "Work on Thumbnail Service"
 categories: Job

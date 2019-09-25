@@ -1,5 +1,6 @@
 ---
 layout: post
+image: https://blogimg.minidump.info/2017-02-05-ipv6-at-home-follow-up.md
 author: missdeer
 title: "在家部署IPv6后续"
 categories: network

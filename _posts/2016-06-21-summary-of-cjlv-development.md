@@ -1,5 +1,6 @@
 ---
 layout: post
+image: https://blogimg.minidump.info/2016-06-21-summary-of-cjlv-development.md
 author: missdeer
 title: "某日志查看程序开发小结"
 categories: Qt

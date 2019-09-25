@@ -1,5 +1,6 @@
 ---
 layout: post
+image: https://blogimg.minidump.info/2014-09-27-mile-stone-of-slimming.md
 author: missdeer
 title: "减肥里程碑"
 categories: Life

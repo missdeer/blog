@@ -1,5 +1,6 @@
 ---
 layout: post
+image: https://blogimg.minidump.info/2015-01-11-cross-build-by-travis.md
 author: missdeer
 title: 使用Travis服务交叉编译Go程序
 categories: Go

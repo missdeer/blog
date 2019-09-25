@@ -1,5 +1,6 @@
 ---
 layout: post
+image: https://blogimg.minidump.info/2005-02-23-LLYF-CaptureHelper-%5C%26%5C%26-Dev-Cpp.md
 author: missdeer
 title: LLYF CaptureHelper && Dev-Cpp
 categories: 

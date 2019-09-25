@@ -1,5 +1,6 @@
 ---
 layout: post
+image: https://blogimg.minidump.info/2013-10-28-first-post.md
 author: missdeer
 title:  "第一篇"
 categories: Life

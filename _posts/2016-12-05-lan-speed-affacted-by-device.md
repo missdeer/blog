@@ -1,5 +1,6 @@
 ---
 layout: post
+image: https://blogimg.minidump.info/2016-12-05-lan-speed-affacted-by-device.md
 author: missdeer
 title: "设备对局域网网速的影响"
 categories: network

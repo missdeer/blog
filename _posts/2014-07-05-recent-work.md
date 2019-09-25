@@ -1,5 +1,6 @@
 ---
 layout: post
+image: https://blogimg.minidump.info/2014-07-05-recent-work.md
 author: missdeer
 title: "工作近况"
 categories: Job

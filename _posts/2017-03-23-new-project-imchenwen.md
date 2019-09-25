@@ -1,11 +1,11 @@
 ---
 layout: post
+image: https://blogimg.minidump.info/2017-03-23-new-project-imchenwen.md
 author: missdeer
 title: "新坑：imchenwen，用外部播放器观看在线视频"
 categories: Shareware
 description: 用外部视频播放器观看在线视频
 tags: Qt Go imchenwen
-image: https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/media/2017-03-23/imchenwen.png
 ---
 
 不知道怎么想的，突然开了个新坑，因为[bilibili mac client](https://github.com/typcn/bilibili-mac-client)并不能好好地工作，所以自己写一个也挺好玩的。

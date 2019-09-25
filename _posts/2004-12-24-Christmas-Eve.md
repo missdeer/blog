@@ -1,5 +1,6 @@
 ---
 layout: post
+image: https://blogimg.minidump.info/2004-12-24-Christmas-Eve.md
 author: missdeer
 title: Christmas Eve
 categories: 

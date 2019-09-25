@@ -1,5 +1,6 @@
 ---
 layout: post
+image: https://blogimg.minidump.info/2014-06-30-new-sleeping-girl.md
 author: missdeer
 title: "《沉睡魔咒》"
 categories: 

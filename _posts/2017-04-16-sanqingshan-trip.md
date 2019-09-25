@@ -1,11 +1,11 @@
 ---
 layout: post
+image: https://blogimg.minidump.info/2017-04-16-sanqingshan-trip.md
 author: missdeer
 title: "三清山两日游"
 categories: Life
 description: 江西三清山两日游
 tags: trip
-image: https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/media/2017-04-16/main.jpg
 ---
 
 这次team building大家投票选出了方案，去江西三清山游玩。本来以为是一条休闲级的线路，结果事实却是疯狂级！

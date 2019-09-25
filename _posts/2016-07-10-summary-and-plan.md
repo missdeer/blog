@@ -1,5 +1,6 @@
 ---
 layout: post
+image: https://blogimg.minidump.info/2016-07-10-summary-and-plan.md
 author: missdeer
 title: "近期小结和计划"
 categories: Life

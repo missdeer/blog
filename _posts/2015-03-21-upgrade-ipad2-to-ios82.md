@@ -1,5 +1,6 @@
 ---
 layout: post
+image: https://blogimg.minidump.info/2015-03-21-upgrade-ipad2-to-ios82.md
 author: missdeer
 title: "把iPad2升级到iOS8.2"
 categories: iOS

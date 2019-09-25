@@ -1,11 +1,11 @@
 ---
 layout: post
+image: https://blogimg.minidump.info/2018-11-13-imchenwen-builtin-player-and-dlna.md
 author: missdeer
 title: "imchenwen进度：内置播放器和DLNA投屏"
 categories: Shareware
 description: imchenwen进度：内置播放器和DLNA投屏
 tags: Qt MPV DLNA imchenwen
-image: https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/media/2018-11-13/builtinplayer.jpg
 ---
 
 大约一年半前因为感觉遇到解决不了的技术问题，于是imchenwen的坑就扔下不管了。上个月的时候突然意识到，妹子喜欢看网卡的视频，优酷腾讯芒果爱奇艺等等，但是因为身体原因捧着个手机或iPad看会觉得头疼，看电视就要好很多，所以就萌生了在电视机上看网络视频的想法。

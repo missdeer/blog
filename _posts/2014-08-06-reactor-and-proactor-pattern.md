@@ -1,5 +1,6 @@
 ---
 layout: post
+image: https://blogimg.minidump.info/2014-08-06-reactor-and-proactor-pattern.md
 author: missdeer
 title: "Reactor和Proactor模式"
 categories: Coding

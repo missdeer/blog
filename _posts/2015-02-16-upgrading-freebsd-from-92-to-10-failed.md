@@ -1,5 +1,6 @@
 ---
 layout: post
+image: https://blogimg.minidump.info/2015-02-16-upgrading-freebsd-from-92-to-10-failed.md
 author: missdeer
 title: 升级FreeBSD从9.2到10.0失败
 categories: os

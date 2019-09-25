@@ -1,5 +1,6 @@
 ---
 layout: post
+image: https://blogimg.minidump.info/2017-01-04-port-ssr-to-ss-go-4.md
 author: missdeer
 title: "SSR混淆协议Go版移植手记（四）"
 categories: Shareware

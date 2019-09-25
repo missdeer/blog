@@ -1,5 +1,6 @@
 ---
 layout: post
+image: https://blogimg.minidump.info/2017-02-22-replace-switch-select-case-with-table-driven-in-go.md
 author: missdeer
 title: "Go语言用表驱动替换if-else/switch-case/select-case"
 categories: Go

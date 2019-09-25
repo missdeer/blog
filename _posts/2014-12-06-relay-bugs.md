@@ -1,5 +1,6 @@
 ---
 layout: post
+image: https://blogimg.minidump.info/2014-12-06-relay-bugs.md
 author: missdeer
 title: "Relay Bugs"
 categories: Job

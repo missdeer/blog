@@ -1,5 +1,6 @@
 ---
 layout: post
+image: https://blogimg.minidump.info/2015-04-27-attend-1st-gopher-china-conference.md
 author: missdeer
 title: "参加第一届Gopher China大会"
 categories: Go

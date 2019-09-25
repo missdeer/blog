@@ -1,5 +1,6 @@
 ---
 layout: post
+image: https://blogimg.minidump.info/2005-03-09-%E5%85%B3%E4%BA%8EOutputDebugString-%E7%9A%84%E6%A8%A1%E6%8B%9F.md
 author: missdeer
 title: 关于OutputDebugString 的模拟
 categories: 
