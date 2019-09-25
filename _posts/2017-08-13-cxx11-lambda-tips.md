@@ -9,7 +9,7 @@ tags: "C++11"
 
 C++11加入的lambda表达式是一大进步，大概这样用：
 
-```c++
+```cpp
 int a = 1;
 auto f = [&a](int n)->int {
     return n+a;
@@ -31,22 +31,21 @@ int b = f(2);
 
 5. lambda表达式虽然可以在函数体内定义，但实际上基本是个编译期行为，编译器会根据需要将lambda表达式作为一个独立的函数生成代码，比如以下代码:
 
-   ```c++
-   class C {
-       public:
-       void lambdaTest() {
-           int a = 1;
-           auto f = [&a](int n)->int {
-               return n+a;
-           };
-           int b = f(2);
-       }
-   };
-
-   void f() {
-       C c;
-       c.lambdaTest();
-   }
-   ```
+```cpp
+class C {
+    public:
+    void lambdaTest() {
+        int a = 1;
+        auto f = [&a](int n)->int {
+            return n+a;
+        };
+        int b = f(2);
+    }
+};
+void f() {
+    C c;
+    c.lambdaTest();
+}
+```
 
    在gcc 7.1的实现中，会分别生成`C::lambdaTest()`和`C::lambdaTest()::{lambda(int)#1}::operator()(int) const`两个函数的代码，除此之外clang/LLVM，Micrsoft Visual C++和Intel C++基本都是相同的做法。所以一般说来，逻辑上把lambda当成一个普通函数对待即可。但是从编程实践的角度讲，lambda表达式最好不要写太长，越短小越好，不然直接写个独立的函数代码结构会更好。

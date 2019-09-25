@@ -11,7 +11,7 @@ tags: C++11 Boost
 
 Boost中也提供了[BOOST_SCOPE_EXIT宏](https://www.boost.org/doc/libs/release/libs/scope_exit/doc/html/BOOST_SCOPE_EXIT.html)，但是用起来相当丑陋，而且像稍早版本的Qt Creator内置的简单的C++语法解析器甚至不能正常解析：
 
-```c++
+```cpp
 { // Some local scope.
     ...
     BOOST_SCOPE_EXIT(capture_list) {
@@ -23,7 +23,7 @@ Boost中也提供了[BOOST_SCOPE_EXIT宏](https://www.boost.org/doc/libs/release
 
 到了C++11，这个宏有了[改进](https://www.boost.org/doc/libs/release/libs/scope_exit/doc/html/scope_exit/tutorial.html#scope_exit.tutorial.capturing_all_variables__c__11_only_)，使用lambda的机制：
 
-```c++
+```cpp
 void world::add_person(person const& a_person) {
     persons_.push_back(a_person);
 
@@ -58,7 +58,7 @@ void world::add_person(person const& a_person) {
 
 既然这样，其实我们自己也不是一定要用Boost的实现，可以自己简单实现一个：
 
-```c++
+```cpp
 #include <functional>
 
 class ScopedGuard
@@ -77,7 +77,7 @@ public:
 
  使用示例：
 
-```c++
+```cpp
 ScopedGuard queryMutexUnlock([this](){m_queryMutex.unlock();});
 
 ScopedGuard postFinishedQueryEvent([this, e](){QCoreApplication::postEvent(this, e);});
