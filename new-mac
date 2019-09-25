@@ -4,6 +4,7 @@ month=`date +%m`
 day=`date +%d`
 title="$year-$month-$day-$1.md"
 echo '---' > "_posts/$title"
+echo "image: https://blogimg.minidump.info/$title" >> "_posts/$title"
 echo 'layout: post' >> "_posts/$title"
 echo 'author: missdeer' >> "_posts/$title"
 echo 'featured: false' >> "_posts/$title"
