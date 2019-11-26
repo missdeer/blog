@@ -4,7 +4,7 @@ layout: post
 author: missdeer
 featured: false
 title: "使用libxml2替换rapidxml"
-categories: job
+categories: Job
 description: 使用libxml2替换rapidxml
 tags: libxml2 rapidxml
 ---
@@ -22,7 +22,7 @@ tags: libxml2 rapidxml
 1. rapidxml parser只有DOM接口，没有SAX
 
 2. rapidxml_print功能太弱，甚至选项没做到与parser的一一对应
-
+   
    除此之外，还有其他一些问题，例如：
 
 3. 功能太少，比如无法处理HTML的情况
