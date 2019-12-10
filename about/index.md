@@ -20,6 +20,8 @@ comments: yes
 
 2019年9月觉得[Medium](https://medium.com/)的主题很舒服，找了[Mediumish](https://github.com/wowthemesnet/mediumish-theme-jekyll/)换上。
 
+2019年12月，将[镜像](https://blog.minidump.info/)再次移到Coding Pages上。[主域名](https://minidump.info/blog/)仍然放在Github Pages上，走Cloudflare CDN。
+
 ## 关于我
 
 我的简历在[这里](https://minidump.info/fanresume/)。
