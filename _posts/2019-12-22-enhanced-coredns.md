@@ -22,7 +22,7 @@ tags: GFW DNS CoreDNS
 5. 加入半官方[redisc插件](https://github.com/miekg/redis)。说是半官方是因为这个插件是CoreDNS的作者开发，但没加到CoreDNS的组织名下。我的规划里家里有2台机器跑CoreDNS，这样可以共享缓存了。
 6. 自制[bogus插件](https://github.com/missdeer/bogus)。写这个插件的原因是看到肥猫大大收集的[bogus列表](https://github.com/felixonmars/dnsmasq-china-list/blob/master/bogus-nxdomain.china.conf)，既然有这个列表我就想用上，后来想想似乎我这十来年来也只看到过一两次，有点不那么刚需。
 7. 自制[ipset插件](https://github.com/missdeer/ipset)。这个插件跟dnsmasq中的ipset功能比较类似，可以把指定的域名解析结果加到ipset中。原因自然是可以通过iptables进行流量自动分流，目前看来效果不错，对我来说特别实用。我的应用场景中，流量被分成三股：
-   
-8. 1). 大陆区的主机，直连；
-   2). 海外的，通过ss-redir走机场线路；
-   3). 某内网的，通过[nebula](https://github.comslackhq/nebula)连通，再通过[goproxy](https:/github.com/snail007/goproxy)建了DNS和socks5/http-connect代理，在本地则通过ipset/iptables分流[redsocks](https://github.com/darkk/redsocks)重向到代理中。
+
+   1. 大陆区的主机，直连；
+   2. 海外的，通过ss-redir走机场线路；
+   3. 某内网的，通过[nebula](https://github.comslackhq/nebula)连通，再通过[goproxy](https:/github.com/snail007/goproxy)建了DNS和socks5/http-connect代理，在本地则通过ipset/iptables分流[redsocks](https://github.com/darkk/redsocks)重向到代理中。
