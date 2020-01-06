@@ -1,6 +1,7 @@
 # Site
 name: "类库大魔王的挖井日记"
 title: "挖井"
+url: https://minidump.info
 baseurl: /blog
 description: "挖一口属于自己的井"
 logo: 'assets/images/logo.png'
