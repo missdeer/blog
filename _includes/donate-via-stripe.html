@@ -1,26 +1,26 @@
 <script src="https://js.stripe.com/v3"></script>
 <script>
-var stripe = Stripe('pk_live_tyj6HryOAzYDsRHA3uYjVHIq');
+    var stripe = Stripe('pk_live_tyj6HryOAzYDsRHA3uYjVHIq');
 
-function buy_me_cola() {
-    stripe.redirectToCheckout({
-    items: [{
-        sku: 'sku_FfVDZvhOKOxwCH',
-        quantity: 1
-    }],
-    successUrl: 'https://minidump.info/blog{{ page.url }}',
-    cancelUrl: 'https://minidump.info/blog{{ page.url }}'
-    });
-}
+    function buy_me_cola() {
+        stripe.redirectToCheckout({
+            items: [{
+                sku: 'sku_FfVDZvhOKOxwCH',
+                quantity: 1
+            }],
+            successUrl: '{{ page.url | absolute_url }}',
+            cancelUrl: '{{ page.url | absolute_url }}'
+        });
+    }
 
-function buy_me_coffee() {
-    stripe.redirectToCheckout({
-    items: [{
-        sku: 'sku_FfVEVxmUzZB1pm',
-        quantity: 1
-    }],
-    successUrl: 'https://minidump.info/blog{{ page.url }}',
-    cancelUrl: 'https://minidump.info/blog{{ page.url }}'
-    });
-}
+    function buy_me_coffee() {
+        stripe.redirectToCheckout({
+            items: [{
+                sku: 'sku_FfVEVxmUzZB1pm',
+                quantity: 1
+            }],
+            successUrl: '{{ page.url | absolute_url }}',
+            cancelUrl: '{{ page.url | absolute_url }}'
+        });
+    }
 </script>

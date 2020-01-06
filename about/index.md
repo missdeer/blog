@@ -24,7 +24,7 @@ comments: yes
 
 ## 关于我
 
-我的简历在[这里](https://minidump.info/fanresume/)。
+我的简历在[这里](https://missdeer.github.io/fanresume/)。
 
 {% include donate.html %}
 
