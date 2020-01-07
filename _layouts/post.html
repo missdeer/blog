@@ -42,7 +42,11 @@ post_class: post-template
                 <h1 class="posttitle">{{ page.title }}</h1>
 
             </div>
-
+			<!-- Adsense if enabled from _config.yml (change your pub id and slot) -->
+			{% if site.adsense == "enabled" %}
+			{% include adsense-under-header.html %}
+			{% endif %}
+			<!-- End Adsense -->
             <!-- Post Content -->
             <div class="article-post">
                 <!-- Toc if any -->
