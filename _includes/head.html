@@ -24,9 +24,7 @@
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl }}">
   <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed" | prepend: site.baseurl }}">
   <!-- Adsense if enabled from _config.yml (change your pub id and slot) -->
-  {% if site.adsense == "enabled" %}
-  	{% include adsense-under-header.html %}
-  {% endif %}
+  {% include adsense-under-header.html %}
   <!-- End Adsense -->
   {% if page.use_math %}
       {% include mathjax-support.html %}
