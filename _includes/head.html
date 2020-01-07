@@ -23,13 +23,11 @@
 
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl }}">
   <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed" | prepend: site.baseurl }}">
-  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-      (adsbygoogle = window.adsbygoogle || []).push({
-            google_ad_client: "ca-pub-3435940217424489",
-            enable_page_level_ads: true
-      });
-  </script>
+  <!-- Adsense if enabled from _config.yml (change your pub id and slot) -->
+  {% if site.adsense == "enabled" %}
+  	{% include adsense-under-header.html %}
+  {% endif %}
+  <!-- End Adsense -->
   {% if page.use_math %}
       {% include mathjax-support.html %}
   {% endif %}
