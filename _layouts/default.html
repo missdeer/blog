@@ -4,6 +4,19 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+<script type='text/javascript' charset='UTF-8'>
+    window['adrum-start-time'] = new Date().getTime();
+    (function(config){
+        config.appKey = 'AD-AAB-AAU-XCN';
+        config.adrumExtUrlHttp = 'http://cdn.appdynamics.com';
+        config.adrumExtUrlHttps = 'https://cdn.appdynamics.com';
+        config.beaconUrlHttp = 'http://col.eum-appdynamics.com';
+        config.beaconUrlHttps = 'https://col.eum-appdynamics.com';
+        config.xd = {enable : false};
+    })(window['adrum-config'] || (window['adrum-config'] = {}));
+</script>
+<script src='https://cdn.appdynamics.com/adrum/adrum-latest.js' type='text/javascript' charset='UTF-8'></script>
+
 <link rel="icon" href="https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/logo.png">
 
 <title>{{ page.title }} | {{site.name}}</title>
@@ -16,7 +29,6 @@
 <link href="{{ site.baseurl }}/assets/css/main.css" rel="stylesheet">
 
 <script src="https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/js/jquery.min.js"></script>
-
 </head>
 
 {% if jekyll.environment == 'production' %}
