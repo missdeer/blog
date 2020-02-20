@@ -24,7 +24,17 @@
           </a>
           <p>支付宝扫一扫</p>
         </div>
-      </div>
+      </div>      
+      <script type="text/javascript">
+        (function() {
+            var mobile = (/iphone|ipod|android|blackberry|mini|windows\sce|palm/i.test(navigator.userAgent.toLowerCase()));  
+            if (mobile) 
+            { 
+                $('#rewardButton').hide();
+                $('#QR').hide();
+            }
+        })();
+      </script>
       <div style="line-height:2.5;font-size:12px;">如果你有Visa、MasterCard之类的国际银行卡，也可以考虑以下选项：</div>
       <div>
         <script src="https://js.stripe.com/v3"></script>
