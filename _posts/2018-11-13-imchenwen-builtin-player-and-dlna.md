@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2018-11-13-imchenwen-builtin-player-and-dlna.md
+image: https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/media/2018-11-13/builtinplayer.jpg
 author: missdeer
 title: "imchenwen进度：内置播放器和DLNA投屏"
 categories: Shareware

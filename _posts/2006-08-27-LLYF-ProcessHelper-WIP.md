@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2006-08-27-LLYF-ProcessHelper-WIP.md
+image: https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/media/2006-08-27/ph.jpg
 author: missdeer
 title: LLYF ProcessHelper W.I.P.
 categories: 

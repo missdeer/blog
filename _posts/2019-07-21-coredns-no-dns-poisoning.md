@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2019-07-21-coredns-no-dns-poisoning.md
+image: https://img.peapix.com/ef6816bb660d43a0b13334df4dddfb18_320.jpg
 author: missdeer
 title: "CoreDNS搭建无污染DNS"
 categories: gfw

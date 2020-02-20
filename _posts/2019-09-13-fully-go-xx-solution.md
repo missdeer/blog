@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2019-09-13-fully-go-xx-solution.md
+image: https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/media/2019-09-13/v2ray.png
 author: missdeer
 featured: false
 title: "全Go科学上网解决方案"

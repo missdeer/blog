@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2014-09-01-unmarshal-gbk-xml.md
+image: https://img.peapix.com/2853732975864388047_320.jpg
 author: missdeer
 title: "Go语言Unmarshal GBK编码的XML"
 categories: Go

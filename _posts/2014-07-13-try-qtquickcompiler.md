@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2014-07-13-try-qtquickcompiler.md
+image: https://img.peapix.com/16070661021728981515_320.jpg
 author: missdeer
 title: "初试QtQuickCompiler"
 categories: Qt

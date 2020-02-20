@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2014-11-30-not-familiar-with-golang.md
+image: https://img.peapix.com/2211172508929873538_320.jpg
 author: missdeer
 title: "对Go不够熟练"
 categories: Go

@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2016-12-03-use-archlinuxarm-on-raspberrypi-gateway.md
+image: https://img.peapix.com/15569722670937390314_320.jpg
 author: missdeer
 title: "使用Archlinux做树莓派翻墙网关"
 categories: embed

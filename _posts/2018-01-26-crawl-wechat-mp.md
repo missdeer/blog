@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2018-01-26-crawl-wechat-mp.md
+image: https://img.peapix.com/10641216757862215704_320.jpg
 author: missdeer
 title: "抓取微信公众号文章"
 categories: Coding

@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2016-05-01-dns-resolve.md
+image: https://img.peapix.com/8767189197102594772_320.jpg
 author: missdeer
 title: "纯净DNS解析"
 categories: gfw 

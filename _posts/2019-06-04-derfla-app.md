@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2019-06-04-derfla-app.md
+image: https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/media/2019-06-04/everything.png
 author: missdeer
 title: "Derfla，快捷应用启动器"
 categories: Shareware

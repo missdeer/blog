@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2015-06-10-preview-screen-on-android.md
+image: https://img.peapix.com/15793389329432330121_320.jpg
 author: missdeer
 title: "设置Android app的preview screen"
 categories: Coding

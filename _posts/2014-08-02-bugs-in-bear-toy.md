@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2014-08-02-bugs-in-bear-toy.md
+image: https://img.peapix.com/9195842212814171362_320.jpg
 author: missdeer
 title: "薰衣草小熊长虫"
 categories: Life

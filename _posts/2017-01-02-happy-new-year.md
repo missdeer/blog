@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2017-01-02-happy-new-year.md
+image: https://img.peapix.com/15059640221297704466_320.jpg
 author: missdeer
 title: "新年好"
 categories: Life

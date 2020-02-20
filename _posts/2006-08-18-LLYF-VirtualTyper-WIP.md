@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2006-08-18-LLYF-VirtualTyper-WIP.md
+image: https://img.peapix.com/bf34946d567c4f7c9d9e296fadfdb641_320.jpg
 author: missdeer
 title: LLYF VirtualTyper W.I.P
 categories: 

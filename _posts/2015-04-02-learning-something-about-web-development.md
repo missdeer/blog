@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2015-04-02-learning-something-about-web-development.md
+image: https://img.peapix.com/931309834685428272_320.jpg
 author: missdeer
 title: "学点Web开发"
 categories: Coding

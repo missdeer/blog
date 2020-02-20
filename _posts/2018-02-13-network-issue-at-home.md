@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2018-02-13-network-issue-at-home.md
+image: https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/media/2018-02-13/topo.svg
 author: missdeer
 title: "家中网络问题一则"
 categories: network

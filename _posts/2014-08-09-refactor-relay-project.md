@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2014-08-09-refactor-relay-project.md
+image: https://img.peapix.com/1602789425534448580_320.jpg
 author: missdeer
 title: "重构Relay项目"
 categories: Job

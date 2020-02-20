@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2016-01-08-residence-problem.md
+image: https://img.peapix.com/12403530910407415502_320.jpg
 author: missdeer
 title: "户口不好迁啊"
 categories: Life

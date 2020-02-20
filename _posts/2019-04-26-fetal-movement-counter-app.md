@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2019-04-26-fetal-movement-counter-app.md
+image: https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/media/2019-04-26/8.jpg
 author: missdeer
 title: "胎动计数器app"
 categories: Shareware

@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2015-07-05-what-a-fucking-day.md
+image: https://img.peapix.com/7429564205746815923_320.jpg
 author: missdeer
 title: "糟糕的一天天"
 categories: Life

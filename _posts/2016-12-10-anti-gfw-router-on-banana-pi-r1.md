@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2016-12-10-anti-gfw-router-on-banana-pi-r1.md
+image: https://img.peapix.com/597671781561029479_320.jpg
 author: missdeer
 title: "用Banana Pi R1做一个翻墙路由器"
 categories: Router

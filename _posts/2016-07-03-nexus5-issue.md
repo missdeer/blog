@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2016-07-03-nexus5-issue.md
+image: https://img.peapix.com/16869404968019800960_320.jpg
 author: missdeer
 title: "Nexus5出问题了"
 categories: Mobile

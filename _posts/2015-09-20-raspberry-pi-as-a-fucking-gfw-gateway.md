@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2015-09-20-raspberry-pi-as-a-fucking-gfw-gateway.md
+image: https://img.peapix.com/10448978354179541734_320.jpg
 author: missdeer
 title: "树莓派做翻墙网关"
 categories: embed

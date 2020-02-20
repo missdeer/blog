@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2018-11-24-msvc-and-go.md
+image: https://img.peapix.com/17817792038746172708_320.jpg
 author: missdeer
 title: "MSVC与Go语言混合开发"
 categories: Go

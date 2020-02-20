@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2016-03-21-migrating-residence-almost-completed.md
+image: https://img.peapix.com/14940879946380960169_320.jpg
 author: missdeer
 title: "户口基本迁过去了"
 categories: Life

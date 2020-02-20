@@ -1,5 +1,5 @@
 ---
-image: https://blogimg.minidump.info/2019-10-08-surf-internet-properly-2.md
+image: https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/media/2019-10-08/iptables.png
 layout: post
 author: missdeer
 featured: false

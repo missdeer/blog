@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2016-03-10-alphago-wins.md
+image: https://img.peapix.com/14336771158277358651_320.jpg
 author: missdeer
 title: "AlphaGo赢了两局"
 categories: gochess

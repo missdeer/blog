@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2015-05-08-integrating-leancloud-with-qt-for-mobile.md
+image: https://img.peapix.com/4018657733262868052_320.jpg
 author: missdeer
 title: "Qt for Mobile集成LeanCloud"
 categories: Qt

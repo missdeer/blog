@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2005-02-24-LLYFSpy-wip-%5C%26-LLYF-DebugCapture.md
+image: https://img.peapix.com/1491944661664541659_320.jpg
 author: missdeer
 title: LLYFSpy wip && LLYF DebugCapture
 categories: 

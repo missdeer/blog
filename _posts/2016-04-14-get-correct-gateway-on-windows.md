@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2016-04-14-get-correct-gateway-on-windows.md
+image: https://img.peapix.com/8076094933640077011_320.jpg
 author: missdeer
 title: "Windows上获取正确的网关信息"
 categories: Job

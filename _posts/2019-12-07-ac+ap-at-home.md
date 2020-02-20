@@ -1,5 +1,5 @@
 ---
-image: https://blogimg.minidump.info/2019-12-07-ac+ap-at-home.md
+image: https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/media/2019-12-07/ap1.jpg
 layout: post
 author: missdeer
 featured: false

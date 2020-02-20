@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2014-06-14-bad-env-in-mainland.md
+image: https://img.peapix.com/1467976837734368690_320.jpg
 author: missdeer
 title: "国内的环境真是恶劣啊"
 categories:  network

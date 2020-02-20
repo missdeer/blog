@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2015-01-10-strange-deadlock.md
+image: https://img.peapix.com/13428602044144945286_320.jpg
 author: missdeer
 title: "奇怪的死锁"
 categories: Job

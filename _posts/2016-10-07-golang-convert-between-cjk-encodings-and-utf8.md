@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2016-10-07-golang-convert-between-cjk-encodings-and-utf8.md
+image: https://img.peapix.com/12118031392911148913_320.jpg
 author: missdeer
 title: "Go在CJK编码和UTF-8间转换"
 categories: Go 

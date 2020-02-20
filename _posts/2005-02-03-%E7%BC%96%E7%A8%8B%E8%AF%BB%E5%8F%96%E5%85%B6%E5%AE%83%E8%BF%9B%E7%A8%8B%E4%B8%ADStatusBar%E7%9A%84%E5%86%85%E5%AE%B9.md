@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2005-02-03-%E7%BC%96%E7%A8%8B%E8%AF%BB%E5%8F%96%E5%85%B6%E5%AE%83%E8%BF%9B%E7%A8%8B%E4%B8%ADStatusBar%E7%9A%84%E5%86%85%E5%AE%B9.md
+image: https://img.peapix.com/614202369762382127_320.jpg
 author: missdeer
 title: 编程读取其它进程中StatusBar的内容
 categories: 

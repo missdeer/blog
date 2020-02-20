@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2019-05-15-clang-cl-for-qt-creator.md
+image: https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/media/2019-05-15/add-clang-cl.png
 author: missdeer
 title: "Qt Creator使用clang-cl"
 categories:  CPPOOPGPXP

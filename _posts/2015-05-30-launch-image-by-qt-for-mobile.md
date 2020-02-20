@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2015-05-30-launch-image-by-qt-for-mobile.md
+image: https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/media/2015-05-30/ioslaunchimagefiles.png
 author: missdeer
 title: "Qt for Mobile程序设置启动图片"
 categories: Qt

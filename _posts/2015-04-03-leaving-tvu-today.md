@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2015-04-03-leaving-tvu-today.md
+image: https://img.peapix.com/4421531115872090094_320.jpg
 author: missdeer
 title: "今天从TVU离职了"
 categories: Job

@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2017-03-27-new-diy-desktop.md
+image: https://img.peapix.com/8876215099575394296_320.jpg
 author: missdeer
 title: "新装了个台式机"
 categories: device

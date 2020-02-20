@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2019-06-12-istkani-app.md
+image: https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/media/2019-06-12/1.png
 author: missdeer
 title: "双色球技术派app"
 categories: Shareware

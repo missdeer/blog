@@ -1,6 +1,6 @@
 ---
 
-image: https://blogimg.minidump.info/2019-11-10-alipay-etc-apply-activate.md
+image: https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/media/2019-11-10/etc.jpg
 layout: post
 author: missdeer
 featured: false

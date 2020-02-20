@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2018-03-31-umlgen-develop-memoir.md
+image: https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/media/2018-03-31/mainwindow2.png
 author: missdeer
 title: "UMLGen开发踩坑"
 categories: Shareware

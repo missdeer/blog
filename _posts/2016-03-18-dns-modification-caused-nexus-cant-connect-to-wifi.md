@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2016-03-18-dns-modification-caused-nexus-cant-connect-to-wifi.md
+image: https://img.peapix.com/5925673938872249715_320.jpg
 author: missdeer
 title: "修改DNS导致Nexus手机连不上WIFI"
 categories: Mobile

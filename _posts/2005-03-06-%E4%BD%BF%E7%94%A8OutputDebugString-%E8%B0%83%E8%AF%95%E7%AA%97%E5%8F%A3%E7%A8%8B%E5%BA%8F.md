@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2005-03-06-%E4%BD%BF%E7%94%A8OutputDebugString-%E8%B0%83%E8%AF%95%E7%AA%97%E5%8F%A3%E7%A8%8B%E5%BA%8F.md
+image: https://img.peapix.com/18025672573244844866_320.jpg
 author: missdeer
 title: 使用OutputDebugString 调试窗口程序
 categories: 

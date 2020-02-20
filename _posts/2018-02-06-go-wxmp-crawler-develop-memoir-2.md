@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2018-02-06-go-wxmp-crawler-develop-memoir-2.md
+image: https://img.peapix.com/14387568248246379564_320.jpg
 author: missdeer
 title: "Go微信公众号爬虫踩坑实录（二）"
 categories: Coding

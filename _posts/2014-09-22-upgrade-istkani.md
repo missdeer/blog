@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2014-09-22-upgrade-istkani.md
+image: https://img.peapix.com/525129135199930215_320.jpg
 author: missdeer
 title: "升级istkani"
 categories: Shareware

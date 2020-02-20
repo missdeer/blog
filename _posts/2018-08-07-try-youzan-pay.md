@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2018-08-07-try-youzan-pay.md
+image: https://img.peapix.com/9550137520935835171_320.jpg
 author: missdeer
 title: "试用基于有赞云的个人网站在线收款解决方案"
 categories: Shareware

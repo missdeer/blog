@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2015-08-03-got-a-raspberry-pi2.md
+image: https://img.peapix.com/10881458640947064196_320.jpg
 author: missdeer
 title: "到手一台树莓派2代"
 categories: embed

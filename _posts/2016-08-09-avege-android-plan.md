@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2016-08-09-avege-android-plan.md
+image: https://img.peapix.com/17190106641069884759_320.jpg
 author: missdeer
 title: "avege Android版的计划"
 categories: Shareware

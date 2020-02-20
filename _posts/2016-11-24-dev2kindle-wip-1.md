@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2016-11-24-dev2kindle-wip-1.md
+image: https://img.peapix.com/6770939733835607318_320.jpg
 author: missdeer
 title: "dev2kindle WIP(1)"
 categories: Shareware

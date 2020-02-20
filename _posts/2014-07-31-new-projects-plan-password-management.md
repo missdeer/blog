@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2014-07-31-new-projects-plan-password-management.md
+image: https://img.peapix.com/13660868550819532436_320.jpg
 author: missdeer
 title: 新项目计划——密码管理
 categories: Shareware

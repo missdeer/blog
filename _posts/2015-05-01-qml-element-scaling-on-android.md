@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2015-05-01-qml-element-scaling-on-android.md
+image: https://img.peapix.com/17381825925308634288_320.jpg
 author: missdeer
 title: "QML元素在Android上的Scaling"
 categories: Qt

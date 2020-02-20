@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2006-07-15-NES%E5%AD%A6%E4%B9%A0%E8%BF%9B%E5%BA%A6.md
+image: https://img.peapix.com/11024770337208048764_320.jpg
 author: missdeer
 title: NES学习进度
 categories: 

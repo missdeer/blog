@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2016-12-22-port-ssr-to-ss-go.md
+image: https://img.peapix.com/6124152935412668367_320.jpg
 author: missdeer
 title: "SSR混淆协议Go版移植手记（一）"
 categories: Shareware

@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2014-08-22-refactoring-IPC.md
+image: https://img.peapix.com/7651317261175529775_320.jpg
 author: missdeer
 title: "重构IPC协议"
 categories: Job

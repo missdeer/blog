@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2017-05-05-resolved-mingw-programming-issue.md
+image: https://img.peapix.com/9571574951083653804_320.jpg
 author: missdeer
 title: "几个使用MinGW开发遇到的问题"
 categories: CPPOOPGPXP

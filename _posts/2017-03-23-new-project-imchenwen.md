@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2017-03-23-new-project-imchenwen.md
+image: https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/media/2017-03-23/imchenwen.png
 author: missdeer
 title: "新坑：imchenwen，用外部播放器观看在线视频"
 categories: Shareware

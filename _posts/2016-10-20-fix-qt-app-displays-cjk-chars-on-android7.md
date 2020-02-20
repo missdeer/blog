@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2016-10-20-fix-qt-app-displays-cjk-chars-on-android7.md
+image: https://img.peapix.com/2528464846144687879_320.jpg
 author: missdeer
 title: "修正Qt app在Android 7上显示中文字符"
 categories: Qt

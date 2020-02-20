@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2018-04-27-access-internal-network-seamless.md
+image: https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/media/2018-04-27/topo.svg
 author: missdeer
 title: "在家里无缝访问公司网络"
 categories: network

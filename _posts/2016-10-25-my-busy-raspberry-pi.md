@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2016-10-25-my-busy-raspberry-pi.md
+image: https://img.peapix.com/10324860883142663283_320.jpg
 author: missdeer
 title: "我忙碌的树莓派"
 categories: embed

@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2015-04-15-make-a-ddns-client.md
+image: https://img.peapix.com/11117365886721550094_320.jpg
 author: missdeer
 title: "写了个DDNS客户端"
 categories: Shareware

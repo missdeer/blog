@@ -1,5 +1,5 @@
 ---
-image: https://blogimg.minidump.info/2020-02-10-work-from-home-day1.md
+image: https://img.peapix.com/75b626c319d943e2b45904ac5699e278_320.jpg
 layout: post
 author: missdeer
 featured: false

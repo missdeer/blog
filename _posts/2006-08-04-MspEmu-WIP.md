@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2006-08-04-MspEmu-WIP.md
+image: https://img.peapix.com/10320757324708929645_320.jpg
 author: missdeer
 title: MspEmu W.I.P
 categories: 

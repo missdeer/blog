@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2013-10-30-learning-data-structure-is-important.md
+image: https://img.peapix.com/15014464929741481769_320.jpg
 author: missdeer
 title: "学好数据结构很重要"
 categories: Coding

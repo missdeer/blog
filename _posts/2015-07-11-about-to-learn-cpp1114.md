@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2015-07-11-about-to-learn-cpp1114.md
+image: https://img.peapix.com/7825798860034270699_320.jpg
 author: missdeer
 title: "准备学习C++11和C++14"
 categories: CPPOOPGPXP

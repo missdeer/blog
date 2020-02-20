@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2006-07-18-Happy%2CBDS2006-Installed%21.md
+image: https://img.peapix.com/7101498841695728162_320.jpg
 author: missdeer
 title: Happy,BDS2006 Installed!
 categories: 

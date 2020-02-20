@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2005-02-13-%E6%94%BE%E4%B8%AALLYFSpy%E9%93%BE%E6%8E%A5%E5%87%BA%E6%9D%A5.md
+image: https://img.peapix.com/5de7feb129054c9c9976060a1374117c_320.jpg
 author: missdeer
 title: 放个LLYFSpy链接出来
 categories: 

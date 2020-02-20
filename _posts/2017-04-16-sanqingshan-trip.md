@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2017-04-16-sanqingshan-trip.md
+image: https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/media/2017-04-16/main.jpg
 author: missdeer
 title: "三清山两日游"
 categories: Life

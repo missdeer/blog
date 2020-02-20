@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2015-10-17-yet-another-redsocks-implementation-plan.md
+image: https://img.peapix.com/11975741849898035610_320.jpg
 author: missdeer
 title: "计划做个类Redsocks的新实现"
 categories: Shareware

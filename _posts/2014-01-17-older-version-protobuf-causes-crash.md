@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2014-01-17-older-version-protobuf-causes-crash.md
+image: https://img.peapix.com/11926769345562128903_320.jpg
 author: missdeer
 title: "旧版本Protobuf在Serializing方法crash"
 categories: Job

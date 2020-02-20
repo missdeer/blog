@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2019-01-09-win-a-kpw3-on-annual-party.md
+image: https://img.peapix.com/aaa930ba51e3480c805f8fb82734069b_320.jpg
 author: missdeer
 title: "年会中奖KPW3一台"
 categories: Kindle

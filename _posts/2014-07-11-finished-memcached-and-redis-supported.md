@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2014-07-11-finished-memcached-and-redis-supported.md
+image: https://img.peapix.com/17999838303473173960_320.jpg
 author: missdeer
 title: "完成Memcached/Redis支持"
 categories: Startup

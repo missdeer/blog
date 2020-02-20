@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2014-07-05-recent-work.md
+image: https://img.peapix.com/17612440974691047717_320.jpg
 author: missdeer
 title: "工作近况"
 categories: Job

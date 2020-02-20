@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2018-07-10-clang-on-windows-for-qt.md
+image: https://img.peapix.com/3337554930564705130_320.jpg
 author: missdeer
 title: "Clang on Windows for Qt"
 categories: CPPOOPGPXP

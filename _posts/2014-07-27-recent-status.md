@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2014-07-27-recent-status.md
+image: https://img.peapix.com/948752119786328123_320.jpg
 author: missdeer
 title: "近况"
 categories: Life

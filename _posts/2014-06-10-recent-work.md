@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2014-06-10-recent-work.md
+image: https://img.peapix.com/14926004422480193072_320.jpg
 author: missdeer
 title: "近况"
 categories: Startup

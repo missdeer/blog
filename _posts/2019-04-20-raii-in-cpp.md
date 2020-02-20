@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2019-04-20-raii-in-cpp.md
+image: https://img.peapix.com/5ac2e562880c4a9e9cc7c2881ab293ba_320.jpg
 author: missdeer
 title: "C++中RAII的实现手法"
 categories: CPPOOPGPXP

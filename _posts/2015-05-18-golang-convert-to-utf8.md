@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2015-05-18-golang-convert-to-utf8.md
+image: https://img.peapix.com/3798816788040340034_320.jpg
 author: missdeer
 title: "Go语言中将其他编码字符转换为UTF-8"
 categories: Go

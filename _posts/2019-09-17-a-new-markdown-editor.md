@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2019-09-17-a-new-markdown-editor.md
+image: https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/media/2019-09-17/mainwindow1.png
 author: missdeer
 featured: false
 title: "为了舒服地写微信公众号，我写了个文章编辑器"

@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2015-08-23-something-recently.md
+image: https://img.peapix.com/7900564184552361439_320.jpg
 author: missdeer
 title: "近期的一些事"
 categories: Life

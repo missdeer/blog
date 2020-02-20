@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2018-12-01-imchenwen-WIP-optimization.md
+image: https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/media/2018-12-01/shortcut.png
 author: missdeer
 title: "imchenwen进度：优化"
 categories: Shareware

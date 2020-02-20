@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2014-01-19-qterminal-instead-of-lxterminal.md
+image: https://img.peapix.com/12148393912773450089_320.jpg
 author: missdeer
 title: "使用qterminal替代LXTerminal"
 categories: Software

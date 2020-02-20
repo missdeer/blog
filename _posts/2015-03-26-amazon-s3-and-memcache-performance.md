@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2015-03-26-amazon-s3-and-memcache-performance.md
+image: https://img.peapix.com/18174777184640994506_320.jpg
 author: missdeer
 title: "Amazon S3和ElastiCache的传输性能"
 categories: Job

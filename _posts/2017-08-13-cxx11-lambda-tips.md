@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2017-08-13-cxx11-lambda-tips.md
+image: https://img.peapix.com/17881472840055102368_320.jpg
 author: missdeer
 title: "C++11 lambda表达式tips"
 categories: CPPOOPGPXP 

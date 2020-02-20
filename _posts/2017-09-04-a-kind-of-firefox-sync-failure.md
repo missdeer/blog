@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2017-09-04-a-kind-of-firefox-sync-failure.md
+image: https://img.peapix.com/15770912803003589519_320.jpg
 author: missdeer
 title: "一种Firefox同步失败的情况"
 categories: Software

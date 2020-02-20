@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2019-05-02-try-cpp-builder-ce.md
+image: https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/media/2019-05-02/vcldesign.png
 author: missdeer
 title: "试用C++ Builder社区版"
 categories: Editor，IDE

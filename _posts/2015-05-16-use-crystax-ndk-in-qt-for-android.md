@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2015-05-16-use-crystax-ndk-in-qt-for-android.md
+image: https://img.peapix.com/4144129437934075728_320.jpg
 author: missdeer
 title: "Qt for Android中使用CrystaX NDK替换官方Android NDK"
 categories: Qt

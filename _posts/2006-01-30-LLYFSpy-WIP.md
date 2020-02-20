@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2006-01-30-LLYFSpy-WIP.md
+image: https://img.peapix.com/11894101754559205550_320.jpg
 author: missdeer
 title: LLYFSpy W.I.P
 categories: 

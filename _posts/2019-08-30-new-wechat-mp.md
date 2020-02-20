@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2019-08-30-new-wechat-mp.md
+image: https://img.peapix.com/18221794963686230849_320.jpg
 author: missdeer
 title: "开了个微信公众号《软件开发谈》"
 categories:  CPPOOPGPXP

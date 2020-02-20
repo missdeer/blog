@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2014-09-06-sell-istkani-on-app-store.md
+image: https://img.peapix.com/17474874228046745365_320.jpg
 author: missdeer
 title: "istkani在App Store于八月份成功卖出两份"
 categories: Shareware

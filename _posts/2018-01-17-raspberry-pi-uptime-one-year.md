@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2018-01-17-raspberry-pi-uptime-one-year.md
+image: https://img.peapix.com/4598720589834410822_320.jpg
 author: missdeer
 title: "树莓派uptime达到365天"
 categories: embed

@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2019-04-13-sqlcipher-android-upgrade-memior.md
+image: https://img.peapix.com/14659436891862899117_320.jpg
 author: missdeer
 title: "SQLCipher Android平台升级踩坑"
 categories: Job

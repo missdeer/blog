@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2017-01-07-use-huawei-e8372-on-raspbian.md
+image: https://img.peapix.com/15415865619542910752_320.jpg
 author: missdeer
 title: "Raspbian上安装使用华为E8372"
 categories: embed

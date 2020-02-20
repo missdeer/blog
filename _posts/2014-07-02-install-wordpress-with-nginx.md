@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2014-07-02-install-wordpress-with-nginx.md
+image: https://img.peapix.com/11890470920866113627_320.jpg
 author: missdeer
 title: "Nginx上安装Wordpress"
 categories: Software

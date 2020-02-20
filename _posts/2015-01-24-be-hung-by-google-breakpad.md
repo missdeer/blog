@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2015-01-24-be-hung-by-google-breakpad.md
+image: https://img.peapix.com/1626399042938011476_320.jpg
 author: missdeer
 title: "程序被Google Breakpad挂住了"
 categories: Job

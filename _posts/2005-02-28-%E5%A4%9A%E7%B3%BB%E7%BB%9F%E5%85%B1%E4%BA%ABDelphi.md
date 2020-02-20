@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2005-02-28-%E5%A4%9A%E7%B3%BB%E7%BB%9F%E5%85%B1%E4%BA%ABDelphi.md
+image: https://img.peapix.com/17540737705790615901_320.jpg
 author: missdeer
 title: 多系统共享Delphi
 categories: 

@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2016-08-12-codesign-qt-application-with-developer-id-on-mac.md
+image: https://img.peapix.com/13377862310612361138_320.jpg
 author: missdeer
 title: "在Mac上给Qt程序用Developer ID签名"
 categories: Qt

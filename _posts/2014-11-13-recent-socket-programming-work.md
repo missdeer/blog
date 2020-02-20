@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2014-11-13-recent-socket-programming-work.md
+image: https://img.peapix.com/15879999505870867694_320.jpg
 author: missdeer
 title: "最近的网络开发工作"
 categories: Job

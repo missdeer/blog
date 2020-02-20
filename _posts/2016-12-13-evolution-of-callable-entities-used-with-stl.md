@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2016-12-13-evolution-of-callable-entities-used-with-stl.md
+image: https://img.peapix.com/15278794329589142322_320.jpg
 author: missdeer
 title: "供STL使用的可调用体的演进"
 categories: CPPOOPGPXP

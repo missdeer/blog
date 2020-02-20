@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2015-03-30-azure-china-functions-missing.md
+image: https://img.peapix.com/3798816788040340034_320.jpg
 author: missdeer
 title: "Azure China功能缺失"
 categories: Cloud

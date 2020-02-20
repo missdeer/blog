@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2015-03-16-thumbnail-service-performance-issue-has-been-fixed.md
+image: https://img.peapix.com/12941293248635898725_320.jpg
 author: missdeer
 title: "性能问题解决了"
 categories: Job

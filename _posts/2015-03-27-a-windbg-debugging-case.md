@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2015-03-27-a-windbg-debugging-case.md
+image: https://img.peapix.com/5199327256369721562_320.jpg
 author: missdeer
 title: "一次WinDBG调试的心得"
 categories: Job

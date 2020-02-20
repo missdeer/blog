@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2015-10-24-firstzf-claims-finished.md
+image: https://img.peapix.com/12459335449927350698_320.jpg
 author: missdeer
 title: "第一账房的债权匹配管理系统完成了"
 categories: Shareware

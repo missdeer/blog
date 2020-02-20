@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2015-04-18-local-mirror-rust-nightly.md
+image: https://img.peapix.com/1988265465677451074_320.jpg
 author: missdeer
 title: "本地镜像Rust nightly build"
 categories: Coding

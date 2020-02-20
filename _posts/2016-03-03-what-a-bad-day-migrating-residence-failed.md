@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2016-03-03-what-a-bad-day-migrating-residence-failed.md
+image: https://img.peapix.com/2061400066624739615_320.jpg
 author: missdeer
 title: "好糟糕，户口果然迁不了"
 categories: Life

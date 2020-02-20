@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2017-01-14-opensource-avege.md
+image: https://img.peapix.com/5743472699416470014_320.jpg
 author: missdeer
 title: "Avege开源了"
 categories: Shareware

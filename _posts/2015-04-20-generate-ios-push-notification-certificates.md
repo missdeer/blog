@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2015-04-20-generate-ios-push-notification-certificates.md
+image: https://img.peapix.com/5066194079449309163_320.jpg
 author: missdeer
 title: "生成iOS Push Notification证书"
 categories: Coding

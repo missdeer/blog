@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2015-04-23-always-crash-bug-with-dump-file.md
+image: https://img.peapix.com/7467931343342816784_320.jpg
 author: missdeer
 title: "老是分给我dump文件分析crash bug"
 categories: Job

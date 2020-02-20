@@ -1,6 +1,6 @@
 ---
 
-image: https://blogimg.minidump.info/2019-12-22-enhanced-coredns.md
+image: https://img.peapix.com/e3a44538c6e84110b1b30e3300f182bf_320.jpg
 layout: post
 author: missdeer
 featured: true

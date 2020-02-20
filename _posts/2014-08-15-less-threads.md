@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2014-08-15-less-threads.md
+image: https://img.peapix.com/16026754740830563107_320.jpg
 author: missdeer
 title: "更少的线程"
 categories: Job

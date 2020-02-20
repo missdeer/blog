@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2015-11-08-avege-works-initially.md
+image: https://img.peapix.com/5115834758549493907_320.jpg
 author: missdeer
 title: "Avege初步能工作了"
 categories: Shareware

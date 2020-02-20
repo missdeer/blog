@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2018-01-04-seven-concurrent-models-in-seven-weeks.md
+image: https://img.peapix.com/5368956200451341248_320.jpg
 author: missdeer
 title: "初读《七周七并发模型》"
 categories: Reading

@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://blogimg.minidump.info/2017-08-10-host-by-coding-pages.md
+image: https://img.peapix.com/5024875180608537217_320.jpg
 author: missdeer
 title: "把blog托管到Coding Pages"
 categories: blog
