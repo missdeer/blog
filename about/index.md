@@ -22,6 +22,10 @@ comments: yes
 
 2019年12月，将[镜像](https://blog.minidump.info/)再次移到Coding Pages上。[主域名](https://minidump.info/blog/)仍然放在Github Pages上，走Cloudflare CDN。
 
+2020年1月，发现Coding Pages因Coding.net业务模式变化而不再可用，将[主域名](https://minidump.info/blog/)和[镜像](https://blog.minidump.info/)全部放到自有的VPS上，走Cloudflare CDN。
+
+2020年2月，才发现当时换[Mediumish](https://github.com/wowthemesnet/mediumish-theme-jekyll/)主题后速度很慢，略作优化。
+
 ## 关于我
 
 我的简历在[这里](https://missdeer.github.io/fanresume/)。
