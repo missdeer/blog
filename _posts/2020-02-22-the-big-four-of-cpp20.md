@@ -1,5 +1,5 @@
 ---
-image: https://blogimg.minidump.info/2020-02-22-the-big-four-of-cpp20.md
+image: https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/media/2020-02-22/TimelineCpp20BigFourUpdate.png
 layout: post
 author: missdeer
 featured: false
