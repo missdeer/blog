@@ -42,34 +42,36 @@
               
               var stripeScript = document.createElement('script'); 
               stripeScript.type = 'text/javascript'; 
-              stripeScript.src = window.location.protocol + '//js.stripe.com/v3';
+              stripeScript.async = true;
+              stripeScript.src = 'https://js.stripe.com/v3';
+              stripeScript.onload = function(){
+                  var stripe = Stripe('pk_live_tyj6HryOAzYDsRHA3uYjVHIq');
+                  var buyMeACocacolaButton = document.querySelector('#buy-me-a-cocacola-button');
+                  buyMeACocacolaButton.addEventListener('click', function () {
+                    stripe.redirectToCheckout({
+                      items: [{
+                        sku: 'sku_FfVDZvhOKOxwCH',
+                        quantity: 1
+                      }],
+                      successUrl: '{{ site.url }}{{site.baseurl}}{{page.url}}',
+                      cancelUrl: '{{ site.url }}{{site.baseurl}}{{page.url}}'
+                    });
+                  });
+
+                  var buyMeACoffeeButton = document.querySelector('#buy-me-a-coffee-button');
+                  buyMeACoffeeButton.addEventListener('click', function () {
+                    stripe.redirectToCheckout({
+                      items: [{
+                        sku: 'sku_FfVEVxmUzZB1pm',
+                        quantity: 1
+                      }],
+                      successUrl: '{{ site.url }}{{site.baseurl}}{{page.url}}',
+                      cancelUrl: '{{ site.url }}{{site.baseurl}}{{page.url}}'
+                    });
+                  }); 
+              };
               var stripeNode = document.getElementById('stripe-node')
               stripeNode.insertBefore(stripeScript, stripeNode.childNodes[0]);
-
-              var stripe = Stripe('pk_live_tyj6HryOAzYDsRHA3uYjVHIq');
-              var buyMeACocacolaButton = document.querySelector('#buy-me-a-cocacola-button');
-              buyMeACocacolaButton.addEventListener('click', function () {
-                stripe.redirectToCheckout({
-                  items: [{
-                    sku: 'sku_FfVDZvhOKOxwCH',
-                    quantity: 1
-                  }],
-                  successUrl: '{{ site.url }}{{site.baseurl}}{{page.url}}',
-                  cancelUrl: '{{ site.url }}{{site.baseurl}}{{page.url}}'
-                });
-              });
-
-              var buyMeACoffeeButton = document.querySelector('#buy-me-a-coffee-button');
-              buyMeACoffeeButton.addEventListener('click', function () {
-                stripe.redirectToCheckout({
-                  items: [{
-                    sku: 'sku_FfVEVxmUzZB1pm',
-                    quantity: 1
-                  }],
-                  successUrl: '{{ site.url }}{{site.baseurl}}{{page.url}}',
-                  cancelUrl: '{{ site.url }}{{site.baseurl}}{{page.url}}'
-                });
-              });
           }
           else
           {
