@@ -9,18 +9,23 @@
       </button>
       <div id="QR" style="display: block;">
         <div id="wechat" style="display: inline-block">
-          <a href="https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/wepay.jpg" class="fancybox"
-            rel="group">
-            <img id="wechat_qr" src="https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/wepay.jpg"
-              alt="微信扫一扫">
+          <a href="https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/wepay.jpg" class="fancybox" rel="group">
+            {% if site.lazyimages == "enabled" %}
+            <img id="wechat_qr" class="lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/wepay.jpg" alt="微信扫一扫">
+            {% else %}
+            <img id="wechat_qr" src="https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/wepay.jpg" alt="微信扫一扫">
+            {% endif %}
           </a>
           <p>微信扫一扫</p>
         </div>
         <div id="wechat" style="display: inline-block">
           <a href="https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/alipay.jpg" class="fancybox"
             rel="group">
-            <img id="alipay_qr" src="https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/alipay.jpg"
-              alt="支付宝扫一扫">
+            {% if site.lazyimages == "enabled" %}
+            <img id="alipay_qr" class="lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/alipay.jpg" alt="支付宝扫一扫">
+            {% else %}
+            <img id="alipay_qr" src="https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/alipay.jpg" alt="支付宝扫一扫">
+            {% endif %}
           </a>
           <p>支付宝扫一扫</p>
         </div>
