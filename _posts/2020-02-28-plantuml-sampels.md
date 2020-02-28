@@ -9,7 +9,7 @@ featured: false
 ---
 突然心血来潮，花了点时间写了个Jekyll的插件，用于生成PlantUML的各种图。用法大体是这样的：
 
-1. 下载编译一个(Go程序)[https://github.com/missdeer/plantuml-cmd]，这个程序用于完成将PlantUML代码转换为图片的任务，支持远程http(s)调用和本地jar调用两种方式：
+1. 下载编译一个[Go程序](https://github.com/missdeer/plantuml-cmd)，这个程序用于完成将PlantUML代码转换为图片的任务，支持远程http(s)调用和本地jar调用两种方式：
 ```bash
 go get github.com/missdeer/plantuml-cmd
 ```
