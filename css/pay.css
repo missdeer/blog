@@ -21,7 +21,7 @@
   font-variant: normal;
   font-stretch: normal;
   font-size: 18px;
-  font-family: "Microsoft Yahei";
+  font-family: Helvetica, Tahoma, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
   background: #f44336;
 }
 #rewardButton span:hover {
@@ -51,7 +51,7 @@
   font-variant: normal;
   font-stretch: normal;
   font-size: 18px;
-  font-family: "Microsoft Yahei";
+  font-family: Helvetica, Tahoma, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
   background: #f44336;
 }
 #buy-me-a-coffee-button span:hover {
@@ -81,7 +81,7 @@
   font-variant: normal;
   font-stretch: normal;
   font-size: 18px;
-  font-family: "Microsoft Yahei";
+  font-family: Helvetica, Tahoma, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
   background: #f44336;
 }
 #buy-me-a-cocacola-button span:hover {
