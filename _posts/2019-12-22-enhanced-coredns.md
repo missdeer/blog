@@ -25,4 +25,4 @@ tags: GFW DNS CoreDNS
 
    1. 大陆区的主机，直连；
    2. 大陆外的主机，通过ss-redir走机场线路；
-   3. 某内网的主机，通过[nebula](https://github.comslackhq/nebula)连通，再通过[goproxy](https:/github.com/snail007/goproxy)建了DNS和socks5/http-connect代理，在本地则通过ipset/iptables分流[redsocks](https://github.com/darkk/redsocks)重定向到代理中。
+   3. 某内网的主机，通过[nebula](https://github.com/slackhq/nebula)连通，再通过[goproxy](https://github.com/snail007/goproxy)建了DNS和socks5/http-connect代理，在本地则通过ipset/iptables分流[redsocks](https://github.com/darkk/redsocks)重定向到代理中。
