@@ -1,5 +1,5 @@
 ---
-image: https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/media/2020-03-21/newgraph.png
+image: https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/media/2020-03-21/coredns_cache_hits_total.png
 layout: post
 author: missdeer
 featured: false
