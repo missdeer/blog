@@ -66,7 +66,19 @@ http://localhost:9090/new/graph?g0.expr=coredns_cache_hits_total&g0.tab=0&g0.sta
 
 可以得到以下内容：
 
-![prometheus](https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/media/2020-03-21/newgraph.png)
+![coredns_cache_hits_total](https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/media/2020-03-21/coredns_cache_hits_total.png)
+![coredns_cache_misses_total](https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/media/2020-03-21/coredns_cache_misses_total.png)
+![coredns_cache_size](https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/media/2020-03-21/coredns_cache_size.png)
+![coredns_dns_request_count_total](https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/media/2020-03-21/coredns_dns_request_count_total.png)
+![coredns_dns_request_duration_seconds_count](https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/media/2020-03-21/coredns_dns_request_duration_seconds_count.png)
+![coredns_dns_request_type_count_total](https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/media/2020-03-21/coredns_dns_request_type_count_total.png)
+![coredns_dns_response_rcode_count_total](https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/media/2020-03-21/coredns_dns_response_rcode_count_total.png)
+![coredns_forward_request_count_total](https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/media/2020-03-21/coredns_forward_request_count_total.png)
+![coredns_forward_response_rcode_count_total](https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/media/2020-03-21/coredns_forward_response_rcode_count_total.png)
+![coredns_proxy_request_count_total](https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/media/2020-03-21/coredns_proxy_request_count_total.png)
+![coredns_redisc_hits_total](https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/media/2020-03-21/coredns_redisc_hits_total.png)
+![coredns_ads_blocked_request_count_total](https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/media/2020-03-21/coredns_ads_blocked_request_count_total.png)
+![coredns_ads_request_count_total](https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/media/2020-03-21/coredns_ads_request_count_total.png)
 
 从以上图表中可以看出一些情况，例如：
 
