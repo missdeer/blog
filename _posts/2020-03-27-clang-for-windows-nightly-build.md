@@ -64,10 +64,8 @@ jobs:
     strategy:
       matrix:
         msvc_arch: [x64, x86]
-    env:
-    {% raw %}
-      targetName: llvm-win-${{ matrix.msvc_arch }}
-    {% endraw %}
+    env:    
+      {% raw %}targetName: llvm-win-${{ matrix.msvc_arch }}{% endraw %}    
     steps:
       - name: Checkout llvm-project
         shell: cmd
@@ -75,10 +73,8 @@ jobs:
           git clone --depth=1 https://github.com/llvm/llvm-project.git
       - name: build-msvc
         shell: cmd
-        env:
-        {% raw %}
-          vc_arch: ${{ matrix.msvc_arch }}
-        {% endraw %}
+        env:        
+          {% raw %}vc_arch: ${{ matrix.msvc_arch }}{% endraw %}        
         run: |
           call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" %vc_arch%
           mkdir -p llvm-project\build
@@ -89,10 +85,8 @@ jobs:
       - name: upload artifact
         uses: actions/upload-artifact@v1
         with:
-          path: llvm-project\build\llvm_win_bin\bin
-          {% raw %}
-          name: llvm-win-${{ matrix.msvc_arch }}
-          {% endraw %}
+          path: llvm-project\build\llvm_win_bin\bin          
+          {% raw %}name: llvm-win-${{ matrix.msvc_arch }}{% endraw %}          
 ```
 
 这个workflow实现了这些功能：
