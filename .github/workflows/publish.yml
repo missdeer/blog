@@ -37,9 +37,7 @@ jobs:
         go build 
         sudo mv plantuml-cmd /usr/local/bin/plantuml-cmd
         cd ..         
-        sed -i '/baseurl/d' _config.yml 
         sed -i 's/minidump.info/missdeer.github.io/g' _config.yml 
-        sed -i 's|site.config\[\x27baseurl\x27\] +||g' _plugins/ditaa.rb 
         cat _config.yml 
         bundle exec jekyll build --trace
         cd _site
