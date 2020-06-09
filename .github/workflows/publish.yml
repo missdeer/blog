@@ -47,6 +47,5 @@ jobs:
         git add .
         git config user.name "update-blog[bot]"
         git config user.email "update-blog[bot]@users.noreply.github.com"
-        git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
         git commit -m "update blog at $(date)" .
-        git push --force --quiet origin master:gh-pages
+        git push --force --quiet https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git master:gh-pages
