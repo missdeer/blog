@@ -8,7 +8,7 @@ categories: Blog
 description: 新学到的Cloudflare玩法，以及blog再折腾
 tags: Blog Cloudflare
 ---
-虽然现在写blog的频繁大不如前，但折腾blog仍然是件很有趣的事，以及新学到些Cloudflare玩法。
+虽然现在写blog的频率大不如前，但折腾blog仍然是件很有趣的事，以及新学到些Cloudflare玩法。
 
 我的blog是用Jekyll的，本来直接提交到GitHub pages就可以了，但是GitHub pages的Jekyll引擎限制了不能使用plugins，而我几个月前的某一天心血来潮写过简单的插件用于嵌入PlantUML代码直接渲染，所以之后每次提交GitHub都会收到Jekyll build失败的邮件通知。拖了这么久，得益于GitHub Actions的免费使用，这次终于花了点时间改了一下blog。
 
