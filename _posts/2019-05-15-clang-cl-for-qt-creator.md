@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/media/2019-05-15/add-clang-cl.png
+image: https://cdn.jsdelivr.net/gh/missdeer/blog@master/media/2019-05-15/add-clang-cl.png
 author: missdeer
 title: "Qt Creator使用clang-cl"
 categories:  CPPOOPGPXP
@@ -12,27 +12,27 @@ tags: Clang Qt
 
 首先，仍然是去[官网](http://prereleases.llvm.org/win-snapshots/)下载最新的LLVM预编译安装包：
 
-![](https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/media/2019-05-15/snapshot.png)
+![](https://cdn.jsdelivr.net/gh/missdeer/blog@master/media/2019-05-15/snapshot.png)
 
 下载后安装，我习惯用Universal Extractor直接提取出所有安装包内的文件，这样不会在注册表、各种目录中留下冗余内容，比较干净：
 
-![](https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/media/2019-05-15/uniextractor.png)
+![](https://cdn.jsdelivr.net/gh/missdeer/blog@master/media/2019-05-15/uniextractor.png)
 
 然后在Qt Creator中进行配置，首先添加Compiler，选`clang-cl`，意思是这个clang套件是配合msvc使用的：
 
-![](https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/media/2019-05-15/add-clang-cl.png)
+![](https://cdn.jsdelivr.net/gh/missdeer/blog@master/media/2019-05-15/add-clang-cl.png)
 
 再设置一下msvc环境：
 
-![](https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/media/2019-05-15/msvc-env.png)
+![](https://cdn.jsdelivr.net/gh/missdeer/blog@master/media/2019-05-15/msvc-env.png)
 
 设置一下`clang-cl`的路径：
 
-![](https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/media/2019-05-15/clang-cl-path.png)
+![](https://cdn.jsdelivr.net/gh/missdeer/blog@master/media/2019-05-15/clang-cl-path.png)
 
 这样编译器信息就设置好了。接着设置Qt Kit信息，选中msvc编译的Kit，把Compiler项`C`和`C++`都设置为前面添加的`clang-cl`套件即可：
 
-![](https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/media/2019-05-15/kit.png)
+![](https://cdn.jsdelivr.net/gh/missdeer/blog@master/media/2019-05-15/kit.png)
 
 到此为止所有设置全部完成，就可以在Qt Creator像使用MSVC套件那样编译Qt程序了。
 

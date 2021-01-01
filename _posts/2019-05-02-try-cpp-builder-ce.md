@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/media/2019-05-02/vcldesign.png
+image: https://cdn.jsdelivr.net/gh/missdeer/blog@master/media/2019-05-02/vcldesign.png
 author: missdeer
 title: "试用C++ Builder社区版"
 categories: Editor，IDE
@@ -14,12 +14,12 @@ tags: C++
 
 现在的C++ Builder支持两种方式进行Windows平台应用程序开发，一种以传统的VCL应用程序，另一种是新型的基于FireMonkey框架（即FMX）进行开发。其中VCL只支持Windows开发，而FMX则支持Mac，iOS，Android等多种平台应用程序的开发，但像Mac和iOS开发另外还需要一台Mac系统的机器做最后的签名、部署等步骤。
 
-![VCL界面设计](https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/media/2019-05-02/vcldesign.png)
+![VCL界面设计](https://cdn.jsdelivr.net/gh/missdeer/blog@master/media/2019-05-02/vcldesign.png)
 
-![FMX界面设计](https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/media/2019-05-02/fmxdesign.png)
+![FMX界面设计](https://cdn.jsdelivr.net/gh/missdeer/blog@master/media/2019-05-02/fmxdesign.png)
 
 最新的C++ Builder 10.3据称已经支持C++17标准。这之前我观察过，现在C++ Builder使用的编译器不再是完全自主开发的了，而是基于clang二次开发来的。C++ Builder的自动完成是通过cquery实现的，目前的效果一般般，又慢又要求多，比如源代码必须要已经保存到硬盘上，保存路径中不能含空格，必须是Windows 64bit为target等等，比Qt Creator都不如，更别提和宇宙第一IDE Visual Studio以及神器Visual Assist X比了。
 
-![Code Insight](https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/media/2019-05-02/codeinsight.png)
+![Code Insight](https://cdn.jsdelivr.net/gh/missdeer/blog@master/media/2019-05-02/codeinsight.png)
 
 现在从各方面来讲，除了情怀实在没其他理由再去用C++ Builder做实际产品开发了，VS和Qt的组合完胜。

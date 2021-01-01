@@ -1,5 +1,5 @@
 ---
-image: https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/media/2019-12-07/ap1.jpg
+image: https://cdn.jsdelivr.net/gh/missdeer/blog@master/media/2019-12-07/ap1.jpg
 layout: post
 author: missdeer
 featured: false
@@ -18,17 +18,17 @@ tags:
 
 先确认弱电箱里的6根网线分别对应哪个面板，因为只有4个PoE口，有2根线只能插到电信光猫上了。光是这一步就让我很沮丧，也不知道是当年前做弱电装修的人偷工减料了还是确实水平不行，用的网线也都是非屏蔽的超五类线，实际测试下来，有几条线是千兆的，有几条线只有百兆。但是木已成舟，选了3个面板换掉。
 
-![AP1](https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/media/2019-12-07/ap1.jpg)
-![AP2](https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/media/2019-12-07/ap2.jpg)
-![AP3](https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/media/2019-12-07/ap3.jpg)
+![AP1](https://cdn.jsdelivr.net/gh/missdeer/blog@master/media/2019-12-07/ap1.jpg)
+![AP2](https://cdn.jsdelivr.net/gh/missdeer/blog@master/media/2019-12-07/ap2.jpg)
+![AP3](https://cdn.jsdelivr.net/gh/missdeer/blog@master/media/2019-12-07/ap3.jpg)
 
 之后就是设置。这步也非常简单，把3个面板AP都拨到FIT模式，让路由器进行AP管理。路由器本身没有无线功能，但它有无线相关的设置，其实就是设置下发给AP用的。另外就是多了个管理AP功能，基本不用改，直接用默认的就可以。
 
-![路由器管理AP](https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/media/2019-12-07/router.jpg)
+![路由器管理AP](https://cdn.jsdelivr.net/gh/missdeer/blog@master/media/2019-12-07/router.jpg)
 
 AP接上PoE网线后，可能会闪一会儿指示灯，之后就能直接用了，在路由器的设置界面里也能看到当前有哪几个AP连上了。还可以在手机上装一个WIFI信号检测的app进行观察。
 
-![路由器管理AP](https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/media/2019-12-07/wifi.jpg)
+![路由器管理AP](https://cdn.jsdelivr.net/gh/missdeer/blog@master/media/2019-12-07/wifi.jpg)
 
 实际使用下来发现效果远没有想像的那么好。
 

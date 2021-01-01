@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/media/2018-02-23/haproxy-workflow.svg
+image: https://cdn.jsdelivr.net/gh/missdeer/blog@master/media/2018-02-23/haproxy-workflow.svg
 author: missdeer
 title: "HAProxy for SS(R)"
 categories: gfw
@@ -64,11 +64,11 @@ backend miaops
 
 大体上就是这样的，HAProxy会给后端服务器做健康检查，load balance时会跳过down掉的服务器。据我简单的尝试发现，似乎健康检查的参数设置能显著影响$$的效果，现在的设置肯定不是最佳的，但我也没什么经验继续调优。现在的work flow就是这样：
 
-![work flow - https://www.plantuml.com/plantuml/svg/UDfjqh5Emp0G1k3TJ-6H3f58M_P2zmuL6-hWsYTYufoZyxc5ZQVXmNWIZgOf8OaKATRt_v5-IzaaDiIv2KgbscDho3GQeuETQU0n-5VK5f211d5bq9t9CmDgfWo3Y3q7U8haWFOnezj6GY1TFintdYjlQuIKT3bVsCOGIH-3iRLIEvcbJTi6RmtxYAcJb2Zu8vpqYvAZlfpLeSigqr9y_xWMWKv0fVGi5cLVwNGfokUnhaHp6kjQbF9ONUGamVVdbpp_8nH_QmiK7SxNHN4Rhswt4EnNNz-NNhVzZ-xk5xqkPtKr_NmzfT_LKqMbDe1EVeiVECc-cG00](https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/media/2018-02-23/haproxy-workflow.svg)
+![work flow - https://www.plantuml.com/plantuml/svg/UDfjqh5Emp0G1k3TJ-6H3f58M_P2zmuL6-hWsYTYufoZyxc5ZQVXmNWIZgOf8OaKATRt_v5-IzaaDiIv2KgbscDho3GQeuETQU0n-5VK5f211d5bq9t9CmDgfWo3Y3q7U8haWFOnezj6GY1TFintdYjlQuIKT3bVsCOGIH-3iRLIEvcbJTi6RmtxYAcJb2Zu8vpqYvAZlfpLeSigqr9y_xWMWKv0fVGi5cLVwNGfokUnhaHp6kjQbF9ONUGamVVdbpp_8nH_QmiK7SxNHN4Rhswt4EnNNz-NNhVzZ-xk5xqkPtKr_NmzfT_LKqMbDe1EVeiVECc-cG00](https://cdn.jsdelivr.net/gh/missdeer/blog@master/media/2018-02-23/haproxy-workflow.svg)
 
 可以通过浏览器打开`http://haproxy-ip:8099/stats`查看HAProxy的运行状况：
 
-![HAProxy stats](https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/media/2018-02-23/haproxy-stats.png)
+![HAProxy stats](https://cdn.jsdelivr.net/gh/missdeer/blog@master/media/2018-02-23/haproxy-stats.png)
 
 就这样先试用一段时间看看效果再说。
 
