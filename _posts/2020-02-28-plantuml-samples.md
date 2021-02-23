@@ -1,7 +1,7 @@
 ---
 title: "Jekyll插入PlantUML代码显示图片"
 tags: ["Jekyll", "PlantUML"]
-categories: ["Blog"]
+categories: ["blog"]
 image: https://cdn.jsdelivr.net/gh/missdeer/blog@master/media/2020-02-28/plantuml.jpg
 layout: post
 author: missdeer

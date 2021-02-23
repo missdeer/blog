@@ -4,9 +4,9 @@ layout: post
 author: missdeer
 featured: false
 title: "折腾Blog及Cloudflare加速优化"
-categories: Blog
+categories: blog
 description: 新学到的Cloudflare玩法，以及blog再折腾
-tags: Blog Cloudflare
+tags: Cloudflare
 ---
 虽然现在写blog的频率大不如前，但折腾blog仍然是件很有趣的事，以及新学到些Cloudflare玩法。
 

@@ -6,7 +6,7 @@ featured: false
 title: "本站开启HTTP3/QUIC支持"
 categories: blog
 description: "本站开启HTTP3/QUIC支持"
-tags: http3 quic
+tags: http3 quic Blog Cloudflare
 ---
 得益于Cloudflare CDN的强力支持，偶然发现本站已经支持HTTP3/QUIC了，初步使用体验下来，比传统的HTTP1.1和HTTP2协议要快不少，值得大力宣传和使用。
 
