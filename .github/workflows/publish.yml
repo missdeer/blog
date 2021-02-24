@@ -12,6 +12,11 @@ jobs:
 
     steps:
 
+    - name: prepare toolchain
+      run: |
+        sudo apt-get update -qq;
+        sudo apt-get install -qq p7zip-full;
+
     - uses: actions/checkout@v2
       with:
         ref: master
@@ -64,6 +69,14 @@ jobs:
         find . -name '*.css' -type f -print | while read file; do /usr/local/bin/minify -o $file $file; done
         find . -name '*.js' -type f -print | while read file; do /usr/local/bin/minify -o $file $file; done
         cd ..
+
+    - name: upload to server
+      run: |
+        cd _site
+        7z a ../blog.7z *
+        cd ..
+        sudo sysctl -w net.core.rmem_max=2500000
+        curl -X POST -H "Content-Type: multipart/form-data" -F "originalFile=@blog.7z" ${{ secrets.BLOG_SERVER }}
         
     - name: Deploy to GitHub Pages
       env:
