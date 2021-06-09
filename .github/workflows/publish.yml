@@ -84,6 +84,7 @@ jobs:
 
     - name: Build site
       run: |
+        rm -rf _site
         sed -i 's|https://missdeer.github.io|https://www.ismisv.com|g' _config.yml
         cat _config.yml
         bundle exec jekyll build --trace
@@ -103,3 +104,29 @@ jobs:
         cd ..
         sudo sysctl -w net.core.rmem_max=2500000
         curl -X POST -H "Content-Type: multipart/form-data" -F "originalFile=@blog.7z" ${{ secrets.BLOG_SERVER }}
+
+        
+    - name: Build site
+      run: |
+        rm -rf _site
+        sed -i '/baseurl/d' _config.yml 
+        sed -i 's|https://www.ismisv.com|https://blog.ismisv.com|g' _config.yml
+        sed -i 's|site.config\[\x27baseurl\x27\] +||g' _plugins/ditaa.rb
+        cat _config.yml
+        bundle exec jekyll build --trace
+
+    - name: Minify files
+      run: |
+        cd _site
+        find . -name '*.html' -type f -print | while read file; do /usr/local/bin/minify -o $file $file; done
+        find . -name '*.css' -type f -print | while read file; do /usr/local/bin/minify -o $file $file; done
+        find . -name '*.js' -type f -print | while read file; do /usr/local/bin/minify -o $file $file; done
+        cd ..
+
+    - name: upload to server
+      run: |
+        cd _site
+        7z a ../blog-root.7z *
+        cd ..
+        sudo sysctl -w net.core.rmem_max=2500000
+        curl -X POST -H "Content-Type: multipart/form-data" -F "originalFile=@blog-root.7z" ${{ secrets.BLOG_SERVER }}
