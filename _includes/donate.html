@@ -9,11 +9,15 @@
       </button>
       <div id="QR" style="display: block;">
         <div id="wechat" style="display: inline-block">
-          <a href="https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/wepay.jpg" class="fancybox" rel="group">
+          <a href="https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/wepay.jpg" class="fancybox"
+            rel="group">
             {% if site.lazyimages == "enabled" %}
-            <img id="wechat_qr" class="lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/wepay.jpg" alt="微信扫一扫">
+            <img id="wechat_qr" class="lazyimg"
+              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII="
+              data-src="https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/wepay.jpg" alt="微信扫一扫">
             {% else %}
-            <img id="wechat_qr" src="https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/wepay.jpg" alt="微信扫一扫">
+            <img id="wechat_qr" src="https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/wepay.jpg"
+              alt="微信扫一扫">
             {% endif %}
           </a>
           <p>微信扫一扫</p>
@@ -22,67 +26,16 @@
           <a href="https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/alipay.jpg" class="fancybox"
             rel="group">
             {% if site.lazyimages == "enabled" %}
-            <img id="alipay_qr" class="lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/alipay.jpg" alt="支付宝扫一扫">
+            <img id="alipay_qr" class="lazyimg"
+              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII="
+              data-src="https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/alipay.jpg" alt="支付宝扫一扫">
             {% else %}
-            <img id="alipay_qr" src="https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/alipay.jpg" alt="支付宝扫一扫">
+            <img id="alipay_qr" src="https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/alipay.jpg"
+              alt="支付宝扫一扫">
             {% endif %}
           </a>
           <p>支付宝扫一扫</p>
         </div>
-      </div>
-      <div class="stripe" style="line-height:2.5;font-size:12px;">如果你有Visa、MasterCard之类的国际银行卡，也可以考虑以下选项：</div>
-      <div class="stripe" id="stripe-node">
-        <button id="buy-me-a-cocacola-button" title="请我喝罐可乐，需要Visa、MasterCard、JCB、AmericanExpress等国际银行卡" role="link">
-          <span>可乐</span>
-        </button>
-        <button id="buy-me-a-coffee-button" title="请我喝杯咖啡，需要Visa、MasterCard、JCB、AmericanExpress等国际银行卡" role="link">
-          <span>咖啡</span>
-        </button>
-        <script>
-          var mobile = (/iphone|ipod|android|blackberry|mini|windows\sce|palm/i.test(navigator.userAgent.toLowerCase()));  
-          if (mobile) 
-          { 
-              $('#rewardButton').hide();
-              $('#QR').hide();
-              
-              var stripeScript = document.createElement('script'); 
-              stripeScript.type = 'text/javascript'; 
-              stripeScript.async = true;
-              stripeScript.src = 'https://js.stripe.com/v3';
-              stripeScript.onload = function(){
-                  var stripe = Stripe('pk_live_tyj6HryOAzYDsRHA3uYjVHIq');
-                  var buyMeACocacolaButton = document.querySelector('#buy-me-a-cocacola-button');
-                  buyMeACocacolaButton.addEventListener('click', function () {
-                    stripe.redirectToCheckout({
-                      items: [{
-                        sku: 'sku_FfVDZvhOKOxwCH',
-                        quantity: 1
-                      }],
-                      successUrl: '{{ site.url }}{{site.baseurl}}{{page.url}}',
-                      cancelUrl: '{{ site.url }}{{site.baseurl}}{{page.url}}'
-                    });
-                  });
-
-                  var buyMeACoffeeButton = document.querySelector('#buy-me-a-coffee-button');
-                  buyMeACoffeeButton.addEventListener('click', function () {
-                    stripe.redirectToCheckout({
-                      items: [{
-                        sku: 'sku_FfVEVxmUzZB1pm',
-                        quantity: 1
-                      }],
-                      successUrl: '{{ site.url }}{{site.baseurl}}{{page.url}}',
-                      cancelUrl: '{{ site.url }}{{site.baseurl}}{{page.url}}'
-                    });
-                  }); 
-              };
-              var stripeNode = document.getElementById('stripe-node')
-              stripeNode.insertBefore(stripeScript, stripeNode.childNodes[0]);
-          }
-          else
-          {
-              $(".stripe").hide()
-          }
-        </script>
       </div>
     </div>
   </div>

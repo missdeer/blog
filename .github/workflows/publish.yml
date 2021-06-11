@@ -81,32 +81,6 @@ jobs:
         git config user.email "update-blog[bot]@users.noreply.github.com"
         git commit -m "update blog at $(date)" .
         git push --force --quiet https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git master:gh-pages
-
-    - name: Build site
-      run: |
-        rm -rf _site
-        sed -i 's|https://missdeer.github.io|https://www.ismisv.com|g' _config.yml
-        cat _config.yml
-        bundle exec jekyll build --trace
-
-    - name: Minify files
-      run: |
-        cd _site
-        find . -name '*.html' -type f -print | while read file; do /usr/local/bin/minify -o $file $file; done
-        find . -name '*.css' -type f -print | while read file; do /usr/local/bin/minify -o $file $file; done
-        find . -name '*.js' -type f -print | while read file; do /usr/local/bin/minify -o $file $file; done
-        cd ..
-
-    - name: upload to server
-      run: |
-        cd _site
-        find . -name '*.png' -type f -exec rm -f {} \;
-        find . -name '*.jpg' -type f -exec rm -f {} \;
-        7z a ../blog.7z *
-        cd ..
-        sudo sysctl -w net.core.rmem_max=2500000
-        curl -X POST -H "Content-Type: multipart/form-data" -F "originalFile=@blog.7z" ${{ secrets.BLOG_SERVER }}
-
         
     - name: Build site
       run: |
