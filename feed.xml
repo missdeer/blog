@@ -1,0 +1,1220 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://blog.ismisv.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://blog.ismisv.com/" rel="alternate" type="text/html" /><updated>2021-06-11T01:50:24+00:00</updated><id>https://blog.ismisv.com/feed.xml</id><title type="html">挖井</title><subtitle>挖一口属于自己的井</subtitle><entry><title type="html">本站开启HTTP3/QUIC支持</title><link href="https://blog.ismisv.com/2021/02/http3-supported/" rel="alternate" type="text/html" title="本站开启HTTP3/QUIC支持" /><published>2021-02-23T00:00:00+00:00</published><updated>2021-02-23T00:00:00+00:00</updated><id>https://blog.ismisv.com/2021/02/http3-supported</id><content type="html" xml:base="https://blog.ismisv.com/2021/02/http3-supported/">&lt;p&gt;得益于Cloudflare CDN的强力支持，偶然发现本站已经支持HTTP3/QUIC了，初步使用体验下来，比传统的HTTP1.1和HTTP2协议要快不少，值得大力宣传和使用。&lt;/p&gt;
+
+&lt;p&gt;鉴于HTTP3/QUIC目前尚未大规模普及，各大主流浏览器默认也并没有打开相关选项，用户在浏览网页时默认仍然使用HTTP1.1和HTTP2协议，需要手动打开选项使浏览器在发现网站支持HTTP3/QUIC时尝试使用该协议。&lt;/p&gt;
+
+&lt;p&gt;Firefox 75及以上版本已支持HTTP3/QUIC，启用方法如下图所示，在地址栏输入 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;about:config&lt;/code&gt;，配置 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;network.http.http3.enabled = true&lt;/code&gt;：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn.jsdelivr.net/gh/missdeer/blog@master/media/2021-02-23/firefox-h3-about-config.png&quot; alt=&quot;firefox-h3-about-config&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;开启该选项后，再重新打开本网站浏览，通过&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Web开发者&lt;/code&gt;功能可以看到，已经使用HTTP3协议了：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn.jsdelivr.net/gh/missdeer/blog@master/media/2021-02-23/firefox-network.png&quot; alt=&quot;firefox-network&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Chrome 83 及以上版本支持 HTTP/3，使用命令行增加如下启动参数：&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;$ ./chrome --enable-quic --quic-version=h3-27
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Windows系统（将$USER替换为你的Windows登录账号）：&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;cd C:\Users\$USER\AppData\Local\Google\Chrome\Application
+chrome.exe --enable-quic --quic-version=h3-27
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;macOS系统：&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --enable-quic --quic-version=h3-27
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Microsoft Edge （基于Chromium） 与 Chrome 同步支持，例如在 macOS 中运行 Edge：&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;/Applications/Microsoft\ Edge.app//Contents/MacOS/Microsoft\ Edge --enable-quic --quic-version=h3-27
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>missdeer</name></author><category term="http3" /><category term="quic" /><category term="Blog" /><category term="Cloudflare" /><summary type="html">得益于Cloudflare CDN的强力支持，偶然发现本站已经支持HTTP3/QUIC了，初步使用体验下来，比传统的HTTP1.1和HTTP2协议要快不少，值得大力宣传和使用。</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://cdn.jsdelivr.net/gh/missdeer/blog@master/media/2021-02-23/http3.png" /></entry><entry><title type="html">买了个GL.iNet MT1300</title><link href="https://blog.ismisv.com/2021/01/gl-inet-mt1300/" rel="alternate" type="text/html" title="买了个GL.iNet MT1300" /><published>2021-01-01T00:00:00+00:00</published><updated>2021-01-01T00:00:00+00:00</updated><id>https://blog.ismisv.com/2021/01/gl-inet-mt1300</id><content type="html" xml:base="https://blog.ismisv.com/2021/01/gl-inet-mt1300/">&lt;p&gt;前些天脑袋一热，就在淘宝花了400大洋入了一个GL.iNet MT1300，主要是换了工作后单位里只是普通电信宽带，上Google搜索是我刚需，尝试了在Windows上用tun2socks和在Virtualbox里装Linux做旁路由后，最后还是决定需要一个额外的小设备专门做这种事情。&lt;/p&gt;
+
+&lt;p&gt;隔三差五在淘宝乱翻，偶然看到这款小路由器，虽然十多年前就听说过OpenWRT有很高的可定制性，但我这些年都是在自己找机器刷通用Linux发行版做路由器或旁路由的，早几年OpenWRT上编译个Go程序都没官方支持让我对其观感更不好了。这次下单前特地去搜了一下Go编译器支持，没了后顾之忧，又由于其可以插USB上网卡，又可以无线中继，这些特点正是我非常看重的。&lt;/p&gt;
+
+&lt;p&gt;虽然是第一次把玩OpenWRT机器，不过总体说来这款机器还是比较容易上手的。就我的目标而言是为了能随时接入一个宽带或4G网络就可以得到一个全局科学上网的环境，所以要做的事就很明确了。&lt;/p&gt;
+
+&lt;p&gt;首先解决DNS的问题，先上web管理界面看了一下，是有自定义DNS服务器的功能的，其中最方便的是直接选用Cloudflare或NextDNS的DNS over TLS，如下图：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn.jsdelivr.net/gh/missdeer/blog@master/media/2021-01-01/dns.jpg&quot; alt=&quot;Custom DNS server&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;果然所有DNS解析请求都走Cloudflare了，当然不满足于此。然后通过ssh登录进系统看了一下，发现了经典的dnsmasq监听在53端口，以及有点名气的stubby监听在53535端口，看一下dnsmasq的配置文件，果然有一句&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;server=127.0.0.1#53535&lt;/code&gt;。这就很好解决了，发现还有一行配置是&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;conf-dir=/tmp/dnsmasq.d/&lt;/code&gt;，就直接把&lt;a href=&quot;https://github.com/felixonmars/dnsmasq-china-list&quot;&gt;肥猫大佬维护的几个配置文件&lt;/a&gt;下载到该目录，再重启dnsmasq就可以了。&lt;/p&gt;
+
+&lt;p&gt;然后是解决传输问题。鉴于这个机器的配置确实比较低，无论内存，CPU还是存储都比较差，所以不用多考虑就选择了ss-libev，在Plugin界面更新一下后直接安装Luci和ss-libev，如果有其他缺的包，在安装或使用过程中会再提示，很方便。安装完成后配置一下，先设置一下&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Remote Servers&lt;/code&gt;，再设置&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Local Instances&lt;/code&gt;时可以选择刚设置的&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Remote Servers&lt;/code&gt;，而且很方便的一点是安装某个包的时候已经加了几个不同种类的&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Local Instances&lt;/code&gt;，修改一下就完事了。我是先设置一个ss-local，然后在ssh里用curl测试一下线路是否正常，再设置一个ss-redir，最后是设置&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Redir Rules&lt;/code&gt;，可能也会提示要安装什么包，装上后看一遍各个设置字段下方的提示，我就设置了一下&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Dst ip/net bypass file&lt;/code&gt;和&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Dst default&lt;/code&gt;，其中&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Dst ip/net bypass file&lt;/code&gt;也是从网上下载由ipip.net维护的&lt;a href=&quot;https://github.com/17mon/china_ip_list&quot;&gt;中国大陆地区IP列表&lt;/a&gt;，填入下载后保存的路径即可，而&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Dst default&lt;/code&gt;则改为&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;forward&lt;/code&gt;，如下图所示：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn.jsdelivr.net/gh/missdeer/blog@master/media/2021-01-01/redir-rules.png&quot; alt=&quot;Redir Rules&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;这样之后，所有接入该机器的设备应该都能自动享受到科学上网的环境了。&lt;/p&gt;</content><author><name>missdeer</name></author><category term="Router" /><category term="OpenWRT" /><summary type="html">前些天脑袋一热，就在淘宝花了400大洋入了一个GL.iNet MT1300，主要是换了工作后单位里只是普通电信宽带，上Google搜索是我刚需，尝试了在Windows上用tun2socks和在Virtualbox里装Linux做旁路由后，最后还是决定需要一个额外的小设备专门做这种事情。</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://cdn.jsdelivr.net/gh/missdeer/blog@master/media/2021-01-01/gl.inet.mt1300.jpg" /></entry><entry><title type="html">人到中年，我也996了</title><link href="https://blog.ismisv.com/2020/12/996/" rel="alternate" type="text/html" title="人到中年，我也996了" /><published>2020-12-14T00:00:00+00:00</published><updated>2020-12-14T00:00:00+00:00</updated><id>https://blog.ismisv.com/2020/12/996</id><content type="html" xml:base="https://blog.ismisv.com/2020/12/996/">&lt;p&gt;如题。&lt;/p&gt;
+
+&lt;p&gt;上个月底换了工作，上家工作实在呆不下去了，继续呆下去也是自取其辱，刚好有机会就换了。&lt;/p&gt;
+
+&lt;p&gt;但是果然也只是从一个坑跳到了另一个坑，才来2周，就开始996了。&lt;/p&gt;</content><author><name>missdeer</name></author><category term="工作" /><category term="996" /><category term="人到中年" /><summary type="html">如题。</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://cdn.jsdelivr.net/gh/missdeer/blog@master/media/2020-12-14/996icu.jpeg" /></entry><entry><title type="html">折腾Blog及Cloudflare加速优化</title><link href="https://blog.ismisv.com/2020/06/blog-with-cloudflare/" rel="alternate" type="text/html" title="折腾Blog及Cloudflare加速优化" /><published>2020-06-19T00:00:00+00:00</published><updated>2020-06-19T00:00:00+00:00</updated><id>https://blog.ismisv.com/2020/06/blog-with-cloudflare</id><content type="html" xml:base="https://blog.ismisv.com/2020/06/blog-with-cloudflare/">&lt;p&gt;虽然现在写blog的频率大不如前，但折腾blog仍然是件很有趣的事，以及新学到些Cloudflare玩法。&lt;/p&gt;
+
+&lt;p&gt;我的blog是用Jekyll的，本来直接提交到GitHub pages就可以了，但是GitHub pages的Jekyll引擎限制了不能使用plugins，而我几个月前的某一天心血来潮写过简单的插件用于嵌入PlantUML代码直接渲染，所以之后每次提交GitHub都会收到Jekyll build失败的邮件通知。拖了这么久，得益于GitHub Actions的免费使用，这次终于花了点时间改了一下blog。&lt;/p&gt;
+
+&lt;p&gt;首先是把blog从gh-pages分支切换到master分支，删除原gh-pages分支，然后创建一个GitHub Actions的&lt;a href=&quot;https://github.com/missdeer/blog/blob/master/.github/workflows/publish.yml&quot;&gt;workflow&lt;/a&gt;，在workflow中依次安装好Go和Ruby环境，分别用于build插件/第三方工具和Jekyll，最后将生成的_site目录强行push到gh-pages分支，这样GitHub就会直接通过http serve这些静态文件，可以通过&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;https://missdeer.github.io/blog/&lt;/code&gt;浏览。&lt;/p&gt;
+
+&lt;p&gt;GitHub pages本身是支持绑定自定义域名的，还能提供SSL，由于众所周知的原因，在国内直连的速度非常非常慢。之前我是直接将自定义域名托管在Cloudflare上，开proxy，这样访问者实际是走了Cloudflare的网络。但因为用的free plan，所以给的两个IP是（国内？）速度不佳的线路。Cloudflare号称在全世界一两百个城市有节点，并且事实上只要能将域名解析到合适的IP，就能享受到更优质的线路，即使是free plan也是如此。&lt;/p&gt;
+
+&lt;p&gt;这就要用到Cloudflare Worker这项服务。此服务每天可以免费提供10万次请求，每个账号最多可以创建30个Worker。我创建了一个worker，网上找了一段代码略作修改，实现http/https反向代理，代码如下：&lt;/p&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;
+&lt;span class=&quot;c1&quot;&gt;// Replace texts.&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;replace_dict&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;s1&quot;&gt;'$upstream'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'$custom_domain'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;s1&quot;&gt;'//google.com'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;''&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;addEventListener&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'fetch'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;event&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;respondWith&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fetchAndApply&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fetchAndApply&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;response&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;url&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;URL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;url_hostname&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;hostname&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;user_agent&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;headers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'user-agent'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;upstream&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;minidump.info&quot;&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;upstream_path&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'/'&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;disable_cache&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;user_agent&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;undefined&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;user_agent&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;user_agent&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;device_status&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;user_agent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;domainMap&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;minidump.info&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;missdeer.github.io&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;www.minidump.info&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;missdeer.github.io&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;upstream&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;domainMap&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;hostname&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;domainMobileMap&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;minidump.info&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;missdeer.github.io&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;www.minidump.info&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;missdeer.github.io&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;upstream&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;domainMobileMap&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;hostname&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;upstream&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;undefined&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;responseHeaders&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Headers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+        &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;responseStatus&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;404&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;404 not found&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;nx&quot;&gt;responseStatus&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+            &lt;span class=&quot;na&quot;&gt;headers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;responseHeaders&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;nx&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;protocol&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'https:'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;upstream_domain&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;upstream&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;nx&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;host&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;upstream_domain&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;pathname&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'/'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;pathname&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;upstream_path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;pathname&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;upstream_path&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;pathname&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;method&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;method&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;request_headers&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;headers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;new_request_headers&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Headers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;request_headers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+    &lt;span class=&quot;nx&quot;&gt;new_request_headers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Host'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;upstream_domain&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;new_request_headers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Referer'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;protocol&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'//'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;url_hostname&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+    &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;original_response&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fetch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;href&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;method&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;method&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;headers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;new_request_headers&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+
+    &lt;span class=&quot;nx&quot;&gt;connection_upgrade&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;new_request_headers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Upgrade&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;connection_upgrade&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;connection_upgrade&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;toLowerCase&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;websocket&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;original_response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;original_response_clone&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;original_response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;clone&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;original_text&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;response_headers&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;original_response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;headers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;new_response_headers&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Headers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;response_headers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;status&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;original_response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;status&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;disable_cache&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;new_response_headers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Cache-Control'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'no-store'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;nx&quot;&gt;new_response_headers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'access-control-allow-origin'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'*'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;new_response_headers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'access-control-allow-credentials'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;new_response_headers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;delete&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'content-security-policy'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;new_response_headers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;delete&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'content-security-policy-report-only'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;new_response_headers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;delete&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'clear-site-data'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;new_response_headers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;x-pjax-url&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;new_response_headers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;x-pjax-url&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;response_headers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;x-pjax-url&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;replace&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;//&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;upstream_domain&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;//&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;url_hostname&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;content_type&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;new_response_headers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'content-type'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;content_type&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;content_type&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;includes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'text/html'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;content_type&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;includes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'UTF-8'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;original_text&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;replace_response_text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;original_response_clone&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;upstream_domain&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;url_hostname&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;original_text&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;original_response_clone&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;body&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;nx&quot;&gt;response&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;original_text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;status&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;headers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;new_response_headers&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;replace_response_text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;upstream_domain&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;host_name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;text&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+
+    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;replace_dict&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;replace_dict&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'$upstream'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;upstream_domain&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'$custom_domain'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;host_name&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'$upstream'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;nx&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;upstream_domain&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'$custom_domain'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;nx&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;host_name&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+        &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;re&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;RegExp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'g'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;text&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;replace&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;re&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+
+&lt;span class=&quot;k&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;device_status&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;user_agent_info&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;agents&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Android&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;iPhone&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;SymbianOS&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Windows Phone&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;iPad&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;iPod&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;flag&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;v&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;v&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;agents&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;v&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;user_agent_info&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;indexOf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;agents&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;v&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;nx&quot;&gt;flag&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;flag&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;懂JS的应该很容易看明白，代码逻辑很简单，只要将面向用户的域名和目标域名分别写入&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Map&lt;/code&gt;中，这里还区分了桌面和移动端，以后要做更多的反代也只要继续在&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Map&lt;/code&gt;加条目就行了。&lt;/p&gt;
+
+&lt;p&gt;保存并部署worker后，到域名设置那里有个&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Workers&lt;/code&gt;页面，点&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Add route&lt;/code&gt;，添加路由，我的情况是&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;route&lt;/code&gt;填&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;*minidump.info/*&lt;/code&gt;，&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Worker&lt;/code&gt;通过下拉框选择前面保存的worker名字&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;reverseproxy&lt;/code&gt;，然后保存。&lt;/p&gt;
+
+&lt;p&gt;最后，到&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DNS&lt;/code&gt;页面修改&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;minidump.info&lt;/code&gt;的A记录，Cloudflare最有名的IP大概是&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1.1.1.1&lt;/code&gt;和&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1.0.0.1&lt;/code&gt;了，可以设成这两个中的任意一个，但事实上在很多地区这两个IP不是被无脑设坏了，就是被墙了，所以可以改成其他的IP，网上随便搜一下就能发现大量的文章列出了Cloudflare的IP，自己挑一个设上，再到&lt;a href=&quot;https://www.17ce.com/&quot;&gt;17ce&lt;/a&gt;看一下效果，大概比free plan自动给的IP好一点吧。&lt;/p&gt;
+
+&lt;p&gt;实际用下来的感觉，Cloudflare在国内只能说是能凑合用，再怎么选择IP，总是有不少地区连不上或超时等等。从17ce的结果来看，CDN效果还没有Amazon的CloudFront好。估计Cloudflare在业余玩家中比CloudFront流行的原因是它的免费额度够高。&lt;/p&gt;</content><author><name>missdeer</name></author><category term="Cloudflare" /><summary type="html">虽然现在写blog的频率大不如前，但折腾blog仍然是件很有趣的事，以及新学到些Cloudflare玩法。</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://img.peapix.com/217848e7383248d486b539af576ce8d4_320.jpg" /></entry><entry><title type="html">入手TP-Link TL-AC100</title><link href="https://blog.ismisv.com/2020/04/add-tl-ac100/" rel="alternate" type="text/html" title="入手TP-Link TL-AC100" /><published>2020-04-02T00:00:00+00:00</published><updated>2020-04-02T00:00:00+00:00</updated><id>https://blog.ismisv.com/2020/04/add-tl-ac100</id><content type="html" xml:base="https://blog.ismisv.com/2020/04/add-tl-ac100/">&lt;p&gt;去年12月在家里用了TP-Link全家桶，实现了&lt;a href=&quot;../../../2019/12/ac+ap-at-home/&quot;&gt;AC+AP的WIFI全覆盖&lt;/a&gt;，用的是TL-R470GP-AC这款最便宜的4口千兆PoE带AC的路由器一体机，功能上基本够用。&lt;/p&gt;
+
+&lt;p&gt;但是，凡事最怕“但是”！从网上看TL-R470GP-AC的评价，都说它的功能过于简单，特别是AC方面，连信号漫游都没有，是靠断开重连来实现的！虽然我自己这几个月来实际使用体验上并没差多少（大概是因为我没有一边走来走去一边打王者荣耀？），但是作为一个强迫症患者，刚布好网络看到网上评测文章就后悔了，后悔没有先在网上看看再下决定采购。于是看了又看，直到前天终于下决心从咸鱼淘了个成色不错的TL-AC100 v3.0。&lt;/p&gt;
+
+&lt;p&gt;决定入手这块AC是有一些考虑的。首先是功能方面据说v3.0可算是AC300的百兆版本，可以实现真漫游。其次是价格方面，大概是最便宜的一款AC了。最后选择在咸鱼买，还是因为价格上能便宜三分之一。&lt;/p&gt;
+
+&lt;p&gt;今天快递到手后，就迫不及待地装上玩一玩。鉴于我的TL-R470GP-AC四个口已经连了四个86面板型AP，已经没有多余的口给AC100用，我开始打算试试网上说的AC在外网AP在内网的三层组网方式，但试了下没反应。于是只好打了TP-Link的400电话寻求技术支持，是个小姐姐接的电话，告诉我把AC接到86面板上的以太网口也是可以的，我真傻，真的！说干就干，家里的网络拓扑结构就变成这个样子了：&lt;/p&gt;
+
+&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; contentScriptType=&quot;application/ecmascript&quot; contentStyleType=&quot;text/css&quot; height=&quot;749px&quot; preserveAspectRatio=&quot;none&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 831 749&quot; width=&quot;831px&quot; zoomAndPan=&quot;magnify&quot;&gt;&lt;defs&gt;&lt;filter height=&quot;300%&quot; id=&quot;f1pskyj2thzojv&quot; width=&quot;300%&quot; x=&quot;-1&quot; y=&quot;-1&quot;&gt;&lt;feGaussianBlur result=&quot;blurOut&quot; stdDeviation=&quot;2.0&quot; /&gt;&lt;feColorMatrix in=&quot;blurOut&quot; result=&quot;blurOut2&quot; type=&quot;matrix&quot; values=&quot;0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0&quot; /&gt;&lt;feOffset dx=&quot;4.0&quot; dy=&quot;4.0&quot; in=&quot;blurOut2&quot; result=&quot;blurOut3&quot; /&gt;&lt;feBlend in=&quot;SourceGraphic&quot; in2=&quot;blurOut3&quot; mode=&quot;normal&quot; /&gt;&lt;/filter&gt;&lt;/defs&gt;&lt;g&gt;&lt;rect fill=&quot;none&quot; height=&quot;30.9531&quot; rx=&quot;2.5&quot; ry=&quot;2.5&quot; style=&quot;stroke:#000000;stroke-width:1.0;&quot; width=&quot;124&quot; x=&quot;346.5&quot; y=&quot;2&quot; /&gt;&lt;text fill=&quot;#000000&quot; font-family=&quot;sans-serif&quot; font-size=&quot;18&quot; lengthAdjust=&quot;spacing&quot; textLength=&quot;108&quot; x=&quot;354.5&quot; y=&quot;23.708&quot;&gt;家中网络拓扑&lt;/text&gt;&lt;!--MD5=[1d37dbca69c09fd285290ecf28987280]
+cluster 弱电箱--&gt;&lt;polygon fill=&quot;#FFFFFF&quot; filter=&quot;url(#f1pskyj2thzojv)&quot; points=&quot;453,286.9531,463,276.9531,814,276.9531,814,386.9531,804,396.9531,453,396.9531,453,286.9531&quot; style=&quot;stroke:#000000;stroke-width:1.5;&quot; /&gt;&lt;line style=&quot;stroke:#000000;stroke-width:1.5;&quot; x1=&quot;804&quot; x2=&quot;814&quot; y1=&quot;286.9531&quot; y2=&quot;276.9531&quot; /&gt;&lt;line style=&quot;stroke:#000000;stroke-width:1.5;&quot; x1=&quot;453&quot; x2=&quot;804&quot; y1=&quot;286.9531&quot; y2=&quot;286.9531&quot; /&gt;&lt;line style=&quot;stroke:#000000;stroke-width:1.5;&quot; x1=&quot;804&quot; x2=&quot;804&quot; y1=&quot;286.9531&quot; y2=&quot;396.9531&quot; /&gt;&lt;text fill=&quot;#000000&quot; font-family=&quot;sans-serif&quot; font-size=&quot;14&quot; font-weight=&quot;bold&quot; lengthAdjust=&quot;spacing&quot; textLength=&quot;45&quot; x=&quot;607&quot; y=&quot;302.9482&quot;&gt;弱电箱&lt;/text&gt;&lt;!--MD5=[fda4ec244e27670a79215dd09aafa138]
+entity ISPModem--&gt;&lt;polygon fill=&quot;#FEFECE&quot; filter=&quot;url(#f1pskyj2thzojv)&quot; points=&quot;698,340.9531,708,330.9531,798,330.9531,798,367.25,788,377.25,698,377.25,698,340.9531&quot; style=&quot;stroke:#000000;stroke-width:1.5;&quot; /&gt;&lt;line style=&quot;stroke:#000000;stroke-width:1.5;&quot; x1=&quot;788&quot; x2=&quot;798&quot; y1=&quot;340.9531&quot; y2=&quot;330.9531&quot; /&gt;&lt;line style=&quot;stroke:#000000;stroke-width:1.5;&quot; x1=&quot;698&quot; x2=&quot;788&quot; y1=&quot;340.9531&quot; y2=&quot;340.9531&quot; /&gt;&lt;line style=&quot;stroke:#000000;stroke-width:1.5;&quot; x1=&quot;788&quot; x2=&quot;788&quot; y1=&quot;340.9531&quot; y2=&quot;377.25&quot; /&gt;&lt;text fill=&quot;#000000&quot; font-family=&quot;sans-serif&quot; font-size=&quot;14&quot; font-weight=&quot;bold&quot; lengthAdjust=&quot;spacing&quot; textLength=&quot;60&quot; x=&quot;713&quot; y=&quot;363.9482&quot;&gt;电信光猫&lt;/text&gt;&lt;!--MD5=[8be9e00b8ae144cc3302ac29d6119746]
+entity TPLinkR470GP--&gt;&lt;polygon fill=&quot;#FEFECE&quot; filter=&quot;url(#f1pskyj2thzojv)&quot; points=&quot;469,327.4531,479,317.4531,632,317.4531,632,370.0469,622,380.0469,469,380.0469,469,327.4531&quot; style=&quot;stroke:#000000;stroke-width:1.5;&quot; /&gt;&lt;line style=&quot;stroke:#000000;stroke-width:1.5;&quot; x1=&quot;622&quot; x2=&quot;632&quot; y1=&quot;327.4531&quot; y2=&quot;317.4531&quot; /&gt;&lt;line style=&quot;stroke:#000000;stroke-width:1.5;&quot; x1=&quot;469&quot; x2=&quot;622&quot; y1=&quot;327.4531&quot; y2=&quot;327.4531&quot; /&gt;&lt;line style=&quot;stroke:#000000;stroke-width:1.5;&quot; x1=&quot;622&quot; x2=&quot;622&quot; y1=&quot;327.4531&quot; y2=&quot;380.0469&quot; /&gt;&lt;text fill=&quot;#000000&quot; font-family=&quot;sans-serif&quot; font-size=&quot;14&quot; font-weight=&quot;bold&quot; lengthAdjust=&quot;spacing&quot; textLength=&quot;116&quot; x=&quot;484&quot; y=&quot;350.4482&quot;&gt;TL-R470GP-AC&lt;/text&gt;&lt;text fill=&quot;#000000&quot; font-family=&quot;sans-serif&quot; font-size=&quot;14&quot; lengthAdjust=&quot;spacing&quot; textLength=&quot;123&quot; x=&quot;484&quot; y=&quot;366.7451&quot;&gt;POE AC路由一体机&lt;/text&gt;&lt;!--MD5=[aba84b779106803175e5c2c7f9cba07a]
+entity TPLinkSwitch--&gt;&lt;polygon fill=&quot;#FEFECE&quot; filter=&quot;url(#f1pskyj2thzojv)&quot; points=&quot;463,571.9531,473,561.9531,638,561.9531,638,598.25,628,608.25,463,608.25,463,571.9531&quot; style=&quot;stroke:#000000;stroke-width:1.5;&quot; /&gt;&lt;line style=&quot;stroke:#000000;stroke-width:1.5;&quot; x1=&quot;628&quot; x2=&quot;638&quot; y1=&quot;571.9531&quot; y2=&quot;561.9531&quot; /&gt;&lt;line style=&quot;stroke:#000000;stroke-width:1.5;&quot; x1=&quot;463&quot; x2=&quot;628&quot; y1=&quot;571.9531&quot; y2=&quot;571.9531&quot; /&gt;&lt;line style=&quot;stroke:#000000;stroke-width:1.5;&quot; x1=&quot;628&quot; x2=&quot;628&quot; y1=&quot;571.9531&quot; y2=&quot;608.25&quot; /&gt;&lt;text fill=&quot;#000000&quot; font-family=&quot;sans-serif&quot; font-size=&quot;14&quot; font-weight=&quot;bold&quot; lengthAdjust=&quot;spacing&quot; textLength=&quot;135&quot; x=&quot;478&quot; y=&quot;594.9482&quot;&gt;TP-Link千兆交换机&lt;/text&gt;&lt;!--MD5=[b1fb5dcc1c11b9a2c0d99ddf678ab688]
+entity BananaPi--&gt;&lt;polygon fill=&quot;#FEFECE&quot; filter=&quot;url(#f1pskyj2thzojv)&quot; points=&quot;265,559.4531,275,549.4531,389,549.4531,389,610.0469,379,620.0469,265,620.0469,265,559.4531&quot; style=&quot;stroke:#000000;stroke-width:1.5;&quot; /&gt;&lt;line style=&quot;stroke:#000000;stroke-width:1.5;&quot; x1=&quot;379&quot; x2=&quot;389&quot; y1=&quot;559.4531&quot; y2=&quot;549.4531&quot; /&gt;&lt;line style=&quot;stroke:#000000;stroke-width:1.5;&quot; x1=&quot;265&quot; x2=&quot;379&quot; y1=&quot;559.4531&quot; y2=&quot;559.4531&quot; /&gt;&lt;line style=&quot;stroke:#000000;stroke-width:1.5;&quot; x1=&quot;379&quot; x2=&quot;379&quot; y1=&quot;559.4531&quot; y2=&quot;620.0469&quot; /&gt;&lt;text fill=&quot;#000000&quot; font-family=&quot;sans-serif&quot; font-size=&quot;14&quot; font-weight=&quot;bold&quot; lengthAdjust=&quot;spacing&quot; textLength=&quot;66&quot; x=&quot;280&quot; y=&quot;582.4482&quot;&gt;香蕉派R1&lt;/text&gt;&lt;line style=&quot;stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;&quot; x1=&quot;265&quot; x2=&quot;379&quot; y1=&quot;585.75&quot; y2=&quot;585.75&quot; /&gt;&lt;line style=&quot;stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;&quot; x1=&quot;379&quot; x2=&quot;389&quot; y1=&quot;585.75&quot; y2=&quot;575.75&quot; /&gt;&lt;text fill=&quot;#000000&quot; font-family=&quot;sans-serif&quot; font-size=&quot;14&quot; lengthAdjust=&quot;spacing&quot; textLength=&quot;84&quot; x=&quot;280&quot; y=&quot;602.7451&quot;&gt;科学上网备用&lt;/text&gt;&lt;!--MD5=[f0ad1c098305ab3629522329838cab5b]
+entity HTPC--&gt;&lt;polygon fill=&quot;#FEFECE&quot; filter=&quot;url(#f1pskyj2thzojv)&quot; points=&quot;251,665.4531,261,655.4531,403,655.4531,403,732.3438,393,742.3438,251,742.3438,251,665.4531&quot; style=&quot;stroke:#000000;stroke-width:1.5;&quot; /&gt;&lt;line style=&quot;stroke:#000000;stroke-width:1.5;&quot; x1=&quot;393&quot; x2=&quot;403&quot; y1=&quot;665.4531&quot; y2=&quot;655.4531&quot; /&gt;&lt;line style=&quot;stroke:#000000;stroke-width:1.5;&quot; x1=&quot;251&quot; x2=&quot;393&quot; y1=&quot;665.4531&quot; y2=&quot;665.4531&quot; /&gt;&lt;line style=&quot;stroke:#000000;stroke-width:1.5;&quot; x1=&quot;393&quot; x2=&quot;393&quot; y1=&quot;665.4531&quot; y2=&quot;742.3438&quot; /&gt;&lt;text fill=&quot;#000000&quot; font-family=&quot;sans-serif&quot; font-size=&quot;14&quot; font-weight=&quot;bold&quot; lengthAdjust=&quot;spacing&quot; textLength=&quot;42&quot; x=&quot;266&quot; y=&quot;688.4482&quot;&gt;HTPC&lt;/text&gt;&lt;line style=&quot;stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;&quot; x1=&quot;251&quot; x2=&quot;393&quot; y1=&quot;691.75&quot; y2=&quot;691.75&quot; /&gt;&lt;line style=&quot;stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;&quot; x1=&quot;393&quot; x2=&quot;403&quot; y1=&quot;691.75&quot; y2=&quot;681.75&quot; /&gt;&lt;text fill=&quot;#000000&quot; font-family=&quot;sans-serif&quot; font-size=&quot;14&quot; lengthAdjust=&quot;spacing&quot; textLength=&quot;84&quot; x=&quot;266&quot; y=&quot;708.7451&quot;&gt;科学上网主力&lt;/text&gt;&lt;text fill=&quot;#000000&quot; font-family=&quot;sans-serif&quot; font-size=&quot;14&quot; lengthAdjust=&quot;spacing&quot; textLength=&quot;112&quot; x=&quot;266&quot; y=&quot;725.042&quot;&gt;很多其他服务程序&lt;/text&gt;&lt;!--MD5=[eff0d92fd1dc618a788bf5a822fbc8ed]
+entity APBedRoom1--&gt;&lt;polygon fill=&quot;#FEFECE&quot; filter=&quot;url(#f1pskyj2thzojv)&quot; points=&quot;256.5,71.4531,266.5,61.4531,397.5,61.4531,397.5,138.3438,387.5,148.3438,256.5,148.3438,256.5,71.4531&quot; style=&quot;stroke:#000000;stroke-width:1.5;&quot; /&gt;&lt;line style=&quot;stroke:#000000;stroke-width:1.5;&quot; x1=&quot;387.5&quot; x2=&quot;397.5&quot; y1=&quot;71.4531&quot; y2=&quot;61.4531&quot; /&gt;&lt;line style=&quot;stroke:#000000;stroke-width:1.5;&quot; x1=&quot;256.5&quot; x2=&quot;387.5&quot; y1=&quot;71.4531&quot; y2=&quot;71.4531&quot; /&gt;&lt;line style=&quot;stroke:#000000;stroke-width:1.5;&quot; x1=&quot;387.5&quot; x2=&quot;387.5&quot; y1=&quot;71.4531&quot; y2=&quot;148.3438&quot; /&gt;&lt;text fill=&quot;#000000&quot; font-family=&quot;sans-serif&quot; font-size=&quot;14&quot; font-weight=&quot;bold&quot; lengthAdjust=&quot;spacing&quot; textLength=&quot;101&quot; x=&quot;271.5&quot; y=&quot;94.4482&quot;&gt;主卧86面板AP&lt;/text&gt;&lt;line style=&quot;stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;&quot; x1=&quot;256.5&quot; x2=&quot;387.5&quot; y1=&quot;97.75&quot; y2=&quot;97.75&quot; /&gt;&lt;line style=&quot;stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;&quot; x1=&quot;387.5&quot; x2=&quot;397.5&quot; y1=&quot;97.75&quot; y2=&quot;87.75&quot; /&gt;&lt;text fill=&quot;#000000&quot; font-family=&quot;sans-serif&quot; font-size=&quot;14&quot; lengthAdjust=&quot;spacing&quot; textLength=&quot;54&quot; x=&quot;271.5&quot; y=&quot;114.7451&quot;&gt;5G WIFI&lt;/text&gt;&lt;text fill=&quot;#000000&quot; font-family=&quot;sans-serif&quot; font-size=&quot;14&quot; lengthAdjust=&quot;spacing&quot; textLength=&quot;56&quot; x=&quot;271.5&quot; y=&quot;131.042&quot;&gt;以太网口&lt;/text&gt;&lt;!--MD5=[96a324d0f656e978bf40d568aadbb355]
+entity APBedRoom2--&gt;&lt;polygon fill=&quot;#FEFECE&quot; filter=&quot;url(#f1pskyj2thzojv)&quot; points=&quot;256.5,193.4531,266.5,183.4531,397.5,183.4531,397.5,260.3438,387.5,270.3438,256.5,270.3438,256.5,193.4531&quot; style=&quot;stroke:#000000;stroke-width:1.5;&quot; /&gt;&lt;line style=&quot;stroke:#000000;stroke-width:1.5;&quot; x1=&quot;387.5&quot; x2=&quot;397.5&quot; y1=&quot;193.4531&quot; y2=&quot;183.4531&quot; /&gt;&lt;line style=&quot;stroke:#000000;stroke-width:1.5;&quot; x1=&quot;256.5&quot; x2=&quot;387.5&quot; y1=&quot;193.4531&quot; y2=&quot;193.4531&quot; /&gt;&lt;line style=&quot;stroke:#000000;stroke-width:1.5;&quot; x1=&quot;387.5&quot; x2=&quot;387.5&quot; y1=&quot;193.4531&quot; y2=&quot;270.3438&quot; /&gt;&lt;text fill=&quot;#000000&quot; font-family=&quot;sans-serif&quot; font-size=&quot;14&quot; font-weight=&quot;bold&quot; lengthAdjust=&quot;spacing&quot; textLength=&quot;101&quot; x=&quot;271.5&quot; y=&quot;216.4482&quot;&gt;次卧86面板AP&lt;/text&gt;&lt;line style=&quot;stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;&quot; x1=&quot;256.5&quot; x2=&quot;387.5&quot; y1=&quot;219.75&quot; y2=&quot;219.75&quot; /&gt;&lt;line style=&quot;stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;&quot; x1=&quot;387.5&quot; x2=&quot;397.5&quot; y1=&quot;219.75&quot; y2=&quot;209.75&quot; /&gt;&lt;text fill=&quot;#000000&quot; font-family=&quot;sans-serif&quot; font-size=&quot;14&quot; lengthAdjust=&quot;spacing&quot; textLength=&quot;54&quot; x=&quot;271.5&quot; y=&quot;236.7451&quot;&gt;5G WIFI&lt;/text&gt;&lt;text fill=&quot;#000000&quot; font-family=&quot;sans-serif&quot; font-size=&quot;14&quot; lengthAdjust=&quot;spacing&quot; textLength=&quot;56&quot; x=&quot;271.5&quot; y=&quot;253.042&quot;&gt;以太网口&lt;/text&gt;&lt;!--MD5=[4626844887b0a8ade4fa0637d701973e]
+entity APDinnerRoom--&gt;&lt;polygon fill=&quot;#FEFECE&quot; filter=&quot;url(#f1pskyj2thzojv)&quot; points=&quot;254.5,315.4531,264.5,305.4531,399.5,305.4531,399.5,382.3438,389.5,392.3438,254.5,392.3438,254.5,315.4531&quot; style=&quot;stroke:#000000;stroke-width:1.5;&quot; /&gt;&lt;line style=&quot;stroke:#000000;stroke-width:1.5;&quot; x1=&quot;389.5&quot; x2=&quot;399.5&quot; y1=&quot;315.4531&quot; y2=&quot;305.4531&quot; /&gt;&lt;line style=&quot;stroke:#000000;stroke-width:1.5;&quot; x1=&quot;254.5&quot; x2=&quot;389.5&quot; y1=&quot;315.4531&quot; y2=&quot;315.4531&quot; /&gt;&lt;line style=&quot;stroke:#000000;stroke-width:1.5;&quot; x1=&quot;389.5&quot; x2=&quot;389.5&quot; y1=&quot;315.4531&quot; y2=&quot;392.3438&quot; /&gt;&lt;text fill=&quot;#000000&quot; font-family=&quot;sans-serif&quot; font-size=&quot;14&quot; font-weight=&quot;bold&quot; lengthAdjust=&quot;spacing&quot; textLength=&quot;101&quot; x=&quot;269.5&quot; y=&quot;338.4482&quot;&gt;餐厅86面板AP&lt;/text&gt;&lt;line style=&quot;stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;&quot; x1=&quot;254.5&quot; x2=&quot;389.5&quot; y1=&quot;341.75&quot; y2=&quot;341.75&quot; /&gt;&lt;line style=&quot;stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;&quot; x1=&quot;389.5&quot; x2=&quot;399.5&quot; y1=&quot;341.75&quot; y2=&quot;331.75&quot; /&gt;&lt;text fill=&quot;#000000&quot; font-family=&quot;sans-serif&quot; font-size=&quot;14&quot; lengthAdjust=&quot;spacing&quot; textLength=&quot;105&quot; x=&quot;269.5&quot; y=&quot;358.7451&quot;&gt;2.4G &amp;amp; 5G WIFI&lt;/text&gt;&lt;text fill=&quot;#000000&quot; font-family=&quot;sans-serif&quot; font-size=&quot;14&quot; lengthAdjust=&quot;spacing&quot; textLength=&quot;56&quot; x=&quot;269.5&quot; y=&quot;375.042&quot;&gt;以太网口&lt;/text&gt;&lt;!--MD5=[3b3c59b99b8dca18929e6f7b032cf9bf]
+entity APLivingRoom--&gt;&lt;polygon fill=&quot;#FEFECE&quot; filter=&quot;url(#f1pskyj2thzojv)&quot; points=&quot;254.5,437.4531,264.5,427.4531,399.5,427.4531,399.5,504.3438,389.5,514.3438,254.5,514.3438,254.5,437.4531&quot; style=&quot;stroke:#000000;stroke-width:1.5;&quot; /&gt;&lt;line style=&quot;stroke:#000000;stroke-width:1.5;&quot; x1=&quot;389.5&quot; x2=&quot;399.5&quot; y1=&quot;437.4531&quot; y2=&quot;427.4531&quot; /&gt;&lt;line style=&quot;stroke:#000000;stroke-width:1.5;&quot; x1=&quot;254.5&quot; x2=&quot;389.5&quot; y1=&quot;437.4531&quot; y2=&quot;437.4531&quot; /&gt;&lt;line style=&quot;stroke:#000000;stroke-width:1.5;&quot; x1=&quot;389.5&quot; x2=&quot;389.5&quot; y1=&quot;437.4531&quot; y2=&quot;514.3438&quot; /&gt;&lt;text fill=&quot;#000000&quot; font-family=&quot;sans-serif&quot; font-size=&quot;14&quot; font-weight=&quot;bold&quot; lengthAdjust=&quot;spacing&quot; textLength=&quot;101&quot; x=&quot;269.5&quot; y=&quot;460.4482&quot;&gt;客厅86面板AP&lt;/text&gt;&lt;line style=&quot;stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;&quot; x1=&quot;254.5&quot; x2=&quot;389.5&quot; y1=&quot;463.75&quot; y2=&quot;463.75&quot; /&gt;&lt;line style=&quot;stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;&quot; x1=&quot;389.5&quot; x2=&quot;399.5&quot; y1=&quot;463.75&quot; y2=&quot;453.75&quot; /&gt;&lt;text fill=&quot;#000000&quot; font-family=&quot;sans-serif&quot; font-size=&quot;14&quot; lengthAdjust=&quot;spacing&quot; textLength=&quot;105&quot; x=&quot;269.5&quot; y=&quot;480.7451&quot;&gt;2.4G &amp;amp; 5G WIFI&lt;/text&gt;&lt;text fill=&quot;#000000&quot; font-family=&quot;sans-serif&quot; font-size=&quot;14&quot; lengthAdjust=&quot;spacing&quot; textLength=&quot;56&quot; x=&quot;269.5&quot; y=&quot;497.042&quot;&gt;以太网口&lt;/text&gt;&lt;!--MD5=[d723b61fb88ed8a35aba0785e1affe4b]
+entity TLAC100--&gt;&lt;polygon fill=&quot;#FEFECE&quot; filter=&quot;url(#f1pskyj2thzojv)&quot; points=&quot;45,51.9531,55,41.9531,162,41.9531,162,78.25,152,88.25,45,88.25,45,51.9531&quot; style=&quot;stroke:#000000;stroke-width:1.5;&quot; /&gt;&lt;line style=&quot;stroke:#000000;stroke-width:1.5;&quot; x1=&quot;152&quot; x2=&quot;162&quot; y1=&quot;51.9531&quot; y2=&quot;41.9531&quot; /&gt;&lt;line style=&quot;stroke:#000000;stroke-width:1.5;&quot; x1=&quot;45&quot; x2=&quot;152&quot; y1=&quot;51.9531&quot; y2=&quot;51.9531&quot; /&gt;&lt;line style=&quot;stroke:#000000;stroke-width:1.5;&quot; x1=&quot;152&quot; x2=&quot;152&quot; y1=&quot;51.9531&quot; y2=&quot;88.25&quot; /&gt;&lt;text fill=&quot;#000000&quot; font-family=&quot;sans-serif&quot; font-size=&quot;14&quot; font-weight=&quot;bold&quot; lengthAdjust=&quot;spacing&quot; textLength=&quot;77&quot; x=&quot;60&quot; y=&quot;74.9482&quot;&gt;TL-AC100&lt;/text&gt;&lt;!--MD5=[6fb11f7399c8b1c5fbce742f8f26d242]
+entity WinDesktop--&gt;&lt;polygon fill=&quot;#FEFECE&quot; filter=&quot;url(#f1pskyj2thzojv)&quot; points=&quot;25,132.9531,35,122.9531,182,122.9531,182,159.25,172,169.25,25,169.25,25,132.9531&quot; style=&quot;stroke:#000000;stroke-width:1.5;&quot; /&gt;&lt;line style=&quot;stroke:#000000;stroke-width:1.5;&quot; x1=&quot;172&quot; x2=&quot;182&quot; y1=&quot;132.9531&quot; y2=&quot;122.9531&quot; /&gt;&lt;line style=&quot;stroke:#000000;stroke-width:1.5;&quot; x1=&quot;25&quot; x2=&quot;172&quot; y1=&quot;132.9531&quot; y2=&quot;132.9531&quot; /&gt;&lt;line style=&quot;stroke:#000000;stroke-width:1.5;&quot; x1=&quot;172&quot; x2=&quot;172&quot; y1=&quot;132.9531&quot; y2=&quot;169.25&quot; /&gt;&lt;text fill=&quot;#000000&quot; font-family=&quot;sans-serif&quot; font-size=&quot;14&quot; font-weight=&quot;bold&quot; lengthAdjust=&quot;spacing&quot; textLength=&quot;117&quot; x=&quot;40&quot; y=&quot;155.9482&quot;&gt;Windows台式机&lt;/text&gt;&lt;!--MD5=[ad052860d469ba80555c12bc46bec7c1]
+entity TLIPC40CFocus--&gt;&lt;polygon fill=&quot;#FEFECE&quot; filter=&quot;url(#f1pskyj2thzojv)&quot; points=&quot;16,335.9531,26,325.9531,191,325.9531,191,362.25,181,372.25,16,372.25,16,335.9531&quot; style=&quot;stroke:#000000;stroke-width:1.5;&quot; /&gt;&lt;line style=&quot;stroke:#000000;stroke-width:1.5;&quot; x1=&quot;181&quot; x2=&quot;191&quot; y1=&quot;335.9531&quot; y2=&quot;325.9531&quot; /&gt;&lt;line style=&quot;stroke:#000000;stroke-width:1.5;&quot; x1=&quot;16&quot; x2=&quot;181&quot; y1=&quot;335.9531&quot; y2=&quot;335.9531&quot; /&gt;&lt;line style=&quot;stroke:#000000;stroke-width:1.5;&quot; x1=&quot;181&quot; x2=&quot;181&quot; y1=&quot;335.9531&quot; y2=&quot;372.25&quot; /&gt;&lt;text fill=&quot;#000000&quot; font-family=&quot;sans-serif&quot; font-size=&quot;14&quot; font-weight=&quot;bold&quot; lengthAdjust=&quot;spacing&quot; textLength=&quot;135&quot; x=&quot;31&quot; y=&quot;358.9482&quot;&gt;TP-Link监控摄像头&lt;/text&gt;&lt;!--MD5=[ac7ff2786bdc3a5882759f1fc25555d9]
+entity Koxsni--&gt;&lt;polygon fill=&quot;#FEFECE&quot; filter=&quot;url(#f1pskyj2thzojv)&quot; points=&quot;46,436.9531,56,426.9531,161,426.9531,161,463.25,151,473.25,46,473.25,46,436.9531&quot; style=&quot;stroke:#000000;stroke-width:1.5;&quot; /&gt;&lt;line style=&quot;stroke:#000000;stroke-width:1.5;&quot; x1=&quot;151&quot; x2=&quot;161&quot; y1=&quot;436.9531&quot; y2=&quot;426.9531&quot; /&gt;&lt;line style=&quot;stroke:#000000;stroke-width:1.5;&quot; x1=&quot;46&quot; x2=&quot;151&quot; y1=&quot;436.9531&quot; y2=&quot;436.9531&quot; /&gt;&lt;line style=&quot;stroke:#000000;stroke-width:1.5;&quot; x1=&quot;151&quot; x2=&quot;151&quot; y1=&quot;436.9531&quot; y2=&quot;473.25&quot; /&gt;&lt;text fill=&quot;#000000&quot; font-family=&quot;sans-serif&quot; font-size=&quot;14&quot; font-weight=&quot;bold&quot; lengthAdjust=&quot;spacing&quot; textLength=&quot;75&quot; x=&quot;61&quot; y=&quot;459.9482&quot;&gt;无线投屏器&lt;/text&gt;&lt;!--MD5=[f042970fa631b194e0ab6c1248938917]
+entity N1--&gt;&lt;polygon fill=&quot;#FEFECE&quot; filter=&quot;url(#f1pskyj2thzojv)&quot; points=&quot;28,517.9531,38,507.9531,179,507.9531,179,544.25,169,554.25,28,554.25,28,517.9531&quot; style=&quot;stroke:#000000;stroke-width:1.5;&quot; /&gt;&lt;line style=&quot;stroke:#000000;stroke-width:1.5;&quot; x1=&quot;169&quot; x2=&quot;179&quot; y1=&quot;517.9531&quot; y2=&quot;507.9531&quot; /&gt;&lt;line style=&quot;stroke:#000000;stroke-width:1.5;&quot; x1=&quot;28&quot; x2=&quot;169&quot; y1=&quot;517.9531&quot; y2=&quot;517.9531&quot; /&gt;&lt;line style=&quot;stroke:#000000;stroke-width:1.5;&quot; x1=&quot;169&quot; x2=&quot;169&quot; y1=&quot;517.9531&quot; y2=&quot;554.25&quot; /&gt;&lt;text fill=&quot;#000000&quot; font-family=&quot;sans-serif&quot; font-size=&quot;14&quot; font-weight=&quot;bold&quot; lengthAdjust=&quot;spacing&quot; textLength=&quot;111&quot; x=&quot;43&quot; y=&quot;540.9482&quot;&gt;斐迅N1电视盒子&lt;/text&gt;&lt;!--MD5=[c18e92a1945e8ce58a28e57b59253457]
+link TPLinkSwitch to ISPModem--&gt;&lt;path codeLine=&quot;68&quot; d=&quot;M571.321,561.5321 C607.788,518.4431 685.317,426.8371 724.021,381.1051 &quot; fill=&quot;none&quot; id=&quot;TPLinkSwitch-to-ISPModem&quot; style=&quot;stroke:#A80036;stroke-width:1.0;&quot; /&gt;&lt;polygon fill=&quot;#A80036&quot; points=&quot;727.417,377.0921,718.5491,381.377,724.1865,380.9084,724.6552,386.5458,727.417,377.0921&quot; style=&quot;stroke:#A80036;stroke-width:1.0;&quot; /&gt;&lt;!--MD5=[be4bfb91463dc0aba680f5136c11123f]
+link TPLinkR470GP to ISPModem--&gt;&lt;path codeLine=&quot;69&quot; d=&quot;M632.146,351.0161 C652.528,351.5371 673.934,352.0841 692.67,352.5631 &quot; fill=&quot;none&quot; id=&quot;TPLinkR470GP-to-ISPModem&quot; style=&quot;stroke:#A80036;stroke-width:1.0;&quot; /&gt;&lt;polygon fill=&quot;#A80036&quot; points=&quot;697.88,352.6971,688.9846,348.4696,692.8816,352.57,688.7812,356.467,697.88,352.6971&quot; style=&quot;stroke:#A80036;stroke-width:1.0;&quot; /&gt;&lt;!--MD5=[28a0577dfe67a12b5a9e74ba0ced46eb]
+link BananaPi to TPLinkSwitch--&gt;&lt;path codeLine=&quot;70&quot; d=&quot;M389.112,584.9531 C410.303,584.9531 434.55,584.9531 457.665,584.9531 &quot; fill=&quot;none&quot; id=&quot;BananaPi-to-TPLinkSwitch&quot; style=&quot;stroke:#A80036;stroke-width:1.0;&quot; /&gt;&lt;polygon fill=&quot;#A80036&quot; points=&quot;462.888,584.9531,453.888,580.9531,457.888,584.9531,453.888,588.9531,462.888,584.9531&quot; style=&quot;stroke:#A80036;stroke-width:1.0;&quot; /&gt;&lt;!--MD5=[7b5bf5219a35af0dce5a8f4bd822e715]
+link HTPC to TPLinkSwitch--&gt;&lt;path codeLine=&quot;71&quot; d=&quot;M403.299,660.1988 C435.323,643.717 471.767,624.9601 500.259,610.2961 &quot; fill=&quot;none&quot; id=&quot;HTPC-to-TPLinkSwitch&quot; style=&quot;stroke:#A80036;stroke-width:1.0;&quot; /&gt;&lt;polygon fill=&quot;#A80036&quot; points=&quot;504.761,607.9791,494.9282,608.542,500.3155,610.2676,498.5898,615.6548,504.761,607.9791&quot; style=&quot;stroke:#A80036;stroke-width:1.0;&quot; /&gt;&lt;!--MD5=[0811a723f4ff79e55c0a75d50f567b43]
+link APBedRoom1 to TPLinkR470GP--&gt;&lt;path codeLine=&quot;72&quot; d=&quot;M384.446,148.6531 C390.884,154.2771 397.207,160.1151 403,165.9531 C449.88,213.1981 496.651,274.7631 524.32,313.0711 &quot; fill=&quot;none&quot; id=&quot;APBedRoom1-to-TPLinkR470GP&quot; style=&quot;stroke:#A80036;stroke-width:1.0;&quot; /&gt;&lt;polygon fill=&quot;#A80036&quot; points=&quot;527.267,317.1641,525.2556,307.5229,524.346,313.1061,518.7627,312.1965,527.267,317.1641&quot; style=&quot;stroke:#A80036;stroke-width:1.0;&quot; /&gt;&lt;!--MD5=[c62150f224b015055524e8bbb732d1cb]
+link APBedRoom2 to TPLinkR470GP--&gt;&lt;path codeLine=&quot;73&quot; d=&quot;M397.78,265.3871 C426.669,281.2991 459.887,299.5951 487.862,315.0031 &quot; fill=&quot;none&quot; id=&quot;APBedRoom2-to-TPLinkR470GP&quot; style=&quot;stroke:#A80036;stroke-width:1.0;&quot; /&gt;&lt;polygon fill=&quot;#A80036&quot; points=&quot;492.305,317.4511,486.3531,309.6041,487.9259,315.038,482.4921,316.6107,492.305,317.4511&quot; style=&quot;stroke:#A80036;stroke-width:1.0;&quot; /&gt;&lt;!--MD5=[affb9fa1e3ff90f7b4f836ce92bb2071]
+link APDinnerRoom to TPLinkR470GP--&gt;&lt;path codeLine=&quot;74&quot; d=&quot;M399.609,348.9531 C420.086,348.9531 442.613,348.9531 463.841,348.9531 &quot; fill=&quot;none&quot; id=&quot;APDinnerRoom-to-TPLinkR470GP&quot; style=&quot;stroke:#A80036;stroke-width:1.0;&quot; /&gt;&lt;polygon fill=&quot;#A80036&quot; points=&quot;468.92,348.9531,459.92,344.9531,463.92,348.9531,459.92,352.9531,468.92,348.9531&quot; style=&quot;stroke:#A80036;stroke-width:1.0;&quot; /&gt;&lt;!--MD5=[957fae402cf1236f9dbd5d8db38d4606]
+link APLivingRoom to TPLinkR470GP--&gt;&lt;path codeLine=&quot;75&quot; d=&quot;M399.609,431.5121 C427.926,415.9151 460.162,398.1601 487.464,383.1221 &quot; fill=&quot;none&quot; id=&quot;APLivingRoom-to-TPLinkR470GP&quot; style=&quot;stroke:#A80036;stroke-width:1.0;&quot; /&gt;&lt;polygon fill=&quot;#A80036&quot; points=&quot;492.152,380.5401,482.3387,381.3767,487.7719,382.9516,486.1971,388.3848,492.152,380.5401&quot; style=&quot;stroke:#A80036;stroke-width:1.0;&quot; /&gt;&lt;!--MD5=[a362e643dbcf2518f79a030351765370]
+link TLAC100 to APBedRoom1--&gt;&lt;path codeLine=&quot;76&quot; d=&quot;M162.118,75.3581 C189.382,80.2821 222.276,86.2221 251.417,91.4841 &quot; fill=&quot;none&quot; id=&quot;TLAC100-to-APBedRoom1&quot; style=&quot;stroke:#A80036;stroke-width:1.0;&quot; /&gt;&lt;polygon fill=&quot;#A80036&quot; points=&quot;256.435,92.3901,248.2892,86.8542,251.5146,91.5015,246.8674,94.7269,256.435,92.3901&quot; style=&quot;stroke:#A80036;stroke-width:1.0;&quot; /&gt;&lt;!--MD5=[554ae9a361fc0826864c48b391995eef]
+link WinDesktop to APBedRoom1--&gt;&lt;path codeLine=&quot;77&quot; d=&quot;M182.281,131.5561 C204.648,127.4151 228.989,122.9101 251.173,118.8041 &quot; fill=&quot;none&quot; id=&quot;WinDesktop-to-APBedRoom1&quot; style=&quot;stroke:#A80036;stroke-width:1.0;&quot; /&gt;&lt;polygon fill=&quot;#A80036&quot; points=&quot;256.167,117.8791,246.5892,115.5842,251.2505,118.7893,248.0455,123.4505,256.167,117.8791&quot; style=&quot;stroke:#A80036;stroke-width:1.0;&quot; /&gt;&lt;!--MD5=[7551df143280703011a767c705d4c3db]
+link TLIPC40CFocus to APDinnerRoom--&gt;&lt;path codeLine=&quot;78&quot; d=&quot;M191.089,348.9531 C210.277,348.9531 230.481,348.9531 249.244,348.9531 &quot; fill=&quot;none&quot; id=&quot;TLIPC40CFocus-to-APDinnerRoom&quot; style=&quot;stroke:#A80036;stroke-width:1.0;&quot; /&gt;&lt;polygon fill=&quot;#A80036&quot; points=&quot;254.496,348.9531,245.496,344.9531,249.496,348.9531,245.496,352.9531,254.496,348.9531&quot; style=&quot;stroke:#A80036;stroke-width:1.0;&quot; /&gt;&lt;!--MD5=[c4eabb6f229a354533283d8820b07889]
+link Koxsni to APLivingRoom--&gt;&lt;path codeLine=&quot;79&quot; d=&quot;M161.254,455.3341 C188.032,457.8731 220.387,460.9401 249.308,463.6821 &quot; fill=&quot;none&quot; id=&quot;Koxsni-to-APLivingRoom&quot; style=&quot;stroke:#A80036;stroke-width:1.0;&quot; /&gt;&lt;polygon fill=&quot;#A80036&quot; points=&quot;254.291,464.1541,245.7082,459.3235,249.3133,463.6828,244.954,467.2879,254.291,464.1541&quot; style=&quot;stroke:#A80036;stroke-width:1.0;&quot; /&gt;&lt;!--MD5=[f268ae7af7847f094205d67e94da30c4]
+link N1 to APLivingRoom--&gt;&lt;path codeLine=&quot;80&quot; d=&quot;M179.181,510.7231 C201.716,504.6191 226.488,497.9091 249.161,491.7671 &quot; fill=&quot;none&quot; id=&quot;N1-to-APLivingRoom&quot; style=&quot;stroke:#A80036;stroke-width:1.0;&quot; /&gt;&lt;polygon fill=&quot;#A80036&quot; points=&quot;254.268,490.3841,244.5352,488.8763,249.4419,491.6914,246.6268,496.598,254.268,490.3841&quot; style=&quot;stroke:#A80036;stroke-width:1.0;&quot; /&gt;&lt;!--MD5=[1a22015dc5defa9f1b3f6865e19e36c3]
+@startuml
+left to right direction
+skinparam titleBorderRoundCorner 5
+skinparam titleBorderThickness 1
+skinparam titleBorderColor black
+Node 弱电箱 {
+title 家中网络拓扑
+Node ISPModem [
+&lt;b&gt;电信光猫&lt;/b&gt;
+]
+Node TPLinkR470GP [
+&lt;b&gt;TL-R470GP-AC&lt;/b&gt;
+POE AC路由一体机
+]
+}
+Node TPLinkSwitch [
+&lt;b&gt;TP-Link千兆交换机&lt;/b&gt;
+]
+Node BananaPi [
+&lt;b&gt;香蕉派R1&lt;/b&gt;
+....
+科学上网备用
+]
+Node HTPC [
+&lt;b&gt;HTPC&lt;/b&gt;
+....
+科学上网主力
+很多其他服务程序
+]
+Node APBedRoom1[
+&lt;b&gt;主卧86面板AP&lt;/b&gt;
+....
+5G WIFI
+以太网口
+]
+Node APBedRoom2[
+&lt;b&gt;次卧86面板AP&lt;/b&gt;
+....
+5G WIFI
+以太网口
+]
+Node APDinnerRoom[
+&lt;b&gt;餐厅86面板AP&lt;/b&gt;
+....
+2.4G &amp; 5G WIFI
+以太网口
+]
+Node APLivingRoom[
+&lt;b&gt;客厅86面板AP&lt;/b&gt;
+....
+2.4G &amp; 5G WIFI
+以太网口
+]
+Node TLAC100[
+&lt;b&gt;TL-AC100&lt;/b&gt;
+]
+Node WinDesktop [
+&lt;b&gt;Windows台式机&lt;/b&gt;
+]
+Node TLIPC40CFocus[
+&lt;b&gt;TP-Link监控摄像头&lt;/b&gt;
+]
+Node Koxsni[
+&lt;b&gt;无线投屏器&lt;/b&gt;
+]
+Node N1 [
+&lt;b&gt;斐迅N1电视盒子&lt;/b&gt;
+]
+TPLinkSwitch- -&gt;ISPModem
+TPLinkR470GP- -&gt;ISPModem
+BananaPi- -&gt;TPLinkSwitch
+HTPC- -&gt;TPLinkSwitch
+APBedRoom1- -&gt;TPLinkR470GP
+APBedRoom2- -&gt;TPLinkR470GP
+APDinnerRoom- -&gt;TPLinkR470GP
+APLivingRoom- -&gt;TPLinkR470GP
+TLAC100- -&gt;APBedRoom1
+WinDesktop- -&gt;APBedRoom1
+TLIPC40CFocus- -&gt;APDinnerRoom
+Koxsni- -&gt;APLivingRoom
+N1- -&gt;APLivingRoom
+@enduml
+
+PlantUML version 1.2021.7(Sun May 23 12:40:07 UTC 2021)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: US
+--&gt;&lt;/g&gt;&lt;/svg&gt;
+
+&lt;p&gt;如图可以看出，开始我是尝试把TL-AC100接在TP-Link千兆交换机上的，后来听了技术支持小姐姐的建议才接到其中一个86面板的以太网口上。&lt;/p&gt;
+
+&lt;p&gt;TL-AC100的可配置项比TL-R470GP-AC真是丰富得多，可以设置多个SSID，多个VLAN，为每个AP设置不同的SSID等等，简单地说这是企业级的用法，花了点时间摸索才搞明白基本的配置项。&lt;/p&gt;
+
+&lt;p&gt;换上TL-AC100后比较奇怪的是原本台式机上插的一块USB无线网卡一直是检测成400Mbps网速，现在变成867Mbps了，据群里大佬的解释是不同的AC默认可能用了不同的频宽。&lt;/p&gt;
+
+&lt;p&gt;至于其他更多内容，需要后续的日常使用中仔细体验了。&lt;/p&gt;</content><author><name>missdeer</name></author><category term="TP-Link" /><category term="AC" /><category term="AP" /><summary type="html">去年12月在家里用了TP-Link全家桶，实现了AC+AP的WIFI全覆盖，用的是TL-R470GP-AC这款最便宜的4口千兆PoE带AC的路由器一体机，功能上基本够用。</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://cdn.jsdelivr.net/gh/missdeer/blog@master/media/2020-04-02/topo.svg" /></entry><entry><title type="html">用上Clang for Windows Nightly Build</title><link href="https://blog.ismisv.com/2020/03/clang-for-windows-nightly-build/" rel="alternate" type="text/html" title="用上Clang for Windows Nightly Build" /><published>2020-03-27T00:00:00+00:00</published><updated>2020-03-27T00:00:00+00:00</updated><id>https://blog.ismisv.com/2020/03/clang-for-windows-nightly-build</id><content type="html" xml:base="https://blog.ismisv.com/2020/03/clang-for-windows-nightly-build/">&lt;p&gt;Clang for Windows早已经可堪实用，官方每隔一个月或几个月会发一个编译好的&lt;a href=&quot;https://prereleases.llvm.org/win-snapshots/&quot;&gt;snapshot&lt;/a&gt;外，msys2项目也提供了不是特别新的版本（目前9.0.1）可以直接通过pacman安装使用。作为一个升级控，用上Nightly Build岂不是更爽！当然这不是官方的，而是需要自己下载源代码进行编译。&lt;/p&gt;
+
+&lt;p&gt;编译Clang非常简单。首先，从git仓库下载必须部分的源代码，为节省时间可以不下载历史记录：&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;git clone &lt;span class=&quot;nt&quot;&gt;--depth&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;1 https://github.com/llvm/llvm-project.git
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;然后，准备好构建工具&lt;a href=&quot;https://github.com/ninja-build/ninja&quot;&gt;ninja&lt;/a&gt;：&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;pip &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;ninja2
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;还需要cmake，从&lt;a href=&quot;https://cmake.org/download/&quot;&gt;官网&lt;/a&gt;下载解压即可。&lt;/p&gt;
+
+&lt;p&gt;最后，使用MSVC的命令行环境进行编译，加入一些参数只编译需要的部分：&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;call &quot;C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvarsall.bat&quot; %vc_arch%
+mkdir -p llvm-project\build
+cd llvm-project\build
+cmake.exe -GNinja -DCMAKE_BUILD_TYPE=release -DLLVM_ENABLE_PROJECTS=&quot;clang;clang-tools-extra;lld&quot; -DLLVM_TARGETS_TO_BUILD=X86 -DCMAKE_C_COMPILER=cl -DCMAKE_CXX_COMPILER=cl -DCMAKE_C_FLAGS=&quot;/utf-8&quot; -DCMAKE_CXX_FLAGS=&quot;/utf-8&quot; -DCMAKE_INSTALL_PREFIX=llvm_win_bin -DLLVM_TEMPORARILY_ALLOW_OLD_TOOLCHAIN=ON ..\llvm
+ninja
+ninja install
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;如果一切顺利的话，经过漫长的等待，视机器配置而定，短则2，3个小时，长则时间再翻倍，最后可以得到包括&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;clang.exe&lt;/code&gt;，&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;clang++.exe&lt;/code&gt;，&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;clang-cl.exe&lt;/code&gt;在内的一系列编译程序，它可以配合MSVC的头文件、库文件使用。&lt;/p&gt;
+
+&lt;p&gt;另外需要注意的是，x86_64版本的clang可能需要&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;vcruntime140_1.dll&lt;/code&gt;这个文件才能正确运行，随便从其他地方找一个放到&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;clang.exe&lt;/code&gt;所在目录即可。&lt;/p&gt;
+
+&lt;p&gt;到此为止已经验证可以自己编译Clang for Windows，要nightly build的话，就自己找个每天开机足够长时间的机器，定时触发下载代码和编译即可。所以我就打上了Github Actions的主意，自从微软收购了Github，频频表现出财大气粗的土豪气质，Github Actions免费使用，每个job最长6个小时，还提供不知道到底有多大的artifacts存储空间，刚好适用于做Clang for Windows的nightly build。&lt;/p&gt;
+
+&lt;p&gt;在Github上新建一个&lt;a href=&quot;https://github.com/missdeer/clang-for-windows-daily-build&quot;&gt;仓库&lt;/a&gt;，名字什么的都随意，在仓库中新建一个文件&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.github/workflows/windows.yml&lt;/code&gt;，写入如下内容：&lt;/p&gt;
+
+&lt;div class=&quot;language-yaml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Windows&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; 
+  &lt;span class=&quot;na&quot;&gt;schedule&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;cron&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;  &lt;span class=&quot;s1&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;18&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;*'&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;paths-ignore&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;README.md'&lt;/span&gt;
+      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;LICENSE'&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;pull_request&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;paths-ignore&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;README.md'&lt;/span&gt;
+      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;LICENSE'&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;jobs&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;build&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Build&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;runs-on&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;windows-latest&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;strategy&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;matrix&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;msvc_arch&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;pi&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;x64&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;x86&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;]&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;env&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;    
+      &lt;span class=&quot;na&quot;&gt;targetName&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;llvm-win-${{ matrix.msvc_arch }}&lt;/span&gt;    
+    &lt;span class=&quot;na&quot;&gt;steps&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Checkout llvm-project&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;shell&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;cmd&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;pi&quot;&gt;|&lt;/span&gt;
+          &lt;span class=&quot;no&quot;&gt;git clone --depth=1 https://github.com/llvm/llvm-project.git&lt;/span&gt;
+      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;build-msvc&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;shell&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;cmd&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;env&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;        
+          &lt;span class=&quot;na&quot;&gt;vc_arch&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;${{ matrix.msvc_arch }}&lt;/span&gt;        
+        &lt;span class=&quot;na&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;pi&quot;&gt;|&lt;/span&gt;
+          &lt;span class=&quot;no&quot;&gt;call &quot;C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvarsall.bat&quot; %vc_arch%&lt;/span&gt;
+          &lt;span class=&quot;no&quot;&gt;mkdir -p llvm-project\build&lt;/span&gt;
+          &lt;span class=&quot;no&quot;&gt;cd llvm-project\build&lt;/span&gt;
+          &lt;span class=&quot;no&quot;&gt;cmake.exe -GNinja -DCMAKE_BUILD_TYPE=release -DLLVM_ENABLE_PROJECTS=&quot;clang;clang-tools-extra;lld&quot; -DLLVM_TARGETS_TO_BUILD=X86 -DCMAKE_C_COMPILER=cl -DCMAKE_CXX_COMPILER=cl -DCMAKE_C_FLAGS=&quot;/utf-8&quot; -DCMAKE_CXX_FLAGS=&quot;/utf-8&quot; -DCMAKE_INSTALL_PREFIX=llvm_win_bin -DLLVM_TEMPORARILY_ALLOW_OLD_TOOLCHAIN=ON ..\llvm&lt;/span&gt;
+          &lt;span class=&quot;no&quot;&gt;ninja&lt;/span&gt;
+          &lt;span class=&quot;no&quot;&gt;ninja install&lt;/span&gt;
+      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;upload artifact&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;uses&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;actions/upload-artifact@v1&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;with&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;na&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;llvm-project\build\llvm_win_bin\bin&lt;/span&gt;          
+          &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;llvm-win-${{ matrix.msvc_arch }}&lt;/span&gt;          
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;这个workflow实现了这些功能：&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;每天UTC时间18:00自动触发，或有push，或merge pull request时触发编译&lt;/li&gt;
+  &lt;li&gt;使用最新的Windows系统镜像，目前是Windows Server 2019&lt;/li&gt;
+  &lt;li&gt;针对x86和x64两种架构进行编译&lt;/li&gt;
+  &lt;li&gt;编译后的目标名称是&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;llvm-win-x86&lt;/code&gt;和&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;llvm-win-x64&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;只从llvm官方git仓库下载最新的代码&lt;/li&gt;
+  &lt;li&gt;使用cmake，ninja，msvc进行最后的编译，如上所述&lt;/li&gt;
+  &lt;li&gt;将编译生成的bin目录上传到artifact上，以后可以从Github网站下载&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;根据我的实际使用经验，2个job的artifact每个都有1GB左右，&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;actions/upload-artifact@v1&lt;/code&gt;会自动用zip压缩一下，最后是400-500MB大小。根据网上各种不明确的信息来看，每个用户或每个仓库可用的artifact存储空间其实是有限的，像我们这种每天1GB左右的用法估计没几天就会触顶了，所以我又另外写了个&lt;a href=&quot;https://github.com/missdeer/cicdutil&quot;&gt;程序&lt;/a&gt;，调用Github API操作artifact，每天定时执行删掉旧的artifact，只保留最新的2个artifacts，获取最新的2个artifacts的下载链接，调用curl或aria2或wget下载，这样就实现每天用上最新的Clang for Windows nightly build的目标了。&lt;/p&gt;</content><author><name>missdeer</name></author><category term="Clang" /><summary type="html">Clang for Windows早已经可堪实用，官方每隔一个月或几个月会发一个编译好的snapshot外，msys2项目也提供了不是特别新的版本（目前9.0.1）可以直接通过pacman安装使用。作为一个升级控，用上Nightly Build岂不是更爽！当然这不是官方的，而是需要自己下载源代码进行编译。</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://cdn.jsdelivr.net/gh/missdeer/blog@master/media/2020-03-27/llvm.png" /></entry><entry><title type="html">使用Prometheus观察CoreDNS运行状况</title><link href="https://blog.ismisv.com/2020/03/prometheus-for-coredns/" rel="alternate" type="text/html" title="使用Prometheus观察CoreDNS运行状况" /><published>2020-03-21T00:00:00+00:00</published><updated>2020-03-21T00:00:00+00:00</updated><id>https://blog.ismisv.com/2020/03/prometheus-for-coredns</id><content type="html" xml:base="https://blog.ismisv.com/2020/03/prometheus-for-coredns/">&lt;p&gt;CoreDNS有一个官方的&lt;a href=&quot;https://coredns.io/plugins/metrics/&quot;&gt;prometheus插件&lt;/a&gt;，可以暴露一个http接口给&lt;a href=&quot;https://prometheus.io/download/&quot;&gt;prometheus&lt;/a&gt;使用。通过观察度量数据，可以了解到自己网络使用情况，有些比较有趣。&lt;/p&gt;
+
+&lt;p&gt;以我在&lt;a href=&quot;https://gist.github.com/missdeer/5c7c82b5b67f8afb41cfd43d51b82c2d&quot;&gt;gist上的CoreDNS配置文件&lt;/a&gt;为基础，加上prometheus插件：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-txt&quot;&gt;. {
+    prometheus
+    ...
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;再运行CoreDNS，就会发现它在&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;localhost:9153&lt;/code&gt;暴露了一个http接口，可以在浏览器里打开&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;http://localhost:9153/metrics&lt;/code&gt;看一下，一堆数据，是给prometheus用的。&lt;/p&gt;
+
+&lt;p&gt;然后从Prometheus官网下载当前系统对应的安装包，解压，修改一下附带的配置文件&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;prometheus.yml&lt;/code&gt;：&lt;/p&gt;
+
+&lt;div class=&quot;language-yaml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;c1&quot;&gt;# my global config&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;global&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;scrape_interval&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;     &lt;span class=&quot;s&quot;&gt;15s&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# Set the scrape interval to every 15 seconds. Default is every 1 minute.&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;evaluation_interval&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;15s&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# Evaluate rules every 15 seconds. The default is every 1 minute.&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;# scrape_timeout is set to the global default (10s).&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# Alertmanager configuration&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;alerting&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;alertmanagers&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;static_configs&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;targets&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;c1&quot;&gt;# - alertmanager:9093&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# Load rules once and periodically evaluate them according to the global 'evaluation_interval'.&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;rule_files&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;# - &quot;first_rules.yml&quot;&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;# - &quot;second_rules.yml&quot;&lt;/span&gt;
+
+&lt;span class=&quot;na&quot;&gt;scrape_configs&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;job_name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;prometheus'&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;static_configs&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;targets&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;pi&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;localhost:9090'&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;]&lt;/span&gt;
+
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;job_name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;CoreDNS'&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;static_configs&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;targets&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;pi&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;localhost:9153'&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;]&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;主要是添加了CoreDNS的job，target写对就行了，然后运行prometheus：&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt; ./prometheus &lt;span class=&quot;nt&quot;&gt;--config&lt;/span&gt;.file&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;prometheus.yml
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;就能在浏览器里看到图表化的数据了，等一段时间，比如十几分钟或更长，可以看到更多信息，然后定制一些字段进行查看，比如我一天后通过以下URL进行查看：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-txt&quot;&gt;http://localhost:9090/new/graph?g0.expr=coredns_cache_hits_total&amp;amp;g0.tab=0&amp;amp;g0.stacked=0&amp;amp;g0.range_input=1d&amp;amp;g1.expr=coredns_cache_misses_total&amp;amp;g1.tab=0&amp;amp;g1.stacked=0&amp;amp;g1.range_input=1d&amp;amp;g2.expr=coredns_cache_size&amp;amp;g2.tab=0&amp;amp;g2.stacked=0&amp;amp;g2.range_input=1d&amp;amp;g3.expr=coredns_dns_request_count_total&amp;amp;g3.tab=0&amp;amp;g3.stacked=0&amp;amp;g3.range_input=1d&amp;amp;g4.expr=coredns_dns_request_duration_seconds_count&amp;amp;g4.tab=0&amp;amp;g4.stacked=0&amp;amp;g4.range_input=1d&amp;amp;g5.expr=coredns_dns_request_type_count_total&amp;amp;g5.tab=0&amp;amp;g5.stacked=0&amp;amp;g5.range_input=1d&amp;amp;g6.expr=coredns_dns_response_rcode_count_total&amp;amp;g6.tab=0&amp;amp;g6.stacked=0&amp;amp;g6.range_input=1d&amp;amp;g7.expr=coredns_forward_request_count_total&amp;amp;g7.tab=0&amp;amp;g7.stacked=0&amp;amp;g7.range_input=1d&amp;amp;g8.expr=coredns_forward_response_rcode_count_total&amp;amp;g8.tab=0&amp;amp;g8.stacked=0&amp;amp;g8.range_input=1d&amp;amp;g9.expr=coredns_proxy_request_count_total&amp;amp;g9.tab=0&amp;amp;g9.stacked=0&amp;amp;g9.range_input=1d&amp;amp;g10.expr=coredns_redisc_hits_total&amp;amp;g10.tab=0&amp;amp;g10.stacked=0&amp;amp;g10.range_input=1d&amp;amp;g11.expr=coredns_ads_blocked_request_count_total&amp;amp;g11.tab=0&amp;amp;g11.stacked=0&amp;amp;g11.range_input=1d&amp;amp;g12.expr=coredns_ads_request_count_total&amp;amp;g12.tab=0&amp;amp;g12.stacked=0&amp;amp;g12.range_input=1d
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;可以得到以下内容：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn.jsdelivr.net/gh/missdeer/blog@master/media/2020-03-21/coredns_cache_hits_total.png&quot; alt=&quot;coredns_cache_hits_total&quot; /&gt;
+&lt;img src=&quot;https://cdn.jsdelivr.net/gh/missdeer/blog@master/media/2020-03-21/coredns_cache_misses_total.png&quot; alt=&quot;coredns_cache_misses_total&quot; /&gt;
+&lt;img src=&quot;https://cdn.jsdelivr.net/gh/missdeer/blog@master/media/2020-03-21/coredns_cache_size.png&quot; alt=&quot;coredns_cache_size&quot; /&gt;
+&lt;img src=&quot;https://cdn.jsdelivr.net/gh/missdeer/blog@master/media/2020-03-21/coredns_dns_request_count_total.png&quot; alt=&quot;coredns_dns_request_count_total&quot; /&gt;
+&lt;img src=&quot;https://cdn.jsdelivr.net/gh/missdeer/blog@master/media/2020-03-21/coredns_dns_request_duration_seconds_count.png&quot; alt=&quot;coredns_dns_request_duration_seconds_count&quot; /&gt;
+&lt;img src=&quot;https://cdn.jsdelivr.net/gh/missdeer/blog@master/media/2020-03-21/coredns_dns_request_type_count_total.png&quot; alt=&quot;coredns_dns_request_type_count_total&quot; /&gt;
+&lt;img src=&quot;https://cdn.jsdelivr.net/gh/missdeer/blog@master/media/2020-03-21/coredns_dns_response_rcode_count_total.png&quot; alt=&quot;coredns_dns_response_rcode_count_total&quot; /&gt;
+&lt;img src=&quot;https://cdn.jsdelivr.net/gh/missdeer/blog@master/media/2020-03-21/coredns_forward_request_count_total.png&quot; alt=&quot;coredns_forward_request_count_total&quot; /&gt;
+&lt;img src=&quot;https://cdn.jsdelivr.net/gh/missdeer/blog@master/media/2020-03-21/coredns_forward_response_rcode_count_total.png&quot; alt=&quot;coredns_forward_response_rcode_count_total&quot; /&gt;
+&lt;img src=&quot;https://cdn.jsdelivr.net/gh/missdeer/blog@master/media/2020-03-21/coredns_proxy_request_count_total.png&quot; alt=&quot;coredns_proxy_request_count_total&quot; /&gt;
+&lt;img src=&quot;https://cdn.jsdelivr.net/gh/missdeer/blog@master/media/2020-03-21/coredns_redisc_hits_total.png&quot; alt=&quot;coredns_redisc_hits_total&quot; /&gt;
+&lt;img src=&quot;https://cdn.jsdelivr.net/gh/missdeer/blog@master/media/2020-03-21/coredns_ads_blocked_request_count_total.png&quot; alt=&quot;coredns_ads_blocked_request_count_total&quot; /&gt;
+&lt;img src=&quot;https://cdn.jsdelivr.net/gh/missdeer/blog@master/media/2020-03-21/coredns_ads_request_count_total.png&quot; alt=&quot;coredns_ads_request_count_total&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;从以上图表中可以看出一些情况，例如：&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;单机时redis几乎没用，家用的话不如去掉&lt;/li&gt;
+  &lt;li&gt;自带的cache插件就很有用，虽然有很多denial，但也有不少success的&lt;/li&gt;
+  &lt;li&gt;不需要设置太多的上游DNS Server，我在顶级forward上设了7个，实际上只看到5个有实际请求数据，所以大概2个就够了&lt;/li&gt;
+  &lt;li&gt;家中并不算特别多的设备，居然一天下来DNS请求也有5万次左右&lt;/li&gt;
+  &lt;li&gt;国内DNS解析的2个上游服务器负载很均衡，不像系统网络连接中虽然可以设置2个服务器，但常常逮住一只羊使劲薅&lt;/li&gt;
+  &lt;li&gt;有很多NXDOMAIN的记录，虽然很多是直接返回的，但我觉得需要给&lt;a href=&quot;https://github.com/missdeer/bogus&quot;&gt;bogus插件&lt;/a&gt;也加metrics支持了&lt;/li&gt;
+  &lt;li&gt;有大量A和AAAA的请求可以理解，有一些TXT大概是Let’s Encrypt客户端发的，SRV大概是Cisco Jabber之类有Services Discovery功能的软件发的，还有一些PTR、SOA请求不知道是怎么回事&lt;/li&gt;
+  &lt;li&gt;ads插件好像突然匹配不到黑名单了，不知道是不是bug了，感觉应该升级个版本试试&lt;/li&gt;
+&lt;/ol&gt;</content><author><name>missdeer</name></author><category term="Prometheus" /><category term="CoreDNS" /><summary type="html">CoreDNS有一个官方的prometheus插件，可以暴露一个http接口给prometheus使用。通过观察度量数据，可以了解到自己网络使用情况，有些比较有趣。</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://cdn.jsdelivr.net/gh/missdeer/blog@master/media/2020-03-21/coredns_cache_hits_total.png" /></entry><entry><title type="html">CoreDNS图形化配置工具</title><link href="https://blog.ismisv.com/2020/03/coredns-gui-configuration-tool/" rel="alternate" type="text/html" title="CoreDNS图形化配置工具" /><published>2020-03-19T00:00:00+00:00</published><updated>2020-03-19T00:00:00+00:00</updated><id>https://blog.ismisv.com/2020/03/coredns-gui-configuration-tool</id><content type="html" xml:base="https://blog.ismisv.com/2020/03/coredns-gui-configuration-tool/">&lt;p&gt;总共花了十几个小时用Qt写了一个简单的、具有图形用户界面的、CoreDNS配置文件生成工具，只有一个主窗口，传统widget比较丑：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn.jsdelivr.net/gh/missdeer/blog@master/media/2020-03-19/mainwindow.png&quot; alt=&quot;主窗口&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;该工具生成的配置文件需要配合经过我&lt;a href=&quot;https://github.com/missdeer/coredns_custom_build&quot;&gt;修改的CoreDNS版本&lt;/a&gt;使用，因为用到了一些官方版本没有的插件。方便起见可以直接调起CoreDNS，为了能在Windows监听53端口以便可以直接在网络连接中设置为DNS Server，所以启动的时候需要管理员权限。&lt;/p&gt;
+
+&lt;p&gt;写得比较随意，各种细节都不完善，只能说基本能工作了。目前仅在Windows上经过实测，理论上macOS/Linux等平台也是可以使用的。&lt;/p&gt;
+
+&lt;p&gt;自我感觉目前修改过的CoreDNS已经很好用了，而且还能享受上游非常活跃的更新，不过最近还想加个类似官方forward的插件，要支持DoH和DNSCrypt，虽然我觉得这两个都没DoT好，要能同时向所有上游服务器请求，返回最快返回的或返回TCP连接速度最快的结果，这个也许有点实用价值。&lt;/p&gt;</content><author><name>missdeer</name></author><category term="CoreDNS" /><category term="Qt" /><summary type="html">总共花了十几个小时用Qt写了一个简单的、具有图形用户界面的、CoreDNS配置文件生成工具，只有一个主窗口，传统widget比较丑：</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://cdn.jsdelivr.net/gh/missdeer/blog@master/media/2020-03-19/mainwindow.png" /></entry><entry><title type="html">Jekyll插入PlantUML代码显示图片</title><link href="https://blog.ismisv.com/2020/02/plantuml-samples/" rel="alternate" type="text/html" title="Jekyll插入PlantUML代码显示图片" /><published>2020-02-28T00:00:00+00:00</published><updated>2020-02-28T00:00:00+00:00</updated><id>https://blog.ismisv.com/2020/02/plantuml-samples</id><content type="html" xml:base="https://blog.ismisv.com/2020/02/plantuml-samples/">&lt;p&gt;突然心血来潮，花了点时间写了个Jekyll的插件，用于生成PlantUML的各种图。用法大体是这样的：&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;下载编译一个&lt;a href=&quot;https://github.com/missdeer/plantuml-cmd&quot;&gt;Go程序&lt;/a&gt;，这个程序用于完成将PlantUML代码转换为图片的任务，支持远程http(s)调用和本地jar调用两种方式：
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;go get github.com/missdeer/plantuml-cmd
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;把生成的可执行文件拷贝到某个合适的路径，比如
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;nb&quot;&gt;cp&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$GOPATH&lt;/span&gt;/bin/plantuml-cmd /usr/local/bin/
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;将&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;https://github.com/missdeer/plantuml-cmd&lt;/code&gt;这个仓库中的所有&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.rb&lt;/code&gt;文件保存到Jekyll项目的&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_plugins&lt;/code&gt;目录&lt;/li&gt;
+  &lt;li&gt;修改Jekyll项目的&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt;文件，加几行：
+    &lt;div class=&quot;language-yaml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;na&quot;&gt;plantuml&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;remote&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;enabled&quot;&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;plantuml_cmd&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;/usr/local/bin/plantuml-cmd&lt;/span&gt;   
+  &lt;span class=&quot;na&quot;&gt;tmp_folder&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;_plantuml&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;然后就可以在文章直接书写PlantUML代码了，Jekyll运行时会调用插件将PlantUML代码转为图片并插入HTML中，除了Ditaa类型是插入外部PNG作为img tag外，其他类型都是直接插入SVG代码到HTML中。&lt;/li&gt;
+  &lt;li&gt;大功告成！各种类型如何使用见下方示例。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;plantuml示例&quot;&gt;PlantUML示例&lt;/h2&gt;
+
+&lt;h5 id=&quot;代码&quot;&gt;代码&lt;/h5&gt;
+&lt;pre&gt;&lt;code class=&quot;language-txt&quot;&gt;{% plantuml %}
+Alice -&amp;gt; Bob: Authentication Request
+Bob --&amp;gt; Alice: Authentication Response
+
+Alice -&amp;gt; Bob: Another authentication Request
+Alice &amp;lt;-- Bob: another authentication Response
+{% endplantuml %}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id=&quot;输出显示&quot;&gt;输出显示&lt;/h5&gt;
+&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; contentScriptType=&quot;application/ecmascript&quot; contentStyleType=&quot;text/css&quot; height=&quot;220px&quot; preserveAspectRatio=&quot;none&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 302 220&quot; width=&quot;302px&quot; zoomAndPan=&quot;magnify&quot;&gt;&lt;defs&gt;&lt;filter height=&quot;300%&quot; id=&quot;fbrzg00n1hs25&quot; width=&quot;300%&quot; x=&quot;-1&quot; y=&quot;-1&quot;&gt;&lt;feGaussianBlur result=&quot;blurOut&quot; stdDeviation=&quot;2.0&quot; /&gt;&lt;feColorMatrix in=&quot;blurOut&quot; result=&quot;blurOut2&quot; type=&quot;matrix&quot; values=&quot;0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0&quot; /&gt;&lt;feOffset dx=&quot;4.0&quot; dy=&quot;4.0&quot; in=&quot;blurOut2&quot; result=&quot;blurOut3&quot; /&gt;&lt;feBlend in=&quot;SourceGraphic&quot; in2=&quot;blurOut3&quot; mode=&quot;normal&quot; /&gt;&lt;/filter&gt;&lt;/defs&gt;&lt;g&gt;&lt;line style=&quot;stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;&quot; x1=&quot;31&quot; x2=&quot;31&quot; y1=&quot;40.2969&quot; y2=&quot;176.8281&quot; /&gt;&lt;line style=&quot;stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;&quot; x1=&quot;268&quot; x2=&quot;268&quot; y1=&quot;40.2969&quot; y2=&quot;176.8281&quot; /&gt;&lt;rect fill=&quot;#FEFECE&quot; filter=&quot;url(#fbrzg00n1hs25)&quot; height=&quot;30.2969&quot; style=&quot;stroke:#A80036;stroke-width:1.5;&quot; width=&quot;49&quot; x=&quot;5&quot; y=&quot;5&quot; /&gt;&lt;text fill=&quot;#000000&quot; font-family=&quot;sans-serif&quot; font-size=&quot;14&quot; lengthAdjust=&quot;spacing&quot; textLength=&quot;35&quot; x=&quot;12&quot; y=&quot;24.9951&quot;&gt;Alice&lt;/text&gt;&lt;rect fill=&quot;#FEFECE&quot; filter=&quot;url(#fbrzg00n1hs25)&quot; height=&quot;30.2969&quot; style=&quot;stroke:#A80036;stroke-width:1.5;&quot; width=&quot;49&quot; x=&quot;5&quot; y=&quot;175.8281&quot; /&gt;&lt;text fill=&quot;#000000&quot; font-family=&quot;sans-serif&quot; font-size=&quot;14&quot; lengthAdjust=&quot;spacing&quot; textLength=&quot;35&quot; x=&quot;12&quot; y=&quot;195.8232&quot;&gt;Alice&lt;/text&gt;&lt;rect fill=&quot;#FEFECE&quot; filter=&quot;url(#fbrzg00n1hs25)&quot; height=&quot;30.2969&quot; style=&quot;stroke:#A80036;stroke-width:1.5;&quot; width=&quot;43&quot; x=&quot;245&quot; y=&quot;5&quot; /&gt;&lt;text fill=&quot;#000000&quot; font-family=&quot;sans-serif&quot; font-size=&quot;14&quot; lengthAdjust=&quot;spacing&quot; textLength=&quot;29&quot; x=&quot;252&quot; y=&quot;24.9951&quot;&gt;Bob&lt;/text&gt;&lt;rect fill=&quot;#FEFECE&quot; filter=&quot;url(#fbrzg00n1hs25)&quot; height=&quot;30.2969&quot; style=&quot;stroke:#A80036;stroke-width:1.5;&quot; width=&quot;43&quot; x=&quot;245&quot; y=&quot;175.8281&quot; /&gt;&lt;text fill=&quot;#000000&quot; font-family=&quot;sans-serif&quot; font-size=&quot;14&quot; lengthAdjust=&quot;spacing&quot; textLength=&quot;29&quot; x=&quot;252&quot; y=&quot;195.8232&quot;&gt;Bob&lt;/text&gt;&lt;polygon fill=&quot;#A80036&quot; points=&quot;256.5,67.4297,266.5,71.4297,256.5,75.4297,260.5,71.4297&quot; style=&quot;stroke:#A80036;stroke-width:1.0;&quot; /&gt;&lt;line style=&quot;stroke:#A80036;stroke-width:1.0;&quot; x1=&quot;31.5&quot; x2=&quot;262.5&quot; y1=&quot;71.4297&quot; y2=&quot;71.4297&quot; /&gt;&lt;text fill=&quot;#000000&quot; font-family=&quot;sans-serif&quot; font-size=&quot;13&quot; lengthAdjust=&quot;spacing&quot; textLength=&quot;150&quot; x=&quot;38.5&quot; y=&quot;66.3638&quot;&gt;Authentication Request&lt;/text&gt;&lt;polygon fill=&quot;#A80036&quot; points=&quot;42.5,96.5625,32.5,100.5625,42.5,104.5625,38.5,100.5625&quot; style=&quot;stroke:#A80036;stroke-width:1.0;&quot; /&gt;&lt;line style=&quot;stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;&quot; x1=&quot;36.5&quot; x2=&quot;267.5&quot; y1=&quot;100.5625&quot; y2=&quot;100.5625&quot; /&gt;&lt;text fill=&quot;#000000&quot; font-family=&quot;sans-serif&quot; font-size=&quot;13&quot; lengthAdjust=&quot;spacing&quot; textLength=&quot;160&quot; x=&quot;48.5&quot; y=&quot;95.4966&quot;&gt;Authentication Response&lt;/text&gt;&lt;polygon fill=&quot;#A80036&quot; points=&quot;256.5,125.6953,266.5,129.6953,256.5,133.6953,260.5,129.6953&quot; style=&quot;stroke:#A80036;stroke-width:1.0;&quot; /&gt;&lt;line style=&quot;stroke:#A80036;stroke-width:1.0;&quot; x1=&quot;31.5&quot; x2=&quot;262.5&quot; y1=&quot;129.6953&quot; y2=&quot;129.6953&quot; /&gt;&lt;text fill=&quot;#000000&quot; font-family=&quot;sans-serif&quot; font-size=&quot;13&quot; lengthAdjust=&quot;spacing&quot; textLength=&quot;204&quot; x=&quot;38.5&quot; y=&quot;124.6294&quot;&gt;Another authentication Request&lt;/text&gt;&lt;polygon fill=&quot;#A80036&quot; points=&quot;42.5,154.8281,32.5,158.8281,42.5,162.8281,38.5,158.8281&quot; style=&quot;stroke:#A80036;stroke-width:1.0;&quot; /&gt;&lt;line style=&quot;stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;&quot; x1=&quot;36.5&quot; x2=&quot;267.5&quot; y1=&quot;158.8281&quot; y2=&quot;158.8281&quot; /&gt;&lt;text fill=&quot;#000000&quot; font-family=&quot;sans-serif&quot; font-size=&quot;13&quot; lengthAdjust=&quot;spacing&quot; textLength=&quot;213&quot; x=&quot;48.5&quot; y=&quot;153.7622&quot;&gt;another authentication Response&lt;/text&gt;&lt;!--MD5=[6fe4ec4e9fa2dd423302df88a5831124]
+@startuml
+Alice -&gt; Bob: Authentication Request
+Bob - -&gt; Alice: Authentication Response
+
+Alice -&gt; Bob: Another authentication Request
+Alice &lt;- - Bob: another authentication Response
+@enduml
+
+PlantUML version 1.2021.7(Sun May 23 12:40:07 UTC 2021)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: US
+--&gt;&lt;/g&gt;&lt;/svg&gt;
+
+&lt;h2 id=&quot;ditaa示例&quot;&gt;Ditaa示例&lt;/h2&gt;
+
+&lt;h5 id=&quot;代码-1&quot;&gt;代码&lt;/h5&gt;
+&lt;pre&gt;&lt;code class=&quot;language-txt&quot;&gt;{% ditaa %}
++--------+   +-------+    +-------+
+|        +---+ ditaa +--&amp;gt; |       |
+|  Text  |   +-------+    |diagram|
+|Document|   |!magic!|    |       |
+|     {d}|   |       |    |       |
++---+----+   +-------+    +-------+
+	:                         ^
+	|       Lots of work      |
+	+-------------------------+
+{% endditaa %}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id=&quot;输出显示-1&quot;&gt;输出显示&lt;/h5&gt;
+&lt;p&gt;&lt;img src=&quot;//images/9e6d92dd505721997c14d9b3e9d12da9.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;graphviz-dot示例&quot;&gt;Graphviz dot示例&lt;/h2&gt;
+
+&lt;h5 id=&quot;代码-2&quot;&gt;代码&lt;/h5&gt;
+&lt;pre&gt;&lt;code class=&quot;language-txt&quot;&gt;{% dot %}
+digraph foo {
+  node [style=rounded]
+  node1 [shape=box]
+  node2 [fillcolor=yellow, style=&quot;rounded,filled&quot;, shape=diamond]
+  node3 [shape=record, label=&quot;{ a | b | c }&quot;]
+
+  node1 -&amp;gt; node2 -&amp;gt; node3
+}
+{% enddot %}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id=&quot;输出显示-2&quot;&gt;输出显示&lt;/h5&gt;
+&lt;svg width=&quot;100pt&quot; height=&quot;222pt&quot; viewBox=&quot;0.00 0.00 99.92 222.00&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot;&gt;
+&lt;g id=&quot;graph0&quot; class=&quot;graph&quot; transform=&quot;scale(1 1) rotate(0) translate(4 218)&quot;&gt;
+&lt;title&gt;foo&lt;/title&gt;
+&lt;polygon fill=&quot;white&quot; stroke=&quot;none&quot; points=&quot;-4,4 -4,-218 95.9157,-218 95.9157,4 -4,4&quot; /&gt;
+&lt;!-- node1 --&gt;
+&lt;g id=&quot;node1&quot; class=&quot;node&quot;&gt;&lt;title&gt;node1&lt;/title&gt;
+&lt;path fill=&quot;none&quot; stroke=&quot;black&quot; d=&quot;M60.9579,-214C60.9579,-214 30.9579,-214 30.9579,-214 24.9579,-214 18.9579,-208 18.9579,-202 18.9579,-202 18.9579,-190 18.9579,-190 18.9579,-184 24.9579,-178 30.9579,-178 30.9579,-178 60.9579,-178 60.9579,-178 66.9579,-178 72.9579,-184 72.9579,-190 72.9579,-190 72.9579,-202 72.9579,-202 72.9579,-208 66.9579,-214 60.9579,-214&quot; /&gt;
+&lt;text text-anchor=&quot;middle&quot; x=&quot;45.9579&quot; y=&quot;-192.3&quot; font-family=&quot;Times,serif&quot; font-size=&quot;14.00&quot;&gt;node1&lt;/text&gt;
+&lt;/g&gt;
+&lt;!-- node2 --&gt;
+&lt;g id=&quot;node2&quot; class=&quot;node&quot;&gt;&lt;title&gt;node2&lt;/title&gt;
+&lt;path fill=&quot;yellow&quot; stroke=&quot;black&quot; d=&quot;M34.7857,-137.62C34.7857,-137.62 11.2143,-128.38 11.2143,-128.38 5.62819,-126.19 5.62819,-121.81 11.2143,-119.62 11.2143,-119.62 34.7857,-110.38 34.7857,-110.38 40.3718,-108.19 51.544,-108.19 57.1301,-110.38 57.1301,-110.38 80.7014,-119.62 80.7014,-119.62 86.2875,-121.81 86.2875,-126.19 80.7014,-128.38 80.7014,-128.38 57.1301,-137.62 57.1301,-137.62 51.544,-139.81 40.3718,-139.81 34.7857,-137.62&quot; /&gt;
+&lt;text text-anchor=&quot;middle&quot; x=&quot;45.9579&quot; y=&quot;-120.3&quot; font-family=&quot;Times,serif&quot; font-size=&quot;14.00&quot;&gt;node2&lt;/text&gt;
+&lt;/g&gt;
+&lt;!-- node1&amp;#45;&amp;gt;node2 --&gt;
+&lt;g id=&quot;edge1&quot; class=&quot;edge&quot;&gt;&lt;title&gt;node1&amp;#45;&amp;gt;node2&lt;/title&gt;
+&lt;path fill=&quot;none&quot; stroke=&quot;black&quot; d=&quot;M45.9579,-177.697C45.9579,-169.983 45.9579,-160.712 45.9579,-152.112&quot; /&gt;
+&lt;polygon fill=&quot;black&quot; stroke=&quot;black&quot; points=&quot;49.458,-152.104 45.9579,-142.104 42.458,-152.104 49.458,-152.104&quot; /&gt;
+&lt;/g&gt;
+&lt;!-- node3 --&gt;
+&lt;g id=&quot;node3&quot; class=&quot;node&quot;&gt;&lt;title&gt;node3&lt;/title&gt;
+&lt;path fill=&quot;none&quot; stroke=&quot;black&quot; d=&quot;M30.9579,-0.5C30.9579,-0.5 60.9579,-0.5 60.9579,-0.5 66.9579,-0.5 72.9579,-6.5 72.9579,-12.5 72.9579,-12.5 72.9579,-57.5 72.9579,-57.5 72.9579,-63.5 66.9579,-69.5 60.9579,-69.5 60.9579,-69.5 30.9579,-69.5 30.9579,-69.5 24.9579,-69.5 18.9579,-63.5 18.9579,-57.5 18.9579,-57.5 18.9579,-12.5 18.9579,-12.5 18.9579,-6.5 24.9579,-0.5 30.9579,-0.5&quot; /&gt;
+&lt;text text-anchor=&quot;middle&quot; x=&quot;45.9579&quot; y=&quot;-54.3&quot; font-family=&quot;Times,serif&quot; font-size=&quot;14.00&quot;&gt;a&lt;/text&gt;
+&lt;polyline fill=&quot;none&quot; stroke=&quot;black&quot; points=&quot;18.9579,-46.5 72.9579,-46.5 &quot; /&gt;
+&lt;text text-anchor=&quot;middle&quot; x=&quot;45.9579&quot; y=&quot;-31.3&quot; font-family=&quot;Times,serif&quot; font-size=&quot;14.00&quot;&gt;b&lt;/text&gt;
+&lt;polyline fill=&quot;none&quot; stroke=&quot;black&quot; points=&quot;18.9579,-23.5 72.9579,-23.5 &quot; /&gt;
+&lt;text text-anchor=&quot;middle&quot; x=&quot;45.9579&quot; y=&quot;-8.3&quot; font-family=&quot;Times,serif&quot; font-size=&quot;14.00&quot;&gt;c&lt;/text&gt;
+&lt;/g&gt;
+&lt;!-- node2&amp;#45;&amp;gt;node3 --&gt;
+&lt;g id=&quot;edge2&quot; class=&quot;edge&quot;&gt;&lt;title&gt;node2&amp;#45;&amp;gt;node3&lt;/title&gt;
+&lt;path fill=&quot;none&quot; stroke=&quot;black&quot; d=&quot;M45.9579,-105.812C45.9579,-98.3278 45.9579,-89.1798 45.9579,-80.0019&quot; /&gt;
+&lt;polygon fill=&quot;black&quot; stroke=&quot;black&quot; points=&quot;49.458,-79.7143 45.9579,-69.7143 42.458,-79.7143 49.458,-79.7143&quot; /&gt;
+&lt;/g&gt;
+&lt;/g&gt;
+&lt;/svg&gt;
+
+&lt;h2 id=&quot;思维导图示例&quot;&gt;思维导图示例&lt;/h2&gt;
+
+&lt;h5 id=&quot;代码-3&quot;&gt;代码&lt;/h5&gt;
+&lt;pre&gt;&lt;code class=&quot;language-txt&quot;&gt;{% mindmap %}
++ OS
+++ Ubuntu
++++ Linux Mint
++++ Kubuntu
++++ Lubuntu
++++ KDE Neon
+++ LMDE
+++ SolydXK
+++ SteamOS
+++ Raspbian
+-- Windows 95
+-- Windows 98
+-- Windows NT
+--- Windows 8
+--- Windows 10
+{% endmindmap %}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id=&quot;输出显示-3&quot;&gt;输出显示&lt;/h5&gt;
+&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; contentScriptType=&quot;application/ecmascript&quot; contentStyleType=&quot;text/css&quot; height=&quot;387px&quot; preserveAspectRatio=&quot;none&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 644 387&quot; width=&quot;644px&quot; zoomAndPan=&quot;magnify&quot;&gt;&lt;defs&gt;&lt;filter height=&quot;300%&quot; id=&quot;fohqi3c22i9hk&quot; width=&quot;300%&quot; x=&quot;-1&quot; y=&quot;-1&quot;&gt;&lt;feGaussianBlur result=&quot;blurOut&quot; stdDeviation=&quot;2.0&quot; /&gt;&lt;feColorMatrix in=&quot;blurOut&quot; result=&quot;blurOut2&quot; type=&quot;matrix&quot; values=&quot;0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0&quot; /&gt;&lt;feOffset dx=&quot;4.0&quot; dy=&quot;4.0&quot; in=&quot;blurOut2&quot; result=&quot;blurOut3&quot; /&gt;&lt;feBlend in=&quot;SourceGraphic&quot; in2=&quot;blurOut3&quot; mode=&quot;normal&quot; /&gt;&lt;/filter&gt;&lt;/defs&gt;&lt;g&gt;&lt;rect fill=&quot;#FEFECE&quot; filter=&quot;url(#fohqi3c22i9hk)&quot; height=&quot;36.2969&quot; rx=&quot;12.5&quot; ry=&quot;12.5&quot; style=&quot;stroke:#A80036;stroke-width:1.5;&quot; width=&quot;40&quot; x=&quot;321&quot; y=&quot;174.8164&quot; /&gt;&lt;text fill=&quot;#000000&quot; font-family=&quot;sans-serif&quot; font-size=&quot;14&quot; lengthAdjust=&quot;spacing&quot; textLength=&quot;20&quot; x=&quot;331&quot; y=&quot;197.8115&quot;&gt;OS&lt;/text&gt;&lt;rect fill=&quot;#FEFECE&quot; filter=&quot;url(#fohqi3c22i9hk)&quot; height=&quot;36.2969&quot; rx=&quot;12.5&quot; ry=&quot;12.5&quot; style=&quot;stroke:#A80036;stroke-width:1.5;&quot; width=&quot;71&quot; x=&quot;411&quot; y=&quot;104.4453&quot; /&gt;&lt;text fill=&quot;#000000&quot; font-family=&quot;sans-serif&quot; font-size=&quot;14&quot; lengthAdjust=&quot;spacing&quot; textLength=&quot;51&quot; x=&quot;421&quot; y=&quot;127.4404&quot;&gt;Ubuntu&lt;/text&gt;&lt;rect fill=&quot;#FEFECE&quot; filter=&quot;url(#fohqi3c22i9hk)&quot; height=&quot;36.2969&quot; rx=&quot;12.5&quot; ry=&quot;12.5&quot; style=&quot;stroke:#A80036;stroke-width:1.5;&quot; width=&quot;93&quot; x=&quot;532&quot; y=&quot;20&quot; /&gt;&lt;text fill=&quot;#000000&quot; font-family=&quot;sans-serif&quot; font-size=&quot;14&quot; lengthAdjust=&quot;spacing&quot; textLength=&quot;73&quot; x=&quot;542&quot; y=&quot;42.9951&quot;&gt;Linux Mint&lt;/text&gt;&lt;path d=&quot;M482,122.5938 L492,122.5938 C507,122.5938 507,38.1484 522,38.1484 L532,38.1484 &quot; fill=&quot;none&quot; style=&quot;stroke:#A80036;stroke-width:1.0;&quot; /&gt;&lt;rect fill=&quot;#FEFECE&quot; filter=&quot;url(#fohqi3c22i9hk)&quot; height=&quot;36.2969&quot; rx=&quot;12.5&quot; ry=&quot;12.5&quot; style=&quot;stroke:#A80036;stroke-width:1.5;&quot; width=&quot;80&quot; x=&quot;532&quot; y=&quot;76.2969&quot; /&gt;&lt;text fill=&quot;#000000&quot; font-family=&quot;sans-serif&quot; font-size=&quot;14&quot; lengthAdjust=&quot;spacing&quot; textLength=&quot;60&quot; x=&quot;542&quot; y=&quot;99.292&quot;&gt;Kubuntu&lt;/text&gt;&lt;path d=&quot;M482,122.5938 L492,122.5938 C507,122.5938 507,94.4453 522,94.4453 L532,94.4453 &quot; fill=&quot;none&quot; style=&quot;stroke:#A80036;stroke-width:1.0;&quot; /&gt;&lt;rect fill=&quot;#FEFECE&quot; filter=&quot;url(#fohqi3c22i9hk)&quot; height=&quot;36.2969&quot; rx=&quot;12.5&quot; ry=&quot;12.5&quot; style=&quot;stroke:#A80036;stroke-width:1.5;&quot; width=&quot;78&quot; x=&quot;532&quot; y=&quot;132.5938&quot; /&gt;&lt;text fill=&quot;#000000&quot; font-family=&quot;sans-serif&quot; font-size=&quot;14&quot; lengthAdjust=&quot;spacing&quot; textLength=&quot;58&quot; x=&quot;542&quot; y=&quot;155.5889&quot;&gt;Lubuntu&lt;/text&gt;&lt;path d=&quot;M482,122.5938 L492,122.5938 C507,122.5938 507,150.7422 522,150.7422 L532,150.7422 &quot; fill=&quot;none&quot; style=&quot;stroke:#A80036;stroke-width:1.0;&quot; /&gt;&lt;rect fill=&quot;#FEFECE&quot; filter=&quot;url(#fohqi3c22i9hk)&quot; height=&quot;36.2969&quot; rx=&quot;12.5&quot; ry=&quot;12.5&quot; style=&quot;stroke:#A80036;stroke-width:1.5;&quot; width=&quot;91&quot; x=&quot;532&quot; y=&quot;188.8906&quot; /&gt;&lt;text fill=&quot;#000000&quot; font-family=&quot;sans-serif&quot; font-size=&quot;14&quot; lengthAdjust=&quot;spacing&quot; textLength=&quot;71&quot; x=&quot;542&quot; y=&quot;211.8857&quot;&gt;KDE Neon&lt;/text&gt;&lt;path d=&quot;M482,122.5938 L492,122.5938 C507,122.5938 507,207.0391 522,207.0391 L532,207.0391 &quot; fill=&quot;none&quot; style=&quot;stroke:#A80036;stroke-width:1.0;&quot; /&gt;&lt;path d=&quot;M361,192.9648 L371,192.9648 C386,192.9648 386,122.5938 401,122.5938 L411,122.5938 &quot; fill=&quot;none&quot; style=&quot;stroke:#A80036;stroke-width:1.0;&quot; /&gt;&lt;rect fill=&quot;#FEFECE&quot; filter=&quot;url(#fohqi3c22i9hk)&quot; height=&quot;36.2969&quot; rx=&quot;12.5&quot; ry=&quot;12.5&quot; style=&quot;stroke:#A80036;stroke-width:1.5;&quot; width=&quot;60&quot; x=&quot;411&quot; y=&quot;160.7422&quot; /&gt;&lt;text fill=&quot;#000000&quot; font-family=&quot;sans-serif&quot; font-size=&quot;14&quot; lengthAdjust=&quot;spacing&quot; textLength=&quot;40&quot; x=&quot;421&quot; y=&quot;183.7373&quot;&gt;LMDE&lt;/text&gt;&lt;path d=&quot;M361,192.9648 L371,192.9648 C386,192.9648 386,178.8906 401,178.8906 L411,178.8906 &quot; fill=&quot;none&quot; style=&quot;stroke:#A80036;stroke-width:1.0;&quot; /&gt;&lt;rect fill=&quot;#FEFECE&quot; filter=&quot;url(#fohqi3c22i9hk)&quot; height=&quot;36.2969&quot; rx=&quot;12.5&quot; ry=&quot;12.5&quot; style=&quot;stroke:#A80036;stroke-width:1.5;&quot; width=&quot;79&quot; x=&quot;411&quot; y=&quot;217.0391&quot; /&gt;&lt;text fill=&quot;#000000&quot; font-family=&quot;sans-serif&quot; font-size=&quot;14&quot; lengthAdjust=&quot;spacing&quot; textLength=&quot;59&quot; x=&quot;421&quot; y=&quot;240.0342&quot;&gt;SolydXK&lt;/text&gt;&lt;path d=&quot;M361,192.9648 L371,192.9648 C386,192.9648 386,235.1875 401,235.1875 L411,235.1875 &quot; fill=&quot;none&quot; style=&quot;stroke:#A80036;stroke-width:1.0;&quot; /&gt;&lt;rect fill=&quot;#FEFECE&quot; filter=&quot;url(#fohqi3c22i9hk)&quot; height=&quot;36.2969&quot; rx=&quot;12.5&quot; ry=&quot;12.5&quot; style=&quot;stroke:#A80036;stroke-width:1.5;&quot; width=&quot;87&quot; x=&quot;411&quot; y=&quot;273.3359&quot; /&gt;&lt;text fill=&quot;#000000&quot; font-family=&quot;sans-serif&quot; font-size=&quot;14&quot; lengthAdjust=&quot;spacing&quot; textLength=&quot;67&quot; x=&quot;421&quot; y=&quot;296.3311&quot;&gt;SteamOS&lt;/text&gt;&lt;path d=&quot;M361,192.9648 L371,192.9648 C386,192.9648 386,291.4844 401,291.4844 L411,291.4844 &quot; fill=&quot;none&quot; style=&quot;stroke:#A80036;stroke-width:1.0;&quot; /&gt;&lt;rect fill=&quot;#FEFECE&quot; filter=&quot;url(#fohqi3c22i9hk)&quot; height=&quot;36.2969&quot; rx=&quot;12.5&quot; ry=&quot;12.5&quot; style=&quot;stroke:#A80036;stroke-width:1.5;&quot; width=&quot;86&quot; x=&quot;411&quot; y=&quot;329.6328&quot; /&gt;&lt;text fill=&quot;#000000&quot; font-family=&quot;sans-serif&quot; font-size=&quot;14&quot; lengthAdjust=&quot;spacing&quot; textLength=&quot;66&quot; x=&quot;421&quot; y=&quot;352.6279&quot;&gt;Raspbian&lt;/text&gt;&lt;path d=&quot;M361,192.9648 L371,192.9648 C386,192.9648 386,347.7813 401,347.7813 L411,347.7813 &quot; fill=&quot;none&quot; style=&quot;stroke:#A80036;stroke-width:1.0;&quot; /&gt;&lt;rect fill=&quot;#FEFECE&quot; filter=&quot;url(#fohqi3c22i9hk)&quot; height=&quot;36.2969&quot; rx=&quot;12.5&quot; ry=&quot;12.5&quot; style=&quot;stroke:#A80036;stroke-width:1.5;&quot; width=&quot;105&quot; x=&quot;166&quot; y=&quot;104.4453&quot; /&gt;&lt;text fill=&quot;#000000&quot; font-family=&quot;sans-serif&quot; font-size=&quot;14&quot; lengthAdjust=&quot;spacing&quot; textLength=&quot;85&quot; x=&quot;176&quot; y=&quot;127.4404&quot;&gt;Windows 95&lt;/text&gt;&lt;path d=&quot;M321,192.9648 L311,192.9648 C296,192.9648 296,122.5938 281,122.5938 L271,122.5938 &quot; fill=&quot;none&quot; style=&quot;stroke:#A80036;stroke-width:1.0;&quot; /&gt;&lt;rect fill=&quot;#FEFECE&quot; filter=&quot;url(#fohqi3c22i9hk)&quot; height=&quot;36.2969&quot; rx=&quot;12.5&quot; ry=&quot;12.5&quot; style=&quot;stroke:#A80036;stroke-width:1.5;&quot; width=&quot;104&quot; x=&quot;167&quot; y=&quot;160.7422&quot; /&gt;&lt;text fill=&quot;#000000&quot; font-family=&quot;sans-serif&quot; font-size=&quot;14&quot; lengthAdjust=&quot;spacing&quot; textLength=&quot;84&quot; x=&quot;177&quot; y=&quot;183.7373&quot;&gt;Windows 98&lt;/text&gt;&lt;path d=&quot;M321,192.9648 L311,192.9648 C296,192.9648 296,178.8906 281,178.8906 L271,178.8906 &quot; fill=&quot;none&quot; style=&quot;stroke:#A80036;stroke-width:1.0;&quot; /&gt;&lt;rect fill=&quot;#FEFECE&quot; filter=&quot;url(#fohqi3c22i9hk)&quot; height=&quot;36.2969&quot; rx=&quot;12.5&quot; ry=&quot;12.5&quot; style=&quot;stroke:#A80036;stroke-width:1.5;&quot; width=&quot;106&quot; x=&quot;165&quot; y=&quot;217.0391&quot; /&gt;&lt;text fill=&quot;#000000&quot; font-family=&quot;sans-serif&quot; font-size=&quot;14&quot; lengthAdjust=&quot;spacing&quot; textLength=&quot;86&quot; x=&quot;175&quot; y=&quot;240.0342&quot;&gt;Windows NT&lt;/text&gt;&lt;rect fill=&quot;#FEFECE&quot; filter=&quot;url(#fohqi3c22i9hk)&quot; height=&quot;36.2969&quot; rx=&quot;12.5&quot; ry=&quot;12.5&quot; style=&quot;stroke:#A80036;stroke-width:1.5;&quot; width=&quot;95&quot; x=&quot;20&quot; y=&quot;188.8906&quot; /&gt;&lt;text fill=&quot;#000000&quot; font-family=&quot;sans-serif&quot; font-size=&quot;14&quot; lengthAdjust=&quot;spacing&quot; textLength=&quot;75&quot; x=&quot;30&quot; y=&quot;211.8857&quot;&gt;Windows 8&lt;/text&gt;&lt;path d=&quot;M165,235.1875 L155,235.1875 C140,235.1875 140,207.0391 125,207.0391 L115,207.0391 &quot; fill=&quot;none&quot; style=&quot;stroke:#A80036;stroke-width:1.0;&quot; /&gt;&lt;rect fill=&quot;#FEFECE&quot; filter=&quot;url(#fohqi3c22i9hk)&quot; height=&quot;36.2969&quot; rx=&quot;12.5&quot; ry=&quot;12.5&quot; style=&quot;stroke:#A80036;stroke-width:1.5;&quot; width=&quot;105&quot; x=&quot;10&quot; y=&quot;245.1875&quot; /&gt;&lt;text fill=&quot;#000000&quot; font-family=&quot;sans-serif&quot; font-size=&quot;14&quot; lengthAdjust=&quot;spacing&quot; textLength=&quot;85&quot; x=&quot;20&quot; y=&quot;268.1826&quot;&gt;Windows 10&lt;/text&gt;&lt;path d=&quot;M165,235.1875 L155,235.1875 C140,235.1875 140,263.3359 125,263.3359 L115,263.3359 &quot; fill=&quot;none&quot; style=&quot;stroke:#A80036;stroke-width:1.0;&quot; /&gt;&lt;path d=&quot;M321,192.9648 L311,192.9648 C296,192.9648 296,235.1875 281,235.1875 L271,235.1875 &quot; fill=&quot;none&quot; style=&quot;stroke:#A80036;stroke-width:1.0;&quot; /&gt;&lt;!--MD5=[45913dd76824bd5806a01ec1ae81d7a5]
+@startmindmap
+
++ OS
+++ Ubuntu
++++ Linux Mint
++++ Kubuntu
++++ Lubuntu
++++ KDE Neon
+++ LMDE
+++ SolydXK
+++ SteamOS
+++ Raspbian
+- - Windows 95
+- - Windows 98
+- - Windows NT
+- - - Windows 8
+- - - Windows 10
+@endmindmap
+
+PlantUML version 1.2021.7(Sun May 23 12:40:07 UTC 2021)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: US
+--&gt;&lt;/g&gt;&lt;/svg&gt;
+
+&lt;h2 id=&quot;甘特图示例&quot;&gt;甘特图示例&lt;/h2&gt;
+
+&lt;h5 id=&quot;代码-4&quot;&gt;代码&lt;/h5&gt;
+&lt;pre&gt;&lt;code class=&quot;language-txt&quot;&gt;{% gantt %}
+[Test prototype] lasts 10 days
+[Prototype completed] happens at [Test prototype]'s end
+[Setup assembly line] lasts 12 days
+[Setup assembly line] starts at [Test prototype]'s end
+{% endgantt %}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id=&quot;输出显示-4&quot;&gt;输出显示&lt;/h5&gt;
+&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; contentScriptType=&quot;application/ecmascript&quot; contentStyleType=&quot;text/css&quot; height=&quot;81px&quot; preserveAspectRatio=&quot;none&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 354 81&quot; width=&quot;354px&quot; zoomAndPan=&quot;magnify&quot;&gt;&lt;defs /&gt;&lt;g&gt;&lt;line style=&quot;stroke:#C0C0C0;stroke-width:1.0;&quot; x1=&quot;0&quot; x2=&quot;0&quot; y1=&quot;0&quot; y2=&quot;63.6094&quot; /&gt;&lt;line style=&quot;stroke:#C0C0C0;stroke-width:1.0;&quot; x1=&quot;16&quot; x2=&quot;16&quot; y1=&quot;0&quot; y2=&quot;63.6094&quot; /&gt;&lt;line style=&quot;stroke:#C0C0C0;stroke-width:1.0;&quot; x1=&quot;32&quot; x2=&quot;32&quot; y1=&quot;0&quot; y2=&quot;63.6094&quot; /&gt;&lt;line style=&quot;stroke:#C0C0C0;stroke-width:1.0;&quot; x1=&quot;48&quot; x2=&quot;48&quot; y1=&quot;0&quot; y2=&quot;63.6094&quot; /&gt;&lt;line style=&quot;stroke:#C0C0C0;stroke-width:1.0;&quot; x1=&quot;64&quot; x2=&quot;64&quot; y1=&quot;0&quot; y2=&quot;63.6094&quot; /&gt;&lt;line style=&quot;stroke:#C0C0C0;stroke-width:1.0;&quot; x1=&quot;80&quot; x2=&quot;80&quot; y1=&quot;0&quot; y2=&quot;63.6094&quot; /&gt;&lt;line style=&quot;stroke:#C0C0C0;stroke-width:1.0;&quot; x1=&quot;96&quot; x2=&quot;96&quot; y1=&quot;0&quot; y2=&quot;63.6094&quot; /&gt;&lt;line style=&quot;stroke:#C0C0C0;stroke-width:1.0;&quot; x1=&quot;112&quot; x2=&quot;112&quot; y1=&quot;0&quot; y2=&quot;63.6094&quot; /&gt;&lt;line style=&quot;stroke:#C0C0C0;stroke-width:1.0;&quot; x1=&quot;128&quot; x2=&quot;128&quot; y1=&quot;0&quot; y2=&quot;63.6094&quot; /&gt;&lt;line style=&quot;stroke:#C0C0C0;stroke-width:1.0;&quot; x1=&quot;144&quot; x2=&quot;144&quot; y1=&quot;0&quot; y2=&quot;63.6094&quot; /&gt;&lt;line style=&quot;stroke:#C0C0C0;stroke-width:1.0;&quot; x1=&quot;160&quot; x2=&quot;160&quot; y1=&quot;0&quot; y2=&quot;63.6094&quot; /&gt;&lt;line style=&quot;stroke:#C0C0C0;stroke-width:1.0;&quot; x1=&quot;176&quot; x2=&quot;176&quot; y1=&quot;0&quot; y2=&quot;63.6094&quot; /&gt;&lt;line style=&quot;stroke:#C0C0C0;stroke-width:1.0;&quot; x1=&quot;192&quot; x2=&quot;192&quot; y1=&quot;0&quot; y2=&quot;63.6094&quot; /&gt;&lt;line style=&quot;stroke:#C0C0C0;stroke-width:1.0;&quot; x1=&quot;208&quot; x2=&quot;208&quot; y1=&quot;0&quot; y2=&quot;63.6094&quot; /&gt;&lt;line style=&quot;stroke:#C0C0C0;stroke-width:1.0;&quot; x1=&quot;224&quot; x2=&quot;224&quot; y1=&quot;0&quot; y2=&quot;63.6094&quot; /&gt;&lt;line style=&quot;stroke:#C0C0C0;stroke-width:1.0;&quot; x1=&quot;240&quot; x2=&quot;240&quot; y1=&quot;0&quot; y2=&quot;63.6094&quot; /&gt;&lt;line style=&quot;stroke:#C0C0C0;stroke-width:1.0;&quot; x1=&quot;256&quot; x2=&quot;256&quot; y1=&quot;0&quot; y2=&quot;63.6094&quot; /&gt;&lt;line style=&quot;stroke:#C0C0C0;stroke-width:1.0;&quot; x1=&quot;272&quot; x2=&quot;272&quot; y1=&quot;0&quot; y2=&quot;63.6094&quot; /&gt;&lt;line style=&quot;stroke:#C0C0C0;stroke-width:1.0;&quot; x1=&quot;288&quot; x2=&quot;288&quot; y1=&quot;0&quot; y2=&quot;63.6094&quot; /&gt;&lt;line style=&quot;stroke:#C0C0C0;stroke-width:1.0;&quot; x1=&quot;304&quot; x2=&quot;304&quot; y1=&quot;0&quot; y2=&quot;63.6094&quot; /&gt;&lt;line style=&quot;stroke:#C0C0C0;stroke-width:1.0;&quot; x1=&quot;320&quot; x2=&quot;320&quot; y1=&quot;0&quot; y2=&quot;63.6094&quot; /&gt;&lt;line style=&quot;stroke:#C0C0C0;stroke-width:1.0;&quot; x1=&quot;336&quot; x2=&quot;336&quot; y1=&quot;0&quot; y2=&quot;63.6094&quot; /&gt;&lt;line style=&quot;stroke:#C0C0C0;stroke-width:1.0;&quot; x1=&quot;352&quot; x2=&quot;352&quot; y1=&quot;0&quot; y2=&quot;63.6094&quot; /&gt;&lt;text fill=&quot;#000000&quot; font-family=&quot;Serif&quot; font-size=&quot;10&quot; lengthAdjust=&quot;spacing&quot; textLength=&quot;7&quot; x=&quot;4.5&quot; y=&quot;9.2822&quot;&gt;1&lt;/text&gt;&lt;text fill=&quot;#000000&quot; font-family=&quot;Serif&quot; font-size=&quot;10&quot; lengthAdjust=&quot;spacing&quot; textLength=&quot;6&quot; x=&quot;21&quot; y=&quot;9.2822&quot;&gt;2&lt;/text&gt;&lt;text fill=&quot;#000000&quot; font-family=&quot;Serif&quot; font-size=&quot;10&quot; lengthAdjust=&quot;spacing&quot; textLength=&quot;7&quot; x=&quot;36.5&quot; y=&quot;9.2822&quot;&gt;3&lt;/text&gt;&lt;text fill=&quot;#000000&quot; font-family=&quot;Serif&quot; font-size=&quot;10&quot; lengthAdjust=&quot;spacing&quot; textLength=&quot;7&quot; x=&quot;52.5&quot; y=&quot;9.2822&quot;&gt;4&lt;/text&gt;&lt;text fill=&quot;#000000&quot; font-family=&quot;Serif&quot; font-size=&quot;10&quot; lengthAdjust=&quot;spacing&quot; textLength=&quot;6&quot; x=&quot;69&quot; y=&quot;9.2822&quot;&gt;5&lt;/text&gt;&lt;text fill=&quot;#000000&quot; font-family=&quot;Serif&quot; font-size=&quot;10&quot; lengthAdjust=&quot;spacing&quot; textLength=&quot;7&quot; x=&quot;84.5&quot; y=&quot;9.2822&quot;&gt;6&lt;/text&gt;&lt;text fill=&quot;#000000&quot; font-family=&quot;Serif&quot; font-size=&quot;10&quot; lengthAdjust=&quot;spacing&quot; textLength=&quot;7&quot; x=&quot;100.5&quot; y=&quot;9.2822&quot;&gt;7&lt;/text&gt;&lt;text fill=&quot;#000000&quot; font-family=&quot;Serif&quot; font-size=&quot;10&quot; lengthAdjust=&quot;spacing&quot; textLength=&quot;7&quot; x=&quot;116.5&quot; y=&quot;9.2822&quot;&gt;8&lt;/text&gt;&lt;text fill=&quot;#000000&quot; font-family=&quot;Serif&quot; font-size=&quot;10&quot; lengthAdjust=&quot;spacing&quot; textLength=&quot;7&quot; x=&quot;132.5&quot; y=&quot;9.2822&quot;&gt;9&lt;/text&gt;&lt;text fill=&quot;#000000&quot; font-family=&quot;Serif&quot; font-size=&quot;10&quot; lengthAdjust=&quot;spacing&quot; textLength=&quot;14&quot; x=&quot;145&quot; y=&quot;9.2822&quot;&gt;10&lt;/text&gt;&lt;text fill=&quot;#000000&quot; font-family=&quot;Serif&quot; font-size=&quot;10&quot; lengthAdjust=&quot;spacing&quot; textLength=&quot;14&quot; x=&quot;161&quot; y=&quot;9.2822&quot;&gt;11&lt;/text&gt;&lt;text fill=&quot;#000000&quot; font-family=&quot;Serif&quot; font-size=&quot;10&quot; lengthAdjust=&quot;spacing&quot; textLength=&quot;13&quot; x=&quot;177.5&quot; y=&quot;9.2822&quot;&gt;12&lt;/text&gt;&lt;text fill=&quot;#000000&quot; font-family=&quot;Serif&quot; font-size=&quot;10&quot; lengthAdjust=&quot;spacing&quot; textLength=&quot;14&quot; x=&quot;193&quot; y=&quot;9.2822&quot;&gt;13&lt;/text&gt;&lt;text fill=&quot;#000000&quot; font-family=&quot;Serif&quot; font-size=&quot;10&quot; lengthAdjust=&quot;spacing&quot; textLength=&quot;14&quot; x=&quot;209&quot; y=&quot;9.2822&quot;&gt;14&lt;/text&gt;&lt;text fill=&quot;#000000&quot; font-family=&quot;Serif&quot; font-size=&quot;10&quot; lengthAdjust=&quot;spacing&quot; textLength=&quot;13&quot; x=&quot;225.5&quot; y=&quot;9.2822&quot;&gt;15&lt;/text&gt;&lt;text fill=&quot;#000000&quot; font-family=&quot;Serif&quot; font-size=&quot;10&quot; lengthAdjust=&quot;spacing&quot; textLength=&quot;14&quot; x=&quot;241&quot; y=&quot;9.2822&quot;&gt;16&lt;/text&gt;&lt;text fill=&quot;#000000&quot; font-family=&quot;Serif&quot; font-size=&quot;10&quot; lengthAdjust=&quot;spacing&quot; textLength=&quot;14&quot; x=&quot;257&quot; y=&quot;9.2822&quot;&gt;17&lt;/text&gt;&lt;text fill=&quot;#000000&quot; font-family=&quot;Serif&quot; font-size=&quot;10&quot; lengthAdjust=&quot;spacing&quot; textLength=&quot;14&quot; x=&quot;273&quot; y=&quot;9.2822&quot;&gt;18&lt;/text&gt;&lt;text fill=&quot;#000000&quot; font-family=&quot;Serif&quot; font-size=&quot;10&quot; lengthAdjust=&quot;spacing&quot; textLength=&quot;14&quot; x=&quot;289&quot; y=&quot;9.2822&quot;&gt;19&lt;/text&gt;&lt;text fill=&quot;#000000&quot; font-family=&quot;Serif&quot; font-size=&quot;10&quot; lengthAdjust=&quot;spacing&quot; textLength=&quot;13&quot; x=&quot;305.5&quot; y=&quot;9.2822&quot;&gt;20&lt;/text&gt;&lt;text fill=&quot;#000000&quot; font-family=&quot;Serif&quot; font-size=&quot;10&quot; lengthAdjust=&quot;spacing&quot; textLength=&quot;13&quot; x=&quot;321.5&quot; y=&quot;9.2822&quot;&gt;21&lt;/text&gt;&lt;text fill=&quot;#000000&quot; font-family=&quot;Serif&quot; font-size=&quot;10&quot; lengthAdjust=&quot;spacing&quot; textLength=&quot;12&quot; x=&quot;338&quot; y=&quot;9.2822&quot;&gt;22&lt;/text&gt;&lt;line style=&quot;stroke:#C0C0C0;stroke-width:1.0;&quot; x1=&quot;0&quot; x2=&quot;352&quot; y1=&quot;0&quot; y2=&quot;0&quot; /&gt;&lt;line style=&quot;stroke:#C0C0C0;stroke-width:1.0;&quot; x1=&quot;0&quot; x2=&quot;352&quot; y1=&quot;13&quot; y2=&quot;13&quot; /&gt;&lt;line style=&quot;stroke:#A80036;stroke-width:1.5;&quot; x1=&quot;151&quot; x2=&quot;151&quot; y1=&quot;30.8047&quot; y2=&quot;55.207&quot; /&gt;&lt;line style=&quot;stroke:#A80036;stroke-width:1.5;&quot; x1=&quot;151&quot; x2=&quot;159&quot; y1=&quot;55.207&quot; y2=&quot;55.207&quot; /&gt;&lt;polygon fill=&quot;#A80036&quot; points=&quot;155,51.207,155,55.207,155,59.207,159,55.207&quot; style=&quot;stroke:#A80036;stroke-width:1.5;&quot; /&gt;&lt;rect fill=&quot;#FEFECE&quot; height=&quot;12.8047&quot; style=&quot;stroke:none;stroke-width:1.0;&quot; width=&quot;156&quot; x=&quot;2&quot; y=&quot;18&quot; /&gt;&lt;line style=&quot;stroke:#A80036;stroke-width:1.0;&quot; x1=&quot;2&quot; x2=&quot;158&quot; y1=&quot;18&quot; y2=&quot;18&quot; /&gt;&lt;line style=&quot;stroke:#A80036;stroke-width:1.0;&quot; x1=&quot;2&quot; x2=&quot;158&quot; y1=&quot;30.8047&quot; y2=&quot;30.8047&quot; /&gt;&lt;line style=&quot;stroke:#A80036;stroke-width:1.0;&quot; x1=&quot;2&quot; x2=&quot;2&quot; y1=&quot;18&quot; y2=&quot;30.8047&quot; /&gt;&lt;line style=&quot;stroke:#A80036;stroke-width:1.0;&quot; x1=&quot;158&quot; x2=&quot;158&quot; y1=&quot;18&quot; y2=&quot;30.8047&quot; /&gt;&lt;polygon fill=&quot;#000000&quot; points=&quot;152,34.8047,157,39.8047,152,44.8047,147,39.8047&quot; style=&quot;stroke:#000000;stroke-width:1.0;&quot; /&gt;&lt;rect fill=&quot;#FEFECE&quot; height=&quot;12.8047&quot; style=&quot;stroke:none;stroke-width:1.0;&quot; width=&quot;188&quot; x=&quot;162&quot; y=&quot;48.8047&quot; /&gt;&lt;line style=&quot;stroke:#A80036;stroke-width:1.0;&quot; x1=&quot;162&quot; x2=&quot;350&quot; y1=&quot;48.8047&quot; y2=&quot;48.8047&quot; /&gt;&lt;line style=&quot;stroke:#A80036;stroke-width:1.0;&quot; x1=&quot;162&quot; x2=&quot;350&quot; y1=&quot;61.6094&quot; y2=&quot;61.6094&quot; /&gt;&lt;line style=&quot;stroke:#A80036;stroke-width:1.0;&quot; x1=&quot;162&quot; x2=&quot;162&quot; y1=&quot;48.8047&quot; y2=&quot;61.6094&quot; /&gt;&lt;line style=&quot;stroke:#A80036;stroke-width:1.0;&quot; x1=&quot;350&quot; x2=&quot;350&quot; y1=&quot;48.8047&quot; y2=&quot;61.6094&quot; /&gt;&lt;text fill=&quot;#000000&quot; font-family=&quot;sans-serif&quot; font-size=&quot;11&quot; lengthAdjust=&quot;spacing&quot; textLength=&quot;84&quot; x=&quot;6&quot; y=&quot;28.2104&quot;&gt;Test prototype&lt;/text&gt;&lt;text fill=&quot;#000000&quot; font-family=&quot;sans-serif&quot; font-size=&quot;11&quot; lengthAdjust=&quot;spacing&quot; textLength=&quot;119&quot; x=&quot;160&quot; y=&quot;43.6128&quot;&gt;Prototype completed&lt;/text&gt;&lt;text fill=&quot;#000000&quot; font-family=&quot;sans-serif&quot; font-size=&quot;11&quot; lengthAdjust=&quot;spacing&quot; textLength=&quot;118&quot; x=&quot;166&quot; y=&quot;59.0151&quot;&gt;Setup assembly line&lt;/text&gt;&lt;line style=&quot;stroke:#C0C0C0;stroke-width:1.0;&quot; x1=&quot;0&quot; x2=&quot;0&quot; y1=&quot;63.6094&quot; y2=&quot;79.6094&quot; /&gt;&lt;line style=&quot;stroke:#C0C0C0;stroke-width:1.0;&quot; x1=&quot;16&quot; x2=&quot;16&quot; y1=&quot;63.6094&quot; y2=&quot;79.6094&quot; /&gt;&lt;line style=&quot;stroke:#C0C0C0;stroke-width:1.0;&quot; x1=&quot;32&quot; x2=&quot;32&quot; y1=&quot;63.6094&quot; y2=&quot;79.6094&quot; /&gt;&lt;line style=&quot;stroke:#C0C0C0;stroke-width:1.0;&quot; x1=&quot;48&quot; x2=&quot;48&quot; y1=&quot;63.6094&quot; y2=&quot;79.6094&quot; /&gt;&lt;line style=&quot;stroke:#C0C0C0;stroke-width:1.0;&quot; x1=&quot;64&quot; x2=&quot;64&quot; y1=&quot;63.6094&quot; y2=&quot;79.6094&quot; /&gt;&lt;line style=&quot;stroke:#C0C0C0;stroke-width:1.0;&quot; x1=&quot;80&quot; x2=&quot;80&quot; y1=&quot;63.6094&quot; y2=&quot;79.6094&quot; /&gt;&lt;line style=&quot;stroke:#C0C0C0;stroke-width:1.0;&quot; x1=&quot;96&quot; x2=&quot;96&quot; y1=&quot;63.6094&quot; y2=&quot;79.6094&quot; /&gt;&lt;line style=&quot;stroke:#C0C0C0;stroke-width:1.0;&quot; x1=&quot;112&quot; x2=&quot;112&quot; y1=&quot;63.6094&quot; y2=&quot;79.6094&quot; /&gt;&lt;line style=&quot;stroke:#C0C0C0;stroke-width:1.0;&quot; x1=&quot;128&quot; x2=&quot;128&quot; y1=&quot;63.6094&quot; y2=&quot;79.6094&quot; /&gt;&lt;line style=&quot;stroke:#C0C0C0;stroke-width:1.0;&quot; x1=&quot;144&quot; x2=&quot;144&quot; y1=&quot;63.6094&quot; y2=&quot;79.6094&quot; /&gt;&lt;line style=&quot;stroke:#C0C0C0;stroke-width:1.0;&quot; x1=&quot;160&quot; x2=&quot;160&quot; y1=&quot;63.6094&quot; y2=&quot;79.6094&quot; /&gt;&lt;line style=&quot;stroke:#C0C0C0;stroke-width:1.0;&quot; x1=&quot;176&quot; x2=&quot;176&quot; y1=&quot;63.6094&quot; y2=&quot;79.6094&quot; /&gt;&lt;line style=&quot;stroke:#C0C0C0;stroke-width:1.0;&quot; x1=&quot;192&quot; x2=&quot;192&quot; y1=&quot;63.6094&quot; y2=&quot;79.6094&quot; /&gt;&lt;line style=&quot;stroke:#C0C0C0;stroke-width:1.0;&quot; x1=&quot;208&quot; x2=&quot;208&quot; y1=&quot;63.6094&quot; y2=&quot;79.6094&quot; /&gt;&lt;line style=&quot;stroke:#C0C0C0;stroke-width:1.0;&quot; x1=&quot;224&quot; x2=&quot;224&quot; y1=&quot;63.6094&quot; y2=&quot;79.6094&quot; /&gt;&lt;line style=&quot;stroke:#C0C0C0;stroke-width:1.0;&quot; x1=&quot;240&quot; x2=&quot;240&quot; y1=&quot;63.6094&quot; y2=&quot;79.6094&quot; /&gt;&lt;line style=&quot;stroke:#C0C0C0;stroke-width:1.0;&quot; x1=&quot;256&quot; x2=&quot;256&quot; y1=&quot;63.6094&quot; y2=&quot;79.6094&quot; /&gt;&lt;line style=&quot;stroke:#C0C0C0;stroke-width:1.0;&quot; x1=&quot;272&quot; x2=&quot;272&quot; y1=&quot;63.6094&quot; y2=&quot;79.6094&quot; /&gt;&lt;line style=&quot;stroke:#C0C0C0;stroke-width:1.0;&quot; x1=&quot;288&quot; x2=&quot;288&quot; y1=&quot;63.6094&quot; y2=&quot;79.6094&quot; /&gt;&lt;line style=&quot;stroke:#C0C0C0;stroke-width:1.0;&quot; x1=&quot;304&quot; x2=&quot;304&quot; y1=&quot;63.6094&quot; y2=&quot;79.6094&quot; /&gt;&lt;line style=&quot;stroke:#C0C0C0;stroke-width:1.0;&quot; x1=&quot;320&quot; x2=&quot;320&quot; y1=&quot;63.6094&quot; y2=&quot;79.6094&quot; /&gt;&lt;line style=&quot;stroke:#C0C0C0;stroke-width:1.0;&quot; x1=&quot;336&quot; x2=&quot;336&quot; y1=&quot;63.6094&quot; y2=&quot;79.6094&quot; /&gt;&lt;line style=&quot;stroke:#C0C0C0;stroke-width:1.0;&quot; x1=&quot;352&quot; x2=&quot;352&quot; y1=&quot;63.6094&quot; y2=&quot;79.6094&quot; /&gt;&lt;text fill=&quot;#000000&quot; font-family=&quot;Serif&quot; font-size=&quot;10&quot; lengthAdjust=&quot;spacing&quot; textLength=&quot;7&quot; x=&quot;4.5&quot; y=&quot;75.8916&quot;&gt;1&lt;/text&gt;&lt;text fill=&quot;#000000&quot; font-family=&quot;Serif&quot; font-size=&quot;10&quot; lengthAdjust=&quot;spacing&quot; textLength=&quot;6&quot; x=&quot;21&quot; y=&quot;75.8916&quot;&gt;2&lt;/text&gt;&lt;text fill=&quot;#000000&quot; font-family=&quot;Serif&quot; font-size=&quot;10&quot; lengthAdjust=&quot;spacing&quot; textLength=&quot;7&quot; x=&quot;36.5&quot; y=&quot;75.8916&quot;&gt;3&lt;/text&gt;&lt;text fill=&quot;#000000&quot; font-family=&quot;Serif&quot; font-size=&quot;10&quot; lengthAdjust=&quot;spacing&quot; textLength=&quot;7&quot; x=&quot;52.5&quot; y=&quot;75.8916&quot;&gt;4&lt;/text&gt;&lt;text fill=&quot;#000000&quot; font-family=&quot;Serif&quot; font-size=&quot;10&quot; lengthAdjust=&quot;spacing&quot; textLength=&quot;6&quot; x=&quot;69&quot; y=&quot;75.8916&quot;&gt;5&lt;/text&gt;&lt;text fill=&quot;#000000&quot; font-family=&quot;Serif&quot; font-size=&quot;10&quot; lengthAdjust=&quot;spacing&quot; textLength=&quot;7&quot; x=&quot;84.5&quot; y=&quot;75.8916&quot;&gt;6&lt;/text&gt;&lt;text fill=&quot;#000000&quot; font-family=&quot;Serif&quot; font-size=&quot;10&quot; lengthAdjust=&quot;spacing&quot; textLength=&quot;7&quot; x=&quot;100.5&quot; y=&quot;75.8916&quot;&gt;7&lt;/text&gt;&lt;text fill=&quot;#000000&quot; font-family=&quot;Serif&quot; font-size=&quot;10&quot; lengthAdjust=&quot;spacing&quot; textLength=&quot;7&quot; x=&quot;116.5&quot; y=&quot;75.8916&quot;&gt;8&lt;/text&gt;&lt;text fill=&quot;#000000&quot; font-family=&quot;Serif&quot; font-size=&quot;10&quot; lengthAdjust=&quot;spacing&quot; textLength=&quot;7&quot; x=&quot;132.5&quot; y=&quot;75.8916&quot;&gt;9&lt;/text&gt;&lt;text fill=&quot;#000000&quot; font-family=&quot;Serif&quot; font-size=&quot;10&quot; lengthAdjust=&quot;spacing&quot; textLength=&quot;14&quot; x=&quot;145&quot; y=&quot;75.8916&quot;&gt;10&lt;/text&gt;&lt;text fill=&quot;#000000&quot; font-family=&quot;Serif&quot; font-size=&quot;10&quot; lengthAdjust=&quot;spacing&quot; textLength=&quot;14&quot; x=&quot;161&quot; y=&quot;75.8916&quot;&gt;11&lt;/text&gt;&lt;text fill=&quot;#000000&quot; font-family=&quot;Serif&quot; font-size=&quot;10&quot; lengthAdjust=&quot;spacing&quot; textLength=&quot;13&quot; x=&quot;177.5&quot; y=&quot;75.8916&quot;&gt;12&lt;/text&gt;&lt;text fill=&quot;#000000&quot; font-family=&quot;Serif&quot; font-size=&quot;10&quot; lengthAdjust=&quot;spacing&quot; textLength=&quot;14&quot; x=&quot;193&quot; y=&quot;75.8916&quot;&gt;13&lt;/text&gt;&lt;text fill=&quot;#000000&quot; font-family=&quot;Serif&quot; font-size=&quot;10&quot; lengthAdjust=&quot;spacing&quot; textLength=&quot;14&quot; x=&quot;209&quot; y=&quot;75.8916&quot;&gt;14&lt;/text&gt;&lt;text fill=&quot;#000000&quot; font-family=&quot;Serif&quot; font-size=&quot;10&quot; lengthAdjust=&quot;spacing&quot; textLength=&quot;13&quot; x=&quot;225.5&quot; y=&quot;75.8916&quot;&gt;15&lt;/text&gt;&lt;text fill=&quot;#000000&quot; font-family=&quot;Serif&quot; font-size=&quot;10&quot; lengthAdjust=&quot;spacing&quot; textLength=&quot;14&quot; x=&quot;241&quot; y=&quot;75.8916&quot;&gt;16&lt;/text&gt;&lt;text fill=&quot;#000000&quot; font-family=&quot;Serif&quot; font-size=&quot;10&quot; lengthAdjust=&quot;spacing&quot; textLength=&quot;14&quot; x=&quot;257&quot; y=&quot;75.8916&quot;&gt;17&lt;/text&gt;&lt;text fill=&quot;#000000&quot; font-family=&quot;Serif&quot; font-size=&quot;10&quot; lengthAdjust=&quot;spacing&quot; textLength=&quot;14&quot; x=&quot;273&quot; y=&quot;75.8916&quot;&gt;18&lt;/text&gt;&lt;text fill=&quot;#000000&quot; font-family=&quot;Serif&quot; font-size=&quot;10&quot; lengthAdjust=&quot;spacing&quot; textLength=&quot;14&quot; x=&quot;289&quot; y=&quot;75.8916&quot;&gt;19&lt;/text&gt;&lt;text fill=&quot;#000000&quot; font-family=&quot;Serif&quot; font-size=&quot;10&quot; lengthAdjust=&quot;spacing&quot; textLength=&quot;13&quot; x=&quot;305.5&quot; y=&quot;75.8916&quot;&gt;20&lt;/text&gt;&lt;text fill=&quot;#000000&quot; font-family=&quot;Serif&quot; font-size=&quot;10&quot; lengthAdjust=&quot;spacing&quot; textLength=&quot;13&quot; x=&quot;321.5&quot; y=&quot;75.8916&quot;&gt;21&lt;/text&gt;&lt;text fill=&quot;#000000&quot; font-family=&quot;Serif&quot; font-size=&quot;10&quot; lengthAdjust=&quot;spacing&quot; textLength=&quot;12&quot; x=&quot;338&quot; y=&quot;75.8916&quot;&gt;22&lt;/text&gt;&lt;line style=&quot;stroke:#C0C0C0;stroke-width:1.0;&quot; x1=&quot;0&quot; x2=&quot;352&quot; y1=&quot;66.6094&quot; y2=&quot;66.6094&quot; /&gt;&lt;!--MD5=[2aba532118ce020342696c3a60cffe28]
+@startgantt
+
+[Test prototype] lasts 10 days
+[Prototype completed] happens at [Test prototype]'s end
+[Setup assembly line] lasts 12 days
+[Setup assembly line] starts at [Test prototype]'s end
+@endgantt
+
+PlantUML version 1.2021.7(Sun May 23 12:40:07 UTC 2021)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: US
+--&gt;&lt;/g&gt;&lt;/svg&gt;
+
+&lt;h2 id=&quot;math示例&quot;&gt;Math示例&lt;/h2&gt;
+
+&lt;h5 id=&quot;代码-5&quot;&gt;代码&lt;/h5&gt;
+&lt;pre&gt;&lt;code class=&quot;language-txt&quot;&gt;{% math %}
+f(t)=(a_0)/2 + sum_(n=1)^ooa_ncos((npit)/L)+sum_(n=1)^oo b_n\ sin((npit)/L)
+{% endmath %}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id=&quot;输出显示-5&quot;&gt;输出显示&lt;/h5&gt;
+&lt;p&gt;&lt;img src=&quot;//images/8f97805a79a5a980f6e80f427567a1df.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;latex示例&quot;&gt;LaTeX示例&lt;/h2&gt;
+
+&lt;h5 id=&quot;代码-6&quot;&gt;代码&lt;/h5&gt;
+&lt;pre&gt;&lt;code class=&quot;language-txt&quot;&gt;{% latex %}
+\sum_{i=0}^{n-1} (a_i + b_i^2)
+{% endlatex %}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id=&quot;输出显示-6&quot;&gt;输出显示&lt;/h5&gt;
+&lt;p&gt;&lt;img src=&quot;//images/93719f5966d38ec6a79a7f7d405da733.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;想想其实好像没啥用哈，我极少要用到这些，真是浪费时间。&lt;/p&gt;</content><author><name>missdeer</name></author><category term="Jekyll" /><category term="PlantUML" /><summary type="html">突然心血来潮，花了点时间写了个Jekyll的插件，用于生成PlantUML的各种图。用法大体是这样的：</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://cdn.jsdelivr.net/gh/missdeer/blog@master/media/2020-02-28/plantuml.jpg" /></entry><entry><title type="html">C++20：四巨头</title><link href="https://blog.ismisv.com/2020/02/the-big-four-of-cpp20/" rel="alternate" type="text/html" title="C++20：四巨头" /><published>2020-02-22T00:00:00+00:00</published><updated>2020-02-22T00:00:00+00:00</updated><id>https://blog.ismisv.com/2020/02/the-big-four-of-cpp20</id><content type="html" xml:base="https://blog.ismisv.com/2020/02/the-big-four-of-cpp20/">&lt;blockquote&gt;
+  &lt;p&gt;英文原文：https://www.modernescpp.com/index.php/thebigfour&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;本文向你展示四巨头：concepts，ranges，coroutines和modules（四个名词目前尚未全都有既信达雅，又得到大部分业内人士认同的中文翻译，继续干脆全部保留英文原文。）。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn.jsdelivr.net/gh/missdeer/blog@master/media/2020-02-22/TimelineCpp20BigFourUpdate.png&quot; alt=&quot;C++20四大要点时间线更新&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;C++20提供了很多东西。在我给你们四巨头的第一印象前，这是C++20的概览。除了四巨头，还有很多特性影响着语言核心、库、以及C++20的并发能力。&lt;/p&gt;
+
+&lt;h1 id=&quot;编译器对c20的支持&quot;&gt;编译器对C++20的支持&lt;/h1&gt;
+
+&lt;p&gt;最简单的了解新特性的方法是上手把玩。这个方法马上引出一个问题：哪个编译器支持了C++20的哪些特性？经常地， &lt;a href=&quot;https://en.cppreference.com/w/cpp/compiler_support&quot;&gt;cppreference.com/compiler_support&lt;/a&gt;能解答关于语言核心和库的这个问题。&lt;/p&gt;
+
+&lt;p&gt;简单说来，最最新的GCC，Clang和EDG编译器对语言核心提供了最好的支持。另外，MSVC和苹果Clang编译器也支持了许多C++20的特性。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn.jsdelivr.net/gh/missdeer/blog@master/media/2020-02-22/Core.PNG&quot; alt=&quot;语言核心&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;库也是类似的。GCC对库的支持最好，接下来是Clang和MSVC编译器。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn.jsdelivr.net/gh/missdeer/blog@master/media/2020-02-22/Library.PNG&quot; alt=&quot;库&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;上面的截图只显示了表格开始的部分，但能给你一个不是特别满意的答案。甚至你使用所有最最新的编译器，也有很多特性没被任何编译器支持。&lt;/p&gt;
+
+&lt;p&gt;经常地，你能找到把玩新特性的变通方法。两个例子：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Concepts：GCC支持上一个版本的concepts。&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;std::jthread&lt;/code&gt;：&lt;a href=&quot;https://github.com/josuttis/jthread&quot;&gt;Github&lt;/a&gt;上有一份Nicolai Josuttis维护的实现草案。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;简而言之。情况还不错。稍作修改，就可以尝试许多新功能。如有必要，我会提及这一点小技巧。&lt;/p&gt;
+
+&lt;p&gt;但是，现在让我给您鸟瞰这些新功能。当然，我们应该从四巨头开始。&lt;/p&gt;
+
+&lt;h1 id=&quot;四巨头&quot;&gt;四巨头&lt;/h1&gt;
+
+&lt;h2 id=&quot;concepts&quot;&gt;Concepts&lt;/h2&gt;
+
+&lt;p&gt;使用模板进行泛型编程的关键思想是定义可以与各种类型一起使用的函数和类。通常，你用错误的类型实例化模板时，结果常常是几页的错误消息。这个悲伤的故事以concepts结束。Concepts使你能够编写模板要求，这些要求可由编译器检查。你革新了我们思考和编写泛型代码的方式。原因如下：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;模板要求是接口的一部分。&lt;/li&gt;
+  &lt;li&gt;可以基于concepts进行函数的重载或类模板的特化。&lt;/li&gt;
+  &lt;li&gt;由于编译器将模板参数的要求与实际模板参数进行比较，因此我们得到了改进的错误消息。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;但是，这还不是故事的结局。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;你可以使用预定义的concepts或定义自己的concepts。&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;auto&lt;/code&gt;和concepts的用法是统一的。您可以使用concepts代替&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;auto&lt;/code&gt;。&lt;/li&gt;
+  &lt;li&gt;如果函数声明使用concepts，它将自动成为函数模板。因此，编写函数模板与编写函数一样容易。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;以下代码段向你展示了简单的concept &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Integral&lt;/code&gt;的定义和用法：&lt;/p&gt;
+
+&lt;div class=&quot;language-cpp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;k&quot;&gt;template&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;typename&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;concept&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Integral&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;is_integral&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;Integral&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;auto&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;gcd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Integral&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;auto&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;     
+                  &lt;span class=&quot;n&quot;&gt;Integral&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;auto&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; 
+    &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;gcd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Integral&lt;/code&gt;是一个concepts，要求它具有&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;std::is_integral&amp;lt;T&amp;gt;::value&lt;/code&gt;的类型参数&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;T&lt;/code&gt;。&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;std::is_integral&amp;lt;T&amp;gt;::value&lt;/code&gt;是&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;type-traits&lt;/code&gt;库中的一个函数，该函数在编译时检查&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;T&lt;/code&gt;是否为整数。 如果&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;std::is_integral&amp;lt;T&amp;gt;::value&lt;/code&gt;的值为&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;true&lt;/code&gt;，则一切正常。如果不是，则会出现编译时错误。对于好奇的人——你应该好奇——这是我写的与&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;type-traits&lt;/code&gt;库相关的&lt;a href=&quot;https://www.modernescpp.com/index.php/tag/type-traits&quot;&gt;文章&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gcd&lt;/code&gt;算法基于&lt;a href=&quot;https://en.wikipedia.org/wiki/Euclidean_algorithm&quot;&gt;欧几里得算法&lt;/a&gt;确定最大公约数。我使用了所谓的缩写函数模板语法来定义&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gcd&lt;/code&gt;。&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gcd&lt;/code&gt;从其参数和返回类型要求它们支持concept &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Integral&lt;/code&gt;。&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gcd&lt;/code&gt;是一种函数模板，它对参数和返回值提出了要求。 当我删除&lt;a href=&quot;https://en.wikipedia.org/wiki/Syntactic_sugar&quot;&gt;语法糖&lt;/a&gt;时，也许你可以看到&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gcd&lt;/code&gt;的真正本质。&lt;/p&gt;
+
+&lt;p&gt;这是语义上等效的&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gcd&lt;/code&gt;算法。&lt;/p&gt;
+
+&lt;div class=&quot;language-cpp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;k&quot;&gt;template&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;typename&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;requires&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Integral&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;T&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;gcd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;T&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;T&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; 
+    &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;gcd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;如果您看不到&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gcd&lt;/code&gt;的真正本质，则必须等待我几周后发表有关concepts的文章。&lt;/p&gt;
+
+&lt;h2 id=&quot;ranges库&quot;&gt;Ranges库&lt;/h2&gt;
+
+&lt;p&gt;Ranges库是Concepts的第一位客户。它支持的算法将会：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;能直接操作容器，你不需要用迭代器指定范围&lt;/li&gt;
+  &lt;li&gt;能惰性求值&lt;/li&gt;
+  &lt;li&gt;能被组合&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;简而言之：Ranges库支持函数式模式。&lt;/p&gt;
+
+&lt;p&gt;好了，代码更胜于文字。下面的函数通过管道符号展示了函数组合：&lt;/p&gt;
+
+&lt;div class=&quot;language-cpp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;cp&quot;&gt;#include &amp;lt;vector&amp;gt;
+#include &amp;lt;ranges&amp;gt;
+#include &amp;lt;iostream&amp;gt;
+&lt;/span&gt; 
+&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vector&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ints&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;auto&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;even&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[](&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;auto&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;square&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[](&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+ 
+  &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ints&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;view&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;filter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;even&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; 
+                      &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;view&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;transform&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;square&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cout&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;sc&quot;&gt;' '&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;             &lt;span class=&quot;c1&quot;&gt;// 0 4 16&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;even&lt;/code&gt;是一个lambda函数用于判断&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;i&lt;/code&gt;是否偶数，而且lambda函数&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;square&lt;/code&gt;将&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;i&lt;/code&gt;计算成它的平方。剩下的函数组合你要从左往右读：&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;for (int i : ints | std::view::filter(even) | std::view::transform(square))&lt;/code&gt;。将&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ints&lt;/code&gt;的每个元素都应用上过滤器&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;even&lt;/code&gt;，并将每个出来的值映射到它的平方&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;square&lt;/code&gt;。如果你熟悉函数式编程，这读起来就像散文。&lt;/p&gt;
+
+&lt;h2 id=&quot;coroutines&quot;&gt;Coroutines&lt;/h2&gt;
+
+&lt;p&gt;Coroutines是广义的函数，可以在保持其状态的同时暂停和恢复它们。Coroutines是编写事件驱动的应用程序的常用方法。事件驱动的应用程序可以是模拟，游戏，服务器，用户界面甚至算法。Coroutines通常也用于&lt;a href=&quot;https://en.wikipedia.org/wiki/Cooperative_multitasking&quot;&gt;协作多任务&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;我们没有C++20的具体coroutines。我们将获得一个编写自己coroutines的框架。编写coroutines的框架包含20多个函数，你必须部分实现这些功能，而部分可能会重写它们。 因此，你可以根据需要定制coroutines。&lt;/p&gt;
+
+&lt;p&gt;让我向你展示特殊coroutines的用法。以下程序是一个用于生成无限数据流的生成器。&lt;/p&gt;
+
+&lt;div class=&quot;language-cpp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;n&quot;&gt;Generator&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;getNext&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;start&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;step&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;auto&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;start&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;co_yield&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;            &lt;span class=&quot;c1&quot;&gt;// 1&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;step&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    
+    &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cout&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;endl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  
+    &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cout&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;getNext():&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;auto&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;gen&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;getNext&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;gen&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;next&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;               &lt;span class=&quot;c1&quot;&gt;// 2&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cout&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot; &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;gen&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getValue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;                  
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    
+    &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cout&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    
+    &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cout&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;getNext(100, -10):&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;auto&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;gen2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;getNext&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;gen2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;next&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;             &lt;span class=&quot;c1&quot;&gt;// 3&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cout&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot; &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;gen2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getValue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    
+    &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cout&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;endl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;好吧，我必须补充几句话。这只是一个代码片段。函数&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;getNext&lt;/code&gt;是一个coroutine，因为它使用关键字&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;co_yield&lt;/code&gt;。 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;getNext&lt;/code&gt;有一个无限循环，返回&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;co_yield&lt;/code&gt;之后的值。调用&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;next()&lt;/code&gt;（第2行和第3行）将恢复coroutine，随后的&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;getValue&lt;/code&gt;调用将获取该值。在&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;getNext&lt;/code&gt;调用之后，coroutine再次暂停。它会暂停直到下一个&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;next()&lt;/code&gt;调用。在我的示例中有一个大的未知数。这个未知数是&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;getNext&lt;/code&gt;函数的返回值&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Generator &amp;lt;int&amp;gt;&lt;/code&gt;。从这里开始，开始进行复杂的工作，这将成为coroutine详细文章的一部分。&lt;/p&gt;
+
+&lt;p&gt;感谢&lt;a href=&quot;https://wandbox.org/&quot;&gt;Wandbox&lt;/a&gt;在线编译器，我可以向您展示程序的输出。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn.jsdelivr.net/gh/missdeer/blog@master/media/2020-02-22/infiniteDataStream.PNG&quot; alt=&quot;无限数据流&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;modules&quot;&gt;Modules&lt;/h2&gt;
+
+&lt;p&gt;对于modules，我讲得非常少，因为文章已经太长了。&lt;/p&gt;
+
+&lt;p&gt;Modules承诺：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;更快的编译速度&lt;/li&gt;
+  &lt;li&gt;与宏隔离&lt;/li&gt;
+  &lt;li&gt;表达出代码的逻辑结构&lt;/li&gt;
+  &lt;li&gt;不再需要头文件&lt;/li&gt;
+  &lt;li&gt;处理丑陋的宏的变通方法&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;下一步&quot;&gt;下一步？&lt;/h2&gt;
+
+&lt;p&gt;在对四巨头有了个高层概览后，我将在下一篇文章中继续介绍语言核心特性。&lt;/p&gt;</content><author><name>missdeer</name></author><category term="C++20" /><category term="cpp" /><category term="C++" /><summary type="html">英文原文：https://www.modernescpp.com/index.php/thebigfour</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://cdn.jsdelivr.net/gh/missdeer/blog@master/media/2020-02-22/TimelineCpp20BigFourUpdate.png" /></entry></feed>

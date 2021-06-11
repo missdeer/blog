@@ -1,0 +1,128 @@
+<!doctype html><html lang=en><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><link rel=icon href=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/logo.png><title>HAProxy for SS(R) | 类库大魔王的挖井日记</title><title>HAProxy for SS(R) | 挖井</title><meta name=generator content="Jekyll v3.9.0"><meta property="og:title" content="HAProxy for SS(R)"><meta name=author content="missdeer"><meta property="og:locale" content="en_US"><meta name=description content="HAProxy for SS(R)"><meta property="og:description" content="HAProxy for SS(R)"><link rel=canonical href=https://blog.ismisv.com/2018/02/haproxy-for-ss/><meta property="og:url" content="https://blog.ismisv.com/2018/02/haproxy-for-ss/"><meta property="og:site_name" content="挖井"><meta property="og:image" content="https://cdn.jsdelivr.net/gh/missdeer/blog@master/media/2018-02-23/haproxy-workflow.svg"><meta property="og:type" content="article"><meta property="article:published_time" content="2018-02-23T00:00:00+00:00"><script type=application/ld+json>{"headline":"HAProxy for SS(R)","dateModified":"2018-02-23T00:00:00+00:00","description":"HAProxy for SS(R)","datePublished":"2018-02-23T00:00:00+00:00","image":"https://cdn.jsdelivr.net/gh/missdeer/blog@master/media/2018-02-23/haproxy-workflow.svg","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.ismisv.com/2018/02/haproxy-for-ss/"},"url":"https://blog.ismisv.com/2018/02/haproxy-for-ss/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://blog.ismisv.com/assets/images/logo.png"},"name":"missdeer"},"author":{"@type":"Person","name":"missdeer"},"@context":"http://schema.org"}</script><link href=https://cdn.staticfile.org/twitter-bootstrap/4.1.3/css/bootstrap.min.css rel=stylesheet><link href=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/css/screen.min.css rel=stylesheet><link href=//assets/css/main.css rel=stylesheet><script src=https://cdn.staticfile.org/jquery/3.3.1/jquery.min.js></script><body class=layout-post><noscript id=deferred-styles><link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel=stylesheet><link href=https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css rel=stylesheet></noscript><nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mediumnavigation nav-down"><div class="container pr-0"><a class=navbar-brand href=//><img src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/logo.png alt=类库大魔王的挖井日记></a>
+<button class=navbar-toggler type=button data-toggle=collapse data-target=#navbarMediumish aria-controls=navbarSupportedContent aria-expanded=false aria-label="Toggle navigation">
+<span class=navbar-toggler-icon></span></button><div class="collapse navbar-collapse" id=navbarMediumish><ul class="navbar-nav ml-auto"><li class=nav-item><a class=nav-link href=// title=博客首页><i class="fab fa-blogger"></i>首页</a><li class=nav-item><a class=nav-link href=//archive/ title=博客文章完整归档><i class="fas fa-archive"></i>归档</a><li class=nav-item><a class=nav-link href=//categories.html title=博客文章所有分类><i class="fas fa-bars"></i>分类</a><li class=nav-item><a class=nav-link href=//tags.html title=博客文章所有标签><i class="fas fa-tags"></i>标签</a><li class=nav-item><a class=nav-link href=//apps/ title=我（近几年）开发的软件作品><i class="fab fa-app-store"></i>软件</a><li class=nav-item><a class=nav-link href=//about/ title=关于本博客><i class="fas fa-user"></i>关于</a><li class=nav-item><a target=_blank class=nav-link href=//links/ title=友情链接><i class="fas fa-link"></i>链接</a><li class=nav-item><a target=_blank class=nav-link href=//feed.xml title=通过RSS订阅本博客><i class="fas fa-rss-square"></i>订阅</a><li class=nav-item><a target=_blank class=nav-link href=https://github.com/missdeer title=我写的一些程序开放了源代码><i class="fab fa-github"></i>代码</a></ul></div></div></nav><div class=site-content><div class=container><div class=mainheading><h1 class=sitetitle>类库大魔王的挖井日记</h1><p class=lead>挖一口属于自己的井</div><div class=main-content><div class=container><div class=row><div class="col-md-12 flex-first flex-md-unordered"><div class=mainheading><div class="row post-top-meta"><div class="col-xs-12 col-md-3 col-lg-2 text-center text-md-left mb-4 mb-md-0"><img class=author-thumb src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/avatar.png alt=类库大魔王></div><div class="col-xs-12 col-md-9 col-lg-10 text-center text-md-left"><a target=_blank class=link-dark href=https://www.ismisv.com>类库大魔王</a><a target=_blank href=https://twitter.com/missdeerme class="btn follow">Follow</a>
+<span class=author-description>懒惰，傲慢，以及无耐心</span></div></div><h1 class=posttitle>HAProxy for SS(R)</h1></div><div class=article-post><p>昨天在喵帕斯tg群里看到一张HAProxy的截图，经过了解，原来是梅林固件自带的，真是不错的想法。<p>想当初，我为了实现$$的load balance，不惜花费大量的时间和精力，自己用Go写了个<a href=../../../2015/11/avege-works-initially/>客户端</a>，结果后来喵帕斯全面开启多用户单端口，而我的程序在带参数的混淆和协议上实现有问题，于是换回用libev版了。用libev版唯一的缺点就是线路变动（比如偶发性down掉，永久换IP，永久移除等等）时，需要手动去切换一下。虽然喵帕斯同时提供了几十条线路，却压根没发挥作用，如果线路稳定倒也好说，但是昨天发现已经用了好长一段时间的线路突然变得时断时续了，真是纠结啊！<p>好在现在发现了HAProxy这个方案，立即上手试试。我是在Banana Pi R1上部署的，先从官网下载HAProxy源代码，解压并编译：<div class="language-bash highlighter-rouge"><div class=highlight><pre class=highlight><code><table class=rouge-table><tbody><tr><td class="rouge-gutter gl"><pre class=lineno>1
+2
+3
+4
+</pre><td class=rouge-code><pre>wget http://www.haproxy.org/download/1.8/src/haproxy-1.8.4.tar.gz
+<span class=nb>tar </span>xzvf haproxy-1.8.4.tar.gz
+<span class=nb>cd </span>haproxy-1.8.4
+make linux2628
+</pre></table></code></pre></div></div><p>这样就能得到一个可执行文件<code class="language-plaintext highlighter-rouge">haproxy</code>，然后编写一个配置文件：<div class="language-plaintext highlighter-rouge"><div class=highlight><pre class=highlight><code><table class=rouge-table><tbody><tr><td class="rouge-gutter gl"><pre class=lineno>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+</pre><td class=rouge-code><pre>global 
+    daemon  
+    maxconn 10240 
+    pidfile /home/pi/avege/haproxy.pid 
+
+defaults 
+    mode tcp
+    balance roundrobin
+    timeout connect 10000ms  
+    timeout client 50000ms  
+    timeout server 50000ms  
+    log 127.0.0.1 local0 err
+
+listen admin_stats  
+    bind 0.0.0.0:8099
+    mode http
+    option httplog
+    maxconn 10  
+    stats refresh 30s
+    stats uri /stats  
+
+frontend ssr-in 
+    bind *:58543  
+    default_backend miaops
+	
+backend miaops
+    option log-health-checks
+    default-server inter 15s fall 3 rise 2
+    server cn-1 cn-1.node.com:54321 check
+    server hk-1 hk-1.node.com:54321 check
+    server us-1 us-1.node.com:54321 check
+    server tw-1 tw-1.node.com:54321 check
+    server ru-1 ru-1.node.com:54321 check
+    server jp-1 jp-1.node.com:54321 check
+</pre></table></code></pre></div></div><p>最后就是$$连接服务器的地址和端口改成本地HAProxy开的那个端口即可：<code class="language-plaintext highlighter-rouge">127.0.0.1:58543</code>。<p>大体上就是这样的，HAProxy会给后端服务器做健康检查，load balance时会跳过down掉的服务器。据我简单的尝试发现，似乎健康检查的参数设置能显著影响$$的效果，现在的设置肯定不是最佳的，但我也没什么经验继续调优。现在的work flow就是这样：<p><img src=https://cdn.jsdelivr.net/gh/missdeer/blog@master/media/2018-02-23/haproxy-workflow.svg alt="work flow - https://www.plantuml.com/plantuml/svg/UDfjqh5Emp0G1k3TJ-6H3f58M_P2zmuL6-hWsYTYufoZyxc5ZQVXmNWIZgOf8OaKATRt_v5-IzaaDiIv2KgbscDho3GQeuETQU0n-5VK5f211d5bq9t9CmDgfWo3Y3q7U8haWFOnezj6GY1TFintdYjlQuIKT3bVsCOGIH-3iRLIEvcbJTi6RmtxYAcJb2Zu8vpqYvAZlfpLeSigqr9y_xWMWKv0fVGi5cLVwNGfokUnhaHp6kjQbF9ONUGamVVdbpp_8nH_QmiK7SxNHN4Rhswt4EnNNz-NNhVzZ-xk5xqkPtKr_NmzfT_LKqMbDe1EVeiVECc-cG00"><p>可以通过浏览器打开<code class="language-plaintext highlighter-rouge">http://haproxy-ip:8099/stats</code>查看HAProxy的运行状况：<p><img src=https://cdn.jsdelivr.net/gh/missdeer/blog@master/media/2018-02-23/haproxy-stats.png alt="HAProxy stats"><p>就这样先试用一段时间看看效果再说。<hr><p>2.25 update:<p>不少网站/app会根据你所用的IP来做出一些对应的变化，比如Google会跳转到对应的国别后缀，Telegram在登录时会刷新出对应的电话国际区号，所以HAProxy的配置中一组后端只配置同一国家的线路为好，上面的stats截图中我就只配置了jp的线路。</div><p><small><span class=post-date><time class=post-date datetime=" 2018-02-23">23 Feb 2018</time></span></small></p><div class=after-post-cats><ul class="tags mb-4"><li><a class=smoothscroll href=//categories.html#gfw>gfw</a></ul></div><div class=after-post-tags><ul class=tags><li><a class=smoothscroll href=//tags.html#GFW>#GFW</a><li><a class=smoothscroll href=//tags.html#HAProxy>#HAProxy</a><li><a class=smoothscroll href=//tags.html#shadowsocks>#shadowsocks</a></ul></div><div class="row PageNavigation d-flex justify-content-between font-weight-bold"><a class="prev d-block col-md-6" href=//2018/02/network-issue-at-home/>&#171;
+家中网络问题一则</a>
+<a class="next d-block col-md-6 text-lg-right" href=//2018/02/qt-unzip/>Qt unzip &#187;</a><div class=clearfix></div></div><link rel=stylesheet href=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/css/pay.min.css><section class=read-more><div><div style="padding:10px 0;margin:20px auto;width:90%;text-align:center"><div style=line-height:2.5>感觉本文不错，不妨小额鼓励我一下！</div><button id=rewardButton disable=enable onclick="var qr=document.getElementById('QR');qr.style.display==='none'?qr.style.display='block':qr.style.display='none'">
+<span>打赏</span></button><div id=QR style=display:block><div id=wechat style=display:inline-block><a href=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/wepay.jpg class=fancybox rel=group><img id=wechat_qr class=lazyimg src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/wepay.jpg alt=微信扫一扫></a><p>微信扫一扫</div><div id=wechat style=display:inline-block><a href=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/alipay.jpg class=fancybox rel=group><img id=alipay_qr class=lazyimg src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/alipay.jpg alt=支付宝扫一扫></a><p>支付宝扫一扫</div></div></div></div></section></div></div></div><div class=container><div id=comments class="row justify-content-center mb-5"><div class=col-md-8><section class=disqus><div id=disqus_thread></div><script>var disqus_shortname='missdeer',disqus_developer=0;(function(){var b=/iphone|ipod|android|blackberry|mini|windows\sce|palm/i.test(navigator.userAgent.toLowerCase()),a;b?$('.dsq-brlink').hide():(a=document.createElement('script'),a.type='text/javascript',a.async=!0,a.src=window.location.protocol+'//'+disqus_shortname+'.disqus.com/embed.js',(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(a))})()</script><noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript><a href=http://disqus.com class=dsq-brlink>如果你看不到评论框，说明<span class=logo-disqus>Disqus</span>被墙了。</a></section></div></div></div></div></div><div class="jumbotron fortags"><div class="d-md-flex h-100"><div class="col-md-4 transpdark align-self-center text-center h-100"><div class="d-md-flex align-items-center justify-content-center h-100"><h2 class="d-md-block align-self-center py-1 font-weight-light">发现 <span class="d-none d-md-inline">→</span></h2></div></div><div class="col-md-8 p-5 align-self-center text-center"><a class="mt-1 mb-1" href=//categories.html#imported-from-CSDN>imported from CSDN (124)</a>
+<a class="mt-1 mb-1" href=//categories.html#Film-&-ACG>Film & ACG (15)</a>
+<a class="mt-1 mb-1" href=//categories.html#Water>Water (170)</a>
+<a class="mt-1 mb-1" href=//categories.html#Shareware>Shareware (151)</a>
+<a class="mt-1 mb-1" href=//categories.html#Software>Software (140)</a>
+<a class="mt-1 mb-1" href=//categories.html#Plugin-Framework>Plugin Framework (28)</a>
+<a class="mt-1 mb-1" href=//categories.html#lookfor>lookfor (36)</a>
+<a class="mt-1 mb-1" href=//categories.html#CPPOOPGPXP>CPPOOPGPXP (87)</a>
+<a class="mt-1 mb-1" href=//categories.html#Lua，Script>Lua，Script (51)</a>
+<a class="mt-1 mb-1" href=//categories.html#Be-Old>Be Old (15)</a>
+<a class="mt-1 mb-1" href=//categories.html#Job>Job (185)</a>
+<a class="mt-1 mb-1" href=//categories.html#mm>mm (48)</a>
+<a class="mt-1 mb-1" href=//categories.html#Emulator>Emulator (3)</a>
+<a class="mt-1 mb-1" href=//categories.html#Execise-Outdoor>Execise Outdoor (13)</a>
+<a class="mt-1 mb-1" href=//categories.html#gfw>gfw (10)</a>
+<a class="mt-1 mb-1" href=//categories.html#Reading>Reading (20)</a>
+<a class="mt-1 mb-1" href=//categories.html#Driving>Driving (16)</a>
+<a class="mt-1 mb-1" href=//categories.html#Mobile>Mobile (15)</a>
+<a class="mt-1 mb-1" href=//categories.html#wxWidgets>wxWidgets (29)</a>
+<a class="mt-1 mb-1" href=//categories.html#WIND>WIND (14)</a>
+<a class="mt-1 mb-1" href=//categories.html#PSP-NDS>PSP NDS (2)</a>
+<a class="mt-1 mb-1" href=//categories.html#CodingStudio>CodingStudio (44)</a>
+<a class="mt-1 mb-1" href=//categories.html#Cryptography>Cryptography (2)</a>
+<a class="mt-1 mb-1" href=//categories.html#Editor，IDE>Editor，IDE (5)</a>
+<a class="mt-1 mb-1" href=//categories.html#TeX>TeX (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#Life>Life (82)</a>
+<a class="mt-1 mb-1" href=//categories.html#Technic>Technic (6)</a>
+<a class="mt-1 mb-1" href=//categories.html#Qt>Qt (28)</a>
+<a class="mt-1 mb-1" href=//categories.html#SNS>SNS (35)</a>
+<a class="mt-1 mb-1" href=//categories.html#Ninayan>Ninayan (35)</a>
+<a class="mt-1 mb-1" href=//categories.html#GUI-Framework>GUI Framework (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#KarenMeu>KarenMeu (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#Kindle>Kindle (3)</a>
+<a class="mt-1 mb-1" href=//categories.html#Coding>Coding (14)</a>
+<a class="mt-1 mb-1" href=//categories.html#Startup>Startup (6)</a>
+<a class="mt-1 mb-1" href=//categories.html#network>network (14)</a>
+<a class="mt-1 mb-1" href=//categories.html#Go>Go (10)</a>
+<a class="mt-1 mb-1" href=//categories.html#idea>idea (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#os>os (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#iOS>iOS (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#Cloud>Cloud (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#device>device (2)</a>
+<a class="mt-1 mb-1" href=//categories.html#embed>embed (6)</a>
+<a class="mt-1 mb-1" href=//categories.html#gochess>gochess (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#Router>Router (3)</a>
+<a class="mt-1 mb-1" href=//categories.html#blog>blog (7)</a></div></div></div><footer class=footer><div class=container><div class=row><div class="col-md-6 col-sm-6 text-center text-lg-left">Copyright © 2021 类库大魔王的挖井日记</div><div class="col-md-6 col-sm-6 text-center text-lg-right"><a target=_blank href=https://www.wowthemes.net/mediumish-free-jekyll-template/>Mediumish Jekyll Theme</a> by WowThemes.net</div></div></div></footer></div><script src=https://cdn.staticfile.org/popper.js/1.14.6/umd/popper.min.js></script><script src=https://cdn.staticfile.org/twitter-bootstrap/4.2.1/js/bootstrap.min.js></script><script src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/js/mediumish.min.js></script><script src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/js/lazyload.min.js></script>

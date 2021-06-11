@@ -1,0 +1,245 @@
+<!doctype html><html lang=en><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><link rel=icon href=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/logo.png><title>Home | 类库大魔王的挖井日记</title><title>Page 48 of 152 for Home | 挖井</title><meta name=generator content="Jekyll v3.9.0"><meta property="og:title" content="Home"><meta property="og:locale" content="en_US"><meta name=description content="挖一口属于自己的井"><meta property="og:description" content="挖一口属于自己的井"><link rel=canonical href=https://blog.ismisv.com/page/48/><meta property="og:url" content="https://blog.ismisv.com/page/48/"><meta property="og:site_name" content="挖井"><link rel=prev href=https://blog.ismisv.com/page/47/><link rel=next href=https://blog.ismisv.com/page/49/><script type=application/ld+json>{"headline":"Home","description":"挖一口属于自己的井","@type":"WebPage","url":"https://blog.ismisv.com/page/48/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://blog.ismisv.com/assets/images/logo.png"}},"@context":"http://schema.org"}</script><link href=https://cdn.staticfile.org/twitter-bootstrap/4.1.3/css/bootstrap.min.css rel=stylesheet><link href=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/css/screen.min.css rel=stylesheet><link href=//assets/css/main.css rel=stylesheet><script src=https://cdn.staticfile.org/jquery/3.3.1/jquery.min.js></script><body class=layout-default><noscript id=deferred-styles><link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel=stylesheet><link href=https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css rel=stylesheet></noscript><nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mediumnavigation nav-down"><div class="container pr-0"><a class=navbar-brand href=//><img src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/logo.png alt=类库大魔王的挖井日记></a>
+<button class=navbar-toggler type=button data-toggle=collapse data-target=#navbarMediumish aria-controls=navbarSupportedContent aria-expanded=false aria-label="Toggle navigation">
+<span class=navbar-toggler-icon></span></button><div class="collapse navbar-collapse" id=navbarMediumish><ul class="navbar-nav ml-auto"><li class=nav-item><a class=nav-link href=// title=博客首页><i class="fab fa-blogger"></i>首页</a><li class=nav-item><a class=nav-link href=//archive/ title=博客文章完整归档><i class="fas fa-archive"></i>归档</a><li class=nav-item><a class=nav-link href=//categories.html title=博客文章所有分类><i class="fas fa-bars"></i>分类</a><li class=nav-item><a class=nav-link href=//tags.html title=博客文章所有标签><i class="fas fa-tags"></i>标签</a><li class=nav-item><a class=nav-link href=//apps/ title=我（近几年）开发的软件作品><i class="fab fa-app-store"></i>软件</a><li class=nav-item><a class=nav-link href=//about/ title=关于本博客><i class="fas fa-user"></i>关于</a><li class=nav-item><a target=_blank class=nav-link href=//links/ title=友情链接><i class="fas fa-link"></i>链接</a><li class=nav-item><a target=_blank class=nav-link href=//feed.xml title=通过RSS订阅本博客><i class="fas fa-rss-square"></i>订阅</a><li class=nav-item><a target=_blank class=nav-link href=https://github.com/missdeer title=我写的一些程序开放了源代码><i class="fab fa-github"></i>代码</a></ul></div></div></nav><div class=site-content><div class=container><div class=mainheading><h1 class=sitetitle>类库大魔王的挖井日记</h1><p class=lead>挖一口属于自己的井</div><div class=main-content><section class=recent-posts><div class=section-title><h2><span>All Stories</span></h2></div><div class="row listrecent"><div class="col-lg-4 col-md-6 mb-30px card-group"><div class="card h-100"><div class=maxthumb><a href=//2010/02/e4-bf-ae-e6-ad-a3-e4-ba-86-e4-b8-80-e5-a0-86-e9-97-ae-e9-a2-98/><img class="img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src=https://img.peapix.com/6692438230687219541_320.jpg alt=修正了一堆问题></a></div><div class=card-body><h2 class=card-title><a class=text-dark href=//2010/02/e4-bf-ae-e6-ad-a3-e4-ba-86-e4-b8-80-e5-a0-86-e9-97-ae-e9-a2-98/>修正了一堆问题</a></h2><h4 class=card-text>　　今天可算是最近两个月来状态最好一天了，修正了一堆问题，以至于调试器工作得像样起来了，剩下只要完成源代码断点的功能，就接近可发布的状态了！
+　　这里简单记一下这些已解决的问题。
+　　一开始，是有各种奇怪的问题的，比如在Lua扩展中解析XML格式的回应信息时，会报invalid node，有时候又会报call stack节点不存在，有时候在VS的调试器中运行时，会在分配内存的时候异常。这些问题，最终的原因可能是相同的。我的设计是另有一个工作线程通过socket在与debuggee进程通信，它会接收debuggee进程发回来的回应消息，并把这些回应消息压入一个队列中。而界面线程，会在应用程序消息空闲时，从该队列中撮回应消息，并转发给Lua扩展进行处理。这时我犯了一个错误，我会把一个可能不完整的消息结构体压入队列中，而界面线程取出处理时，并不能检测出是否内容完整。而且，我还是通过动态堆分配来存储这些额外信息，在界面线程中又会去释放这块内存，于是工作线程很可能去读写一块已经无效的内存。
+　　另一个问题是，debuggee有时候会启动即崩溃，通过打印的调试信息显示，是boost::shared_ptr的使用有问题。我仔细检查了代码，发现只有两个boost::shared_ptr，还发现，其中有一个是不必要的，那是一个放在线程函数中的临时对象，生命周期只在该线程函数中有效，所以换成栈上创建就可以了。这样一来，后来经过几次测试，也确实没再出现崩溃。
+　　还有问题是，只能调试一次，再启动debuggee就自动退出了，还有调试的时候用户手动停止调试，debugger会崩溃。其实这是没有仔细划分好各模块的职责，没有仔细设计各模块交互的协议。后来总结发现，如果debuggee要退出，分两种情况，即自动运行完退出和手动强制退出，无论哪种退出，都给Lua扩展发送一个通知，然后Lua扩展把调试端口（socket通信）停掉，而这个通知如果debuggee有能力发（手动强制退出），就让debuggee发，如果没能力（自动运行完），就让debugger发。而手动强制退出，则是只要向debuggee发送个退出命令就可以了。
+　　今天心情真舒畅啊！</h4></div><div class="card-footer bg-white"><div class=wrapfooter><span class=meta-footer-thumb><img class=author-thumb src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/avatar.png alt=类库大魔王></span>
+<span class=author-meta><span class=post-name><a target=_blank href=https://www.ismisv.com>类库大魔王</a></span><br><span class=post-date>27 Feb 2010</span></span>
+<span class=post-read-more><a href=//2010/02/e4-bf-ae-e6-ad-a3-e4-ba-86-e4-b8-80-e5-a0-86-e9-97-ae-e9-a2-98/ title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1.0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5.0 00.706.03L12.5 16.85l5.662 4.126a.508.508.0 00.708-.03.5.5.0 00.118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55.0 1 .45 1 1v13.637l-5.162-3.668a.49.49.0 00-.676.0z" fill-rule="evenodd"/></svg></a></span><div class=clearfix></div></div></div></div></div><div class="col-lg-4 col-md-6 mb-30px card-group"><div class="card h-100"><div class=maxthumb><a href=//2010/02/e8-bf-9b-e5-b1-95-e4-b8-8d-e9-94-99/><img class="img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src=https://img.peapix.com/16259853843380302053_320.jpg alt=进展不错></a></div><div class=card-body><h2 class=card-title><a class=text-dark href=//2010/02/e8-bf-9b-e5-b1-95-e4-b8-8d-e9-94-99/>进展不错</a></h2><h4 class=card-text>　　这两天整调试器，经过不怎样的努力，到现在为止，功能上基本算是具备了，不过就是剩下些bug，主要有：
+　　从debuggee发送过来的信息有时候经过XML解析会出错。
+　　从debuggee发送过来的信息，有时候没有调用栈信息。
+　　断点工作不正常。
+　　有时候刚启动debuggee，debuggee就崩溃。
+　　明后天就集中精力修改这些问题了，哈哈！</h4></div><div class="card-footer bg-white"><div class=wrapfooter><span class=meta-footer-thumb><img class=author-thumb src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/avatar.png alt=类库大魔王></span>
+<span class=author-meta><span class=post-name><a target=_blank href=https://www.ismisv.com>类库大魔王</a></span><br><span class=post-date>26 Feb 2010</span></span>
+<span class=post-read-more><a href=//2010/02/e8-bf-9b-e5-b1-95-e4-b8-8d-e9-94-99/ title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1.0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5.0 00.706.03L12.5 16.85l5.662 4.126a.508.508.0 00.708-.03.5.5.0 00.118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55.0 1 .45 1 1v13.637l-5.162-3.668a.49.49.0 00-.676.0z" fill-rule="evenodd"/></svg></a></span><div class=clearfix></div></div></div></div></div><div class="col-lg-4 col-md-6 mb-30px card-group"><div class="card h-100"><div class=maxthumb><a href=//2010/02/e4-bb-a3-e7-a0-81-e5-90-88-e5-be-97-e6-b2-a1-e9-97-ae-e9-a2-98-ef-bc-8c-e5-93-88-e5-93-88/><img class="img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src=https://img.peapix.com/9344422023662636590_320.jpg alt=代码合得没问题，哈哈></a></div><div class=card-body><h2 class=card-title><a class=text-dark href=//2010/02/e4-bb-a3-e7-a0-81-e5-90-88-e5-be-97-e6-b2-a1-e9-97-ae-e9-a2-98-ef-bc-8c-e5-93-88-e5-93-88/>代码合得没问题，哈哈</a></h2><h4 class=card-text>　　前次说到，我觉得我把wxScintilla的代码合得有问题了，我的程序中使用了wxScintilla不能多选。其实是我毛躁了，没认真看Scintilla的文档。其实当时我也是浏览了一遍代码的，发现在wxScintilla中处理用户输入后，就直接转发到Scintilla的平台无关的代码中去了，而这部分平台无关代码我基本是严格复制了官方Scintilla的代码，所以照理是应该没问题的。昨天在整理《Free Software Collection》一文时，考虑到用什么软件来替代UltraEdit，结果发现SciTE的列编辑模式已经可以做得跟UltraEdit很接近了，看了看修改版的SciTE-Ru，也同样如此。当时我还有点怀疑是不是需要在容器应用程序中做单独的处理，想想又有点不太可能。看了一下SciTE-Ru的配置文件，发现是有这么个选项的，后来就去看Scintilla的文档了，看到在Multiple Selection & Virtual Space一节里，确实有相应的设置选项。
+　　土了啊，代码合得没问题，哈哈！</h4></div><div class="card-footer bg-white"><div class=wrapfooter><span class=meta-footer-thumb><img class=author-thumb src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/avatar.png alt=类库大魔王></span>
+<span class=author-meta><span class=post-name><a target=_blank href=https://www.ismisv.com>类库大魔王</a></span><br><span class=post-date>25 Feb 2010</span></span>
+<span class=post-read-more><a href=//2010/02/e4-bb-a3-e7-a0-81-e5-90-88-e5-be-97-e6-b2-a1-e9-97-ae-e9-a2-98-ef-bc-8c-e5-93-88-e5-93-88/ title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1.0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5.0 00.706.03L12.5 16.85l5.662 4.126a.508.508.0 00.708-.03.5.5.0 00.118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55.0 1 .45 1 1v13.637l-5.162-3.668a.49.49.0 00-.676.0z" fill-rule="evenodd"/></svg></a></span><div class=clearfix></div></div></div></div></div><div class="col-lg-4 col-md-6 mb-30px card-group"><div class="card h-100"><div class=maxthumb><a href=//2010/02/e6-88-90-e5-8a-9f-e6-81-90-e6-83-a7-e7-97-87/><img class="img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src=https://img.peapix.com/14387568248246379564_320.jpg alt=成功恐惧症></a></div><div class=card-body><h2 class=card-title><a class=text-dark href=//2010/02/e6-88-90-e5-8a-9f-e6-81-90-e6-83-a7-e7-97-87/>成功恐惧症</a></h2><h4 class=card-text>　　我是突然发现，原来我患的是这个病：成功恐惧症！在《反模式》中看到，原来我这样的病症并不唯一，很多人都会有，以至于他们都把它写到书中去了！
+　　说到底，还是出于不够自信，以及毅力缺乏。古时候有句话，叫“行百里者半九十”，其中有一层含义就是最后那10%的工作是最难完成的，不光是因为可能工作内容的难度增加，还有执行者心理上的障碍，就像我这样。
+　　一直以来，我都是一个缺乏毅力的人，很少会从头到尾认认真真地完成一件事情。不论是工作，还是其他生活中的琐碎的小事，比如看书，总是会把最后一部分丢掉。以前有领导说我，做事情总是喜欢只做到90分，而不去追求那完美的100，我不以为然，我是有点小骄傲的，有点自以为是的，这种关键部分有技术难度的部分完成了么，剩下的修修补补让别人去做好了！
+　　现在不行了，所有的事情都得亲历亲为了，这个毛病带来的隐患就爆发了，将将引起严重后果了。记得类似的严重情况在公司时有过一次，那是我第一次独立负责一个特性，不但要完成自己的功能，还得提供接口给其他人使用，到了最后那段时间，心里非常焦虑，极度没信心，到后来都是只敢埋头写代码，不敢调试运行，生怕调试不过，把自己打击得再无法拾起从头来过的勇气了。最后运气很不错，因为本来也只是简单地调用别人的接口，我自己的特性完成后，提供给别人的接口基本功能也是能保障的。
+　　眼下我那个调试器部分，已经持续2个月了吧，一直没有正常的进展，实在是挑战我的心理承受能力。我只能强行扭转自己的心理喜好习惯，自我灌输些心理暗示，希望能顺利度过这一关吧！</h4></div><div class="card-footer bg-white"><div class=wrapfooter><span class=meta-footer-thumb><img class=author-thumb src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/avatar.png alt=类库大魔王></span>
+<span class=author-meta><span class=post-name><a target=_blank href=https://www.ismisv.com>类库大魔王</a></span><br><span class=post-date>22 Feb 2010</span></span>
+<span class=post-read-more><a href=//2010/02/e6-88-90-e5-8a-9f-e6-81-90-e6-83-a7-e7-97-87/ title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1.0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5.0 00.706.03L12.5 16.85l5.662 4.126a.508.508.0 00.708-.03.5.5.0 00.118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55.0 1 .45 1 1v13.637l-5.162-3.668a.49.49.0 00-.676.0z" fill-rule="evenodd"/></svg></a></span><div class=clearfix></div></div></div></div></div><div class="col-lg-4 col-md-6 mb-30px card-group"><div class="card h-100"><div class=maxthumb><a href=//2010/02/e5-ae-bf-e5-91-bd-e5-8c-96/><img class="img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src=https://img.peapix.com/14128323597888980402_320.jpg alt=宿命化></a></div><div class=card-body><h2 class=card-title><a class=text-dark href=//2010/02/e5-ae-bf-e5-91-bd-e5-8c-96/>宿命化</a></h2><h4 class=card-text>　　我有经常看一下Google Analytic的习惯，差不多每天上网的话都会去瞧一下。发现有好些访问，从从搜索引擎（Google）那里通过关键字“星座”、“双鱼座”等等过来的，今天还发现有个“双鱼座今年会和喜欢的人在一起吗 ”，让我觉得比较好笑。
+　　我是个有点迷信星座的人，但只迷信它的大概的说法，对于每日/每月/每年的运程，我就不太信了。已经不记得在什么时候了，看过一段有点“伪”科学的解释，星座按出生月份划分，正好当时母亲在怀胎十月以及分娩时分受天气变化的影响，由此可能影响了胎儿的大脑等，就会影响到人的性格，而性格决定命运，所以我觉得似乎是有些道理的。
+　　跟小师妹聊天时，偶尔会提及到我的缺点短处，我常会说“双鱼座就这样的啊”，小师妹就说我太宿命化了。以前确实没想到这层面上去，但被小师妹这么一说，我虽然表面上还说什么扬长避短之类的来狡辩一下，实际上心里有点惊悚的。照理说，我一直以为自己是一个不甘于受命运摆布的人，怎么这事上，就这么懦弱了呢？我一直认为人的出身已经注定，但通过后天努力是可以在一定程度上修改自己的命运的，可是现在想想，对于那些已有的缺点，我或无视之或逃避之，对于它们可能造成的不良影响完全无动于衷，这不是掩耳盗铃儿响叮当嘛！是该好好反省下了。
+　　话说，昨晚居然梦见跟小妞一起看一本围棋书，醒来后真是心有余悸而力不足，不过好像在周公解梦中，男人梦见读书好像是好事呢！</h4></div><div class="card-footer bg-white"><div class=wrapfooter><span class=meta-footer-thumb><img class=author-thumb src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/avatar.png alt=类库大魔王></span>
+<span class=author-meta><span class=post-name><a target=_blank href=https://www.ismisv.com>类库大魔王</a></span><br><span class=post-date>20 Feb 2010</span></span>
+<span class=post-read-more><a href=//2010/02/e5-ae-bf-e5-91-bd-e5-8c-96/ title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1.0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5.0 00.706.03L12.5 16.85l5.662 4.126a.508.508.0 00.708-.03.5.5.0 00.118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55.0 1 .45 1 1v13.637l-5.162-3.668a.49.49.0 00-.676.0z" fill-rule="evenodd"/></svg></a></span><div class=clearfix></div></div></div></div></div><div class="col-lg-4 col-md-6 mb-30px card-group"><div class="card h-100"><div class=maxthumb><a href=//2010/02/e4-bb-a3-e7-a0-81-e5-90-88-e5-be-97-e6-9c-89-e7-82-b9-e9-97-ae-e9-a2-98/><img class="img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src=https://img.peapix.com/14059695330613217922_320.jpg alt=代码合得有点问题></a></div><div class=card-body><h2 class=card-title><a class=text-dark href=//2010/02/e4-bb-a3-e7-a0-81-e5-90-88-e5-be-97-e6-9c-89-e7-82-b9-e9-97-ae-e9-a2-98/>代码合得有点问题</a></h2><h4 class=card-text>　　用了wxScintilla，我一直试图让其中用到的Scintilla代码保持跟官方CVS中的同步。现在发现，还是合得有问题了，功能没合进来，但是光是看代码，我也不知道到底哪里出错了。具体的现象是，现在官方的Scintilla是已经能直接支持多块选择了，昨天试了试我的程序是不行的。不过这个问题暂时倒不要紧，可以放到以后去修改。
+　　看到SciTE开始有实验性的支持使用Lua脚本实现lexer了，不过接口还没有稳定下来。不过我猜这个特性可能不会合到Scintilla里面去，而且即使合进去了，我暂时也没有这个需求。
+　　自从前些天看到TextMate的Bundles的介绍，以及Zen Coding的介绍，心里一直蠢蠢欲动！VS在有VA强大的智能提示的帮助下，或许可以不用这种方式的支持。但对于已经习惯于UNIX使用文化的人来说，这种自动代码生成方式是很符合他们的使用习惯的，而且同时又能极大地提升编码效率。我就开始琢磨着能不能也实现一下。
+　　Zen Coding的效果看来，主要适用于HTML这种从SGML衍生而来的标识语言，这主要是它的语法，以及它的生成代码上的限制，所以如果不是这方面的应用，可以暂时不管它。
+　　而TextMate的Bundles看起来就很让人心动了，以前只是听说过却没有直观地体验过，所以感触不深，前些天看了一些评论和操作视频以及manual，冲击太大了。当然这种机制在Windows平台上命令行工具并不流行，脚本解释器又不默认安装的环境下，可能不如Linux/Unix/Mac上那么突出，但如果能做成对少数几种工具、脚本语言的支持，也是很有诱惑力的。
+　　大概想了下，如果要实现这套机制，要修改一下Scintilla中对Tab和Back Tab的实现。目前Scintilla中的Tab有两种不同的行为，如果选中整行或多行了，则会对选中行进行缩进，其他情况则是插入空格或制表符。在Bundles中或者说Tab Triggers中，Tab又多了两种行为，一个是缩写扩展，如果同时有多个扩展使用相同的缩写，则要显示AutoCompletion下拉框，另一个是缩写扩展后光标自动跳转。所以我的想法是，要在Scintilla原来的两种行为中增加缩写扩展的行为，并在内部保存一个状态，表示缩写扩展后，所有的Tab操作不再进行默认的缩进或插入空格（制表符），而是在这些时候都给个通知，让宿主程序自己处理这个操作。而宿主程序在适合的时候再发个消息给Scintilla重置那个状态，以便Scintilla又退回原来的Tab处理方式。
+　　算了，不说了，先搞定调试器，再来看这个吧！</h4></div><div class="card-footer bg-white"><div class=wrapfooter><span class=meta-footer-thumb><img class=author-thumb src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/avatar.png alt=类库大魔王></span>
+<span class=author-meta><span class=post-name><a target=_blank href=https://www.ismisv.com>类库大魔王</a></span><br><span class=post-date>10 Feb 2010</span></span>
+<span class=post-read-more><a href=//2010/02/e4-bb-a3-e7-a0-81-e5-90-88-e5-be-97-e6-9c-89-e7-82-b9-e9-97-ae-e9-a2-98/ title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1.0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5.0 00.706.03L12.5 16.85l5.662 4.126a.508.508.0 00.708-.03.5.5.0 00.118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55.0 1 .45 1 1v13.637l-5.162-3.668a.49.49.0 00-.676.0z" fill-rule="evenodd"/></svg></a></span><div class=clearfix></div></div></div></div></div><div class="col-lg-4 col-md-6 mb-30px card-group"><div class="card h-100"><div class=maxthumb><a href=//2010/02/windows-e4-b8-8b-e7-bc-96-e8-af-91-e5-99-a8-e5-86-85-e5-ad-98-e5-88-86-e9-85-8d-e9-87-8a-e6-94-be-e6-80-a7-e8-83-bd-e5-af-b9-e6-af-94-ef-bc-88-e7-bb-ad-ef-bc-89/><img class="img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src=https://img.peapix.com/6525754361213355007_320.jpg alt=Windows下编译器内存分配释放性能对比（续）></a></div><div class=card-body><h2 class=card-title><a class=text-dark href=//2010/02/windows-e4-b8-8b-e7-bc-96-e8-af-91-e5-99-a8-e5-86-85-e5-ad-98-e5-88-86-e9-85-8d-e9-87-8a-e6-94-be-e6-80-a7-e8-83-bd-e5-af-b9-e6-af-94-ef-bc-88-e7-bb-ad-ef-bc-89/>Windows下编译器内存分配释放性能对比（续）</a></h2><h4 class=card-text>　　今天搞到了C++Builder2010，里面的bcc是6.21版本，相比bcc5.5，也是经过4个版本升级了，隐约记得在某个版本中，把CRT中的内存管理部分改用FastMM了，所以它的表现应该有所不同。
+　　经过与前一次基本相同的测试，得到结果。从该数据中可以看到，6.21版本提升了多线程情况下的小块内存操作的性能，在1024字节以下的malloc测试中，表现优于所有其他的编译器！但在1M字节以上的测试中，还不如bcc5.5版本。而且，它的new操作耗时比malloc操作耗时多很多，大约是半倍到一倍的样子。在单线程小块内存的操作中，表现可以用技惊四座来形容，直逼OpenWatcom，甚至偶尔略有超越。但是在大块内存操作中，反而都不如原来BCC5.5。
+　　详细测试用可执行程序与测试结果可以点击这里下载。</h4></div><div class="card-footer bg-white"><div class=wrapfooter><span class=meta-footer-thumb><img class=author-thumb src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/avatar.png alt=类库大魔王></span>
+<span class=author-meta><span class=post-name><a target=_blank href=https://www.ismisv.com>类库大魔王</a></span><br><span class=post-date>06 Feb 2010</span></span>
+<span class=post-read-more><a href=//2010/02/windows-e4-b8-8b-e7-bc-96-e8-af-91-e5-99-a8-e5-86-85-e5-ad-98-e5-88-86-e9-85-8d-e9-87-8a-e6-94-be-e6-80-a7-e8-83-bd-e5-af-b9-e6-af-94-ef-bc-88-e7-bb-ad-ef-bc-89/ title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1.0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5.0 00.706.03L12.5 16.85l5.662 4.126a.508.508.0 00.708-.03.5.5.0 00.118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55.0 1 .45 1 1v13.637l-5.162-3.668a.49.49.0 00-.676.0z" fill-rule="evenodd"/></svg></a></span><div class=clearfix></div></div></div></div></div><div class="col-lg-4 col-md-6 mb-30px card-group"><div class="card h-100"><div class=maxthumb><a href=//2010/02/e7-bc-96-e8-af-91-e5-99-a8-e5-86-85-e5-ad-98-e5-88-86-e9-85-8d-e9-87-8a-e6-94-be-e6-80-a7-e8-83-bd-e5-af-b9-e6-af-94/><img class="img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src=https://img.peapix.com/1245795954592745904_320.jpg alt=Windows下编译器内存分配释放性能对比></a></div><div class=card-body><h2 class=card-title><a class=text-dark href=//2010/02/e7-bc-96-e8-af-91-e5-99-a8-e5-86-85-e5-ad-98-e5-88-86-e9-85-8d-e9-87-8a-e6-94-be-e6-80-a7-e8-83-bd-e5-af-b9-e6-af-94/>Windows下编译器内存分配释放性能对比</a></h2><h4 class=card-text>　　前些天有人在群里说起测试malloc和HeapAlloc的效率，后来又在豆瓣上有人讨论起大块内存的策略问题，于是我决心再稍微仔细地测试一下各个编译器在这方面的表现。 　　首先，我选取了OpenWatcom 1.8、Digital Mars 8.51、Borland 5.5、MinGW GCC 4.4.0、MSVC 2008、Intel 11.0.061一共6种编译器，除了Intel C++，其他的编译器都可以在网上下载并免费使用。 　　然后写了一个非常简单的小程序，分别对1字节，1000字节，1024字节，1M字节，10M字节和50M字节进行重复的分配和释放，前三种大小重复15000000次，后三种大小重复150000次。为什么前三种的重复次数是后三种的100倍呢？因为测试过程中我发现，后三种的耗时在某些编译器中太长了，等不及了！ 　　接着，使用所有这些编译器编译出4种不同CRT配置的可执行程序。分别是单线程静态链接，单线程动态链接，多线程静态链接和多线程动态链接。我都是使用bjam的默认参数编译的，其中Intel编译器不能生成单线程静态链接的可执行程序，但我想影响很小，也就不再追究。 　　最后就是运行每个程序，我的机器配置是Thinkpad T43，1.86GHz的P4m，1.5G内存，Windows XP SP3。每种跑10次，计平均时间，可以得到一些有趣的结果。从不同的维度观察这些数据，可以得到不同的结论。 　　先比较不同编译器间的差别。从实际上看，MinGW和Intel都是使用了msvcrt，只不过默认情况下MinGW使用的是6.0版本，Intel则使用当前安装的VC的最高版本的CRT库，我的机器上是9.0，所以总的说来这三者的差别应该不大。 　　在1字节的大小时，Digital Mars表现平稳而出色都在2s出头，而VC、MinGW和Intel都超过3s，OpenWatcom跟VC类似，但在单线程静态链接时就爆发了，只需要1s出头，而Borland在单线程中都只用1s多。 　　1000字节的测试基本与1字节的情况相同，但Digital Mars的耗时却飚升了近1倍！ 　　而1024字节时，VC、MinGW和Intel的耗时又比1000字节时多了近1倍，看来这1000和1024之间有个阀值影响msvcrt使用不同的分配策略。 　　在1M、10M和50M字节的测试中，三个测试的数据差别不大，但与前三者的测试数据比较可以看出，OpenWatcom和DigitalMars的表现平稳，变化不大，但使用msvcrt的三者则耗时飚升，大约是前二者的400~500倍，是1024字节的200~250倍，这个差别比较大！ 　　总的说来，Borland C++只有在单线程，小块内存分配时的表现还不错，这在DOS时代是好的，但进入了Windows时代，程序开发纷纷往多线程，大内存占用的方向发展时，它几乎没有进步。Open Watcom是受分配内存块大小影响最小的，几乎没有变化，而且总体上它在各个横向比较中性能是最好的。Digital Mars略次于Open Watcom，但它在单线程或多线程，静态或动态链接中几乎没有差别，估计最终使用的是同一个CRT库。VC、MinGW和Intel的表现基本相同，除了单线程静态链接小块内存分配外，其他情况都略好于Borland C++，所以可以看到Intel编译器的优化是集中在指令流的调整上，而对内存这块是忽略了。...</h4></div><div class="card-footer bg-white"><div class=wrapfooter><span class=meta-footer-thumb><img class=author-thumb src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/avatar.png alt=类库大魔王></span>
+<span class=author-meta><span class=post-name><a target=_blank href=https://www.ismisv.com>类库大魔王</a></span><br><span class=post-date>05 Feb 2010</span></span>
+<span class=post-read-more><a href=//2010/02/e7-bc-96-e8-af-91-e5-99-a8-e5-86-85-e5-ad-98-e5-88-86-e9-85-8d-e9-87-8a-e6-94-be-e6-80-a7-e8-83-bd-e5-af-b9-e6-af-94/ title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1.0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5.0 00.706.03L12.5 16.85l5.662 4.126a.508.508.0 00.708-.03.5.5.0 00.118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55.0 1 .45 1 1v13.637l-5.162-3.668a.49.49.0 00-.676.0z" fill-rule="evenodd"/></svg></a></span><div class=clearfix></div></div></div></div></div><div class="col-lg-4 col-md-6 mb-30px card-group"><div class="card h-100"><div class=maxthumb><a href=//2010/02/e4-b8-8d-e9-94-99-e7-9a-84-e5-8a-b1-e5-bf-97-e6-ad-8c-e6-9b-b2-e2-80-94-e2-80-94trouble-is-a-friend/><img class="img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src=https://img.peapix.com/7698203178160519772_320.jpg alt="不错的励志歌曲——Trouble Is A Friend"></a></div><div class=card-body><h2 class=card-title><a class=text-dark href=//2010/02/e4-b8-8d-e9-94-99-e7-9a-84-e5-8a-b1-e5-bf-97-e6-ad-8c-e6-9b-b2-e2-80-94-e2-80-94trouble-is-a-friend/>不错的励志歌曲——Trouble Is A Friend</a></h2><h4 class=card-text>　　澳洲甜美歌声，我听了Lenka的12首歌，最后的结论是，只要听这一首就够了！歌词如下： trouble will find you no matter where you go oh oh 麻烦会找到你 不管你往哪里走 哦哦…… no matter if you're fast no matter if you're slow oh oh 不管你是赶路 不管你想停留 哦哦……...</h4></div><div class="card-footer bg-white"><div class=wrapfooter><span class=meta-footer-thumb><img class=author-thumb src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/avatar.png alt=类库大魔王></span>
+<span class=author-meta><span class=post-name><a target=_blank href=https://www.ismisv.com>类库大魔王</a></span><br><span class=post-date>04 Feb 2010</span></span>
+<span class=post-read-more><a href=//2010/02/e4-b8-8d-e9-94-99-e7-9a-84-e5-8a-b1-e5-bf-97-e6-ad-8c-e6-9b-b2-e2-80-94-e2-80-94trouble-is-a-friend/ title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1.0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5.0 00.706.03L12.5 16.85l5.662 4.126a.508.508.0 00.708-.03.5.5.0 00.118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55.0 1 .45 1 1v13.637l-5.162-3.668a.49.49.0 00-.676.0z" fill-rule="evenodd"/></svg></a></span><div class=clearfix></div></div></div></div></div></div></section><div class=bottompagination><div class=pointerup><i class="fa fa-caret-up"></i></div><span class=navigation role=navigation><div class=pagination><a class="ml-1 mr-1" href=/page/47/>&#171; Prev</a>
+<a class="ml-1 mr-1" href=/page/47/>1</a>
+<a class="ml-1 mr-1" href=/page/2/>2</a>
+<a class="ml-1 mr-1" href=/page/3/>3</a>
+<a class="ml-1 mr-1" href=/page/4/>4</a>
+<a class="ml-1 mr-1" href=/page/5/>5</a>
+<a class="ml-1 mr-1" href=/page/6/>6</a>
+<a class="ml-1 mr-1" href=/page/7/>7</a>
+<a class="ml-1 mr-1" href=/page/8/>8</a>
+<a class="ml-1 mr-1" href=/page/9/>9</a>
+<a class="ml-1 mr-1" href=/page/10/>10</a>
+<a class="ml-1 mr-1" href=/page/11/>11</a>
+<a class="ml-1 mr-1" href=/page/12/>12</a>
+<a class="ml-1 mr-1" href=/page/13/>13</a>
+<a class="ml-1 mr-1" href=/page/14/>14</a>
+<a class="ml-1 mr-1" href=/page/15/>15</a>
+<a class="ml-1 mr-1" href=/page/16/>16</a>
+<a class="ml-1 mr-1" href=/page/17/>17</a>
+<a class="ml-1 mr-1" href=/page/18/>18</a>
+<a class="ml-1 mr-1" href=/page/19/>19</a>
+<a class="ml-1 mr-1" href=/page/20/>20</a>
+<a class="ml-1 mr-1" href=/page/21/>21</a>
+<a class="ml-1 mr-1" href=/page/22/>22</a>
+<a class="ml-1 mr-1" href=/page/23/>23</a>
+<a class="ml-1 mr-1" href=/page/24/>24</a>
+<a class="ml-1 mr-1" href=/page/25/>25</a>
+<a class="ml-1 mr-1" href=/page/26/>26</a>
+<a class="ml-1 mr-1" href=/page/27/>27</a>
+<a class="ml-1 mr-1" href=/page/28/>28</a>
+<a class="ml-1 mr-1" href=/page/29/>29</a>
+<a class="ml-1 mr-1" href=/page/30/>30</a>
+<a class="ml-1 mr-1" href=/page/31/>31</a>
+<a class="ml-1 mr-1" href=/page/32/>32</a>
+<a class="ml-1 mr-1" href=/page/33/>33</a>
+<a class="ml-1 mr-1" href=/page/34/>34</a>
+<a class="ml-1 mr-1" href=/page/35/>35</a>
+<a class="ml-1 mr-1" href=/page/36/>36</a>
+<a class="ml-1 mr-1" href=/page/37/>37</a>
+<a class="ml-1 mr-1" href=/page/38/>38</a>
+<a class="ml-1 mr-1" href=/page/39/>39</a>
+<a class="ml-1 mr-1" href=/page/40/>40</a>
+<a class="ml-1 mr-1" href=/page/41/>41</a>
+<a class="ml-1 mr-1" href=/page/42/>42</a>
+<a class="ml-1 mr-1" href=/page/43/>43</a>
+<a class="ml-1 mr-1" href=/page/44/>44</a>
+<a class="ml-1 mr-1" href=/page/45/>45</a>
+<a class="ml-1 mr-1" href=/page/46/>46</a>
+<a class="ml-1 mr-1" href=/page/47/>47</a>
+<span class="ml-1 mr-1">48</span>
+<a class="ml-1 mr-1" href=/page/49/>49</a>
+<a class="ml-1 mr-1" href=/page/50/>50</a>
+<a class="ml-1 mr-1" href=/page/51/>51</a>
+<a class="ml-1 mr-1" href=/page/52/>52</a>
+<a class="ml-1 mr-1" href=/page/53/>53</a>
+<a class="ml-1 mr-1" href=/page/54/>54</a>
+<a class="ml-1 mr-1" href=/page/55/>55</a>
+<a class="ml-1 mr-1" href=/page/56/>56</a>
+<a class="ml-1 mr-1" href=/page/57/>57</a>
+<a class="ml-1 mr-1" href=/page/58/>58</a>
+<a class="ml-1 mr-1" href=/page/59/>59</a>
+<a class="ml-1 mr-1" href=/page/60/>60</a>
+<a class="ml-1 mr-1" href=/page/61/>61</a>
+<a class="ml-1 mr-1" href=/page/62/>62</a>
+<a class="ml-1 mr-1" href=/page/63/>63</a>
+<a class="ml-1 mr-1" href=/page/64/>64</a>
+<a class="ml-1 mr-1" href=/page/65/>65</a>
+<a class="ml-1 mr-1" href=/page/66/>66</a>
+<a class="ml-1 mr-1" href=/page/67/>67</a>
+<a class="ml-1 mr-1" href=/page/68/>68</a>
+<a class="ml-1 mr-1" href=/page/69/>69</a>
+<a class="ml-1 mr-1" href=/page/70/>70</a>
+<a class="ml-1 mr-1" href=/page/71/>71</a>
+<a class="ml-1 mr-1" href=/page/72/>72</a>
+<a class="ml-1 mr-1" href=/page/73/>73</a>
+<a class="ml-1 mr-1" href=/page/74/>74</a>
+<a class="ml-1 mr-1" href=/page/75/>75</a>
+<a class="ml-1 mr-1" href=/page/76/>76</a>
+<a class="ml-1 mr-1" href=/page/77/>77</a>
+<a class="ml-1 mr-1" href=/page/78/>78</a>
+<a class="ml-1 mr-1" href=/page/79/>79</a>
+<a class="ml-1 mr-1" href=/page/80/>80</a>
+<a class="ml-1 mr-1" href=/page/81/>81</a>
+<a class="ml-1 mr-1" href=/page/82/>82</a>
+<a class="ml-1 mr-1" href=/page/83/>83</a>
+<a class="ml-1 mr-1" href=/page/84/>84</a>
+<a class="ml-1 mr-1" href=/page/85/>85</a>
+<a class="ml-1 mr-1" href=/page/86/>86</a>
+<a class="ml-1 mr-1" href=/page/87/>87</a>
+<a class="ml-1 mr-1" href=/page/88/>88</a>
+<a class="ml-1 mr-1" href=/page/89/>89</a>
+<a class="ml-1 mr-1" href=/page/90/>90</a>
+<a class="ml-1 mr-1" href=/page/91/>91</a>
+<a class="ml-1 mr-1" href=/page/92/>92</a>
+<a class="ml-1 mr-1" href=/page/93/>93</a>
+<a class="ml-1 mr-1" href=/page/94/>94</a>
+<a class="ml-1 mr-1" href=/page/95/>95</a>
+<a class="ml-1 mr-1" href=/page/96/>96</a>
+<a class="ml-1 mr-1" href=/page/97/>97</a>
+<a class="ml-1 mr-1" href=/page/98/>98</a>
+<a class="ml-1 mr-1" href=/page/99/>99</a>
+<a class="ml-1 mr-1" href=/page/100/>100</a>
+<a class="ml-1 mr-1" href=/page/101/>101</a>
+<a class="ml-1 mr-1" href=/page/102/>102</a>
+<a class="ml-1 mr-1" href=/page/103/>103</a>
+<a class="ml-1 mr-1" href=/page/104/>104</a>
+<a class="ml-1 mr-1" href=/page/105/>105</a>
+<a class="ml-1 mr-1" href=/page/106/>106</a>
+<a class="ml-1 mr-1" href=/page/107/>107</a>
+<a class="ml-1 mr-1" href=/page/108/>108</a>
+<a class="ml-1 mr-1" href=/page/109/>109</a>
+<a class="ml-1 mr-1" href=/page/110/>110</a>
+<a class="ml-1 mr-1" href=/page/111/>111</a>
+<a class="ml-1 mr-1" href=/page/112/>112</a>
+<a class="ml-1 mr-1" href=/page/113/>113</a>
+<a class="ml-1 mr-1" href=/page/114/>114</a>
+<a class="ml-1 mr-1" href=/page/115/>115</a>
+<a class="ml-1 mr-1" href=/page/116/>116</a>
+<a class="ml-1 mr-1" href=/page/117/>117</a>
+<a class="ml-1 mr-1" href=/page/118/>118</a>
+<a class="ml-1 mr-1" href=/page/119/>119</a>
+<a class="ml-1 mr-1" href=/page/120/>120</a>
+<a class="ml-1 mr-1" href=/page/121/>121</a>
+<a class="ml-1 mr-1" href=/page/122/>122</a>
+<a class="ml-1 mr-1" href=/page/123/>123</a>
+<a class="ml-1 mr-1" href=/page/124/>124</a>
+<a class="ml-1 mr-1" href=/page/125/>125</a>
+<a class="ml-1 mr-1" href=/page/126/>126</a>
+<a class="ml-1 mr-1" href=/page/127/>127</a>
+<a class="ml-1 mr-1" href=/page/128/>128</a>
+<a class="ml-1 mr-1" href=/page/129/>129</a>
+<a class="ml-1 mr-1" href=/page/130/>130</a>
+<a class="ml-1 mr-1" href=/page/131/>131</a>
+<a class="ml-1 mr-1" href=/page/132/>132</a>
+<a class="ml-1 mr-1" href=/page/133/>133</a>
+<a class="ml-1 mr-1" href=/page/134/>134</a>
+<a class="ml-1 mr-1" href=/page/135/>135</a>
+<a class="ml-1 mr-1" href=/page/136/>136</a>
+<a class="ml-1 mr-1" href=/page/137/>137</a>
+<a class="ml-1 mr-1" href=/page/138/>138</a>
+<a class="ml-1 mr-1" href=/page/139/>139</a>
+<a class="ml-1 mr-1" href=/page/140/>140</a>
+<a class="ml-1 mr-1" href=/page/141/>141</a>
+<a class="ml-1 mr-1" href=/page/142/>142</a>
+<a class="ml-1 mr-1" href=/page/143/>143</a>
+<a class="ml-1 mr-1" href=/page/144/>144</a>
+<a class="ml-1 mr-1" href=/page/145/>145</a>
+<a class="ml-1 mr-1" href=/page/146/>146</a>
+<a class="ml-1 mr-1" href=/page/147/>147</a>
+<a class="ml-1 mr-1" href=/page/148/>148</a>
+<a class="ml-1 mr-1" href=/page/149/>149</a>
+<a class="ml-1 mr-1" href=/page/150/>150</a>
+<a class="ml-1 mr-1" href=/page/151/>151</a>
+<a class="ml-1 mr-1" href=/page/152/>152</a>
+<a class="ml-1 mr-1" href=/page/49/>Next &#187;</a></div></span></div></div></div><div class="jumbotron fortags"><div class="d-md-flex h-100"><div class="col-md-4 transpdark align-self-center text-center h-100"><div class="d-md-flex align-items-center justify-content-center h-100"><h2 class="d-md-block align-self-center py-1 font-weight-light">发现 <span class="d-none d-md-inline">→</span></h2></div></div><div class="col-md-8 p-5 align-self-center text-center"><a class="mt-1 mb-1" href=//categories.html#imported-from-CSDN>imported from CSDN (124)</a>
+<a class="mt-1 mb-1" href=//categories.html#Film-&-ACG>Film & ACG (15)</a>
+<a class="mt-1 mb-1" href=//categories.html#Water>Water (170)</a>
+<a class="mt-1 mb-1" href=//categories.html#Shareware>Shareware (151)</a>
+<a class="mt-1 mb-1" href=//categories.html#Software>Software (140)</a>
+<a class="mt-1 mb-1" href=//categories.html#Plugin-Framework>Plugin Framework (28)</a>
+<a class="mt-1 mb-1" href=//categories.html#lookfor>lookfor (36)</a>
+<a class="mt-1 mb-1" href=//categories.html#CPPOOPGPXP>CPPOOPGPXP (87)</a>
+<a class="mt-1 mb-1" href=//categories.html#Lua，Script>Lua，Script (51)</a>
+<a class="mt-1 mb-1" href=//categories.html#Be-Old>Be Old (15)</a>
+<a class="mt-1 mb-1" href=//categories.html#Job>Job (185)</a>
+<a class="mt-1 mb-1" href=//categories.html#mm>mm (48)</a>
+<a class="mt-1 mb-1" href=//categories.html#Emulator>Emulator (3)</a>
+<a class="mt-1 mb-1" href=//categories.html#Execise-Outdoor>Execise Outdoor (13)</a>
+<a class="mt-1 mb-1" href=//categories.html#gfw>gfw (10)</a>
+<a class="mt-1 mb-1" href=//categories.html#Reading>Reading (20)</a>
+<a class="mt-1 mb-1" href=//categories.html#Driving>Driving (16)</a>
+<a class="mt-1 mb-1" href=//categories.html#Mobile>Mobile (15)</a>
+<a class="mt-1 mb-1" href=//categories.html#wxWidgets>wxWidgets (29)</a>
+<a class="mt-1 mb-1" href=//categories.html#WIND>WIND (14)</a>
+<a class="mt-1 mb-1" href=//categories.html#PSP-NDS>PSP NDS (2)</a>
+<a class="mt-1 mb-1" href=//categories.html#CodingStudio>CodingStudio (44)</a>
+<a class="mt-1 mb-1" href=//categories.html#Cryptography>Cryptography (2)</a>
+<a class="mt-1 mb-1" href=//categories.html#Editor，IDE>Editor，IDE (5)</a>
+<a class="mt-1 mb-1" href=//categories.html#TeX>TeX (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#Life>Life (82)</a>
+<a class="mt-1 mb-1" href=//categories.html#Technic>Technic (6)</a>
+<a class="mt-1 mb-1" href=//categories.html#Qt>Qt (28)</a>
+<a class="mt-1 mb-1" href=//categories.html#SNS>SNS (35)</a>
+<a class="mt-1 mb-1" href=//categories.html#Ninayan>Ninayan (35)</a>
+<a class="mt-1 mb-1" href=//categories.html#GUI-Framework>GUI Framework (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#KarenMeu>KarenMeu (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#Kindle>Kindle (3)</a>
+<a class="mt-1 mb-1" href=//categories.html#Coding>Coding (14)</a>
+<a class="mt-1 mb-1" href=//categories.html#Startup>Startup (6)</a>
+<a class="mt-1 mb-1" href=//categories.html#network>network (14)</a>
+<a class="mt-1 mb-1" href=//categories.html#Go>Go (10)</a>
+<a class="mt-1 mb-1" href=//categories.html#idea>idea (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#os>os (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#iOS>iOS (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#Cloud>Cloud (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#device>device (2)</a>
+<a class="mt-1 mb-1" href=//categories.html#embed>embed (6)</a>
+<a class="mt-1 mb-1" href=//categories.html#gochess>gochess (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#Router>Router (3)</a>
+<a class="mt-1 mb-1" href=//categories.html#blog>blog (7)</a></div></div></div><footer class=footer><div class=container><div class=row><div class="col-md-6 col-sm-6 text-center text-lg-left">Copyright © 2021 类库大魔王的挖井日记</div><div class="col-md-6 col-sm-6 text-center text-lg-right"><a target=_blank href=https://www.wowthemes.net/mediumish-free-jekyll-template/>Mediumish Jekyll Theme</a> by WowThemes.net</div></div></div></footer></div><script src=https://cdn.staticfile.org/popper.js/1.14.6/umd/popper.min.js></script><script src=https://cdn.staticfile.org/twitter-bootstrap/4.2.1/js/bootstrap.min.js></script><script src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/js/mediumish.min.js></script><script src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/js/lazyload.min.js></script>

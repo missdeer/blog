@@ -1,0 +1,336 @@
+<!doctype html><html lang=en><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><link rel=icon href=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/logo.png><title>折腾Blog及Cloudflare加速优化 | 类库大魔王的挖井日记</title><title>折腾Blog及Cloudflare加速优化 | 挖井</title><meta name=generator content="Jekyll v3.9.0"><meta property="og:title" content="折腾Blog及Cloudflare加速优化"><meta name=author content="missdeer"><meta property="og:locale" content="en_US"><meta name=description content="新学到的Cloudflare玩法，以及blog再折腾"><meta property="og:description" content="新学到的Cloudflare玩法，以及blog再折腾"><link rel=canonical href=https://blog.ismisv.com/2020/06/blog-with-cloudflare/><meta property="og:url" content="https://blog.ismisv.com/2020/06/blog-with-cloudflare/"><meta property="og:site_name" content="挖井"><meta property="og:image" content="https://img.peapix.com/217848e7383248d486b539af576ce8d4_320.jpg"><meta property="og:type" content="article"><meta property="article:published_time" content="2020-06-19T00:00:00+00:00"><script type=application/ld+json>{"headline":"折腾Blog及Cloudflare加速优化","dateModified":"2020-06-19T00:00:00+00:00","description":"新学到的Cloudflare玩法，以及blog再折腾","datePublished":"2020-06-19T00:00:00+00:00","image":"https://img.peapix.com/217848e7383248d486b539af576ce8d4_320.jpg","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.ismisv.com/2020/06/blog-with-cloudflare/"},"url":"https://blog.ismisv.com/2020/06/blog-with-cloudflare/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://blog.ismisv.com/assets/images/logo.png"},"name":"missdeer"},"author":{"@type":"Person","name":"missdeer"},"@context":"http://schema.org"}</script><link href=https://cdn.staticfile.org/twitter-bootstrap/4.1.3/css/bootstrap.min.css rel=stylesheet><link href=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/css/screen.min.css rel=stylesheet><link href=//assets/css/main.css rel=stylesheet><script src=https://cdn.staticfile.org/jquery/3.3.1/jquery.min.js></script><body class=layout-post><noscript id=deferred-styles><link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel=stylesheet><link href=https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css rel=stylesheet></noscript><nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mediumnavigation nav-down"><div class="container pr-0"><a class=navbar-brand href=//><img src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/logo.png alt=类库大魔王的挖井日记></a>
+<button class=navbar-toggler type=button data-toggle=collapse data-target=#navbarMediumish aria-controls=navbarSupportedContent aria-expanded=false aria-label="Toggle navigation">
+<span class=navbar-toggler-icon></span></button><div class="collapse navbar-collapse" id=navbarMediumish><ul class="navbar-nav ml-auto"><li class=nav-item><a class=nav-link href=// title=博客首页><i class="fab fa-blogger"></i>首页</a><li class=nav-item><a class=nav-link href=//archive/ title=博客文章完整归档><i class="fas fa-archive"></i>归档</a><li class=nav-item><a class=nav-link href=//categories.html title=博客文章所有分类><i class="fas fa-bars"></i>分类</a><li class=nav-item><a class=nav-link href=//tags.html title=博客文章所有标签><i class="fas fa-tags"></i>标签</a><li class=nav-item><a class=nav-link href=//apps/ title=我（近几年）开发的软件作品><i class="fab fa-app-store"></i>软件</a><li class=nav-item><a class=nav-link href=//about/ title=关于本博客><i class="fas fa-user"></i>关于</a><li class=nav-item><a target=_blank class=nav-link href=//links/ title=友情链接><i class="fas fa-link"></i>链接</a><li class=nav-item><a target=_blank class=nav-link href=//feed.xml title=通过RSS订阅本博客><i class="fas fa-rss-square"></i>订阅</a><li class=nav-item><a target=_blank class=nav-link href=https://github.com/missdeer title=我写的一些程序开放了源代码><i class="fab fa-github"></i>代码</a></ul></div></div></nav><div class=site-content><div class=container><div class=mainheading><h1 class=sitetitle>类库大魔王的挖井日记</h1><p class=lead>挖一口属于自己的井</div><div class=main-content><div class=container><div class=row><div class="col-md-12 flex-first flex-md-unordered"><div class=mainheading><div class="row post-top-meta"><div class="col-xs-12 col-md-3 col-lg-2 text-center text-md-left mb-4 mb-md-0"><img class=author-thumb src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/avatar.png alt=类库大魔王></div><div class="col-xs-12 col-md-9 col-lg-10 text-center text-md-left"><a target=_blank class=link-dark href=https://www.ismisv.com>类库大魔王</a><a target=_blank href=https://twitter.com/missdeerme class="btn follow">Follow</a>
+<span class=author-description>懒惰，傲慢，以及无耐心</span></div></div><h1 class=posttitle>折腾Blog及Cloudflare加速优化</h1></div><div class=article-post><p>虽然现在写blog的频率大不如前，但折腾blog仍然是件很有趣的事，以及新学到些Cloudflare玩法。<p>我的blog是用Jekyll的，本来直接提交到GitHub pages就可以了，但是GitHub pages的Jekyll引擎限制了不能使用plugins，而我几个月前的某一天心血来潮写过简单的插件用于嵌入PlantUML代码直接渲染，所以之后每次提交GitHub都会收到Jekyll build失败的邮件通知。拖了这么久，得益于GitHub Actions的免费使用，这次终于花了点时间改了一下blog。<p>首先是把blog从gh-pages分支切换到master分支，删除原gh-pages分支，然后创建一个GitHub Actions的<a href=https://github.com/missdeer/blog/blob/master/.github/workflows/publish.yml>workflow</a>，在workflow中依次安装好Go和Ruby环境，分别用于build插件/第三方工具和Jekyll，最后将生成的_site目录强行push到gh-pages分支，这样GitHub就会直接通过http serve这些静态文件，可以通过<code class="language-plaintext highlighter-rouge">https://missdeer.github.io/blog/</code>浏览。<p>GitHub pages本身是支持绑定自定义域名的，还能提供SSL，由于众所周知的原因，在国内直连的速度非常非常慢。之前我是直接将自定义域名托管在Cloudflare上，开proxy，这样访问者实际是走了Cloudflare的网络。但因为用的free plan，所以给的两个IP是（国内？）速度不佳的线路。Cloudflare号称在全世界一两百个城市有节点，并且事实上只要能将域名解析到合适的IP，就能享受到更优质的线路，即使是free plan也是如此。<p>这就要用到Cloudflare Worker这项服务。此服务每天可以免费提供10万次请求，每个账号最多可以创建30个Worker。我创建了一个worker，网上找了一段代码略作修改，实现http/https反向代理，代码如下：<div class="language-js highlighter-rouge"><div class=highlight><pre class=highlight><code><table class=rouge-table><tbody><tr><td class="rouge-gutter gl"><pre class=lineno>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+</pre><td class=rouge-code><pre>
+<span class=c1>// Replace texts.</span>
+<span class=kd>const</span> <span class=nx>replace_dict</span> <span class=o>=</span> <span class=p>{</span>
+    <span class=s1>'$upstream'</span><span class=p>:</span> <span class=s1>'$custom_domain'</span><span class=p>,</span>
+    <span class=s1>'//google.com'</span><span class=p>:</span> <span class=s1>''</span>
+<span class=p>}</span>
+
+<span class=nx>addEventListener</span><span class=p>(</span><span class=s1>'fetch'</span><span class=p>,</span> <span class=nx>event</span> <span class=o>=&gt;</span> <span class=p>{</span>
+    <span class=nx>event</span><span class=p>.</span><span class=nx>respondWith</span><span class=p>(</span><span class=nx>fetchAndApply</span><span class=p>(</span><span class=nx>event</span><span class=p>.</span><span class=nx>request</span><span class=p>));</span>
+<span class=p>})</span>
+
+<span class=k>async</span> <span class=kd>function</span> <span class=nx>fetchAndApply</span><span class=p>(</span><span class=nx>request</span><span class=p>)</span> <span class=p>{</span>
+    <span class=kd>let</span> <span class=nx>response</span> <span class=o>=</span> <span class=kc>null</span><span class=p>;</span>
+    <span class=kd>let</span> <span class=nx>url</span> <span class=o>=</span> <span class=k>new</span> <span class=nx>URL</span><span class=p>(</span><span class=nx>request</span><span class=p>.</span><span class=nx>url</span><span class=p>);</span>
+    <span class=kd>let</span> <span class=nx>url_hostname</span> <span class=o>=</span> <span class=nx>url</span><span class=p>.</span><span class=nx>hostname</span><span class=p>;</span>
+    <span class=kd>let</span> <span class=nx>user_agent</span> <span class=o>=</span> <span class=nx>request</span><span class=p>.</span><span class=nx>headers</span><span class=p>.</span><span class=kd>get</span><span class=p>(</span><span class=s1>'user-agent'</span><span class=p>);</span>
+    <span class=kd>let</span> <span class=nx>upstream</span> <span class=o>=</span> <span class=s2>"minidump.info"</span>
+    <span class=kd>let</span> <span class=nx>upstream_path</span> <span class=o>=</span> <span class=s1>'/'</span>
+    <span class=kd>let</span> <span class=nx>disable_cache</span> <span class=o>=</span> <span class=kc>false</span>
+
+    <span class=k>if</span> <span class=p>(</span><span class=nx>user_agent</span> <span class=o>==</span> <span class=kc>undefined</span> <span class=o>||</span> <span class=nx>user_agent</span> <span class=o>==</span> <span class=kc>null</span> <span class=o>||</span> <span class=nx>user_agent</span> <span class=o>==</span> <span class=s2>""</span> <span class=o>||</span> <span class=kr>await</span> <span class=nx>device_status</span><span class=p>(</span><span class=nx>user_agent</span><span class=p>))</span> <span class=p>{</span>
+        <span class=kd>let</span> <span class=nx>domainMap</span> <span class=o>=</span> <span class=k>new</span> <span class=nb>Map</span><span class=p>([</span>
+            <span class=p>[</span><span class=s2>"minidump.info"</span><span class=p>,</span> <span class=s2>"missdeer.github.io"</span><span class=p>],</span>
+            <span class=p>[</span><span class=s2>"www.minidump.info"</span><span class=p>,</span> <span class=s2>"missdeer.github.io"</span><span class=p>]</span>
+        <span class=p>]);</span>
+        <span class=nx>upstream</span> <span class=o>=</span> <span class=nx>domainMap</span><span class=p>.</span><span class=kd>get</span><span class=p>(</span><span class=nx>url</span><span class=p>.</span><span class=nx>hostname</span><span class=p>);</span>
+    <span class=p>}</span> <span class=k>else</span> <span class=p>{</span>
+        <span class=kd>let</span> <span class=nx>domainMobileMap</span> <span class=o>=</span> <span class=k>new</span> <span class=nb>Map</span><span class=p>([</span>
+            <span class=p>[</span><span class=s2>"minidump.info"</span><span class=p>,</span> <span class=s2>"missdeer.github.io"</span><span class=p>],</span>
+            <span class=p>[</span><span class=s2>"www.minidump.info"</span><span class=p>,</span> <span class=s2>"missdeer.github.io"</span><span class=p>]</span>
+        <span class=p>]);</span>
+        <span class=nx>upstream</span> <span class=o>=</span> <span class=nx>domainMobileMap</span><span class=p>.</span><span class=kd>get</span><span class=p>(</span><span class=nx>url</span><span class=p>.</span><span class=nx>hostname</span><span class=p>);</span>
+    <span class=p>}</span>
+
+    <span class=k>if</span> <span class=p>(</span><span class=nx>upstream</span> <span class=o>==</span> <span class=kc>undefined</span><span class=p>)</span> <span class=p>{</span>
+        <span class=kd>let</span> <span class=nx>responseHeaders</span> <span class=o>=</span> <span class=k>new</span> <span class=nx>Headers</span><span class=p>();</span>
+        <span class=kd>let</span> <span class=nx>responseStatus</span> <span class=o>=</span> <span class=mi>404</span><span class=p>;</span>
+        <span class=k>return</span> <span class=k>new</span> <span class=nx>Response</span><span class=p>(</span><span class=s2>"404 not found"</span><span class=p>,</span> <span class=p>{</span>
+            <span class=nx>responseStatus</span><span class=p>,</span>
+            <span class=na>headers</span><span class=p>:</span> <span class=nx>responseHeaders</span>
+        <span class=p>});</span>
+    <span class=p>}</span>
+
+    <span class=nx>url</span><span class=p>.</span><span class=nx>protocol</span> <span class=o>=</span> <span class=s1>'https:'</span><span class=p>;</span>
+
+    <span class=kd>var</span> <span class=nx>upstream_domain</span> <span class=o>=</span> <span class=nx>upstream</span><span class=p>;</span>
+
+    <span class=nx>url</span><span class=p>.</span><span class=nx>host</span> <span class=o>=</span> <span class=nx>upstream_domain</span><span class=p>;</span>
+    <span class=k>if</span> <span class=p>(</span><span class=nx>url</span><span class=p>.</span><span class=nx>pathname</span> <span class=o>==</span> <span class=s1>'/'</span><span class=p>)</span> <span class=p>{</span>
+        <span class=nx>url</span><span class=p>.</span><span class=nx>pathname</span> <span class=o>=</span> <span class=nx>upstream_path</span><span class=p>;</span>
+    <span class=p>}</span> <span class=k>else</span> <span class=p>{</span>
+        <span class=nx>url</span><span class=p>.</span><span class=nx>pathname</span> <span class=o>=</span> <span class=nx>upstream_path</span> <span class=o>+</span> <span class=nx>url</span><span class=p>.</span><span class=nx>pathname</span><span class=p>;</span>
+    <span class=p>}</span>
+
+    <span class=kd>let</span> <span class=nx>method</span> <span class=o>=</span> <span class=nx>request</span><span class=p>.</span><span class=nx>method</span><span class=p>;</span>
+    <span class=kd>let</span> <span class=nx>request_headers</span> <span class=o>=</span> <span class=nx>request</span><span class=p>.</span><span class=nx>headers</span><span class=p>;</span>
+    <span class=kd>let</span> <span class=nx>new_request_headers</span> <span class=o>=</span> <span class=k>new</span> <span class=nx>Headers</span><span class=p>(</span><span class=nx>request_headers</span><span class=p>);</span>
+
+    <span class=nx>new_request_headers</span><span class=p>.</span><span class=kd>set</span><span class=p>(</span><span class=s1>'Host'</span><span class=p>,</span> <span class=nx>upstream_domain</span><span class=p>);</span>
+    <span class=nx>new_request_headers</span><span class=p>.</span><span class=kd>set</span><span class=p>(</span><span class=s1>'Referer'</span><span class=p>,</span> <span class=nx>url</span><span class=p>.</span><span class=nx>protocol</span> <span class=o>+</span> <span class=s1>'//'</span> <span class=o>+</span> <span class=nx>url_hostname</span><span class=p>);</span>
+
+    <span class=kd>let</span> <span class=nx>original_response</span> <span class=o>=</span> <span class=kr>await</span> <span class=nx>fetch</span><span class=p>(</span><span class=nx>url</span><span class=p>.</span><span class=nx>href</span><span class=p>,</span> <span class=p>{</span>
+        <span class=na>method</span><span class=p>:</span> <span class=nx>method</span><span class=p>,</span>
+        <span class=na>headers</span><span class=p>:</span> <span class=nx>new_request_headers</span>
+    <span class=p>})</span>
+
+    <span class=nx>connection_upgrade</span> <span class=o>=</span> <span class=nx>new_request_headers</span><span class=p>.</span><span class=kd>get</span><span class=p>(</span><span class=s2>"Upgrade"</span><span class=p>);</span>
+    <span class=k>if</span> <span class=p>(</span><span class=nx>connection_upgrade</span> <span class=o>&amp;&amp;</span> <span class=nx>connection_upgrade</span><span class=p>.</span><span class=nx>toLowerCase</span><span class=p>()</span> <span class=o>==</span> <span class=s2>"websocket"</span><span class=p>)</span> <span class=p>{</span>
+        <span class=k>return</span> <span class=nx>original_response</span><span class=p>;</span>
+    <span class=p>}</span>
+
+    <span class=kd>let</span> <span class=nx>original_response_clone</span> <span class=o>=</span> <span class=nx>original_response</span><span class=p>.</span><span class=nx>clone</span><span class=p>();</span>
+    <span class=kd>let</span> <span class=nx>original_text</span> <span class=o>=</span> <span class=kc>null</span><span class=p>;</span>
+    <span class=kd>let</span> <span class=nx>response_headers</span> <span class=o>=</span> <span class=nx>original_response</span><span class=p>.</span><span class=nx>headers</span><span class=p>;</span>
+    <span class=kd>let</span> <span class=nx>new_response_headers</span> <span class=o>=</span> <span class=k>new</span> <span class=nx>Headers</span><span class=p>(</span><span class=nx>response_headers</span><span class=p>);</span>
+    <span class=kd>let</span> <span class=nx>status</span> <span class=o>=</span> <span class=nx>original_response</span><span class=p>.</span><span class=nx>status</span><span class=p>;</span>
+
+    <span class=k>if</span> <span class=p>(</span><span class=nx>disable_cache</span><span class=p>)</span> <span class=p>{</span>
+        <span class=nx>new_response_headers</span><span class=p>.</span><span class=kd>set</span><span class=p>(</span><span class=s1>'Cache-Control'</span><span class=p>,</span> <span class=s1>'no-store'</span><span class=p>);</span>
+    <span class=p>}</span>
+
+    <span class=nx>new_response_headers</span><span class=p>.</span><span class=kd>set</span><span class=p>(</span><span class=s1>'access-control-allow-origin'</span><span class=p>,</span> <span class=s1>'*'</span><span class=p>);</span>
+    <span class=nx>new_response_headers</span><span class=p>.</span><span class=kd>set</span><span class=p>(</span><span class=s1>'access-control-allow-credentials'</span><span class=p>,</span> <span class=kc>true</span><span class=p>);</span>
+    <span class=nx>new_response_headers</span><span class=p>.</span><span class=k>delete</span><span class=p>(</span><span class=s1>'content-security-policy'</span><span class=p>);</span>
+    <span class=nx>new_response_headers</span><span class=p>.</span><span class=k>delete</span><span class=p>(</span><span class=s1>'content-security-policy-report-only'</span><span class=p>);</span>
+    <span class=nx>new_response_headers</span><span class=p>.</span><span class=k>delete</span><span class=p>(</span><span class=s1>'clear-site-data'</span><span class=p>);</span>
+
+    <span class=k>if</span> <span class=p>(</span><span class=nx>new_response_headers</span><span class=p>.</span><span class=kd>get</span><span class=p>(</span><span class=s2>"x-pjax-url"</span><span class=p>))</span> <span class=p>{</span>
+        <span class=nx>new_response_headers</span><span class=p>.</span><span class=kd>set</span><span class=p>(</span><span class=s2>"x-pjax-url"</span><span class=p>,</span> <span class=nx>response_headers</span><span class=p>.</span><span class=kd>get</span><span class=p>(</span><span class=s2>"x-pjax-url"</span><span class=p>).</span><span class=nx>replace</span><span class=p>(</span><span class=s2>"//"</span> <span class=o>+</span> <span class=nx>upstream_domain</span><span class=p>,</span> <span class=s2>"//"</span> <span class=o>+</span> <span class=nx>url_hostname</span><span class=p>));</span>
+    <span class=p>}</span>
+
+    <span class=kd>const</span> <span class=nx>content_type</span> <span class=o>=</span> <span class=nx>new_response_headers</span><span class=p>.</span><span class=kd>get</span><span class=p>(</span><span class=s1>'content-type'</span><span class=p>);</span>
+    <span class=k>if</span> <span class=p>(</span><span class=nx>content_type</span> <span class=o>!=</span> <span class=kc>null</span> <span class=o>&amp;&amp;</span> <span class=nx>content_type</span><span class=p>.</span><span class=nx>includes</span><span class=p>(</span><span class=s1>'text/html'</span><span class=p>)</span> <span class=o>&amp;&amp;</span> <span class=nx>content_type</span><span class=p>.</span><span class=nx>includes</span><span class=p>(</span><span class=s1>'UTF-8'</span><span class=p>))</span> <span class=p>{</span>
+        <span class=nx>original_text</span> <span class=o>=</span> <span class=kr>await</span> <span class=nx>replace_response_text</span><span class=p>(</span><span class=nx>original_response_clone</span><span class=p>,</span> <span class=nx>upstream_domain</span><span class=p>,</span> <span class=nx>url_hostname</span><span class=p>);</span>
+    <span class=p>}</span> <span class=k>else</span> <span class=p>{</span>
+        <span class=nx>original_text</span> <span class=o>=</span> <span class=nx>original_response_clone</span><span class=p>.</span><span class=nx>body</span>
+    <span class=p>}</span>
+
+    <span class=nx>response</span> <span class=o>=</span> <span class=k>new</span> <span class=nx>Response</span><span class=p>(</span><span class=nx>original_text</span><span class=p>,</span> <span class=p>{</span>
+        <span class=nx>status</span><span class=p>,</span>
+        <span class=na>headers</span><span class=p>:</span> <span class=nx>new_response_headers</span>
+    <span class=p>})</span>
+
+    <span class=k>return</span> <span class=nx>response</span><span class=p>;</span>
+<span class=p>}</span>
+
+<span class=k>async</span> <span class=kd>function</span> <span class=nx>replace_response_text</span><span class=p>(</span><span class=nx>response</span><span class=p>,</span> <span class=nx>upstream_domain</span><span class=p>,</span> <span class=nx>host_name</span><span class=p>)</span> <span class=p>{</span>
+    <span class=kd>let</span> <span class=nx>text</span> <span class=o>=</span> <span class=kr>await</span> <span class=nx>response</span><span class=p>.</span><span class=nx>text</span><span class=p>()</span>
+
+    <span class=kd>var</span> <span class=nx>i</span><span class=p>,</span> <span class=nx>j</span><span class=p>;</span>
+    <span class=k>for</span> <span class=p>(</span><span class=nx>i</span> <span class=k>in</span> <span class=nx>replace_dict</span><span class=p>)</span> <span class=p>{</span>
+        <span class=nx>j</span> <span class=o>=</span> <span class=nx>replace_dict</span><span class=p>[</span><span class=nx>i</span><span class=p>]</span>
+        <span class=k>if</span> <span class=p>(</span><span class=nx>i</span> <span class=o>==</span> <span class=s1>'$upstream'</span><span class=p>)</span> <span class=p>{</span>
+            <span class=nx>i</span> <span class=o>=</span> <span class=nx>upstream_domain</span>
+        <span class=p>}</span> <span class=k>else</span> <span class=k>if</span> <span class=p>(</span><span class=nx>i</span> <span class=o>==</span> <span class=s1>'$custom_domain'</span><span class=p>)</span> <span class=p>{</span>
+            <span class=nx>i</span> <span class=o>=</span> <span class=nx>host_name</span>
+        <span class=p>}</span>
+
+        <span class=k>if</span> <span class=p>(</span><span class=nx>j</span> <span class=o>==</span> <span class=s1>'$upstream'</span><span class=p>)</span> <span class=p>{</span>
+            <span class=nx>j</span> <span class=o>=</span> <span class=nx>upstream_domain</span>
+        <span class=p>}</span> <span class=k>else</span> <span class=k>if</span> <span class=p>(</span><span class=nx>j</span> <span class=o>==</span> <span class=s1>'$custom_domain'</span><span class=p>)</span> <span class=p>{</span>
+            <span class=nx>j</span> <span class=o>=</span> <span class=nx>host_name</span>
+        <span class=p>}</span>
+
+        <span class=kd>let</span> <span class=nx>re</span> <span class=o>=</span> <span class=k>new</span> <span class=nb>RegExp</span><span class=p>(</span><span class=nx>i</span><span class=p>,</span> <span class=s1>'g'</span><span class=p>)</span>
+        <span class=nx>text</span> <span class=o>=</span> <span class=nx>text</span><span class=p>.</span><span class=nx>replace</span><span class=p>(</span><span class=nx>re</span><span class=p>,</span> <span class=nx>j</span><span class=p>);</span>
+    <span class=p>}</span>
+    <span class=k>return</span> <span class=nx>text</span><span class=p>;</span>
+<span class=p>}</span>
+
+
+<span class=k>async</span> <span class=kd>function</span> <span class=nx>device_status</span><span class=p>(</span><span class=nx>user_agent_info</span><span class=p>)</span> <span class=p>{</span>
+    <span class=kd>var</span> <span class=nx>agents</span> <span class=o>=</span> <span class=p>[</span><span class=s2>"Android"</span><span class=p>,</span> <span class=s2>"iPhone"</span><span class=p>,</span> <span class=s2>"SymbianOS"</span><span class=p>,</span> <span class=s2>"Windows Phone"</span><span class=p>,</span> <span class=s2>"iPad"</span><span class=p>,</span> <span class=s2>"iPod"</span><span class=p>];</span>
+    <span class=kd>var</span> <span class=nx>flag</span> <span class=o>=</span> <span class=kc>true</span><span class=p>;</span>
+    <span class=k>for</span> <span class=p>(</span><span class=kd>var</span> <span class=nx>v</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=nx>v</span> <span class=o>&lt;</span> <span class=nx>agents</span><span class=p>.</span><span class=nx>length</span><span class=p>;</span> <span class=nx>v</span><span class=o>++</span><span class=p>)</span> <span class=p>{</span>
+        <span class=k>if</span> <span class=p>(</span><span class=nx>user_agent_info</span><span class=p>.</span><span class=nx>indexOf</span><span class=p>(</span><span class=nx>agents</span><span class=p>[</span><span class=nx>v</span><span class=p>])</span> <span class=o>&gt;</span> <span class=mi>0</span><span class=p>)</span> <span class=p>{</span>
+            <span class=nx>flag</span> <span class=o>=</span> <span class=kc>false</span><span class=p>;</span>
+            <span class=k>break</span><span class=p>;</span>
+        <span class=p>}</span>
+    <span class=p>}</span>
+    <span class=k>return</span> <span class=nx>flag</span><span class=p>;</span>
+<span class=p>}</span>
+</pre></table></code></pre></div></div><p>懂JS的应该很容易看明白，代码逻辑很简单，只要将面向用户的域名和目标域名分别写入<code class="language-plaintext highlighter-rouge">Map</code>中，这里还区分了桌面和移动端，以后要做更多的反代也只要继续在<code class="language-plaintext highlighter-rouge">Map</code>加条目就行了。<p>保存并部署worker后，到域名设置那里有个<code class="language-plaintext highlighter-rouge">Workers</code>页面，点<code class="language-plaintext highlighter-rouge">Add route</code>，添加路由，我的情况是<code class="language-plaintext highlighter-rouge">route</code>填<code class="language-plaintext highlighter-rouge">*minidump.info/*</code>，<code class="language-plaintext highlighter-rouge">Worker</code>通过下拉框选择前面保存的worker名字<code class="language-plaintext highlighter-rouge">reverseproxy</code>，然后保存。<p>最后，到<code class="language-plaintext highlighter-rouge">DNS</code>页面修改<code class="language-plaintext highlighter-rouge">minidump.info</code>的A记录，Cloudflare最有名的IP大概是<code class="language-plaintext highlighter-rouge">1.1.1.1</code>和<code class="language-plaintext highlighter-rouge">1.0.0.1</code>了，可以设成这两个中的任意一个，但事实上在很多地区这两个IP不是被无脑设坏了，就是被墙了，所以可以改成其他的IP，网上随便搜一下就能发现大量的文章列出了Cloudflare的IP，自己挑一个设上，再到<a href=https://www.17ce.com/>17ce</a>看一下效果，大概比free plan自动给的IP好一点吧。<p>实际用下来的感觉，Cloudflare在国内只能说是能凑合用，再怎么选择IP，总是有不少地区连不上或超时等等。从17ce的结果来看，CDN效果还没有Amazon的CloudFront好。估计Cloudflare在业余玩家中比CloudFront流行的原因是它的免费额度够高。</div><p><small><span class=post-date><time class=post-date datetime=" 2020-06-19">19 Jun 2020</time></span></small></p><div class=after-post-cats><ul class="tags mb-4"><li><a class=smoothscroll href=//categories.html#blog>blog</a></ul></div><div class=after-post-tags><ul class=tags><li><a class=smoothscroll href=//tags.html#Cloudflare>#Cloudflare</a></ul></div><div class="row PageNavigation d-flex justify-content-between font-weight-bold"><a class="prev d-block col-md-6" href=//2020/04/add-tl-ac100/>&#171;
+入手TP-Link TL-AC100</a>
+<a class="next d-block col-md-6 text-lg-right" href=//2020/12/996/>人到中年，我也996了 &#187;</a><div class=clearfix></div></div><link rel=stylesheet href=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/css/pay.min.css><section class=read-more><div><div style="padding:10px 0;margin:20px auto;width:90%;text-align:center"><div style=line-height:2.5>感觉本文不错，不妨小额鼓励我一下！</div><button id=rewardButton disable=enable onclick="var qr=document.getElementById('QR');qr.style.display==='none'?qr.style.display='block':qr.style.display='none'">
+<span>打赏</span></button><div id=QR style=display:block><div id=wechat style=display:inline-block><a href=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/wepay.jpg class=fancybox rel=group><img id=wechat_qr class=lazyimg src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/wepay.jpg alt=微信扫一扫></a><p>微信扫一扫</div><div id=wechat style=display:inline-block><a href=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/alipay.jpg class=fancybox rel=group><img id=alipay_qr class=lazyimg src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/alipay.jpg alt=支付宝扫一扫></a><p>支付宝扫一扫</div></div></div></div></section></div></div></div><div class=container><div id=comments class="row justify-content-center mb-5"><div class=col-md-8><section class=disqus><div id=disqus_thread></div><script>var disqus_shortname='missdeer',disqus_developer=0;(function(){var b=/iphone|ipod|android|blackberry|mini|windows\sce|palm/i.test(navigator.userAgent.toLowerCase()),a;b?$('.dsq-brlink').hide():(a=document.createElement('script'),a.type='text/javascript',a.async=!0,a.src=window.location.protocol+'//'+disqus_shortname+'.disqus.com/embed.js',(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(a))})()</script><noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript><a href=http://disqus.com class=dsq-brlink>如果你看不到评论框，说明<span class=logo-disqus>Disqus</span>被墙了。</a></section></div></div></div></div></div><div class="jumbotron fortags"><div class="d-md-flex h-100"><div class="col-md-4 transpdark align-self-center text-center h-100"><div class="d-md-flex align-items-center justify-content-center h-100"><h2 class="d-md-block align-self-center py-1 font-weight-light">发现 <span class="d-none d-md-inline">→</span></h2></div></div><div class="col-md-8 p-5 align-self-center text-center"><a class="mt-1 mb-1" href=//categories.html#imported-from-CSDN>imported from CSDN (124)</a>
+<a class="mt-1 mb-1" href=//categories.html#Film-&-ACG>Film & ACG (15)</a>
+<a class="mt-1 mb-1" href=//categories.html#Water>Water (170)</a>
+<a class="mt-1 mb-1" href=//categories.html#Shareware>Shareware (151)</a>
+<a class="mt-1 mb-1" href=//categories.html#Software>Software (140)</a>
+<a class="mt-1 mb-1" href=//categories.html#Plugin-Framework>Plugin Framework (28)</a>
+<a class="mt-1 mb-1" href=//categories.html#lookfor>lookfor (36)</a>
+<a class="mt-1 mb-1" href=//categories.html#CPPOOPGPXP>CPPOOPGPXP (87)</a>
+<a class="mt-1 mb-1" href=//categories.html#Lua，Script>Lua，Script (51)</a>
+<a class="mt-1 mb-1" href=//categories.html#Be-Old>Be Old (15)</a>
+<a class="mt-1 mb-1" href=//categories.html#Job>Job (185)</a>
+<a class="mt-1 mb-1" href=//categories.html#mm>mm (48)</a>
+<a class="mt-1 mb-1" href=//categories.html#Emulator>Emulator (3)</a>
+<a class="mt-1 mb-1" href=//categories.html#Execise-Outdoor>Execise Outdoor (13)</a>
+<a class="mt-1 mb-1" href=//categories.html#gfw>gfw (10)</a>
+<a class="mt-1 mb-1" href=//categories.html#Reading>Reading (20)</a>
+<a class="mt-1 mb-1" href=//categories.html#Driving>Driving (16)</a>
+<a class="mt-1 mb-1" href=//categories.html#Mobile>Mobile (15)</a>
+<a class="mt-1 mb-1" href=//categories.html#wxWidgets>wxWidgets (29)</a>
+<a class="mt-1 mb-1" href=//categories.html#WIND>WIND (14)</a>
+<a class="mt-1 mb-1" href=//categories.html#PSP-NDS>PSP NDS (2)</a>
+<a class="mt-1 mb-1" href=//categories.html#CodingStudio>CodingStudio (44)</a>
+<a class="mt-1 mb-1" href=//categories.html#Cryptography>Cryptography (2)</a>
+<a class="mt-1 mb-1" href=//categories.html#Editor，IDE>Editor，IDE (5)</a>
+<a class="mt-1 mb-1" href=//categories.html#TeX>TeX (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#Life>Life (82)</a>
+<a class="mt-1 mb-1" href=//categories.html#Technic>Technic (6)</a>
+<a class="mt-1 mb-1" href=//categories.html#Qt>Qt (28)</a>
+<a class="mt-1 mb-1" href=//categories.html#SNS>SNS (35)</a>
+<a class="mt-1 mb-1" href=//categories.html#Ninayan>Ninayan (35)</a>
+<a class="mt-1 mb-1" href=//categories.html#GUI-Framework>GUI Framework (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#KarenMeu>KarenMeu (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#Kindle>Kindle (3)</a>
+<a class="mt-1 mb-1" href=//categories.html#Coding>Coding (14)</a>
+<a class="mt-1 mb-1" href=//categories.html#Startup>Startup (6)</a>
+<a class="mt-1 mb-1" href=//categories.html#network>network (14)</a>
+<a class="mt-1 mb-1" href=//categories.html#Go>Go (10)</a>
+<a class="mt-1 mb-1" href=//categories.html#idea>idea (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#os>os (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#iOS>iOS (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#Cloud>Cloud (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#device>device (2)</a>
+<a class="mt-1 mb-1" href=//categories.html#embed>embed (6)</a>
+<a class="mt-1 mb-1" href=//categories.html#gochess>gochess (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#Router>Router (3)</a>
+<a class="mt-1 mb-1" href=//categories.html#blog>blog (7)</a></div></div></div><footer class=footer><div class=container><div class=row><div class="col-md-6 col-sm-6 text-center text-lg-left">Copyright © 2021 类库大魔王的挖井日记</div><div class="col-md-6 col-sm-6 text-center text-lg-right"><a target=_blank href=https://www.wowthemes.net/mediumish-free-jekyll-template/>Mediumish Jekyll Theme</a> by WowThemes.net</div></div></div></footer></div><script src=https://cdn.staticfile.org/popper.js/1.14.6/umd/popper.min.js></script><script src=https://cdn.staticfile.org/twitter-bootstrap/4.2.1/js/bootstrap.min.js></script><script src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/js/mediumish.min.js></script><script src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/js/lazyload.min.js></script>

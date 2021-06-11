@@ -1,0 +1,219 @@
+<!doctype html><html lang=en><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><link rel=icon href=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/logo.png><title>Home | 类库大魔王的挖井日记</title><title>Page 88 of 152 for Home | 挖井</title><meta name=generator content="Jekyll v3.9.0"><meta property="og:title" content="Home"><meta property="og:locale" content="en_US"><meta name=description content="挖一口属于自己的井"><meta property="og:description" content="挖一口属于自己的井"><link rel=canonical href=https://blog.ismisv.com/page/88/><meta property="og:url" content="https://blog.ismisv.com/page/88/"><meta property="og:site_name" content="挖井"><link rel=prev href=https://blog.ismisv.com/page/87/><link rel=next href=https://blog.ismisv.com/page/89/><script type=application/ld+json>{"headline":"Home","description":"挖一口属于自己的井","@type":"WebPage","url":"https://blog.ismisv.com/page/88/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://blog.ismisv.com/assets/images/logo.png"}},"@context":"http://schema.org"}</script><link href=https://cdn.staticfile.org/twitter-bootstrap/4.1.3/css/bootstrap.min.css rel=stylesheet><link href=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/css/screen.min.css rel=stylesheet><link href=//assets/css/main.css rel=stylesheet><script src=https://cdn.staticfile.org/jquery/3.3.1/jquery.min.js></script><body class=layout-default><noscript id=deferred-styles><link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel=stylesheet><link href=https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css rel=stylesheet></noscript><nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mediumnavigation nav-down"><div class="container pr-0"><a class=navbar-brand href=//><img src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/logo.png alt=类库大魔王的挖井日记></a>
+<button class=navbar-toggler type=button data-toggle=collapse data-target=#navbarMediumish aria-controls=navbarSupportedContent aria-expanded=false aria-label="Toggle navigation">
+<span class=navbar-toggler-icon></span></button><div class="collapse navbar-collapse" id=navbarMediumish><ul class="navbar-nav ml-auto"><li class=nav-item><a class=nav-link href=// title=博客首页><i class="fab fa-blogger"></i>首页</a><li class=nav-item><a class=nav-link href=//archive/ title=博客文章完整归档><i class="fas fa-archive"></i>归档</a><li class=nav-item><a class=nav-link href=//categories.html title=博客文章所有分类><i class="fas fa-bars"></i>分类</a><li class=nav-item><a class=nav-link href=//tags.html title=博客文章所有标签><i class="fas fa-tags"></i>标签</a><li class=nav-item><a class=nav-link href=//apps/ title=我（近几年）开发的软件作品><i class="fab fa-app-store"></i>软件</a><li class=nav-item><a class=nav-link href=//about/ title=关于本博客><i class="fas fa-user"></i>关于</a><li class=nav-item><a target=_blank class=nav-link href=//links/ title=友情链接><i class="fas fa-link"></i>链接</a><li class=nav-item><a target=_blank class=nav-link href=//feed.xml title=通过RSS订阅本博客><i class="fas fa-rss-square"></i>订阅</a><li class=nav-item><a target=_blank class=nav-link href=https://github.com/missdeer title=我写的一些程序开放了源代码><i class="fab fa-github"></i>代码</a></ul></div></div></nav><div class=site-content><div class=container><div class=mainheading><h1 class=sitetitle>类库大魔王的挖井日记</h1><p class=lead>挖一口属于自己的井</div><div class=main-content><section class=recent-posts><div class=section-title><h2><span>All Stories</span></h2></div><div class="row listrecent"><div class="col-lg-4 col-md-6 mb-30px card-group"><div class="card h-100"><div class=maxthumb><a href=//2008/04/e6-88-91-e4-b9-9ftdd-e4-ba-86/><img class="img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src=https://img.peapix.com/9575430451980409703_320.jpg alt=我也TDD了></a></div><div class=card-body><h2 class=card-title><a class=text-dark href=//2008/04/e6-88-91-e4-b9-9ftdd-e4-ba-86/>我也TDD了</a></h2><h4 class=card-text>　　TDD，即所谓的测试驱动开发，哈哈，我也开始用了。项目负责人花了两天时间总算建起一个可以正常跑起来的CppUnit工程，经过另外一个同事的验证，确实也能加入测试用例来跑。于是我兴高采烈地加入几个正儿八经的测试用例，结果发现用例是跑起来了没错，可是当从VC中想直接check in源代码到VSS中去时，VC就不干了，说两个工程不在同一个起始目录下。因为正式的功能代码是直接从原来的工程那里引用过来的，而偏偏测试工程是放在平行的目录下，因此有了这样的问题。万般无奈之下，只好亲自动手，把测试工程也移入正式工程的目录下，修改一下路径包含，一切OK，check in也没问题了。　　几乎所有看得到的讲到TDD的书、资料上都说，在写功能代码前，要先写好测试用例。但是我发现直接这样做还是比较困难的，我现在的做法基本上是先想好，会有哪些功能类，然后就写好对应的测试类，再写好功能类中的成员函数声明，并用Visual Assist X生成一个空的函数实现，再跑到测试类中添加对应的测试函数，这样测试工程应该还是能跑起来。接着，我基本没按书上说的那样按部就班先写好测试函数内容再写功能函数内容，而是两边来回切换，一边写一点切换到另外一边再写一点，来回倒几次后，也基本都完成了。我不知道我这样做有没有什么不好的地方，反正用CppUnit这样做，进行单元测试确实方便，对于一些算法性的函数实现，直接在功能实现工程中往往不好测试，而放在CppUnit的测试工程里，则是再合适不过了。比如今天从别处抠来一段用WinINet进行Http下载的代码，略作修改，放在测试工程里测试，太方便了。　　另外还有点体会是，设计模式是一定要学的，但总觉得GoF的《设计模式》看得太乏味，太枯燥，太艰苦了。Bob大叔的《敏捷软件开发》，Martin Fowler的《重构》都是要认真看的，还有《重构与模式》、《修改代码的艺术》、《反模式》都要好好看一下。提升个人能力，这些是必经之路。</h4></div><div class="card-footer bg-white"><div class=wrapfooter><span class=meta-footer-thumb><img class=author-thumb src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/avatar.png alt=类库大魔王></span>
+<span class=author-meta><span class=post-name><a target=_blank href=https://www.ismisv.com>类库大魔王</a></span><br><span class=post-date>26 Apr 2008</span></span>
+<span class=post-read-more><a href=//2008/04/e6-88-91-e4-b9-9ftdd-e4-ba-86/ title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1.0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5.0 00.706.03L12.5 16.85l5.662 4.126a.508.508.0 00.708-.03.5.5.0 00.118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55.0 1 .45 1 1v13.637l-5.162-3.668a.49.49.0 00-.676.0z" fill-rule="evenodd"/></svg></a></span><div class=clearfix></div></div></div></div></div><div class="col-lg-4 col-md-6 mb-30px card-group"><div class="card h-100"><div class=maxthumb><a href=//2008/04/e4-bb-8e-e6-89-a9-e5-b1-95-e7-bc-96-e8-be-91-e5-99-a8-e5-bc-80-e5-a7-8b/><img class="img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src=https://img.peapix.com/6914764723108183095_320.jpg alt=从扩展编辑器开始></a></div><div class=card-body><h2 class=card-title><a class=text-dark href=//2008/04/e4-bb-8e-e6-89-a9-e5-b1-95-e7-bc-96-e8-be-91-e5-99-a8-e5-bc-80-e5-a7-8b/>从扩展编辑器开始</a></h2><h4 class=card-text>　　重构auto completion和call tips模块，因为总体设计都被改得天翻地覆，而且决定开始使用TDD的方式进行，所以进度相对来说慢了些，更因为我自己一直静不下心来好好干活，真是令人烦恼啊！　　话说其他一些相对可独立分类的小特性大部分已被我清理出来，但剩下还有一些杂七杂八的功能，我却不想再动了，因为从很早的时候就考虑好了这部分功能不应该由C++代码完成，而应该由host提供的扩展机制使用外部extension实现。但是现在的情况看来，这扩展机制短期内是不会加入的，因为老大似乎不支持这样的做法。另外一点是，组内大概除了我，也再没有其他人有足够深厚的兴趣和迫切的需求实现这么一个框架。　　最早虽然想到了要用扩展，但并没有考虑很多，只是觉得只要能用内部嵌入的那个Ruby解释器执行一段脚本，而那个解释器同时也能访问到内部的一些数据结构和算法，应该就能处理目前的需求了。当时预见得到的需求也确实简单，比如点击一个菜单项，在当前光标位置插入一个字符串，该字符串可能是当前日期或时间等等。我当时想法相当单纯，甚至想的是菜单项还是依旧在资源管理器中画好，消息映射也还是添加好，最后实现的时候再调用Ruby解释器解释一个外部的脚本文件就可以了。即使这样简单，也比纯粹使用C++实现有一定的优势，至少如果需要修改实现逻辑，就只需要修改那个脚本文件，不再需要修改C++代码，不需要重新编译。　　但是自从前几天快速翻看了一遍《Contributing to Eclipse》之后，我就想，要做就做得灵活点，也许不要求完全跟Eclipse一样那么强大有弹性，但也至少要满足以下几个要求：1、在主菜单、弹出式菜单、工具栏（、状态栏）上都可以扩展；2、在扩展之上还可以预留扩展点继续扩展；3、既然用脚本扩展，那么扩展加载应该也像Eclipse那样“懒加载”；4、需要有一种打包策略，足以支持起复杂的多文件的扩展。　　暂时就只想到这些，嗯！重构完auto completion和call tips，就悄悄做这个。</h4></div><div class="card-footer bg-white"><div class=wrapfooter><span class=meta-footer-thumb><img class=author-thumb src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/avatar.png alt=类库大魔王></span>
+<span class=author-meta><span class=post-name><a target=_blank href=https://www.ismisv.com>类库大魔王</a></span><br><span class=post-date>25 Apr 2008</span></span>
+<span class=post-read-more><a href=//2008/04/e4-bb-8e-e6-89-a9-e5-b1-95-e7-bc-96-e8-be-91-e5-99-a8-e5-bc-80-e5-a7-8b/ title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1.0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5.0 00.706.03L12.5 16.85l5.662 4.126a.508.508.0 00.708-.03.5.5.0 00.118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55.0 1 .45 1 1v13.637l-5.162-3.668a.49.49.0 00-.676.0z" fill-rule="evenodd"/></svg></a></span><div class=clearfix></div></div></div></div></div><div class="col-lg-4 col-md-6 mb-30px card-group"><div class="card h-100"><div class=maxthumb><a href=//2008/04/e8-ae-a8-e6-95-99plugins-e8-ae-be-e8-ae-a1/><img class="img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src=https://img.peapix.com/2671600313738979838_320.jpg alt=讨教Plugins设计></a></div><div class=card-body><h2 class=card-title><a class=text-dark href=//2008/04/e8-ae-a8-e6-95-99plugins-e8-ae-be-e8-ae-a1/>讨教Plugins设计</a></h2><h4 class=card-text>　　下午去向人讨教了一下人家怎么设计实现Plugins机制的。据该人士讲述，当时他们的产品2.x版本面对各种千奇百怪的用户需求，以及进度压力（这与我们目前遭遇到的情况类似），经过研究COM相关技术和Eclipse（估计当时也是2.x版本）的Plugins机制，最后在3.0版本实现了目前（也是3.x吧）的Plugins机制。　　首先，该软件产品一般的插件都是通过vbs脚本实现，他们内嵌了vbs脚本解释器，使用的当然是最流行最正规的IActiveScript之道。可以扩展的地方包括主菜单、工具栏、弹出式菜单、状态栏等。像Eclipse及其他很多软件一样，基本的界面元素是用XML描述的，以弹出式菜单为例，在XML中首先会定义视图之类的信息，而弹出式菜单是作为视图信息的子节点出现的，说明这个弹出式菜单是在视图上点击右键才会弹出。这里好像是XML里就直接指定了菜单项的ID，对应Windows程序里的命令ID，而ID范围是程序中已固化规定好的，不能超出这个范围。然后指定一个脚本文件，可能还会具体到其中某个函数，每当菜单项触发时，便调用这段脚本。可能还会有触发前、触发后的选项，可以继续使用自定义脚本扩展实现。另外，菜单项有一个状态，如disabled、checked等等，这是在另外一个属性中设置的，该属性同样是指定一个脚本文件或函数，刚好对应MFC中的ON_UPDATE_COMMAND_UI。还有一点是，菜单可能是针对某种具体的选中项才有项的，所以在XML中描述菜单时，可能会包含一个属性，用于指定对其有效的选中项类型，只有在该类型的界面元素被选中并在上面点击鼠标右键时，才会弹出这个菜单。再有就是菜单等界面元素不可避免的一个问题是国际化，他们是把各种语言对应的字符串信息分别写到不同的配置文件中，描述菜单信息的XML里通过指定个别名或ID来动态查找装入相应的字符串。如果激活扩展插件函数时，需要一些固有信息，而是通过规定的格式书写函数参数。　　其次，除了支持脚本扩展，该软件还支持COM组件形式的Plugins，这种Plugins相比脚本Plugins肯定强大得多，也许就好比Firefox中的Plugins之于Extensions，不过在介绍时他们一带而过，似乎也不是很支持第三方的去使用这种机制。　　最后说一点，为了实现能让vbs脚本访问host程序中的一些信息或方法，他们把所有的东西都用COM接口还实现。似乎这是目前而言，我们能找到的最简单的一种处理方式，所有的状态、中间数据信息都可以保存在host程序中，脚本应该只是描述逻辑，而不保存状态。但这也是我最不屑的，我还是比较欣赏Eclipse（3.0以后用OSGi的不知道有多少变化）的机制，希望我有机会能设计并把它实现！</h4></div><div class="card-footer bg-white"><div class=wrapfooter><span class=meta-footer-thumb><img class=author-thumb src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/avatar.png alt=类库大魔王></span>
+<span class=author-meta><span class=post-name><a target=_blank href=https://www.ismisv.com>类库大魔王</a></span><br><span class=post-date>24 Apr 2008</span></span>
+<span class=post-read-more><a href=//2008/04/e8-ae-a8-e6-95-99plugins-e8-ae-be-e8-ae-a1/ title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1.0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5.0 00.706.03L12.5 16.85l5.662 4.126a.508.508.0 00.708-.03.5.5.0 00.118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55.0 1 .45 1 1v13.637l-5.162-3.668a.49.49.0 00-.676.0z" fill-rule="evenodd"/></svg></a></span><div class=clearfix></div></div></div></div></div><div class="col-lg-4 col-md-6 mb-30px card-group"><div class="card h-100"><div class=maxthumb><a href=//2008/04/e7-bb-a7-e7-bb-ad-e6-95-b4-e7-90-86-e4-bb-a3-e7-a0-81/><img class="img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src=https://img.peapix.com/595975859457403326_320.jpg alt=继续整理代码></a></div><div class=card-body><h2 class=card-title><a class=text-dark href=//2008/04/e7-bb-a7-e7-bb-ad-e6-95-b4-e7-90-86-e4-bb-a3-e7-a0-81/>继续整理代码</a></h2><h4 class=card-text>　　今天又整理了一下代码，又把初始化部分移出来了，居然相关的代码超过1100行，也算是神奇了。现在主要是把相对独立的功能剥离出来，所以并没有仔细地考究里面的代码细节是否写得完美。而且，总感觉现在的结构还不是我理想中的那种样子，但到底做成什么样，我自己也不知道，我想不明白怎么做才能做好。　　另外在看代码的过程中，发现其中有一些是重新发明轮子了，其实有直接简单的实现，却因为对系统的不了解，而自己实现了一把，如果不考虑性能等方面的因素，只是关心代码的整洁清晰的话，当然不要自己的实现了。　　还是要去整那一体化平台，心里总有种抵制的感觉。想去做图形编辑，想实现一个足够灵活的插件框架，唉！</h4></div><div class="card-footer bg-white"><div class=wrapfooter><span class=meta-footer-thumb><img class=author-thumb src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/avatar.png alt=类库大魔王></span>
+<span class=author-meta><span class=post-name><a target=_blank href=https://www.ismisv.com>类库大魔王</a></span><br><span class=post-date>23 Apr 2008</span></span>
+<span class=post-read-more><a href=//2008/04/e7-bb-a7-e7-bb-ad-e6-95-b4-e7-90-86-e4-bb-a3-e7-a0-81/ title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1.0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5.0 00.706.03L12.5 16.85l5.662 4.126a.508.508.0 00.708-.03.5.5.0 00.118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55.0 1 .45 1 1v13.637l-5.162-3.668a.49.49.0 00-.676.0z" fill-rule="evenodd"/></svg></a></span><div class=clearfix></div></div></div></div></div><div class="col-lg-4 col-md-6 mb-30px card-group"><div class="card h-100"><div class=maxthumb><a href=//2008/04/e6-95-b4-e7-90-86-e4-ba-86-e4-b8-80-e4-b8-8b-e6-80-9d-e8-b7-af/><img class="img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src=https://img.peapix.com/6525754361213355007_320.jpg alt=整理了一下思路></a></div><div class=card-body><h2 class=card-title><a class=text-dark href=//2008/04/e6-95-b4-e7-90-86-e4-ba-86-e4-b8-80-e4-b8-8b-e6-80-9d-e8-b7-af/>整理了一下思路</a></h2><h4 class=card-text>　　今天又没动手，人越来越懒了啊！总是在想，既然功能基本正常，就不要去动它了。就像Martin Fowler在书中说的一样。感觉有心无力，唉，心中有那么一点畏惧和抵制。　　不过后来花了点时间，在纸上乱画，针对自动联想功能，清理了一下设计思路。现在的实现真的是很C风格化，所有的代码都是揉合在一个类中，所以相关的功能都在这个类里实现。重构时，希望尽量向OO的方向靠拢，那些设计准则，也要尽量地遵守。　　从现存的代码看，自动联想从表现上看，可以分为3类，分别是Auto Completion、Call Tips、Code Snippet。其中Auto Completion是通过已输入的几个字符，根据上下文环境，给出候选的可能匹配的完整token，Call Tips则是在当输入函数调用的实参时，以tooltip的形式给出函数原型以提示，而Code Snippet则是在用户触发了事先绑定的事件时，根据已输入的字符，或者也可称为命令符，自动以代码片段替换该代表命令的字符串。总之这3种特性都是为了减轻编码者记忆负担，减少键盘敲击次数，降低出错概率。　　当前的实现是当打开一个文件时，或者截获到换行操作时，进行扫描，记录当前文件及其相关包含的变量和常量的定义，除了名称，还需要类型。这样在输入变量时，可以根据名称进行提示，输入方法时，根据类型可以从数据库是查询到相关方法。所以扫描是为了Auto Completion和Call Tips作准备，Code Snippet不需要这些。　　当初实现这些特性时，只考虑到了Ruby语言，所以紧紧围绕着Ruby这个主题开展，代码几乎没留下任何一丝空间以供后续扩展。不过既然这次要重构，无论从设计角度，对象职责上看，或是以后要添加扩展新语言支持，都需要把这块代码剥离出来。一个重要的原则是，剥离出来部分不能再跟界面有耦合了，不然单元测试几乎不能做了。　　界面部分还是全都放在控件类中，控件类调用Auto Completion、Call Tips实现类获取待显示的内容，实现类应该从统一从一个抽象类继承，每个实现类可以对应一种（或一类）语法。这里需要引入一个工厂类。原来的助手类应该拆分成两部分，即代码扫描分析部分和信息存储查询部分。其中代码扫描部分也有一个抽象基类，从它派生出对应各种语法的具体实现类，把扫描分析的结果存储到信息存储部分，同时，信息查询部分从信息存储部分获取内容，信息存储部分的数据一部分来自于扫描分析部分，另一部分来自于固有持久化层，可能是一个数据库，可能是一个文件文件，可能是一种外部输入数据结构。这样，任何一部分的变化，都会尽可能少地影响其他部分的实现，而且这些实现除了界面相关部分，其他的应该都比较容易做单元测试，自我感觉设计得不错，只是可能工作量大了不少，很容易让人产生放弃的念头，呵呵！</h4></div><div class="card-footer bg-white"><div class=wrapfooter><span class=meta-footer-thumb><img class=author-thumb src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/avatar.png alt=类库大魔王></span>
+<span class=author-meta><span class=post-name><a target=_blank href=https://www.ismisv.com>类库大魔王</a></span><br><span class=post-date>22 Apr 2008</span></span>
+<span class=post-read-more><a href=//2008/04/e6-95-b4-e7-90-86-e4-ba-86-e4-b8-80-e4-b8-8b-e6-80-9d-e8-b7-af/ title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1.0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5.0 00.706.03L12.5 16.85l5.662 4.126a.508.508.0 00.708-.03.5.5.0 00.118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55.0 1 .45 1 1v13.637l-5.162-3.668a.49.49.0 00-.676.0z" fill-rule="evenodd"/></svg></a></span><div class=clearfix></div></div></div></div></div><div class="col-lg-4 col-md-6 mb-30px card-group"><div class="card h-100"><div class=maxthumb><a href=//2008/04/e5-9c-a8vc9-e4-b8-8b-e9-9d-a2-e7-94-a8cppunit/><img class="img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src=https://img.peapix.com/4610192687125530248_320.jpg alt=在VC9下面用CppUnit></a></div><div class=card-body><h2 class=card-title><a class=text-dark href=//2008/04/e5-9c-a8vc9-e4-b8-8b-e9-9d-a2-e7-94-a8cppunit/>在VC9下面用CppUnit</a></h2><h4 class=card-text>　　因为主工程是用VC9的，所以想用CppUnit的话，一般说来也是用VC9的。不过很郁闷的是，无论怎么弄，总是不正常，不是编译不过，就是运行就崩溃的，真是奇怪呀！　　如果实在不行，就换用VC7.1来用CppUnit算了，毕竟照在公司里使用CppUnit的经验，在VC7.1下是好好的，可以有经典的红条，绿条，也可以直接输出测试报告到文件中，嗯，今天就先到这里，又费了一晚的时间！</h4></div><div class="card-footer bg-white"><div class=wrapfooter><span class=meta-footer-thumb><img class=author-thumb src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/avatar.png alt=类库大魔王></span>
+<span class=author-meta><span class=post-name><a target=_blank href=https://www.ismisv.com>类库大魔王</a></span><br><span class=post-date>21 Apr 2008</span></span>
+<span class=post-read-more><a href=//2008/04/e5-9c-a8vc9-e4-b8-8b-e9-9d-a2-e7-94-a8cppunit/ title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1.0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5.0 00.706.03L12.5 16.85l5.662 4.126a.508.508.0 00.708-.03.5.5.0 00.118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55.0 1 .45 1 1v13.637l-5.162-3.668a.49.49.0 00-.676.0z" fill-rule="evenodd"/></svg></a></span><div class=clearfix></div></div></div></div></div><div class="col-lg-4 col-md-6 mb-30px card-group"><div class="card h-100"><div class=maxthumb><a href=//2008/04/e4-b8-8d-e9-9c-80-e8-a6-81-e5-88-86-e5-8f-91pdb-e5-95-a6/><img class="img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src=https://img.peapix.com/7605158456508162608_320.jpg alt=不需要分发pdb啦></a></div><div class=card-body><h2 class=card-title><a class=text-dark href=//2008/04/e4-b8-8d-e9-9c-80-e8-a6-81-e5-88-86-e5-8f-91pdb-e5-95-a6/>不需要分发pdb啦</a></h2><h4 class=card-text>　　话说我已经通过抠早期版本FileZilla的代码，能让程序在崩溃那一刻进行dump，但是却只是知道，dump时，如果有相应的pdb文件在搜索路径下，是可以直接得到详尽的信息的，如果当时没有pdb文件，就只能得到一些看似无用的东东。　　其实我错了，大大地错了！也不怪中间各种各样的原因，关键是现在知道只要能保留下可执行文件相配套的pdb和源代码在本地就可以了。当初从别人那里拿来dump文件来分析，是因为搜索路径下的pdb和源代码都是跟那个可执行文件不匹配的！　　我居然还想着通过什么策略把pdb分发出去，哈哈，太可爱太幼稚了！现在终于可以安心地发放可执行文件出去了，只是崩溃报告机制需要好好设计一下，如何能及时地把报告从用户处取回，考虑到公司的网络环境和使用政策，还是要费点劲的。　　另外又引出一个新问题，配置管理怎么做？嗯嗯，越来越复杂哈！</h4></div><div class="card-footer bg-white"><div class=wrapfooter><span class=meta-footer-thumb><img class=author-thumb src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/avatar.png alt=类库大魔王></span>
+<span class=author-meta><span class=post-name><a target=_blank href=https://www.ismisv.com>类库大魔王</a></span><br><span class=post-date>19 Apr 2008</span></span>
+<span class=post-read-more><a href=//2008/04/e4-b8-8d-e9-9c-80-e8-a6-81-e5-88-86-e5-8f-91pdb-e5-95-a6/ title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1.0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5.0 00.706.03L12.5 16.85l5.662 4.126a.508.508.0 00.708-.03.5.5.0 00.118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55.0 1 .45 1 1v13.637l-5.162-3.668a.49.49.0 00-.676.0z" fill-rule="evenodd"/></svg></a></span><div class=clearfix></div></div></div></div></div><div class="col-lg-4 col-md-6 mb-30px card-group"><div class="card h-100"><div class=maxthumb><a href=//2008/04/cruisecontrol-e5-ba-94-e7-94-a8-e5-ae-9e-e8-b7-b5/><img class="img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src=https://img.peapix.com/11475613273588140087_320.jpg alt=CruiseControl应用实践></a></div><div class=card-body><h2 class=card-title><a class=text-dark href=//2008/04/cruisecontrol-e5-ba-94-e7-94-a8-e5-ae-9e-e8-b7-b5/>CruiseControl应用实践</a></h2><h4 class=card-text>　　自从知道CruiseControl之后，一直很喜欢这个东东。这回项目组里开始兴起XP、Agile、Refactoring这些东东，于是我就想着希望能尽可能地向书上、网上写的那样，把CI搞起来，现在这个CruiseControl只用来编译一个发布版本的，照他们的说法，不是持续集成，而是持续编译，而且这里连持续编译都算不上，因为不是自动定时轮循的，而是手工去点一下那个force build按钮。鉴于我一个人在做一个项目，中间也没人过问，极大的自由度，照负责人的说法，试验田。呵呵，这次我就把CppUnit和Code Metric集成了进来。　　我首先弄的是Code Metric。工程是用VC++开发的，于是用了一个在公司内被推广的工具Source Monitor，开始时没有仔细看它的帮助文档，还冒冒然给作者发了封邮件，问他能不能提供一个命令行版本。作者还好，回了封邮件说，Source Monitor本来就是支持命令行的，可以通过写一个XML格式的命令文件，通过命令行进行相关的代码度量工作，简单试了试，果然可以，基本能满足要求。然后又看到Contrib目录下有几个XML文件，通过ANT来转换Source Monitor生成的XML文件，太好了，又学到一招简单易用的，通过几个xsl文件，把Source monitor生成的度量数据用html格式呈现出来，在CruiseControl中没找到合适的地方显示，就只好把这些svg、html文件都拷贝到artifacts目录下。　　然后弄CppUnit。CppUnit其实是个好东西，好处不用多说，但坏处在于它是JUINT的Cpp port，所以某些第三方的支持就不如JUINT的好。比如ANT是直接支持JUINT的，CPPUNIT就不行。另外，CPPUNIT原生支持的XML导出测试报告并不兼容CruiseControl的输入。走了一小点弯路，在网上搜了一下，发现CPPUNIT有个Contrib下的xsl文件，可以把它的原生XML输出转换成JUINT的XML格式输出，于是乎，就可以被CruiseControl接受了，哈哈。便宜说一下，似乎正式发布的源代码包里是没有这个xsl的，但从1.11.0开始就已经有这个了，需要自己从CVS里找。</h4></div><div class="card-footer bg-white"><div class=wrapfooter><span class=meta-footer-thumb><img class=author-thumb src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/avatar.png alt=类库大魔王></span>
+<span class=author-meta><span class=post-name><a target=_blank href=https://www.ismisv.com>类库大魔王</a></span><br><span class=post-date>17 Apr 2008</span></span>
+<span class=post-read-more><a href=//2008/04/cruisecontrol-e5-ba-94-e7-94-a8-e5-ae-9e-e8-b7-b5/ title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1.0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5.0 00.706.03L12.5 16.85l5.662 4.126a.508.508.0 00.708-.03.5.5.0 00.118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55.0 1 .45 1 1v13.637l-5.162-3.668a.49.49.0 00-.676.0z" fill-rule="evenodd"/></svg></a></span><div class=clearfix></div></div></div></div></div><div class="col-lg-4 col-md-6 mb-30px card-group"><div class="card h-100"><div class=maxthumb><a href=//2008/04/e9-87-8d-e6-9e-84reviewtools/><img class="img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src=https://img.peapix.com/18178561950668247435_320.jpg alt=重构ReviewTools></a></div><div class=card-body><h2 class=card-title><a class=text-dark href=//2008/04/e9-87-8d-e6-9e-84reviewtools/>重构ReviewTools</a></h2><h4 class=card-text>　　今天决定开始对代码审查辅助工具动手，结果发现这个代码写得太复杂了，彻底晕死！本来看起来似乎是个很简单的小程序，功能也算比较简单，就是能添加一些信息，把这些信息保存到一个文件，到需要时能从文件中读出这些信息，另外一个功能是能把信息输出到Excel文件中，或者以一定规则输出到Lotus Notes中。　　结果发现，为了跟Excel和Lotus Notes交互，必然使用到了COM接口，然而奇怪的是，原来那个作者把对Excel和Lotus Notes的操作简单地用VBS封装了一遍，结果是另一种脚本COM组件的形式出现，再在MFC程序中调用这些脚本组件，实在是不必要。　　其次，因为本程序设计的是能在Source Insight中激活并添加信息，所以需要Source Insight的扩展来支持，也许是Source Insight的宏能力比较弱，原作者就设计成在C盘根目录下放置一个很小的cmdline.exe，让宏直接把所有信息当作命令行参数传入给这个小程序，通过它来调用主程序，于是为了在不同进程间传递数据，便把这个主程序设计成了一个进程外组件了。唉，又是COM，烦死人了。我也要把它改成不用COM的，用Event、File Mapping、Metux、Command Line Parameter应该能解决这个问题。　　再次，界面上有个TreeView，TreeView的Data域不知道绑了多少数据上去，晕死！关键是不要绑MSXML的COM接口指针上去啊！　　最后，我要在这个基础上重构的话，工作量比重新做一个大概少不了多少了！</h4></div><div class="card-footer bg-white"><div class=wrapfooter><span class=meta-footer-thumb><img class=author-thumb src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/avatar.png alt=类库大魔王></span>
+<span class=author-meta><span class=post-name><a target=_blank href=https://www.ismisv.com>类库大魔王</a></span><br><span class=post-date>14 Apr 2008</span></span>
+<span class=post-read-more><a href=//2008/04/e9-87-8d-e6-9e-84reviewtools/ title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1.0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5.0 00.706.03L12.5 16.85l5.662 4.126a.508.508.0 00.708-.03.5.5.0 00.118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55.0 1 .45 1 1v13.637l-5.162-3.668a.49.49.0 00-.676.0z" fill-rule="evenodd"/></svg></a></span><div class=clearfix></div></div></div></div></div></div></section><div class=bottompagination><div class=pointerup><i class="fa fa-caret-up"></i></div><span class=navigation role=navigation><div class=pagination><a class="ml-1 mr-1" href=/page/87/>&#171; Prev</a>
+<a class="ml-1 mr-1" href=/page/87/>1</a>
+<a class="ml-1 mr-1" href=/page/2/>2</a>
+<a class="ml-1 mr-1" href=/page/3/>3</a>
+<a class="ml-1 mr-1" href=/page/4/>4</a>
+<a class="ml-1 mr-1" href=/page/5/>5</a>
+<a class="ml-1 mr-1" href=/page/6/>6</a>
+<a class="ml-1 mr-1" href=/page/7/>7</a>
+<a class="ml-1 mr-1" href=/page/8/>8</a>
+<a class="ml-1 mr-1" href=/page/9/>9</a>
+<a class="ml-1 mr-1" href=/page/10/>10</a>
+<a class="ml-1 mr-1" href=/page/11/>11</a>
+<a class="ml-1 mr-1" href=/page/12/>12</a>
+<a class="ml-1 mr-1" href=/page/13/>13</a>
+<a class="ml-1 mr-1" href=/page/14/>14</a>
+<a class="ml-1 mr-1" href=/page/15/>15</a>
+<a class="ml-1 mr-1" href=/page/16/>16</a>
+<a class="ml-1 mr-1" href=/page/17/>17</a>
+<a class="ml-1 mr-1" href=/page/18/>18</a>
+<a class="ml-1 mr-1" href=/page/19/>19</a>
+<a class="ml-1 mr-1" href=/page/20/>20</a>
+<a class="ml-1 mr-1" href=/page/21/>21</a>
+<a class="ml-1 mr-1" href=/page/22/>22</a>
+<a class="ml-1 mr-1" href=/page/23/>23</a>
+<a class="ml-1 mr-1" href=/page/24/>24</a>
+<a class="ml-1 mr-1" href=/page/25/>25</a>
+<a class="ml-1 mr-1" href=/page/26/>26</a>
+<a class="ml-1 mr-1" href=/page/27/>27</a>
+<a class="ml-1 mr-1" href=/page/28/>28</a>
+<a class="ml-1 mr-1" href=/page/29/>29</a>
+<a class="ml-1 mr-1" href=/page/30/>30</a>
+<a class="ml-1 mr-1" href=/page/31/>31</a>
+<a class="ml-1 mr-1" href=/page/32/>32</a>
+<a class="ml-1 mr-1" href=/page/33/>33</a>
+<a class="ml-1 mr-1" href=/page/34/>34</a>
+<a class="ml-1 mr-1" href=/page/35/>35</a>
+<a class="ml-1 mr-1" href=/page/36/>36</a>
+<a class="ml-1 mr-1" href=/page/37/>37</a>
+<a class="ml-1 mr-1" href=/page/38/>38</a>
+<a class="ml-1 mr-1" href=/page/39/>39</a>
+<a class="ml-1 mr-1" href=/page/40/>40</a>
+<a class="ml-1 mr-1" href=/page/41/>41</a>
+<a class="ml-1 mr-1" href=/page/42/>42</a>
+<a class="ml-1 mr-1" href=/page/43/>43</a>
+<a class="ml-1 mr-1" href=/page/44/>44</a>
+<a class="ml-1 mr-1" href=/page/45/>45</a>
+<a class="ml-1 mr-1" href=/page/46/>46</a>
+<a class="ml-1 mr-1" href=/page/47/>47</a>
+<a class="ml-1 mr-1" href=/page/48/>48</a>
+<a class="ml-1 mr-1" href=/page/49/>49</a>
+<a class="ml-1 mr-1" href=/page/50/>50</a>
+<a class="ml-1 mr-1" href=/page/51/>51</a>
+<a class="ml-1 mr-1" href=/page/52/>52</a>
+<a class="ml-1 mr-1" href=/page/53/>53</a>
+<a class="ml-1 mr-1" href=/page/54/>54</a>
+<a class="ml-1 mr-1" href=/page/55/>55</a>
+<a class="ml-1 mr-1" href=/page/56/>56</a>
+<a class="ml-1 mr-1" href=/page/57/>57</a>
+<a class="ml-1 mr-1" href=/page/58/>58</a>
+<a class="ml-1 mr-1" href=/page/59/>59</a>
+<a class="ml-1 mr-1" href=/page/60/>60</a>
+<a class="ml-1 mr-1" href=/page/61/>61</a>
+<a class="ml-1 mr-1" href=/page/62/>62</a>
+<a class="ml-1 mr-1" href=/page/63/>63</a>
+<a class="ml-1 mr-1" href=/page/64/>64</a>
+<a class="ml-1 mr-1" href=/page/65/>65</a>
+<a class="ml-1 mr-1" href=/page/66/>66</a>
+<a class="ml-1 mr-1" href=/page/67/>67</a>
+<a class="ml-1 mr-1" href=/page/68/>68</a>
+<a class="ml-1 mr-1" href=/page/69/>69</a>
+<a class="ml-1 mr-1" href=/page/70/>70</a>
+<a class="ml-1 mr-1" href=/page/71/>71</a>
+<a class="ml-1 mr-1" href=/page/72/>72</a>
+<a class="ml-1 mr-1" href=/page/73/>73</a>
+<a class="ml-1 mr-1" href=/page/74/>74</a>
+<a class="ml-1 mr-1" href=/page/75/>75</a>
+<a class="ml-1 mr-1" href=/page/76/>76</a>
+<a class="ml-1 mr-1" href=/page/77/>77</a>
+<a class="ml-1 mr-1" href=/page/78/>78</a>
+<a class="ml-1 mr-1" href=/page/79/>79</a>
+<a class="ml-1 mr-1" href=/page/80/>80</a>
+<a class="ml-1 mr-1" href=/page/81/>81</a>
+<a class="ml-1 mr-1" href=/page/82/>82</a>
+<a class="ml-1 mr-1" href=/page/83/>83</a>
+<a class="ml-1 mr-1" href=/page/84/>84</a>
+<a class="ml-1 mr-1" href=/page/85/>85</a>
+<a class="ml-1 mr-1" href=/page/86/>86</a>
+<a class="ml-1 mr-1" href=/page/87/>87</a>
+<span class="ml-1 mr-1">88</span>
+<a class="ml-1 mr-1" href=/page/89/>89</a>
+<a class="ml-1 mr-1" href=/page/90/>90</a>
+<a class="ml-1 mr-1" href=/page/91/>91</a>
+<a class="ml-1 mr-1" href=/page/92/>92</a>
+<a class="ml-1 mr-1" href=/page/93/>93</a>
+<a class="ml-1 mr-1" href=/page/94/>94</a>
+<a class="ml-1 mr-1" href=/page/95/>95</a>
+<a class="ml-1 mr-1" href=/page/96/>96</a>
+<a class="ml-1 mr-1" href=/page/97/>97</a>
+<a class="ml-1 mr-1" href=/page/98/>98</a>
+<a class="ml-1 mr-1" href=/page/99/>99</a>
+<a class="ml-1 mr-1" href=/page/100/>100</a>
+<a class="ml-1 mr-1" href=/page/101/>101</a>
+<a class="ml-1 mr-1" href=/page/102/>102</a>
+<a class="ml-1 mr-1" href=/page/103/>103</a>
+<a class="ml-1 mr-1" href=/page/104/>104</a>
+<a class="ml-1 mr-1" href=/page/105/>105</a>
+<a class="ml-1 mr-1" href=/page/106/>106</a>
+<a class="ml-1 mr-1" href=/page/107/>107</a>
+<a class="ml-1 mr-1" href=/page/108/>108</a>
+<a class="ml-1 mr-1" href=/page/109/>109</a>
+<a class="ml-1 mr-1" href=/page/110/>110</a>
+<a class="ml-1 mr-1" href=/page/111/>111</a>
+<a class="ml-1 mr-1" href=/page/112/>112</a>
+<a class="ml-1 mr-1" href=/page/113/>113</a>
+<a class="ml-1 mr-1" href=/page/114/>114</a>
+<a class="ml-1 mr-1" href=/page/115/>115</a>
+<a class="ml-1 mr-1" href=/page/116/>116</a>
+<a class="ml-1 mr-1" href=/page/117/>117</a>
+<a class="ml-1 mr-1" href=/page/118/>118</a>
+<a class="ml-1 mr-1" href=/page/119/>119</a>
+<a class="ml-1 mr-1" href=/page/120/>120</a>
+<a class="ml-1 mr-1" href=/page/121/>121</a>
+<a class="ml-1 mr-1" href=/page/122/>122</a>
+<a class="ml-1 mr-1" href=/page/123/>123</a>
+<a class="ml-1 mr-1" href=/page/124/>124</a>
+<a class="ml-1 mr-1" href=/page/125/>125</a>
+<a class="ml-1 mr-1" href=/page/126/>126</a>
+<a class="ml-1 mr-1" href=/page/127/>127</a>
+<a class="ml-1 mr-1" href=/page/128/>128</a>
+<a class="ml-1 mr-1" href=/page/129/>129</a>
+<a class="ml-1 mr-1" href=/page/130/>130</a>
+<a class="ml-1 mr-1" href=/page/131/>131</a>
+<a class="ml-1 mr-1" href=/page/132/>132</a>
+<a class="ml-1 mr-1" href=/page/133/>133</a>
+<a class="ml-1 mr-1" href=/page/134/>134</a>
+<a class="ml-1 mr-1" href=/page/135/>135</a>
+<a class="ml-1 mr-1" href=/page/136/>136</a>
+<a class="ml-1 mr-1" href=/page/137/>137</a>
+<a class="ml-1 mr-1" href=/page/138/>138</a>
+<a class="ml-1 mr-1" href=/page/139/>139</a>
+<a class="ml-1 mr-1" href=/page/140/>140</a>
+<a class="ml-1 mr-1" href=/page/141/>141</a>
+<a class="ml-1 mr-1" href=/page/142/>142</a>
+<a class="ml-1 mr-1" href=/page/143/>143</a>
+<a class="ml-1 mr-1" href=/page/144/>144</a>
+<a class="ml-1 mr-1" href=/page/145/>145</a>
+<a class="ml-1 mr-1" href=/page/146/>146</a>
+<a class="ml-1 mr-1" href=/page/147/>147</a>
+<a class="ml-1 mr-1" href=/page/148/>148</a>
+<a class="ml-1 mr-1" href=/page/149/>149</a>
+<a class="ml-1 mr-1" href=/page/150/>150</a>
+<a class="ml-1 mr-1" href=/page/151/>151</a>
+<a class="ml-1 mr-1" href=/page/152/>152</a>
+<a class="ml-1 mr-1" href=/page/89/>Next &#187;</a></div></span></div></div></div><div class="jumbotron fortags"><div class="d-md-flex h-100"><div class="col-md-4 transpdark align-self-center text-center h-100"><div class="d-md-flex align-items-center justify-content-center h-100"><h2 class="d-md-block align-self-center py-1 font-weight-light">发现 <span class="d-none d-md-inline">→</span></h2></div></div><div class="col-md-8 p-5 align-self-center text-center"><a class="mt-1 mb-1" href=//categories.html#imported-from-CSDN>imported from CSDN (124)</a>
+<a class="mt-1 mb-1" href=//categories.html#Film-&-ACG>Film & ACG (15)</a>
+<a class="mt-1 mb-1" href=//categories.html#Water>Water (170)</a>
+<a class="mt-1 mb-1" href=//categories.html#Shareware>Shareware (151)</a>
+<a class="mt-1 mb-1" href=//categories.html#Software>Software (140)</a>
+<a class="mt-1 mb-1" href=//categories.html#Plugin-Framework>Plugin Framework (28)</a>
+<a class="mt-1 mb-1" href=//categories.html#lookfor>lookfor (36)</a>
+<a class="mt-1 mb-1" href=//categories.html#CPPOOPGPXP>CPPOOPGPXP (87)</a>
+<a class="mt-1 mb-1" href=//categories.html#Lua，Script>Lua，Script (51)</a>
+<a class="mt-1 mb-1" href=//categories.html#Be-Old>Be Old (15)</a>
+<a class="mt-1 mb-1" href=//categories.html#Job>Job (185)</a>
+<a class="mt-1 mb-1" href=//categories.html#mm>mm (48)</a>
+<a class="mt-1 mb-1" href=//categories.html#Emulator>Emulator (3)</a>
+<a class="mt-1 mb-1" href=//categories.html#Execise-Outdoor>Execise Outdoor (13)</a>
+<a class="mt-1 mb-1" href=//categories.html#gfw>gfw (10)</a>
+<a class="mt-1 mb-1" href=//categories.html#Reading>Reading (20)</a>
+<a class="mt-1 mb-1" href=//categories.html#Driving>Driving (16)</a>
+<a class="mt-1 mb-1" href=//categories.html#Mobile>Mobile (15)</a>
+<a class="mt-1 mb-1" href=//categories.html#wxWidgets>wxWidgets (29)</a>
+<a class="mt-1 mb-1" href=//categories.html#WIND>WIND (14)</a>
+<a class="mt-1 mb-1" href=//categories.html#PSP-NDS>PSP NDS (2)</a>
+<a class="mt-1 mb-1" href=//categories.html#CodingStudio>CodingStudio (44)</a>
+<a class="mt-1 mb-1" href=//categories.html#Cryptography>Cryptography (2)</a>
+<a class="mt-1 mb-1" href=//categories.html#Editor，IDE>Editor，IDE (5)</a>
+<a class="mt-1 mb-1" href=//categories.html#TeX>TeX (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#Life>Life (82)</a>
+<a class="mt-1 mb-1" href=//categories.html#Technic>Technic (6)</a>
+<a class="mt-1 mb-1" href=//categories.html#Qt>Qt (28)</a>
+<a class="mt-1 mb-1" href=//categories.html#SNS>SNS (35)</a>
+<a class="mt-1 mb-1" href=//categories.html#Ninayan>Ninayan (35)</a>
+<a class="mt-1 mb-1" href=//categories.html#GUI-Framework>GUI Framework (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#KarenMeu>KarenMeu (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#Kindle>Kindle (3)</a>
+<a class="mt-1 mb-1" href=//categories.html#Coding>Coding (14)</a>
+<a class="mt-1 mb-1" href=//categories.html#Startup>Startup (6)</a>
+<a class="mt-1 mb-1" href=//categories.html#network>network (14)</a>
+<a class="mt-1 mb-1" href=//categories.html#Go>Go (10)</a>
+<a class="mt-1 mb-1" href=//categories.html#idea>idea (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#os>os (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#iOS>iOS (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#Cloud>Cloud (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#device>device (2)</a>
+<a class="mt-1 mb-1" href=//categories.html#embed>embed (6)</a>
+<a class="mt-1 mb-1" href=//categories.html#gochess>gochess (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#Router>Router (3)</a>
+<a class="mt-1 mb-1" href=//categories.html#blog>blog (7)</a></div></div></div><footer class=footer><div class=container><div class=row><div class="col-md-6 col-sm-6 text-center text-lg-left">Copyright © 2021 类库大魔王的挖井日记</div><div class="col-md-6 col-sm-6 text-center text-lg-right"><a target=_blank href=https://www.wowthemes.net/mediumish-free-jekyll-template/>Mediumish Jekyll Theme</a> by WowThemes.net</div></div></div></footer></div><script src=https://cdn.staticfile.org/popper.js/1.14.6/umd/popper.min.js></script><script src=https://cdn.staticfile.org/twitter-bootstrap/4.2.1/js/bootstrap.min.js></script><script src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/js/mediumish.min.js></script><script src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/js/lazyload.min.js></script>

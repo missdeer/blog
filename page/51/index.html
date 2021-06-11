@@ -1,0 +1,219 @@
+<!doctype html><html lang=en><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><link rel=icon href=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/logo.png><title>Home | 类库大魔王的挖井日记</title><title>Page 51 of 152 for Home | 挖井</title><meta name=generator content="Jekyll v3.9.0"><meta property="og:title" content="Home"><meta property="og:locale" content="en_US"><meta name=description content="挖一口属于自己的井"><meta property="og:description" content="挖一口属于自己的井"><link rel=canonical href=https://blog.ismisv.com/page/51/><meta property="og:url" content="https://blog.ismisv.com/page/51/"><meta property="og:site_name" content="挖井"><link rel=prev href=https://blog.ismisv.com/page/50/><link rel=next href=https://blog.ismisv.com/page/52/><script type=application/ld+json>{"headline":"Home","description":"挖一口属于自己的井","@type":"WebPage","url":"https://blog.ismisv.com/page/51/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://blog.ismisv.com/assets/images/logo.png"}},"@context":"http://schema.org"}</script><link href=https://cdn.staticfile.org/twitter-bootstrap/4.1.3/css/bootstrap.min.css rel=stylesheet><link href=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/css/screen.min.css rel=stylesheet><link href=//assets/css/main.css rel=stylesheet><script src=https://cdn.staticfile.org/jquery/3.3.1/jquery.min.js></script><body class=layout-default><noscript id=deferred-styles><link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel=stylesheet><link href=https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css rel=stylesheet></noscript><nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mediumnavigation nav-down"><div class="container pr-0"><a class=navbar-brand href=//><img src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/logo.png alt=类库大魔王的挖井日记></a>
+<button class=navbar-toggler type=button data-toggle=collapse data-target=#navbarMediumish aria-controls=navbarSupportedContent aria-expanded=false aria-label="Toggle navigation">
+<span class=navbar-toggler-icon></span></button><div class="collapse navbar-collapse" id=navbarMediumish><ul class="navbar-nav ml-auto"><li class=nav-item><a class=nav-link href=// title=博客首页><i class="fab fa-blogger"></i>首页</a><li class=nav-item><a class=nav-link href=//archive/ title=博客文章完整归档><i class="fas fa-archive"></i>归档</a><li class=nav-item><a class=nav-link href=//categories.html title=博客文章所有分类><i class="fas fa-bars"></i>分类</a><li class=nav-item><a class=nav-link href=//tags.html title=博客文章所有标签><i class="fas fa-tags"></i>标签</a><li class=nav-item><a class=nav-link href=//apps/ title=我（近几年）开发的软件作品><i class="fab fa-app-store"></i>软件</a><li class=nav-item><a class=nav-link href=//about/ title=关于本博客><i class="fas fa-user"></i>关于</a><li class=nav-item><a target=_blank class=nav-link href=//links/ title=友情链接><i class="fas fa-link"></i>链接</a><li class=nav-item><a target=_blank class=nav-link href=//feed.xml title=通过RSS订阅本博客><i class="fas fa-rss-square"></i>订阅</a><li class=nav-item><a target=_blank class=nav-link href=https://github.com/missdeer title=我写的一些程序开放了源代码><i class="fab fa-github"></i>代码</a></ul></div></div></nav><div class=site-content><div class=container><div class=mainheading><h1 class=sitetitle>类库大魔王的挖井日记</h1><p class=lead>挖一口属于自己的井</div><div class=main-content><section class=recent-posts><div class=section-title><h2><span>All Stories</span></h2></div><div class="row listrecent"><div class="col-lg-4 col-md-6 mb-30px card-group"><div class="card h-100"><div class=maxthumb><a href=//2009/12/lua-e8-b0-83-e8-af-95-e5-99-a8-e7-a0-94-e7-a9-b6-e7-bb-ad/><img class="img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src=https://img.peapix.com/12311191433204339992_320.jpg alt=Lua调试器研究续></a></div><div class=card-body><h2 class=card-title><a class=text-dark href=//2009/12/lua-e8-b0-83-e8-af-95-e5-99-a8-e7-a0-94-e7-a9-b6-e7-bb-ad/>Lua调试器研究续</a></h2><h4 class=card-text>　　本来以为自己对如何实现一个Lua调试器已经有了足够的知识储备，于是今天就提枪上马，结果无奈地发现，说是一回事，自己做是另一回事。我最终的目标是要达到Decoda那样的效果，但一开始只能慢慢一步一步来，先实现类似lldebug的debuggee部分。但是就算是这样小步开始，也仍然困难重重，很多问题其实我都没有吃透。　　首先是发现在sethook时，只有按line回调是正常的，而call和return都没有回调，这让我感到很迷惑，无论是用C代码的hook还是Lua代码的hook，都是存在这个问题，而且用lldebug是正常的。所以我最早怀疑跟Lua代码有关的猜测也不成立了，只好试图从lldebug的源代码中寻找答案，当然寻找到的lldebug源代码跟我的代码没有本质的区别。最后过了很久才隐约记起来，我用的是LuaJIT，好像它对debug库的支持是有些跟官方Lua不同的地方。于是立马换回官方Lua，发现果然无论是C代码还是Lua代码都照预期的执行了。　　之后是发现，hook的回调是能正常执行了，但程序还是自顾自地跑下去了，那怎么处理单步和断点呢。然后是回头看lldebug代码，发现是在hook回调函数中，处理完对应的事件后，应该要等待命令。一开始我还想不通，要怎么等待命令啊，后来突然明白过来了，比如我这个是控制台操作的，那么在这里接收一个控制台的输入就行了，不就变成运行一下，停一下了嘛！　　我写了两个测试脚本，用于观察Lua的debug库三种hook回调的行为。发现Lua在执行一个脚本文件时，首先是将整个脚本文件看作一个整体，用Lua的话说，应该是一个chunk，而它执行这个chunk是个call操作，所以执行一个脚本文件会先有一个call回调，在整个文件执行完后，会有一个return回调。如果一个脚本文件中又执行了另一个脚本文件，那么就可以到嵌入call/return回调。当执行的代码是一个函数的定义时，会先在函数的end行有一个line回调，然后在函数的function行有一个line回调。当执行的代码是一次函数调用，那么会先在函数体（参数列表后面）的第一行有一次call回调，然后再在该行有一次line回调，在结束函数时，先在函数end行有一次line回调，再在该行有一次return回调。　　再之后是开始考虑要支持哪些调试命令，以及怎么实现。简单地看了一下别的调试器的实现，我就暂定要支持step into，step over，run to cursor，breakpointp这几个操作了，step into大概是最容易实现的，就是debug库中按line回调即可。step over可能稍微麻烦一点，应该先假设是按line回调来处理，如果从该操作开始第一次回调的是call，那么应该记录下call的次数，并计数return回调的次数，直到return回调的次数跟call回调次数相同，再下一次line回调就达到step over的效果了。run to cursor也比较简单，按line回调直到当前光标所在行即可。breakpoint跟run to cursor的处理方法一样。　　除此之外要注意的是coroutine的创建，会返回一个lua_State，所以需要拦截这个创建函数，对这个新创建出来的lua_State也sethook。因此在调试器中还得为不同的lua_State保存各自的调试上下文。　　以上都是不考虑执行效率的做法，在云风的blog上有一篇文章，讲到他设计的一个提高调试器执行脚本效率的方案，似乎是勉强能提高一点性能，但要求用户修改Lua脚本来定期轮循调试器是否有新命令下发。其实在这个基础上，我们可以更进一步，修改Lua脚本的工作由调试器完成，对用户透明。而且定期轮循可以修改成只要下了断点的行的最前面自动插入一个调试器定义的函数调用，也就是将执行控制权再次转移到调试器中。这就比较像C/C++调试器中插入int3的做法了，如果断点是固定的话，那么调试器执行脚本的效率将几乎是无损耗的。除了效率上的提升外，各个调试命令的实现也将变得更加容易。但这个方案有一个问题是，这插入断点指令的操作必然是在脚本文件在被执行前完成的，如果在调试运行过程中有新增断点，那么仍然得退出原来的那种靠debug库line回调的方式了，除非重新启动调试。</h4></div><div class="card-footer bg-white"><div class=wrapfooter><span class=meta-footer-thumb><img class=author-thumb src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/avatar.png alt=类库大魔王></span>
+<span class=author-meta><span class=post-name><a target=_blank href=https://www.ismisv.com>类库大魔王</a></span><br><span class=post-date>28 Dec 2009</span></span>
+<span class=post-read-more><a href=//2009/12/lua-e8-b0-83-e8-af-95-e5-99-a8-e7-a0-94-e7-a9-b6-e7-bb-ad/ title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1.0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5.0 00.706.03L12.5 16.85l5.662 4.126a.508.508.0 00.708-.03.5.5.0 00.118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55.0 1 .45 1 1v13.637l-5.162-3.668a.49.49.0 00-.676.0z" fill-rule="evenodd"/></svg></a></span><div class=clearfix></div></div></div></div></div><div class="col-lg-4 col-md-6 mb-30px card-group"><div class="card h-100"><div class=maxthumb><a href=//2009/12/lua-e8-b0-83-e8-af-95-e5-99-a8-e7-a0-94-e7-a9-b6/><img class="img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src=https://img.peapix.com/450736001084035704_320.jpg alt=Lua调试器研究></a></div><div class=card-body><h2 class=card-title><a class=text-dark href=//2009/12/lua-e8-b0-83-e8-af-95-e5-99-a8-e7-a0-94-e7-a9-b6/>Lua调试器研究</a></h2><h4 class=card-text>　　准备自己实现一个Lua的调试器，以前没做过这方面的工作，所以只好拿现成的开源代码来研究了。　　比较容易找到的调试器代码有好几个，比如lldebug，RemDebug以及wxLua中的那个调试器，各自的实现方式有所不同，但万变不离其宗的是都使用了Lua自己的debug库sethook功能。还有个共同点就是远程调试的架构，而且都是用socket实现的。　　RemDebug完全用Lua写成，一个只有两个文件，加在一起代码才500多行。其中一个文件中实现的是调试引擎，负现各种调试功能的实现，另一个文件是用于实现人机交互的接口。　　lldebug是个日本人写的，简单看了一下，也是跟RemDebug类似分成两部分实现。它的人机交互部分就比较高级，用wxWidgets实现了一个GUI，可以直接在上面打断点，单步，查看回调栈，查看变量等等，可算是debugger部分，另外实现一个单独的程序用于执行Lua脚本，这里可称为debuggee，其实也就是在执行Lua脚本前设置一下调试选项，以及拦截一些Lua的C API。　　wxLua带了一个调试功能，它跟lldebug比较像的一点，有一个独立的程序执行Lua脚本作为debuggee。另一部分则是用C/C++实现的Lua接口，可以由用户自己用Lua脚本来实现debugger，这是它相较于前两者比较独特的一点。　　通过sethook实现的调试器，要特别关注coroutine的处理。　　我一直比较羡慕的是Decoda的那种功能，简单说来就是它可以直接调试其他嵌入了Lua解释器的应用程序执行的Lua脚本。当时我一直想不清楚这是怎么实现的，只是看到它向被调试的应用程序进程注入了一个dll，于是猜测它拦截了应用程序对Lua的C API的调用，而拦截了C API后要做些什么我就不知道了。现在想起来，似乎也就是只要在应用程序执行Lua脚本前，对lua_State设置hook，于是就跟前面提到的那些传统调试器一样了。但另外要注意的问题是，抢在什么时候将这个dll注入，应该拦截哪些C API。如果能在应用程序创建Lua解释器前注入，那么拦截lua_open就可以了，通过修改PE文件的导入表，基本可以达到这个目的。如果不能保证注入的时机，那么比较合适的被拦截C API应该是lua_load，但要注意的是拦截后设置hook时应该注意一个lua_State只要设置一次hook就行了。</h4></div><div class="card-footer bg-white"><div class=wrapfooter><span class=meta-footer-thumb><img class=author-thumb src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/avatar.png alt=类库大魔王></span>
+<span class=author-meta><span class=post-name><a target=_blank href=https://www.ismisv.com>类库大魔王</a></span><br><span class=post-date>27 Dec 2009</span></span>
+<span class=post-read-more><a href=//2009/12/lua-e8-b0-83-e8-af-95-e5-99-a8-e7-a0-94-e7-a9-b6/ title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1.0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5.0 00.706.03L12.5 16.85l5.662 4.126a.508.508.0 00.708-.03.5.5.0 00.118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55.0 1 .45 1 1v13.637l-5.162-3.668a.49.49.0 00-.676.0z" fill-rule="evenodd"/></svg></a></span><div class=clearfix></div></div></div></div></div><div class="col-lg-4 col-md-6 mb-30px card-group"><div class="card h-100"><div class=maxthumb><a href=//2009/12/e6-8f-92-e4-bb-b6-e6-89-93-e5-8c-85/><img class="img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src=https://img.peapix.com/13965216330082187975_320.jpg alt=插件打包></a></div><div class=card-body><h2 class=card-title><a class=text-dark href=//2009/12/e6-8f-92-e4-bb-b6-e6-89-93-e5-8c-85/>插件打包</a></h2><h4 class=card-text>　　前几天，把所有的插件以插件为单位打包成zip了。不过不知道wxWidgets中的zip虚拟文件系统如何支持密码，至少是没找到相关的选项。现在的情况是验证了方案可行性，可以确认功能上的不缺失以及性能上的损耗在可接受的范围内，但真正实用是一定要有密码的，也就是为了保护插件中的源代码。以前还以为带了密码就不方便第三方开发插件了，现在想通了，其实只要我提供一个插件开发环境，其中自带插件打包功能，这样就可以用同一个密码了。既然wxWidgets没有简单方便的接口来支持密码zip，那就只好自己写一个这样的功能了，好在zip实在是一个很大众化的格式，源代码很容易找到。</h4></div><div class="card-footer bg-white"><div class=wrapfooter><span class=meta-footer-thumb><img class=author-thumb src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/avatar.png alt=类库大魔王></span>
+<span class=author-meta><span class=post-name><a target=_blank href=https://www.ismisv.com>类库大魔王</a></span><br><span class=post-date>26 Dec 2009</span></span>
+<span class=post-read-more><a href=//2009/12/e6-8f-92-e4-bb-b6-e6-89-93-e5-8c-85/ title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1.0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5.0 00.706.03L12.5 16.85l5.662 4.126a.508.508.0 00.708-.03.5.5.0 00.118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55.0 1 .45 1 1v13.637l-5.162-3.668a.49.49.0 00-.676.0z" fill-rule="evenodd"/></svg></a></span><div class=clearfix></div></div></div></div></div><div class="col-lg-4 col-md-6 mb-30px card-group"><div class="card h-100"><div class=maxthumb><a href=//2009/12/e3-80-8a-e8-a5-bf-e6-a2-85-e5-8c-97-e3-80-8b/><img class="img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src=https://img.peapix.com/1857711138916794569_320.jpg alt=《西梅北》></a></div><div class=card-body><h2 class=card-title><a class=text-dark href=//2009/12/e3-80-8a-e8-a5-bf-e6-a2-85-e5-8c-97-e3-80-8b/>《西梅北》</a></h2><h4 class=card-text>　　昨天脑袋发热，去买了个新凯越，心里很难过，死要面子活受罪。　　今天早上醒来，心情更加的压抑和沉重，深深的孤独感和失落感以及挫败感。晚上做了个梦，梦见那个小姑娘，叫我帮她的同学（？）远程协助考试，考试的范围是一篇叫《西梅北》的文章。我无比清晰地记着这个题目，想起那个小姑娘，那个让我很后悔的小姑娘。　　看到《间客》中的一句话：“如果将来这个联邦要收拾你……我很想在联邦之外给你留条后路。”不禁热泪盈眶。</h4></div><div class="card-footer bg-white"><div class=wrapfooter><span class=meta-footer-thumb><img class=author-thumb src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/avatar.png alt=类库大魔王></span>
+<span class=author-meta><span class=post-name><a target=_blank href=https://www.ismisv.com>类库大魔王</a></span><br><span class=post-date>22 Dec 2009</span></span>
+<span class=post-read-more><a href=//2009/12/e3-80-8a-e8-a5-bf-e6-a2-85-e5-8c-97-e3-80-8b/ title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1.0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5.0 00.706.03L12.5 16.85l5.662 4.126a.508.508.0 00.708-.03.5.5.0 00.118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55.0 1 .45 1 1v13.637l-5.162-3.668a.49.49.0 00-.676.0z" fill-rule="evenodd"/></svg></a></span><div class=clearfix></div></div></div></div></div><div class="col-lg-4 col-md-6 mb-30px card-group"><div class="card h-100"><div class=maxthumb><a href=//2009/12/e5-9f-ba-e6-9c-ac-e6-90-9e-e5-ae-9a-e8-af-ad-e6-b3-95-e6-a0-91-e8-a7-86-e5-9b-be/><img class="img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src=https://img.peapix.com/12153764394746109937_320.jpg alt=基本搞定语法树视图></a></div><div class=card-body><h2 class=card-title><a class=text-dark href=//2009/12/e5-9f-ba-e6-9c-ac-e6-90-9e-e5-ae-9a-e8-af-ad-e6-b3-95-e6-a0-91-e8-a7-86-e5-9b-be/>基本搞定语法树视图</a></h2><h4 class=card-text>　　今天在宿主程序中做了修改，并添加了插件，可以在适当的时候触发刷新语法树视图。　　刷新语法树的时机其实并不好选择，总的说来，应该在这两个时刻进行刷新：一，文档刚刚打开；二，做出了影响语法树内容的修改。第一点，比较容易做到，但第二点就比较困难了，它包括当前活动文档的切换，以及当前活动文档被修改。切换也是比较容易响应的，但怎样判断一个修改是否影响了语法树内容，就不简单了。我现在的简单做法是，每当有新的行时，就进行刷新，笨了点，但勉强能用。　　刷新语法树的方式，也是需要仔细实现的，我现在的做法完全是为了简单起见，先停止刷新窗口，然后清空整个树，再把整个树的内容都重新添加一遍，再刷新窗口。这样的缺点是在刷新时，能明显地看到整个树视图的闪烁。如果要规避这个问题，应该比较当前树视图中的内容和待刷新的数据，在树视图中逐个判断有新增的，或需要删除的节点，这样就比较流畅了。但这个算法就相对来说复杂，而且可能更耗资源。　　目前我只是让Lua中的函数定义作为语法树视图中的唯一的元素，目前看来效果还可以。其实单就Lua来讲，还可以添加变量的定义以及表的构造。但是眼前可以预见的问题是，变量可能有很多，全列出来可能干扰视线。而表的构造表达方式可以很复杂，而且表是可以在程序中动态增删元素的，这要如何处理。</h4></div><div class="card-footer bg-white"><div class=wrapfooter><span class=meta-footer-thumb><img class=author-thumb src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/avatar.png alt=类库大魔王></span>
+<span class=author-meta><span class=post-name><a target=_blank href=https://www.ismisv.com>类库大魔王</a></span><br><span class=post-date>19 Dec 2009</span></span>
+<span class=post-read-more><a href=//2009/12/e5-9f-ba-e6-9c-ac-e6-90-9e-e5-ae-9a-e8-af-ad-e6-b3-95-e6-a0-91-e8-a7-86-e5-9b-be/ title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1.0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5.0 00.706.03L12.5 16.85l5.662 4.126a.508.508.0 00.708-.03.5.5.0 00.118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55.0 1 .45 1 1v13.637l-5.162-3.668a.49.49.0 00-.676.0z" fill-rule="evenodd"/></svg></a></span><div class=clearfix></div></div></div></div></div><div class="col-lg-4 col-md-6 mb-30px card-group"><div class="card h-100"><div class=maxthumb><a href=//2009/12/e5-88-9d-e6-ad-a5-e6-90-9e-e5-ae-9a-e8-af-ad-e6-b3-95-e6-a0-91/><img class="img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src=https://img.peapix.com/4a47092912dd43c78122ab60f6c22163_320.jpg alt=初步搞定语法树></a></div><div class=card-body><h2 class=card-title><a class=text-dark href=//2009/12/e5-88-9d-e6-ad-a5-e6-90-9e-e5-ae-9a-e8-af-ad-e6-b3-95-e6-a0-91/>初步搞定语法树</a></h2><h4 class=card-text>　　看了两天小说，呃，又堕落了。由于已经看完了，今天就比较认真地折腾起flex和bison。其实之前已经把lex和yacc脚本写完大部分了，至少可以从控制台打印结果出来了。今天就修改一下yacc脚本，把原来打印到控制台的内容保存在内存中，到时候转储成xml格式。因为只是要显示在界面的树视图中，我想了想，也就只有函数定义值得这么显示一下，所以也就只处理了这部分。　　总的说来，感觉yacc有点土，它只能接受一种输入接口，而我用flex时发现可以生成C++代码，所以要给bison用的话，仍然需要把这个C++类的接口再适配成bison可用的C接口。　　这种任务果然是实践性非常强的工作，本来看过一些资料，当然，能找到的资料也基本内容一样，翻来覆去那么几句话几个例子，等到自己要做时，不时地有些迷惑，只得慢慢尝试，倒也捣鼓出来了。　　在yacc中可以为每个token或type指定一个union中的某个成员，其实这个成员的指定只在规则描述段中的action中有用，就我看来各种资料、教程中说的那一堆实在是扰乱视线。对于一个C/C++程序员来说，这种用法只是万千技巧中的一种，实在没必要说得那么严肃仔细，好像不那么用就不行了似的。　　再说个我觉得yacc土的地方，由于这种格式上的限制，在action中只能访问一些全局的变量、对象等，至少在思维逻辑上很不连贯，其实lex也有这个问题。要我说，比较让现代化的做法是它应该生成一个类，每组action触发时，应该调用该类中的某个回调函数或虚函数，这里形式有好几种，都可以考虑，不知道boost.spirit是不是这种形式的，也许ANTLR等其他类似的工具就是这么做的。　　最后抱怨一下，Lua Reference Manual中附录的complete syntax不能直接用的，至少不能直接用于yacc，有好些地方似乎没写全。</h4></div><div class="card-footer bg-white"><div class=wrapfooter><span class=meta-footer-thumb><img class=author-thumb src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/avatar.png alt=类库大魔王></span>
+<span class=author-meta><span class=post-name><a target=_blank href=https://www.ismisv.com>类库大魔王</a></span><br><span class=post-date>18 Dec 2009</span></span>
+<span class=post-read-more><a href=//2009/12/e5-88-9d-e6-ad-a5-e6-90-9e-e5-ae-9a-e8-af-ad-e6-b3-95-e6-a0-91/ title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1.0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5.0 00.706.03L12.5 16.85l5.662 4.126a.508.508.0 00.708-.03.5.5.0 00.118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55.0 1 .45 1 1v13.637l-5.162-3.668a.49.49.0 00-.676.0z" fill-rule="evenodd"/></svg></a></span><div class=clearfix></div></div></div></div></div><div class="col-lg-4 col-md-6 mb-30px card-group"><div class="card h-100"><div class=maxthumb><a href=//2009/12/e8-a7-a3-e5-86-b3-e7-a8-8b-e5-ba-8f-e4-b8-8d-e6-94-af-e6-8c-81-e8-80-81-e6-9c-ba-e5-99-a8-e7-9a-84-e9-97-ae-e9-a2-98/><img class="img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src=https://img.peapix.com/10160022963506239985_320.jpg alt=解决程序不支持老机器的问题></a></div><div class=card-body><h2 class=card-title><a class=text-dark href=//2009/12/e8-a7-a3-e5-86-b3-e7-a8-8b-e5-ba-8f-e4-b8-8d-e6-94-af-e6-8c-81-e8-80-81-e6-9c-ba-e5-99-a8-e7-9a-84-e9-97-ae-e9-a2-98/>解决程序不支持老机器的问题</a></h2><h4 class=card-text>　　昨天偶尔发现，在笔记本上编译的工程在台式机上启动即崩溃。一开始的时候我认为是因为lua装入的一些第三方库dll没有设置好依赖的dll路径和正确的manifest配置，后来发现问题不是那么简单。　　首先是我用了LuaJIT的dll，而之后发现LuaJIT要求CPU支持SSE2指令集的，我那台式机是2002年的配置，当然没有。换成官方Lua后，问题仍然存在。　　接着发现，安装程序没有把配置文件复制到正确的文件夹下。看了一下安装程序的脚本，果然没写对。但是当把配置文件的路径修改正确后，问题仍然存在。　　因为台式机上装了Win2000ProSP4，WinXPProSP2和Win2003，所以当XP上仍然不能运行时，我切换到Win2000和Win2003上进行测试，发现问题同样存在。我考虑了一下两台机器软硬件的区别，猜想是不是仍然是软件配置的问题。于是我在笔记本上用VirtualBox建了个干净的XP系统，第一次运行时，居然报了个错，说ltxml加载不成功。幸好我前天已经自己写了个Xerces C++的绑定，而且用于的地方现在还不多，立马全都把使用ltxml的地方改成用xerces的。之后虚拟机上可以正常运行了。　　到了这一点，说明可以排除安装部署的问题。再想想两台机器的区别，台式机上的3个系统都是原生的中文版系统，而笔记本上和虚拟机上的都是英文版的，其中笔记本上的打了个可以处理中文的多国语言包。我有点怀疑会不会是因为这个缘故，但又觉得可能性不大，如果真是这个原因的话就不好处理了。我试着把安装后的那些mo文件都删掉，结果仍然没用。　　最后我没有办法了，只好修改源代码，从程序开始处依次加入日志，看到底在哪一步引起崩溃的。经过逐步排查，最后定位到使用Crypto++的初始化RSA公钥的对象构造时崩溃了，连异常都没有抛出。这时我想到了LuaJIT对CPU的要求，猜想会不会Crypto++编译时也受CPU的影响。用CPU-Z看了一下虚拟机的CPU，是跟宿主的CPU几乎相同的。不再继续猜想，直接在台式机上编译了一遍Crypto++，拿到笔记本上可以链接上，再把exe复制到台式机上，程序也可以正常运行了。　　至此，问题解决！这时我不禁有些担心，我这样一直用笔记本写的程序会不会都有这种问题，一遇到老机器，就会罢工呢！</h4></div><div class="card-footer bg-white"><div class=wrapfooter><span class=meta-footer-thumb><img class=author-thumb src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/avatar.png alt=类库大魔王></span>
+<span class=author-meta><span class=post-name><a target=_blank href=https://www.ismisv.com>类库大魔王</a></span><br><span class=post-date>10 Dec 2009</span></span>
+<span class=post-read-more><a href=//2009/12/e8-a7-a3-e5-86-b3-e7-a8-8b-e5-ba-8f-e4-b8-8d-e6-94-af-e6-8c-81-e8-80-81-e6-9c-ba-e5-99-a8-e7-9a-84-e9-97-ae-e9-a2-98/ title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1.0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5.0 00.706.03L12.5 16.85l5.662 4.126a.508.508.0 00.708-.03.5.5.0 00.118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55.0 1 .45 1 1v13.637l-5.162-3.668a.49.49.0 00-.676.0z" fill-rule="evenodd"/></svg></a></span><div class=clearfix></div></div></div></div></div><div class="col-lg-4 col-md-6 mb-30px card-group"><div class="card h-100"><div class=maxthumb><a href=//2009/12/e7-bb-99lua-e7-bb-91-e5-ae-9a-e4-b8-aaxerces-c/><img class="img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src=https://img.peapix.com/3920339856160380342_320.jpg alt=给Lua绑定个Xerces-C++></a></div><div class=card-body><h2 class=card-title><a class=text-dark href=//2009/12/e7-bb-99lua-e7-bb-91-e5-ae-9a-e4-b8-aaxerces-c/>给Lua绑定个Xerces-C++</a></h2><h4 class=card-text>　　本来是有ltxml这个库的，这个库使用TinyXML和TinyXPath，本来用着，也勉强，可以读取xml文件，但也不时地出点小问题，不过都让我规避掉了。这回是想写xml文件了，结果发现ltxml的接口我很不习惯，嗯，不喜欢，于是想自己重新写一个新的绑定。　　我首先看了一下libxml2，发现它的文档和例子都不是很清晰，不想继续投入精力去研究了。剩下两个选择，MSXML和Xerces C++。这两个库我都用C++的类做了一层简单的封装，可以适配应用STL中的算法。后来想想，MSXML的那个封装因为当初只考虑配合MFC/WTL使用，所有的字符串都用CString了，而且另外一点是MSXML是只在Windows上可用，Xerces C++是跨平台的，特别是可以用gcc编译，于是最后就选择了Xerces C++。　　本来我的那个封装是只针对DOM接口的，同时有4个类，分别对应DOM文档、DOM节点、DOM节点列表，以及DOM节点列表的迭代器。绑定的过程参考了ltxml的实现，但只给DOM文档和DOM节点定义了userdata，因为Lua有table，所以可以用来表示DOM节点列表。　　绑定完成后，简单试用了一下，读取，写入都基本满足当前的需求，除了不知道怎么让它写入的时候进行format pretty print，老是多加个换行符，中间有空行可一点都不pretty。</h4></div><div class="card-footer bg-white"><div class=wrapfooter><span class=meta-footer-thumb><img class=author-thumb src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/avatar.png alt=类库大魔王></span>
+<span class=author-meta><span class=post-name><a target=_blank href=https://www.ismisv.com>类库大魔王</a></span><br><span class=post-date>08 Dec 2009</span></span>
+<span class=post-read-more><a href=//2009/12/e7-bb-99lua-e7-bb-91-e5-ae-9a-e4-b8-aaxerces-c/ title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1.0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5.0 00.706.03L12.5 16.85l5.662 4.126a.508.508.0 00.708-.03.5.5.0 00.118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55.0 1 .45 1 1v13.637l-5.162-3.668a.49.49.0 00-.676.0z" fill-rule="evenodd"/></svg></a></span><div class=clearfix></div></div></div></div></div><div class="col-lg-4 col-md-6 mb-30px card-group"><div class="card h-100"><div class=maxthumb><a href=//2009/12/e6-8f-92-e4-bb-b6-e6-94-af-e6-8c-81-e5-9b-bd-e9-99-85-e5-8c-96/><img class="img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src=https://img.peapix.com/9124604748652994752_320.jpg alt=插件支持国际化></a></div><div class=card-body><h2 class=card-title><a class=text-dark href=//2009/12/e6-8f-92-e4-bb-b6-e6-94-af-e6-8c-81-e5-9b-bd-e9-99-85-e5-8c-96/>插件支持国际化</a></h2><h4 class=card-text>　　宿主程序提供了界面国际化，那么插件不能提供国际化就说不过去了，至少得有这样的机制以供支撑该种需求嘛。　　得益于wxWidgets对国际化的良好支持，要让嵌入的Lua解释执行的Lua脚本也能根据宿主程序的本地化信息进行正确的处理非常简单。wxWidgets中对要进行国际化的字符串用_()进行包裹，其实这是一个宏，用于调用真正的翻译功能，比如wxGetTranslation。所以在嵌入的Lua中将wxGetTranslation函数注册到Lua中即可，然后在Lua脚本的最开始处将该函数换个更简单的名字，比如_，这是最好的名字了，哈哈。这样就可以在Lua脚本中对需要进行国际化的字符串也用_()进行包裹，它会调用wxGetTranslation函数。　　GNU的国际化方案套餐中，提供一个叫xgettext的工具，可以从众多编程语言的源代码文件中提取出字符串，生成po文件以供翻译生成mo文件。比较不幸的是，xgettext不能支持Lua语言，同时由于我这个项目中使用的插件描述信息中有一部分界面信息是在xml文件中的，这也是一种自定义的格式，所在很不幸地xgettext更是不能处理啊！所以我在想，我是否要先写个可以支持Lua和我这种xml格式的类似xgettext的工具呢？Poedit太扯蛋了，居然只能认它自己生成的那种po格式的文件，稍微改一点就报错了！</h4></div><div class="card-footer bg-white"><div class=wrapfooter><span class=meta-footer-thumb><img class=author-thumb src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/avatar.png alt=类库大魔王></span>
+<span class=author-meta><span class=post-name><a target=_blank href=https://www.ismisv.com>类库大魔王</a></span><br><span class=post-date>04 Dec 2009</span></span>
+<span class=post-read-more><a href=//2009/12/e6-8f-92-e4-bb-b6-e6-94-af-e6-8c-81-e5-9b-bd-e9-99-85-e5-8c-96/ title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1.0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5.0 00.706.03L12.5 16.85l5.662 4.126a.508.508.0 00.708-.03.5.5.0 00.118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55.0 1 .45 1 1v13.637l-5.162-3.668a.49.49.0 00-.676.0z" fill-rule="evenodd"/></svg></a></span><div class=clearfix></div></div></div></div></div></div></section><div class=bottompagination><div class=pointerup><i class="fa fa-caret-up"></i></div><span class=navigation role=navigation><div class=pagination><a class="ml-1 mr-1" href=/page/50/>&#171; Prev</a>
+<a class="ml-1 mr-1" href=/page/50/>1</a>
+<a class="ml-1 mr-1" href=/page/2/>2</a>
+<a class="ml-1 mr-1" href=/page/3/>3</a>
+<a class="ml-1 mr-1" href=/page/4/>4</a>
+<a class="ml-1 mr-1" href=/page/5/>5</a>
+<a class="ml-1 mr-1" href=/page/6/>6</a>
+<a class="ml-1 mr-1" href=/page/7/>7</a>
+<a class="ml-1 mr-1" href=/page/8/>8</a>
+<a class="ml-1 mr-1" href=/page/9/>9</a>
+<a class="ml-1 mr-1" href=/page/10/>10</a>
+<a class="ml-1 mr-1" href=/page/11/>11</a>
+<a class="ml-1 mr-1" href=/page/12/>12</a>
+<a class="ml-1 mr-1" href=/page/13/>13</a>
+<a class="ml-1 mr-1" href=/page/14/>14</a>
+<a class="ml-1 mr-1" href=/page/15/>15</a>
+<a class="ml-1 mr-1" href=/page/16/>16</a>
+<a class="ml-1 mr-1" href=/page/17/>17</a>
+<a class="ml-1 mr-1" href=/page/18/>18</a>
+<a class="ml-1 mr-1" href=/page/19/>19</a>
+<a class="ml-1 mr-1" href=/page/20/>20</a>
+<a class="ml-1 mr-1" href=/page/21/>21</a>
+<a class="ml-1 mr-1" href=/page/22/>22</a>
+<a class="ml-1 mr-1" href=/page/23/>23</a>
+<a class="ml-1 mr-1" href=/page/24/>24</a>
+<a class="ml-1 mr-1" href=/page/25/>25</a>
+<a class="ml-1 mr-1" href=/page/26/>26</a>
+<a class="ml-1 mr-1" href=/page/27/>27</a>
+<a class="ml-1 mr-1" href=/page/28/>28</a>
+<a class="ml-1 mr-1" href=/page/29/>29</a>
+<a class="ml-1 mr-1" href=/page/30/>30</a>
+<a class="ml-1 mr-1" href=/page/31/>31</a>
+<a class="ml-1 mr-1" href=/page/32/>32</a>
+<a class="ml-1 mr-1" href=/page/33/>33</a>
+<a class="ml-1 mr-1" href=/page/34/>34</a>
+<a class="ml-1 mr-1" href=/page/35/>35</a>
+<a class="ml-1 mr-1" href=/page/36/>36</a>
+<a class="ml-1 mr-1" href=/page/37/>37</a>
+<a class="ml-1 mr-1" href=/page/38/>38</a>
+<a class="ml-1 mr-1" href=/page/39/>39</a>
+<a class="ml-1 mr-1" href=/page/40/>40</a>
+<a class="ml-1 mr-1" href=/page/41/>41</a>
+<a class="ml-1 mr-1" href=/page/42/>42</a>
+<a class="ml-1 mr-1" href=/page/43/>43</a>
+<a class="ml-1 mr-1" href=/page/44/>44</a>
+<a class="ml-1 mr-1" href=/page/45/>45</a>
+<a class="ml-1 mr-1" href=/page/46/>46</a>
+<a class="ml-1 mr-1" href=/page/47/>47</a>
+<a class="ml-1 mr-1" href=/page/48/>48</a>
+<a class="ml-1 mr-1" href=/page/49/>49</a>
+<a class="ml-1 mr-1" href=/page/50/>50</a>
+<span class="ml-1 mr-1">51</span>
+<a class="ml-1 mr-1" href=/page/52/>52</a>
+<a class="ml-1 mr-1" href=/page/53/>53</a>
+<a class="ml-1 mr-1" href=/page/54/>54</a>
+<a class="ml-1 mr-1" href=/page/55/>55</a>
+<a class="ml-1 mr-1" href=/page/56/>56</a>
+<a class="ml-1 mr-1" href=/page/57/>57</a>
+<a class="ml-1 mr-1" href=/page/58/>58</a>
+<a class="ml-1 mr-1" href=/page/59/>59</a>
+<a class="ml-1 mr-1" href=/page/60/>60</a>
+<a class="ml-1 mr-1" href=/page/61/>61</a>
+<a class="ml-1 mr-1" href=/page/62/>62</a>
+<a class="ml-1 mr-1" href=/page/63/>63</a>
+<a class="ml-1 mr-1" href=/page/64/>64</a>
+<a class="ml-1 mr-1" href=/page/65/>65</a>
+<a class="ml-1 mr-1" href=/page/66/>66</a>
+<a class="ml-1 mr-1" href=/page/67/>67</a>
+<a class="ml-1 mr-1" href=/page/68/>68</a>
+<a class="ml-1 mr-1" href=/page/69/>69</a>
+<a class="ml-1 mr-1" href=/page/70/>70</a>
+<a class="ml-1 mr-1" href=/page/71/>71</a>
+<a class="ml-1 mr-1" href=/page/72/>72</a>
+<a class="ml-1 mr-1" href=/page/73/>73</a>
+<a class="ml-1 mr-1" href=/page/74/>74</a>
+<a class="ml-1 mr-1" href=/page/75/>75</a>
+<a class="ml-1 mr-1" href=/page/76/>76</a>
+<a class="ml-1 mr-1" href=/page/77/>77</a>
+<a class="ml-1 mr-1" href=/page/78/>78</a>
+<a class="ml-1 mr-1" href=/page/79/>79</a>
+<a class="ml-1 mr-1" href=/page/80/>80</a>
+<a class="ml-1 mr-1" href=/page/81/>81</a>
+<a class="ml-1 mr-1" href=/page/82/>82</a>
+<a class="ml-1 mr-1" href=/page/83/>83</a>
+<a class="ml-1 mr-1" href=/page/84/>84</a>
+<a class="ml-1 mr-1" href=/page/85/>85</a>
+<a class="ml-1 mr-1" href=/page/86/>86</a>
+<a class="ml-1 mr-1" href=/page/87/>87</a>
+<a class="ml-1 mr-1" href=/page/88/>88</a>
+<a class="ml-1 mr-1" href=/page/89/>89</a>
+<a class="ml-1 mr-1" href=/page/90/>90</a>
+<a class="ml-1 mr-1" href=/page/91/>91</a>
+<a class="ml-1 mr-1" href=/page/92/>92</a>
+<a class="ml-1 mr-1" href=/page/93/>93</a>
+<a class="ml-1 mr-1" href=/page/94/>94</a>
+<a class="ml-1 mr-1" href=/page/95/>95</a>
+<a class="ml-1 mr-1" href=/page/96/>96</a>
+<a class="ml-1 mr-1" href=/page/97/>97</a>
+<a class="ml-1 mr-1" href=/page/98/>98</a>
+<a class="ml-1 mr-1" href=/page/99/>99</a>
+<a class="ml-1 mr-1" href=/page/100/>100</a>
+<a class="ml-1 mr-1" href=/page/101/>101</a>
+<a class="ml-1 mr-1" href=/page/102/>102</a>
+<a class="ml-1 mr-1" href=/page/103/>103</a>
+<a class="ml-1 mr-1" href=/page/104/>104</a>
+<a class="ml-1 mr-1" href=/page/105/>105</a>
+<a class="ml-1 mr-1" href=/page/106/>106</a>
+<a class="ml-1 mr-1" href=/page/107/>107</a>
+<a class="ml-1 mr-1" href=/page/108/>108</a>
+<a class="ml-1 mr-1" href=/page/109/>109</a>
+<a class="ml-1 mr-1" href=/page/110/>110</a>
+<a class="ml-1 mr-1" href=/page/111/>111</a>
+<a class="ml-1 mr-1" href=/page/112/>112</a>
+<a class="ml-1 mr-1" href=/page/113/>113</a>
+<a class="ml-1 mr-1" href=/page/114/>114</a>
+<a class="ml-1 mr-1" href=/page/115/>115</a>
+<a class="ml-1 mr-1" href=/page/116/>116</a>
+<a class="ml-1 mr-1" href=/page/117/>117</a>
+<a class="ml-1 mr-1" href=/page/118/>118</a>
+<a class="ml-1 mr-1" href=/page/119/>119</a>
+<a class="ml-1 mr-1" href=/page/120/>120</a>
+<a class="ml-1 mr-1" href=/page/121/>121</a>
+<a class="ml-1 mr-1" href=/page/122/>122</a>
+<a class="ml-1 mr-1" href=/page/123/>123</a>
+<a class="ml-1 mr-1" href=/page/124/>124</a>
+<a class="ml-1 mr-1" href=/page/125/>125</a>
+<a class="ml-1 mr-1" href=/page/126/>126</a>
+<a class="ml-1 mr-1" href=/page/127/>127</a>
+<a class="ml-1 mr-1" href=/page/128/>128</a>
+<a class="ml-1 mr-1" href=/page/129/>129</a>
+<a class="ml-1 mr-1" href=/page/130/>130</a>
+<a class="ml-1 mr-1" href=/page/131/>131</a>
+<a class="ml-1 mr-1" href=/page/132/>132</a>
+<a class="ml-1 mr-1" href=/page/133/>133</a>
+<a class="ml-1 mr-1" href=/page/134/>134</a>
+<a class="ml-1 mr-1" href=/page/135/>135</a>
+<a class="ml-1 mr-1" href=/page/136/>136</a>
+<a class="ml-1 mr-1" href=/page/137/>137</a>
+<a class="ml-1 mr-1" href=/page/138/>138</a>
+<a class="ml-1 mr-1" href=/page/139/>139</a>
+<a class="ml-1 mr-1" href=/page/140/>140</a>
+<a class="ml-1 mr-1" href=/page/141/>141</a>
+<a class="ml-1 mr-1" href=/page/142/>142</a>
+<a class="ml-1 mr-1" href=/page/143/>143</a>
+<a class="ml-1 mr-1" href=/page/144/>144</a>
+<a class="ml-1 mr-1" href=/page/145/>145</a>
+<a class="ml-1 mr-1" href=/page/146/>146</a>
+<a class="ml-1 mr-1" href=/page/147/>147</a>
+<a class="ml-1 mr-1" href=/page/148/>148</a>
+<a class="ml-1 mr-1" href=/page/149/>149</a>
+<a class="ml-1 mr-1" href=/page/150/>150</a>
+<a class="ml-1 mr-1" href=/page/151/>151</a>
+<a class="ml-1 mr-1" href=/page/152/>152</a>
+<a class="ml-1 mr-1" href=/page/52/>Next &#187;</a></div></span></div></div></div><div class="jumbotron fortags"><div class="d-md-flex h-100"><div class="col-md-4 transpdark align-self-center text-center h-100"><div class="d-md-flex align-items-center justify-content-center h-100"><h2 class="d-md-block align-self-center py-1 font-weight-light">发现 <span class="d-none d-md-inline">→</span></h2></div></div><div class="col-md-8 p-5 align-self-center text-center"><a class="mt-1 mb-1" href=//categories.html#imported-from-CSDN>imported from CSDN (124)</a>
+<a class="mt-1 mb-1" href=//categories.html#Film-&-ACG>Film & ACG (15)</a>
+<a class="mt-1 mb-1" href=//categories.html#Water>Water (170)</a>
+<a class="mt-1 mb-1" href=//categories.html#Shareware>Shareware (151)</a>
+<a class="mt-1 mb-1" href=//categories.html#Software>Software (140)</a>
+<a class="mt-1 mb-1" href=//categories.html#Plugin-Framework>Plugin Framework (28)</a>
+<a class="mt-1 mb-1" href=//categories.html#lookfor>lookfor (36)</a>
+<a class="mt-1 mb-1" href=//categories.html#CPPOOPGPXP>CPPOOPGPXP (87)</a>
+<a class="mt-1 mb-1" href=//categories.html#Lua，Script>Lua，Script (51)</a>
+<a class="mt-1 mb-1" href=//categories.html#Be-Old>Be Old (15)</a>
+<a class="mt-1 mb-1" href=//categories.html#Job>Job (185)</a>
+<a class="mt-1 mb-1" href=//categories.html#mm>mm (48)</a>
+<a class="mt-1 mb-1" href=//categories.html#Emulator>Emulator (3)</a>
+<a class="mt-1 mb-1" href=//categories.html#Execise-Outdoor>Execise Outdoor (13)</a>
+<a class="mt-1 mb-1" href=//categories.html#gfw>gfw (10)</a>
+<a class="mt-1 mb-1" href=//categories.html#Reading>Reading (20)</a>
+<a class="mt-1 mb-1" href=//categories.html#Driving>Driving (16)</a>
+<a class="mt-1 mb-1" href=//categories.html#Mobile>Mobile (15)</a>
+<a class="mt-1 mb-1" href=//categories.html#wxWidgets>wxWidgets (29)</a>
+<a class="mt-1 mb-1" href=//categories.html#WIND>WIND (14)</a>
+<a class="mt-1 mb-1" href=//categories.html#PSP-NDS>PSP NDS (2)</a>
+<a class="mt-1 mb-1" href=//categories.html#CodingStudio>CodingStudio (44)</a>
+<a class="mt-1 mb-1" href=//categories.html#Cryptography>Cryptography (2)</a>
+<a class="mt-1 mb-1" href=//categories.html#Editor，IDE>Editor，IDE (5)</a>
+<a class="mt-1 mb-1" href=//categories.html#TeX>TeX (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#Life>Life (82)</a>
+<a class="mt-1 mb-1" href=//categories.html#Technic>Technic (6)</a>
+<a class="mt-1 mb-1" href=//categories.html#Qt>Qt (28)</a>
+<a class="mt-1 mb-1" href=//categories.html#SNS>SNS (35)</a>
+<a class="mt-1 mb-1" href=//categories.html#Ninayan>Ninayan (35)</a>
+<a class="mt-1 mb-1" href=//categories.html#GUI-Framework>GUI Framework (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#KarenMeu>KarenMeu (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#Kindle>Kindle (3)</a>
+<a class="mt-1 mb-1" href=//categories.html#Coding>Coding (14)</a>
+<a class="mt-1 mb-1" href=//categories.html#Startup>Startup (6)</a>
+<a class="mt-1 mb-1" href=//categories.html#network>network (14)</a>
+<a class="mt-1 mb-1" href=//categories.html#Go>Go (10)</a>
+<a class="mt-1 mb-1" href=//categories.html#idea>idea (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#os>os (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#iOS>iOS (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#Cloud>Cloud (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#device>device (2)</a>
+<a class="mt-1 mb-1" href=//categories.html#embed>embed (6)</a>
+<a class="mt-1 mb-1" href=//categories.html#gochess>gochess (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#Router>Router (3)</a>
+<a class="mt-1 mb-1" href=//categories.html#blog>blog (7)</a></div></div></div><footer class=footer><div class=container><div class=row><div class="col-md-6 col-sm-6 text-center text-lg-left">Copyright © 2021 类库大魔王的挖井日记</div><div class="col-md-6 col-sm-6 text-center text-lg-right"><a target=_blank href=https://www.wowthemes.net/mediumish-free-jekyll-template/>Mediumish Jekyll Theme</a> by WowThemes.net</div></div></div></footer></div><script src=https://cdn.staticfile.org/popper.js/1.14.6/umd/popper.min.js></script><script src=https://cdn.staticfile.org/twitter-bootstrap/4.2.1/js/bootstrap.min.js></script><script src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/js/mediumish.min.js></script><script src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/js/lazyload.min.js></script>

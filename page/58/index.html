@@ -1,0 +1,219 @@
+<!doctype html><html lang=en><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><link rel=icon href=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/logo.png><title>Home | 类库大魔王的挖井日记</title><title>Page 58 of 152 for Home | 挖井</title><meta name=generator content="Jekyll v3.9.0"><meta property="og:title" content="Home"><meta property="og:locale" content="en_US"><meta name=description content="挖一口属于自己的井"><meta property="og:description" content="挖一口属于自己的井"><link rel=canonical href=https://blog.ismisv.com/page/58/><meta property="og:url" content="https://blog.ismisv.com/page/58/"><meta property="og:site_name" content="挖井"><link rel=prev href=https://blog.ismisv.com/page/57/><link rel=next href=https://blog.ismisv.com/page/59/><script type=application/ld+json>{"headline":"Home","description":"挖一口属于自己的井","@type":"WebPage","url":"https://blog.ismisv.com/page/58/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://blog.ismisv.com/assets/images/logo.png"}},"@context":"http://schema.org"}</script><link href=https://cdn.staticfile.org/twitter-bootstrap/4.1.3/css/bootstrap.min.css rel=stylesheet><link href=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/css/screen.min.css rel=stylesheet><link href=//assets/css/main.css rel=stylesheet><script src=https://cdn.staticfile.org/jquery/3.3.1/jquery.min.js></script><body class=layout-default><noscript id=deferred-styles><link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel=stylesheet><link href=https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css rel=stylesheet></noscript><nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mediumnavigation nav-down"><div class="container pr-0"><a class=navbar-brand href=//><img src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/logo.png alt=类库大魔王的挖井日记></a>
+<button class=navbar-toggler type=button data-toggle=collapse data-target=#navbarMediumish aria-controls=navbarSupportedContent aria-expanded=false aria-label="Toggle navigation">
+<span class=navbar-toggler-icon></span></button><div class="collapse navbar-collapse" id=navbarMediumish><ul class="navbar-nav ml-auto"><li class=nav-item><a class=nav-link href=// title=博客首页><i class="fab fa-blogger"></i>首页</a><li class=nav-item><a class=nav-link href=//archive/ title=博客文章完整归档><i class="fas fa-archive"></i>归档</a><li class=nav-item><a class=nav-link href=//categories.html title=博客文章所有分类><i class="fas fa-bars"></i>分类</a><li class=nav-item><a class=nav-link href=//tags.html title=博客文章所有标签><i class="fas fa-tags"></i>标签</a><li class=nav-item><a class=nav-link href=//apps/ title=我（近几年）开发的软件作品><i class="fab fa-app-store"></i>软件</a><li class=nav-item><a class=nav-link href=//about/ title=关于本博客><i class="fas fa-user"></i>关于</a><li class=nav-item><a target=_blank class=nav-link href=//links/ title=友情链接><i class="fas fa-link"></i>链接</a><li class=nav-item><a target=_blank class=nav-link href=//feed.xml title=通过RSS订阅本博客><i class="fas fa-rss-square"></i>订阅</a><li class=nav-item><a target=_blank class=nav-link href=https://github.com/missdeer title=我写的一些程序开放了源代码><i class="fab fa-github"></i>代码</a></ul></div></div></nav><div class=site-content><div class=container><div class=mainheading><h1 class=sitetitle>类库大魔王的挖井日记</h1><p class=lead>挖一口属于自己的井</div><div class=main-content><section class=recent-posts><div class=section-title><h2><span>All Stories</span></h2></div><div class="row listrecent"><div class="col-lg-4 col-md-6 mb-30px card-group"><div class="card h-100"><div class=maxthumb><a href=//2009/08/e5-88-9d-e6-ad-a5-e4-ba-86-e8-a7-a3google-breakpad/><img class="img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src=https://img.peapix.com/4123126313656592632_320.jpg alt=初步了解google-breakpad></a></div><div class=card-body><h2 class=card-title><a class=text-dark href=//2009/08/e5-88-9d-e6-ad-a5-e4-ba-86-e8-a7-a3google-breakpad/>初步了解google-breakpad</a></h2><h4 class=card-text>　　第一次知道google-breakpad这个东西，是一篇讲chrome使用的开源库的文章，当时也只是一带而过，心想这功能也能做成多平台的？　　最近还是因为项目的需要，原本已经有一个这种实现的，是从FileZilla的2.x版本中抠出来的，不过有些时候会生成不了dump，让人觉得诧异，还有一些是生成了dump，但最后发现栈回调的信息太缺乏可参考的价值了。我估摸着，这可能跟如何使用dbghelp.dll里的函数的方式有关系，而这google-breakpad在我看来可能是当前功能实现得最好的一个了，就打算好好了解一下。　　从svn里取得到的代码，解决方案是用于VC2005的，大概google内部VC都是用的2005吧，看到好些它的开源项目都是。直接用VC2008打开，自动转换版本后，也可以直接编译。主要看src\client\windows\目录下的代码就可以了，一般而言可以用到的有3个lib文件，分别是crash_generation.lib、exception_handler.lib、crash_report_sender.lib。如果用户程序只是为了能生成minidump，直接链接exception_handler.lib就可以了，crash_generation.lib已经被它包含了，而crash_report_sender.lib顾名思义是可以将文件发送到某个地方的，从代码上看，是通过http的上传功能来实现的，不过还没研究。另外还有一个GUI的演示程序，crash_generation_app.exe，可以测试除0异常，CRT函数参数无效异常以及纯虚函数调用异常。　　通过阅读crash_generation_app.exe的代码可以大体上了解google-breakpad的使用方法。google-breakpad将这么一个小功能分成几部分来实现，首先，它分为服务器和客户端两部分，这两部分都可以生成minidump，但应用场景不同。用户程序出现未处理异常时，被ExceptionHandler捕获到，该模块会根据当前进程是否已连接到一个服务器，来决定由谁来生成minidump。在crash_generation_app.exe中默认是会去连接一个服务器的，所以如果服务器没有问题，则是由服务器来生成minidump的。而且服务器生成minidump不限于当前进程，它通过Event得到客户端的dump请求，通过管道进行其他数据的传递。使用C/S结构的好处是，可以尽量减少对被dump进程的影响，代价则是大大增加了代码实现的复杂性。如果没有可连接的服务器，客户端也可自己生成minidump，这部分的实现上网上的所有有关这个主题的代码，基本上都是相同的。唯一有点区别的是，网上其他的代码一般只接管了未处理异常，而google-breakpad则还可以接管CRT函数无效参数异常和纯虚函数调用异常。　　在crash_generation_app.exe的实现中，使用服务器dump的方式，最后返回的结果总是说没成功，而实际是dump文件是生成了的，这应该算是个bug吧。还有个问题是，如果一开始尝试连接到服务器后，后来服务器又被关掉了，那之后的dump会全都失败，这可能是因为演示的缘故，没有仔细编写这种异常流程的处理代码吧。另外，算是小瑕疵吧，用google-breakpad默认好像是不能自定义dump文件的名字，只能指定个保存路径，最后的文件名是随机生成的uuid。　　总的说来，对于有这方面需求的应用，使用google-breakpad是个不错的选择，它做了不少工作。</h4></div><div class="card-footer bg-white"><div class=wrapfooter><span class=meta-footer-thumb><img class=author-thumb src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/avatar.png alt=类库大魔王></span>
+<span class=author-meta><span class=post-name><a target=_blank href=https://www.ismisv.com>类库大魔王</a></span><br><span class=post-date>19 Aug 2009</span></span>
+<span class=post-read-more><a href=//2009/08/e5-88-9d-e6-ad-a5-e4-ba-86-e8-a7-a3google-breakpad/ title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1.0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5.0 00.706.03L12.5 16.85l5.662 4.126a.508.508.0 00.708-.03.5.5.0 00.118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55.0 1 .45 1 1v13.637l-5.162-3.668a.49.49.0 00-.676.0z" fill-rule="evenodd"/></svg></a></span><div class=clearfix></div></div></div></div></div><div class="col-lg-4 col-md-6 mb-30px card-group"><div class="card h-100"><div class=maxthumb><a href=//2009/08/mingw-e4-b8-ad-e4-bd-bf-e7-94-a8gdi/><img class="img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src=https://img.peapix.com/5668377067015603915_320.jpg alt=MinGW中使用GDI+></a></div><div class=card-body><h2 class=card-title><a class=text-dark href=//2009/08/mingw-e4-b8-ad-e4-bd-bf-e7-94-a8gdi/>MinGW中使用GDI+</a></h2><h4 class=card-text>　　昨晚坚持到1点多，做了两件事：1、验证GDI+在MinGW中的使用；2、编译wxWidgets中access这个sample。　　GDI+在MinGW中的使用，在网上有不少方法，但绝大多数是不行的，至少都有点小小的问题需要自己修改一下。我本来是没想过有这方面的需求的，也是因为最近想用用GDI+，就顺便想试试MinGW是否也可以。很快就搞定了，先到这里下载一个包含GDI+的头文件和库文件的包，然后把所有头文件解压出来放到MinGw的include目录下面，再把库文件放到MinGW的lib目录下面，其实我没用这个包里的libgdiplus.a文件，而是用reimp.exe重新生成了一个。网上有篇文章说，reimp.exe后面的参数是GDIPlus.dll，其实是错的，看一下reimp.exe自带的命令行参数说明就知道，人家明明是接受一个IMPLIB嘛，所以要跟GDIPlus.lib，之后会生成libgdiplus.a和gdiplus.def文件。这些文件准备好后，可以试着写个小程序编译一下，我就没自己写，直接试着用MinGW编译wxWidgets，带GDIPlus编译，中间会报两个错，错误提示很明显，只要打开那两个文件，把它报错的地方，定义类成员函数的签名的地方，不用加类名作用域就可以了。　　编译access则花了我不少时间，因为其中不少时间是在等待wxWidgets库的编译。如果使用默认的编译选项，最后可能也可以得到一个可执行程序，但在运行时会弹出消息框说要定义一个什么wxUSE_ACCESSIBLITY之类的宏。这时可以修改一下access的makefile，在编译命令行中加入这个宏定义。再编译时，可能到最后一步是说某些符号链接找不到。我当时的第一反应是，编译wxWidgets时没有定义这个宏，于是修改src/msw/setup.h中的定义，将这个宏的值设为1，再编译，到最后也是说找不到一些符号链接，这才意识到是没有链接相应的库，还是修改makefile，加上-loleacc，给wxWidgets和access的makefile都要加，就可以正常编译过了，运行access也可以正常工作了。</h4></div><div class="card-footer bg-white"><div class=wrapfooter><span class=meta-footer-thumb><img class=author-thumb src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/avatar.png alt=类库大魔王></span>
+<span class=author-meta><span class=post-name><a target=_blank href=https://www.ismisv.com>类库大魔王</a></span><br><span class=post-date>17 Aug 2009</span></span>
+<span class=post-read-more><a href=//2009/08/mingw-e4-b8-ad-e4-bd-bf-e7-94-a8gdi/ title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1.0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5.0 00.706.03L12.5 16.85l5.662 4.126a.508.508.0 00.708-.03.5.5.0 00.118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55.0 1 .45 1 1v13.637l-5.162-3.668a.49.49.0 00-.676.0z" fill-rule="evenodd"/></svg></a></span><div class=clearfix></div></div></div></div></div><div class="col-lg-4 col-md-6 mb-30px card-group"><div class="card h-100"><div class=maxthumb><a href=//2009/08/e6-98-a8-e6-99-9a-e9-81-ad-e9-81-87-e5-b0-8f-e5-81-b7-e5-85-a5-e5-ae-a4/><img class="img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src=https://img.peapix.com/876446849593892119_320.jpg alt=昨晚遭遇小偷入室></a></div><div class=card-body><h2 class=card-title><a class=text-dark href=//2009/08/e6-98-a8-e6-99-9a-e9-81-ad-e9-81-87-e5-b0-8f-e5-81-b7-e5-85-a5-e5-ae-a4/>昨晚遭遇小偷入室</a></h2><h4 class=card-text>　　早上醒来，习惯性地找床头的iPhone看时间，居然没找到，很奇怪地起床，找挎包，心想昨天记得把手机拿出来了的啊，结果连挎包也不见了，越发奇怪，等到发现卧室门打开着，才开始有点焦虑，走到客厅一看，挎包被丢在靠近门口鞋架的旁边，里面的东西已经被翻过了，钱包里面大约有1千的现金已经不翼而飞了。这时我才确认，昨天晚上有贼入室了，这才稍微有点后怕，晚上有人进来我居然什么都不知道，万幸的是，只是丢了点钱和一个iPhone，至少连T43都没丢，T200也在，PSP，NDSL都在，连一起放在挎包里的Nano都还在，除了这些，人身也是没损失。　　情绪理所当然地比较差，但也不知道到底是什么心情，没有恐惧，没有愤怒，没有后悔，没有惋惜，只想躺床上睡一觉。大约的损失总共是5000RMB，却没有一点心疼的感觉，对金钱的态度自己都觉得有点不可理喻。想要钱，却不在乎钱。　　这该死的国家，该死的社会，我诅咒这个世界，却对那个小偷什么想法都没有，连骂几句，憎恨一下的念头一丁点儿都没有。　　还是得靠自己，拥有了强大的力量，才能保护好自己和对自己来说重要的人或东西。</h4></div><div class="card-footer bg-white"><div class=wrapfooter><span class=meta-footer-thumb><img class=author-thumb src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/avatar.png alt=类库大魔王></span>
+<span class=author-meta><span class=post-name><a target=_blank href=https://www.ismisv.com>类库大魔王</a></span><br><span class=post-date>15 Aug 2009</span></span>
+<span class=post-read-more><a href=//2009/08/e6-98-a8-e6-99-9a-e9-81-ad-e9-81-87-e5-b0-8f-e5-81-b7-e5-85-a5-e5-ae-a4/ title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1.0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5.0 00.706.03L12.5 16.85l5.662 4.126a.508.508.0 00.708-.03.5.5.0 00.118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55.0 1 .45 1 1v13.637l-5.162-3.668a.49.49.0 00-.676.0z" fill-rule="evenodd"/></svg></a></span><div class=clearfix></div></div></div></div></div><div class="col-lg-4 col-md-6 mb-30px card-group"><div class="card h-100"><div class=maxthumb><a href=//2009/08/e5-8f-af-e4-bb-a5-e8-87-aa-e5-8a-a8-e6-8f-90-e4-ba-a4dump-e5-88-86-e6-9e-90-e8-ae-b0-e5-bd-95-e4-ba-86/><img class="img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src=https://img.peapix.com/2476131510188408526_320.jpg alt=可以自动提交dump分析记录了></a></div><div class=card-body><h2 class=card-title><a class=text-dark href=//2009/08/e5-8f-af-e4-bb-a5-e8-87-aa-e5-8a-a8-e6-8f-90-e4-ba-a4dump-e5-88-86-e6-9e-90-e8-ae-b0-e5-bd-95-e4-ba-86/>可以自动提交dump分析记录了</a></h2><h4 class=card-text>　　今天花了近一天的时间，重新写了一遍自动分析mini dump然后将分析结果提交到wiki上的程序。通过这次实践，也确认了我原先的想法是可行的，内嵌一个IE，然后通过它暴露的COM接口，进行一些基本的操作，主要有遍历已有元素，填充TextArea，提交。只是发现这些操作，全都不是阻塞的，所以具体应用的时候还是得留心一下。　　晚上加班，看了一下一个公司的人写的ppt，介绍Erlang的，看得让我觉得有点不舒服。按我的理解来看这ppt，似乎他的意思是公司目前使用C/C++来开发电信类软件，而且有那么多的问题，而Erlang从语言的机制上就提供了不少的保障机制，可以写出更快更稳的程序来。让我感觉他在鼓吹这就是银弹。就我以为，写这个ppt的目的就不明确，或者说就算明确了，也是动机不纯，我们应该立足于眼前，如何提高公司开发人员的设计和编码水平，而不是考虑着换一种语言就妄图可以解决一堆问题。　　不过总的说来，我看了《Erlang程序设计》中的前面一两章后，就觉得这是我真的需要的一种东西，也许它在保证并发上，或者FP编码风格的处理上并不完美和彻底，但就目前看来，它应该是比较适合我的需求的一个选择。</h4></div><div class="card-footer bg-white"><div class=wrapfooter><span class=meta-footer-thumb><img class=author-thumb src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/avatar.png alt=类库大魔王></span>
+<span class=author-meta><span class=post-name><a target=_blank href=https://www.ismisv.com>类库大魔王</a></span><br><span class=post-date>11 Aug 2009</span></span>
+<span class=post-read-more><a href=//2009/08/e5-8f-af-e4-bb-a5-e8-87-aa-e5-8a-a8-e6-8f-90-e4-ba-a4dump-e5-88-86-e6-9e-90-e8-ae-b0-e5-bd-95-e4-ba-86/ title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1.0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5.0 00.706.03L12.5 16.85l5.662 4.126a.508.508.0 00.708-.03.5.5.0 00.118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55.0 1 .45 1 1v13.637l-5.162-3.668a.49.49.0 00-.676.0z" fill-rule="evenodd"/></svg></a></span><div class=clearfix></div></div></div></div></div><div class="col-lg-4 col-md-6 mb-30px card-group"><div class="card h-100"><div class=maxthumb><a href=//2009/08/e5-8e-9f-e6-9d-a5-e4-b8-80-e7-9b-b4-e9-83-bd-e7-90-86-e8-a7-a3-e9-94-99-e4-ba-86/><img class="img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src=https://img.peapix.com/8495221008582505696_320.jpg alt=原来一直都理解错了></a></div><div class=card-body><h2 class=card-title><a class=text-dark href=//2009/08/e5-8e-9f-e6-9d-a5-e4-b8-80-e7-9b-b4-e9-83-bd-e7-90-86-e8-a7-a3-e9-94-99-e4-ba-86/>原来一直都理解错了</a></h2><h4 class=card-text>　　嗯，一直以来都以为UTF-8和Unicode是一类的，今天才明白过来，UTF-8确实明明是多字节一类的才对啊，我的理解能力实在是太差了，唉！　　不过今天倒是也知道了，如果只是要在ANSI、Unicode、UTF-8之间进行转换，使用两个Win32 API就可以全部搞定了，不需要用什么iconv和ICU了。总是觉得微软做的东西易用性真的很好，通用软件产品很适合普通用户使用，而那些开发工具、库、API对于开发者来说，也很好用啊！　　唉，我也就只用玩一下这些容易的东西了。</h4></div><div class="card-footer bg-white"><div class=wrapfooter><span class=meta-footer-thumb><img class=author-thumb src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/avatar.png alt=类库大魔王></span>
+<span class=author-meta><span class=post-name><a target=_blank href=https://www.ismisv.com>类库大魔王</a></span><br><span class=post-date>10 Aug 2009</span></span>
+<span class=post-read-more><a href=//2009/08/e5-8e-9f-e6-9d-a5-e4-b8-80-e7-9b-b4-e9-83-bd-e7-90-86-e8-a7-a3-e9-94-99-e4-ba-86/ title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1.0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5.0 00.706.03L12.5 16.85l5.662 4.126a.508.508.0 00.708-.03.5.5.0 00.118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55.0 1 .45 1 1v13.637l-5.162-3.668a.49.49.0 00-.676.0z" fill-rule="evenodd"/></svg></a></span><div class=clearfix></div></div></div></div></div><div class="col-lg-4 col-md-6 mb-30px card-group"><div class="card h-100"><div class=maxthumb><a href=//2009/08/e6-a1-8c-e9-9d-a2-e6-97-b6-e9-92-9f-e6-8d-a2-e8-82-a4/><img class="img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src=https://img.peapix.com/3383078680770614643_320.jpg alt=桌面时钟换肤></a></div><div class=card-body><h2 class=card-title><a class=text-dark href=//2009/08/e6-a1-8c-e9-9d-a2-e6-97-b6-e9-92-9f-e6-8d-a2-e8-82-a4/>桌面时钟换肤</a></h2><h4 class=card-text>　　看到搜狗输入法网站上有那么多皮肤，想到哪里可以利用一下。最后想到，桌面时钟啊，以前为了弄些皮肤来，还找了不少其他的桌面日历桌面时钟之类的小程 序，把它们的皮肤里的图片都抠出来，然后转换成自己的程序可以用的格式，还真花了不少时间。输入法的皮肤与桌面时钟的布局有些微差别，于是只好只用来显示 一下数字了，不能显示那种模拟钟面的了又花了近8个小时吧，其中还有不少代码是直接复制的。好在搜狗皮肤文件是用ZIP打包的，这比较方便，原先写的那块 解压缩的功能是调用7z实现的，那接口太繁复了，不好用，还自己特地写了个小小的dll来简化，但还是怎么看怎么觉得不爽。这次就索性全部改成zip的， 从codeproject上找了个解压zip的代码。　　刚弄得可以显示出来的时候，发现显示的字体有点问题。首先是字体很小，其次是字体显示部 分是透明的，颜色不明显。字体小我倒不是很关心，但颜色不明显就比较严重了，属于不可控问题了。后来乱试了一下，偶然发现用GDI+来写字时，字体不要从 HDC那里获取，而要直接从字体名称和大小创建一个，这样就可以了，两个问题都一起解决了。　　演示如下：</h4></div><div class="card-footer bg-white"><div class=wrapfooter><span class=meta-footer-thumb><img class=author-thumb src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/avatar.png alt=类库大魔王></span>
+<span class=author-meta><span class=post-name><a target=_blank href=https://www.ismisv.com>类库大魔王</a></span><br><span class=post-date>09 Aug 2009</span></span>
+<span class=post-read-more><a href=//2009/08/e6-a1-8c-e9-9d-a2-e6-97-b6-e9-92-9f-e6-8d-a2-e8-82-a4/ title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1.0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5.0 00.706.03L12.5 16.85l5.662 4.126a.508.508.0 00.708-.03.5.5.0 00.118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55.0 1 .45 1 1v13.637l-5.162-3.668a.49.49.0 00-.676.0z" fill-rule="evenodd"/></svg></a></span><div class=clearfix></div></div></div></div></div><div class="col-lg-4 col-md-6 mb-30px card-group"><div class="card h-100"><div class=maxthumb><a href=//2009/08/e5-85-b4-e8-87-b4-e7-bc-ba-e7-bc-ba/><img class="img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src=https://img.peapix.com/4510709614983356050_320.jpg alt=兴致缺缺></a></div><div class=card-body><h2 class=card-title><a class=text-dark href=//2009/08/e5-85-b4-e8-87-b4-e7-bc-ba-e7-bc-ba/>兴致缺缺</a></h2><h4 class=card-text>　　又要开始做环境设计编辑器了，几乎是全部重新做过。这次的计划是自己画，可是现在的我却兴致缺缺，想当年，嗯，也就是一两年前吧，我是多么的希望可以自己动手专心地实现一个这种图形编辑器啊。　　我现在的想做的是把自动分析崩溃报告的事情做好。不过这种事情收益有一些，不过却不是主要业务，因为对用户来说，没有多少良好的体验可以从中体现出来。唯一的好处是，开发人员可以减少工作量，嗯，这点上我倒是真有点典型的程序员风格——懒惰！</h4></div><div class="card-footer bg-white"><div class=wrapfooter><span class=meta-footer-thumb><img class=author-thumb src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/avatar.png alt=类库大魔王></span>
+<span class=author-meta><span class=post-name><a target=_blank href=https://www.ismisv.com>类库大魔王</a></span><br><span class=post-date>08 Aug 2009</span></span>
+<span class=post-read-more><a href=//2009/08/e5-85-b4-e8-87-b4-e7-bc-ba-e7-bc-ba/ title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1.0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5.0 00.706.03L12.5 16.85l5.662 4.126a.508.508.0 00.708-.03.5.5.0 00.118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55.0 1 .45 1 1v13.637l-5.162-3.668a.49.49.0 00-.676.0z" fill-rule="evenodd"/></svg></a></span><div class=clearfix></div></div></div></div></div><div class="col-lg-4 col-md-6 mb-30px card-group"><div class="card h-100"><div class=maxthumb><a href=//2009/08/x-e5-92-8cdt-e5-81-b6-e5-b0-94-e8-bf-98-e6-98-af-e6-9c-89-e4-ba-9b-e7-94-a8-e5-a4-84-e7-9a-84/><img class="img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src=https://img.peapix.com/0370715ec0244a4094e86c57812a17a9_320.jpg alt=x和dt偶尔还是有些用处的></a></div><div class=card-body><h2 class=card-title><a class=text-dark href=//2009/08/x-e5-92-8cdt-e5-81-b6-e5-b0-94-e8-bf-98-e6-98-af-e6-9c-89-e4-ba-9b-e7-94-a8-e5-a4-84-e7-9a-84/>x和dt偶尔还是有些用处的</a></h2><h4 class=card-text>　　事实证明，x和dt偶尔还是有些用处的，有几个core dump记录，经过分析后，嗯，是x或dt后，发现就是在倒数第二次或倒数第三次调用某个对象的方法时崩溃的，而崩溃的原因就是因为那个指向对象的指针其实是个0，只要调用的方法引用了什么成员变量，那么对不起，保证完成“死给你看”的任务。想来，在知道用x和dt前，那些问题我估计是分析不出什么结果来的。　　今天，抱着试试看，用VC9重新全部编译了一下Scintilla，发现真可以用了。在这之前的几天里，偶然发现只要向Scintilla发送什么消息，应用程序就会崩溃，还以为是CVS里的代码有问题。　　这软件的问题啊，真是个很缠人的事啊！</h4></div><div class="card-footer bg-white"><div class=wrapfooter><span class=meta-footer-thumb><img class=author-thumb src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/avatar.png alt=类库大魔王></span>
+<span class=author-meta><span class=post-name><a target=_blank href=https://www.ismisv.com>类库大魔王</a></span><br><span class=post-date>04 Aug 2009</span></span>
+<span class=post-read-more><a href=//2009/08/x-e5-92-8cdt-e5-81-b6-e5-b0-94-e8-bf-98-e6-98-af-e6-9c-89-e4-ba-9b-e7-94-a8-e5-a4-84-e7-9a-84/ title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1.0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5.0 00.706.03L12.5 16.85l5.662 4.126a.508.508.0 00.708-.03.5.5.0 00.118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55.0 1 .45 1 1v13.637l-5.162-3.668a.49.49.0 00-.676.0z" fill-rule="evenodd"/></svg></a></span><div class=clearfix></div></div></div></div></div><div class="col-lg-4 col-md-6 mb-30px card-group"><div class="card h-100"><div class=maxthumb><a href=//2009/08/e9-99-a4-e4-ba-86analyze-v-e5-a4-96-e4-bb-80-e4-b9-88-e9-83-bd-e4-b8-8d-e8-a1-8c/><img class="img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src=https://img.peapix.com/16455366801623725760_320.jpg alt="除了!analyze -v外什么都不行"></a></div><div class=card-body><h2 class=card-title><a class=text-dark href=//2009/08/e9-99-a4-e4-ba-86analyze-v-e5-a4-96-e4-bb-80-e4-b9-88-e9-83-bd-e4-b8-8d-e8-a1-8c/>除了!analyze -v外什么都不行</a></h2><h4 class=card-text>　　那些个core dump，都是我抠了FileZilla早期版本中的源代码出来，利用DbgHelp.dll的功能整出来的mini dump，本来有点迷惑的为什么查看变量内容时，老说访问内存错误，又翻了一会儿书才偶然发现，原来是这mini dump本来就只保存了寄存器和栈回调的信息，这也可以理解了，不然加上完整的内存dump，怎么可能只有几十KB大小。于是只好很沮丧地得出一个结论：对于mini dump，除了!analyze -v外，还真的什么都不行。</h4></div><div class="card-footer bg-white"><div class=wrapfooter><span class=meta-footer-thumb><img class=author-thumb src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/avatar.png alt=类库大魔王></span>
+<span class=author-meta><span class=post-name><a target=_blank href=https://www.ismisv.com>类库大魔王</a></span><br><span class=post-date>03 Aug 2009</span></span>
+<span class=post-read-more><a href=//2009/08/e9-99-a4-e4-ba-86analyze-v-e5-a4-96-e4-bb-80-e4-b9-88-e9-83-bd-e4-b8-8d-e8-a1-8c/ title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1.0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5.0 00.706.03L12.5 16.85l5.662 4.126a.508.508.0 00.708-.03.5.5.0 00.118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55.0 1 .45 1 1v13.637l-5.162-3.668a.49.49.0 00-.676.0z" fill-rule="evenodd"/></svg></a></span><div class=clearfix></div></div></div></div></div></div></section><div class=bottompagination><div class=pointerup><i class="fa fa-caret-up"></i></div><span class=navigation role=navigation><div class=pagination><a class="ml-1 mr-1" href=/page/57/>&#171; Prev</a>
+<a class="ml-1 mr-1" href=/page/57/>1</a>
+<a class="ml-1 mr-1" href=/page/2/>2</a>
+<a class="ml-1 mr-1" href=/page/3/>3</a>
+<a class="ml-1 mr-1" href=/page/4/>4</a>
+<a class="ml-1 mr-1" href=/page/5/>5</a>
+<a class="ml-1 mr-1" href=/page/6/>6</a>
+<a class="ml-1 mr-1" href=/page/7/>7</a>
+<a class="ml-1 mr-1" href=/page/8/>8</a>
+<a class="ml-1 mr-1" href=/page/9/>9</a>
+<a class="ml-1 mr-1" href=/page/10/>10</a>
+<a class="ml-1 mr-1" href=/page/11/>11</a>
+<a class="ml-1 mr-1" href=/page/12/>12</a>
+<a class="ml-1 mr-1" href=/page/13/>13</a>
+<a class="ml-1 mr-1" href=/page/14/>14</a>
+<a class="ml-1 mr-1" href=/page/15/>15</a>
+<a class="ml-1 mr-1" href=/page/16/>16</a>
+<a class="ml-1 mr-1" href=/page/17/>17</a>
+<a class="ml-1 mr-1" href=/page/18/>18</a>
+<a class="ml-1 mr-1" href=/page/19/>19</a>
+<a class="ml-1 mr-1" href=/page/20/>20</a>
+<a class="ml-1 mr-1" href=/page/21/>21</a>
+<a class="ml-1 mr-1" href=/page/22/>22</a>
+<a class="ml-1 mr-1" href=/page/23/>23</a>
+<a class="ml-1 mr-1" href=/page/24/>24</a>
+<a class="ml-1 mr-1" href=/page/25/>25</a>
+<a class="ml-1 mr-1" href=/page/26/>26</a>
+<a class="ml-1 mr-1" href=/page/27/>27</a>
+<a class="ml-1 mr-1" href=/page/28/>28</a>
+<a class="ml-1 mr-1" href=/page/29/>29</a>
+<a class="ml-1 mr-1" href=/page/30/>30</a>
+<a class="ml-1 mr-1" href=/page/31/>31</a>
+<a class="ml-1 mr-1" href=/page/32/>32</a>
+<a class="ml-1 mr-1" href=/page/33/>33</a>
+<a class="ml-1 mr-1" href=/page/34/>34</a>
+<a class="ml-1 mr-1" href=/page/35/>35</a>
+<a class="ml-1 mr-1" href=/page/36/>36</a>
+<a class="ml-1 mr-1" href=/page/37/>37</a>
+<a class="ml-1 mr-1" href=/page/38/>38</a>
+<a class="ml-1 mr-1" href=/page/39/>39</a>
+<a class="ml-1 mr-1" href=/page/40/>40</a>
+<a class="ml-1 mr-1" href=/page/41/>41</a>
+<a class="ml-1 mr-1" href=/page/42/>42</a>
+<a class="ml-1 mr-1" href=/page/43/>43</a>
+<a class="ml-1 mr-1" href=/page/44/>44</a>
+<a class="ml-1 mr-1" href=/page/45/>45</a>
+<a class="ml-1 mr-1" href=/page/46/>46</a>
+<a class="ml-1 mr-1" href=/page/47/>47</a>
+<a class="ml-1 mr-1" href=/page/48/>48</a>
+<a class="ml-1 mr-1" href=/page/49/>49</a>
+<a class="ml-1 mr-1" href=/page/50/>50</a>
+<a class="ml-1 mr-1" href=/page/51/>51</a>
+<a class="ml-1 mr-1" href=/page/52/>52</a>
+<a class="ml-1 mr-1" href=/page/53/>53</a>
+<a class="ml-1 mr-1" href=/page/54/>54</a>
+<a class="ml-1 mr-1" href=/page/55/>55</a>
+<a class="ml-1 mr-1" href=/page/56/>56</a>
+<a class="ml-1 mr-1" href=/page/57/>57</a>
+<span class="ml-1 mr-1">58</span>
+<a class="ml-1 mr-1" href=/page/59/>59</a>
+<a class="ml-1 mr-1" href=/page/60/>60</a>
+<a class="ml-1 mr-1" href=/page/61/>61</a>
+<a class="ml-1 mr-1" href=/page/62/>62</a>
+<a class="ml-1 mr-1" href=/page/63/>63</a>
+<a class="ml-1 mr-1" href=/page/64/>64</a>
+<a class="ml-1 mr-1" href=/page/65/>65</a>
+<a class="ml-1 mr-1" href=/page/66/>66</a>
+<a class="ml-1 mr-1" href=/page/67/>67</a>
+<a class="ml-1 mr-1" href=/page/68/>68</a>
+<a class="ml-1 mr-1" href=/page/69/>69</a>
+<a class="ml-1 mr-1" href=/page/70/>70</a>
+<a class="ml-1 mr-1" href=/page/71/>71</a>
+<a class="ml-1 mr-1" href=/page/72/>72</a>
+<a class="ml-1 mr-1" href=/page/73/>73</a>
+<a class="ml-1 mr-1" href=/page/74/>74</a>
+<a class="ml-1 mr-1" href=/page/75/>75</a>
+<a class="ml-1 mr-1" href=/page/76/>76</a>
+<a class="ml-1 mr-1" href=/page/77/>77</a>
+<a class="ml-1 mr-1" href=/page/78/>78</a>
+<a class="ml-1 mr-1" href=/page/79/>79</a>
+<a class="ml-1 mr-1" href=/page/80/>80</a>
+<a class="ml-1 mr-1" href=/page/81/>81</a>
+<a class="ml-1 mr-1" href=/page/82/>82</a>
+<a class="ml-1 mr-1" href=/page/83/>83</a>
+<a class="ml-1 mr-1" href=/page/84/>84</a>
+<a class="ml-1 mr-1" href=/page/85/>85</a>
+<a class="ml-1 mr-1" href=/page/86/>86</a>
+<a class="ml-1 mr-1" href=/page/87/>87</a>
+<a class="ml-1 mr-1" href=/page/88/>88</a>
+<a class="ml-1 mr-1" href=/page/89/>89</a>
+<a class="ml-1 mr-1" href=/page/90/>90</a>
+<a class="ml-1 mr-1" href=/page/91/>91</a>
+<a class="ml-1 mr-1" href=/page/92/>92</a>
+<a class="ml-1 mr-1" href=/page/93/>93</a>
+<a class="ml-1 mr-1" href=/page/94/>94</a>
+<a class="ml-1 mr-1" href=/page/95/>95</a>
+<a class="ml-1 mr-1" href=/page/96/>96</a>
+<a class="ml-1 mr-1" href=/page/97/>97</a>
+<a class="ml-1 mr-1" href=/page/98/>98</a>
+<a class="ml-1 mr-1" href=/page/99/>99</a>
+<a class="ml-1 mr-1" href=/page/100/>100</a>
+<a class="ml-1 mr-1" href=/page/101/>101</a>
+<a class="ml-1 mr-1" href=/page/102/>102</a>
+<a class="ml-1 mr-1" href=/page/103/>103</a>
+<a class="ml-1 mr-1" href=/page/104/>104</a>
+<a class="ml-1 mr-1" href=/page/105/>105</a>
+<a class="ml-1 mr-1" href=/page/106/>106</a>
+<a class="ml-1 mr-1" href=/page/107/>107</a>
+<a class="ml-1 mr-1" href=/page/108/>108</a>
+<a class="ml-1 mr-1" href=/page/109/>109</a>
+<a class="ml-1 mr-1" href=/page/110/>110</a>
+<a class="ml-1 mr-1" href=/page/111/>111</a>
+<a class="ml-1 mr-1" href=/page/112/>112</a>
+<a class="ml-1 mr-1" href=/page/113/>113</a>
+<a class="ml-1 mr-1" href=/page/114/>114</a>
+<a class="ml-1 mr-1" href=/page/115/>115</a>
+<a class="ml-1 mr-1" href=/page/116/>116</a>
+<a class="ml-1 mr-1" href=/page/117/>117</a>
+<a class="ml-1 mr-1" href=/page/118/>118</a>
+<a class="ml-1 mr-1" href=/page/119/>119</a>
+<a class="ml-1 mr-1" href=/page/120/>120</a>
+<a class="ml-1 mr-1" href=/page/121/>121</a>
+<a class="ml-1 mr-1" href=/page/122/>122</a>
+<a class="ml-1 mr-1" href=/page/123/>123</a>
+<a class="ml-1 mr-1" href=/page/124/>124</a>
+<a class="ml-1 mr-1" href=/page/125/>125</a>
+<a class="ml-1 mr-1" href=/page/126/>126</a>
+<a class="ml-1 mr-1" href=/page/127/>127</a>
+<a class="ml-1 mr-1" href=/page/128/>128</a>
+<a class="ml-1 mr-1" href=/page/129/>129</a>
+<a class="ml-1 mr-1" href=/page/130/>130</a>
+<a class="ml-1 mr-1" href=/page/131/>131</a>
+<a class="ml-1 mr-1" href=/page/132/>132</a>
+<a class="ml-1 mr-1" href=/page/133/>133</a>
+<a class="ml-1 mr-1" href=/page/134/>134</a>
+<a class="ml-1 mr-1" href=/page/135/>135</a>
+<a class="ml-1 mr-1" href=/page/136/>136</a>
+<a class="ml-1 mr-1" href=/page/137/>137</a>
+<a class="ml-1 mr-1" href=/page/138/>138</a>
+<a class="ml-1 mr-1" href=/page/139/>139</a>
+<a class="ml-1 mr-1" href=/page/140/>140</a>
+<a class="ml-1 mr-1" href=/page/141/>141</a>
+<a class="ml-1 mr-1" href=/page/142/>142</a>
+<a class="ml-1 mr-1" href=/page/143/>143</a>
+<a class="ml-1 mr-1" href=/page/144/>144</a>
+<a class="ml-1 mr-1" href=/page/145/>145</a>
+<a class="ml-1 mr-1" href=/page/146/>146</a>
+<a class="ml-1 mr-1" href=/page/147/>147</a>
+<a class="ml-1 mr-1" href=/page/148/>148</a>
+<a class="ml-1 mr-1" href=/page/149/>149</a>
+<a class="ml-1 mr-1" href=/page/150/>150</a>
+<a class="ml-1 mr-1" href=/page/151/>151</a>
+<a class="ml-1 mr-1" href=/page/152/>152</a>
+<a class="ml-1 mr-1" href=/page/59/>Next &#187;</a></div></span></div></div></div><div class="jumbotron fortags"><div class="d-md-flex h-100"><div class="col-md-4 transpdark align-self-center text-center h-100"><div class="d-md-flex align-items-center justify-content-center h-100"><h2 class="d-md-block align-self-center py-1 font-weight-light">发现 <span class="d-none d-md-inline">→</span></h2></div></div><div class="col-md-8 p-5 align-self-center text-center"><a class="mt-1 mb-1" href=//categories.html#imported-from-CSDN>imported from CSDN (124)</a>
+<a class="mt-1 mb-1" href=//categories.html#Film-&-ACG>Film & ACG (15)</a>
+<a class="mt-1 mb-1" href=//categories.html#Water>Water (170)</a>
+<a class="mt-1 mb-1" href=//categories.html#Shareware>Shareware (151)</a>
+<a class="mt-1 mb-1" href=//categories.html#Software>Software (140)</a>
+<a class="mt-1 mb-1" href=//categories.html#Plugin-Framework>Plugin Framework (28)</a>
+<a class="mt-1 mb-1" href=//categories.html#lookfor>lookfor (36)</a>
+<a class="mt-1 mb-1" href=//categories.html#CPPOOPGPXP>CPPOOPGPXP (87)</a>
+<a class="mt-1 mb-1" href=//categories.html#Lua，Script>Lua，Script (51)</a>
+<a class="mt-1 mb-1" href=//categories.html#Be-Old>Be Old (15)</a>
+<a class="mt-1 mb-1" href=//categories.html#Job>Job (185)</a>
+<a class="mt-1 mb-1" href=//categories.html#mm>mm (48)</a>
+<a class="mt-1 mb-1" href=//categories.html#Emulator>Emulator (3)</a>
+<a class="mt-1 mb-1" href=//categories.html#Execise-Outdoor>Execise Outdoor (13)</a>
+<a class="mt-1 mb-1" href=//categories.html#gfw>gfw (10)</a>
+<a class="mt-1 mb-1" href=//categories.html#Reading>Reading (20)</a>
+<a class="mt-1 mb-1" href=//categories.html#Driving>Driving (16)</a>
+<a class="mt-1 mb-1" href=//categories.html#Mobile>Mobile (15)</a>
+<a class="mt-1 mb-1" href=//categories.html#wxWidgets>wxWidgets (29)</a>
+<a class="mt-1 mb-1" href=//categories.html#WIND>WIND (14)</a>
+<a class="mt-1 mb-1" href=//categories.html#PSP-NDS>PSP NDS (2)</a>
+<a class="mt-1 mb-1" href=//categories.html#CodingStudio>CodingStudio (44)</a>
+<a class="mt-1 mb-1" href=//categories.html#Cryptography>Cryptography (2)</a>
+<a class="mt-1 mb-1" href=//categories.html#Editor，IDE>Editor，IDE (5)</a>
+<a class="mt-1 mb-1" href=//categories.html#TeX>TeX (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#Life>Life (82)</a>
+<a class="mt-1 mb-1" href=//categories.html#Technic>Technic (6)</a>
+<a class="mt-1 mb-1" href=//categories.html#Qt>Qt (28)</a>
+<a class="mt-1 mb-1" href=//categories.html#SNS>SNS (35)</a>
+<a class="mt-1 mb-1" href=//categories.html#Ninayan>Ninayan (35)</a>
+<a class="mt-1 mb-1" href=//categories.html#GUI-Framework>GUI Framework (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#KarenMeu>KarenMeu (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#Kindle>Kindle (3)</a>
+<a class="mt-1 mb-1" href=//categories.html#Coding>Coding (14)</a>
+<a class="mt-1 mb-1" href=//categories.html#Startup>Startup (6)</a>
+<a class="mt-1 mb-1" href=//categories.html#network>network (14)</a>
+<a class="mt-1 mb-1" href=//categories.html#Go>Go (10)</a>
+<a class="mt-1 mb-1" href=//categories.html#idea>idea (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#os>os (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#iOS>iOS (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#Cloud>Cloud (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#device>device (2)</a>
+<a class="mt-1 mb-1" href=//categories.html#embed>embed (6)</a>
+<a class="mt-1 mb-1" href=//categories.html#gochess>gochess (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#Router>Router (3)</a>
+<a class="mt-1 mb-1" href=//categories.html#blog>blog (7)</a></div></div></div><footer class=footer><div class=container><div class=row><div class="col-md-6 col-sm-6 text-center text-lg-left">Copyright © 2021 类库大魔王的挖井日记</div><div class="col-md-6 col-sm-6 text-center text-lg-right"><a target=_blank href=https://www.wowthemes.net/mediumish-free-jekyll-template/>Mediumish Jekyll Theme</a> by WowThemes.net</div></div></div></footer></div><script src=https://cdn.staticfile.org/popper.js/1.14.6/umd/popper.min.js></script><script src=https://cdn.staticfile.org/twitter-bootstrap/4.2.1/js/bootstrap.min.js></script><script src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/js/mediumish.min.js></script><script src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/js/lazyload.min.js></script>

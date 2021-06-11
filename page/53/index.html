@@ -1,0 +1,219 @@
+<!doctype html><html lang=en><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><link rel=icon href=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/logo.png><title>Home | 类库大魔王的挖井日记</title><title>Page 53 of 152 for Home | 挖井</title><meta name=generator content="Jekyll v3.9.0"><meta property="og:title" content="Home"><meta property="og:locale" content="en_US"><meta name=description content="挖一口属于自己的井"><meta property="og:description" content="挖一口属于自己的井"><link rel=canonical href=https://blog.ismisv.com/page/53/><meta property="og:url" content="https://blog.ismisv.com/page/53/"><meta property="og:site_name" content="挖井"><link rel=prev href=https://blog.ismisv.com/page/52/><link rel=next href=https://blog.ismisv.com/page/54/><script type=application/ld+json>{"headline":"Home","description":"挖一口属于自己的井","@type":"WebPage","url":"https://blog.ismisv.com/page/53/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://blog.ismisv.com/assets/images/logo.png"}},"@context":"http://schema.org"}</script><link href=https://cdn.staticfile.org/twitter-bootstrap/4.1.3/css/bootstrap.min.css rel=stylesheet><link href=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/css/screen.min.css rel=stylesheet><link href=//assets/css/main.css rel=stylesheet><script src=https://cdn.staticfile.org/jquery/3.3.1/jquery.min.js></script><body class=layout-default><noscript id=deferred-styles><link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel=stylesheet><link href=https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css rel=stylesheet></noscript><nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mediumnavigation nav-down"><div class="container pr-0"><a class=navbar-brand href=//><img src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/logo.png alt=类库大魔王的挖井日记></a>
+<button class=navbar-toggler type=button data-toggle=collapse data-target=#navbarMediumish aria-controls=navbarSupportedContent aria-expanded=false aria-label="Toggle navigation">
+<span class=navbar-toggler-icon></span></button><div class="collapse navbar-collapse" id=navbarMediumish><ul class="navbar-nav ml-auto"><li class=nav-item><a class=nav-link href=// title=博客首页><i class="fab fa-blogger"></i>首页</a><li class=nav-item><a class=nav-link href=//archive/ title=博客文章完整归档><i class="fas fa-archive"></i>归档</a><li class=nav-item><a class=nav-link href=//categories.html title=博客文章所有分类><i class="fas fa-bars"></i>分类</a><li class=nav-item><a class=nav-link href=//tags.html title=博客文章所有标签><i class="fas fa-tags"></i>标签</a><li class=nav-item><a class=nav-link href=//apps/ title=我（近几年）开发的软件作品><i class="fab fa-app-store"></i>软件</a><li class=nav-item><a class=nav-link href=//about/ title=关于本博客><i class="fas fa-user"></i>关于</a><li class=nav-item><a target=_blank class=nav-link href=//links/ title=友情链接><i class="fas fa-link"></i>链接</a><li class=nav-item><a target=_blank class=nav-link href=//feed.xml title=通过RSS订阅本博客><i class="fas fa-rss-square"></i>订阅</a><li class=nav-item><a target=_blank class=nav-link href=https://github.com/missdeer title=我写的一些程序开放了源代码><i class="fab fa-github"></i>代码</a></ul></div></div></nav><div class=site-content><div class=container><div class=mainheading><h1 class=sitetitle>类库大魔王的挖井日记</h1><p class=lead>挖一口属于自己的井</div><div class=main-content><section class=recent-posts><div class=section-title><h2><span>All Stories</span></h2></div><div class="row listrecent"><div class="col-lg-4 col-md-6 mb-30px card-group"><div class="card h-100"><div class=maxthumb><a href=//2009/11/e4-bd-bf-e7-94-a8swig-e5-92-8cluabind-e7-9a-84-e9-97-ae-e9-a2-98-e7-bb-ad/><img class="img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src=https://img.peapix.com/749416143207762738_320.jpg alt=使用SWIG和Luabind的问题续></a></div><div class=card-body><h2 class=card-title><a class=text-dark href=//2009/11/e4-bd-bf-e7-94-a8swig-e5-92-8cluabind-e7-9a-84-e9-97-ae-e9-a2-98-e7-bb-ad/>使用SWIG和Luabind的问题续</a></h2><h4 class=card-text>　　这几天似乎渐渐进入了正轨，发现并解决了一堆的问题。　　从github上下载的0.9版Luabind可能不稳定，毕竟是没有正式发布，之前没有经过仔细的试用，后来实际用的时候总是这也不行那也不行，万般无奈之下退回到正式发布的0.8.1版。两个版本确实有不少区别，至少源文件个数都不一样。在实际使用的过程中发现，0.8.1中如果注册一个类时，无论有没有注册它的构造函数和析构函数，都要求它们是public可见的，而0.9似乎没这个限制。　　比较郁闷的是，没找到一个可靠的办法，把一个类中的STL的容器类型的成员变量传给Lua。Luabind中有个return_stl_iterator策略，似乎是可以把它传给Lua，也能在Lua进行迭代，但是在应用程序退出时，就会报未处理异常。我想以后如果真的一定有传容器的需求，可以试一下SWIG。　　在Lua和C++之间传递字符串是个很头痛的问题。C++中的字符串类型太多了，几乎每种框架或大规模类库，都会有至少一种自己的字符串实现类。在wxWidgets中用的是wxString，但跟Lua交互的最好就是C的字符数组。如果是只读的访问，那还是比较容易处理的，Luabind默认处理了std::string类型的转换，SWIG中只要包含了std_string.i，也是差不多透明地处理了。但是如果要把字符串作为输出参数，那就头痛了，Luabind中是有out_value策略和pure_out_value策略，但实际上我发现在Lua中用的时候程序就崩溃了。暂时也不想再深究这个问题了，顶多在必要的时候考虑修改一下接口了。　　又是才发现，SWIG和Luabind中注册的类型是不能互相混用的。比如SWIG中注册的某个函数，返回一个类的实例，而Luabind中又注册了这个类的话，是不能作为那个返回值的类型的。所以有时候可能需要在两边都注册一遍某个类型。比较安慰的是，基本数据类型还是能混用的，呵呵。　　对于有缺省值参数的函数，SWIG会自动封装成多个函数，每个函数使用相同的名字，只是参数列表不同。而Luabind一次只能注册一个函数，那个完整参数列表的函数，如果想要达到SWIG那样的效果，大概只能自己老老实实一个一个注册上。　　再有是Luabind中，不能随便注册char*类型参数的函数，要注册得指定out_value策略，不过说到这里我就有点疑惑，Luabind好像不支持多个策略的啊，如果有多个参数要指定策略怎么办？而且虽然我没经过测试，但我想除了char *外，其他的自定义类型作为参数的，都有这个问题吧！</h4></div><div class="card-footer bg-white"><div class=wrapfooter><span class=meta-footer-thumb><img class=author-thumb src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/avatar.png alt=类库大魔王></span>
+<span class=author-meta><span class=post-name><a target=_blank href=https://www.ismisv.com>类库大魔王</a></span><br><span class=post-date>10 Nov 2009</span></span>
+<span class=post-read-more><a href=//2009/11/e4-bd-bf-e7-94-a8swig-e5-92-8cluabind-e7-9a-84-e9-97-ae-e9-a2-98-e7-bb-ad/ title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1.0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5.0 00.706.03L12.5 16.85l5.662 4.126a.508.508.0 00.708-.03.5.5.0 00.118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55.0 1 .45 1 1v13.637l-5.162-3.668a.49.49.0 00-.676.0z" fill-rule="evenodd"/></svg></a></span><div class=clearfix></div></div></div></div></div><div class="col-lg-4 col-md-6 mb-30px card-group"><div class="card h-100"><div class=maxthumb><a href=//2009/11/e6-b7-b7-e7-94-a8swig-e5-92-8cluabind-e7-9a-84-e9-97-ae-e9-a2-98/><img class="img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src=https://img.peapix.com/12236299049762843739_320.jpg alt=混用SWIG和Luabind的问题></a></div><div class=card-body><h2 class=card-title><a class=text-dark href=//2009/11/e6-b7-b7-e7-94-a8swig-e5-92-8cluabind-e7-9a-84-e9-97-ae-e9-a2-98/>混用SWIG和Luabind的问题</a></h2><h4 class=card-text>　　花了两三天时间，总算是从头到尾看了一遍Luabind的使用手册，呃，为了确保没有漏过的内容，甚至还把整个文档都翻译了一遍。在看文档的过程中，还是比较感叹该库做得功能强大的，不过在实际用的时候就比较郁闷了。　　我用Luabind绑定了一些类和函数等内容到一个模块中，用了SWIG把几个头文件处理了一遍的，把所有内容都放到同一个模块中。一开始发现在Luabind中绑定的类在Lua中死活不能用，调用成员函数时，总是说那个类是个nil，不能被index。　　后来尝试了下，把Luabind中绑定的内容放在全局域中，发现居然可以了！虽然这样似乎可以工作，但我想让所有由内部C++代码提供的服务放在同一个模块中。后来想了想，把SWIG和Luabind的注册顺序换一下，改成先注册SWIG的内容，再注册Luabind的内容，嘿嘿，真的也可以了！我猜想可能Luabind的注册内容是采用追加的方式，而SWIG却是覆盖方式。这个猜想没有经过证实，只是如果真是因为这个原因的话，也是可以理解的。</h4></div><div class="card-footer bg-white"><div class=wrapfooter><span class=meta-footer-thumb><img class=author-thumb src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/avatar.png alt=类库大魔王></span>
+<span class=author-meta><span class=post-name><a target=_blank href=https://www.ismisv.com>类库大魔王</a></span><br><span class=post-date>08 Nov 2009</span></span>
+<span class=post-read-more><a href=//2009/11/e6-b7-b7-e7-94-a8swig-e5-92-8cluabind-e7-9a-84-e9-97-ae-e9-a2-98/ title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1.0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5.0 00.706.03L12.5 16.85l5.662 4.126a.508.508.0 00.708-.03.5.5.0 00.118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55.0 1 .45 1 1v13.637l-5.162-3.668a.49.49.0 00-.676.0z" fill-rule="evenodd"/></svg></a></span><div class=clearfix></div></div></div></div></div><div class="col-lg-4 col-md-6 mb-30px card-group"><div class="card h-100"><div class=maxthumb><a href=//2009/11/e4-bb-8ec-e4-bc-a0-e9-80-92-e7-aa-97-e5-8f-a3-e7-bb-99wxlua/><img class="img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src=https://img.peapix.com/15294475159277762757_320.jpg alt=从C++传递窗口给wxLua></a></div><div class=card-body><h2 class=card-title><a class=text-dark href=//2009/11/e4-bb-8ec-e4-bc-a0-e9-80-92-e7-aa-97-e5-8f-a3-e7-bb-99wxlua/>从C++传递窗口给wxLua</a></h2><h4 class=card-text>　　描述一下问题，程序主框架是用C++实现的，GUI框架用的wxWidgets，有一部分功能通过嵌入Lua解释器调用Lua脚本完成，如果要在Lua脚本中用wxLua实现个对话框的这种情况下，需要一个父窗口，而最好的父窗口是由C++实现的，现在就需要能把C++中实现的窗口传递给Lua，并让wxLua作为父窗口使用。　　问题根源是出于偷懒的考虑，我把C++中需要能被Lua调用的类、方法等用SWIG嚼了一遍，生成了脱水代码。这样用SWIG返回的wxWindow*跟wxLua中的wx.wxWindow就不是一种东西。　　解决方案比较quick and dirty，过程略有点曲折。昨天偶然在wxWiki上看到一段文字，描述了如何将MFC的窗口关联到wxWidgets中，我就想如果wxLua是严格移植了wxWidgets的话，应该也很容易实现的。不过很沮丧的是SetHWND、AdoptAttributesFromHWND、Reparent这三个方法wxLua一个都没有实现！于是又去wxWidgets的Google group上找了找，发现一个叫AssociateHandle的方法，可以关联一个原始的Windows窗口句柄。到了这一步，我已经没有其他出路，只好修改wxLua的源代码，在wxLua\modules\wxbind\src\wxcore_windows.cpp这个文件中给wx.wxWindow添加一个新的方法void SetWindowHandle(long hwnd)，代码实现可以抄SetWindowStyle的，函数签名相同，里面的步骤也类似。最后要在wxWindow_methods的初始化列表中添加这个新增的方法，就可以重新编译wxLua了。　　有了这个修改过的wxLua，再在自己的应用程序中暴露一个方法以便Lua获取主窗口的句柄，接口就可以在Lua中这样使用了：　　local win = wx.wxWindow()　　local hwnd = frame:GetMainFrameHandle()　　win:SetWindowHandle(hwnd)　　这个win就可以作为wxLua中创建的子窗口、对话框的父窗口了！</h4></div><div class="card-footer bg-white"><div class=wrapfooter><span class=meta-footer-thumb><img class=author-thumb src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/avatar.png alt=类库大魔王></span>
+<span class=author-meta><span class=post-name><a target=_blank href=https://www.ismisv.com>类库大魔王</a></span><br><span class=post-date>04 Nov 2009</span></span>
+<span class=post-read-more><a href=//2009/11/e4-bb-8ec-e4-bc-a0-e9-80-92-e7-aa-97-e5-8f-a3-e7-bb-99wxlua/ title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1.0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5.0 00.706.03L12.5 16.85l5.662 4.126a.508.508.0 00.708-.03.5.5.0 00.118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55.0 1 .45 1 1v13.637l-5.162-3.668a.49.49.0 00-.676.0z" fill-rule="evenodd"/></svg></a></span><div class=clearfix></div></div></div></div></div><div class="col-lg-4 col-md-6 mb-30px card-group"><div class="card h-100"><div class=maxthumb><a href=//2009/11/e7-9b-b4-e6-8e-a5-e7-94-a8luajit-2-0/><img class="img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src=https://img.peapix.com/3240264902222247974_320.jpg alt="直接用LuaJIT 2.0"></a></div><div class=card-body><h2 class=card-title><a class=text-dark href=//2009/11/e7-9b-b4-e6-8e-a5-e7-94-a8luajit-2-0/>直接用LuaJIT 2.0</a></h2><h4 class=card-text>　　昨天发现LuaJIT2.0跟某些第三方Lua库不正常使用，于是在Lua的maillist上发了个邮件问问，结果今天看到Mike Pall的回复说是IUP、IM它们的代码里插入了硬编码的已经被编译成字节码的Lua脚本，而这些脚本在IUP中处理时，没有正确处理出错的情况，于是说这个不是LuaJIT的问题，应该向IUP提交这个Bug。　　这让我比较纳闷，因为我不知道到底问题出在哪里，即使要向IUP提交bug，只说一句Mike Pall说的你们的代码有问题，LuaJIT2.0里不能require，而明明官方Lua和LuaJIT1.0是可以正常使用的，人家会睬我吗？　　今天我又发现，在require另外一个叫iupluaim的库时，LuaJIT 2.0会崩溃！于是我想我先看看是LuaJIT中的哪行代码引起的崩溃，用VC2008创建了个解决方案，添加了代码进去，编译出Debug版本的LuaJIT，重现问题，最后发现居然是lj_vm.obj里崩溃的，而这个lj_vm.obj文件是通过一个叫buildvm.exe的程序生成的，所以VC的调试器跟踪不到它的代码里面去，唉，只好放弃了，反正也不能说一定是LuaJIT的问题，或一定是IUP的问题，只有Mike Pall才知道。　　最后，我把直到昨天下午编译出来的众多第三方Lua库都用LuaJIT来require，发现2.0版本中一共有9个dll不能require，而1.0版本只有一个会崩溃。现在想想，这些2.0版本中不能require的dll都是IUP、IM和CD中的，这些库其实我暂时也用不上，IUP可以用wxLua代码，而IM和CD是跟业务基本无关的，就直接用LuaJIT 2.0就行了！</h4></div><div class="card-footer bg-white"><div class=wrapfooter><span class=meta-footer-thumb><img class=author-thumb src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/avatar.png alt=类库大魔王></span>
+<span class=author-meta><span class=post-name><a target=_blank href=https://www.ismisv.com>类库大魔王</a></span><br><span class=post-date>03 Nov 2009</span></span>
+<span class=post-read-more><a href=//2009/11/e7-9b-b4-e6-8e-a5-e7-94-a8luajit-2-0/ title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1.0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5.0 00.706.03L12.5 16.85l5.662 4.126a.508.508.0 00.708-.03.5.5.0 00.118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55.0 1 .45 1 1v13.637l-5.162-3.668a.49.49.0 00-.676.0z" fill-rule="evenodd"/></svg></a></span><div class=clearfix></div></div></div></div></div><div class="col-lg-4 col-md-6 mb-30px card-group"><div class="card h-100"><div class=maxthumb><a href=//2009/11/e5-88-92-e5-88-86-e8-84-9a-e6-9c-ac-e6-8f-92-e4-bb-b6-e6-9e-b6-e6-9e-84-e7-9a-84-e8-81-8c-e8-b4-a3-e9-9d-a2-e4-b8-b4-e7-9a-84-e9-97-ae-e9-a2-98/><img class="img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src=https://img.peapix.com/11749360812160291678_320.jpg alt=划分脚本插件架构的职责面临的问题></a></div><div class=card-body><h2 class=card-title><a class=text-dark href=//2009/11/e5-88-92-e5-88-86-e8-84-9a-e6-9c-ac-e6-8f-92-e4-bb-b6-e6-9e-b6-e6-9e-84-e7-9a-84-e8-81-8c-e8-b4-a3-e9-9d-a2-e4-b8-b4-e7-9a-84-e9-97-ae-e9-a2-98/>划分脚本插件架构的职责面临的问题</a></h2><h4 class=card-text>　　今天整理了一下项目中使用的第三方框架、库的列表，很多，有C++的，有Lua的，突然面临一个迫切需要解决的问题：怎么决定某个功能应该由C++实现还是由Lua实现？　　最早决定让项目成为一个由C++构建主体框架，由Lua脚本扩展实现其他的业务逻辑时，只是单纯得想让C++完成一部分最核心的功能。但现在的问题是，怎么判定一个功能是否够核心，以及即使够核心了，还得考虑其他一些因素，包括实现难度，安全保护，代码架构合理性，代码和逻辑共享等。　　众所周知，用不同的语言实现相同的功能，难度和工作量可能差别很大。以前听同事和领导不止一次说起过，一行脚本顶得上一百行C++代码。这也许有点夸张的成分，但正好说明差异巨大这个事实。引起这种差异的主要原因就我自身角度出发来看，在于对语言的掌握程度，不同的语言风格就对不同开发任务的适应度，以及可利用的现成的库和代码的丰富度和成熟度。　　说起安全保护，是今天看到Lua的maillist上讨论LuaJIT时Mike Pall说起源代码保护时才提醒了我。一般说来，用C++编写的代码，经过编译生成二进制代码，比起用脚本语言写的代码生成的字节码（中间码）反编译要困难得多。而我本来考虑让众多功能都通过脚本实现，这就面临一个问题，如何保护自己觉得重要的代码。最早的时候想用Lua的官方编译器编译一把就行了，现在看来这个保护弱得可以。而最近又面临另外一个短期内不可能解决的问题是，我打算嵌入LuaJIT 2.0的解释器，而刚刚才知道LuaJIT 2.0不兼容Lua官方的字节码，只提供源代码级的兼容，似乎LuaJIT也没提供一个自己的编译器，同时即使有这样的编译器，万一某种情况下需要用Lua官方编译的文件，那么处理就不一致了！Mike Pall的意见是，用个zip之类的东西打包加密就行了，呃，怎么说，确实是个方案，但使得本方案只能自己使用的了，不能让第三方的开发者参与了！所以除非有其他比较完善的解决方案，不然那样的代码只能用C++实现了。　　再说架构合理性，总的说来，到目前为止的进度，自我感觉这样的架构还是比较满意的，当然现在只是一个空壳，只能支持让主菜单、工具栏按钮和右键弹出式菜单的构建和触发都是由脚本插件扩展而成，接着就而对的问题是，像配置选项功能要由谁来做，这种功能有一定的复杂性，又有GUI界面，又有后台处理逻辑，是全部让C++做，还是全部让Lua做，或者是各做一点，那又是各做哪些和各做多少呢？几乎所有同时涉及界面和后台逻辑的功能点，都有这样的问题，究其原因在于，用C++实现了主界面，而在Lua中目前并不能很方便地操作这些界面。原本天真地以为，C++用了wxWidgets做界面，那么Lua中用wxLua就可以实现无阻碍互通了。现实是残酷的，现在光是想让wxLua中使用C++中创建的主窗口作为父窗口就搞不定！　　最后是代码和逻辑的共享。这个问题不是很严重，如果是纯粹的计算逻辑最容易共享，一些常用的底层功能，两种语言都差不多拥有第三方库来解决。除了GUI，其他的代码（逻辑）要共享，通过luabind和SWIG可以比较方便地粘合起来。如果粘合起来还是犹豫不决，那就是架构合理性的问题了。　　想不到这次决定构建一个基于C++的脚本扩展框架的应用程序，会引出这么多问题，大大出乎我的意料啊，我是一直以来对风险的估计不足啊！</h4></div><div class="card-footer bg-white"><div class=wrapfooter><span class=meta-footer-thumb><img class=author-thumb src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/avatar.png alt=类库大魔王></span>
+<span class=author-meta><span class=post-name><a target=_blank href=https://www.ismisv.com>类库大魔王</a></span><br><span class=post-date>03 Nov 2009</span></span>
+<span class=post-read-more><a href=//2009/11/e5-88-92-e5-88-86-e8-84-9a-e6-9c-ac-e6-8f-92-e4-bb-b6-e6-9e-b6-e6-9e-84-e7-9a-84-e8-81-8c-e8-b4-a3-e9-9d-a2-e4-b8-b4-e7-9a-84-e9-97-ae-e9-a2-98/ title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1.0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5.0 00.706.03L12.5 16.85l5.662 4.126a.508.508.0 00.708-.03.5.5.0 00.118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55.0 1 .45 1 1v13.637l-5.162-3.668a.49.49.0 00-.676.0z" fill-rule="evenodd"/></svg></a></span><div class=clearfix></div></div></div></div></div><div class="col-lg-4 col-md-6 mb-30px card-group"><div class="card h-100"><div class=maxthumb><a href=//2009/11/luajit-e5-88-9d-e4-bd-93-e9-aa-8c/><img class="img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src=https://img.peapix.com/100800331207064788_320.jpg alt=LuaJIT初体验></a></div><div class=card-body><h2 class=card-title><a class=text-dark href=//2009/11/luajit-e5-88-9d-e4-bd-93-e9-aa-8c/>LuaJIT初体验</a></h2><h4 class=card-text>　　偶然看到云风blog上讲到LuaJIT2.0 Beta发布了，于是很好奇地到它的官方网站上看了看。以前也是听说过有这个东西的，不过以前根本不用Lua这东西，看过也就忘了。　　这个东东据说是从API到ABI都是兼容官方Lua的最新版本的，所以一般说来，用官方Lua做的事情，用LuaJIT也可以做。但是它的强项在于，它执行Lua脚本比官方Lua要快，最慢的是快一点点，大概一点几倍，好的情况下能达到几十倍。　　这次说的2.0 Beta版本据说是VM部分跟1.x版本来说完全重写了，效率又是提升了n倍。这个效率有提升，其他代价也几乎没有，这等好事不能错过，于是下载了它的源代码来体验一把。　　它的编译方法跟官方Lua的很像，反正很容易。在Windows平台最后会生成一个dll文件一个exe文件，这点跟官方Lua也是很类似。只要在编译的时候保证dll的文件名，这样就可以把这个dll拿到其他嵌入Lua的项目中去用了，那些项目的源代码是不用修改的，因为API兼容嘛，而且好像也不需要重新编译，因为ABI兼容嘛。　　经过短暂的体验后，发现Beta果然是Beta啊，直接require那iuplua只报什么call nil value，另外就是我自己的那个嵌入Lua的程序会崩溃，具体就没有定位了。而这些问题在1.1.5版的LuaJIT中是不存在的，所以2.0要能正式Release应该还需要一段时间。</h4></div><div class="card-footer bg-white"><div class=wrapfooter><span class=meta-footer-thumb><img class=author-thumb src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/avatar.png alt=类库大魔王></span>
+<span class=author-meta><span class=post-name><a target=_blank href=https://www.ismisv.com>类库大魔王</a></span><br><span class=post-date>01 Nov 2009</span></span>
+<span class=post-read-more><a href=//2009/11/luajit-e5-88-9d-e4-bd-93-e9-aa-8c/ title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1.0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5.0 00.706.03L12.5 16.85l5.662 4.126a.508.508.0 00.708-.03.5.5.0 00.118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55.0 1 .45 1 1v13.637l-5.162-3.668a.49.49.0 00-.676.0z" fill-rule="evenodd"/></svg></a></span><div class=clearfix></div></div></div></div></div><div class="col-lg-4 col-md-6 mb-30px card-group"><div class="card h-100"><div class=maxthumb><a href=//2009/11/e6-97-a0-e5-a5-88-e5-95-8a-ef-bc-8c-e8-bf-98-e6-98-af-e7-a6-bb-e4-b8-8d-e5-bc-80vc/><img class="img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src=https://img.peapix.com/16537750872585859428_320.jpg alt=无奈啊，还是离不开VC></a></div><div class=card-body><h2 class=card-title><a class=text-dark href=//2009/11/e6-97-a0-e5-a5-88-e5-95-8a-ef-bc-8c-e8-bf-98-e6-98-af-e7-a6-bb-e4-b8-8d-e5-bc-80vc/>无奈啊，还是离不开VC</a></h2><h4 class=card-text>　　之前说过，wxWidgets程序是用MinGW编译的，所以用到的wxLua就只好用其他编译器了，试了BCC 5.5和OpenWatcom 1.8，都因为不能顺利编译wxWidgets而放弃了，只好再掉头用回VC 2008。　　既然用了VC编译wxLua，而前些天用MinGW编译的IUP等用起来又有问题，于是就索性让VC把IUP、IM、CD等其他的库也都编译了好了。因为只有最最核心的功能是用C++写的，其他的功能能用Lua的都用Lua写，所以就需要有比较完善的常用功能的库。除了wxLua、IUP这等GUI库外，剩下还需要数据库访问的，至少是能访问sqlite3的，网络通信的，XML操作的，正则表达式，MD5等散列值计算的这几方面的库。现在暂时还没编译，等到时候真正需要的时候再搞吧。　　在编译和使用wxLua和IUP的过程中，遇到不少问题。　　Lua脚本在require一个模块时，会去几个固定的路径下搜索名字匹配的文件，于是我照LuaForWindows的做法，把dll都放在exe程序所在目录的clibs子目录中。发现一个一直以来的错误的认识，以为一个dll在载入另一个dll时，会像exe一样首先搜索自己所在目录。错了，一般情况下是不会搜索dll所在目录的，而是搜索载入该dll的exe文件所在的目录。所以一开始总是不能正确地让wx.dll载入wxWidgets的dll，后来将wxWidgets的dll放在exe所在目录后，又报不能载入msvcp90.dll，这是VC的重发布文件，本来exe是通过manifest文件来指定这个文件的搜索路径的。所以经过试验，发现wx.dll和wxWidgets的dll是没有包含manifest资源的，只好用命令行mt.exe -manifest xxx.dll.manifest -outputresource:xxx.dll;2这样把manifest再注入进dll。命令行参数都容易理解，最后个2，我猜测是注入后的资源编号，manifest类型资源在exe中是1，在dll中是2。经过这样处理的dll，都能正确载入msvcp90.dll等重发布文件。　　接着再解决dll存在位置的问题。本来这些dll只是为clibs下的dll依赖的，我当然不乐意让它们放在clibs外面，所以在网上找了一下，发现确实可以为单独的exe文件设置dll搜索路径。只要在注册表中 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths 下添加一个新的键，项的名字就是exe文件的名字，比如CodingStudio.exe，然后在这个新键中写入字段，默认字段的值为exe文件的完整路径，再添加个新的字符串，名称为“path”，值为dll所在的目录完整路径。这样不但可以在“开始”-“运行”对话框中直接输入exe文件名来启动该程序，还可以让该exe在载入dll时搜索那些目录。　　编译IM时，有个im_capture库，在Windows下是依赖于DirectX的，需要先安装DXSDK，现在MS网站上只能找到2008年发布的，版本至少是9.0以后的了，这里有个问题是，im_capture用到了qedit.h文件，该文件中又包含了dxtrans.h文件，而这个文件是没有的。在网上找的方案基本上有两种，一种是在其他地方找个dxtrans.h文件，然后就行了，不过我没找到，另一个方案是修改qedit.h文件，不要包含这个文件，然后在它的开头定义4个宏：__IDxtCompositor_INTERFACE_DEFINED__、__IDxtAlphaSetter_INTERFACE_DEFINED__、__IDxtJpeg_INTERFACE_DEFINED__、__IDxtKey_INTERFACE_DEFINED__。这样就可以了，im_capture只需要DXSDK的头文件，不需要DX的什么库文件。　　还有个im_wmv库，依赖于MS的Media Format SDK，可以在MS的网站上找到。其实只是需要它里面的一个叫wmvcore.lib文件，其他的头文件是不需要的，如果把头文件路径添加到搜索路径，反而编译会出错。　　最后是发现，在方能iupimglib时，VC的编译器就占满CPU然后就挂死了，郁闷！只好继续用前些用MinGW编译出来的iupimglib.dll和iupluaimglib51.dll了。</h4></div><div class="card-footer bg-white"><div class=wrapfooter><span class=meta-footer-thumb><img class=author-thumb src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/avatar.png alt=类库大魔王></span>
+<span class=author-meta><span class=post-name><a target=_blank href=https://www.ismisv.com>类库大魔王</a></span><br><span class=post-date>01 Nov 2009</span></span>
+<span class=post-read-more><a href=//2009/11/e6-97-a0-e5-a5-88-e5-95-8a-ef-bc-8c-e8-bf-98-e6-98-af-e7-a6-bb-e4-b8-8d-e5-bc-80vc/ title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1.0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5.0 00.706.03L12.5 16.85l5.662 4.126a.508.508.0 00.708-.03.5.5.0 00.118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55.0 1 .45 1 1v13.637l-5.162-3.668a.49.49.0 00-.676.0z" fill-rule="evenodd"/></svg></a></span><div class=clearfix></div></div></div></div></div><div class="col-lg-4 col-md-6 mb-30px card-group"><div class="card h-100"><div class=maxthumb><a href=//2009/10/e7-bb-a7-e7-bb-ad-e6-94-b9-e8-bf-9b-e6-8f-92-e4-bb-b6-e6-89-a9-e5-b1-95-e6-a1-86-e6-9e-b6-e5-86-8d-e7-bb-ad/><img class="img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src=https://img.peapix.com/642d391d7fcd4ec094c75bc5a1a4071c_320.jpg alt=继续改进插件扩展框架再续></a></div><div class=card-body><h2 class=card-title><a class=text-dark href=//2009/10/e7-bb-a7-e7-bb-ad-e6-94-b9-e8-bf-9b-e6-8f-92-e4-bb-b6-e6-89-a9-e5-b1-95-e6-a1-86-e6-9e-b6-e5-86-8d-e7-bb-ad/>继续改进插件扩展框架再续</a></h2><h4 class=card-text>　　今天完成了右键弹出菜单的插件扩展框架支持，基本上没有遇到什么障碍，跟原来想的一样简单。　　除了这个，还把菜单、工具栏的插件扩展支持功能的代码重构了一遍，把这部分功能提取成一个独立的类，在类中完成插件扩展的相关功能，只有最终的事件消息响应函数仍然放在界面类中，这是因为才发现不是随便一个类的成员函数都可以绑定成事件处理器的。　　顺便说个可能是wxWidgets的bug，动态创建的菜单，动态添加的菜单项，第一个图标总是显示不出来！　　再一个是原本用SWIG生成的文件，我把它直接作为头文件，包含在另一个源文件中，而该源文件因为某些原因，经常会被重新编译，而恰恰这SWIG生成的文件体积巨大（超过25000行），所以编译要花不少时间。于是又仔细看了一下生成的这个文件，发现其实最终只是需要一个luaopen_libname的函数，这样SWIG生成的文件就可以作为源文件了，不用跟着其他文件编译了。</h4></div><div class="card-footer bg-white"><div class=wrapfooter><span class=meta-footer-thumb><img class=author-thumb src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/avatar.png alt=类库大魔王></span>
+<span class=author-meta><span class=post-name><a target=_blank href=https://www.ismisv.com>类库大魔王</a></span><br><span class=post-date>31 Oct 2009</span></span>
+<span class=post-read-more><a href=//2009/10/e7-bb-a7-e7-bb-ad-e6-94-b9-e8-bf-9b-e6-8f-92-e4-bb-b6-e6-89-a9-e5-b1-95-e6-a1-86-e6-9e-b6-e5-86-8d-e7-bb-ad/ title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1.0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5.0 00.706.03L12.5 16.85l5.662 4.126a.508.508.0 00.708-.03.5.5.0 00.118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55.0 1 .45 1 1v13.637l-5.162-3.668a.49.49.0 00-.676.0z" fill-rule="evenodd"/></svg></a></span><div class=clearfix></div></div></div></div></div><div class="col-lg-4 col-md-6 mb-30px card-group"><div class="card h-100"><div class=maxthumb><a href=//2009/10/e7-bb-a7-e7-bb-ad-e6-94-b9-e8-bf-9b-e6-8f-92-e4-bb-b6-e6-89-a9-e5-b1-95-e6-a1-86-e6-9e-b6-e5-90-8e-e7-bb-ad/><img class="img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src=https://img.peapix.com/16646404903052686869_320.jpg alt=继续改进插件扩展框架后续></a></div><div class=card-body><h2 class=card-title><a class=text-dark href=//2009/10/e7-bb-a7-e7-bb-ad-e6-94-b9-e8-bf-9b-e6-8f-92-e4-bb-b6-e6-89-a9-e5-b1-95-e6-a1-86-e6-9e-b6-e5-90-8e-e7-bb-ad/>继续改进插件扩展框架后续</a></h2><h4 class=card-text>　　今天修改了插件扩展的描述方式，把菜单项、工具栏按钮的标题、路径和帮助文本，工具栏按钮的图片等信息，全都写到xml描述文件中，这样一弄，lua脚本确实精简了很多。到现在为止，已经可以正常地通过插件扩展实现主菜单和工具栏的点击响应了，如果要说更新界面状态，也不是很麻烦，也就是多添加一个消息连接而已。　　再说右键弹出菜单，我粗略地想了想，应该不是很麻烦，也就是添加到各自的扩展点下即可。其实直到现在，我才想起来，我这种实现方式，其实应该跟Windows传统的GUI资源编程基本思路是一样的。主菜单用一个编号标识，然后是菜单项信息，需要足够多的信息可以标识出菜单项的位置（路径），然后是给菜单项添加消息响应。工具栏的实现也是类似，所以如果要支持右键弹出菜单，也沿用那套思路就行了。　　昨天说到，如果在插件扩展中使用wxLua，那么wxLua不能使用宿主程序使用的wxWidgets二进制文件，于是我今天想用IUP来试试。我从CVS里取出IUP的代码，然后用MinGW编译出所有的dll文件，可是用的时候发现总是报IupClipboard符号在指定的dll中找不到，而我用depends看是有的，郁闷！但是用LuaForWindows里的dll是可以的，可是它是用VS2005编译的，要带一个VC2005的redist，不爽啊！　　另外一个问题是，本来以为脚本扩展时用了wxLua，而宿主程序也用了wxWidgets，两个之间可以无阻碍地互相使用各种控件，今天才发现，当时太想当然了。我用SWIG封装了宿主程序中的一些代码，比如wxFrame，在wxLua中是不认识这种封装的，两种不是相同的类型。所以现在只能精心挑选一组必需的，常用的代码来用SWIG封装，现在让它生成的包括scintilla和scilexer以及wxcintilla的声明后，生成的文件有近30000行，编译要花不少时间。说起来，我应该再仔细研究一下SWIG的用法先。　　这两天用wxWidgets，有时候感觉它比MFC、VCL要灵活，比WTL要易懂。这也许很偏面。不过我最不满的是它的资料太少，以及运行效率不高。　　</h4></div><div class="card-footer bg-white"><div class=wrapfooter><span class=meta-footer-thumb><img class=author-thumb src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/avatar.png alt=类库大魔王></span>
+<span class=author-meta><span class=post-name><a target=_blank href=https://www.ismisv.com>类库大魔王</a></span><br><span class=post-date>30 Oct 2009</span></span>
+<span class=post-read-more><a href=//2009/10/e7-bb-a7-e7-bb-ad-e6-94-b9-e8-bf-9b-e6-8f-92-e4-bb-b6-e6-89-a9-e5-b1-95-e6-a1-86-e6-9e-b6-e5-90-8e-e7-bb-ad/ title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1.0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5.0 00.706.03L12.5 16.85l5.662 4.126a.508.508.0 00.708-.03.5.5.0 00.118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55.0 1 .45 1 1v13.637l-5.162-3.668a.49.49.0 00-.676.0z" fill-rule="evenodd"/></svg></a></span><div class=clearfix></div></div></div></div></div></div></section><div class=bottompagination><div class=pointerup><i class="fa fa-caret-up"></i></div><span class=navigation role=navigation><div class=pagination><a class="ml-1 mr-1" href=/page/52/>&#171; Prev</a>
+<a class="ml-1 mr-1" href=/page/52/>1</a>
+<a class="ml-1 mr-1" href=/page/2/>2</a>
+<a class="ml-1 mr-1" href=/page/3/>3</a>
+<a class="ml-1 mr-1" href=/page/4/>4</a>
+<a class="ml-1 mr-1" href=/page/5/>5</a>
+<a class="ml-1 mr-1" href=/page/6/>6</a>
+<a class="ml-1 mr-1" href=/page/7/>7</a>
+<a class="ml-1 mr-1" href=/page/8/>8</a>
+<a class="ml-1 mr-1" href=/page/9/>9</a>
+<a class="ml-1 mr-1" href=/page/10/>10</a>
+<a class="ml-1 mr-1" href=/page/11/>11</a>
+<a class="ml-1 mr-1" href=/page/12/>12</a>
+<a class="ml-1 mr-1" href=/page/13/>13</a>
+<a class="ml-1 mr-1" href=/page/14/>14</a>
+<a class="ml-1 mr-1" href=/page/15/>15</a>
+<a class="ml-1 mr-1" href=/page/16/>16</a>
+<a class="ml-1 mr-1" href=/page/17/>17</a>
+<a class="ml-1 mr-1" href=/page/18/>18</a>
+<a class="ml-1 mr-1" href=/page/19/>19</a>
+<a class="ml-1 mr-1" href=/page/20/>20</a>
+<a class="ml-1 mr-1" href=/page/21/>21</a>
+<a class="ml-1 mr-1" href=/page/22/>22</a>
+<a class="ml-1 mr-1" href=/page/23/>23</a>
+<a class="ml-1 mr-1" href=/page/24/>24</a>
+<a class="ml-1 mr-1" href=/page/25/>25</a>
+<a class="ml-1 mr-1" href=/page/26/>26</a>
+<a class="ml-1 mr-1" href=/page/27/>27</a>
+<a class="ml-1 mr-1" href=/page/28/>28</a>
+<a class="ml-1 mr-1" href=/page/29/>29</a>
+<a class="ml-1 mr-1" href=/page/30/>30</a>
+<a class="ml-1 mr-1" href=/page/31/>31</a>
+<a class="ml-1 mr-1" href=/page/32/>32</a>
+<a class="ml-1 mr-1" href=/page/33/>33</a>
+<a class="ml-1 mr-1" href=/page/34/>34</a>
+<a class="ml-1 mr-1" href=/page/35/>35</a>
+<a class="ml-1 mr-1" href=/page/36/>36</a>
+<a class="ml-1 mr-1" href=/page/37/>37</a>
+<a class="ml-1 mr-1" href=/page/38/>38</a>
+<a class="ml-1 mr-1" href=/page/39/>39</a>
+<a class="ml-1 mr-1" href=/page/40/>40</a>
+<a class="ml-1 mr-1" href=/page/41/>41</a>
+<a class="ml-1 mr-1" href=/page/42/>42</a>
+<a class="ml-1 mr-1" href=/page/43/>43</a>
+<a class="ml-1 mr-1" href=/page/44/>44</a>
+<a class="ml-1 mr-1" href=/page/45/>45</a>
+<a class="ml-1 mr-1" href=/page/46/>46</a>
+<a class="ml-1 mr-1" href=/page/47/>47</a>
+<a class="ml-1 mr-1" href=/page/48/>48</a>
+<a class="ml-1 mr-1" href=/page/49/>49</a>
+<a class="ml-1 mr-1" href=/page/50/>50</a>
+<a class="ml-1 mr-1" href=/page/51/>51</a>
+<a class="ml-1 mr-1" href=/page/52/>52</a>
+<span class="ml-1 mr-1">53</span>
+<a class="ml-1 mr-1" href=/page/54/>54</a>
+<a class="ml-1 mr-1" href=/page/55/>55</a>
+<a class="ml-1 mr-1" href=/page/56/>56</a>
+<a class="ml-1 mr-1" href=/page/57/>57</a>
+<a class="ml-1 mr-1" href=/page/58/>58</a>
+<a class="ml-1 mr-1" href=/page/59/>59</a>
+<a class="ml-1 mr-1" href=/page/60/>60</a>
+<a class="ml-1 mr-1" href=/page/61/>61</a>
+<a class="ml-1 mr-1" href=/page/62/>62</a>
+<a class="ml-1 mr-1" href=/page/63/>63</a>
+<a class="ml-1 mr-1" href=/page/64/>64</a>
+<a class="ml-1 mr-1" href=/page/65/>65</a>
+<a class="ml-1 mr-1" href=/page/66/>66</a>
+<a class="ml-1 mr-1" href=/page/67/>67</a>
+<a class="ml-1 mr-1" href=/page/68/>68</a>
+<a class="ml-1 mr-1" href=/page/69/>69</a>
+<a class="ml-1 mr-1" href=/page/70/>70</a>
+<a class="ml-1 mr-1" href=/page/71/>71</a>
+<a class="ml-1 mr-1" href=/page/72/>72</a>
+<a class="ml-1 mr-1" href=/page/73/>73</a>
+<a class="ml-1 mr-1" href=/page/74/>74</a>
+<a class="ml-1 mr-1" href=/page/75/>75</a>
+<a class="ml-1 mr-1" href=/page/76/>76</a>
+<a class="ml-1 mr-1" href=/page/77/>77</a>
+<a class="ml-1 mr-1" href=/page/78/>78</a>
+<a class="ml-1 mr-1" href=/page/79/>79</a>
+<a class="ml-1 mr-1" href=/page/80/>80</a>
+<a class="ml-1 mr-1" href=/page/81/>81</a>
+<a class="ml-1 mr-1" href=/page/82/>82</a>
+<a class="ml-1 mr-1" href=/page/83/>83</a>
+<a class="ml-1 mr-1" href=/page/84/>84</a>
+<a class="ml-1 mr-1" href=/page/85/>85</a>
+<a class="ml-1 mr-1" href=/page/86/>86</a>
+<a class="ml-1 mr-1" href=/page/87/>87</a>
+<a class="ml-1 mr-1" href=/page/88/>88</a>
+<a class="ml-1 mr-1" href=/page/89/>89</a>
+<a class="ml-1 mr-1" href=/page/90/>90</a>
+<a class="ml-1 mr-1" href=/page/91/>91</a>
+<a class="ml-1 mr-1" href=/page/92/>92</a>
+<a class="ml-1 mr-1" href=/page/93/>93</a>
+<a class="ml-1 mr-1" href=/page/94/>94</a>
+<a class="ml-1 mr-1" href=/page/95/>95</a>
+<a class="ml-1 mr-1" href=/page/96/>96</a>
+<a class="ml-1 mr-1" href=/page/97/>97</a>
+<a class="ml-1 mr-1" href=/page/98/>98</a>
+<a class="ml-1 mr-1" href=/page/99/>99</a>
+<a class="ml-1 mr-1" href=/page/100/>100</a>
+<a class="ml-1 mr-1" href=/page/101/>101</a>
+<a class="ml-1 mr-1" href=/page/102/>102</a>
+<a class="ml-1 mr-1" href=/page/103/>103</a>
+<a class="ml-1 mr-1" href=/page/104/>104</a>
+<a class="ml-1 mr-1" href=/page/105/>105</a>
+<a class="ml-1 mr-1" href=/page/106/>106</a>
+<a class="ml-1 mr-1" href=/page/107/>107</a>
+<a class="ml-1 mr-1" href=/page/108/>108</a>
+<a class="ml-1 mr-1" href=/page/109/>109</a>
+<a class="ml-1 mr-1" href=/page/110/>110</a>
+<a class="ml-1 mr-1" href=/page/111/>111</a>
+<a class="ml-1 mr-1" href=/page/112/>112</a>
+<a class="ml-1 mr-1" href=/page/113/>113</a>
+<a class="ml-1 mr-1" href=/page/114/>114</a>
+<a class="ml-1 mr-1" href=/page/115/>115</a>
+<a class="ml-1 mr-1" href=/page/116/>116</a>
+<a class="ml-1 mr-1" href=/page/117/>117</a>
+<a class="ml-1 mr-1" href=/page/118/>118</a>
+<a class="ml-1 mr-1" href=/page/119/>119</a>
+<a class="ml-1 mr-1" href=/page/120/>120</a>
+<a class="ml-1 mr-1" href=/page/121/>121</a>
+<a class="ml-1 mr-1" href=/page/122/>122</a>
+<a class="ml-1 mr-1" href=/page/123/>123</a>
+<a class="ml-1 mr-1" href=/page/124/>124</a>
+<a class="ml-1 mr-1" href=/page/125/>125</a>
+<a class="ml-1 mr-1" href=/page/126/>126</a>
+<a class="ml-1 mr-1" href=/page/127/>127</a>
+<a class="ml-1 mr-1" href=/page/128/>128</a>
+<a class="ml-1 mr-1" href=/page/129/>129</a>
+<a class="ml-1 mr-1" href=/page/130/>130</a>
+<a class="ml-1 mr-1" href=/page/131/>131</a>
+<a class="ml-1 mr-1" href=/page/132/>132</a>
+<a class="ml-1 mr-1" href=/page/133/>133</a>
+<a class="ml-1 mr-1" href=/page/134/>134</a>
+<a class="ml-1 mr-1" href=/page/135/>135</a>
+<a class="ml-1 mr-1" href=/page/136/>136</a>
+<a class="ml-1 mr-1" href=/page/137/>137</a>
+<a class="ml-1 mr-1" href=/page/138/>138</a>
+<a class="ml-1 mr-1" href=/page/139/>139</a>
+<a class="ml-1 mr-1" href=/page/140/>140</a>
+<a class="ml-1 mr-1" href=/page/141/>141</a>
+<a class="ml-1 mr-1" href=/page/142/>142</a>
+<a class="ml-1 mr-1" href=/page/143/>143</a>
+<a class="ml-1 mr-1" href=/page/144/>144</a>
+<a class="ml-1 mr-1" href=/page/145/>145</a>
+<a class="ml-1 mr-1" href=/page/146/>146</a>
+<a class="ml-1 mr-1" href=/page/147/>147</a>
+<a class="ml-1 mr-1" href=/page/148/>148</a>
+<a class="ml-1 mr-1" href=/page/149/>149</a>
+<a class="ml-1 mr-1" href=/page/150/>150</a>
+<a class="ml-1 mr-1" href=/page/151/>151</a>
+<a class="ml-1 mr-1" href=/page/152/>152</a>
+<a class="ml-1 mr-1" href=/page/54/>Next &#187;</a></div></span></div></div></div><div class="jumbotron fortags"><div class="d-md-flex h-100"><div class="col-md-4 transpdark align-self-center text-center h-100"><div class="d-md-flex align-items-center justify-content-center h-100"><h2 class="d-md-block align-self-center py-1 font-weight-light">发现 <span class="d-none d-md-inline">→</span></h2></div></div><div class="col-md-8 p-5 align-self-center text-center"><a class="mt-1 mb-1" href=//categories.html#imported-from-CSDN>imported from CSDN (124)</a>
+<a class="mt-1 mb-1" href=//categories.html#Film-&-ACG>Film & ACG (15)</a>
+<a class="mt-1 mb-1" href=//categories.html#Water>Water (170)</a>
+<a class="mt-1 mb-1" href=//categories.html#Shareware>Shareware (151)</a>
+<a class="mt-1 mb-1" href=//categories.html#Software>Software (140)</a>
+<a class="mt-1 mb-1" href=//categories.html#Plugin-Framework>Plugin Framework (28)</a>
+<a class="mt-1 mb-1" href=//categories.html#lookfor>lookfor (36)</a>
+<a class="mt-1 mb-1" href=//categories.html#CPPOOPGPXP>CPPOOPGPXP (87)</a>
+<a class="mt-1 mb-1" href=//categories.html#Lua，Script>Lua，Script (51)</a>
+<a class="mt-1 mb-1" href=//categories.html#Be-Old>Be Old (15)</a>
+<a class="mt-1 mb-1" href=//categories.html#Job>Job (185)</a>
+<a class="mt-1 mb-1" href=//categories.html#mm>mm (48)</a>
+<a class="mt-1 mb-1" href=//categories.html#Emulator>Emulator (3)</a>
+<a class="mt-1 mb-1" href=//categories.html#Execise-Outdoor>Execise Outdoor (13)</a>
+<a class="mt-1 mb-1" href=//categories.html#gfw>gfw (10)</a>
+<a class="mt-1 mb-1" href=//categories.html#Reading>Reading (20)</a>
+<a class="mt-1 mb-1" href=//categories.html#Driving>Driving (16)</a>
+<a class="mt-1 mb-1" href=//categories.html#Mobile>Mobile (15)</a>
+<a class="mt-1 mb-1" href=//categories.html#wxWidgets>wxWidgets (29)</a>
+<a class="mt-1 mb-1" href=//categories.html#WIND>WIND (14)</a>
+<a class="mt-1 mb-1" href=//categories.html#PSP-NDS>PSP NDS (2)</a>
+<a class="mt-1 mb-1" href=//categories.html#CodingStudio>CodingStudio (44)</a>
+<a class="mt-1 mb-1" href=//categories.html#Cryptography>Cryptography (2)</a>
+<a class="mt-1 mb-1" href=//categories.html#Editor，IDE>Editor，IDE (5)</a>
+<a class="mt-1 mb-1" href=//categories.html#TeX>TeX (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#Life>Life (82)</a>
+<a class="mt-1 mb-1" href=//categories.html#Technic>Technic (6)</a>
+<a class="mt-1 mb-1" href=//categories.html#Qt>Qt (28)</a>
+<a class="mt-1 mb-1" href=//categories.html#SNS>SNS (35)</a>
+<a class="mt-1 mb-1" href=//categories.html#Ninayan>Ninayan (35)</a>
+<a class="mt-1 mb-1" href=//categories.html#GUI-Framework>GUI Framework (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#KarenMeu>KarenMeu (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#Kindle>Kindle (3)</a>
+<a class="mt-1 mb-1" href=//categories.html#Coding>Coding (14)</a>
+<a class="mt-1 mb-1" href=//categories.html#Startup>Startup (6)</a>
+<a class="mt-1 mb-1" href=//categories.html#network>network (14)</a>
+<a class="mt-1 mb-1" href=//categories.html#Go>Go (10)</a>
+<a class="mt-1 mb-1" href=//categories.html#idea>idea (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#os>os (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#iOS>iOS (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#Cloud>Cloud (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#device>device (2)</a>
+<a class="mt-1 mb-1" href=//categories.html#embed>embed (6)</a>
+<a class="mt-1 mb-1" href=//categories.html#gochess>gochess (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#Router>Router (3)</a>
+<a class="mt-1 mb-1" href=//categories.html#blog>blog (7)</a></div></div></div><footer class=footer><div class=container><div class=row><div class="col-md-6 col-sm-6 text-center text-lg-left">Copyright © 2021 类库大魔王的挖井日记</div><div class="col-md-6 col-sm-6 text-center text-lg-right"><a target=_blank href=https://www.wowthemes.net/mediumish-free-jekyll-template/>Mediumish Jekyll Theme</a> by WowThemes.net</div></div></div></footer></div><script src=https://cdn.staticfile.org/popper.js/1.14.6/umd/popper.min.js></script><script src=https://cdn.staticfile.org/twitter-bootstrap/4.2.1/js/bootstrap.min.js></script><script src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/js/mediumish.min.js></script><script src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/js/lazyload.min.js></script>

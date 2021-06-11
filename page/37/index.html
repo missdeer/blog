@@ -1,0 +1,248 @@
+<!doctype html><html lang=en><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><link rel=icon href=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/logo.png><title>Home | 类库大魔王的挖井日记</title><title>Page 37 of 152 for Home | 挖井</title><meta name=generator content="Jekyll v3.9.0"><meta property="og:title" content="Home"><meta property="og:locale" content="en_US"><meta name=description content="挖一口属于自己的井"><meta property="og:description" content="挖一口属于自己的井"><link rel=canonical href=https://blog.ismisv.com/page/37/><meta property="og:url" content="https://blog.ismisv.com/page/37/"><meta property="og:site_name" content="挖井"><link rel=prev href=https://blog.ismisv.com/page/36/><link rel=next href=https://blog.ismisv.com/page/38/><script type=application/ld+json>{"headline":"Home","description":"挖一口属于自己的井","@type":"WebPage","url":"https://blog.ismisv.com/page/37/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://blog.ismisv.com/assets/images/logo.png"}},"@context":"http://schema.org"}</script><link href=https://cdn.staticfile.org/twitter-bootstrap/4.1.3/css/bootstrap.min.css rel=stylesheet><link href=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/css/screen.min.css rel=stylesheet><link href=//assets/css/main.css rel=stylesheet><script src=https://cdn.staticfile.org/jquery/3.3.1/jquery.min.js></script><body class=layout-default><noscript id=deferred-styles><link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel=stylesheet><link href=https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css rel=stylesheet></noscript><nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mediumnavigation nav-down"><div class="container pr-0"><a class=navbar-brand href=//><img src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/logo.png alt=类库大魔王的挖井日记></a>
+<button class=navbar-toggler type=button data-toggle=collapse data-target=#navbarMediumish aria-controls=navbarSupportedContent aria-expanded=false aria-label="Toggle navigation">
+<span class=navbar-toggler-icon></span></button><div class="collapse navbar-collapse" id=navbarMediumish><ul class="navbar-nav ml-auto"><li class=nav-item><a class=nav-link href=// title=博客首页><i class="fab fa-blogger"></i>首页</a><li class=nav-item><a class=nav-link href=//archive/ title=博客文章完整归档><i class="fas fa-archive"></i>归档</a><li class=nav-item><a class=nav-link href=//categories.html title=博客文章所有分类><i class="fas fa-bars"></i>分类</a><li class=nav-item><a class=nav-link href=//tags.html title=博客文章所有标签><i class="fas fa-tags"></i>标签</a><li class=nav-item><a class=nav-link href=//apps/ title=我（近几年）开发的软件作品><i class="fab fa-app-store"></i>软件</a><li class=nav-item><a class=nav-link href=//about/ title=关于本博客><i class="fas fa-user"></i>关于</a><li class=nav-item><a target=_blank class=nav-link href=//links/ title=友情链接><i class="fas fa-link"></i>链接</a><li class=nav-item><a target=_blank class=nav-link href=//feed.xml title=通过RSS订阅本博客><i class="fas fa-rss-square"></i>订阅</a><li class=nav-item><a target=_blank class=nav-link href=https://github.com/missdeer title=我写的一些程序开放了源代码><i class="fab fa-github"></i>代码</a></ul></div></div></nav><div class=site-content><div class=container><div class=mainheading><h1 class=sitetitle>类库大魔王的挖井日记</h1><p class=lead>挖一口属于自己的井</div><div class=main-content><section class=recent-posts><div class=section-title><h2><span>All Stories</span></h2></div><div class="row listrecent"><div class="col-lg-4 col-md-6 mb-30px card-group"><div class="card h-100"><div class=maxthumb><a href=//2011/01/ninayan-w-i-p-16/><img class="img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src=https://img.peapix.com/16398595626827090880_320.jpg alt="Ninayan W.I.P.(16)"></a></div><div class=card-body><h2 class=card-title><a class=text-dark href=//2011/01/ninayan-w-i-p-16/>Ninayan W.I.P.(16)</a></h2><h4 class=card-text>　　昨天和前天晚上蛋疼地在Linux上编译Ninayan了。我用的是Mint9，也就是一个Ubuntu的修改版。在Linux上编译Qt程序有点麻烦的是需要自己编译一遍Qt，前天晚上就编译了一遍最新的qt-everywhere-opensource-src-4.7.1.tar.gz，过程比较顺利，再装上Qt Creator就可以编译出Ninayan了，简单试用了一下，很正常。而且令我比较惊讶的是，我学Hotot用了Droid Sans字体，最终的显示效果在我个人看来比Windows XP SP3和Mac OS 10.6.6上都要好，但XP SP3上加上Gdipp或MacType后，效果会有很大的提升。
+　　昨天突然发现，Ninayan在Mint下不能访问https://api.twitter.com（不是被墙的缘故），测试了几次才确认是不能访问https的地址，于是想到前不久看过一篇博文说Qt 4.7是有这么个bug不能访问https的，因为原来Qt 4.6带了SSL证书，而Qt 4.7没带，于是照那篇文章的作者的说法，从Qt 4.6.2里找到qt-ca-bundle.crt文件，然后每次QNetworkRequest在被post或get前都设置一下Ssl证书。结果我的情况是连编译都不通过，于是可以确认是Qt在编译时没有编译进OpenSSL了。然后找到了这篇《Compile Qt 4.7 on Ubuntu 10.10》，先要安装一堆的库的开发包，再来编译Qt，最后再编译Ninayan，果然就正常了！于是我就不明白那篇博文讲述的到底是个神马问题了！
+　　今天就比较烦躁地在做网址缩短功能了。本来打算内置goo.gl，bit.ly和is.gd三个短网址服务，结果很郁闷的是bit.ly总是返回INVALID_URI，但同样的URL我拿到Firefox下测试就能返回正确的数据，这不是歧视嘛，难道是在http header里还要设置神马东西？倒是goo.gl和is.gd都正常了！</h4></div><div class="card-footer bg-white"><div class=wrapfooter><span class=meta-footer-thumb><img class=author-thumb src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/avatar.png alt=类库大魔王></span>
+<span class=author-meta><span class=post-name><a target=_blank href=https://www.ismisv.com>类库大魔王</a></span><br><span class=post-date>27 Jan 2011</span></span>
+<span class=post-read-more><a href=//2011/01/ninayan-w-i-p-16/ title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1.0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5.0 00.706.03L12.5 16.85l5.662 4.126a.508.508.0 00.708-.03.5.5.0 00.118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55.0 1 .45 1 1v13.637l-5.162-3.668a.49.49.0 00-.676.0z" fill-rule="evenodd"/></svg></a></span><div class=clearfix></div></div></div></div></div><div class="col-lg-4 col-md-6 mb-30px card-group"><div class="card h-100"><div class=maxthumb><a href=//2011/01/ninayan-w-i-p-15/><img class="img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src=https://img.peapix.com/16392053921420870528_320.jpg alt="Ninayan W.I.P.(15)"></a></div><div class=card-body><h2 class=card-title><a class=text-dark href=//2011/01/ninayan-w-i-p-15/>Ninayan W.I.P.(15)</a></h2><h4 class=card-text>　　话说前天偶然发现了MacType和Gdipp，觉得这种功能对Ninayan之类偏阅读的应用非常有帮助，于是我在极限论坛上给MacType的作者私下发了个email询问是否可以提供专门的API以便集成此功能。不过到现在也没收到回应，估计是不愿意了。
+　　今天看了一下MacType的安装目录，发现有个MacLoader.exe，而Gdipp的安装目录下也有个loader文件，这时才明白过来，可以通过把可执行文件的完整路径作为命令行参数传递给这loader，那么该可执行文件会被启动运行，并被注入实现字体渲染增强效果。
+　　经过简单的测试，Ninayan在我的XP SP3上使用微软雅黑字体，加上增强字体渲染效果，感觉确实更舒服了！而Gdipp是以GPLv3，最新的版本好像是用LGPL了，一起打包发布应该是木有问题的。我只要另外再写一个小小的启动程序，在安装包中把启动程序作为快捷方式添加到开始菜单和桌面等位置，可以自己调整是否使用增强字体渲染效果，使用什么样的渲染配置等等。
+　　这样一来，似乎Windows上的效果都超过Mac上的了，一直没找到感觉特别好的Mac上的用于大段文字阅读的字体，微软雅黑只适合在Windows上用，而且至少要开了ClearType Tuner才行，有MacType或Gdipp最好。也许是因为我在Mac下用的是CRT的显示器的缘故，不止一个人对我说过那个视频信号转换后损失挺大的，也许用LCD的就要好些了！
+　　今天心情不错，呼呼！</h4></div><div class="card-footer bg-white"><div class=wrapfooter><span class=meta-footer-thumb><img class=author-thumb src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/avatar.png alt=类库大魔王></span>
+<span class=author-meta><span class=post-name><a target=_blank href=https://www.ismisv.com>类库大魔王</a></span><br><span class=post-date>25 Jan 2011</span></span>
+<span class=post-read-more><a href=//2011/01/ninayan-w-i-p-15/ title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1.0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5.0 00.706.03L12.5 16.85l5.662 4.126a.508.508.0 00.708-.03.5.5.0 00.118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55.0 1 .45 1 1v13.637l-5.162-3.668a.49.49.0 00-.676.0z" fill-rule="evenodd"/></svg></a></span><div class=clearfix></div></div></div></div></div><div class="col-lg-4 col-md-6 mb-30px card-group"><div class="card h-100"><div class=maxthumb><a href=//2011/01/ninayan-w-i-p-14/><img class="img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src=https://img.peapix.com/11241615111867719662_320.jpg alt="Ninayan W.I.P.(14)"></a></div><div class=card-body><h2 class=card-title><a class=text-dark href=//2011/01/ninayan-w-i-p-14/>Ninayan W.I.P.(14)</a></h2><h4 class=card-text>　　前面说到内存泄漏的问题。后来通过逐段屏蔽代码，终于找到了最大一处泄漏源。这个办法比较笨，但这次真的有用，主要还是因为程序结构简单，流程也不复杂才能用吧。
+　　程序大体上分为三部分，UI层，数据层，网络通信层。用户在UI层上操作，1、UI层向数据层请求数据，2、数据层根据不同情况直接查询本地数据库或通过网络通信层获取数据，3、网络通信层自己有一个定时轮循的任务，每分钟从远程服务器获取数据，4、有了数据就发送给数据层，5、数据层将数据经过简单处理发送给UI层，6、然后显示，就是这么简单。
+　　我开始主要怀疑UI显示调用的Qt/QML也许MM有问题，于是把最终UI显示的代码屏蔽掉。发现仍然泄漏的情况基本没有变化，说明跟UI显示的关系不大。后来发现Mem Usage的增长是有周期，大概是1分钟1次，那么可以确定是在4和5两步有问题。这时把第5步中代码全部屏蔽掉，果然Mem Usage就不增长了。然后逐步缩小范围，一点点放出代码，最后发现竟然是QSqlQuery查询本地数据库时，select出来的东西需要程序员自己clear掉！内牛满面啊，果然是Qt用得有问题！
+　　今天偶然发现一个叫MacType的东东，可以在Windows下以进程注入的方式给指定进程增强字体渲染效果。跟微软官方的ClearType Tuner是一类东西，不过MacType的选项更丰富。于是我想到，我这个以阅读为主的工具，要是集成这么个美仑美奂的功能，该是多酷啊。在极限论坛翻了一遍帖子，貌似MacType是闭源的，另外有个新生的Gdipp项目，倒是在googlecode上开源了，不过听说它的配置复杂，而且目前不够稳定，尤其是32位系统上。好吧，反正这种功能对我有致命吸引力，一定要集成！</h4></div><div class="card-footer bg-white"><div class=wrapfooter><span class=meta-footer-thumb><img class=author-thumb src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/avatar.png alt=类库大魔王></span>
+<span class=author-meta><span class=post-name><a target=_blank href=https://www.ismisv.com>类库大魔王</a></span><br><span class=post-date>24 Jan 2011</span></span>
+<span class=post-read-more><a href=//2011/01/ninayan-w-i-p-14/ title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1.0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5.0 00.706.03L12.5 16.85l5.662 4.126a.508.508.0 00.708-.03.5.5.0 00.118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55.0 1 .45 1 1v13.637l-5.162-3.668a.49.49.0 00-.676.0z" fill-rule="evenodd"/></svg></a></span><div class=clearfix></div></div></div></div></div><div class="col-lg-4 col-md-6 mb-30px card-group"><div class="card h-100"><div class=maxthumb><a href=//2011/01/ninayan-w-i-p-13/><img class="img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src=https://img.peapix.com/17829620072814546125_320.jpg alt="Ninayan W.I.P.(13)"></a></div><div class=card-body><h2 class=card-title><a class=text-dark href=//2011/01/ninayan-w-i-p-13/>Ninayan W.I.P.(13)</a></h2><h4 class=card-text>　　内存泄漏的问题，调得我心力交瘁，都有点神经衰弱了，甚至有点绝望，唉。以前还真没有过这种强烈的负面情绪出现过。
+　　每次UI刷新，从任务管理器里看Mem Usage都会增加2-3MB，这得有多严重的泄漏啊！可是我自己的代码中new出来的对象都经过跟踪是销毁掉了的。于是又把矛头指向Qt内部，或者是QML中了。
+　　本来怀疑是QML中的实现可能有问题，于是把Qt从4.7.0升级到4.7.1，貌似泄漏得更严重了。所以现在都已经不敢怀疑是Qt有问题了，开始怀疑是没有遵循Qt的用法。有些Qt返回的东西，需要程序员来负责销毁，比如QNetworkAccessManager在调用get或post后返回的QNetworkReply对象，这是多么操蛋的设计啊，指不定就是每次在哪里它自己创建出一堆对象出来要我来销毁我却不知道呢！
+　　从CodeProject上下载了个Visual Leaks Detector，从说明上看，说是在msvc的jit debugger里会自动打印信息到debugging output window里的，可我实际上试了之后，发现屁都没输出一句，难道它是for MFC-based project only的？有可能的，唉！
+　　简直走投无路了。</h4></div><div class="card-footer bg-white"><div class=wrapfooter><span class=meta-footer-thumb><img class=author-thumb src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/avatar.png alt=类库大魔王></span>
+<span class=author-meta><span class=post-name><a target=_blank href=https://www.ismisv.com>类库大魔王</a></span><br><span class=post-date>23 Jan 2011</span></span>
+<span class=post-read-more><a href=//2011/01/ninayan-w-i-p-13/ title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1.0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5.0 00.706.03L12.5 16.85l5.662 4.126a.508.508.0 00.708-.03.5.5.0 00.118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55.0 1 .45 1 1v13.637l-5.162-3.668a.49.49.0 00-.676.0z" fill-rule="evenodd"/></svg></a></span><div class=clearfix></div></div></div></div></div><div class="col-lg-4 col-md-6 mb-30px card-group"><div class="card h-100"><div class=maxthumb><a href=//2011/01/ninayan-w-i-p-12/><img class="img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src=https://img.peapix.com/5935115072627219872_320.jpg alt="Ninayan W.I.P.(12)"></a></div><div class=card-body><h2 class=card-title><a class=text-dark href=//2011/01/ninayan-w-i-p-12/>Ninayan W.I.P.(12)</a></h2><h4 class=card-text>　　本来排除在计划外的事情，今天又去搞了，就是支持Twip4。前一天也折腾过一下，没弄好，这回问了一下Twip4的作者@yegle，他开始说是计算数字签名时用https://api.twitter.com/作为base string就行了。我试了下不行，后来他又说试试T模式吧，有几个客户端是经过实践T模式没问题的。于是一下子就明白过来了。 　　Twip4有T模式和O模式两种工作模式。T模式是完全的透明转发，Twip基本上不做任何处理，所以要请求oauth token和oauth token secret时原本是向https://api.twitter.com/oauth/access_token请求的，同时也是拿https://api.twitter.com/oauth/access_token作为base string计算数字签名的，在使用T模式的代理时，只要向http://www.myproxy.com/oauth/access_token请求就行了，仍然用https://api.twitter.com/oauth/access_token作为base string计算数字签名，这样就能无障碍获取oauth token和oauth token secret了。至于O模式，我看了下TweetDeck和Mixero的表现，发现它们也并不向O模式Twip请求oauth token和oauth token secret，或者请求了也没结果。所以我就推测其实O模式是没这功能的，O模式自己有consumer key和consumer secret，所以自己有一套oauth token和oauth token secret，但不是给客户端用的，即使客户端用自己有效的oauth token和oauth token secret发送给Twip请求，Twip也会把http header和url parameters里的东西处理一遍，用自己的那套oauth token和oauth token secret计算出来的东西替换掉。所以我想如果用O模式也要让用户可以无障碍认证的话，需要软件自己提供一个透明代理，软件先拿用户名和密码从那透明代理处获取oauth token和oauth token secret，然后在其他发布消息，收取消息时用O模式代理，就可以解决这个问题了。...</h4></div><div class="card-footer bg-white"><div class=wrapfooter><span class=meta-footer-thumb><img class=author-thumb src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/avatar.png alt=类库大魔王></span>
+<span class=author-meta><span class=post-name><a target=_blank href=https://www.ismisv.com>类库大魔王</a></span><br><span class=post-date>22 Jan 2011</span></span>
+<span class=post-read-more><a href=//2011/01/ninayan-w-i-p-12/ title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1.0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5.0 00.706.03L12.5 16.85l5.662 4.126a.508.508.0 00.708-.03.5.5.0 00.118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55.0 1 .45 1 1v13.637l-5.162-3.668a.49.49.0 00-.676.0z" fill-rule="evenodd"/></svg></a></span><div class=clearfix></div></div></div></div></div><div class="col-lg-4 col-md-6 mb-30px card-group"><div class="card h-100"><div class=maxthumb><a href=//2011/01/ninayan-w-i-p-11/><img class="img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src=https://img.peapix.com/11232519820888499563_320.jpg alt="Ninayan W.I.P.(11)"></a></div><div class=card-body><h2 class=card-title><a class=text-dark href=//2011/01/ninayan-w-i-p-11/>Ninayan W.I.P.(11)</a></h2><h4 class=card-text>　　好吧，其实没做什么，本来的计划是先做图片浏览和文章阅读的，可是饭否上的内容实在太单薄了点，呃，这纯粹是借口，于是今天实现了对Twitter的支持。
+　　昨天晚上弄到1点半才基本搞好怎么用xAuth认证获取oauth token和oauth token secret，今天就把twitter的timeline浏览，direct message浏览以及消息发布实现了。这内容比饭否丰富了许多，比如有了3列跟retweet有关的内容。twitter居然没有像饭否那样可以一次请求把foing和foer列表取下来，而只能先获取那些id，再由id去获取其他信息！于是这个功能就还没实现。还有比较影响使用的没实现的功能包括不能看conversation，不支持list，不能用快捷键操作。
+　　不过有点值得欣慰的是，又修正了几处内存泄漏的问题。
+　　今天就不上图了，因为基本上界面上没啥变化。</h4></div><div class="card-footer bg-white"><div class=wrapfooter><span class=meta-footer-thumb><img class=author-thumb src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/avatar.png alt=类库大魔王></span>
+<span class=author-meta><span class=post-name><a target=_blank href=https://www.ismisv.com>类库大魔王</a></span><br><span class=post-date>21 Jan 2011</span></span>
+<span class=post-read-more><a href=//2011/01/ninayan-w-i-p-11/ title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1.0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5.0 00.706.03L12.5 16.85l5.662 4.126a.508.508.0 00.708-.03.5.5.0 00.118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55.0 1 .45 1 1v13.637l-5.162-3.668a.49.49.0 00-.676.0z" fill-rule="evenodd"/></svg></a></span><div class=clearfix></div></div></div></div></div><div class="col-lg-4 col-md-6 mb-30px card-group"><div class="card h-100"><div class=maxthumb><a href=//2011/01/ninayan-w-i-p-10/><img class="img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src=https://img.peapix.com/13581873472919377355_320.jpg alt="Ninayan W.I.P.(10)"></a></div><div class=card-body><h2 class=card-title><a class=text-dark href=//2011/01/ninayan-w-i-p-10/>Ninayan W.I.P.(10)</a></h2><h4 class=card-text>　　脑袋混沌了一天，终于基本上搞定超链接处理的功能了。
+　　最开始是由于我使用的处理流程的关系，选择一个合适的数据结构让我头疼了好久，最后决定使用一个list，每个元素是一个结构体，每个结构体由两部分组织，一部分是URL列表，该列表会按短网址还原后的处理顺序存储URL，另一部分则是对该URL的描述，描述的字段包括当前是否已经完成全部的还原操作，最后一个URL能不能被embed.ly拆成两个新的URL列表，代表视频的html和html5等信息。
+　　中间调试过程也是经历了重重磨难啊！其实也是自己代码写得有问题。一开始我是用一个map来存储url list和附着属性的，指针乱飘，调试得没有信心了，才改成上面描述的那个方案。还是有很多问题，经过层层排查，终于把所有的问题都找出来并解决掉了。甚至以为Qt的signal不能随便emit，会有对象生命周期相关的问题，最后也确认其实是在前面的代码写得有问题，哇哈哈！
+　　明天就看一下怎么把数据库中的已有记录读取出来当历史记录来处理超链接。然后就可以做图片浏览的功能了！图片浏览功能完成后就做Readability的功能，之后再做twitter的支持，这就可以发布第一个版本了！</h4></div><div class="card-footer bg-white"><div class=wrapfooter><span class=meta-footer-thumb><img class=author-thumb src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/avatar.png alt=类库大魔王></span>
+<span class=author-meta><span class=post-name><a target=_blank href=https://www.ismisv.com>类库大魔王</a></span><br><span class=post-date>19 Jan 2011</span></span>
+<span class=post-read-more><a href=//2011/01/ninayan-w-i-p-10/ title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1.0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5.0 00.706.03L12.5 16.85l5.662 4.126a.508.508.0 00.708-.03.5.5.0 00.118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55.0 1 .45 1 1v13.637l-5.162-3.668a.49.49.0 00-.676.0z" fill-rule="evenodd"/></svg></a></span><div class=clearfix></div></div></div></div></div><div class="col-lg-4 col-md-6 mb-30px card-group"><div class="card h-100"><div class=maxthumb><a href=//2011/01/ninayan-w-i-p-9/><img class="img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src=https://img.peapix.com/11513149531168317603_320.jpg alt="Ninayan W.I.P.(9)"></a></div><div class=card-body><h2 class=card-title><a class=text-dark href=//2011/01/ninayan-w-i-p-9/>Ninayan W.I.P.(9)</a></h2><h4 class=card-text>　　根据@zhangh109的建议，修改了一下界面，浏览文章有三种模式，在启动界面现在就只有一个入口Article View，在Article View中再添加切换浏览模式的入口。另外了加个图片浏览的视图，在启动界面中把原来About的入口替换掉了，About则移到原来的Quit按钮处。
+　　URL处理部分今天还是没有搞定，不过思路清晰了很多，估计明天就可以完成总体的框架，到时候图片浏览部分应该就可以很快实现，而文章浏览部分需要把Readability的JavaScript代码移植过来，本来如果可以直接用它的那些JavaScript代码是最好的方案，可是之前我曾尝试过，不知道为什么内嵌的Webkit在装载完页面后，直接运行那个代码是没有作用的。所以干脆也不研究它了，直接移植成C++的，用Qt的接口操作Webkit的DOM树来解决吧。想来这移植工作需要花一些时间吧。
+　　贴两张修改后的截图吧。</h4></div><div class="card-footer bg-white"><div class=wrapfooter><span class=meta-footer-thumb><img class=author-thumb src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/avatar.png alt=类库大魔王></span>
+<span class=author-meta><span class=post-name><a target=_blank href=https://www.ismisv.com>类库大魔王</a></span><br><span class=post-date>17 Jan 2011</span></span>
+<span class=post-read-more><a href=//2011/01/ninayan-w-i-p-9/ title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1.0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5.0 00.706.03L12.5 16.85l5.662 4.126a.508.508.0 00.708-.03.5.5.0 00.118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55.0 1 .45 1 1v13.637l-5.162-3.668a.49.49.0 00-.676.0z" fill-rule="evenodd"/></svg></a></span><div class=clearfix></div></div></div></div></div><div class="col-lg-4 col-md-6 mb-30px card-group"><div class="card h-100"><div class=maxthumb><a href=//2011/01/ninayan-w-i-p-8/><img class="img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src=https://img.peapix.com/12983733684274957478_320.jpg alt="Ninayan W.I.P.(8)"></a></div><div class=card-body><h2 class=card-title><a class=text-dark href=//2011/01/ninayan-w-i-p-8/>Ninayan W.I.P.(8)</a></h2><h4 class=card-text>　　今天在处理超链接的问题，这是最重要的一环。
+　　Ninayan提供给用户的信息分两大类：图片/视频和文章，微博消息只算是附属品。所以从微博消息中得到一个URL后，最终要能正确识别出它是一个图片/视频，还是一篇文章（当然，文章中也可以有图片和视频，但重点是它有文字），对于其他不可识别的类型，比如zip，则忽略。
+　　我设计了如下的处理流程：
+　　1、将URL与embed.ly可处理的类型用正则表达式匹配一下，如果可以匹配上，则用embed.ly处理，不能匹配上，则假设它是个短网址，将其还原成长网址。
+　　2、embed.ly处理后，会返回缩略图和原图（如果是视频，则是一段HTML，可能还会有一段HTML5代码）的URL，假设这URL也是个短网址，也将其还原成长网址。
+　　3、还原成长网址后，与原来的短网址比较，如果两者不相等，则假设该长网址仍然是个短网址，继续还原，如此循环迭代，直到还原失败或两者相等，最后还原的最终长网址与embed.ly可处理的类型用正则表达式匹配一下，如果可以匹配上，则用embed.ly处理。
+　　4、如果第3步最终的长网址不能与embed.ly匹配上，则认为该网址是真正的最终应该由Ninayan处理的网址，可分为前面说的两类，图片/视频和文章。
+　　至于怎么辨别出属于哪一类，我决定采用一个很粗糙的办法，如果前面经过embed.ly处理过的，那么肯定是图片/视频，或者URL最后是以诸如.jpg/.png/.gif等known的图片/视频文件扩展名结尾，那么也是图片/视频，其他的则都划入文章类型。而文章类型其实是个很粗糙的结果，网页是要经过像Readability那样的处理才是最终显示给用户的，而在Readability处理的过程中，可以过滤掉诸如.zip等不支持的文件类型的。
+　　这个方案也只是考虑到了URL在网络交互上的处理过程。还有这处理结果怎么通知本地数据存储模块和UI显示模块，也是个问题。而这个问题涉及到何时通知，通知时采用什么数据结构，以及本地存储时采用什么数据结构。</h4></div><div class="card-footer bg-white"><div class=wrapfooter><span class=meta-footer-thumb><img class=author-thumb src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/avatar.png alt=类库大魔王></span>
+<span class=author-meta><span class=post-name><a target=_blank href=https://www.ismisv.com>类库大魔王</a></span><br><span class=post-date>16 Jan 2011</span></span>
+<span class=post-read-more><a href=//2011/01/ninayan-w-i-p-8/ title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1.0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5.0 00.706.03L12.5 16.85l5.662 4.126a.508.508.0 00.708-.03.5.5.0 00.118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55.0 1 .45 1 1v13.637l-5.162-3.668a.49.49.0 00-.676.0z" fill-rule="evenodd"/></svg></a></span><div class=clearfix></div></div></div></div></div></div></section><div class=bottompagination><div class=pointerup><i class="fa fa-caret-up"></i></div><span class=navigation role=navigation><div class=pagination><a class="ml-1 mr-1" href=/page/36/>&#171; Prev</a>
+<a class="ml-1 mr-1" href=/page/36/>1</a>
+<a class="ml-1 mr-1" href=/page/2/>2</a>
+<a class="ml-1 mr-1" href=/page/3/>3</a>
+<a class="ml-1 mr-1" href=/page/4/>4</a>
+<a class="ml-1 mr-1" href=/page/5/>5</a>
+<a class="ml-1 mr-1" href=/page/6/>6</a>
+<a class="ml-1 mr-1" href=/page/7/>7</a>
+<a class="ml-1 mr-1" href=/page/8/>8</a>
+<a class="ml-1 mr-1" href=/page/9/>9</a>
+<a class="ml-1 mr-1" href=/page/10/>10</a>
+<a class="ml-1 mr-1" href=/page/11/>11</a>
+<a class="ml-1 mr-1" href=/page/12/>12</a>
+<a class="ml-1 mr-1" href=/page/13/>13</a>
+<a class="ml-1 mr-1" href=/page/14/>14</a>
+<a class="ml-1 mr-1" href=/page/15/>15</a>
+<a class="ml-1 mr-1" href=/page/16/>16</a>
+<a class="ml-1 mr-1" href=/page/17/>17</a>
+<a class="ml-1 mr-1" href=/page/18/>18</a>
+<a class="ml-1 mr-1" href=/page/19/>19</a>
+<a class="ml-1 mr-1" href=/page/20/>20</a>
+<a class="ml-1 mr-1" href=/page/21/>21</a>
+<a class="ml-1 mr-1" href=/page/22/>22</a>
+<a class="ml-1 mr-1" href=/page/23/>23</a>
+<a class="ml-1 mr-1" href=/page/24/>24</a>
+<a class="ml-1 mr-1" href=/page/25/>25</a>
+<a class="ml-1 mr-1" href=/page/26/>26</a>
+<a class="ml-1 mr-1" href=/page/27/>27</a>
+<a class="ml-1 mr-1" href=/page/28/>28</a>
+<a class="ml-1 mr-1" href=/page/29/>29</a>
+<a class="ml-1 mr-1" href=/page/30/>30</a>
+<a class="ml-1 mr-1" href=/page/31/>31</a>
+<a class="ml-1 mr-1" href=/page/32/>32</a>
+<a class="ml-1 mr-1" href=/page/33/>33</a>
+<a class="ml-1 mr-1" href=/page/34/>34</a>
+<a class="ml-1 mr-1" href=/page/35/>35</a>
+<a class="ml-1 mr-1" href=/page/36/>36</a>
+<span class="ml-1 mr-1">37</span>
+<a class="ml-1 mr-1" href=/page/38/>38</a>
+<a class="ml-1 mr-1" href=/page/39/>39</a>
+<a class="ml-1 mr-1" href=/page/40/>40</a>
+<a class="ml-1 mr-1" href=/page/41/>41</a>
+<a class="ml-1 mr-1" href=/page/42/>42</a>
+<a class="ml-1 mr-1" href=/page/43/>43</a>
+<a class="ml-1 mr-1" href=/page/44/>44</a>
+<a class="ml-1 mr-1" href=/page/45/>45</a>
+<a class="ml-1 mr-1" href=/page/46/>46</a>
+<a class="ml-1 mr-1" href=/page/47/>47</a>
+<a class="ml-1 mr-1" href=/page/48/>48</a>
+<a class="ml-1 mr-1" href=/page/49/>49</a>
+<a class="ml-1 mr-1" href=/page/50/>50</a>
+<a class="ml-1 mr-1" href=/page/51/>51</a>
+<a class="ml-1 mr-1" href=/page/52/>52</a>
+<a class="ml-1 mr-1" href=/page/53/>53</a>
+<a class="ml-1 mr-1" href=/page/54/>54</a>
+<a class="ml-1 mr-1" href=/page/55/>55</a>
+<a class="ml-1 mr-1" href=/page/56/>56</a>
+<a class="ml-1 mr-1" href=/page/57/>57</a>
+<a class="ml-1 mr-1" href=/page/58/>58</a>
+<a class="ml-1 mr-1" href=/page/59/>59</a>
+<a class="ml-1 mr-1" href=/page/60/>60</a>
+<a class="ml-1 mr-1" href=/page/61/>61</a>
+<a class="ml-1 mr-1" href=/page/62/>62</a>
+<a class="ml-1 mr-1" href=/page/63/>63</a>
+<a class="ml-1 mr-1" href=/page/64/>64</a>
+<a class="ml-1 mr-1" href=/page/65/>65</a>
+<a class="ml-1 mr-1" href=/page/66/>66</a>
+<a class="ml-1 mr-1" href=/page/67/>67</a>
+<a class="ml-1 mr-1" href=/page/68/>68</a>
+<a class="ml-1 mr-1" href=/page/69/>69</a>
+<a class="ml-1 mr-1" href=/page/70/>70</a>
+<a class="ml-1 mr-1" href=/page/71/>71</a>
+<a class="ml-1 mr-1" href=/page/72/>72</a>
+<a class="ml-1 mr-1" href=/page/73/>73</a>
+<a class="ml-1 mr-1" href=/page/74/>74</a>
+<a class="ml-1 mr-1" href=/page/75/>75</a>
+<a class="ml-1 mr-1" href=/page/76/>76</a>
+<a class="ml-1 mr-1" href=/page/77/>77</a>
+<a class="ml-1 mr-1" href=/page/78/>78</a>
+<a class="ml-1 mr-1" href=/page/79/>79</a>
+<a class="ml-1 mr-1" href=/page/80/>80</a>
+<a class="ml-1 mr-1" href=/page/81/>81</a>
+<a class="ml-1 mr-1" href=/page/82/>82</a>
+<a class="ml-1 mr-1" href=/page/83/>83</a>
+<a class="ml-1 mr-1" href=/page/84/>84</a>
+<a class="ml-1 mr-1" href=/page/85/>85</a>
+<a class="ml-1 mr-1" href=/page/86/>86</a>
+<a class="ml-1 mr-1" href=/page/87/>87</a>
+<a class="ml-1 mr-1" href=/page/88/>88</a>
+<a class="ml-1 mr-1" href=/page/89/>89</a>
+<a class="ml-1 mr-1" href=/page/90/>90</a>
+<a class="ml-1 mr-1" href=/page/91/>91</a>
+<a class="ml-1 mr-1" href=/page/92/>92</a>
+<a class="ml-1 mr-1" href=/page/93/>93</a>
+<a class="ml-1 mr-1" href=/page/94/>94</a>
+<a class="ml-1 mr-1" href=/page/95/>95</a>
+<a class="ml-1 mr-1" href=/page/96/>96</a>
+<a class="ml-1 mr-1" href=/page/97/>97</a>
+<a class="ml-1 mr-1" href=/page/98/>98</a>
+<a class="ml-1 mr-1" href=/page/99/>99</a>
+<a class="ml-1 mr-1" href=/page/100/>100</a>
+<a class="ml-1 mr-1" href=/page/101/>101</a>
+<a class="ml-1 mr-1" href=/page/102/>102</a>
+<a class="ml-1 mr-1" href=/page/103/>103</a>
+<a class="ml-1 mr-1" href=/page/104/>104</a>
+<a class="ml-1 mr-1" href=/page/105/>105</a>
+<a class="ml-1 mr-1" href=/page/106/>106</a>
+<a class="ml-1 mr-1" href=/page/107/>107</a>
+<a class="ml-1 mr-1" href=/page/108/>108</a>
+<a class="ml-1 mr-1" href=/page/109/>109</a>
+<a class="ml-1 mr-1" href=/page/110/>110</a>
+<a class="ml-1 mr-1" href=/page/111/>111</a>
+<a class="ml-1 mr-1" href=/page/112/>112</a>
+<a class="ml-1 mr-1" href=/page/113/>113</a>
+<a class="ml-1 mr-1" href=/page/114/>114</a>
+<a class="ml-1 mr-1" href=/page/115/>115</a>
+<a class="ml-1 mr-1" href=/page/116/>116</a>
+<a class="ml-1 mr-1" href=/page/117/>117</a>
+<a class="ml-1 mr-1" href=/page/118/>118</a>
+<a class="ml-1 mr-1" href=/page/119/>119</a>
+<a class="ml-1 mr-1" href=/page/120/>120</a>
+<a class="ml-1 mr-1" href=/page/121/>121</a>
+<a class="ml-1 mr-1" href=/page/122/>122</a>
+<a class="ml-1 mr-1" href=/page/123/>123</a>
+<a class="ml-1 mr-1" href=/page/124/>124</a>
+<a class="ml-1 mr-1" href=/page/125/>125</a>
+<a class="ml-1 mr-1" href=/page/126/>126</a>
+<a class="ml-1 mr-1" href=/page/127/>127</a>
+<a class="ml-1 mr-1" href=/page/128/>128</a>
+<a class="ml-1 mr-1" href=/page/129/>129</a>
+<a class="ml-1 mr-1" href=/page/130/>130</a>
+<a class="ml-1 mr-1" href=/page/131/>131</a>
+<a class="ml-1 mr-1" href=/page/132/>132</a>
+<a class="ml-1 mr-1" href=/page/133/>133</a>
+<a class="ml-1 mr-1" href=/page/134/>134</a>
+<a class="ml-1 mr-1" href=/page/135/>135</a>
+<a class="ml-1 mr-1" href=/page/136/>136</a>
+<a class="ml-1 mr-1" href=/page/137/>137</a>
+<a class="ml-1 mr-1" href=/page/138/>138</a>
+<a class="ml-1 mr-1" href=/page/139/>139</a>
+<a class="ml-1 mr-1" href=/page/140/>140</a>
+<a class="ml-1 mr-1" href=/page/141/>141</a>
+<a class="ml-1 mr-1" href=/page/142/>142</a>
+<a class="ml-1 mr-1" href=/page/143/>143</a>
+<a class="ml-1 mr-1" href=/page/144/>144</a>
+<a class="ml-1 mr-1" href=/page/145/>145</a>
+<a class="ml-1 mr-1" href=/page/146/>146</a>
+<a class="ml-1 mr-1" href=/page/147/>147</a>
+<a class="ml-1 mr-1" href=/page/148/>148</a>
+<a class="ml-1 mr-1" href=/page/149/>149</a>
+<a class="ml-1 mr-1" href=/page/150/>150</a>
+<a class="ml-1 mr-1" href=/page/151/>151</a>
+<a class="ml-1 mr-1" href=/page/152/>152</a>
+<a class="ml-1 mr-1" href=/page/38/>Next &#187;</a></div></span></div></div></div><div class="jumbotron fortags"><div class="d-md-flex h-100"><div class="col-md-4 transpdark align-self-center text-center h-100"><div class="d-md-flex align-items-center justify-content-center h-100"><h2 class="d-md-block align-self-center py-1 font-weight-light">发现 <span class="d-none d-md-inline">→</span></h2></div></div><div class="col-md-8 p-5 align-self-center text-center"><a class="mt-1 mb-1" href=//categories.html#imported-from-CSDN>imported from CSDN (124)</a>
+<a class="mt-1 mb-1" href=//categories.html#Film-&-ACG>Film & ACG (15)</a>
+<a class="mt-1 mb-1" href=//categories.html#Water>Water (170)</a>
+<a class="mt-1 mb-1" href=//categories.html#Shareware>Shareware (151)</a>
+<a class="mt-1 mb-1" href=//categories.html#Software>Software (140)</a>
+<a class="mt-1 mb-1" href=//categories.html#Plugin-Framework>Plugin Framework (28)</a>
+<a class="mt-1 mb-1" href=//categories.html#lookfor>lookfor (36)</a>
+<a class="mt-1 mb-1" href=//categories.html#CPPOOPGPXP>CPPOOPGPXP (87)</a>
+<a class="mt-1 mb-1" href=//categories.html#Lua，Script>Lua，Script (51)</a>
+<a class="mt-1 mb-1" href=//categories.html#Be-Old>Be Old (15)</a>
+<a class="mt-1 mb-1" href=//categories.html#Job>Job (185)</a>
+<a class="mt-1 mb-1" href=//categories.html#mm>mm (48)</a>
+<a class="mt-1 mb-1" href=//categories.html#Emulator>Emulator (3)</a>
+<a class="mt-1 mb-1" href=//categories.html#Execise-Outdoor>Execise Outdoor (13)</a>
+<a class="mt-1 mb-1" href=//categories.html#gfw>gfw (10)</a>
+<a class="mt-1 mb-1" href=//categories.html#Reading>Reading (20)</a>
+<a class="mt-1 mb-1" href=//categories.html#Driving>Driving (16)</a>
+<a class="mt-1 mb-1" href=//categories.html#Mobile>Mobile (15)</a>
+<a class="mt-1 mb-1" href=//categories.html#wxWidgets>wxWidgets (29)</a>
+<a class="mt-1 mb-1" href=//categories.html#WIND>WIND (14)</a>
+<a class="mt-1 mb-1" href=//categories.html#PSP-NDS>PSP NDS (2)</a>
+<a class="mt-1 mb-1" href=//categories.html#CodingStudio>CodingStudio (44)</a>
+<a class="mt-1 mb-1" href=//categories.html#Cryptography>Cryptography (2)</a>
+<a class="mt-1 mb-1" href=//categories.html#Editor，IDE>Editor，IDE (5)</a>
+<a class="mt-1 mb-1" href=//categories.html#TeX>TeX (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#Life>Life (82)</a>
+<a class="mt-1 mb-1" href=//categories.html#Technic>Technic (6)</a>
+<a class="mt-1 mb-1" href=//categories.html#Qt>Qt (28)</a>
+<a class="mt-1 mb-1" href=//categories.html#SNS>SNS (35)</a>
+<a class="mt-1 mb-1" href=//categories.html#Ninayan>Ninayan (35)</a>
+<a class="mt-1 mb-1" href=//categories.html#GUI-Framework>GUI Framework (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#KarenMeu>KarenMeu (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#Kindle>Kindle (3)</a>
+<a class="mt-1 mb-1" href=//categories.html#Coding>Coding (14)</a>
+<a class="mt-1 mb-1" href=//categories.html#Startup>Startup (6)</a>
+<a class="mt-1 mb-1" href=//categories.html#network>network (14)</a>
+<a class="mt-1 mb-1" href=//categories.html#Go>Go (10)</a>
+<a class="mt-1 mb-1" href=//categories.html#idea>idea (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#os>os (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#iOS>iOS (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#Cloud>Cloud (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#device>device (2)</a>
+<a class="mt-1 mb-1" href=//categories.html#embed>embed (6)</a>
+<a class="mt-1 mb-1" href=//categories.html#gochess>gochess (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#Router>Router (3)</a>
+<a class="mt-1 mb-1" href=//categories.html#blog>blog (7)</a></div></div></div><footer class=footer><div class=container><div class=row><div class="col-md-6 col-sm-6 text-center text-lg-left">Copyright © 2021 类库大魔王的挖井日记</div><div class="col-md-6 col-sm-6 text-center text-lg-right"><a target=_blank href=https://www.wowthemes.net/mediumish-free-jekyll-template/>Mediumish Jekyll Theme</a> by WowThemes.net</div></div></div></footer></div><script src=https://cdn.staticfile.org/popper.js/1.14.6/umd/popper.min.js></script><script src=https://cdn.staticfile.org/twitter-bootstrap/4.2.1/js/bootstrap.min.js></script><script src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/js/mediumish.min.js></script><script src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/js/lazyload.min.js></script>

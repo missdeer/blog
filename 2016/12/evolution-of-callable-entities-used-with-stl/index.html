@@ -1,0 +1,248 @@
+<!doctype html><html lang=en><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><link rel=icon href=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/logo.png><title>供STL使用的可调用体的演进 | 类库大魔王的挖井日记</title><title>供STL使用的可调用体的演进 | 挖井</title><meta name=generator content="Jekyll v3.9.0"><meta property="og:title" content="供STL使用的可调用体的演进"><meta name=author content="missdeer"><meta property="og:locale" content="en_US"><meta name=description content="供给STL使用的可调用体（Callable Entities）的演进"><meta property="og:description" content="供给STL使用的可调用体（Callable Entities）的演进"><link rel=canonical href=https://blog.ismisv.com/2016/12/evolution-of-callable-entities-used-with-stl/><meta property="og:url" content="https://blog.ismisv.com/2016/12/evolution-of-callable-entities-used-with-stl/"><meta property="og:site_name" content="挖井"><meta property="og:image" content="https://img.peapix.com/15278794329589142322_320.jpg"><meta property="og:type" content="article"><meta property="article:published_time" content="2016-12-13T00:00:00+00:00"><script type=application/ld+json>{"headline":"供STL使用的可调用体的演进","dateModified":"2016-12-13T00:00:00+00:00","description":"供给STL使用的可调用体（Callable Entities）的演进","datePublished":"2016-12-13T00:00:00+00:00","image":"https://img.peapix.com/15278794329589142322_320.jpg","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.ismisv.com/2016/12/evolution-of-callable-entities-used-with-stl/"},"url":"https://blog.ismisv.com/2016/12/evolution-of-callable-entities-used-with-stl/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://blog.ismisv.com/assets/images/logo.png"},"name":"missdeer"},"author":{"@type":"Person","name":"missdeer"},"@context":"http://schema.org"}</script><link href=https://cdn.staticfile.org/twitter-bootstrap/4.1.3/css/bootstrap.min.css rel=stylesheet><link href=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/css/screen.min.css rel=stylesheet><link href=//assets/css/main.css rel=stylesheet><script src=https://cdn.staticfile.org/jquery/3.3.1/jquery.min.js></script><body class=layout-post><noscript id=deferred-styles><link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel=stylesheet><link href=https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css rel=stylesheet></noscript><nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mediumnavigation nav-down"><div class="container pr-0"><a class=navbar-brand href=//><img src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/logo.png alt=类库大魔王的挖井日记></a>
+<button class=navbar-toggler type=button data-toggle=collapse data-target=#navbarMediumish aria-controls=navbarSupportedContent aria-expanded=false aria-label="Toggle navigation">
+<span class=navbar-toggler-icon></span></button><div class="collapse navbar-collapse" id=navbarMediumish><ul class="navbar-nav ml-auto"><li class=nav-item><a class=nav-link href=// title=博客首页><i class="fab fa-blogger"></i>首页</a><li class=nav-item><a class=nav-link href=//archive/ title=博客文章完整归档><i class="fas fa-archive"></i>归档</a><li class=nav-item><a class=nav-link href=//categories.html title=博客文章所有分类><i class="fas fa-bars"></i>分类</a><li class=nav-item><a class=nav-link href=//tags.html title=博客文章所有标签><i class="fas fa-tags"></i>标签</a><li class=nav-item><a class=nav-link href=//apps/ title=我（近几年）开发的软件作品><i class="fab fa-app-store"></i>软件</a><li class=nav-item><a class=nav-link href=//about/ title=关于本博客><i class="fas fa-user"></i>关于</a><li class=nav-item><a target=_blank class=nav-link href=//links/ title=友情链接><i class="fas fa-link"></i>链接</a><li class=nav-item><a target=_blank class=nav-link href=//feed.xml title=通过RSS订阅本博客><i class="fas fa-rss-square"></i>订阅</a><li class=nav-item><a target=_blank class=nav-link href=https://github.com/missdeer title=我写的一些程序开放了源代码><i class="fab fa-github"></i>代码</a></ul></div></div></nav><div class=site-content><div class=container><div class=mainheading><h1 class=sitetitle>类库大魔王的挖井日记</h1><p class=lead>挖一口属于自己的井</div><div class=main-content><div class=container><div class=row><div class="col-md-12 flex-first flex-md-unordered"><div class=mainheading><div class="row post-top-meta"><div class="col-xs-12 col-md-3 col-lg-2 text-center text-md-left mb-4 mb-md-0"><img class=author-thumb src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/avatar.png alt=类库大魔王></div><div class="col-xs-12 col-md-9 col-lg-10 text-center text-md-left"><a target=_blank class=link-dark href=https://www.ismisv.com>类库大魔王</a><a target=_blank href=https://twitter.com/missdeerme class="btn follow">Follow</a>
+<span class=author-description>懒惰，傲慢，以及无耐心</span></div></div><h1 class=posttitle>供STL使用的可调用体的演进</h1></div><div class=article-post><p>很早的时候，“道祖”Andrei Alexandrescu在“道经”《Modern C++ Design》中就有个简单的小结，列举了C++（当时还是C++98）中的可调用体：<ol><li>C风格的函数<li>C风格的函数指针<li>函数的引用，本质上和const函数指针类似<li>仿函数functor，即自定义了operator()的对象，也叫函数对象function object<li>指向成员函数的指针<li>构造函数</ol><p>Andrei把它们列出来的目的是想说，这些东西都可以在其右侧添加一对圆括号()，并在里头放入一组合适的参数，用以执行某个处理动作。正是由于这个特性，就可以丢给STL中的algorithm们使用，很多algorithm需要接受一个可调用体，在迭代容器内元素的时候执行一些处理动作。<h2 id=c的蛮荒年代>C++的蛮荒年代</h2><p>STL提供了一些现在已经被C++11标记为过时（deprecated）的函数适配器（function adapter）和一些简单的函数对象，比如：<div class="language-cpp highlighter-rouge"><div class=highlight><pre class=highlight><code><table class=rouge-table><tbody><tr><td class="rouge-gutter gl"><pre class=lineno>1
+2
+</pre><td class=rouge-code><pre><span class=n>std</span><span class=o>::</span><span class=n>find_if</span><span class=p>(</span><span class=n>coll</span><span class=p>.</span><span class=n>begin</span><span class=p>(),</span> <span class=n>coll</span><span class=p>.</span><span class=n>end</span><span class=p>(),</span>
+            <span class=n>std</span><span class=o>::</span><span class=n>bind2nd</span><span class=p>(</span><span class=n>std</span><span class=o>::</span><span class=n>greater</span><span class=o>&lt;</span><span class=kt>int</span><span class=o>&gt;</span><span class=p>(),</span> <span class=mi>42</span><span class=p>));</span>
+</pre></table></code></pre></div></div><p>这样可以在容器coll中找到第一个大于42的元素。如果是成员函数指针，也得包装一下才能用：<div class="language-cpp highlighter-rouge"><div class=highlight><pre class=highlight><code><table class=rouge-table><tbody><tr><td class="rouge-gutter gl"><pre class=lineno>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre><td class=rouge-code><pre><span class=k>class</span> <span class=nc>Person</span> <span class=p>{</span>
+  <span class=k>public</span><span class=o>:</span>
+  	<span class=kt>void</span> <span class=n>print</span><span class=p>()</span> <span class=k>const</span><span class=p>;</span>
+  	<span class=p>...</span>
+<span class=p>};</span>
+
+<span class=k>const</span> <span class=n>std</span><span class=o>::</span><span class=n>vector</span><span class=o>&lt;</span><span class=n>Person</span><span class=o>&gt;</span> <span class=n>coll</span><span class=p>;</span>
+<span class=p>...</span>
+
+<span class=n>std</span><span class=o>::</span><span class=n>for_each</span><span class=p>(</span><span class=n>coll</span><span class=p>.</span><span class=n>begin</span><span class=p>(),</span> <span class=n>coll</span><span class=p>.</span><span class=n>end</span><span class=p>(),</span>
+             <span class=n>std</span><span class=o>::</span><span class=n>mem_fun_ref</span><span class=p>(</span><span class=o>&amp;</span><span class=n>Person</span><span class=o>::</span><span class=n>print</span><span class=p>))</span>
+</pre></table></code></pre></div></div><p>这样会把容器coll中的每一个元素（都是Person类的实例）都调用一遍它们的print()成员函数！而且这个函数后面一定要加const！<p>如果想把容器内的元素作为参数传到某个成员函数内，就要这么干：<div class="language-cpp highlighter-rouge"><div class=highlight><pre class=highlight><code><table class=rouge-table><tbody><tr><td class="rouge-gutter gl"><pre class=lineno>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre><td class=rouge-code><pre><span class=k>class</span> <span class=nc>Talk</span> <span class=p>{</span>
+  <span class=k>public</span><span class=o>:</span>
+  	<span class=kt>void</span> <span class=n>to</span><span class=p>(</span><span class=k>const</span> <span class=n>Person</span><span class=o>&amp;</span> <span class=n>who</span><span class=p>)</span> <span class=k>const</span><span class=p>;</span>
+  	<span class=p>...</span>
+<span class=p>};</span>
+
+<span class=n>Talk</span> <span class=n>talk</span><span class=p>;</span>
+
+<span class=n>std</span><span class=o>::</span><span class=n>for_each</span><span class=p>(</span><span class=n>coll</span><span class=p>.</span><span class=n>begin</span><span class=p>(),</span> <span class=n>coll</span><span class=p>.</span><span class=n>end</span><span class=p>(),</span>
+             <span class=n>std</span><span class=o>::</span><span class=n>bind1st</span><span class=p>(</span><span class=n>std</span><span class=o>:</span><span class=n>mem_fun</span><span class=p>(</span><span class=o>&amp;</span><span class=n>Talk</span><span class=o>::</span><span class=n>to</span><span class=p>),</span> <span class=o>&amp;</span><span class=n>talk</span><span class=p>));</span>
+</pre></table></code></pre></div></div><p>总之就是不好看，也不方便！<h2 id=c的神话时代>C++的神话时代</h2><p>“道祖”的“道经”让那些牛人们知道了C++的模板还可以这么玩！于是最顶尖的那拨人纷纷证道成神，Boost被搞出来极大地扩展了C++语言的能力和库的用途。<p>Boost提供了几个与函数（可调用体）相关的几个库：<ul><li>Bind<li>Function<li>Lambda<li>Phoenix</ul><p>极大地丰富了可调用体的玩法，在各种新语言把函数作为“第一类值”（first class value）的刺激下，C++在Boost的帮助下，也往这个方向迈出了一步。<p>有了Boost.Bind，那些fucntion adapter统统可以丢一边去了：<div class="language-cpp highlighter-rouge"><div class=highlight><pre class=highlight><code><table class=rouge-table><tbody><tr><td class="rouge-gutter gl"><pre class=lineno>1
+2
+</pre><td class=rouge-code><pre><span class=n>std</span><span class=o>::</span><span class=n>find_if</span><span class=p>(</span><span class=n>coll</span><span class=p>.</span><span class=n>begin</span><span class=p>(),</span> <span class=n>coll</span><span class=p>.</span><span class=n>end</span><span class=p>(),</span>
+            <span class=n>boost</span><span class=o>::</span><span class=n>bind</span><span class=p>(</span><span class=n>std</span><span class=o>::</span><span class=n>greater</span><span class=o>&lt;</span><span class=kt>int</span><span class=o>&gt;</span><span class=p>(),</span> <span class=n>_1</span><span class=p>,</span> <span class=mi>42</span><span class=p>));</span>
+</pre></table></code></pre></div></div><p>其中<code class="language-plaintext highlighter-rouge">std::modulus&lt;int>()</code>接受两个参数，而<code class="language-plaintext highlighter-rouge">boost::bind</code>把<code class="language-plaintext highlighter-rouge">_1</code>占据的位置留给<code class="language-plaintext highlighter-rouge">std::find_if</code>塞过来的容器元素了，后面再绑定一个其他的参数，比如这里是常量<code class="language-plaintext highlighter-rouge">42</code>。<p>这便是Boost.Bind的玩法，它就是扩展了<code class="language-plaintext highlighter-rouge">std::bind1st</code>和<code class="language-plaintext highlighter-rouge">std::bind2nd</code>的用法，它不用因为传入的参数该处的位置不同而换一个名字，它只要把参数位置互换即可：<div class="language-cpp highlighter-rouge"><div class=highlight><pre class=highlight><code><table class=rouge-table><tbody><tr><td class="rouge-gutter gl"><pre class=lineno>1
+2
+</pre><td class=rouge-code><pre><span class=n>std</span><span class=o>::</span><span class=n>find_if</span><span class=p>(</span><span class=n>coll</span><span class=p>.</span><span class=n>begin</span><span class=p>(),</span> <span class=n>coll</span><span class=p>.</span><span class=n>end</span><span class=p>(),</span>
+            <span class=n>boost</span><span class=o>::</span><span class=n>bind</span><span class=p>(</span><span class=n>std</span><span class=o>::</span><span class=n>greater</span><span class=o>&lt;</span><span class=kt>int</span><span class=o>&gt;</span><span class=p>(),</span> <span class=mi>42</span><span class=p>,</span> <span class=n>_1</span><span class=p>));</span>
+</pre></table></code></pre></div></div><p>效果相当于把<code class="language-plaintext highlighter-rouge">std::bind2nd</code>换成了<code class="language-plaintext highlighter-rouge">std::bind1st</code>。<p>而所有的可调用体，都可以塞进Boost.Function这种类型里面，只要返回值类型/参数列表相同，可调用体就可以被赋给同一个Boost.Function类型的对象：<div class="language-cpp highlighter-rouge"><div class=highlight><pre class=highlight><code><table class=rouge-table><tbody><tr><td class="rouge-gutter gl"><pre class=lineno>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+</pre><td class=rouge-code><pre><span class=n>boost</span><span class=o>::</span><span class=n>function</span><span class=o>&lt;</span><span class=kt>float</span> <span class=p>(</span><span class=kt>int</span> <span class=n>x</span><span class=p>,</span> <span class=kt>int</span> <span class=n>y</span><span class=p>)</span><span class=o>&gt;</span> <span class=n>f</span><span class=p>;</span>
+
+<span class=c1>// function object</span>
+<span class=k>struct</span> <span class=n>int_div</span> <span class=p>{</span> 
+  <span class=kt>float</span> <span class=k>operator</span><span class=p>()(</span><span class=kt>int</span> <span class=n>x</span><span class=p>,</span> <span class=kt>int</span> <span class=n>y</span><span class=p>)</span> <span class=k>const</span> <span class=p>{</span> <span class=k>return</span> <span class=p>((</span><span class=kt>float</span><span class=p>)</span><span class=n>x</span><span class=p>)</span><span class=o>/</span><span class=n>y</span><span class=p>;</span> <span class=p>}</span>
+  <span class=kt>float</span> <span class=n>calc</span><span class=p>(</span><span class=kt>int</span> <span class=n>x</span><span class=p>,</span> <span class=kt>int</span> <span class=n>y</span><span class=p>)</span> <span class=k>const</span> <span class=p>{</span> <span class=k>return</span> <span class=p>((</span><span class=kt>float</span><span class=p>)</span><span class=n>x</span><span class=p>)</span><span class=o>/</span><span class=n>y</span><span class=p>;</span> <span class=p>}</span>
+<span class=p>};</span>
+
+<span class=n>f</span> <span class=o>=</span> <span class=n>int_div</span><span class=p>();</span>
+
+<span class=n>std</span><span class=o>::</span><span class=n>cout</span> <span class=o>&lt;&lt;</span> <span class=n>f</span><span class=p>(</span><span class=mi>5</span><span class=p>,</span> <span class=mi>3</span><span class=p>)</span> <span class=o>&lt;&lt;</span> <span class=n>std</span><span class=o>::</span><span class=n>endl</span><span class=p>;</span>
+
+<span class=c1>// free function</span>
+<span class=kt>float</span> <span class=nf>mul_ints</span><span class=p>(</span><span class=kt>int</span> <span class=n>x</span><span class=p>,</span> <span class=kt>int</span> <span class=n>y</span><span class=p>)</span> <span class=p>{</span> <span class=k>return</span> <span class=p>((</span><span class=kt>float</span><span class=p>)</span><span class=n>x</span><span class=p>)</span> <span class=o>*</span> <span class=n>y</span><span class=p>;</span> <span class=p>}</span>
+
+<span class=n>f</span> <span class=o>=</span> <span class=o>&amp;</span><span class=n>mul_ints</span><span class=p>;</span>
+
+<span class=n>std</span><span class=o>::</span><span class=n>cout</span> <span class=o>&lt;&lt;</span> <span class=n>f</span><span class=p>(</span><span class=mi>5</span><span class=p>,</span> <span class=mi>3</span><span class=p>)</span> <span class=o>&lt;&lt;</span> <span class=n>std</span><span class=o>::</span><span class=n>endl</span><span class=p>;</span>
+
+<span class=c1>// member function</span>
+<span class=n>int_div</span> <span class=n>id</span><span class=p>;</span>
+<span class=n>f</span> <span class=o>=</span> <span class=n>boost</span><span class=o>::</span><span class=n>bind</span><span class=p>(</span><span class=o>&amp;</span><span class=n>int_div</span><span class=o>::</span><span class=n>calc</span><span class=p>,</span> <span class=o>&amp;</span><span class=n>id</span><span class=p>,</span> <span class=n>_1</span><span class=p>,</span> <span class=n>_2</span><span class=p>);</span>
+
+<span class=n>std</span><span class=o>::</span><span class=n>cout</span> <span class=o>&lt;&lt;</span> <span class=n>f</span><span class=p>(</span><span class=mi>5</span><span class=p>,</span> <span class=mi>3</span><span class=p>)</span> <span class=o>&lt;&lt;</span> <span class=n>std</span><span class=o>::</span><span class=n>endl</span><span class=p>;</span>
+
+<span class=c1>// compare</span>
+<span class=n>assert</span><span class=p>(</span><span class=n>f</span> <span class=o>==</span> <span class=o>&amp;</span><span class=n>X</span><span class=o>::</span><span class=n>foo</span><span class=p>);</span>
+<span class=n>assert</span><span class=p>(</span><span class=o>&amp;</span><span class=n>compute_with_X</span> <span class=o>!=</span> <span class=n>f</span><span class=p>);</span>
+</pre></table></code></pre></div></div><p>这样一来，只要类型一致，那么各种可调用体被塞入对象<code class="language-plaintext highlighter-rouge">f</code>就可以以类型<code class="language-plaintext highlighter-rouge">boost::function&lt;float (int x, int y)></code>被传来传去了，还能用<code class="language-plaintext highlighter-rouge">==</code>和<code class="language-plaintext highlighter-rouge">!=</code>进行比较！这就跟其它语言里把函数作为<code class="language-plaintext highlighter-rouge">第一类值</code>的用法很相似了。<p>至于Boost.Lambda则是另一个用途：就地创建一个短小的匿名函数。当然不一定强求短小，只是太长太大的话不好看。<div class="language-cpp highlighter-rouge"><div class=highlight><pre class=highlight><code><table class=rouge-table><tbody><tr><td class="rouge-gutter gl"><pre class=lineno>1
+2
+</pre><td class=rouge-code><pre><span class=n>list</span><span class=o>&lt;</span><span class=kt>int</span><span class=o>&gt;</span> <span class=n>v</span><span class=p>(</span><span class=mi>10</span><span class=p>);</span>
+<span class=n>std</span><span class=o>::</span><span class=n>for_each</span><span class=p>(</span><span class=n>v</span><span class=p>.</span><span class=n>begin</span><span class=p>(),</span> <span class=n>v</span><span class=p>.</span><span class=n>end</span><span class=p>(),</span> <span class=n>boost</span><span class=o>::</span><span class=n>lambda</span><span class=o>::</span><span class=n>_1</span> <span class=o>=</span> <span class=mi>1</span><span class=p>);</span>
+</pre></table></code></pre></div></div><p>上面这段代码就实现了给<code class="language-plaintext highlighter-rouge">v</code>这个容器中所有元素赋值为<code class="language-plaintext highlighter-rouge">1</code>这个动作。然后可以玩高级一点：<div class="language-cpp highlighter-rouge"><div class=highlight><pre class=highlight><code><table class=rouge-table><tbody><tr><td class="rouge-gutter gl"><pre class=lineno>1
+2
+3
+</pre><td class=rouge-code><pre><span class=kt>int</span> <span class=n>foo</span><span class=p>(</span><span class=kt>int</span><span class=p>);</span>
+<span class=n>std</span><span class=o>::</span><span class=n>for_each</span><span class=p>(</span><span class=n>v</span><span class=p>.</span><span class=n>begin</span><span class=p>(),</span> <span class=n>v</span><span class=p>.</span><span class=n>end</span><span class=p>(),</span> 
+              <span class=n>boost</span><span class=o>::</span><span class=n>lambda</span><span class=o>::</span><span class=n>_1</span> <span class=o>=</span> <span class=n>boost</span><span class=o>::</span><span class=n>lambda</span><span class=o>::</span><span class=n>bind</span><span class=p>(</span><span class=n>foo</span><span class=p>,</span> <span class=n>boost</span><span class=o>::</span><span class=n>lambda</span><span class=o>::</span><span class=n>_1</span><span class=p>));</span>
+</pre></table></code></pre></div></div><p>这段代码把容器<code class="language-plaintext highlighter-rouge">v</code>里的每一个元素让函数<code class="language-plaintext highlighter-rouge">foo</code>嚼一遍，再吐回给<code class="language-plaintext highlighter-rouge">v</code>。注：这个<code class="language-plaintext highlighter-rouge">boost::lambda::bind</code>不是<code class="language-plaintext highlighter-rouge">boost::bind</code>。<p>然后它可以使用一些简单的运算符表达式：<div class="language-cpp highlighter-rouge"><div class=highlight><pre class=highlight><code><table class=rouge-table><tbody><tr><td class="rouge-gutter gl"><pre class=lineno>1
+2
+</pre><td class=rouge-code><pre><span class=k>using</span> <span class=k>namespace</span> <span class=n>boost</span><span class=o>::</span><span class=n>lambda</span><span class=p>;</span>
+<span class=n>std</span><span class=o>::</span><span class=n>sort</span><span class=p>(</span><span class=n>vp</span><span class=p>.</span><span class=n>begin</span><span class=p>(),</span> <span class=n>vp</span><span class=p>.</span><span class=n>end</span><span class=p>(),</span> <span class=o>*</span><span class=n>_1</span> <span class=o>&gt;</span> <span class=o>*</span><span class=n>_2</span><span class=p>);</span>
+</pre></table></code></pre></div></div><p>还能这样：<div class="language-cpp highlighter-rouge"><div class=highlight><pre class=highlight><code><table class=rouge-table><tbody><tr><td class="rouge-gutter gl"><pre class=lineno>1
+2
+</pre><td class=rouge-code><pre><span class=k>using</span> <span class=k>namespace</span> <span class=n>boost</span><span class=o>::</span><span class=n>lambda</span><span class=p>;</span>
+<span class=n>std</span><span class=o>::</span><span class=n>for_each</span><span class=p>(</span><span class=n>a</span><span class=p>.</span><span class=n>begin</span><span class=p>(),</span> <span class=n>a</span><span class=p>.</span><span class=n>end</span><span class=p>(),</span> <span class=p>(</span><span class=o>++</span><span class=n>_1</span><span class=p>,</span> <span class=n>std</span><span class=o>::</span><span class=n>cout</span> <span class=o>&lt;&lt;</span> <span class=n>_1</span><span class=p>));</span>
+</pre></table></code></pre></div></div><p>较新版本的Boost.Lambda还支持一些简单的控制结构：<div class="language-cpp highlighter-rouge"><div class=highlight><pre class=highlight><code><table class=rouge-table><tbody><tr><td class="rouge-gutter gl"><pre class=lineno>1
+2
+3
+</pre><td class=rouge-code><pre><span class=k>using</span> <span class=k>namespace</span> <span class=n>boost</span><span class=o>::</span><span class=n>lambda</span><span class=p>;</span>
+<span class=n>std</span><span class=o>::</span><span class=n>for_each</span><span class=p>(</span><span class=n>a</span><span class=p>.</span><span class=n>begin</span><span class=p>(),</span> <span class=n>a</span><span class=p>.</span><span class=n>end</span><span class=p>(),</span> 
+         <span class=n>if_then</span><span class=p>(</span><span class=n>_1</span> <span class=o>%</span> <span class=mi>2</span> <span class=o>==</span> <span class=mi>0</span><span class=p>,</span> <span class=n>std</span><span class=o>::</span><span class=n>cout</span> <span class=o>&lt;&lt;</span> <span class=n>_1</span><span class=p>));</span>  
+</pre></table></code></pre></div></div><p>它实现了C++中常用的if-else/for/while/do-while/switch这些类似的控制结构。<p>而Boost.Phoenix则是为C++提供了函数式编程的能力，它可以把C++中很多东西变成一个函数对象，比如一个值：<div class="language-cpp highlighter-rouge"><div class=highlight><pre class=highlight><code><table class=rouge-table><tbody><tr><td class="rouge-gutter gl"><pre class=lineno>1
+2
+3
+</pre><td class=rouge-code><pre><span class=k>using</span> <span class=k>namespace</span> <span class=n>boost</span><span class=o>::</span><span class=n>phoenix</span><span class=p>;</span>
+<span class=n>val</span><span class=p>(</span><span class=mi>3</span><span class=p>)</span>
+<span class=n>val</span><span class=p>(</span><span class=s>"Hello, World"</span><span class=p>)</span>
+</pre></table></code></pre></div></div><p>它们就是一个函数对象，可以这样用：<div class="language-cpp highlighter-rouge"><div class=highlight><pre class=highlight><code><table class=rouge-table><tbody><tr><td class="rouge-gutter gl"><pre class=lineno>1
+2
+</pre><td class=rouge-code><pre><span class=k>using</span> <span class=k>namespace</span> <span class=n>boost</span><span class=o>::</span><span class=n>phoenix</span><span class=p>;</span>
+<span class=n>std</span><span class=o>::</span><span class=n>cout</span> <span class=o>&lt;&lt;</span> <span class=n>val</span><span class=p>(</span><span class=mi>3</span><span class=p>)()</span> <span class=o>&lt;&lt;</span> <span class=n>std</span><span class=o>::</span><span class=n>endl</span><span class=p>;</span>
+</pre></table></code></pre></div></div><p>除此之外，引用、指针、实参等等，都可以变成函数对象。之后便是丢给STL的algorithm们使用，看起来会比Boost.Lambda更简洁清爽：<div class="language-cpp highlighter-rouge"><div class=highlight><pre class=highlight><code><table class=rouge-table><tbody><tr><td class="rouge-gutter gl"><pre class=lineno>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre><td class=rouge-code><pre><span class=c1>// former usage</span>
+<span class=kt>bool</span> <span class=nf>is_odd</span><span class=p>(</span><span class=kt>int</span> <span class=n>arg1</span><span class=p>)</span>
+<span class=p>{</span>
+    <span class=k>return</span> <span class=n>arg1</span> <span class=o>%</span> <span class=mi>2</span> <span class=o>==</span> <span class=mi>1</span><span class=p>;</span>
+<span class=p>}</span>
+<span class=n>std</span><span class=o>::</span><span class=n>find_if</span><span class=p>(</span><span class=n>c</span><span class=p>.</span><span class=n>begin</span><span class=p>(),</span> <span class=n>c</span><span class=p>.</span><span class=n>end</span><span class=p>(),</span> <span class=o>&amp;</span><span class=n>is_odd</span><span class=p>)</span><span class=err>；</span>
+  
+<span class=c1>// now</span>
+<span class=k>using</span> <span class=k>namespace</span> <span class=n>boost</span><span class=o>::</span><span class=n>phoenix</span><span class=p>;</span>
+<span class=n>std</span><span class=o>::</span><span class=n>find_if</span><span class=p>(</span><span class=n>c</span><span class=p>.</span><span class=n>begin</span><span class=p>(),</span> <span class=n>c</span><span class=p>.</span><span class=n>end</span><span class=p>(),</span> <span class=n>arg1</span> <span class=o>%</span> <span class=mi>2</span> <span class=o>==</span> <span class=mi>1</span><span class=p>)</span>
+</pre></table></code></pre></div></div><p>然后它也实现了一套类似的控制结构：<div class="language-cpp highlighter-rouge"><div class=highlight><pre class=highlight><code><table class=rouge-table><tbody><tr><td class="rouge-gutter gl"><pre class=lineno>1
+2
+3
+4
+5
+6
+7
+</pre><td class=rouge-code><pre><span class=k>using</span> <span class=k>namespace</span> <span class=n>boost</span><span class=o>::</span><span class=n>phoenix</span><span class=p>;</span>
+<span class=n>std</span><span class=o>::</span><span class=n>for_each</span><span class=p>(</span><span class=n>v</span><span class=p>.</span><span class=n>begin</span><span class=p>(),</span> <span class=n>v</span><span class=p>.</span><span class=n>end</span><span class=p>(),</span>
+    <span class=n>if_</span><span class=p>(</span><span class=n>arg1</span> <span class=o>&gt;</span> <span class=mi>5</span><span class=p>)</span>
+    <span class=p>[</span>
+        <span class=n>std</span><span class=o>::</span><span class=n>cout</span> <span class=o>&lt;&lt;</span> <span class=n>arg1</span> <span class=o>&lt;&lt;</span> <span class=s>", "</span>
+    <span class=p>]</span>
+<span class=p>);</span>
+</pre></table></code></pre></div></div><h2 id=c的工业时代>C++的工业时代</h2><p>在见识到Boost的强大威力之后，C++标准组的人也得到了很多灵感，在C++11中，不但把Boost.Bind，Boost.Function等库直接移入标准库，还从语言层面实现了一个<strong>lambda</strong>！一个lambda…lambda…mbda…da…<p>于是代码就可以写得灰常干净清爽了：<div class="language-cpp highlighter-rouge"><div class=highlight><pre class=highlight><code><table class=rouge-table><tbody><tr><td class="rouge-gutter gl"><pre class=lineno>1
+2
+3
+4
+5
+6
+</pre><td class=rouge-code><pre><span class=n>vector</span><span class=o>&lt;</span><span class=kt>int</span><span class=o>&gt;</span> <span class=n>coll</span> <span class=o>=</span> <span class=p>{</span> <span class=mi>1</span><span class=p>,</span><span class=mi>2</span><span class=p>,</span><span class=mi>3</span><span class=p>,</span><span class=mi>4</span><span class=p>,</span><span class=mi>5</span><span class=p>,</span><span class=mi>6</span><span class=p>,</span><span class=mi>7</span><span class=p>,</span><span class=mi>8</span><span class=p>,</span><span class=mi>9</span><span class=p>,</span><span class=mi>10</span> <span class=p>};</span>
+<span class=kt>long</span> <span class=n>sum</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
+<span class=n>std</span><span class=o>::</span><span class=n>for_each</span><span class=p>(</span><span class=n>coll</span><span class=p>.</span><span class=n>begin</span><span class=p>(),</span> <span class=n>coll</span><span class=p>.</span><span class=n>end</span><span class=p>(),</span>
+             <span class=p>[</span><span class=o>&amp;</span><span class=n>sum</span><span class=p>](</span><span class=kt>int</span> <span class=n>elem</span><span class=p>)</span> <span class=p>{</span>
+               <span class=n>sum</span> <span class=o>+=</span> <span class=n>elem</span><span class=p>;</span>
+             <span class=p>});</span>
+</pre></table></code></pre></div></div><p>不但容器初始化变得灰常方便，而且lambda的定义也灰常简洁！从此C++中的可调用体又多了一种：lambda。虽然从它的演进历史来看，本质上跟函数对象差不多。<p>另外还包括一个新关键字<strong>auto</strong>！auto…to…<div class="language-plaintext highlighter-rouge"><div class=highlight><pre class=highlight><code><table class=rouge-table><tbody><tr><td class="rouge-gutter gl"><pre class=lineno>1
+2
+3
+</pre><td class=rouge-code><pre>auto plus10times2 = [](int i) {
+  return (i+10)*2;
+};
+</pre></table></code></pre></div></div><p>多年C++老码农感觉从刀耕火种的农牧时代突然进入了飞机大炮的新时代啊！真是令人激动地内牛满面！Boost表示自己已经被玩坏了，有木有！有木有！有木有！<p>可以说，自从C++11之后，C++几乎是脱胎换骨，已经成为一门很现代化的新语言了，对提升开发效率有极大的助力！</div><p><small><span class=post-date><time class=post-date datetime=" 2016-12-13">13 Dec 2016</time></span></small></p><div class=after-post-cats><ul class="tags mb-4"><li><a class=smoothscroll href=//categories.html#CPPOOPGPXP>CPPOOPGPXP</a></ul></div><div class=after-post-tags><ul class=tags><li><a class=smoothscroll href=//tags.html#Boost>#Boost</a><li><a class=smoothscroll href=//tags.html#C++11>#C++11</a><li><a class=smoothscroll href=//tags.html#STL>#STL</a><li><a class=smoothscroll href=//tags.html#cpp>#cpp</a></ul></div><div class="row PageNavigation d-flex justify-content-between font-weight-bold"><a class="prev d-block col-md-6" href=//2016/12/anti-gfw-router-on-banana-pi-r1/>&#171;
+用Banana Pi R1做一个翻墙路由器</a>
+<a class="next d-block col-md-6 text-lg-right" href=//2016/12/avege-wip-1/>Avege WIP &#187;</a><div class=clearfix></div></div><link rel=stylesheet href=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/css/pay.min.css><section class=read-more><div><div style="padding:10px 0;margin:20px auto;width:90%;text-align:center"><div style=line-height:2.5>感觉本文不错，不妨小额鼓励我一下！</div><button id=rewardButton disable=enable onclick="var qr=document.getElementById('QR');qr.style.display==='none'?qr.style.display='block':qr.style.display='none'">
+<span>打赏</span></button><div id=QR style=display:block><div id=wechat style=display:inline-block><a href=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/wepay.jpg class=fancybox rel=group><img id=wechat_qr class=lazyimg src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/wepay.jpg alt=微信扫一扫></a><p>微信扫一扫</div><div id=wechat style=display:inline-block><a href=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/alipay.jpg class=fancybox rel=group><img id=alipay_qr class=lazyimg src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/alipay.jpg alt=支付宝扫一扫></a><p>支付宝扫一扫</div></div></div></div></section></div></div></div><div class=container><div id=comments class="row justify-content-center mb-5"><div class=col-md-8><section class=disqus><div id=disqus_thread></div><script>var disqus_shortname='missdeer',disqus_developer=0;(function(){var b=/iphone|ipod|android|blackberry|mini|windows\sce|palm/i.test(navigator.userAgent.toLowerCase()),a;b?$('.dsq-brlink').hide():(a=document.createElement('script'),a.type='text/javascript',a.async=!0,a.src=window.location.protocol+'//'+disqus_shortname+'.disqus.com/embed.js',(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(a))})()</script><noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript><a href=http://disqus.com class=dsq-brlink>如果你看不到评论框，说明<span class=logo-disqus>Disqus</span>被墙了。</a></section></div></div></div></div></div><div class="jumbotron fortags"><div class="d-md-flex h-100"><div class="col-md-4 transpdark align-self-center text-center h-100"><div class="d-md-flex align-items-center justify-content-center h-100"><h2 class="d-md-block align-self-center py-1 font-weight-light">发现 <span class="d-none d-md-inline">→</span></h2></div></div><div class="col-md-8 p-5 align-self-center text-center"><a class="mt-1 mb-1" href=//categories.html#imported-from-CSDN>imported from CSDN (124)</a>
+<a class="mt-1 mb-1" href=//categories.html#Film-&-ACG>Film & ACG (15)</a>
+<a class="mt-1 mb-1" href=//categories.html#Water>Water (170)</a>
+<a class="mt-1 mb-1" href=//categories.html#Shareware>Shareware (151)</a>
+<a class="mt-1 mb-1" href=//categories.html#Software>Software (140)</a>
+<a class="mt-1 mb-1" href=//categories.html#Plugin-Framework>Plugin Framework (28)</a>
+<a class="mt-1 mb-1" href=//categories.html#lookfor>lookfor (36)</a>
+<a class="mt-1 mb-1" href=//categories.html#CPPOOPGPXP>CPPOOPGPXP (87)</a>
+<a class="mt-1 mb-1" href=//categories.html#Lua，Script>Lua，Script (51)</a>
+<a class="mt-1 mb-1" href=//categories.html#Be-Old>Be Old (15)</a>
+<a class="mt-1 mb-1" href=//categories.html#Job>Job (185)</a>
+<a class="mt-1 mb-1" href=//categories.html#mm>mm (48)</a>
+<a class="mt-1 mb-1" href=//categories.html#Emulator>Emulator (3)</a>
+<a class="mt-1 mb-1" href=//categories.html#Execise-Outdoor>Execise Outdoor (13)</a>
+<a class="mt-1 mb-1" href=//categories.html#gfw>gfw (10)</a>
+<a class="mt-1 mb-1" href=//categories.html#Reading>Reading (20)</a>
+<a class="mt-1 mb-1" href=//categories.html#Driving>Driving (16)</a>
+<a class="mt-1 mb-1" href=//categories.html#Mobile>Mobile (15)</a>
+<a class="mt-1 mb-1" href=//categories.html#wxWidgets>wxWidgets (29)</a>
+<a class="mt-1 mb-1" href=//categories.html#WIND>WIND (14)</a>
+<a class="mt-1 mb-1" href=//categories.html#PSP-NDS>PSP NDS (2)</a>
+<a class="mt-1 mb-1" href=//categories.html#CodingStudio>CodingStudio (44)</a>
+<a class="mt-1 mb-1" href=//categories.html#Cryptography>Cryptography (2)</a>
+<a class="mt-1 mb-1" href=//categories.html#Editor，IDE>Editor，IDE (5)</a>
+<a class="mt-1 mb-1" href=//categories.html#TeX>TeX (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#Life>Life (82)</a>
+<a class="mt-1 mb-1" href=//categories.html#Technic>Technic (6)</a>
+<a class="mt-1 mb-1" href=//categories.html#Qt>Qt (28)</a>
+<a class="mt-1 mb-1" href=//categories.html#SNS>SNS (35)</a>
+<a class="mt-1 mb-1" href=//categories.html#Ninayan>Ninayan (35)</a>
+<a class="mt-1 mb-1" href=//categories.html#GUI-Framework>GUI Framework (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#KarenMeu>KarenMeu (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#Kindle>Kindle (3)</a>
+<a class="mt-1 mb-1" href=//categories.html#Coding>Coding (14)</a>
+<a class="mt-1 mb-1" href=//categories.html#Startup>Startup (6)</a>
+<a class="mt-1 mb-1" href=//categories.html#network>network (14)</a>
+<a class="mt-1 mb-1" href=//categories.html#Go>Go (10)</a>
+<a class="mt-1 mb-1" href=//categories.html#idea>idea (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#os>os (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#iOS>iOS (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#Cloud>Cloud (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#device>device (2)</a>
+<a class="mt-1 mb-1" href=//categories.html#embed>embed (6)</a>
+<a class="mt-1 mb-1" href=//categories.html#gochess>gochess (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#Router>Router (3)</a>
+<a class="mt-1 mb-1" href=//categories.html#blog>blog (7)</a></div></div></div><footer class=footer><div class=container><div class=row><div class="col-md-6 col-sm-6 text-center text-lg-left">Copyright © 2021 类库大魔王的挖井日记</div><div class="col-md-6 col-sm-6 text-center text-lg-right"><a target=_blank href=https://www.wowthemes.net/mediumish-free-jekyll-template/>Mediumish Jekyll Theme</a> by WowThemes.net</div></div></div></footer></div><script src=https://cdn.staticfile.org/popper.js/1.14.6/umd/popper.min.js></script><script src=https://cdn.staticfile.org/twitter-bootstrap/4.2.1/js/bootstrap.min.js></script><script src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/js/mediumish.min.js></script><script src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/js/lazyload.min.js></script>

@@ -1,0 +1,219 @@
+<!doctype html><html lang=en><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><link rel=icon href=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/logo.png><title>Home | 类库大魔王的挖井日记</title><title>Page 121 of 152 for Home | 挖井</title><meta name=generator content="Jekyll v3.9.0"><meta property="og:title" content="Home"><meta property="og:locale" content="en_US"><meta name=description content="挖一口属于自己的井"><meta property="og:description" content="挖一口属于自己的井"><link rel=canonical href=https://blog.ismisv.com/page/121/><meta property="og:url" content="https://blog.ismisv.com/page/121/"><meta property="og:site_name" content="挖井"><link rel=prev href=https://blog.ismisv.com/page/120/><link rel=next href=https://blog.ismisv.com/page/122/><script type=application/ld+json>{"headline":"Home","description":"挖一口属于自己的井","@type":"WebPage","url":"https://blog.ismisv.com/page/121/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://blog.ismisv.com/assets/images/logo.png"}},"@context":"http://schema.org"}</script><link href=https://cdn.staticfile.org/twitter-bootstrap/4.1.3/css/bootstrap.min.css rel=stylesheet><link href=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/css/screen.min.css rel=stylesheet><link href=//assets/css/main.css rel=stylesheet><script src=https://cdn.staticfile.org/jquery/3.3.1/jquery.min.js></script><body class=layout-default><noscript id=deferred-styles><link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel=stylesheet><link href=https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css rel=stylesheet></noscript><nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mediumnavigation nav-down"><div class="container pr-0"><a class=navbar-brand href=//><img src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/logo.png alt=类库大魔王的挖井日记></a>
+<button class=navbar-toggler type=button data-toggle=collapse data-target=#navbarMediumish aria-controls=navbarSupportedContent aria-expanded=false aria-label="Toggle navigation">
+<span class=navbar-toggler-icon></span></button><div class="collapse navbar-collapse" id=navbarMediumish><ul class="navbar-nav ml-auto"><li class=nav-item><a class=nav-link href=// title=博客首页><i class="fab fa-blogger"></i>首页</a><li class=nav-item><a class=nav-link href=//archive/ title=博客文章完整归档><i class="fas fa-archive"></i>归档</a><li class=nav-item><a class=nav-link href=//categories.html title=博客文章所有分类><i class="fas fa-bars"></i>分类</a><li class=nav-item><a class=nav-link href=//tags.html title=博客文章所有标签><i class="fas fa-tags"></i>标签</a><li class=nav-item><a class=nav-link href=//apps/ title=我（近几年）开发的软件作品><i class="fab fa-app-store"></i>软件</a><li class=nav-item><a class=nav-link href=//about/ title=关于本博客><i class="fas fa-user"></i>关于</a><li class=nav-item><a target=_blank class=nav-link href=//links/ title=友情链接><i class="fas fa-link"></i>链接</a><li class=nav-item><a target=_blank class=nav-link href=//feed.xml title=通过RSS订阅本博客><i class="fas fa-rss-square"></i>订阅</a><li class=nav-item><a target=_blank class=nav-link href=https://github.com/missdeer title=我写的一些程序开放了源代码><i class="fab fa-github"></i>代码</a></ul></div></div></nav><div class=site-content><div class=container><div class=mainheading><h1 class=sitetitle>类库大魔王的挖井日记</h1><p class=lead>挖一口属于自己的井</div><div class=main-content><section class=recent-posts><div class=section-title><h2><span>All Stories</span></h2></div><div class="row listrecent"><div class="col-lg-4 col-md-6 mb-30px card-group"><div class="card h-100"><div class=maxthumb><a href=//2007/03/ebookshelf-w-i-p-4/><img class="img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src=https://img.peapix.com/5024875180608537217_320.jpg alt="Ebookshelf W.I.P #4"></a></div><div class=card-body><h2 class=card-title><a class=text-dark href=//2007/03/ebookshelf-w-i-p-4/>Ebookshelf W.I.P #4</a></h2><h4 class=card-text>　　从数据库中读出数据并填充TreeView部分总算搞好了，用了一个递归的函数，还用了map之类的容器，把一些需要的数据保存起来，想起来，要是不知道STL这么好用的东东，还真是很麻烦呢。　　之后要做的是仔细地控制TreeView。如果对TreeView进行了某个节点的改名，就应该update到数据库中去；如果TreeView中的节点少了一个，也应该把数据库中对应的那条记录delete掉；如果选择了TreeView中的某个节点，就应该把对应这个节点的所有书籍信息都select出来，并显示在ListView中，这依赖于把这些信息先保存到一个vector中，然后刷新ListView，如果信息量比较大，则对ListView的刷新速度有所要求了，因此，从一开始就应该设计好用virtual listview来实现，如果不算检索数据库的耗时，1秒钟插入显示10000条记录应该是没有问题的。　　弄完了上面这些，就可以考虑其它的用户界面方面的问题了，比如加个选项，可以自动清除掉已经不存在磁盘文件的书籍记录；可以整个分类的书籍一起移动或拷贝到某个文件夹下；可以由用户配置合法的文件后缀名，并定义各自的打开方式等等。　　不知不觉，又把所有的代码都写在主窗体类里去了，真是不爽，但是我又不知道如何可以把其中一些代码移出来，因为所有的代码都直接用到了一些VCL控件，控件是添加在主窗体上的，所以总是要在主窗体类里写才能找到。　　在网上找到一个讲SQLite的中文网站，里面有一些中文的文档，还是挺有用的，比如知道怎么用VC来编译SQLite的dll文件了，估计Borland的编译器也是可以的，但最简单的方法还是直接用implib工具从dll文件生成lib文件，VC的编译器套件里也可以用lib工具从def文件来生成lib文件。Access生成的文件实在感觉大了些，不爽，说不定哪天我要把它换成用SQLite的数据库。有些开源的东东还真的很不错的说！</h4></div><div class="card-footer bg-white"><div class=wrapfooter><span class=meta-footer-thumb><img class=author-thumb src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/avatar.png alt=类库大魔王></span>
+<span class=author-meta><span class=post-name><a target=_blank href=https://www.ismisv.com>类库大魔王</a></span><br><span class=post-date>22 Mar 2007</span></span>
+<span class=post-read-more><a href=//2007/03/ebookshelf-w-i-p-4/ title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1.0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5.0 00.706.03L12.5 16.85l5.662 4.126a.508.508.0 00.708-.03.5.5.0 00.118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55.0 1 .45 1 1v13.637l-5.162-3.668a.49.49.0 00-.676.0z" fill-rule="evenodd"/></svg></a></span><div class=clearfix></div></div></div></div></div><div class="col-lg-4 col-md-6 mb-30px card-group"><div class="card h-100"><div class=maxthumb><a href=//2007/03/ebookshelf-w-i-p-3/><img class="img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src=https://img.peapix.com/6450977347863673038_320.jpg alt="Ebookshelf W.I.P #3"></a></div><div class=card-body><h2 class=card-title><a class=text-dark href=//2007/03/ebookshelf-w-i-p-3/>Ebookshelf W.I.P #3</a></h2><h4 class=card-text>　　终于经过翻阅了手头能找到的所有关于VCL使用ADO连接数据库的资料，连猜带蒙，好不容易回忆起来怎么来用了。其实就是FieldByName()->AsXXXX的用法，后面的XXXX可以是Integer、String、Boolean等等。虽然这个用法是试出来了，不过还有不少的困难摆放在眼前，其中一个很大的拦路虎是，TreeView很难用啊！我那样的设计，要把TreeView中的每个节点对应到数据库中的一条记录，这就是比如繁琐的一件事情。还有一个原因是，我对ADO控件的了解，也仅限于直接写入SQL语句操作一下，甚至连SQL语句都是现学现卖的，临时需要了就临时看一下手册，什么select、delete、update、insert等等。这样一来，原本可能可以很简单的事情，被我弄得很麻烦了。　　接下来要做的是，从数据库里读出所有TreeView所需要的数据记录，每条记录由3个字段组成，分别是节点ID、节点名称、父节点ID。强制规定第一条记录肯定是根节点，后面的记录肯定至少是根节点的孩子，在TreeView中添加了根节点后，再读出所有其它节点，并根据父节点ID依次添加上去。还有点很郁闷的是，TreeView的节点名称编辑完了，没有恰当的得到编辑后的名称的时机。有个OnEdited事件，还以为可以用，结果得到的还是编辑前的内容，有个OnEditing事件，也不能得到当前最新的内容，晕倒！以后没什么事能不用TreeView，千万别用这个这么难用的控件了。　　最后想说的是，Access的数据库怎么体积这么大，只放了3张表，表里都没什么数据，那个mdb文件就有800多KB了。　　唉，想想，一点技术含量都没有，不过能卖钱就好。</h4></div><div class="card-footer bg-white"><div class=wrapfooter><span class=meta-footer-thumb><img class=author-thumb src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/avatar.png alt=类库大魔王></span>
+<span class=author-meta><span class=post-name><a target=_blank href=https://www.ismisv.com>类库大魔王</a></span><br><span class=post-date>21 Mar 2007</span></span>
+<span class=post-read-more><a href=//2007/03/ebookshelf-w-i-p-3/ title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1.0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5.0 00.706.03L12.5 16.85l5.662 4.126a.508.508.0 00.708-.03.5.5.0 00.118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55.0 1 .45 1 1v13.637l-5.162-3.668a.49.49.0 00-.676.0z" fill-rule="evenodd"/></svg></a></span><div class=clearfix></div></div></div></div></div><div class="col-lg-4 col-md-6 mb-30px card-group"><div class="card h-100"><div class=maxthumb><a href=//2007/03/ebookshelf-w-i-p-2/><img class="img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src=https://img.peapix.com/15438348747210961796_320.jpg alt="Ebookshelf W.I.P #2"></a></div><div class=card-body><h2 class=card-title><a class=text-dark href=//2007/03/ebookshelf-w-i-p-2/>Ebookshelf W.I.P #2</a></h2><h4 class=card-text>　　用ADO连接Access就先放下了，在公司里找了些资料看了看，还是没什么头绪。回来只是把其它的文件搜索、文件报表生成等功能完成了，剩下的主要就是怎么跟Access交互了。总是觉得TreeView有点难用，ListView倒是比较好用，以前用过比较多次了，而且没有什么特殊的要求。　　倒是这次总想着怎么把Boost应用进来。Boost::foreach和Boost::lambda是最近才看过的东西，但是这种小程序没多少场合可以应用，很多时候都是不需要多少算法或是表达式的，只是简单的过程式的流程。还有一点就是，应该好好把STL的内容熟练使用，有些事情自己处理虽然也不是很费事，但如果直接使用STL中的算法来完成，不但更高效健壮，可读性可维护性也是更好。　　luolu说，她可能要读博士了，还说，是因为没事情做，所以才想读书的。人和人的差别真是大呀！</h4></div><div class="card-footer bg-white"><div class=wrapfooter><span class=meta-footer-thumb><img class=author-thumb src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/avatar.png alt=类库大魔王></span>
+<span class=author-meta><span class=post-name><a target=_blank href=https://www.ismisv.com>类库大魔王</a></span><br><span class=post-date>20 Mar 2007</span></span>
+<span class=post-read-more><a href=//2007/03/ebookshelf-w-i-p-2/ title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1.0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5.0 00.706.03L12.5 16.85l5.662 4.126a.508.508.0 00.708-.03.5.5.0 00.118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55.0 1 .45 1 1v13.637l-5.162-3.668a.49.49.0 00-.676.0z" fill-rule="evenodd"/></svg></a></span><div class=clearfix></div></div></div></div></div><div class="col-lg-4 col-md-6 mb-30px card-group"><div class="card h-100"><div class=maxthumb><a href=//2007/03/ebookshelf-w-i-p-1/><img class="img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src=https://img.peapix.com/8666449321679531834_320.jpg alt="Ebookshelf W.I.P #1"></a></div><div class=card-body><h2 class=card-title><a class=text-dark href=//2007/03/ebookshelf-w-i-p-1/>Ebookshelf W.I.P #1</a></h2><h4 class=card-text>　　今天经过半个小时的交通堵塞，终于比平常晚了半个小时到了家里。发明迅雷的人真不是人，这么抢带宽的东西也做得出来。　　写了一会儿Ebookshelf，这个东西本来是自己用的，因为有了不知道多少本的电子书，却没有好的管理工具，只好先自己写一个。还为了用什么工具开发犹豫了好久，主要的当然是BCB和VC之间的抉择，不同的编译环境会涉及到不同的各种问题，比如打算用SQLite或Access来做数据存储，哪种接口在哪种环境中更容易使用，然后是WTL和VCL哪个更方便。最后的决定是在打开电脑后几分钟才下的，用BDS2006＋Access，因为SQLite只提供了DLL和DEF文件，我又不知道怎么为VC的编译器从DLL和DEF文件生成导入文件（即lib文件），而Access的连接用VCL中的ADO控件是异常方便。另外一个原因是，本来BCB用的lib文件是可以生成了，但是直接include了sqlite.h编译都不过，也不想再研究了，就只好用这种组合了。不过比较郁闷的是，原来虽然也用过几次用ADO连接SQLServer或Access，但今天用起来时，发现很多东西都忘了，都不知道怎么从获取到的记录集中提取出指定字段的值了！原来的那个程序也找不到了，好像就是最近那种整理邮件的时候都删掉了。另外还有个问题是，总觉得我用VCL画出来的程序界面很不专业、很业余。主要大概是各种颜色搭配，以及控件的一些细节属性没设置好，这个角度讲，其实用VC的MFC或WTL就好多了，能一下就生成标准的Windows应用程序界面。先把涉及到数据库操作的部分放一放，接口都留出来，等哪天复习一下再补上吧！　　部门又发了一本《读者》合订本，还是2003年下半年的，去年的还是2004年上半年的呢，真是抠呀！而且邮件一发，雨烟就说要罚那个知情不报的人，教授也真是可爱，居然还敢承认，呵呵。　　下午又跟疯丫头一起看了一点数据特性的代码，那个新员工写的代码还真是有趣呢，虽然一个文件里面的函数只实现了1/3左右，还是被我们找出了几十个各种类型的问题，有些是压根就编译不过的。其实我觉得这种阶段就拿来让测试部做代码检视是不太合适的，至少也得能编译通过吧。尤其是在看了各种模板应用后，发现编译器在编译期间就能帮助找出不少错误的，所以没经过编译器的代码最多也他们开发内部互相检视一下算了，拿到测试部来有点形式主义或者说是小题大作。不过这样也好，至少疯丫头的PI值是提上去了，哈哈！</h4></div><div class="card-footer bg-white"><div class=wrapfooter><span class=meta-footer-thumb><img class=author-thumb src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/avatar.png alt=类库大魔王></span>
+<span class=author-meta><span class=post-name><a target=_blank href=https://www.ismisv.com>类库大魔王</a></span><br><span class=post-date>19 Mar 2007</span></span>
+<span class=post-read-more><a href=//2007/03/ebookshelf-w-i-p-1/ title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1.0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5.0 00.706.03L12.5 16.85l5.662 4.126a.508.508.0 00.708-.03.5.5.0 00.118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55.0 1 .45 1 1v13.637l-5.162-3.668a.49.49.0 00-.676.0z" fill-rule="evenodd"/></svg></a></span><div class=clearfix></div></div></div></div></div><div class="col-lg-4 col-md-6 mb-30px card-group"><div class="card h-100"><div class=maxthumb><a href=//2007/03/e9-98-bf-e8-8f-b2-e8-bf-99-e4-b8-ab-e5-a4-b4-e4-b8-8d-e7-9f-a5-e9-81-93-e5-be-97-e4-ba-86-e4-bb-80-e4-b9-88-e7-97-85/><img class="img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src=https://img.peapix.com/1800285553745620792_320.jpg alt=阿菲这丫头不知道得了什么病></a></div><div class=card-body><h2 class=card-title><a class=text-dark href=//2007/03/e9-98-bf-e8-8f-b2-e8-bf-99-e4-b8-ab-e5-a4-b4-e4-b8-8d-e7-9f-a5-e9-81-93-e5-be-97-e4-ba-86-e4-bb-80-e4-b9-88-e7-97-85/>阿菲这丫头不知道得了什么病</a></h2><h4 class=card-text>　　早上很早就醒了，然后在床上赖到9:40起床玩电脑，10点半的时候开始收拾，准备出门。跟阿菲一起坐302到万象城，逛了一小会儿，两个这样的组合的人似乎是没有逛这种地方的闲情逸致的，只是买了点曲奇，然后就直接去吃饭的地方了。这是家泰国菜馆，里面的咖喱是阿菲叫我去的主题。等了一会儿，去把xcc接来，这次聚餐的全部主角都到齐了。这两个人，一个接完电话另一个接，都是处于热恋中的，手机必须保持随时能接听的状态，这样他们的另一半才能随时定位到他们的行踪，呵呵。随便点了几个菜，也不是很贵，三个人也就吃了103块钱，每人平均还不到40块。每次我们三个在一起的时候，聊得最多的就是各自工作的问题，以及对以后的展望，呵呵，展望说不上的话，至少可以说是想法吧。阿菲总是说叫我年轻人去做国际售后技术支持。其实我是个懒人，我又怕吃苦。于是跟阿菲说，我想做SOHO，或者等SOHO到一定的收入后，可以找个轻松点的工作。但这样说是说，什么立足点都没有，何况我现在在公司就很轻松，就是嫌钱少了。聊了一会儿后，xcc说要去接一个高中的同学，于是先走了。阿菲要我陪她去买移动硬盘，于是坐地铁到华强北。　　到赛格，又到那家买了几块硬盘的地方去了，一个日立80GB的笔记本硬盘，加上一个仿冒的三星硬盘盒，好说歹说讲到470块。刚买完硬盘要下楼，阿菲突然说眼睛很黑，人很不舒服，头晕。我还以为是暂时性的头部供血不足之类的，结果阿菲拉着我的衣服说要打车回家，拉着我的手，走路很慢，说话也很轻声轻气了，我才想到，这下有点严重了。打了个车，在车上，阿菲已经几乎没有力气了，车子转弯时的倾斜，都把她甩倒了，我只好抱着她。阿菲靠在我胸口，我看着她虚弱的样子，想着人无助的时候是多么需要有个人能在身旁，靠一靠也好啊，又联想起某某人来。到了她家，给她倒了杯水，我就出来了。一边走一边想，我真是不会照顾人，就这样走掉了，因为我完全不知道我留下来能干什么。虽然看了很多动画片，还想自己也做一个很温柔的男人，这个时候我才意识到，我骨子里是做不成那样的男人的。大概曾经在我怀里依偎过的女人，没有哪个会有过安全感吧！我不懂温柔，我不够成熟。　　再回到华强北，几经抉择，买了套微软的无线桌面套装，380大洋，买了10张DVD刻录盘，买了个小挂饰，去编了个手绳。加上这两天吃饭的，一共1500多就这样花出去了。花钱的速度远远快于赚钱的速度啊。</h4></div><div class="card-footer bg-white"><div class=wrapfooter><span class=meta-footer-thumb><img class=author-thumb src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/avatar.png alt=类库大魔王></span>
+<span class=author-meta><span class=post-name><a target=_blank href=https://www.ismisv.com>类库大魔王</a></span><br><span class=post-date>18 Mar 2007</span></span>
+<span class=post-read-more><a href=//2007/03/e9-98-bf-e8-8f-b2-e8-bf-99-e4-b8-ab-e5-a4-b4-e4-b8-8d-e7-9f-a5-e9-81-93-e5-be-97-e4-ba-86-e4-bb-80-e4-b9-88-e7-97-85/ title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1.0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5.0 00.706.03L12.5 16.85l5.662 4.126a.508.508.0 00.708-.03.5.5.0 00.118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55.0 1 .45 1 1v13.637l-5.162-3.668a.49.49.0 00-.676.0z" fill-rule="evenodd"/></svg></a></span><div class=clearfix></div></div></div></div></div><div class="col-lg-4 col-md-6 mb-30px card-group"><div class="card h-100"><div class=maxthumb><a href=//2007/03/e7-a5-9d-e8-87-aa-e5-b7-b1-e7-94-9f-e6-97-a5-e5-bf-ab-e4-b9-90/><img class="img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src=https://img.peapix.com/1674539317860531458_320.jpg alt=祝自己生日快乐></a></div><div class=card-body><h2 class=card-title><a class=text-dark href=//2007/03/e7-a5-9d-e8-87-aa-e5-b7-b1-e7-94-9f-e6-97-a5-e5-bf-ab-e4-b9-90/>祝自己生日快乐</a></h2><h4 class=card-text>　　真又大了一岁了，中午去梅林小肥羊吃了一顿，包厢里是有300块的最低消费，大概是因为不喝酒的缘故吧，吃了250的时候，我们就差不多有点饱了，最后50块的是又随便点了点东西。从小肥羊出来，就不知道去干什么了，8个人意见不统一，其实我心里是比较倾向于去天籁村K歌的，因为便宜而且能消磨掉一下午时间，不过居然连猫猫都不想去，真让人觉得奇怪。几个人走来走去，在梅华路上来回了几趟，还说去打乒乓球，不过想打的人好像不多。最后还是决定去打牌，就是梅兴苑后面的一个茶艺馆，以前xcc跟我说过，在里面打过一个通宵的牌。这次我们也包了个中包，18点以前20块每小时，18点以后就25了，lyy回家去了，剩下几个人就打麻将去了，而我跟疯丫头则在那里看了一会儿《我猜》，然后开始下棋。开始疯丫头说要下围棋，把我吓到了，心想这回要丢人了，因为以为她这样主动说的应该有点厉害吧。结果这个家伙让我活了一小块她原本以为能吃死我的棋后，就说要重下，嘿嘿。然后开始下五子棋，她说她以前都没下过，所以我就很随意地跟她下了，慢慢地发现好像她变厉害了，呵呵。教授和悍超两个人来看我们下，看了一会儿都看不下去了，说我在那里放水，结果让疯丫头感觉是被人泼了冷水，呵呵。一直弄到7点半才出来，天下雨了，就近找了个东北饺子馆吃，吃了60块钱，其实我挺饱的。　　小丫头还发短信来，说了好一通话，呼呼。又长了一岁了，祝自己生日快乐的同时，希望能在之后的半年内有好的发展吧！</h4></div><div class="card-footer bg-white"><div class=wrapfooter><span class=meta-footer-thumb><img class=author-thumb src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/avatar.png alt=类库大魔王></span>
+<span class=author-meta><span class=post-name><a target=_blank href=https://www.ismisv.com>类库大魔王</a></span><br><span class=post-date>17 Mar 2007</span></span>
+<span class=post-read-more><a href=//2007/03/e7-a5-9d-e8-87-aa-e5-b7-b1-e7-94-9f-e6-97-a5-e5-bf-ab-e4-b9-90/ title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1.0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5.0 00.706.03L12.5 16.85l5.662 4.126a.508.508.0 00.708-.03.5.5.0 00.118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55.0 1 .45 1 1v13.637l-5.162-3.668a.49.49.0 00-.676.0z" fill-rule="evenodd"/></svg></a></span><div class=clearfix></div></div></div></div></div><div class="col-lg-4 col-md-6 mb-30px card-group"><div class="card h-100"><div class=maxthumb><a href=//2007/03/e5-85-ac-e5-8f-b8-e9-87-8c-e7-94-a8cvs-e4-ba-86/><img class="img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src=https://img.peapix.com/17742285510121919389_320.jpg alt=公司里用CVS了></a></div><div class=card-body><h2 class=card-title><a class=text-dark href=//2007/03/e5-85-ac-e5-8f-b8-e9-87-8c-e7-94-a8cvs-e4-ba-86/>公司里用CVS了</a></h2><h4 class=card-text>　　在公司里，新版本的文档管理都切换到CVS系统了。今天，几个同事说要配置一下怎么使用，他们不知道CVS原本是一个命令行工具，都照着宣传胶片上的开始装上WinCvs和CvsNT，然后一步一步地设置各个选项，而最终目的只是为了从服务器上checkout出文档来。用命令行的话，登录一条命令，checkout一条命令，最多再加上登出一条命令，多方便！由衷地感叹，来自UNIX体系的命令行文化的简洁和强大！不禁想起那个Rational ClearCase，曾经安装卸载了n次，还是不能使用，真是郁闷。　　再说回来CVS，现在看sf.net上，好像是CVS和SVN并存的，但感觉CVS的存在只是为了兼容原来的老存档，SVN取代CVS是迟早的事情，公司到现在这种时候还只是把VSS改换成CVS而不是SVN，就有点让人觉得土气了。不过公司向来对开源世界的东西比较反感，以及人员的技能素质整体也呈下降趋势，靠着一流的市场、二流的用服来销售和维护三流的研发做出来的东东，这样的情况是持续不了多久吧。</h4></div><div class="card-footer bg-white"><div class=wrapfooter><span class=meta-footer-thumb><img class=author-thumb src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/avatar.png alt=类库大魔王></span>
+<span class=author-meta><span class=post-name><a target=_blank href=https://www.ismisv.com>类库大魔王</a></span><br><span class=post-date>15 Mar 2007</span></span>
+<span class=post-read-more><a href=//2007/03/e5-85-ac-e5-8f-b8-e9-87-8c-e7-94-a8cvs-e4-ba-86/ title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1.0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5.0 00.706.03L12.5 16.85l5.662 4.126a.508.508.0 00.708-.03.5.5.0 00.118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55.0 1 .45 1 1v13.637l-5.162-3.668a.49.49.0 00-.676.0z" fill-rule="evenodd"/></svg></a></span><div class=clearfix></div></div></div></div></div><div class="col-lg-4 col-md-6 mb-30px card-group"><div class="card h-100"><div class=maxthumb><a href=//2007/03/wtl-e4-b8-8d-e9-94-99/><img class="img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src=https://img.peapix.com/11620981144632010889_320.jpg alt=WTL不错></a></div><div class=card-body><h2 class=card-title><a class=text-dark href=//2007/03/wtl-e4-b8-8d-e9-94-99/>WTL不错</a></h2><h4 class=card-text>　　可以编译出很小的可执行文件来，跟SDK写的有得一拼，而开发效率比SDK当然要高出一大截，估计和MFC差不多吧。是个值得一学的东西，只是最近很懒，呵呵。</h4></div><div class="card-footer bg-white"><div class=wrapfooter><span class=meta-footer-thumb><img class=author-thumb src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/avatar.png alt=类库大魔王></span>
+<span class=author-meta><span class=post-name><a target=_blank href=https://www.ismisv.com>类库大魔王</a></span><br><span class=post-date>14 Mar 2007</span></span>
+<span class=post-read-more><a href=//2007/03/wtl-e4-b8-8d-e9-94-99/ title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1.0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5.0 00.706.03L12.5 16.85l5.662 4.126a.508.508.0 00.708-.03.5.5.0 00.118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55.0 1 .45 1 1v13.637l-5.162-3.668a.49.49.0 00-.676.0z" fill-rule="evenodd"/></svg></a></span><div class=clearfix></div></div></div></div></div><div class="col-lg-4 col-md-6 mb-30px card-group"><div class="card h-100"><div class=maxthumb><a href=//2007/03/e8-b7-9f-e5-b0-8f-e5-a6-9e-e7-8b-82-e5-90-83-e4-ba-86-e4-b8-80-e9-a1-bf/><img class="img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src=https://img.peapix.com/15230270759247552705_320.jpg alt=跟小妞狂吃了一顿></a></div><div class=card-body><h2 class=card-title><a class=text-dark href=//2007/03/e8-b7-9f-e5-b0-8f-e5-a6-9e-e7-8b-82-e5-90-83-e4-ba-86-e4-b8-80-e9-a1-bf/>跟小妞狂吃了一顿</a></h2><h4 class=card-text>　　找了个机会让小妞敲诈了一顿，呵呵，好久没和小妞一起吃饭了，下班后去F1大堂门口的她，然后两个人就说去吃火锅吧。走到肥牛府一看，没有好的位子了，于是走到隔壁的童子羊，点了9个菜，狂吃一顿，一直吃到快9点。撑啊，我们两个的战斗力还是不错的，呵呵。之后小妞说要我教她怎么刻录，于是去了她屋里，欣赏了一下她在阿尔及利亚的照片，呼呼，这丫头，连撒哈拉都去过了，还看了地中海，真让人羡慕。七整八整就弄到了10点半才出来，呵呵。</h4></div><div class="card-footer bg-white"><div class=wrapfooter><span class=meta-footer-thumb><img class=author-thumb src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/avatar.png alt=类库大魔王></span>
+<span class=author-meta><span class=post-name><a target=_blank href=https://www.ismisv.com>类库大魔王</a></span><br><span class=post-date>13 Mar 2007</span></span>
+<span class=post-read-more><a href=//2007/03/e8-b7-9f-e5-b0-8f-e5-a6-9e-e7-8b-82-e5-90-83-e4-ba-86-e4-b8-80-e9-a1-bf/ title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1.0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5.0 00.706.03L12.5 16.85l5.662 4.126a.508.508.0 00.708-.03.5.5.0 00.118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55.0 1 .45 1 1v13.637l-5.162-3.668a.49.49.0 00-.676.0z" fill-rule="evenodd"/></svg></a></span><div class=clearfix></div></div></div></div></div></div></section><div class=bottompagination><div class=pointerup><i class="fa fa-caret-up"></i></div><span class=navigation role=navigation><div class=pagination><a class="ml-1 mr-1" href=/page/120/>&#171; Prev</a>
+<a class="ml-1 mr-1" href=/page/120/>1</a>
+<a class="ml-1 mr-1" href=/page/2/>2</a>
+<a class="ml-1 mr-1" href=/page/3/>3</a>
+<a class="ml-1 mr-1" href=/page/4/>4</a>
+<a class="ml-1 mr-1" href=/page/5/>5</a>
+<a class="ml-1 mr-1" href=/page/6/>6</a>
+<a class="ml-1 mr-1" href=/page/7/>7</a>
+<a class="ml-1 mr-1" href=/page/8/>8</a>
+<a class="ml-1 mr-1" href=/page/9/>9</a>
+<a class="ml-1 mr-1" href=/page/10/>10</a>
+<a class="ml-1 mr-1" href=/page/11/>11</a>
+<a class="ml-1 mr-1" href=/page/12/>12</a>
+<a class="ml-1 mr-1" href=/page/13/>13</a>
+<a class="ml-1 mr-1" href=/page/14/>14</a>
+<a class="ml-1 mr-1" href=/page/15/>15</a>
+<a class="ml-1 mr-1" href=/page/16/>16</a>
+<a class="ml-1 mr-1" href=/page/17/>17</a>
+<a class="ml-1 mr-1" href=/page/18/>18</a>
+<a class="ml-1 mr-1" href=/page/19/>19</a>
+<a class="ml-1 mr-1" href=/page/20/>20</a>
+<a class="ml-1 mr-1" href=/page/21/>21</a>
+<a class="ml-1 mr-1" href=/page/22/>22</a>
+<a class="ml-1 mr-1" href=/page/23/>23</a>
+<a class="ml-1 mr-1" href=/page/24/>24</a>
+<a class="ml-1 mr-1" href=/page/25/>25</a>
+<a class="ml-1 mr-1" href=/page/26/>26</a>
+<a class="ml-1 mr-1" href=/page/27/>27</a>
+<a class="ml-1 mr-1" href=/page/28/>28</a>
+<a class="ml-1 mr-1" href=/page/29/>29</a>
+<a class="ml-1 mr-1" href=/page/30/>30</a>
+<a class="ml-1 mr-1" href=/page/31/>31</a>
+<a class="ml-1 mr-1" href=/page/32/>32</a>
+<a class="ml-1 mr-1" href=/page/33/>33</a>
+<a class="ml-1 mr-1" href=/page/34/>34</a>
+<a class="ml-1 mr-1" href=/page/35/>35</a>
+<a class="ml-1 mr-1" href=/page/36/>36</a>
+<a class="ml-1 mr-1" href=/page/37/>37</a>
+<a class="ml-1 mr-1" href=/page/38/>38</a>
+<a class="ml-1 mr-1" href=/page/39/>39</a>
+<a class="ml-1 mr-1" href=/page/40/>40</a>
+<a class="ml-1 mr-1" href=/page/41/>41</a>
+<a class="ml-1 mr-1" href=/page/42/>42</a>
+<a class="ml-1 mr-1" href=/page/43/>43</a>
+<a class="ml-1 mr-1" href=/page/44/>44</a>
+<a class="ml-1 mr-1" href=/page/45/>45</a>
+<a class="ml-1 mr-1" href=/page/46/>46</a>
+<a class="ml-1 mr-1" href=/page/47/>47</a>
+<a class="ml-1 mr-1" href=/page/48/>48</a>
+<a class="ml-1 mr-1" href=/page/49/>49</a>
+<a class="ml-1 mr-1" href=/page/50/>50</a>
+<a class="ml-1 mr-1" href=/page/51/>51</a>
+<a class="ml-1 mr-1" href=/page/52/>52</a>
+<a class="ml-1 mr-1" href=/page/53/>53</a>
+<a class="ml-1 mr-1" href=/page/54/>54</a>
+<a class="ml-1 mr-1" href=/page/55/>55</a>
+<a class="ml-1 mr-1" href=/page/56/>56</a>
+<a class="ml-1 mr-1" href=/page/57/>57</a>
+<a class="ml-1 mr-1" href=/page/58/>58</a>
+<a class="ml-1 mr-1" href=/page/59/>59</a>
+<a class="ml-1 mr-1" href=/page/60/>60</a>
+<a class="ml-1 mr-1" href=/page/61/>61</a>
+<a class="ml-1 mr-1" href=/page/62/>62</a>
+<a class="ml-1 mr-1" href=/page/63/>63</a>
+<a class="ml-1 mr-1" href=/page/64/>64</a>
+<a class="ml-1 mr-1" href=/page/65/>65</a>
+<a class="ml-1 mr-1" href=/page/66/>66</a>
+<a class="ml-1 mr-1" href=/page/67/>67</a>
+<a class="ml-1 mr-1" href=/page/68/>68</a>
+<a class="ml-1 mr-1" href=/page/69/>69</a>
+<a class="ml-1 mr-1" href=/page/70/>70</a>
+<a class="ml-1 mr-1" href=/page/71/>71</a>
+<a class="ml-1 mr-1" href=/page/72/>72</a>
+<a class="ml-1 mr-1" href=/page/73/>73</a>
+<a class="ml-1 mr-1" href=/page/74/>74</a>
+<a class="ml-1 mr-1" href=/page/75/>75</a>
+<a class="ml-1 mr-1" href=/page/76/>76</a>
+<a class="ml-1 mr-1" href=/page/77/>77</a>
+<a class="ml-1 mr-1" href=/page/78/>78</a>
+<a class="ml-1 mr-1" href=/page/79/>79</a>
+<a class="ml-1 mr-1" href=/page/80/>80</a>
+<a class="ml-1 mr-1" href=/page/81/>81</a>
+<a class="ml-1 mr-1" href=/page/82/>82</a>
+<a class="ml-1 mr-1" href=/page/83/>83</a>
+<a class="ml-1 mr-1" href=/page/84/>84</a>
+<a class="ml-1 mr-1" href=/page/85/>85</a>
+<a class="ml-1 mr-1" href=/page/86/>86</a>
+<a class="ml-1 mr-1" href=/page/87/>87</a>
+<a class="ml-1 mr-1" href=/page/88/>88</a>
+<a class="ml-1 mr-1" href=/page/89/>89</a>
+<a class="ml-1 mr-1" href=/page/90/>90</a>
+<a class="ml-1 mr-1" href=/page/91/>91</a>
+<a class="ml-1 mr-1" href=/page/92/>92</a>
+<a class="ml-1 mr-1" href=/page/93/>93</a>
+<a class="ml-1 mr-1" href=/page/94/>94</a>
+<a class="ml-1 mr-1" href=/page/95/>95</a>
+<a class="ml-1 mr-1" href=/page/96/>96</a>
+<a class="ml-1 mr-1" href=/page/97/>97</a>
+<a class="ml-1 mr-1" href=/page/98/>98</a>
+<a class="ml-1 mr-1" href=/page/99/>99</a>
+<a class="ml-1 mr-1" href=/page/100/>100</a>
+<a class="ml-1 mr-1" href=/page/101/>101</a>
+<a class="ml-1 mr-1" href=/page/102/>102</a>
+<a class="ml-1 mr-1" href=/page/103/>103</a>
+<a class="ml-1 mr-1" href=/page/104/>104</a>
+<a class="ml-1 mr-1" href=/page/105/>105</a>
+<a class="ml-1 mr-1" href=/page/106/>106</a>
+<a class="ml-1 mr-1" href=/page/107/>107</a>
+<a class="ml-1 mr-1" href=/page/108/>108</a>
+<a class="ml-1 mr-1" href=/page/109/>109</a>
+<a class="ml-1 mr-1" href=/page/110/>110</a>
+<a class="ml-1 mr-1" href=/page/111/>111</a>
+<a class="ml-1 mr-1" href=/page/112/>112</a>
+<a class="ml-1 mr-1" href=/page/113/>113</a>
+<a class="ml-1 mr-1" href=/page/114/>114</a>
+<a class="ml-1 mr-1" href=/page/115/>115</a>
+<a class="ml-1 mr-1" href=/page/116/>116</a>
+<a class="ml-1 mr-1" href=/page/117/>117</a>
+<a class="ml-1 mr-1" href=/page/118/>118</a>
+<a class="ml-1 mr-1" href=/page/119/>119</a>
+<a class="ml-1 mr-1" href=/page/120/>120</a>
+<span class="ml-1 mr-1">121</span>
+<a class="ml-1 mr-1" href=/page/122/>122</a>
+<a class="ml-1 mr-1" href=/page/123/>123</a>
+<a class="ml-1 mr-1" href=/page/124/>124</a>
+<a class="ml-1 mr-1" href=/page/125/>125</a>
+<a class="ml-1 mr-1" href=/page/126/>126</a>
+<a class="ml-1 mr-1" href=/page/127/>127</a>
+<a class="ml-1 mr-1" href=/page/128/>128</a>
+<a class="ml-1 mr-1" href=/page/129/>129</a>
+<a class="ml-1 mr-1" href=/page/130/>130</a>
+<a class="ml-1 mr-1" href=/page/131/>131</a>
+<a class="ml-1 mr-1" href=/page/132/>132</a>
+<a class="ml-1 mr-1" href=/page/133/>133</a>
+<a class="ml-1 mr-1" href=/page/134/>134</a>
+<a class="ml-1 mr-1" href=/page/135/>135</a>
+<a class="ml-1 mr-1" href=/page/136/>136</a>
+<a class="ml-1 mr-1" href=/page/137/>137</a>
+<a class="ml-1 mr-1" href=/page/138/>138</a>
+<a class="ml-1 mr-1" href=/page/139/>139</a>
+<a class="ml-1 mr-1" href=/page/140/>140</a>
+<a class="ml-1 mr-1" href=/page/141/>141</a>
+<a class="ml-1 mr-1" href=/page/142/>142</a>
+<a class="ml-1 mr-1" href=/page/143/>143</a>
+<a class="ml-1 mr-1" href=/page/144/>144</a>
+<a class="ml-1 mr-1" href=/page/145/>145</a>
+<a class="ml-1 mr-1" href=/page/146/>146</a>
+<a class="ml-1 mr-1" href=/page/147/>147</a>
+<a class="ml-1 mr-1" href=/page/148/>148</a>
+<a class="ml-1 mr-1" href=/page/149/>149</a>
+<a class="ml-1 mr-1" href=/page/150/>150</a>
+<a class="ml-1 mr-1" href=/page/151/>151</a>
+<a class="ml-1 mr-1" href=/page/152/>152</a>
+<a class="ml-1 mr-1" href=/page/122/>Next &#187;</a></div></span></div></div></div><div class="jumbotron fortags"><div class="d-md-flex h-100"><div class="col-md-4 transpdark align-self-center text-center h-100"><div class="d-md-flex align-items-center justify-content-center h-100"><h2 class="d-md-block align-self-center py-1 font-weight-light">发现 <span class="d-none d-md-inline">→</span></h2></div></div><div class="col-md-8 p-5 align-self-center text-center"><a class="mt-1 mb-1" href=//categories.html#imported-from-CSDN>imported from CSDN (124)</a>
+<a class="mt-1 mb-1" href=//categories.html#Film-&-ACG>Film & ACG (15)</a>
+<a class="mt-1 mb-1" href=//categories.html#Water>Water (170)</a>
+<a class="mt-1 mb-1" href=//categories.html#Shareware>Shareware (151)</a>
+<a class="mt-1 mb-1" href=//categories.html#Software>Software (140)</a>
+<a class="mt-1 mb-1" href=//categories.html#Plugin-Framework>Plugin Framework (28)</a>
+<a class="mt-1 mb-1" href=//categories.html#lookfor>lookfor (36)</a>
+<a class="mt-1 mb-1" href=//categories.html#CPPOOPGPXP>CPPOOPGPXP (87)</a>
+<a class="mt-1 mb-1" href=//categories.html#Lua，Script>Lua，Script (51)</a>
+<a class="mt-1 mb-1" href=//categories.html#Be-Old>Be Old (15)</a>
+<a class="mt-1 mb-1" href=//categories.html#Job>Job (185)</a>
+<a class="mt-1 mb-1" href=//categories.html#mm>mm (48)</a>
+<a class="mt-1 mb-1" href=//categories.html#Emulator>Emulator (3)</a>
+<a class="mt-1 mb-1" href=//categories.html#Execise-Outdoor>Execise Outdoor (13)</a>
+<a class="mt-1 mb-1" href=//categories.html#gfw>gfw (10)</a>
+<a class="mt-1 mb-1" href=//categories.html#Reading>Reading (20)</a>
+<a class="mt-1 mb-1" href=//categories.html#Driving>Driving (16)</a>
+<a class="mt-1 mb-1" href=//categories.html#Mobile>Mobile (15)</a>
+<a class="mt-1 mb-1" href=//categories.html#wxWidgets>wxWidgets (29)</a>
+<a class="mt-1 mb-1" href=//categories.html#WIND>WIND (14)</a>
+<a class="mt-1 mb-1" href=//categories.html#PSP-NDS>PSP NDS (2)</a>
+<a class="mt-1 mb-1" href=//categories.html#CodingStudio>CodingStudio (44)</a>
+<a class="mt-1 mb-1" href=//categories.html#Cryptography>Cryptography (2)</a>
+<a class="mt-1 mb-1" href=//categories.html#Editor，IDE>Editor，IDE (5)</a>
+<a class="mt-1 mb-1" href=//categories.html#TeX>TeX (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#Life>Life (82)</a>
+<a class="mt-1 mb-1" href=//categories.html#Technic>Technic (6)</a>
+<a class="mt-1 mb-1" href=//categories.html#Qt>Qt (28)</a>
+<a class="mt-1 mb-1" href=//categories.html#SNS>SNS (35)</a>
+<a class="mt-1 mb-1" href=//categories.html#Ninayan>Ninayan (35)</a>
+<a class="mt-1 mb-1" href=//categories.html#GUI-Framework>GUI Framework (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#KarenMeu>KarenMeu (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#Kindle>Kindle (3)</a>
+<a class="mt-1 mb-1" href=//categories.html#Coding>Coding (14)</a>
+<a class="mt-1 mb-1" href=//categories.html#Startup>Startup (6)</a>
+<a class="mt-1 mb-1" href=//categories.html#network>network (14)</a>
+<a class="mt-1 mb-1" href=//categories.html#Go>Go (10)</a>
+<a class="mt-1 mb-1" href=//categories.html#idea>idea (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#os>os (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#iOS>iOS (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#Cloud>Cloud (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#device>device (2)</a>
+<a class="mt-1 mb-1" href=//categories.html#embed>embed (6)</a>
+<a class="mt-1 mb-1" href=//categories.html#gochess>gochess (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#Router>Router (3)</a>
+<a class="mt-1 mb-1" href=//categories.html#blog>blog (7)</a></div></div></div><footer class=footer><div class=container><div class=row><div class="col-md-6 col-sm-6 text-center text-lg-left">Copyright © 2021 类库大魔王的挖井日记</div><div class="col-md-6 col-sm-6 text-center text-lg-right"><a target=_blank href=https://www.wowthemes.net/mediumish-free-jekyll-template/>Mediumish Jekyll Theme</a> by WowThemes.net</div></div></div></footer></div><script src=https://cdn.staticfile.org/popper.js/1.14.6/umd/popper.min.js></script><script src=https://cdn.staticfile.org/twitter-bootstrap/4.2.1/js/bootstrap.min.js></script><script src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/js/mediumish.min.js></script><script src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/js/lazyload.min.js></script>

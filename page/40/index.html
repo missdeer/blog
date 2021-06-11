@@ -1,0 +1,245 @@
+<!doctype html><html lang=en><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><link rel=icon href=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/logo.png><title>Home | 类库大魔王的挖井日记</title><title>Page 40 of 152 for Home | 挖井</title><meta name=generator content="Jekyll v3.9.0"><meta property="og:title" content="Home"><meta property="og:locale" content="en_US"><meta name=description content="挖一口属于自己的井"><meta property="og:description" content="挖一口属于自己的井"><link rel=canonical href=https://blog.ismisv.com/page/40/><meta property="og:url" content="https://blog.ismisv.com/page/40/"><meta property="og:site_name" content="挖井"><link rel=prev href=https://blog.ismisv.com/page/39/><link rel=next href=https://blog.ismisv.com/page/41/><script type=application/ld+json>{"headline":"Home","description":"挖一口属于自己的井","@type":"WebPage","url":"https://blog.ismisv.com/page/40/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://blog.ismisv.com/assets/images/logo.png"}},"@context":"http://schema.org"}</script><link href=https://cdn.staticfile.org/twitter-bootstrap/4.1.3/css/bootstrap.min.css rel=stylesheet><link href=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/css/screen.min.css rel=stylesheet><link href=//assets/css/main.css rel=stylesheet><script src=https://cdn.staticfile.org/jquery/3.3.1/jquery.min.js></script><body class=layout-default><noscript id=deferred-styles><link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel=stylesheet><link href=https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css rel=stylesheet></noscript><nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mediumnavigation nav-down"><div class="container pr-0"><a class=navbar-brand href=//><img src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/logo.png alt=类库大魔王的挖井日记></a>
+<button class=navbar-toggler type=button data-toggle=collapse data-target=#navbarMediumish aria-controls=navbarSupportedContent aria-expanded=false aria-label="Toggle navigation">
+<span class=navbar-toggler-icon></span></button><div class="collapse navbar-collapse" id=navbarMediumish><ul class="navbar-nav ml-auto"><li class=nav-item><a class=nav-link href=// title=博客首页><i class="fab fa-blogger"></i>首页</a><li class=nav-item><a class=nav-link href=//archive/ title=博客文章完整归档><i class="fas fa-archive"></i>归档</a><li class=nav-item><a class=nav-link href=//categories.html title=博客文章所有分类><i class="fas fa-bars"></i>分类</a><li class=nav-item><a class=nav-link href=//tags.html title=博客文章所有标签><i class="fas fa-tags"></i>标签</a><li class=nav-item><a class=nav-link href=//apps/ title=我（近几年）开发的软件作品><i class="fab fa-app-store"></i>软件</a><li class=nav-item><a class=nav-link href=//about/ title=关于本博客><i class="fas fa-user"></i>关于</a><li class=nav-item><a target=_blank class=nav-link href=//links/ title=友情链接><i class="fas fa-link"></i>链接</a><li class=nav-item><a target=_blank class=nav-link href=//feed.xml title=通过RSS订阅本博客><i class="fas fa-rss-square"></i>订阅</a><li class=nav-item><a target=_blank class=nav-link href=https://github.com/missdeer title=我写的一些程序开放了源代码><i class="fab fa-github"></i>代码</a></ul></div></div></nav><div class=site-content><div class=container><div class=mainheading><h1 class=sitetitle>类库大魔王的挖井日记</h1><p class=lead>挖一口属于自己的井</div><div class=main-content><section class=recent-posts><div class=section-title><h2><span>All Stories</span></h2></div><div class="row listrecent"><div class="col-lg-4 col-md-6 mb-30px card-group"><div class="card h-100"><div class=maxthumb><a href=//2010/11/qt-creator-e6-8f-92-e4-bb-b6-e6-9c-ba-e5-88-b6-e7-ae-80-e5-8d-95-e5-88-86-e6-9e-90/><img class="img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src=https://img.peapix.com/550597024600831505_320.jpg alt="Qt Creator插件机制简单分析"></a></div><div class=card-body><h2 class=card-title><a class=text-dark href=//2010/11/qt-creator-e6-8f-92-e4-bb-b6-e6-9c-ba-e5-88-b6-e7-ae-80-e5-8d-95-e5-88-86-e6-9e-90/>Qt Creator插件机制简单分析</a></h2><h4 class=card-text>　　Qt Creator的插件机制比起CodeLite和Code::Blocks来要强大得多。每个插件至少有一个dll文件（以Windows平台为例），还有一个必须的.pluginspec文件。插件的基本信息在.pluginspec文件中描述，包括插件的名称、版本、版权、作者、基本信息、分类、网站等，最重要的一点是有依赖的插件信息。支持插件依赖可以获取得大的灵活性和可扩展能力，这点CodeLite和Code::Blocks都没做到，因为单靠一个动态链接库很难实现这种依赖关系的描述。
+　　插件的实现同CodeLite和Code::Blocks类似，都放在dll中，但它的实现有点像是糅合了两者的作法，但又有所改进。Qt Creator应用程序本身的exe基本上只是实现了一个插件管理器，其他的IDE相关的业务逻辑全是由插件实现，甚至于主窗口也是放在一个叫Core的插件中实现。Qt Creator又定义了一组组的接口让插件实现，这点看来跟CodeLite比较像；但是它又基本上将接口的实现，至少是头文件全暴露了，插件在实现这些接口的时候可以直接调用它依赖的插件的服务，而不是通过接口调用，这点上看又有点像Code::Blocks的做法，我个人不是很喜欢这种暴露过多信息的做法，尤其是如果作为一个商业项目，应该尽量少地提供各种内部信息，当然Qt Creator本身作为一个开源项目，大概在这方面就比较随意了，如果全部用接口的形式交互的话，大概工作量会增多，跟实现一遍COM差不多了。
+　　另外说一下，Qt提供了几个宏，用于定义插件类和使用插件，而且Qt框架本身的一部分特性也是通过这种插件机制实现的。只不过这种支持实在太过简陋，只能说了胜于无吧。</h4></div><div class="card-footer bg-white"><div class=wrapfooter><span class=meta-footer-thumb><img class=author-thumb src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/avatar.png alt=类库大魔王></span>
+<span class=author-meta><span class=post-name><a target=_blank href=https://www.ismisv.com>类库大魔王</a></span><br><span class=post-date>04 Nov 2010</span></span>
+<span class=post-read-more><a href=//2010/11/qt-creator-e6-8f-92-e4-bb-b6-e6-9c-ba-e5-88-b6-e7-ae-80-e5-8d-95-e5-88-86-e6-9e-90/ title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1.0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5.0 00.706.03L12.5 16.85l5.662 4.126a.508.508.0 00.708-.03.5.5.0 00.118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55.0 1 .45 1 1v13.637l-5.162-3.668a.49.49.0 00-.676.0z" fill-rule="evenodd"/></svg></a></span><div class=clearfix></div></div></div></div></div><div class="col-lg-4 col-md-6 mb-30px card-group"><div class="card h-100"><div class=maxthumb><a href=//2010/11/codelitecodeblocks-e6-8f-92-e4-bb-b6-e6-9c-ba-e5-88-b6-e7-ae-80-e5-8d-95-e5-88-86-e6-9e-90/><img class="img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src=https://img.peapix.com/7899635771112526622_320.jpg alt=CodeLite/Code::Blocks插件机制简单分析></a></div><div class=card-body><h2 class=card-title><a class=text-dark href=//2010/11/codelitecodeblocks-e6-8f-92-e4-bb-b6-e6-9c-ba-e5-88-b6-e7-ae-80-e5-8d-95-e5-88-86-e6-9e-90/>CodeLite/Code::Blocks插件机制简单分析</a></h2><h4 class=card-text>　　昨天查看了一下CodeLite和Code::Blocks的源代码，了解了一下它们的插件机制的实现情况，还是非常简单的。
+　　CodeLite宿主程序是一个单独的exe文件（Windows平台下），插件都是单独的dll文件。宿主程序首先声明了一组接口，这组接口定义了宿主程序可以提供给插件使用的各种服务，比如访问当前编辑器等，然后宿主程序实现这组接口。接着再声明一组接口，这组接口需要每个插件都提供自己的实现，另外，插件还需要提供几个dll标准的导出函数，用于查询插件的基本信息，比如返回版本号，返回接口创建后的实例等，这跟Windows的COM很像，只不过COM规范更完善得多。插件要实现的接口包括在菜单中添加自己的菜单项，添加工具栏等。CodeLite启动后，扫描文件夹，取出各个插件dll，查询出接口实例指针，调用插件实现的接口，并将宿主程序自己实现的服务接口指针传递给插件，这样插件就可以反过来访问宿主中的数据。
+　　Code::Blocks的实现跟CodeLite差别不大。Code::Blocks的宿主程序是一个很小的exe文件加一个很大的dll文件，所有的核心功能都在dll中实现，exe只是一个外壳。插件实现跟CodeLite类似，都是dll，区别在于Code::Blocks定义的插件接口类型有好几种，比如普通插件，编译套件插件，调试器插件等等，另外的区别就是，由于Code::Blocks宿主并没有采用接口的形式提供服务，而是将服务封装在核心dll中，所以插件要访问核心服务都是通过链接这个核心dll来实现的。
+　　从开发者的角度看，Code::Blocks需要的代码量相对小一点，因为少了宿主接口声明，以及接口实现的衔接部分。但CodeLite的接口形式提供服务封装性更好一点，更类型无关。Code::Blocks的插件开发需要核心dll的那些头文件以及链接库文件，这难免有种暴露了过多细节的嫌疑，而CodeLite则只需要接口声明就行了。所以我个人更倾向于使用CodeLite的方案。</h4></div><div class="card-footer bg-white"><div class=wrapfooter><span class=meta-footer-thumb><img class=author-thumb src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/avatar.png alt=类库大魔王></span>
+<span class=author-meta><span class=post-name><a target=_blank href=https://www.ismisv.com>类库大魔王</a></span><br><span class=post-date>01 Nov 2010</span></span>
+<span class=post-read-more><a href=//2010/11/codelitecodeblocks-e6-8f-92-e4-bb-b6-e6-9c-ba-e5-88-b6-e7-ae-80-e5-8d-95-e5-88-86-e6-9e-90/ title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1.0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5.0 00.706.03L12.5 16.85l5.662 4.126a.508.508.0 00.708-.03.5.5.0 00.118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55.0 1 .45 1 1v13.637l-5.162-3.668a.49.49.0 00-.676.0z" fill-rule="evenodd"/></svg></a></span><div class=clearfix></div></div></div></div></div><div class="col-lg-4 col-md-6 mb-30px card-group"><div class="card h-100"><div class=maxthumb><a href=//2010/10/e4-bd-bf-e7-94-a8qmake-e8-bd-ac-e6-8d-a2-e5-b7-a5-e7-a8-8b-e6-96-87-e4-bb-b6/><img class="img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src=https://img.peapix.com/15a6c6aa4e8e4d438d2a44966679e1b5_320.jpg alt=使用qmake转换工程文件></a></div><div class=card-body><h2 class=card-title><a class=text-dark href=//2010/10/e4-bd-bf-e7-94-a8qmake-e8-bd-ac-e6-8d-a2-e5-b7-a5-e7-a8-8b-e6-96-87-e4-bb-b6/>使用qmake转换工程文件</a></h2><h4 class=card-text>　　原本用Qt Creator生成工程文件.pro，然后通过qmake -spec macx-xcode xxx.pro可以生成Xcode可用的工程文件，但是说实话Xcode还是用得不习惯，至少我常常用的在class中声明一个函数后，用Visual Assist X可以在右键菜单中直接将其在cpp文件中生成函数框架，但Xcode中还要自己一个字一个字地敲进去，而且这个过程中输入类名都没有自动完成了。当然整个的编辑功能上，Xcode已经比Qt Creator强出太多了。
+　　今天有人跟说我了下同样可以转换成VC的工程文件的，只是多了个参数，要这样用qmake -spec win32-msvc2008 -t vcapp xxx.pro，这样就可以生成.vcproj文件了，自己创建个空的解决方案就行了。注意在用qmake前，先在PATH中设置好Qt的bin目录路径，然后运行一下vsvars32.bat，这样qmake就能把所有东西都设置好了，用VS2008打开后是可以直接编译链接的。这样就可以在VS2008中编码调试了，赞！</h4></div><div class="card-footer bg-white"><div class=wrapfooter><span class=meta-footer-thumb><img class=author-thumb src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/avatar.png alt=类库大魔王></span>
+<span class=author-meta><span class=post-name><a target=_blank href=https://www.ismisv.com>类库大魔王</a></span><br><span class=post-date>28 Oct 2010</span></span>
+<span class=post-read-more><a href=//2010/10/e4-bd-bf-e7-94-a8qmake-e8-bd-ac-e6-8d-a2-e5-b7-a5-e7-a8-8b-e6-96-87-e4-bb-b6/ title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1.0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5.0 00.706.03L12.5 16.85l5.662 4.126a.508.508.0 00.708-.03.5.5.0 00.118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55.0 1 .45 1 1v13.637l-5.162-3.668a.49.49.0 00-.676.0z" fill-rule="evenodd"/></svg></a></span><div class=clearfix></div></div></div></div></div><div class="col-lg-4 col-md-6 mb-30px card-group"><div class="card h-100"><div class=maxthumb><a href=//2010/10/e7-bb-99n73-e6-8d-a2-e6-96-b0-e9-94-ae-e7-9b-98/><img class="img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src=https://img.peapix.com/1985211795748668340_320.jpg alt=给N73换新键盘></a></div><div class=card-body><h2 class=card-title><a class=text-dark href=//2010/10/e7-bb-99n73-e6-8d-a2-e6-96-b0-e9-94-ae-e7-9b-98/>给N73换新键盘</a></h2><h4 class=card-text>　　我的N73是2007年6月买的，由于一直把它装在一个硬质小挎包里，从去年开始，键盘上的按键就开始一个一个掉落了，最开始是5，最中心的一个，然后沿着这个5把4，7，8，*，0都掉了，今年5月买了个5230后，就让N73光荣退役了。
+　　从上海回来后，就一直把N73丢在书柜上，前天突发奇想，在淘宝搜索了一下，果然有N73的键盘卖，想去年去深圳华强北的电子市场找了半天都没找到。于是马上订了一块，定价20，快递6块，从广东寄过来。今天早上有电话打来，是申通快递，说是我填的那个地址他们不送到，要我自己去取，好远的，一直在汽车西站再过去几百米的地方。自己开车都20多分钟，不过倒是通过电话指引找到他们的分拣处了。
+　　拿回来后，照网上的拆机视频，用一张硬质的卡，可以是各种商家的VIP卡，也可以是IC卡或银行卡，将前面的面板拆下，把新键盘装回去，再将面板盖回去，哈哈，又跟新的一样啦！就给我妈用吧，原来她在用的那个Nokia不知道什么型号的电池鼓起来了，不好再用了。</h4></div><div class="card-footer bg-white"><div class=wrapfooter><span class=meta-footer-thumb><img class=author-thumb src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/avatar.png alt=类库大魔王></span>
+<span class=author-meta><span class=post-name><a target=_blank href=https://www.ismisv.com>类库大魔王</a></span><br><span class=post-date>20 Oct 2010</span></span>
+<span class=post-read-more><a href=//2010/10/e7-bb-99n73-e6-8d-a2-e6-96-b0-e9-94-ae-e7-9b-98/ title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1.0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5.0 00.706.03L12.5 16.85l5.662 4.126a.508.508.0 00.708-.03.5.5.0 00.118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55.0 1 .45 1 1v13.637l-5.162-3.668a.49.49.0 00-.676.0z" fill-rule="evenodd"/></svg></a></span><div class=clearfix></div></div></div></div></div><div class="col-lg-4 col-md-6 mb-30px card-group"><div class="card h-100"><div class=maxthumb><a href=//2010/10/e5-b0-9d-e8-af-95-e7-a7-bb-e6-a4-8d-e5-88-b0mac-e5-8f-97-e6-8c-ab/><img class="img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src=https://img.peapix.com/14154955135443349992_320.jpg alt=尝试移植到Mac受挫></a></div><div class=card-body><h2 class=card-title><a class=text-dark href=//2010/10/e5-b0-9d-e8-af-95-e7-a7-bb-e6-a4-8d-e5-88-b0mac-e5-8f-97-e6-8c-ab/>尝试移植到Mac受挫</a></h2><h4 class=card-text>　　这两天想试一下把手头这个用wxWidgets开发的工程移植到Linux和Mac，不过遇到了些困难。
+　　该工程使用wxWidgets作为主GUI Framework，又嵌入了Lua解释器，将一部分界面和逻辑使用Lua脚本实现，而Lua脚本大量使用了wxLua以及诸如LPeg之类的第三方库，除此之外，主程序还使用了Boost、wxFlatNotebook、wxScintilla、wxPropertyGrid等第三方库。
+　　主要的困难在移植到Mac上。目前我使用的wxWidgets是2.8.11版本，该版本在Mac上只有32位Carbon API版本，而编译Lua和其他第三方库默认出来的全是64位的，wxWidgets官方的消息是2.9.x版本有64位Cocoa API版本，但现在不稳定，还没正式发布。于是我无奈了！试了一下2.9.1的wxMSW，编译wxFlatNotebook和wxPropertyGrid都不能通过，懒得折腾了，打算等3.0版本正式发布了再说吧，说是希望2010年底前发布，鬼知道到底什么时候能出来啊，现在越来越觉得wxWidgets不给力了，各方面的！
+　　至于移植到Linux上，以及将其他的Lua第三方库编译出来这些事现在倒是可以做。
+　　</h4></div><div class="card-footer bg-white"><div class=wrapfooter><span class=meta-footer-thumb><img class=author-thumb src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/avatar.png alt=类库大魔王></span>
+<span class=author-meta><span class=post-name><a target=_blank href=https://www.ismisv.com>类库大魔王</a></span><br><span class=post-date>19 Oct 2010</span></span>
+<span class=post-read-more><a href=//2010/10/e5-b0-9d-e8-af-95-e7-a7-bb-e6-a4-8d-e5-88-b0mac-e5-8f-97-e6-8c-ab/ title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1.0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5.0 00.706.03L12.5 16.85l5.662 4.126a.508.508.0 00.708-.03.5.5.0 00.118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55.0 1 .45 1 1v13.637l-5.162-3.668a.49.49.0 00-.676.0z" fill-rule="evenodd"/></svg></a></span><div class=clearfix></div></div></div></div></div><div class="col-lg-4 col-md-6 mb-30px card-group"><div class="card h-100"><div class=maxthumb><a href=//2010/10/e5-8d-87-e7-ba-a7mingw-e5-88-b0gcc-4-5-0/><img class="img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src=https://img.peapix.com/6333218093750993608_320.jpg alt="升级MinGW到GCC 4.5.0"></a></div><div class=card-body><h2 class=card-title><a class=text-dark href=//2010/10/e5-8d-87-e7-ba-a7mingw-e5-88-b0gcc-4-5-0/>升级MinGW到GCC 4.5.0</a></h2><h4 class=card-text>　　一直用GCC 4.4.0，之前也尝试过将sf.net上MinGW的各个包下载下来后解压覆盖到4.5.0，但最后编译我的工程时总是std::basic_string什么的一些libstdc++-6中的一些符号链接有问题，于是就搁置下来了。
+　　今天偶然到了mamedev.org上看了看，发现它用的是4.4.3，于是想试试，后来干脆又去sf.net上找官方MinGW的文件来看，居然发现一个叫MinGW-Get的在线安装程序。MinGW很喜欢提供在线安装工具，而很少提供打包好的整体的解决方案，这是让我觉得很困惑的一件事，它的在线安装工具下载速度一直以来实在不能恭维。今天试了一下MinGW-Get，下载速度还能忍受，不过第一次仍然有好几个包下载失败，又装了第二次，才把所有选中的包都下载来了。然后把新下载的文件都覆盖到原来4.4.0的目录中，开始编译测试。
+　　我的工程不大，才约5万行C++代码（不包括使用工程生成的代码），但依赖于一些第三方库，比如wxWidgets，Boost，以及几个wxCode中的子库。编译wxWidgets很顺利，发现在Windows下wxWidgets的表现确实很不错，有各种编译套件可用的工程文件和makefile，至少我用MSVC和GCC基本没遇到过问题。然后是编译Boost，前两天开发的时候发现用1.44.0的Boost，用MinGW编译Thread有问题，有个符号在链接时找不到，问题在这个ticket里有描述，于是仍然在用1.43.0的Boost，编译是可以正常通过了，不过最后使用的时候有点问题。拉下来是编译各个wxCode的组件，包括wxPropertyGrid、wxScintilla、wxFlatNotebook，另外还有Luabind，这些也都比较顺利，唯一有点麻烦的是，由于我是使用了Boost的bjam作为编译工具，而不是传统的make什么的，bjam有个很奇怪的行为是会把编译过程中生成的.o文件都存入到一个深深的目录中，目录路径中包括编译器名，版本号，链接类型，线程模型，debug/release模式以及项目名称，而wxScintilla中由于编译出来的.o文件比较多，最后链接的时候居然报命令行太长而命令不能执行，真是太囧了。
+　　最后是编译我自己的工程，该工程是一个exe文件，需要链接前面提到的这些库，在链接阶段就会报出一堆关于std::basic_string等等的符号什么的警告，这些还不是很碍事，比较严重的是说Boost.Thread里有个叫_tls_used的符号与libmingw32.a里的重定义冲突了，问题在这个ticket中有描述。这个问题以前也遇到过，是MinGW使用的mingwrt 3.18中引入的，只要降级到3.17就行了，还有个办法是打开Boost.Thread中tss_pe.cpp，将那个名为_tls_used的函数屏蔽掉也可以。
+　　编译后发现，生成的exe不依赖于原来的mingwm10.dll了，多了个对libstdc++-6.dll的依赖，其他的倒好像没什么大的变化，只是dll都变过了，需要跟着更新。
+　　将MinGW中的GCC升级到4.5.0顺利完成！</h4></div><div class="card-footer bg-white"><div class=wrapfooter><span class=meta-footer-thumb><img class=author-thumb src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/avatar.png alt=类库大魔王></span>
+<span class=author-meta><span class=post-name><a target=_blank href=https://www.ismisv.com>类库大魔王</a></span><br><span class=post-date>17 Oct 2010</span></span>
+<span class=post-read-more><a href=//2010/10/e5-8d-87-e7-ba-a7mingw-e5-88-b0gcc-4-5-0/ title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1.0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5.0 00.706.03L12.5 16.85l5.662 4.126a.508.508.0 00.708-.03.5.5.0 00.118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55.0 1 .45 1 1v13.637l-5.162-3.668a.49.49.0 00-.676.0z" fill-rule="evenodd"/></svg></a></span><div class=clearfix></div></div></div></div></div><div class="col-lg-4 col-md-6 mb-30px card-group"><div class="card h-100"><div class=maxthumb><a href=//2010/10/e5-ae-9e-e7-8e-b0-e5-91-bd-e4-bb-a4-e8-a1-8c-e6-89-93-e5-bc-80-e6-96-87-e4-bb-b6/><img class="img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src=https://img.peapix.com/12668833911736711479_320.jpg alt=实现命令行打开文件></a></div><div class=card-body><h2 class=card-title><a class=text-dark href=//2010/10/e5-ae-9e-e7-8e-b0-e5-91-bd-e4-bb-a4-e8-a1-8c-e6-89-93-e5-bc-80-e6-96-87-e4-bb-b6/>实现命令行打开文件</a></h2><h4 class=card-text>　　之前我说过，作为一个文本编辑器，一个IDE，不能通过命令行参数打开一个文件，是很说不过去的。前面试图加入这个功能，结果遇到了些问题，经过昨天和今天的奋战，终于搞定了。
+　　其实就是发现用wxWidgets的IPC机制怎么都不能正常运行，于是最后我想到了直接用Boost的InterProcess库，这个库也是跨平台可移植的，基本处于符合我的要求的范围内。
+　　昨天还一直没死心，希望能用wxWidgets的IPC类搞定，结果果然无论是用DDE还是用Socket，都有问题。今天下定决心，先看了一下Boost的资料，发现其实很简单，InterProcess只是实现了共享内存的部分，再加上一点同步相关的机制，用于通知，于是只要在最老的进程中启动一个线程无限循环等待其他进程的通知，有了通知就从共享内存中读取文件路径信息，然后就可以打开了。
+　　顺便说一下，Boost.InterProcess的共享内存类封装得比较底层，有一个类是纯粹的对系统的C API用C++类包装了一下。另一个稍微高级一点，但也是C++语言层面的高级，感觉缺少对现实世界对象的抽象。我有点奇怪自己现在怎么会考虑到这个层面的东西，大概是因为看了一段时间的Qt的文档和代码，Qt在这方面的工作确实做得很好啊。
+　　还有个之前说到的，在wxApp::OnInit方法中，创建完主窗口后，直接打开文件也崩溃的问题，其实是当时测试的时候没有把配置文件放在正确的配置目录中，这个功能其实是没多少问题的。
+　　总之，现在就是可以通过命令行参数指定文件打开一个文件了，然后又实现了单一进程实例，后面再要通过命令行参数打开文件，都会通过IPC机制通知最早创建的那个进程来打开文件。基本完美实现预定目标！</h4></div><div class="card-footer bg-white"><div class=wrapfooter><span class=meta-footer-thumb><img class=author-thumb src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/avatar.png alt=类库大魔王></span>
+<span class=author-meta><span class=post-name><a target=_blank href=https://www.ismisv.com>类库大魔王</a></span><br><span class=post-date>16 Oct 2010</span></span>
+<span class=post-read-more><a href=//2010/10/e5-ae-9e-e7-8e-b0-e5-91-bd-e4-bb-a4-e8-a1-8c-e6-89-93-e5-bc-80-e6-96-87-e4-bb-b6/ title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1.0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5.0 00.706.03L12.5 16.85l5.662 4.126a.508.508.0 00.708-.03.5.5.0 00.118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55.0 1 .45 1 1v13.637l-5.162-3.668a.49.49.0 00-.676.0z" fill-rule="evenodd"/></svg></a></span><div class=clearfix></div></div></div></div></div><div class="col-lg-4 col-md-6 mb-30px card-group"><div class="card h-100"><div class=maxthumb><a href=//2010/10/e4-b8-80-e6-97-a0-e6-89-80-e8-8e-b7-ef-bc-8c-e5-af-b8-e6-ad-a5-e9-9a-be-e8-a1-8c/><img class="img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src=https://img.peapix.com/16929780683314238487_320.jpg alt=一无所获，寸步难行></a></div><div class=card-body><h2 class=card-title><a class=text-dark href=//2010/10/e4-b8-80-e6-97-a0-e6-89-80-e8-8e-b7-ef-bc-8c-e5-af-b8-e6-ad-a5-e9-9a-be-e8-a1-8c/>一无所获，寸步难行</a></h2><h4 class=card-text>　　作为一个文本编辑器，一个IDE，不能通过命令行参数打开一个文件，是很说不过去的，于是我就想加这个功能，不料却意外地困难！
+　　首先考虑当前没有已经运行的本程序的进程，通过命令行参数指定一个文件后，最wxApp::OnInit的最后返回前，主窗口已经正常创建显示后，可以将文件路径传递给主窗口，让主窗口打开这个文件。照理说，这应该是一个很平常很普通很正规的流程吧，结果不知道为什么，打开文件这个操作会让程序崩溃。
+　　然后考虑当前已经有运行的本程序的进程了，这时如果再通过命令行参数指定一个文件，启动新进程，就需要让新进程通过IPC向老进程发送通知，让老进程来打开这个文件，而完成通知工作后新进程就可以退出了。这也是一个很平常很普通很正规的流程吧，于是我查阅了wxWidgets的关于IPC的文档和sample代码，感觉还是很简单的。在Windows平台上有两种选择，分别是基于DDE的实现和基于Socket的实现，可以用相同的代码，最终通过预定义宏来开关选择，可是最终仍然是问题重重。使用基于Socket的实现，进程在第一次启动时，Windows会弹出消息框询问是否允许该程序在本地打开一个网络端口进行监听，这就已经有点小题大做了。然后当新进程给老进程发送通知时，老进程不是没反应，貌似根本没收到通知，就是崩溃！如果切换成基于DDE的实现，倒是老进程能收到通知，但有个很奇怪的现象是从收到通知开始的那个wxDDEConnection::OnExecute函数开始往下走，wxChar*或wxString不能正确转换为const char*（因为我是使用Unicode编译项目，而字符串要以const char *传递给内嵌的Lua解释器），反正就是无论用wxString::mb_str()，还是直接的wxConvLocal::cWC2MB()都不能正确返回转换后的const char*。试了一下C runtime中的wcstomb函数，倒是能正常转换。但在Lua回调宿主程序导出的函数时，该函数将wxString转换为std::string作为返回值传递给Lua，无论用哪种转换方法，结果也会崩溃！
+　　到此为止，所有尝试均告失败，加入命令行参数打开文件功能仍然没有实现，郁闷！</h4></div><div class="card-footer bg-white"><div class=wrapfooter><span class=meta-footer-thumb><img class=author-thumb src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/avatar.png alt=类库大魔王></span>
+<span class=author-meta><span class=post-name><a target=_blank href=https://www.ismisv.com>类库大魔王</a></span><br><span class=post-date>14 Oct 2010</span></span>
+<span class=post-read-more><a href=//2010/10/e4-b8-80-e6-97-a0-e6-89-80-e8-8e-b7-ef-bc-8c-e5-af-b8-e6-ad-a5-e9-9a-be-e8-a1-8c/ title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1.0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5.0 00.706.03L12.5 16.85l5.662 4.126a.508.508.0 00.708-.03.5.5.0 00.118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55.0 1 .45 1 1v13.637l-5.162-3.668a.49.49.0 00-.676.0z" fill-rule="evenodd"/></svg></a></span><div class=clearfix></div></div></div></div></div><div class="col-lg-4 col-md-6 mb-30px card-group"><div class="card h-100"><div class=maxthumb><a href=//2010/10/twitter-hosts-ip-e5-85-a8-e6-8c-82-e4-ba-86/><img class="img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src=https://img.peapix.com/10955980666559163330_320.jpg alt="Twitter hosts IP全挂了"></a></div><div class=card-body><h2 class=card-title><a class=text-dark href=//2010/10/twitter-hosts-ip-e5-85-a8-e6-8c-82-e4-ba-86/>Twitter hosts IP全挂了</a></h2><h4 class=card-text>　　昨晚突然发现twitter的hosts ip不能用了，在just-ping.com里找了一遍api.twitter.com的ip，挨个儿ping了一遍，没有一个能ping通的。真是太杯具了，如果用Mac OSX，倒是没什么影响，反正我都是连上SSH后进行全局代理的，Echofon for Mac本身不能设API和Proxy，全靠这样SSH上去用的。但在Windows下就很无奈了，我一般用TweetDeck或Seesmic Desktop2，这两个东西一个用的是Adobe AIR，另一个是用Microsoft Silverlight，也都不能设置Proxy，而且Windows貌似也没有可以将SSH设置成全局代理的功能，于是头疼了。办法是有的，可以用SocksCap之类的东西单独设置某个程序进行Proxy，唉！
+　　我得加快动作了。</h4></div><div class="card-footer bg-white"><div class=wrapfooter><span class=meta-footer-thumb><img class=author-thumb src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/avatar.png alt=类库大魔王></span>
+<span class=author-meta><span class=post-name><a target=_blank href=https://www.ismisv.com>类库大魔王</a></span><br><span class=post-date>13 Oct 2010</span></span>
+<span class=post-read-more><a href=//2010/10/twitter-hosts-ip-e5-85-a8-e6-8c-82-e4-ba-86/ title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1.0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5.0 00.706.03L12.5 16.85l5.662 4.126a.508.508.0 00.708-.03.5.5.0 00.118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55.0 1 .45 1 1v13.637l-5.162-3.668a.49.49.0 00-.676.0z" fill-rule="evenodd"/></svg></a></span><div class=clearfix></div></div></div></div></div></div></section><div class=bottompagination><div class=pointerup><i class="fa fa-caret-up"></i></div><span class=navigation role=navigation><div class=pagination><a class="ml-1 mr-1" href=/page/39/>&#171; Prev</a>
+<a class="ml-1 mr-1" href=/page/39/>1</a>
+<a class="ml-1 mr-1" href=/page/2/>2</a>
+<a class="ml-1 mr-1" href=/page/3/>3</a>
+<a class="ml-1 mr-1" href=/page/4/>4</a>
+<a class="ml-1 mr-1" href=/page/5/>5</a>
+<a class="ml-1 mr-1" href=/page/6/>6</a>
+<a class="ml-1 mr-1" href=/page/7/>7</a>
+<a class="ml-1 mr-1" href=/page/8/>8</a>
+<a class="ml-1 mr-1" href=/page/9/>9</a>
+<a class="ml-1 mr-1" href=/page/10/>10</a>
+<a class="ml-1 mr-1" href=/page/11/>11</a>
+<a class="ml-1 mr-1" href=/page/12/>12</a>
+<a class="ml-1 mr-1" href=/page/13/>13</a>
+<a class="ml-1 mr-1" href=/page/14/>14</a>
+<a class="ml-1 mr-1" href=/page/15/>15</a>
+<a class="ml-1 mr-1" href=/page/16/>16</a>
+<a class="ml-1 mr-1" href=/page/17/>17</a>
+<a class="ml-1 mr-1" href=/page/18/>18</a>
+<a class="ml-1 mr-1" href=/page/19/>19</a>
+<a class="ml-1 mr-1" href=/page/20/>20</a>
+<a class="ml-1 mr-1" href=/page/21/>21</a>
+<a class="ml-1 mr-1" href=/page/22/>22</a>
+<a class="ml-1 mr-1" href=/page/23/>23</a>
+<a class="ml-1 mr-1" href=/page/24/>24</a>
+<a class="ml-1 mr-1" href=/page/25/>25</a>
+<a class="ml-1 mr-1" href=/page/26/>26</a>
+<a class="ml-1 mr-1" href=/page/27/>27</a>
+<a class="ml-1 mr-1" href=/page/28/>28</a>
+<a class="ml-1 mr-1" href=/page/29/>29</a>
+<a class="ml-1 mr-1" href=/page/30/>30</a>
+<a class="ml-1 mr-1" href=/page/31/>31</a>
+<a class="ml-1 mr-1" href=/page/32/>32</a>
+<a class="ml-1 mr-1" href=/page/33/>33</a>
+<a class="ml-1 mr-1" href=/page/34/>34</a>
+<a class="ml-1 mr-1" href=/page/35/>35</a>
+<a class="ml-1 mr-1" href=/page/36/>36</a>
+<a class="ml-1 mr-1" href=/page/37/>37</a>
+<a class="ml-1 mr-1" href=/page/38/>38</a>
+<a class="ml-1 mr-1" href=/page/39/>39</a>
+<span class="ml-1 mr-1">40</span>
+<a class="ml-1 mr-1" href=/page/41/>41</a>
+<a class="ml-1 mr-1" href=/page/42/>42</a>
+<a class="ml-1 mr-1" href=/page/43/>43</a>
+<a class="ml-1 mr-1" href=/page/44/>44</a>
+<a class="ml-1 mr-1" href=/page/45/>45</a>
+<a class="ml-1 mr-1" href=/page/46/>46</a>
+<a class="ml-1 mr-1" href=/page/47/>47</a>
+<a class="ml-1 mr-1" href=/page/48/>48</a>
+<a class="ml-1 mr-1" href=/page/49/>49</a>
+<a class="ml-1 mr-1" href=/page/50/>50</a>
+<a class="ml-1 mr-1" href=/page/51/>51</a>
+<a class="ml-1 mr-1" href=/page/52/>52</a>
+<a class="ml-1 mr-1" href=/page/53/>53</a>
+<a class="ml-1 mr-1" href=/page/54/>54</a>
+<a class="ml-1 mr-1" href=/page/55/>55</a>
+<a class="ml-1 mr-1" href=/page/56/>56</a>
+<a class="ml-1 mr-1" href=/page/57/>57</a>
+<a class="ml-1 mr-1" href=/page/58/>58</a>
+<a class="ml-1 mr-1" href=/page/59/>59</a>
+<a class="ml-1 mr-1" href=/page/60/>60</a>
+<a class="ml-1 mr-1" href=/page/61/>61</a>
+<a class="ml-1 mr-1" href=/page/62/>62</a>
+<a class="ml-1 mr-1" href=/page/63/>63</a>
+<a class="ml-1 mr-1" href=/page/64/>64</a>
+<a class="ml-1 mr-1" href=/page/65/>65</a>
+<a class="ml-1 mr-1" href=/page/66/>66</a>
+<a class="ml-1 mr-1" href=/page/67/>67</a>
+<a class="ml-1 mr-1" href=/page/68/>68</a>
+<a class="ml-1 mr-1" href=/page/69/>69</a>
+<a class="ml-1 mr-1" href=/page/70/>70</a>
+<a class="ml-1 mr-1" href=/page/71/>71</a>
+<a class="ml-1 mr-1" href=/page/72/>72</a>
+<a class="ml-1 mr-1" href=/page/73/>73</a>
+<a class="ml-1 mr-1" href=/page/74/>74</a>
+<a class="ml-1 mr-1" href=/page/75/>75</a>
+<a class="ml-1 mr-1" href=/page/76/>76</a>
+<a class="ml-1 mr-1" href=/page/77/>77</a>
+<a class="ml-1 mr-1" href=/page/78/>78</a>
+<a class="ml-1 mr-1" href=/page/79/>79</a>
+<a class="ml-1 mr-1" href=/page/80/>80</a>
+<a class="ml-1 mr-1" href=/page/81/>81</a>
+<a class="ml-1 mr-1" href=/page/82/>82</a>
+<a class="ml-1 mr-1" href=/page/83/>83</a>
+<a class="ml-1 mr-1" href=/page/84/>84</a>
+<a class="ml-1 mr-1" href=/page/85/>85</a>
+<a class="ml-1 mr-1" href=/page/86/>86</a>
+<a class="ml-1 mr-1" href=/page/87/>87</a>
+<a class="ml-1 mr-1" href=/page/88/>88</a>
+<a class="ml-1 mr-1" href=/page/89/>89</a>
+<a class="ml-1 mr-1" href=/page/90/>90</a>
+<a class="ml-1 mr-1" href=/page/91/>91</a>
+<a class="ml-1 mr-1" href=/page/92/>92</a>
+<a class="ml-1 mr-1" href=/page/93/>93</a>
+<a class="ml-1 mr-1" href=/page/94/>94</a>
+<a class="ml-1 mr-1" href=/page/95/>95</a>
+<a class="ml-1 mr-1" href=/page/96/>96</a>
+<a class="ml-1 mr-1" href=/page/97/>97</a>
+<a class="ml-1 mr-1" href=/page/98/>98</a>
+<a class="ml-1 mr-1" href=/page/99/>99</a>
+<a class="ml-1 mr-1" href=/page/100/>100</a>
+<a class="ml-1 mr-1" href=/page/101/>101</a>
+<a class="ml-1 mr-1" href=/page/102/>102</a>
+<a class="ml-1 mr-1" href=/page/103/>103</a>
+<a class="ml-1 mr-1" href=/page/104/>104</a>
+<a class="ml-1 mr-1" href=/page/105/>105</a>
+<a class="ml-1 mr-1" href=/page/106/>106</a>
+<a class="ml-1 mr-1" href=/page/107/>107</a>
+<a class="ml-1 mr-1" href=/page/108/>108</a>
+<a class="ml-1 mr-1" href=/page/109/>109</a>
+<a class="ml-1 mr-1" href=/page/110/>110</a>
+<a class="ml-1 mr-1" href=/page/111/>111</a>
+<a class="ml-1 mr-1" href=/page/112/>112</a>
+<a class="ml-1 mr-1" href=/page/113/>113</a>
+<a class="ml-1 mr-1" href=/page/114/>114</a>
+<a class="ml-1 mr-1" href=/page/115/>115</a>
+<a class="ml-1 mr-1" href=/page/116/>116</a>
+<a class="ml-1 mr-1" href=/page/117/>117</a>
+<a class="ml-1 mr-1" href=/page/118/>118</a>
+<a class="ml-1 mr-1" href=/page/119/>119</a>
+<a class="ml-1 mr-1" href=/page/120/>120</a>
+<a class="ml-1 mr-1" href=/page/121/>121</a>
+<a class="ml-1 mr-1" href=/page/122/>122</a>
+<a class="ml-1 mr-1" href=/page/123/>123</a>
+<a class="ml-1 mr-1" href=/page/124/>124</a>
+<a class="ml-1 mr-1" href=/page/125/>125</a>
+<a class="ml-1 mr-1" href=/page/126/>126</a>
+<a class="ml-1 mr-1" href=/page/127/>127</a>
+<a class="ml-1 mr-1" href=/page/128/>128</a>
+<a class="ml-1 mr-1" href=/page/129/>129</a>
+<a class="ml-1 mr-1" href=/page/130/>130</a>
+<a class="ml-1 mr-1" href=/page/131/>131</a>
+<a class="ml-1 mr-1" href=/page/132/>132</a>
+<a class="ml-1 mr-1" href=/page/133/>133</a>
+<a class="ml-1 mr-1" href=/page/134/>134</a>
+<a class="ml-1 mr-1" href=/page/135/>135</a>
+<a class="ml-1 mr-1" href=/page/136/>136</a>
+<a class="ml-1 mr-1" href=/page/137/>137</a>
+<a class="ml-1 mr-1" href=/page/138/>138</a>
+<a class="ml-1 mr-1" href=/page/139/>139</a>
+<a class="ml-1 mr-1" href=/page/140/>140</a>
+<a class="ml-1 mr-1" href=/page/141/>141</a>
+<a class="ml-1 mr-1" href=/page/142/>142</a>
+<a class="ml-1 mr-1" href=/page/143/>143</a>
+<a class="ml-1 mr-1" href=/page/144/>144</a>
+<a class="ml-1 mr-1" href=/page/145/>145</a>
+<a class="ml-1 mr-1" href=/page/146/>146</a>
+<a class="ml-1 mr-1" href=/page/147/>147</a>
+<a class="ml-1 mr-1" href=/page/148/>148</a>
+<a class="ml-1 mr-1" href=/page/149/>149</a>
+<a class="ml-1 mr-1" href=/page/150/>150</a>
+<a class="ml-1 mr-1" href=/page/151/>151</a>
+<a class="ml-1 mr-1" href=/page/152/>152</a>
+<a class="ml-1 mr-1" href=/page/41/>Next &#187;</a></div></span></div></div></div><div class="jumbotron fortags"><div class="d-md-flex h-100"><div class="col-md-4 transpdark align-self-center text-center h-100"><div class="d-md-flex align-items-center justify-content-center h-100"><h2 class="d-md-block align-self-center py-1 font-weight-light">发现 <span class="d-none d-md-inline">→</span></h2></div></div><div class="col-md-8 p-5 align-self-center text-center"><a class="mt-1 mb-1" href=//categories.html#imported-from-CSDN>imported from CSDN (124)</a>
+<a class="mt-1 mb-1" href=//categories.html#Film-&-ACG>Film & ACG (15)</a>
+<a class="mt-1 mb-1" href=//categories.html#Water>Water (170)</a>
+<a class="mt-1 mb-1" href=//categories.html#Shareware>Shareware (151)</a>
+<a class="mt-1 mb-1" href=//categories.html#Software>Software (140)</a>
+<a class="mt-1 mb-1" href=//categories.html#Plugin-Framework>Plugin Framework (28)</a>
+<a class="mt-1 mb-1" href=//categories.html#lookfor>lookfor (36)</a>
+<a class="mt-1 mb-1" href=//categories.html#CPPOOPGPXP>CPPOOPGPXP (87)</a>
+<a class="mt-1 mb-1" href=//categories.html#Lua，Script>Lua，Script (51)</a>
+<a class="mt-1 mb-1" href=//categories.html#Be-Old>Be Old (15)</a>
+<a class="mt-1 mb-1" href=//categories.html#Job>Job (185)</a>
+<a class="mt-1 mb-1" href=//categories.html#mm>mm (48)</a>
+<a class="mt-1 mb-1" href=//categories.html#Emulator>Emulator (3)</a>
+<a class="mt-1 mb-1" href=//categories.html#Execise-Outdoor>Execise Outdoor (13)</a>
+<a class="mt-1 mb-1" href=//categories.html#gfw>gfw (10)</a>
+<a class="mt-1 mb-1" href=//categories.html#Reading>Reading (20)</a>
+<a class="mt-1 mb-1" href=//categories.html#Driving>Driving (16)</a>
+<a class="mt-1 mb-1" href=//categories.html#Mobile>Mobile (15)</a>
+<a class="mt-1 mb-1" href=//categories.html#wxWidgets>wxWidgets (29)</a>
+<a class="mt-1 mb-1" href=//categories.html#WIND>WIND (14)</a>
+<a class="mt-1 mb-1" href=//categories.html#PSP-NDS>PSP NDS (2)</a>
+<a class="mt-1 mb-1" href=//categories.html#CodingStudio>CodingStudio (44)</a>
+<a class="mt-1 mb-1" href=//categories.html#Cryptography>Cryptography (2)</a>
+<a class="mt-1 mb-1" href=//categories.html#Editor，IDE>Editor，IDE (5)</a>
+<a class="mt-1 mb-1" href=//categories.html#TeX>TeX (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#Life>Life (82)</a>
+<a class="mt-1 mb-1" href=//categories.html#Technic>Technic (6)</a>
+<a class="mt-1 mb-1" href=//categories.html#Qt>Qt (28)</a>
+<a class="mt-1 mb-1" href=//categories.html#SNS>SNS (35)</a>
+<a class="mt-1 mb-1" href=//categories.html#Ninayan>Ninayan (35)</a>
+<a class="mt-1 mb-1" href=//categories.html#GUI-Framework>GUI Framework (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#KarenMeu>KarenMeu (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#Kindle>Kindle (3)</a>
+<a class="mt-1 mb-1" href=//categories.html#Coding>Coding (14)</a>
+<a class="mt-1 mb-1" href=//categories.html#Startup>Startup (6)</a>
+<a class="mt-1 mb-1" href=//categories.html#network>network (14)</a>
+<a class="mt-1 mb-1" href=//categories.html#Go>Go (10)</a>
+<a class="mt-1 mb-1" href=//categories.html#idea>idea (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#os>os (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#iOS>iOS (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#Cloud>Cloud (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#device>device (2)</a>
+<a class="mt-1 mb-1" href=//categories.html#embed>embed (6)</a>
+<a class="mt-1 mb-1" href=//categories.html#gochess>gochess (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#Router>Router (3)</a>
+<a class="mt-1 mb-1" href=//categories.html#blog>blog (7)</a></div></div></div><footer class=footer><div class=container><div class=row><div class="col-md-6 col-sm-6 text-center text-lg-left">Copyright © 2021 类库大魔王的挖井日记</div><div class="col-md-6 col-sm-6 text-center text-lg-right"><a target=_blank href=https://www.wowthemes.net/mediumish-free-jekyll-template/>Mediumish Jekyll Theme</a> by WowThemes.net</div></div></div></footer></div><script src=https://cdn.staticfile.org/popper.js/1.14.6/umd/popper.min.js></script><script src=https://cdn.staticfile.org/twitter-bootstrap/4.2.1/js/bootstrap.min.js></script><script src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/js/mediumish.min.js></script><script src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/js/lazyload.min.js></script>

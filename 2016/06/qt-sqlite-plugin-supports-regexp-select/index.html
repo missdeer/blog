@@ -1,0 +1,148 @@
+<!doctype html><html lang=en><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><link rel=icon href=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/logo.png><title>让Qt的sqlite插件支持REGEXP查询 | 类库大魔王的挖井日记</title><title>让Qt的sqlite插件支持REGEXP查询 | 挖井</title><meta name=generator content="Jekyll v3.9.0"><meta property="og:title" content="让Qt的sqlite插件支持REGEXP查询"><meta name=author content="missdeer"><meta property="og:locale" content="en_US"><meta name=description content="让Qt的sqlite插件支持REGEXP查询"><meta property="og:description" content="让Qt的sqlite插件支持REGEXP查询"><link rel=canonical href=https://blog.ismisv.com/2016/06/qt-sqlite-plugin-supports-regexp-select/><meta property="og:url" content="https://blog.ismisv.com/2016/06/qt-sqlite-plugin-supports-regexp-select/"><meta property="og:site_name" content="挖井"><meta property="og:image" content="https://img.peapix.com/8508565505201570138_320.jpg"><meta property="og:type" content="article"><meta property="article:published_time" content="2016-06-24T00:00:00+00:00"><script type=application/ld+json>{"headline":"让Qt的sqlite插件支持REGEXP查询","dateModified":"2016-06-24T00:00:00+00:00","description":"让Qt的sqlite插件支持REGEXP查询","datePublished":"2016-06-24T00:00:00+00:00","image":"https://img.peapix.com/8508565505201570138_320.jpg","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.ismisv.com/2016/06/qt-sqlite-plugin-supports-regexp-select/"},"url":"https://blog.ismisv.com/2016/06/qt-sqlite-plugin-supports-regexp-select/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://blog.ismisv.com/assets/images/logo.png"},"name":"missdeer"},"author":{"@type":"Person","name":"missdeer"},"@context":"http://schema.org"}</script><link href=https://cdn.staticfile.org/twitter-bootstrap/4.1.3/css/bootstrap.min.css rel=stylesheet><link href=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/css/screen.min.css rel=stylesheet><link href=//assets/css/main.css rel=stylesheet><script src=https://cdn.staticfile.org/jquery/3.3.1/jquery.min.js></script><body class=layout-post><noscript id=deferred-styles><link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel=stylesheet><link href=https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css rel=stylesheet></noscript><nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mediumnavigation nav-down"><div class="container pr-0"><a class=navbar-brand href=//><img src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/logo.png alt=类库大魔王的挖井日记></a>
+<button class=navbar-toggler type=button data-toggle=collapse data-target=#navbarMediumish aria-controls=navbarSupportedContent aria-expanded=false aria-label="Toggle navigation">
+<span class=navbar-toggler-icon></span></button><div class="collapse navbar-collapse" id=navbarMediumish><ul class="navbar-nav ml-auto"><li class=nav-item><a class=nav-link href=// title=博客首页><i class="fab fa-blogger"></i>首页</a><li class=nav-item><a class=nav-link href=//archive/ title=博客文章完整归档><i class="fas fa-archive"></i>归档</a><li class=nav-item><a class=nav-link href=//categories.html title=博客文章所有分类><i class="fas fa-bars"></i>分类</a><li class=nav-item><a class=nav-link href=//tags.html title=博客文章所有标签><i class="fas fa-tags"></i>标签</a><li class=nav-item><a class=nav-link href=//apps/ title=我（近几年）开发的软件作品><i class="fab fa-app-store"></i>软件</a><li class=nav-item><a class=nav-link href=//about/ title=关于本博客><i class="fas fa-user"></i>关于</a><li class=nav-item><a target=_blank class=nav-link href=//links/ title=友情链接><i class="fas fa-link"></i>链接</a><li class=nav-item><a target=_blank class=nav-link href=//feed.xml title=通过RSS订阅本博客><i class="fas fa-rss-square"></i>订阅</a><li class=nav-item><a target=_blank class=nav-link href=https://github.com/missdeer title=我写的一些程序开放了源代码><i class="fab fa-github"></i>代码</a></ul></div></div></nav><div class=site-content><div class=container><div class=mainheading><h1 class=sitetitle>类库大魔王的挖井日记</h1><p class=lead>挖一口属于自己的井</div><div class=main-content><div class=container><div class=row><div class="col-md-12 flex-first flex-md-unordered"><div class=mainheading><div class="row post-top-meta"><div class="col-xs-12 col-md-3 col-lg-2 text-center text-md-left mb-4 mb-md-0"><img class=author-thumb src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/avatar.png alt=类库大魔王></div><div class="col-xs-12 col-md-9 col-lg-10 text-center text-md-left"><a target=_blank class=link-dark href=https://www.ismisv.com>类库大魔王</a><a target=_blank href=https://twitter.com/missdeerme class="btn follow">Follow</a>
+<span class=author-description>懒惰，傲慢，以及无耐心</span></div></div><h1 class=posttitle>让Qt的sqlite插件支持REGEXP查询</h1></div><div class=article-post><p>仍然是日志查看程序，突然想要加个按正则表达式的查询，记得sqlite是支持REGEXP的，不过sqlite<a href=https://www.sqlite.org/lang_expr.html>官方文档</a>上说了，需要程序自己提供一个进行正则匹配的函数，然后调用<code class="language-plaintext highlighter-rouge">sqlite3_create_function</code>来实现。<p>在Qt中实现需要以下几步：<ol><li>获取<code class="language-plaintext highlighter-rouge">sqlite3 *</code>；<li>调用<code class="language-plaintext highlighter-rouge">sqlite3_initialize</code>，这个函数到底什么作用我也不清楚，看文档也没看明白，只说在嵌入式系统上要调，工作站系统上没必要，但这里如果不调用的话，下一步调用<code class="language-plaintext highlighter-rouge">sqlite3_create_function</code>就会crash，囧；<li>实现正则表达式匹配函数，供sqlite3回调；<li>将上一步实现的函数注册到sqlite3中，通过调用<code class="language-plaintext highlighter-rouge">sqlite3_create_function</code>完成;<li>编译链接时要提供与Qt使用的相同版本的sqlite3.c和sqlite3.h，因为这里调用了sqlite的C接口函数，而Qt虽然封装了sqlite，却没有暴露这些函数出来，只能自己链接一份了。Qt 5.7用的是3.11.1.0版本，如果版本不一致，则数据库打开后不能close，或者close就crash。</ol><p>代码如下：<div class="language-cpp highlighter-rouge"><div class=highlight><pre class=highlight><code><table class=rouge-table><tbody><tr><td class="rouge-gutter gl"><pre class=lineno>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+</pre><td class=rouge-code><pre>
+<span class=k>static</span> <span class=kt>void</span> <span class=nf>qtregexp</span><span class=p>(</span><span class=n>sqlite3_context</span><span class=o>*</span> <span class=n>ctx</span><span class=p>,</span> <span class=kt>int</span> <span class=cm>/*argc*/</span><span class=p>,</span> <span class=n>sqlite3_value</span><span class=o>**</span> <span class=n>argv</span><span class=p>)</span>
+<span class=p>{</span>
+    <span class=n>QRegExp</span> <span class=n>regex</span><span class=p>;</span>
+    <span class=n>QString</span> <span class=n>pattern</span><span class=p>((</span><span class=k>const</span> <span class=kt>char</span><span class=o>*</span><span class=p>)</span><span class=n>sqlite3_value_text</span><span class=p>(</span><span class=n>argv</span><span class=p>[</span><span class=mi>0</span><span class=p>]));</span>
+    <span class=n>QString</span> <span class=n>text</span><span class=p>((</span><span class=k>const</span> <span class=kt>char</span><span class=o>*</span><span class=p>)</span><span class=n>sqlite3_value_text</span><span class=p>(</span><span class=n>argv</span><span class=p>[</span><span class=mi>1</span><span class=p>]));</span>
+
+    <span class=n>regex</span><span class=p>.</span><span class=n>setPattern</span><span class=p>(</span><span class=n>pattern</span><span class=p>);</span>
+    <span class=n>regex</span><span class=p>.</span><span class=n>setCaseSensitivity</span><span class=p>(</span><span class=n>Qt</span><span class=o>::</span><span class=n>CaseInsensitive</span><span class=p>);</span>
+
+    <span class=kt>bool</span> <span class=n>b</span> <span class=o>=</span> <span class=n>text</span><span class=p>.</span><span class=n>contains</span><span class=p>(</span><span class=n>regex</span><span class=p>);</span>
+
+    <span class=k>if</span> <span class=p>(</span><span class=n>b</span><span class=p>)</span>
+    <span class=p>{</span>
+        <span class=n>sqlite3_result_int</span><span class=p>(</span><span class=n>ctx</span><span class=p>,</span> <span class=mi>1</span><span class=p>);</span>
+    <span class=p>}</span>
+    <span class=k>else</span>
+    <span class=p>{</span>
+        <span class=n>sqlite3_result_int</span><span class=p>(</span><span class=n>ctx</span><span class=p>,</span> <span class=mi>0</span><span class=p>);</span>
+    <span class=p>}</span>
+<span class=p>}</span>
+
+<span class=c1>/////////////////////////////////////////////////////////////</span>
+
+    <span class=n>QSqlDatabase</span> <span class=n>db</span> <span class=o>=</span> <span class=n>QSqlDatabase</span><span class=o>::</span><span class=n>database</span><span class=p>(</span><span class=n>m_dbFile</span><span class=p>,</span> <span class=nb>true</span><span class=p>);</span>
+    <span class=k>if</span> <span class=p>(</span><span class=o>!</span><span class=n>db</span><span class=p>.</span><span class=n>isValid</span><span class=p>())</span> <span class=p>{</span>
+        <span class=n>db</span> <span class=o>=</span> <span class=n>QSqlDatabase</span><span class=o>::</span><span class=n>addDatabase</span><span class=p>(</span><span class=s>"QSQLITE"</span><span class=p>,</span> <span class=n>m_dbFile</span><span class=p>);</span>
+        <span class=n>db</span><span class=p>.</span><span class=n>setDatabaseName</span><span class=p>(</span><span class=n>m_dbFile</span><span class=p>);</span>
+    <span class=p>}</span>
+
+    <span class=k>if</span> <span class=p>(</span><span class=o>!</span><span class=n>db</span><span class=p>.</span><span class=n>isOpen</span><span class=p>())</span>
+    <span class=p>{</span>
+        <span class=k>if</span> <span class=p>(</span><span class=n>db</span><span class=p>.</span><span class=n>open</span><span class=p>())</span>
+        <span class=p>{</span>
+            <span class=n>QVariant</span> <span class=n>v</span> <span class=o>=</span> <span class=n>db</span><span class=p>.</span><span class=n>driver</span><span class=p>()</span><span class=o>-&gt;</span><span class=n>handle</span><span class=p>();</span>
+            <span class=k>if</span> <span class=p>(</span><span class=n>v</span><span class=p>.</span><span class=n>isValid</span><span class=p>()</span> <span class=o>&amp;&amp;</span> <span class=n>qstrcmp</span><span class=p>(</span><span class=n>v</span><span class=p>.</span><span class=n>typeName</span><span class=p>(),</span> <span class=s>"sqlite3*"</span><span class=p>)</span><span class=o>==</span><span class=mi>0</span><span class=p>)</span>
+            <span class=p>{</span>
+                <span class=n>sqlite3</span> <span class=o>*</span><span class=n>db_handle</span> <span class=o>=</span> <span class=o>*</span><span class=k>static_cast</span><span class=o>&lt;</span><span class=n>sqlite3</span> <span class=o>**&gt;</span><span class=p>(</span><span class=n>v</span><span class=p>.</span><span class=n>data</span><span class=p>());</span>
+                <span class=k>if</span> <span class=p>(</span><span class=n>db_handle</span> <span class=o>!=</span> <span class=mi>0</span><span class=p>)</span>
+                <span class=p>{</span>
+                    <span class=n>sqlite3_initialize</span><span class=p>();</span>
+                    <span class=c1>// must use the same sqlite3 version with the one Qt ships, aka. Qt 5.7 uses sqlite3 3.11.1.0</span>
+                    <span class=c1>// http://www.sqlite.org/2016/sqlite-amalgamation-3110100.zip</span>
+                    <span class=n>sqlite3_create_function_v2</span><span class=p>(</span><span class=n>db_handle</span><span class=p>,</span> <span class=s>"regexp"</span><span class=p>,</span> <span class=mi>2</span><span class=p>,</span> <span class=n>SQLITE_UTF8</span> <span class=o>|</span> <span class=n>SQLITE_DETERMINISTIC</span><span class=p>,</span> <span class=nb>NULL</span><span class=p>,</span> <span class=o>&amp;</span><span class=n>qtregexp</span><span class=p>,</span> <span class=nb>NULL</span><span class=p>,</span> <span class=nb>NULL</span><span class=p>,</span> <span class=nb>NULL</span><span class=p>);</span>
+                <span class=p>}</span>
+            <span class=p>}</span>
+        <span class=p>}</span>
+    <span class=p>}</span>
+</pre></table></code></pre></div></div></div><p><small><span class=post-date><time class=post-date datetime=" 2016-06-24">24 Jun 2016</time></span></small></p><div class=after-post-cats><ul class="tags mb-4"><li><a class=smoothscroll href=//categories.html#Qt>Qt</a></ul></div><div class=after-post-tags><ul class=tags><li><a class=smoothscroll href=//tags.html#Qt>#Qt</a><li><a class=smoothscroll href=//tags.html#Sqlite3>#Sqlite3</a></ul></div><div class="row PageNavigation d-flex justify-content-between font-weight-bold"><a class="prev d-block col-md-6" href=//2016/06/summary-of-cjlv-development/>&#171;
+某日志查看程序开发小结</a>
+<a class="next d-block col-md-6 text-lg-right" href=//2016/07/nexus5-issue/>Nexus5出问题了 &#187;</a><div class=clearfix></div></div><link rel=stylesheet href=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/css/pay.min.css><section class=read-more><div><div style="padding:10px 0;margin:20px auto;width:90%;text-align:center"><div style=line-height:2.5>感觉本文不错，不妨小额鼓励我一下！</div><button id=rewardButton disable=enable onclick="var qr=document.getElementById('QR');qr.style.display==='none'?qr.style.display='block':qr.style.display='none'">
+<span>打赏</span></button><div id=QR style=display:block><div id=wechat style=display:inline-block><a href=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/wepay.jpg class=fancybox rel=group><img id=wechat_qr class=lazyimg src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/wepay.jpg alt=微信扫一扫></a><p>微信扫一扫</div><div id=wechat style=display:inline-block><a href=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/alipay.jpg class=fancybox rel=group><img id=alipay_qr class=lazyimg src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/alipay.jpg alt=支付宝扫一扫></a><p>支付宝扫一扫</div></div></div></div></section></div></div></div><div class=container><div id=comments class="row justify-content-center mb-5"><div class=col-md-8><section class=disqus><div id=disqus_thread></div><script>var disqus_shortname='missdeer',disqus_developer=0;(function(){var b=/iphone|ipod|android|blackberry|mini|windows\sce|palm/i.test(navigator.userAgent.toLowerCase()),a;b?$('.dsq-brlink').hide():(a=document.createElement('script'),a.type='text/javascript',a.async=!0,a.src=window.location.protocol+'//'+disqus_shortname+'.disqus.com/embed.js',(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(a))})()</script><noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript><a href=http://disqus.com class=dsq-brlink>如果你看不到评论框，说明<span class=logo-disqus>Disqus</span>被墙了。</a></section></div></div></div></div></div><div class="jumbotron fortags"><div class="d-md-flex h-100"><div class="col-md-4 transpdark align-self-center text-center h-100"><div class="d-md-flex align-items-center justify-content-center h-100"><h2 class="d-md-block align-self-center py-1 font-weight-light">发现 <span class="d-none d-md-inline">→</span></h2></div></div><div class="col-md-8 p-5 align-self-center text-center"><a class="mt-1 mb-1" href=//categories.html#imported-from-CSDN>imported from CSDN (124)</a>
+<a class="mt-1 mb-1" href=//categories.html#Film-&-ACG>Film & ACG (15)</a>
+<a class="mt-1 mb-1" href=//categories.html#Water>Water (170)</a>
+<a class="mt-1 mb-1" href=//categories.html#Shareware>Shareware (151)</a>
+<a class="mt-1 mb-1" href=//categories.html#Software>Software (140)</a>
+<a class="mt-1 mb-1" href=//categories.html#Plugin-Framework>Plugin Framework (28)</a>
+<a class="mt-1 mb-1" href=//categories.html#lookfor>lookfor (36)</a>
+<a class="mt-1 mb-1" href=//categories.html#CPPOOPGPXP>CPPOOPGPXP (87)</a>
+<a class="mt-1 mb-1" href=//categories.html#Lua，Script>Lua，Script (51)</a>
+<a class="mt-1 mb-1" href=//categories.html#Be-Old>Be Old (15)</a>
+<a class="mt-1 mb-1" href=//categories.html#Job>Job (185)</a>
+<a class="mt-1 mb-1" href=//categories.html#mm>mm (48)</a>
+<a class="mt-1 mb-1" href=//categories.html#Emulator>Emulator (3)</a>
+<a class="mt-1 mb-1" href=//categories.html#Execise-Outdoor>Execise Outdoor (13)</a>
+<a class="mt-1 mb-1" href=//categories.html#gfw>gfw (10)</a>
+<a class="mt-1 mb-1" href=//categories.html#Reading>Reading (20)</a>
+<a class="mt-1 mb-1" href=//categories.html#Driving>Driving (16)</a>
+<a class="mt-1 mb-1" href=//categories.html#Mobile>Mobile (15)</a>
+<a class="mt-1 mb-1" href=//categories.html#wxWidgets>wxWidgets (29)</a>
+<a class="mt-1 mb-1" href=//categories.html#WIND>WIND (14)</a>
+<a class="mt-1 mb-1" href=//categories.html#PSP-NDS>PSP NDS (2)</a>
+<a class="mt-1 mb-1" href=//categories.html#CodingStudio>CodingStudio (44)</a>
+<a class="mt-1 mb-1" href=//categories.html#Cryptography>Cryptography (2)</a>
+<a class="mt-1 mb-1" href=//categories.html#Editor，IDE>Editor，IDE (5)</a>
+<a class="mt-1 mb-1" href=//categories.html#TeX>TeX (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#Life>Life (82)</a>
+<a class="mt-1 mb-1" href=//categories.html#Technic>Technic (6)</a>
+<a class="mt-1 mb-1" href=//categories.html#Qt>Qt (28)</a>
+<a class="mt-1 mb-1" href=//categories.html#SNS>SNS (35)</a>
+<a class="mt-1 mb-1" href=//categories.html#Ninayan>Ninayan (35)</a>
+<a class="mt-1 mb-1" href=//categories.html#GUI-Framework>GUI Framework (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#KarenMeu>KarenMeu (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#Kindle>Kindle (3)</a>
+<a class="mt-1 mb-1" href=//categories.html#Coding>Coding (14)</a>
+<a class="mt-1 mb-1" href=//categories.html#Startup>Startup (6)</a>
+<a class="mt-1 mb-1" href=//categories.html#network>network (14)</a>
+<a class="mt-1 mb-1" href=//categories.html#Go>Go (10)</a>
+<a class="mt-1 mb-1" href=//categories.html#idea>idea (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#os>os (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#iOS>iOS (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#Cloud>Cloud (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#device>device (2)</a>
+<a class="mt-1 mb-1" href=//categories.html#embed>embed (6)</a>
+<a class="mt-1 mb-1" href=//categories.html#gochess>gochess (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#Router>Router (3)</a>
+<a class="mt-1 mb-1" href=//categories.html#blog>blog (7)</a></div></div></div><footer class=footer><div class=container><div class=row><div class="col-md-6 col-sm-6 text-center text-lg-left">Copyright © 2021 类库大魔王的挖井日记</div><div class="col-md-6 col-sm-6 text-center text-lg-right"><a target=_blank href=https://www.wowthemes.net/mediumish-free-jekyll-template/>Mediumish Jekyll Theme</a> by WowThemes.net</div></div></div></footer></div><script src=https://cdn.staticfile.org/popper.js/1.14.6/umd/popper.min.js></script><script src=https://cdn.staticfile.org/twitter-bootstrap/4.2.1/js/bootstrap.min.js></script><script src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/js/mediumish.min.js></script><script src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/js/lazyload.min.js></script>

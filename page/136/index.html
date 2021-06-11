@@ -1,0 +1,225 @@
+<!doctype html><html lang=en><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><link rel=icon href=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/logo.png><title>Home | 类库大魔王的挖井日记</title><title>Page 136 of 152 for Home | 挖井</title><meta name=generator content="Jekyll v3.9.0"><meta property="og:title" content="Home"><meta property="og:locale" content="en_US"><meta name=description content="挖一口属于自己的井"><meta property="og:description" content="挖一口属于自己的井"><link rel=canonical href=https://blog.ismisv.com/page/136/><meta property="og:url" content="https://blog.ismisv.com/page/136/"><meta property="og:site_name" content="挖井"><link rel=prev href=https://blog.ismisv.com/page/135/><link rel=next href=https://blog.ismisv.com/page/137/><script type=application/ld+json>{"headline":"Home","description":"挖一口属于自己的井","@type":"WebPage","url":"https://blog.ismisv.com/page/136/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://blog.ismisv.com/assets/images/logo.png"}},"@context":"http://schema.org"}</script><link href=https://cdn.staticfile.org/twitter-bootstrap/4.1.3/css/bootstrap.min.css rel=stylesheet><link href=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/css/screen.min.css rel=stylesheet><link href=//assets/css/main.css rel=stylesheet><script src=https://cdn.staticfile.org/jquery/3.3.1/jquery.min.js></script><body class=layout-default><noscript id=deferred-styles><link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel=stylesheet><link href=https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css rel=stylesheet></noscript><nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mediumnavigation nav-down"><div class="container pr-0"><a class=navbar-brand href=//><img src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/logo.png alt=类库大魔王的挖井日记></a>
+<button class=navbar-toggler type=button data-toggle=collapse data-target=#navbarMediumish aria-controls=navbarSupportedContent aria-expanded=false aria-label="Toggle navigation">
+<span class=navbar-toggler-icon></span></button><div class="collapse navbar-collapse" id=navbarMediumish><ul class="navbar-nav ml-auto"><li class=nav-item><a class=nav-link href=// title=博客首页><i class="fab fa-blogger"></i>首页</a><li class=nav-item><a class=nav-link href=//archive/ title=博客文章完整归档><i class="fas fa-archive"></i>归档</a><li class=nav-item><a class=nav-link href=//categories.html title=博客文章所有分类><i class="fas fa-bars"></i>分类</a><li class=nav-item><a class=nav-link href=//tags.html title=博客文章所有标签><i class="fas fa-tags"></i>标签</a><li class=nav-item><a class=nav-link href=//apps/ title=我（近几年）开发的软件作品><i class="fab fa-app-store"></i>软件</a><li class=nav-item><a class=nav-link href=//about/ title=关于本博客><i class="fas fa-user"></i>关于</a><li class=nav-item><a target=_blank class=nav-link href=//links/ title=友情链接><i class="fas fa-link"></i>链接</a><li class=nav-item><a target=_blank class=nav-link href=//feed.xml title=通过RSS订阅本博客><i class="fas fa-rss-square"></i>订阅</a><li class=nav-item><a target=_blank class=nav-link href=https://github.com/missdeer title=我写的一些程序开放了源代码><i class="fab fa-github"></i>代码</a></ul></div></div></nav><div class=site-content><div class=container><div class=mainheading><h1 class=sitetitle>类库大魔王的挖井日记</h1><p class=lead>挖一口属于自己的井</div><div class=main-content><section class=recent-posts><div class=section-title><h2><span>All Stories</span></h2></div><div class="row listrecent"><div class="col-lg-4 col-md-6 mb-30px card-group"><div class="card h-100"><div class=maxthumb><a href=//2006/10/e6-88-91-e7-9a-84-e6-96-b9-e5-9d-97w-i-p-4/><img class="img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src=https://img.peapix.com/12168036164439406494_320.jpg alt="我的方块W.I.P #4"></a></div><div class=card-body><h2 class=card-title><a class=text-dark href=//2006/10/e6-88-91-e7-9a-84-e6-96-b9-e5-9d-97w-i-p-4/>我的方块W.I.P #4</a></h2><h4 class=card-text>　　很奇怪，单独编译了7zDec.exe的时候，就好好的，只要是用VC7.1或VC8编译，都是可以好好地运行列表、测试和解压的，但是集成到我的方块里的时候，就出问题了，早早地便退出说OpenArchive出错了，幸亏有源代码，幸亏前些天刚刚学会在IDE里用debugger调试，经过N分钟的单步跟踪调试，发现最后到一处调用Windows的ReadFile时，总是会返回读取了0字节，这是出错的最终源头！经过几秒钟的思考，决定不用ReadFile这个API，因为源代码中通过预定义宏，来决定在Win32平台上使用依赖平台的文件操作API，而其它平台下都使用C的库函数，马上在前面把那个宏定义取消掉，果然编译通过了并正常运行解压了！加了些函数，可以把用7z格式打包好的skin文件解压到Temp目录下面，哈哈，安逸！不过很怪的是，我把画缓冲的代码注释掉了，但它还是大模大样把图都画出来了，为什么啊，撞鬼了！先不管它了，至少暂时这样可以用了，就先放着吧。　　我把Lua的源代码都放进来一起编译，到luaopen_io的地方还是会崩溃，跟踪了一下是到一个sethvalue的地方，不明白为什么会这样，Lua的代码我没看懂，所以暂时只能把luaopen_io这句注释掉来拖延一下时间。好不容易从LuaTinker的官方网站上down到了0.2a版的源代码和二进制文件包，韩文还真一点点都看不懂哦！以前看到过Boost.Python的使用代码片段，发现这样的使用方式还真是独树一帜，之后大概就出现了为各种脚本语言提供粘合剂功能的库，都是使用的这种风格的，至少现在看到Lua就有Luabind和LuaTinker了，LuaTinker是个轻量级的封装，可以学习一下它的封装方法。　　用SDK写程序，还是很有成就感di，嘿嘿，就是开发效率太低了。</h4></div><div class="card-footer bg-white"><div class=wrapfooter><span class=meta-footer-thumb><img class=author-thumb src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/avatar.png alt=类库大魔王></span>
+<span class=author-meta><span class=post-name><a target=_blank href=https://www.ismisv.com>类库大魔王</a></span><br><span class=post-date>14 Oct 2006</span></span>
+<span class=post-read-more><a href=//2006/10/e6-88-91-e7-9a-84-e6-96-b9-e5-9d-97w-i-p-4/ title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1.0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5.0 00.706.03L12.5 16.85l5.662 4.126a.508.508.0 00.708-.03.5.5.0 00.118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55.0 1 .45 1 1v13.637l-5.162-3.668a.49.49.0 00-.676.0z" fill-rule="evenodd"/></svg></a></span><div class=clearfix></div></div></div></div></div><div class="col-lg-4 col-md-6 mb-30px card-group"><div class="card h-100"><div class=maxthumb><a href=//2006/10/e6-88-91-e7-9a-84-e6-96-b9-e5-9d-97w-i-p-3/><img class="img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src=https://img.peapix.com/5668377067015603915_320.jpg alt="我的方块W.I.P #3"></a></div><div class=card-body><h2 class=card-title><a class=text-dark href=//2006/10/e6-88-91-e7-9a-84-e6-96-b9-e5-9d-97w-i-p-3/>我的方块W.I.P #3</a></h2><h4 class=card-text>　　堕落了。 写了几行就不想写了，去玩去了。可以画出方块池里的方块了，把Lua解释器也集成进来了，不过调用luaopen_io的时候就崩溃了，为什么呀，用的编译器是VC7.1的，自己拿Lua5.1.1的源代码来编译的lib和dll，无论静态链接还是动态链接，到这个地方调用都会崩溃。不知道如果拿源代码来一起编译，会有什么结果呢，呵呵。剩下就是很烦很杂的一些事了，游戏逻辑啊什么的，很多细节要处理。我还想到要写一个skin生成器，至少应该能在一张现有的图片上方便地定义各个元素的位置、大小这些信息，如果每次都是在图像编辑软件里慢慢画，浪费时间不说，人是要疯掉的。还有就是一定要支持压缩打包，不然光秃秃的bmp文件放在那里是很占用空间的，而且看起来很不专业的样子。试了试，一张24位色的1.38MB的bmp文件，用7z可以压缩到36KB！强悍啊，可以让它支持7z、zip和rar的解压，虽然程序启动的时候会慢点，但文件好组织啊。其实有个7z的支持就够好了，之后再考虑zip，最后考虑rar的。游戏逻辑放在Lua脚本里做，有些其它的东西就可能不好做了，比如速度检测等等。因为为了简单，Lua脚本知道的事情越少越好，所以嘛！　　上网down了个Q块的外挂，不好用，呵呵。</h4></div><div class="card-footer bg-white"><div class=wrapfooter><span class=meta-footer-thumb><img class=author-thumb src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/avatar.png alt=类库大魔王></span>
+<span class=author-meta><span class=post-name><a target=_blank href=https://www.ismisv.com>类库大魔王</a></span><br><span class=post-date>13 Oct 2006</span></span>
+<span class=post-read-more><a href=//2006/10/e6-88-91-e7-9a-84-e6-96-b9-e5-9d-97w-i-p-3/ title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1.0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5.0 00.706.03L12.5 16.85l5.662 4.126a.508.508.0 00.708-.03.5.5.0 00.118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55.0 1 .45 1 1v13.637l-5.162-3.668a.49.49.0 00-.676.0z" fill-rule="evenodd"/></svg></a></span><div class=clearfix></div></div></div></div></div><div class="col-lg-4 col-md-6 mb-30px card-group"><div class="card h-100"><div class=maxthumb><a href=//2006/10/e6-88-91-e7-9a-84-e6-96-b9-e5-9d-97w-i-p-2/><img class="img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src=https://img.peapix.com/4446355575010279736_320.jpg alt="我的方块W.I.P #2"></a></div><div class=card-body><h2 class=card-title><a class=text-dark href=//2006/10/e6-88-91-e7-9a-84-e6-96-b9-e5-9d-97w-i-p-2/>我的方块W.I.P #2</a></h2><h4 class=card-text>　　把MoveWindow的问题改好了，也不知道是哪里出问题了，反正就是这样改了一下就好了，可以缩放成想要的大小了，还把画界面的位置也计算了一下，可以直接画在Client的左上角（0,0）的位置了，哈哈。另外一点就是，把Clipper也弄好了，本来是设置了Clipper，就画不出东西来，后来看了一下返回的错误码，说是BltFast不能Clip，换用Blt就好了，虽然说如果是用软件实现的Blt速度会没有BltFast快，但MSDN上说也只是快了10%而已，更何况它说在硬件Blt的条件下，两者是没有区别的。其实速度不速度现在来看，根本不重要，因为一个小小的方块游戏，对动画要求实在不高，完全用GDI做也可以比较流畅地实现的，要是我开始就是在BDS下用VCL的TImage来写，估计已经快到了可以玩的程度的，呵呵，不过这样也好，学一下C SDK和DX。看了一下DX8里的samples，里面的代码写得真是整齐啊！顺便加了个图标，不过还不清楚为什么没能在窗口左上角显示出来。 本来打算把画方块池的功能完成的，但是人懒了，动了一下就不想动了，呵呵，慢慢来吧。　　在看maillist的时候，偶然看到有人提到什么时候用Lua，突然得到提示，为什么不用Lua来做配置文件呢。我还老老实实地用ini文件或者xml文件，要解析也得再研究一下用Win32 API直接怎么解析，以前都是用VCL里封装好的类，唉！这样也好，只要写好一个Lua的交互模块，就可以既用作配置文件解析，又用作游戏逻辑定义了，一举两得啊！　　想了想，skin里要定义的数据还是有点多哦，包括主界面图片大小，方块池位置，预览框位置，道具池位置，系统按钮位置，功能按钮位置。　　白天考虑了Lua脚本中需要定义的游戏逻辑，包括move_left、move_right、move_down、speed_down、rotate_next、rotate_prev、on_timer、on_cycle、game_start、game_init等。在初始化的时候需要提供一些基本的信息，比如游戏等级等，另外就是对脚本应该有校验，MD5算法比较合适。</h4></div><div class="card-footer bg-white"><div class=wrapfooter><span class=meta-footer-thumb><img class=author-thumb src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/avatar.png alt=类库大魔王></span>
+<span class=author-meta><span class=post-name><a target=_blank href=https://www.ismisv.com>类库大魔王</a></span><br><span class=post-date>12 Oct 2006</span></span>
+<span class=post-read-more><a href=//2006/10/e6-88-91-e7-9a-84-e6-96-b9-e5-9d-97w-i-p-2/ title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1.0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5.0 00.706.03L12.5 16.85l5.662 4.126a.508.508.0 00.708-.03.5.5.0 00.118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55.0 1 .45 1 1v13.637l-5.162-3.668a.49.49.0 00-.676.0z" fill-rule="evenodd"/></svg></a></span><div class=clearfix></div></div></div></div></div><div class="col-lg-4 col-md-6 mb-30px card-group"><div class="card h-100"><div class=maxthumb><a href=//2006/10/e6-88-91-e7-9a-84-e6-96-b9-e5-9d-97w-i-p-1/><img class="img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src=https://img.peapix.com/1626645699981149241_320.jpg alt="我的方块W.I.P #1"></a></div><div class=card-body><h2 class=card-title><a class=text-dark href=//2006/10/e6-88-91-e7-9a-84-e6-96-b9-e5-9d-97w-i-p-1/>我的方块W.I.P #1</a></h2><h4 class=card-text>　　用C++ SDK和DX7，还真是烦，什么都要自己处理，郁闷啊！花了好多冤枉时间啊，先是图片压根就显示不出来，后来终于跟踪到原来是在IDE里调试的时候，根据可执行文件的路径来得到图片文件的路径下是没有这个文件的。把它放进去，再看看，发现可以显示一些乱七八糟的颜色了，再设置断点，跟踪到装载位图文件的函数里，发现总是试图去delete一个不知道哪里的值，才明白过来，原来这个结构在使用前应该先清零的，郁闷啊！　　现在图片终于能显示出来了，但还有个问题，就是因为没计算好，总是画到（0,0）的位置上去了，另外就是不知道为什么，用了AjustWindowRectEx和MoveWindow后，窗口总是会消失……把这问题解决后，就剩下实时画方块池的任务了！　　另外再好好规划一下，跟Lua怎么交互！</h4></div><div class="card-footer bg-white"><div class=wrapfooter><span class=meta-footer-thumb><img class=author-thumb src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/avatar.png alt=类库大魔王></span>
+<span class=author-meta><span class=post-name><a target=_blank href=https://www.ismisv.com>类库大魔王</a></span><br><span class=post-date>11 Oct 2006</span></span>
+<span class=post-read-more><a href=//2006/10/e6-88-91-e7-9a-84-e6-96-b9-e5-9d-97w-i-p-1/ title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1.0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5.0 00.706.03L12.5 16.85l5.662 4.126a.508.508.0 00.708-.03.5.5.0 00.118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55.0 1 .45 1 1v13.637l-5.162-3.668a.49.49.0 00-.676.0z" fill-rule="evenodd"/></svg></a></span><div class=clearfix></div></div></div></div></div><div class="col-lg-4 col-md-6 mb-30px card-group"><div class="card h-100"><div class=maxthumb><a href=//2006/10/e5-bc-80-e5-a7-8b-e5-86-99-e6-96-b9-e5-9d-97/><img class="img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src=https://img.peapix.com/16707552758471761037_320.jpg alt=开始写方块></a></div><div class=card-body><h2 class=card-title><a class=text-dark href=//2006/10/e5-bc-80-e5-a7-8b-e5-86-99-e6-96-b9-e5-9d-97/>开始写方块</a></h2><h4 class=card-text>　　现在真的越来越懒了，只写了几行代码就不想动了。似乎DDraw在Normal模式时不能用FLIP？不确定，想不到有这么多未知问题，代码产出率太低了。白天在公司的时候，用VC6编译了unzip、7z这些，似乎还行，回到家，用VC7.1来编译，全都通过了。可以集成unzip和7z的解压缩功能了。　　看来还是得好好学习一下怎么使用DX，也不用最新的技术，只要DX7的接口就行了，D3D也暂时先放下吧，DDraw和DSound最先要紧。　　首先，只考虑矩形的界面，把主界面画出来，定期调用Lua脚本中的游戏逻辑，再根据Lua脚本返回的结果把方块池、预览框和道具池中的内容画出来。这样看来，似乎没有多少事，就是用DX画个界面，把Lua集成进来。还有一点要考虑的是，怎么做键盘加速和游戏录像功能，同时再考虑一下联机功能。今天在公司看到一段高精度计时器的代码，对于键盘加速，似乎有点帮助，就是定期检测按键状态，按一定速度发送WM_KEYDOWN，用IDA反汇编了kbace.dll，大概看到就是这样做的，也许具体的细节需要再研究。联机从技术上似乎也不是很有问题了，唯一需要的就是时间和毅力了。　　好好学习《Windows游戏编程大师技巧》！</h4></div><div class="card-footer bg-white"><div class=wrapfooter><span class=meta-footer-thumb><img class=author-thumb src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/avatar.png alt=类库大魔王></span>
+<span class=author-meta><span class=post-name><a target=_blank href=https://www.ismisv.com>类库大魔王</a></span><br><span class=post-date>10 Oct 2006</span></span>
+<span class=post-read-more><a href=//2006/10/e5-bc-80-e5-a7-8b-e5-86-99-e6-96-b9-e5-9d-97/ title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1.0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5.0 00.706.03L12.5 16.85l5.662 4.126a.508.508.0 00.708-.03.5.5.0 00.118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55.0 1 .45 1 1v13.637l-5.162-3.668a.49.49.0 00-.676.0z" fill-rule="evenodd"/></svg></a></span><div class=clearfix></div></div></div></div></div><div class="col-lg-4 col-md-6 mb-30px card-group"><div class="card h-100"><div class=maxthumb><a href=//2006/10/e7-9c-8b-e5-88-b0-e4-b8-80-e7-af-87-e5-a5-bd-e6-96-87-e7-ab-a0/><img class="img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src=https://img.peapix.com/2118016322483240550_320.jpg alt=看到一篇好文章></a></div><div class=card-body><h2 class=card-title><a class=text-dark href=//2006/10/e7-9c-8b-e5-88-b0-e4-b8-80-e7-af-87-e5-a5-bd-e6-96-87-e7-ab-a0/>看到一篇好文章</a></h2><h4 class=card-text>和尚挖水　　 有两个和尚住在隔壁，所谓隔壁就是隔壁那座山，他们分别住在相邻的两座山上的庙里。这两座山之间有一条溪，于是这两个和尚每天都会在同一时间下山去溪边挑水，久而久之他么变成为了好朋友。
+　　 就这样时间在每天挑水中不知不觉已经过了五年。突然有一天左边这座山的和尚没有下山挑水，右边那座山的和尚心想：“他大概睡过头了。”便不以为意。
+　　 哪知道第二天左边这座山的和尚还是没有下山挑水，第三天也一样。过了一个星期还是一样，直到过了一个月右边那座山的和尚终于受不了，他心想：“我的朋友可能生病了，我要过去拜访他，看看能帮上什么忙。”
+　　 于是他便爬上了左边这座山，去探望他的老朋友。
+　　 等他到了左边这座山的庙，看到他的老友之后大吃一惊，因为他的老友正在庙前打太极拳，一点也不像一个月没喝水的人。他很好奇地问：“你已经一个月没有下山挑水了，难道你可以不用喝水吗？”
+　　 左边这座山的和尚说：“来来来，我带你去看。”于是他带着右边那座山的和尚走到庙的后院，指着一口井说：“这五年来，我每天做完功课后都会抽空挖这口井，即使有时很忙，能挖多少就算多少。如今终于让我挖出井水，我就不用再下山挑水，我可以有更多时间练我喜欢的太极拳。”
+　　 我们在公司领的薪水再多，那都是挑水。而把握下班后的时间挖一口属于自己的井，未来当年纪大了，体力拚不过年轻人了，还是有水喝，而且喝得很悠闲。</h4></div><div class="card-footer bg-white"><div class=wrapfooter><span class=meta-footer-thumb><img class=author-thumb src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/avatar.png alt=类库大魔王></span>
+<span class=author-meta><span class=post-name><a target=_blank href=https://www.ismisv.com>类库大魔王</a></span><br><span class=post-date>09 Oct 2006</span></span>
+<span class=post-read-more><a href=//2006/10/e7-9c-8b-e5-88-b0-e4-b8-80-e7-af-87-e5-a5-bd-e6-96-87-e7-ab-a0/ title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1.0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5.0 00.706.03L12.5 16.85l5.662 4.126a.508.508.0 00.708-.03.5.5.0 00.118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55.0 1 .45 1 1v13.637l-5.162-3.668a.49.49.0 00-.676.0z" fill-rule="evenodd"/></svg></a></span><div class=clearfix></div></div></div></div></div><div class="col-lg-4 col-md-6 mb-30px card-group"><div class="card h-100"><div class=maxthumb><a href=//2006/10/e5-bd-ad-e5-bd-ad-e5-9b-9e-e6-9d-a5-e4-ba-86/><img class="img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src=https://img.peapix.com/a1d9464d769446c5865a092685b772bf_320.jpg alt=彭彭回来了></a></div><div class=card-body><h2 class=card-title><a class=text-dark href=//2006/10/e5-bd-ad-e5-bd-ad-e5-9b-9e-e6-9d-a5-e4-ba-86/>彭彭回来了</a></h2><h4 class=card-text>　　11点半左右，彭彭突然给我打电话，我很惊讶，说这么远有什么事啊，他说我回来了。更惊讶，呵呵。然后他叫我中午出去一起吃饭，我说晚上行不行，他说晚上要去珠海，于是我说再等半个小时吧。接着我给小思宇发邮件，她还多得意的，我从文字中都似乎能看到她满脸的幸福，说每个人知道后都很surprise。　　12点我便出来，说在金泉乐，拦住一辆小巴便冲过去了。4个人，吃得还算开心，我也奇怪，自己居然也努力想多说几句话，要是平时，我肯定只是一个人闷头不响的。</h4></div><div class="card-footer bg-white"><div class=wrapfooter><span class=meta-footer-thumb><img class=author-thumb src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/avatar.png alt=类库大魔王></span>
+<span class=author-meta><span class=post-name><a target=_blank href=https://www.ismisv.com>类库大魔王</a></span><br><span class=post-date>09 Oct 2006</span></span>
+<span class=post-read-more><a href=//2006/10/e5-bd-ad-e5-bd-ad-e5-9b-9e-e6-9d-a5-e4-ba-86/ title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1.0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5.0 00.706.03L12.5 16.85l5.662 4.126a.508.508.0 00.708-.03.5.5.0 00.118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55.0 1 .45 1 1v13.637l-5.162-3.668a.49.49.0 00-.676.0z" fill-rule="evenodd"/></svg></a></span><div class=clearfix></div></div></div></div></div><div class="col-lg-4 col-md-6 mb-30px card-group"><div class="card h-100"><div class=maxthumb><a href=//2006/10/e5-8d-81-e4-b8-80-e6-95-a3-e8-ae-b0-e2-80-94-e2-80-94-e5-9b-9e-e6-9d-a5-e5-90-8e/><img class="img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src=https://img.peapix.com/2190099455745767321_320.jpg alt=十一散记——回来后></a></div><div class=card-body><h2 class=card-title><a class=text-dark href=//2006/10/e5-8d-81-e4-b8-80-e6-95-a3-e8-ae-b0-e2-80-94-e2-80-94-e5-9b-9e-e6-9d-a5-e5-90-8e/>十一散记——回来后</a></h2><h4 class=card-text>10月6日　　虽然回来后没有马上爬到床上好好睡一觉舒服一下，还是整到2点多才睡，结果6点多就还是醒过来了，郁闷死了！然后起来打开电脑，照例听听歌，打打方块，看看论坛。后来想想还是把那些换下的衣服洗一下吧，就简单地搓了几天，清掉肥皂泡后，凉起来。估计9点多了，就出门去了。　　上了328给小家伙发了个短信，小家伙还没起床呢！到了门口再打电话，说现在不准进来，晕，我就只好无聊地看看周围的环境，看看她们屋的电表转速，是那里10个屋里转得最快的一个。　　好不容易等到小家伙出来，就一起去坐地铁到东门。这一天有点怪，地铁上一路几乎没人下的，都是上的，我郁闷，站了一中，到了东门都下空了！不知道从哪个出门出来，看到有个卖肠粉的店子，就进去权当作是中饭，同时补充早餐的欠缺，呵呵。我点了个虾肠粉，小家伙是香茹牛肉肠，又一人要了一份饮料。我倒是吃得还算爽的，虾是我喜欢吃的东西，冻奶茶也是很爽，就是那种从喉咙头一直凉到胃里的感觉。小家伙居然抢着把钱付了。　　之后，就一起逛到太阳百货，逛了一下午，从底楼逛到顶楼，坐了一小会儿休息了一下后，又逛回底楼。从鞋类，看到少女装，再到化妆品，还有成熟淑女装。出来后，说去茂业看看吧，结果两个人都分不清方向。在一个天桥下，小家伙看到有卖水果的，说要吃，于是一人拿着一条哈蜜瓜咬着走，走到一个并非原本想去的茂业店里去了。又从底楼逛到顶楼再回下来，小家伙看到一件线衣，就在那里试试，最后要买了，顺便补了一句，买回去不好看就找你算账，说得我战战兢兢。　　出来的时候，小家伙说累死了，我只好嘲笑说她不行，逛街都没有逛得厉害。又回到闹市区，我还是想找一下那个茂业，因为本来就跟同事们说好要在那门口集合的。小家伙又想去逛那些地下商场，草草地走了圈，在卖耳环的地方，小家伙就会停下来看，最后在一个铺位上我说一对挂的很多圈套在一起的好看，很适合，老板要价35，我随口说了句20吧，老板开始还说不行，小家伙就放回去了，老板就说好吧好吧，唉，这些生意人。出来后小家伙还埋怨我，本来想喊15的，我就很委屈地说，我以前没买过这些，又不知道它的行情，我只买过×10的那种价位的。　　终于，在又走错几个路口后，找到了那家茂业！从-1楼开始逛，小家伙说要买靴子，看到一个3.8折的，小家伙还是比较心动的，但后来还是没下决心买。在茂业逛了很久，小家伙也试了几次衣服，但是都没买。我给妈妈打了个电话，其实是记错了，以为是周六了，但反正是中秋节，打个电话也是应该的。开始还想等xcc过来了再打，xcc刚从杭州旅游回来，还在回家的路上就给我打电话说要来找我一起玩，我就想，到时候妈妈问我在干吗，我就说在逛街，妈妈问跟谁在逛的时候，我就可以说在和xcc一起逛。小家伙说，你就说跟个女的在一起逛！我说我妈会很严肃认真地来搞“政审”的，会要跟那女的说话，打听那女的家庭背景，学历，收入水平等等等等。结果等不及xcc来了，我就打了，妈妈问我在干吗，我说在逛街，妈妈问跟谁在在逛，我说还在等几个同事过来，要一起去吃饭玩。6点半过的时候，同事们还没来，小家伙又去看那些小玩意的店。又过了一会儿，教授给我打电话，说在茂业门口了，我就过去，看到悍超他们都在。我过去对疯丫头说，你家属呢，怎么不牵他手啊，然后她就说，你怎么不牵你家属手啊，我说我要牵你们的手的啊，哈哈。　　走到对面的小肥羊的隔壁的野山菌汤锅，开菜了一会儿，xcc才赶来。大牛的mm在坐我们对面，要我介绍一下。我看看小家伙，小家伙有点语塞，说你来介绍吧。我就说，某女人啊，从路上捡来的。大牛和他mm也不多说了，呵呵。十五六个人吃了，个人感觉口感还过得去。吃过后，一群人就去本色酒吧，有两张桌，都玩起摋子来。去蹦迪的地方看了看，太多人了，我变得很想回去学一下跳舞，至少不要像下面这些人一样，全都只会这样小幅度扭动一下腰。　　12点的时候，小家伙说要回去了，因为第二天还要上班。于是xcc也跟我们一起走了，xcc打算去我那里睡了。一个新手司机在那深南路上转了好久，好远的路，才到了目的地，呵呵。结果问了一下，居然第二天不用上班！看到她们屋里多了个男生，听说还是和我一级的我们学校计科的，晕，没印象。一群从同一个学校出来的人在那里聊了一会儿天，我就叫小家伙一起去我那里，顺便把和她一个屋的我的一个师妹也叫上。　　4个人先打的到梅林，吃了顿海鲜大排档，然后再打回我住的地方。玩了一会儿，都5点多了，于是我和xcc到隔壁房间睡了，这房间的兄弟只住了几天就出差去了快1个月了还没回来呢，呵呵。10月7日　　早上大概才8点多吧，xcc就把我吵醒了，说要去买菜，我实现困得不行，死撑到9点多，起来看电视。我的所有的东西都在我的房间里，而她们两个还睡着呢。过了一会儿，实在忍不住了，就敲门把她们叫起来。我洗漱了一下，就和xcc去菜场买菜了。　　买了些排骨，精肉，葱，小白菜，番茄，鸡蛋，剩下的，就都交给她们两个全权处理了。不过我还是做了些淘米之类的简单的活，呵呵。一直到下午2点左右才全部做完，可以吃了。味道真不错，呵呵。吃完后，小家伙还把厨房、客厅的桌子柜子使劲收拾了一遍，涣然一新！心里感慨万千……（此处省略N万字心理活动描写，N≥5）我挡不住了，就跟小家伙交待了一下，去睡午觉了。一直睡到5点半，起来，小家伙们也起来了，回去了。又过了一会儿，和xcc两个人烧了一点饭，热了一下汤，把晚饭也吃了。后记：　　这样的生活我还是比较向往的，就是简单的居家，然后能和一些人一起去玩。可是，大部分的时间，我们还是在忙碌于工作，为了那点点生存需求而拼命。</h4></div><div class="card-footer bg-white"><div class=wrapfooter><span class=meta-footer-thumb><img class=author-thumb src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/avatar.png alt=类库大魔王></span>
+<span class=author-meta><span class=post-name><a target=_blank href=https://www.ismisv.com>类库大魔王</a></span><br><span class=post-date>07 Oct 2006</span></span>
+<span class=post-read-more><a href=//2006/10/e5-8d-81-e4-b8-80-e6-95-a3-e8-ae-b0-e2-80-94-e2-80-94-e5-9b-9e-e6-9d-a5-e5-90-8e/ title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1.0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5.0 00.706.03L12.5 16.85l5.662 4.126a.508.508.0 00.708-.03.5.5.0 00.118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55.0 1 .45 1 1v13.637l-5.162-3.668a.49.49.0 00-.676.0z" fill-rule="evenodd"/></svg></a></span><div class=clearfix></div></div></div></div></div><div class="col-lg-4 col-md-6 mb-30px card-group"><div class="card h-100"><div class=maxthumb><a href=//2006/10/e5-8d-81-e4-b8-80-e6-95-a3-e8-ae-b0-e2-80-94-e2-80-94-e8-b4-b5-e9-98-b3-e8-a1-8c/><img class="img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src=https://img.peapix.com/4413419568358960397_320.jpg alt=十一散记——贵阳行></a></div><div class=card-body><h2 class=card-title><a class=text-dark href=//2006/10/e5-8d-81-e4-b8-80-e6-95-a3-e8-ae-b0-e2-80-94-e2-80-94-e8-b4-b5-e9-98-b3-e8-a1-8c/>十一散记——贵阳行</a></h2><h4 class=card-text>前言　　这次去贵阳玩，是完全没有计划的，只是想到有个表哥在，可以不住什么旅馆之类的地方了。有小妞可以找来一起玩，呵呵，就直接冲过去了，真是头脑发热！10月2日　　早上八点就被闹钟吵醒了，准备一下行李，其实也没什么东西，把几件换洗的T恤装进去，再塞进一个笔记本，就没什么东西了，收拾了一下，然后就出门去坐车了。只是听说华联大厦有机场大巴，可我以前一次都没去坐过，只知道华联大厦在深南路边上，却不清楚具体的位置。前一天晚上在网上问了一下同事，说可以在上海宾馆坐地铁过去。于是先坐391到了上海宾馆，然后去地铁站，看了一下指引，原来只是一个站就到了，出来一看，就在茂业深南店旁边啊，晕死，大巴就停在那里，20元一张票，40分钟到机场，那时才10点半，比我计划的早到了半个小时，然后换了登机牌，无所事事了，就在候机室里坐着打瞌睡了，醒过来正好快11点半了，刚好可以登机了。登机后就给afei，小妞，表哥还有lili都发了条短信。倒是小丫头还没等我发，就先发过来问了，呵呵，不知道这一天小丫头是怎么过的，说是有师兄要约出去吃饭什么的，具体的我也不问了，不想那么八卦啦。发了短信后就关机了。飞机起飞后，我就一直等着吃中饭，呵呵，好像我每次的飞机都是在吃饭时间的，而且我也很喜欢飞机上的饭菜的口味，这次我要了份鸡肉，一看那榨菜，还是浙江余姚产的，晕。　　1点半就到了贵阳机场了，看了下短信，表哥说要晚一会儿才能到，于是在门口百无聊赖地等了近半个小时，才看到他过来。突然感觉怎么变这么高大了，好像身高也比以前更高了，人也壮了点了，走路动作都像个成熟男人了，晕死，才比我大半年的人啊，一段时间不见就这样了，看到他后边好多白头发。看来有生活压力还真是我暂时体会不到的。路上他跟我说，问他二爹借了五万块钱去搞装修，等等。其实很不错了，我的房子还不知道在哪里呢，这样漂泊不定的感觉，而且我买房子肯定没这么好的机会了，才一千多一平米。我还能说什么呢。一路辗转打的到了他住的地方，顺便看了一下他的房子，90多平米的，装修还才开始，这样他的人生基本就固定下来了吧。其实我一点都不羡慕，我还是想四处走走，在飞机上的时候看到一本杂志上介绍欧洲的一些地方，比如都柏林，罗马，维也纳等等，我好想有机会都去逛一下，要努力赚钱啊。虽说我还是想回老家找个运营商的工作蹲起，但我很清楚，靠这样的工作赚来点钱，是买不起房子，过不上小资的生活的。所以似乎我的想法有点理想主义了，我想的是赚钱是有另外的方法的，而那个蹲单位里的工作只是为了充实一下生活，满足一下精神需求！　　然后两个人坐车去花溪公园逛了一下，吃了一碗正宗的花溪王记牛肉粉，味道比起深圳那家来，似乎要好很多。深圳那次跟小妞小玉玉一起去的，把我吃出心理阴影来了。她们也略带笑意得说，看来花溪王记把我伤很深。到5点半的时候，我们就开始折道回家。奔到他女朋友住的地方，看造型，有点像超女，晕！还好，看来人比较活泼外向的，两个人也比较喜欢搞笑，在厨房里做笑，做了两个小时吧，才开始吃。小妞还叫我一起去和她还有她妹去吃肥肠鱼呢，不过想到也只有这次晚饭是和他们一起吃的，第二天他们就要去女方家里，所以无论怎么样，还是和他们吃吧，之后两三天怎么样都可以。　　想不到表哥也会坐菜了，做的土豆红烧肉还味道真不错呢！就是往成熟持家型男人发展了啊！　　吃完饭，看了会儿电视，回到他住的地方，打了一会儿方块，看了成龙的《80天环游世界》，就睡了。10月3日　　早上早早地被火车的鸣叫声和轰隆声吵醒了。七点半的时候，表哥就收拾了东西，去见岳丈大人了，剩下我一个人，好自由。洗漱了一下，就打开电脑玩方块，大概9点多一点，小妞发短信来问我起床没，然后两个人开始商量见面事宜，最后决定10点半出门，在火车站见。10点半出了门，先问了一下小区的保安，然后走到岔路口，又问了一下人，等到一辆直接到火车站的中巴，11点10分到了火车站，大概过了10多分钟，小妞和她妹妹就来了，小妞说怎么不穿红色的衣服了，都不好认，我说嘿嘿这次没带红衣服，都是这样浅颜色的，还有一件你这样颜色的呢，小妞就问哪一件啊，我说是新买的，呵呵。　　随后，我们打的走了，中途放下她妹妹，我和小妞则去吃了烤肉。这烤肉是用细铁丝串起来的，有各种肉类，比如猪肉、羊肉、牛肉、脆皮肠、黄喉、烤螺、猪皮等等，跟吃火锅的菜式那样多，我因为没吃早饭，所以还叫了一碗炒饭，还和小妞人一叫一碗冰绿豆汤。吃完烤肉，喝下那碗冰绿豆汤好爽哦，一直从喉咙头开始凉下去到胃里为止。　　然后去贵阳大剧院看电影，小妞的两个同学已经在那里等了，有一个是去过深圳的，所以见过，还有一个是第一次见。我都好久没进过电影院了，他们买了好多零食，电影是个成龙和古天乐演的新片，很搞笑很有趣，里面还有个娃娃，也很可爱，剧情也可以，一直看到2点多。　　看完电影，决定去花溪吃小吃去，坐了中巴车，一路狂奔，到了花溪，直接走到“小吃一条街”，看到一家做小豆腐的便坐下开吃，吃好了多小豆腐，还有冰粉、土豆饼等，又吃撑吃爽了，冰粉直接灌下喉咙的感觉就像刚才喝冰绿豆汤一样。吃完小吃，他们又带我去看“黄金大道”，走了一段路后坐上一辆小小的三轮摩托，可以承载4个人。到了那边看到有马可以骑，不过里面人太多了，便一路走过去。小妞还去玩转的糖，还转到一个凤凰。走到陶艺吧，看到都是小朋友们在里面玩，我们就不好意思进去了。看到有卖“玫瑰糖”的，我也是第一次听说这个名字，只是小时候看到过这个的制作过程，我们那里叫“扯白糖”，因为最后的过程是那糖不停地在被撕扯，从红禢色最后被扯成白色为止，所以叫扯白糖。这里卖的是没有扯白的，而且据说是带有玫瑰香味的，所以叫玫瑰糖，不过我是怎么也闻不出香味了，但他们说这是只可意味不可言传的。我和小妞就一人一个在那里绞啊绞的，还因为太过专心，没看路，一脚踩到马粪上。一路走下去，终于看到一条石子和石板混合铺成的路，两边种着很高大的法国梧桐。听小妞介绍，是因为这里每到秋天，梧桐的落叶掉满了地，一片黄色，所以叫“黄金大道”。小妞玩腻了那玫瑰糖，我就把她的那个也吃了，嘿嘿，甜死我了。看到那里有汽枪射击的游戏，我便过去玩了一下，6块钱可以打10发子弹，前5发因为有一发是打了7环，把成绩拖累了。后5发打了3个8环，2个9环，达到42环可以奖2块钱，刚好10块钱的话还可以再打2轮，小妞就上去试了一下，这家伙还打到几次10环的呢。走到快尽头了，我们折回来，又坐小三轮摩托到花溪公园门口，那里有公车站。　　折回到小妞同学的家里，因为我们都很饱，吃不下东西，便打起双扣来。手气很差啊，才打到3，小妞他们都打到10了。出了门去吃烧烤，一直走到小妞家楼下，吃起烙锅来。这个烙字还是询问了几次，思考了几次来认识到的，呵呵，就是那种似炸不是炸，似烤不是烤的。点了一条鱼，一些臭豆腐，还有些其它我都记不得名字的菜，又吃爽啦！吃完过后，去了小妞家里，范妈妈在家里，看起来跟我妈妈差不多的一个中年妇女。还又给我们做了绿豆汤来喝，这下真的是撑死了。小妞的房间好大哦，不过好像床比较小，小妞还在那里说，没整理床，呵呵。10点的时候，才从小妞家出来，她同学带我去坐11路公交车，1块钱坐到大转盘的地方，问了一下去三江口，只要4块钱，便上去了，到了那路口，我叫他开进去一点，他说要5块钱，而我关键是想去打开那整钱，便叫他开进去一点。开始买了支雪糕，还说没零钱，晕，没办法，只好去隔壁的一家店里买了包云烟，才有了零钱付车费。再一人走回小区，开始还担心这么晚了，会不会被门卫拦住，还好，没拦。10：50左右到了住处，小妞发短信来问我到了没，我说刚好到，要去洗澡了。　　打开电视，洗了澡，打开电脑玩一会儿，睡！10月4日　　早上照例先来了一次，然后继续睡，结果8点半就被xcc的短信吵了，于是起来打方块。9点半过的时候，小妞发短信说可以出门了，10：20在火车站出站口见。这次是轻车熟路了，走到那岔路口，直接一块二角钱坐到火车站。稍微等了一会儿，小妞和彭力就来了，到火车站对面坐2路公交车，到黔灵公园门口，可惜很遗憾的是，下雨了。　　只好取消了爬山计划，打的到了一个地方吃起丝娃娃。小妞教我怎么用一张巴掌大小的皮子包起那些刮成丝丝的凉菜，然后浇上一些事先自己和好的辣椒油，再一口吞下这个包包，像春卷一样，但要小一些，而且听小妞说是因为包想来像人们给婴儿包起来一样，所以叫丝娃娃。我好像吃了16个吧，挺好玩挺有趣的。不由地感叹，贵阳人还想会研究吃的东西，我使劲想了一下我老家那边，似乎真的没什么特别的小吃之类的，我们那边的人好像对吃的不是很在乎，只是随便吃点炒菜就罢了。吃完丝娃娃，又走到旁边一家小吃店点了一笼灌汤包和一笼灌汤饺子，被我和彭力一下解决了。往旁边一走，又吃了一个烧卖，好能吃啊！　　吃撑了，就要走走消化一下嘛，就去逛了一下电脑市场，随便看了一下DC，比起深圳来还真的贵不少，比香港的当然更贵一点。其实电脑市场也只是随便看看，我并没有什么想买的东西。去看了下D版碟，只有很少一点，更何况我现在什么东西都习惯从网上down，有了eMule真是好啊！从电脑市场出来，走进一家叫“昨日重现”的会所，里面可以喝茶，咖啡，点了壶茶，坐了好一会儿。后来无聊了，彭力就叫了一个人来一起打双扣，唉，手气像前一天一样的差。　　一直打到5点多，就回小妞家去，范爸爸在厨房做菜，不一会儿就开饭了，菜很丰盛，莲藕炖龙骨、蚂蚁上树、肉沫蒸蛋、辣子鸡、香肠等等等等，范妈妈太好客了，我又吃撑了，足足吃了4碗！范爸爸好像是个不苟言笑的人，只吃了一碗饭就放下了。就我和彭力吃好多哦，把几盘菜都消灭干净，把饭也全部干掉了。吃完饭，我们又打起牌了，小妞在那里说笑，花了1400的路费，跑到贵阳打了两天牌，呵呵。直到10点，才出来，到了大转盘处，原来有那种mini巴可以乘坐，1块半就能到了，比三轮摩托还省呢！10月5日　　今天不出去了，起床后打开电视，再开了方块来打，又写了一会儿代码，有点怪，1秒的interval的timer居然很不精确，想让它在60000ms的时候能触发一下，结果总是差好多，54000ms左右就会触发，很奇怪。到了中午，去买了包花生和小米花糖来吃。照彭力和小妞的说法，这半天可是值400块的哦！　　然后等到3点半过后，下去1楼找表哥的同事，没在，打电话也关机了。再回到10楼，敲开对面屋的人家，把机票钱和钥匙放在那里便出门了。有点雨，昨天也是因为有雨才爬不成黔灵山的，郁闷，而且没有太阳，气温便下降了好多，我只有短袖T恤，还好比较不怕冷。　　坐大巴到火车站，大概4点20的样子，问了一下有没有机场大巴，走去看到机场大巴，发现是自动投币的，只好去买了个烤红薯换了零钱。突然又想到，大巴会不会开很慢，不知道到机场要多久呢，于是还是打的了，50块钱。司机问我是哪里人，我说是重庆的，哈哈，操着很不地道的重庆话，他果然说我的重庆话不正宗，我说我长期呆在深圳的，来贵阳是有同学。到机场还不到5点，于是在候机厅里看起《西游记》来，看得津津有味。看过《西游记》又去看卖书的地方，发现有本小说《和空姐同居的日子》还挺符合我的口味的，一直看到登机为止。　　在飞机上吃了晚饭，这次的榨菜是涪陵产的了，呵呵。主菜是鱼，还挺好吃的，飞机上的饭菜总是很好吃，至少我是都这么觉得。大概1个小时，就到深圳了，第一次在高空看到灯光点点的深圳，广播中播报，深圳的气温30摄氏度，强！又坐大巴到华联大厦，不知道为什么，才9点，华强北的那些电子市场、电脑市场都关门了。三下两下就转车回到了家，开机，上网！后记　　贵阳还是多有趣的，给我感触最大的就是在吃的方面，有太多值得非贵阳本地人去试一下，而且如果是像我这样对自助游是文盲水平的人，最好能有个本地的人带去逛，像小妞这样好吃又爱玩的人，真是绝佳的导游，还有她的同学的全程陪玩下，觉得还是挺开心的，有些地方没去成有点遗憾，有机会应该再去一次，呵呵。</h4></div><div class="card-footer bg-white"><div class=wrapfooter><span class=meta-footer-thumb><img class=author-thumb src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/avatar.png alt=类库大魔王></span>
+<span class=author-meta><span class=post-name><a target=_blank href=https://www.ismisv.com>类库大魔王</a></span><br><span class=post-date>05 Oct 2006</span></span>
+<span class=post-read-more><a href=//2006/10/e5-8d-81-e4-b8-80-e6-95-a3-e8-ae-b0-e2-80-94-e2-80-94-e8-b4-b5-e9-98-b3-e8-a1-8c/ title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1.0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5.0 00.706.03L12.5 16.85l5.662 4.126a.508.508.0 00.708-.03.5.5.0 00.118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55.0 1 .45 1 1v13.637l-5.162-3.668a.49.49.0 00-.676.0z" fill-rule="evenodd"/></svg></a></span><div class=clearfix></div></div></div></div></div></div></section><div class=bottompagination><div class=pointerup><i class="fa fa-caret-up"></i></div><span class=navigation role=navigation><div class=pagination><a class="ml-1 mr-1" href=/page/135/>&#171; Prev</a>
+<a class="ml-1 mr-1" href=/page/135/>1</a>
+<a class="ml-1 mr-1" href=/page/2/>2</a>
+<a class="ml-1 mr-1" href=/page/3/>3</a>
+<a class="ml-1 mr-1" href=/page/4/>4</a>
+<a class="ml-1 mr-1" href=/page/5/>5</a>
+<a class="ml-1 mr-1" href=/page/6/>6</a>
+<a class="ml-1 mr-1" href=/page/7/>7</a>
+<a class="ml-1 mr-1" href=/page/8/>8</a>
+<a class="ml-1 mr-1" href=/page/9/>9</a>
+<a class="ml-1 mr-1" href=/page/10/>10</a>
+<a class="ml-1 mr-1" href=/page/11/>11</a>
+<a class="ml-1 mr-1" href=/page/12/>12</a>
+<a class="ml-1 mr-1" href=/page/13/>13</a>
+<a class="ml-1 mr-1" href=/page/14/>14</a>
+<a class="ml-1 mr-1" href=/page/15/>15</a>
+<a class="ml-1 mr-1" href=/page/16/>16</a>
+<a class="ml-1 mr-1" href=/page/17/>17</a>
+<a class="ml-1 mr-1" href=/page/18/>18</a>
+<a class="ml-1 mr-1" href=/page/19/>19</a>
+<a class="ml-1 mr-1" href=/page/20/>20</a>
+<a class="ml-1 mr-1" href=/page/21/>21</a>
+<a class="ml-1 mr-1" href=/page/22/>22</a>
+<a class="ml-1 mr-1" href=/page/23/>23</a>
+<a class="ml-1 mr-1" href=/page/24/>24</a>
+<a class="ml-1 mr-1" href=/page/25/>25</a>
+<a class="ml-1 mr-1" href=/page/26/>26</a>
+<a class="ml-1 mr-1" href=/page/27/>27</a>
+<a class="ml-1 mr-1" href=/page/28/>28</a>
+<a class="ml-1 mr-1" href=/page/29/>29</a>
+<a class="ml-1 mr-1" href=/page/30/>30</a>
+<a class="ml-1 mr-1" href=/page/31/>31</a>
+<a class="ml-1 mr-1" href=/page/32/>32</a>
+<a class="ml-1 mr-1" href=/page/33/>33</a>
+<a class="ml-1 mr-1" href=/page/34/>34</a>
+<a class="ml-1 mr-1" href=/page/35/>35</a>
+<a class="ml-1 mr-1" href=/page/36/>36</a>
+<a class="ml-1 mr-1" href=/page/37/>37</a>
+<a class="ml-1 mr-1" href=/page/38/>38</a>
+<a class="ml-1 mr-1" href=/page/39/>39</a>
+<a class="ml-1 mr-1" href=/page/40/>40</a>
+<a class="ml-1 mr-1" href=/page/41/>41</a>
+<a class="ml-1 mr-1" href=/page/42/>42</a>
+<a class="ml-1 mr-1" href=/page/43/>43</a>
+<a class="ml-1 mr-1" href=/page/44/>44</a>
+<a class="ml-1 mr-1" href=/page/45/>45</a>
+<a class="ml-1 mr-1" href=/page/46/>46</a>
+<a class="ml-1 mr-1" href=/page/47/>47</a>
+<a class="ml-1 mr-1" href=/page/48/>48</a>
+<a class="ml-1 mr-1" href=/page/49/>49</a>
+<a class="ml-1 mr-1" href=/page/50/>50</a>
+<a class="ml-1 mr-1" href=/page/51/>51</a>
+<a class="ml-1 mr-1" href=/page/52/>52</a>
+<a class="ml-1 mr-1" href=/page/53/>53</a>
+<a class="ml-1 mr-1" href=/page/54/>54</a>
+<a class="ml-1 mr-1" href=/page/55/>55</a>
+<a class="ml-1 mr-1" href=/page/56/>56</a>
+<a class="ml-1 mr-1" href=/page/57/>57</a>
+<a class="ml-1 mr-1" href=/page/58/>58</a>
+<a class="ml-1 mr-1" href=/page/59/>59</a>
+<a class="ml-1 mr-1" href=/page/60/>60</a>
+<a class="ml-1 mr-1" href=/page/61/>61</a>
+<a class="ml-1 mr-1" href=/page/62/>62</a>
+<a class="ml-1 mr-1" href=/page/63/>63</a>
+<a class="ml-1 mr-1" href=/page/64/>64</a>
+<a class="ml-1 mr-1" href=/page/65/>65</a>
+<a class="ml-1 mr-1" href=/page/66/>66</a>
+<a class="ml-1 mr-1" href=/page/67/>67</a>
+<a class="ml-1 mr-1" href=/page/68/>68</a>
+<a class="ml-1 mr-1" href=/page/69/>69</a>
+<a class="ml-1 mr-1" href=/page/70/>70</a>
+<a class="ml-1 mr-1" href=/page/71/>71</a>
+<a class="ml-1 mr-1" href=/page/72/>72</a>
+<a class="ml-1 mr-1" href=/page/73/>73</a>
+<a class="ml-1 mr-1" href=/page/74/>74</a>
+<a class="ml-1 mr-1" href=/page/75/>75</a>
+<a class="ml-1 mr-1" href=/page/76/>76</a>
+<a class="ml-1 mr-1" href=/page/77/>77</a>
+<a class="ml-1 mr-1" href=/page/78/>78</a>
+<a class="ml-1 mr-1" href=/page/79/>79</a>
+<a class="ml-1 mr-1" href=/page/80/>80</a>
+<a class="ml-1 mr-1" href=/page/81/>81</a>
+<a class="ml-1 mr-1" href=/page/82/>82</a>
+<a class="ml-1 mr-1" href=/page/83/>83</a>
+<a class="ml-1 mr-1" href=/page/84/>84</a>
+<a class="ml-1 mr-1" href=/page/85/>85</a>
+<a class="ml-1 mr-1" href=/page/86/>86</a>
+<a class="ml-1 mr-1" href=/page/87/>87</a>
+<a class="ml-1 mr-1" href=/page/88/>88</a>
+<a class="ml-1 mr-1" href=/page/89/>89</a>
+<a class="ml-1 mr-1" href=/page/90/>90</a>
+<a class="ml-1 mr-1" href=/page/91/>91</a>
+<a class="ml-1 mr-1" href=/page/92/>92</a>
+<a class="ml-1 mr-1" href=/page/93/>93</a>
+<a class="ml-1 mr-1" href=/page/94/>94</a>
+<a class="ml-1 mr-1" href=/page/95/>95</a>
+<a class="ml-1 mr-1" href=/page/96/>96</a>
+<a class="ml-1 mr-1" href=/page/97/>97</a>
+<a class="ml-1 mr-1" href=/page/98/>98</a>
+<a class="ml-1 mr-1" href=/page/99/>99</a>
+<a class="ml-1 mr-1" href=/page/100/>100</a>
+<a class="ml-1 mr-1" href=/page/101/>101</a>
+<a class="ml-1 mr-1" href=/page/102/>102</a>
+<a class="ml-1 mr-1" href=/page/103/>103</a>
+<a class="ml-1 mr-1" href=/page/104/>104</a>
+<a class="ml-1 mr-1" href=/page/105/>105</a>
+<a class="ml-1 mr-1" href=/page/106/>106</a>
+<a class="ml-1 mr-1" href=/page/107/>107</a>
+<a class="ml-1 mr-1" href=/page/108/>108</a>
+<a class="ml-1 mr-1" href=/page/109/>109</a>
+<a class="ml-1 mr-1" href=/page/110/>110</a>
+<a class="ml-1 mr-1" href=/page/111/>111</a>
+<a class="ml-1 mr-1" href=/page/112/>112</a>
+<a class="ml-1 mr-1" href=/page/113/>113</a>
+<a class="ml-1 mr-1" href=/page/114/>114</a>
+<a class="ml-1 mr-1" href=/page/115/>115</a>
+<a class="ml-1 mr-1" href=/page/116/>116</a>
+<a class="ml-1 mr-1" href=/page/117/>117</a>
+<a class="ml-1 mr-1" href=/page/118/>118</a>
+<a class="ml-1 mr-1" href=/page/119/>119</a>
+<a class="ml-1 mr-1" href=/page/120/>120</a>
+<a class="ml-1 mr-1" href=/page/121/>121</a>
+<a class="ml-1 mr-1" href=/page/122/>122</a>
+<a class="ml-1 mr-1" href=/page/123/>123</a>
+<a class="ml-1 mr-1" href=/page/124/>124</a>
+<a class="ml-1 mr-1" href=/page/125/>125</a>
+<a class="ml-1 mr-1" href=/page/126/>126</a>
+<a class="ml-1 mr-1" href=/page/127/>127</a>
+<a class="ml-1 mr-1" href=/page/128/>128</a>
+<a class="ml-1 mr-1" href=/page/129/>129</a>
+<a class="ml-1 mr-1" href=/page/130/>130</a>
+<a class="ml-1 mr-1" href=/page/131/>131</a>
+<a class="ml-1 mr-1" href=/page/132/>132</a>
+<a class="ml-1 mr-1" href=/page/133/>133</a>
+<a class="ml-1 mr-1" href=/page/134/>134</a>
+<a class="ml-1 mr-1" href=/page/135/>135</a>
+<span class="ml-1 mr-1">136</span>
+<a class="ml-1 mr-1" href=/page/137/>137</a>
+<a class="ml-1 mr-1" href=/page/138/>138</a>
+<a class="ml-1 mr-1" href=/page/139/>139</a>
+<a class="ml-1 mr-1" href=/page/140/>140</a>
+<a class="ml-1 mr-1" href=/page/141/>141</a>
+<a class="ml-1 mr-1" href=/page/142/>142</a>
+<a class="ml-1 mr-1" href=/page/143/>143</a>
+<a class="ml-1 mr-1" href=/page/144/>144</a>
+<a class="ml-1 mr-1" href=/page/145/>145</a>
+<a class="ml-1 mr-1" href=/page/146/>146</a>
+<a class="ml-1 mr-1" href=/page/147/>147</a>
+<a class="ml-1 mr-1" href=/page/148/>148</a>
+<a class="ml-1 mr-1" href=/page/149/>149</a>
+<a class="ml-1 mr-1" href=/page/150/>150</a>
+<a class="ml-1 mr-1" href=/page/151/>151</a>
+<a class="ml-1 mr-1" href=/page/152/>152</a>
+<a class="ml-1 mr-1" href=/page/137/>Next &#187;</a></div></span></div></div></div><div class="jumbotron fortags"><div class="d-md-flex h-100"><div class="col-md-4 transpdark align-self-center text-center h-100"><div class="d-md-flex align-items-center justify-content-center h-100"><h2 class="d-md-block align-self-center py-1 font-weight-light">发现 <span class="d-none d-md-inline">→</span></h2></div></div><div class="col-md-8 p-5 align-self-center text-center"><a class="mt-1 mb-1" href=//categories.html#imported-from-CSDN>imported from CSDN (124)</a>
+<a class="mt-1 mb-1" href=//categories.html#Film-&-ACG>Film & ACG (15)</a>
+<a class="mt-1 mb-1" href=//categories.html#Water>Water (170)</a>
+<a class="mt-1 mb-1" href=//categories.html#Shareware>Shareware (151)</a>
+<a class="mt-1 mb-1" href=//categories.html#Software>Software (140)</a>
+<a class="mt-1 mb-1" href=//categories.html#Plugin-Framework>Plugin Framework (28)</a>
+<a class="mt-1 mb-1" href=//categories.html#lookfor>lookfor (36)</a>
+<a class="mt-1 mb-1" href=//categories.html#CPPOOPGPXP>CPPOOPGPXP (87)</a>
+<a class="mt-1 mb-1" href=//categories.html#Lua，Script>Lua，Script (51)</a>
+<a class="mt-1 mb-1" href=//categories.html#Be-Old>Be Old (15)</a>
+<a class="mt-1 mb-1" href=//categories.html#Job>Job (185)</a>
+<a class="mt-1 mb-1" href=//categories.html#mm>mm (48)</a>
+<a class="mt-1 mb-1" href=//categories.html#Emulator>Emulator (3)</a>
+<a class="mt-1 mb-1" href=//categories.html#Execise-Outdoor>Execise Outdoor (13)</a>
+<a class="mt-1 mb-1" href=//categories.html#gfw>gfw (10)</a>
+<a class="mt-1 mb-1" href=//categories.html#Reading>Reading (20)</a>
+<a class="mt-1 mb-1" href=//categories.html#Driving>Driving (16)</a>
+<a class="mt-1 mb-1" href=//categories.html#Mobile>Mobile (15)</a>
+<a class="mt-1 mb-1" href=//categories.html#wxWidgets>wxWidgets (29)</a>
+<a class="mt-1 mb-1" href=//categories.html#WIND>WIND (14)</a>
+<a class="mt-1 mb-1" href=//categories.html#PSP-NDS>PSP NDS (2)</a>
+<a class="mt-1 mb-1" href=//categories.html#CodingStudio>CodingStudio (44)</a>
+<a class="mt-1 mb-1" href=//categories.html#Cryptography>Cryptography (2)</a>
+<a class="mt-1 mb-1" href=//categories.html#Editor，IDE>Editor，IDE (5)</a>
+<a class="mt-1 mb-1" href=//categories.html#TeX>TeX (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#Life>Life (82)</a>
+<a class="mt-1 mb-1" href=//categories.html#Technic>Technic (6)</a>
+<a class="mt-1 mb-1" href=//categories.html#Qt>Qt (28)</a>
+<a class="mt-1 mb-1" href=//categories.html#SNS>SNS (35)</a>
+<a class="mt-1 mb-1" href=//categories.html#Ninayan>Ninayan (35)</a>
+<a class="mt-1 mb-1" href=//categories.html#GUI-Framework>GUI Framework (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#KarenMeu>KarenMeu (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#Kindle>Kindle (3)</a>
+<a class="mt-1 mb-1" href=//categories.html#Coding>Coding (14)</a>
+<a class="mt-1 mb-1" href=//categories.html#Startup>Startup (6)</a>
+<a class="mt-1 mb-1" href=//categories.html#network>network (14)</a>
+<a class="mt-1 mb-1" href=//categories.html#Go>Go (10)</a>
+<a class="mt-1 mb-1" href=//categories.html#idea>idea (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#os>os (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#iOS>iOS (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#Cloud>Cloud (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#device>device (2)</a>
+<a class="mt-1 mb-1" href=//categories.html#embed>embed (6)</a>
+<a class="mt-1 mb-1" href=//categories.html#gochess>gochess (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#Router>Router (3)</a>
+<a class="mt-1 mb-1" href=//categories.html#blog>blog (7)</a></div></div></div><footer class=footer><div class=container><div class=row><div class="col-md-6 col-sm-6 text-center text-lg-left">Copyright © 2021 类库大魔王的挖井日记</div><div class="col-md-6 col-sm-6 text-center text-lg-right"><a target=_blank href=https://www.wowthemes.net/mediumish-free-jekyll-template/>Mediumish Jekyll Theme</a> by WowThemes.net</div></div></div></footer></div><script src=https://cdn.staticfile.org/popper.js/1.14.6/umd/popper.min.js></script><script src=https://cdn.staticfile.org/twitter-bootstrap/4.2.1/js/bootstrap.min.js></script><script src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/js/mediumish.min.js></script><script src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/js/lazyload.min.js></script>

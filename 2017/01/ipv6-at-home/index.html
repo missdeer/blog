@@ -1,0 +1,110 @@
+<!doctype html><html lang=en><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><link rel=icon href=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/logo.png><title>在家部署IPv6 | 类库大魔王的挖井日记</title><title>在家部署IPv6 | 挖井</title><meta name=generator content="Jekyll v3.9.0"><meta property="og:title" content="在家部署IPv6"><meta name=author content="missdeer"><meta property="og:locale" content="en_US"><meta name=description content="在家部署IPv6，实现IPv4/IPv6 dual stack"><meta property="og:description" content="在家部署IPv6，实现IPv4/IPv6 dual stack"><link rel=canonical href=https://blog.ismisv.com/2017/01/ipv6-at-home/><meta property="og:url" content="https://blog.ismisv.com/2017/01/ipv6-at-home/"><meta property="og:site_name" content="挖井"><meta property="og:image" content="https://img.peapix.com/8727371452361729923_320.jpg"><meta property="og:type" content="article"><meta property="article:published_time" content="2017-01-24T00:00:00+00:00"><script type=application/ld+json>{"headline":"在家部署IPv6","dateModified":"2017-01-24T00:00:00+00:00","description":"在家部署IPv6，实现IPv4/IPv6 dual stack","datePublished":"2017-01-24T00:00:00+00:00","image":"https://img.peapix.com/8727371452361729923_320.jpg","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.ismisv.com/2017/01/ipv6-at-home/"},"url":"https://blog.ismisv.com/2017/01/ipv6-at-home/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://blog.ismisv.com/assets/images/logo.png"},"name":"missdeer"},"author":{"@type":"Person","name":"missdeer"},"@context":"http://schema.org"}</script><link href=https://cdn.staticfile.org/twitter-bootstrap/4.1.3/css/bootstrap.min.css rel=stylesheet><link href=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/css/screen.min.css rel=stylesheet><link href=//assets/css/main.css rel=stylesheet><script src=https://cdn.staticfile.org/jquery/3.3.1/jquery.min.js></script><body class=layout-post><noscript id=deferred-styles><link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel=stylesheet><link href=https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css rel=stylesheet></noscript><nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mediumnavigation nav-down"><div class="container pr-0"><a class=navbar-brand href=//><img src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/logo.png alt=类库大魔王的挖井日记></a>
+<button class=navbar-toggler type=button data-toggle=collapse data-target=#navbarMediumish aria-controls=navbarSupportedContent aria-expanded=false aria-label="Toggle navigation">
+<span class=navbar-toggler-icon></span></button><div class="collapse navbar-collapse" id=navbarMediumish><ul class="navbar-nav ml-auto"><li class=nav-item><a class=nav-link href=// title=博客首页><i class="fab fa-blogger"></i>首页</a><li class=nav-item><a class=nav-link href=//archive/ title=博客文章完整归档><i class="fas fa-archive"></i>归档</a><li class=nav-item><a class=nav-link href=//categories.html title=博客文章所有分类><i class="fas fa-bars"></i>分类</a><li class=nav-item><a class=nav-link href=//tags.html title=博客文章所有标签><i class="fas fa-tags"></i>标签</a><li class=nav-item><a class=nav-link href=//apps/ title=我（近几年）开发的软件作品><i class="fab fa-app-store"></i>软件</a><li class=nav-item><a class=nav-link href=//about/ title=关于本博客><i class="fas fa-user"></i>关于</a><li class=nav-item><a target=_blank class=nav-link href=//links/ title=友情链接><i class="fas fa-link"></i>链接</a><li class=nav-item><a target=_blank class=nav-link href=//feed.xml title=通过RSS订阅本博客><i class="fas fa-rss-square"></i>订阅</a><li class=nav-item><a target=_blank class=nav-link href=https://github.com/missdeer title=我写的一些程序开放了源代码><i class="fab fa-github"></i>代码</a></ul></div></div></nav><div class=site-content><div class=container><div class=mainheading><h1 class=sitetitle>类库大魔王的挖井日记</h1><p class=lead>挖一口属于自己的井</div><div class=main-content><div class=container><div class=row><div class="col-md-12 flex-first flex-md-unordered"><div class=mainheading><div class="row post-top-meta"><div class="col-xs-12 col-md-3 col-lg-2 text-center text-md-left mb-4 mb-md-0"><img class=author-thumb src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/avatar.png alt=类库大魔王></div><div class="col-xs-12 col-md-9 col-lg-10 text-center text-md-left"><a target=_blank class=link-dark href=https://www.ismisv.com>类库大魔王</a><a target=_blank href=https://twitter.com/missdeerme class="btn follow">Follow</a>
+<span class=author-description>懒惰，傲慢，以及无耐心</span></div></div><h1 class=posttitle>在家部署IPv6</h1></div><div class=article-post><p>自从苹果要求iOS app能支持IPv6以来，我就一直想在自己屋里搞一个IPv4/IPv6双栈的环境，不为实用，只是为了满足那点强迫症，直到现在才有点进展。<p>屋里拉了电信的宽带，是只能pppoe得到一个公网IPv4地址，换了用BananaPi做的路由后，有些事情也变得清晰了，可以从<a href=https://tunnelbroker.net/>Hurricane Electric</a>申请一个<a href=https://tunnelbroker.net/new_tunnel.php>IPv6 tunnel</a>，这个过程很简单，而且电信给的IPv4地址是会定期变更的，这家tunnel服务可提供了API可以随时更新绑定的IPv4地址，后面再具体说说。<p>在Create Regular Tunnel之后，便可以得到一些有用的信息，比如Server IPv4 Address，Client IPv6 Address，Routed /64等等，同时网页上也有自动生成配置命令的功能，我的路由器装了Raspbian，就选择Linux-net-tools，得到以下命令：<div class="language-bash highlighter-rouge"><div class=highlight><pre class=highlight><code><table class=rouge-table><tbody><tr><td class="rouge-gutter gl"><pre class=lineno>1
+2
+3
+4
+5
+</pre><td class=rouge-code><pre>ifconfig sit0 up
+ifconfig sit0 inet6 tunnel ::222.111.222.111
+ifconfig sit1 up
+ifconfig sit1 inet6 add 2001:1111:2222:3333::2/64
+route <span class=nt>-A</span> inet6 add ::/0 dev sit1
+</pre></table></code></pre></div></div><p>其中第2行的IPv4地址便是前面提到的Server IPv4 Address，第4行的IPv6地址便是Client IPv6 Address。执行以上命令，再用<code class="language-plaintext highlighter-rouge">ifconfig</code>看，便多出了<code class="language-plaintext highlighter-rouge">sit0</code>和<code class="language-plaintext highlighter-rouge">sit1</code>两个接口，这时如果IPv4本身没问题的话，路由器应该可以连接IPv6网络了，可以用命令<code class="language-plaintext highlighter-rouge">ping6 ipv6.google.com</code>或<code class="language-plaintext highlighter-rouge">curl -vv -6 https://ipv6.google.com</code>测试。<p>在网页的Advance页，还有一个<code class="language-plaintext highlighter-rouge">Example Update URL</code>，可以在电信分配的IPv4地址发生变化后，更新新的IPv4地址用：<div class="language-bash highlighter-rouge"><div class=highlight><pre class=highlight><code><table class=rouge-table><tbody><tr><td class="rouge-gutter gl"><pre class=lineno>1
+</pre><td class=rouge-code><pre>curl <span class=nt>-vv</span> <span class=nt>-4</span> <span class=s2>"https://username:update-key@ipv4.tunnelbroker.net/nic/update?hostname=tunnel-id"</span>
+</pre></table></code></pre></div></div><p>除了更新IPv4地址到<a href=https://tunnelbroker.net/>Hurricane Electric</a>，还得更新<code class="language-plaintext highlighter-rouge">sit0</code>和<code class="language-plaintext highlighter-rouge">sit1</code>两个接口，就是先<code class="language-plaintext highlighter-rouge">ifconfig sit0 down</code>和<code class="language-plaintext highlighter-rouge">ifconfig sit1 down</code>，再执行最开始那几条命令。<p>路由器能工作后，要让局域网中其他机器也能通过IPv6上网，就得给其他机器分配IPv6地址，并通过路由器转发路由。在路由器上安装<code class="language-plaintext highlighter-rouge">radvd</code>，这个软件可以用来分配IPv6地址给局域网中其他机器，修改配置文件<code class="language-plaintext highlighter-rouge">/etc/radvd.conf</code>:<div class="language-plaintext highlighter-rouge"><div class=highlight><pre class=highlight><code><table class=rouge-table><tbody><tr><td class="rouge-gutter gl"><pre class=lineno>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+</pre><td class=rouge-code><pre>interface eth0 
+{
+	AdvSendAdvert on;
+	AdvLinkMTU 1480; 
+	MaxRtrAdvInterval 300;
+  	MinRtrAdvInterval 60;
+
+	prefix 2001:1111:1111:1111::/64
+	{
+		AdvRouterAddr on; 
+		AdvOnLink on; 
+		AdvAutonomous on;
+   		AdvPreferredLifetime 600;
+    		AdvValidLifetime 3600;
+	};
+	route ::/0 {
+  	};
+};
+</pre></table></code></pre></div></div><p>第1行的<code class="language-plaintext highlighter-rouge">eth0</code>根据自己系统中的网络接口而设定，下面的<code class="language-plaintext highlighter-rouge">prefix</code>后面的地址段是网页中给出的Routed 64，执行命令<code class="language-plaintext highlighter-rouge">sudo systemctl start radvd</code>让<code class="language-plaintext highlighter-rouge">radvd</code>运行起来，如果<code class="language-plaintext highlighter-rouge">radvd</code>运行不起来，可以重启系统再试。<p>再给<code class="language-plaintext highlighter-rouge">eth0</code>绑定一个静态IPv6地址，修改配置文件<code class="language-plaintext highlighter-rouge">/etc/network/interfaces</code>，加入几行：<div class="language-plaintext highlighter-rouge"><div class=highlight><pre class=highlight><code><table class=rouge-table><tbody><tr><td class="rouge-gutter gl"><pre class=lineno>1
+2
+3
+</pre><td class=rouge-code><pre>iface eth0 inet6 static
+  address 2001:1111:1111:1111::1
+  netmask 64
+</pre></table></code></pre></div></div><p>地址前缀跟Routed /64的相同，最后<code class="language-plaintext highlighter-rouge">::1</code>则随意，只不过我们比较习惯用<code class="language-plaintext highlighter-rouge">1</code>来作为网关的地址。然后重启网络服务即可<code class="language-plaintext highlighter-rouge">sudo systemctl restart networking</code>。估计电信接入的pppoe得到的IPv4地址在重启网络服务后又变了，需要再向<a href=https://tunnelbroker.net/>Hurricane Electric</a>更新一下。<p>最后，打开IPv6转发：<code class="language-plaintext highlighter-rouge">sudo sysctl -w net.ipv6.conf.all.forwarding = 1</code>。<p>到此为止，路由器上的设置就完成了，其他机器还有最后一步要做。在其他机器运行<code class="language-plaintext highlighter-rouge">ifconfig</code>，应该可以看到已经分配到<code class="language-plaintext highlighter-rouge">2001:1111:1111:1111:wwww:xxxx:yyyy:zzzz</code>这样的IPv6地址，可以ping一下路由器：<div class="language-bash highlighter-rouge"><div class=highlight><pre class=highlight><code><table class=rouge-table><tbody><tr><td class="rouge-gutter gl"><pre class=lineno>1
+</pre><td class=rouge-code><pre>ping6 2001:1111:1111:1111::1
+</pre></table></code></pre></div></div><p>正常情况下，应该已经能ping通。然后设置IPv6网关为路由器的地址（这一步并不是必需的，好像IPv6具有自动配置的能力，有的机器上没有这一步也能正常工作了，如果不能工作，便执行这一步）：<div class="language-bash highlighter-rouge"><div class=highlight><pre class=highlight><code><table class=rouge-table><tbody><tr><td class="rouge-gutter gl"><pre class=lineno>1
+</pre><td class=rouge-code><pre><span class=nb>sudo </span>route <span class=nt>-A</span> inet6 add default gw 2001:1111:1111:1111::1
+</pre></table></code></pre></div></div><p>这时用命令<code class="language-plaintext highlighter-rouge">ping6 ipv6.google.com</code>或<code class="language-plaintext highlighter-rouge">curl -vv -6 https://ipv6.google.com</code>测试，应该就已经能正常工作了。<p>至此，IPv6环境就全部配置好了。<hr><p>比较郁闷的是我的二级路由器R6300v2刷了梅林固件后好像不能分配内网IPv6地址，网上看也有人提出了<a href=http://koolshare.cn/thread-4334-1-1.html>相同的问题</a>，但并没有答案。</div><p><small><span class=post-date><time class=post-date datetime=" 2017-01-24">24 Jan 2017</time></span></small></p><div class=after-post-cats><ul class="tags mb-4"><li><a class=smoothscroll href=//categories.html#network>network</a></ul></div><div class=after-post-tags><ul class=tags><li><a class=smoothscroll href=//tags.html#BananaPi>#BananaPi</a><li><a class=smoothscroll href=//tags.html#IPv6>#IPv6</a><li><a class=smoothscroll href=//tags.html#Raspbian>#Raspbian</a><li><a class=smoothscroll href=//tags.html#Router>#Router</a></ul></div><div class="row PageNavigation d-flex justify-content-between font-weight-bold"><a class="prev d-block col-md-6" href=//2017/01/avege-wip-3/>&#171;
+Avege WIP(三)</a>
+<a class="next d-block col-md-6 text-lg-right" href=//2017/02/spring-festival-ends/>过完年了 &#187;</a><div class=clearfix></div></div><link rel=stylesheet href=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/css/pay.min.css><section class=read-more><div><div style="padding:10px 0;margin:20px auto;width:90%;text-align:center"><div style=line-height:2.5>感觉本文不错，不妨小额鼓励我一下！</div><button id=rewardButton disable=enable onclick="var qr=document.getElementById('QR');qr.style.display==='none'?qr.style.display='block':qr.style.display='none'">
+<span>打赏</span></button><div id=QR style=display:block><div id=wechat style=display:inline-block><a href=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/wepay.jpg class=fancybox rel=group><img id=wechat_qr class=lazyimg src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/wepay.jpg alt=微信扫一扫></a><p>微信扫一扫</div><div id=wechat style=display:inline-block><a href=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/alipay.jpg class=fancybox rel=group><img id=alipay_qr class=lazyimg src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/images/alipay.jpg alt=支付宝扫一扫></a><p>支付宝扫一扫</div></div></div></div></section></div></div></div><div class=container><div id=comments class="row justify-content-center mb-5"><div class=col-md-8><section class=disqus><div id=disqus_thread></div><script>var disqus_shortname='missdeer',disqus_developer=0;(function(){var b=/iphone|ipod|android|blackberry|mini|windows\sce|palm/i.test(navigator.userAgent.toLowerCase()),a;b?$('.dsq-brlink').hide():(a=document.createElement('script'),a.type='text/javascript',a.async=!0,a.src=window.location.protocol+'//'+disqus_shortname+'.disqus.com/embed.js',(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(a))})()</script><noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript><a href=http://disqus.com class=dsq-brlink>如果你看不到评论框，说明<span class=logo-disqus>Disqus</span>被墙了。</a></section></div></div></div></div></div><div class="jumbotron fortags"><div class="d-md-flex h-100"><div class="col-md-4 transpdark align-self-center text-center h-100"><div class="d-md-flex align-items-center justify-content-center h-100"><h2 class="d-md-block align-self-center py-1 font-weight-light">发现 <span class="d-none d-md-inline">→</span></h2></div></div><div class="col-md-8 p-5 align-self-center text-center"><a class="mt-1 mb-1" href=//categories.html#imported-from-CSDN>imported from CSDN (124)</a>
+<a class="mt-1 mb-1" href=//categories.html#Film-&-ACG>Film & ACG (15)</a>
+<a class="mt-1 mb-1" href=//categories.html#Water>Water (170)</a>
+<a class="mt-1 mb-1" href=//categories.html#Shareware>Shareware (151)</a>
+<a class="mt-1 mb-1" href=//categories.html#Software>Software (140)</a>
+<a class="mt-1 mb-1" href=//categories.html#Plugin-Framework>Plugin Framework (28)</a>
+<a class="mt-1 mb-1" href=//categories.html#lookfor>lookfor (36)</a>
+<a class="mt-1 mb-1" href=//categories.html#CPPOOPGPXP>CPPOOPGPXP (87)</a>
+<a class="mt-1 mb-1" href=//categories.html#Lua，Script>Lua，Script (51)</a>
+<a class="mt-1 mb-1" href=//categories.html#Be-Old>Be Old (15)</a>
+<a class="mt-1 mb-1" href=//categories.html#Job>Job (185)</a>
+<a class="mt-1 mb-1" href=//categories.html#mm>mm (48)</a>
+<a class="mt-1 mb-1" href=//categories.html#Emulator>Emulator (3)</a>
+<a class="mt-1 mb-1" href=//categories.html#Execise-Outdoor>Execise Outdoor (13)</a>
+<a class="mt-1 mb-1" href=//categories.html#gfw>gfw (10)</a>
+<a class="mt-1 mb-1" href=//categories.html#Reading>Reading (20)</a>
+<a class="mt-1 mb-1" href=//categories.html#Driving>Driving (16)</a>
+<a class="mt-1 mb-1" href=//categories.html#Mobile>Mobile (15)</a>
+<a class="mt-1 mb-1" href=//categories.html#wxWidgets>wxWidgets (29)</a>
+<a class="mt-1 mb-1" href=//categories.html#WIND>WIND (14)</a>
+<a class="mt-1 mb-1" href=//categories.html#PSP-NDS>PSP NDS (2)</a>
+<a class="mt-1 mb-1" href=//categories.html#CodingStudio>CodingStudio (44)</a>
+<a class="mt-1 mb-1" href=//categories.html#Cryptography>Cryptography (2)</a>
+<a class="mt-1 mb-1" href=//categories.html#Editor，IDE>Editor，IDE (5)</a>
+<a class="mt-1 mb-1" href=//categories.html#TeX>TeX (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#Life>Life (82)</a>
+<a class="mt-1 mb-1" href=//categories.html#Technic>Technic (6)</a>
+<a class="mt-1 mb-1" href=//categories.html#Qt>Qt (28)</a>
+<a class="mt-1 mb-1" href=//categories.html#SNS>SNS (35)</a>
+<a class="mt-1 mb-1" href=//categories.html#Ninayan>Ninayan (35)</a>
+<a class="mt-1 mb-1" href=//categories.html#GUI-Framework>GUI Framework (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#KarenMeu>KarenMeu (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#Kindle>Kindle (3)</a>
+<a class="mt-1 mb-1" href=//categories.html#Coding>Coding (14)</a>
+<a class="mt-1 mb-1" href=//categories.html#Startup>Startup (6)</a>
+<a class="mt-1 mb-1" href=//categories.html#network>network (14)</a>
+<a class="mt-1 mb-1" href=//categories.html#Go>Go (10)</a>
+<a class="mt-1 mb-1" href=//categories.html#idea>idea (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#os>os (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#iOS>iOS (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#Cloud>Cloud (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#device>device (2)</a>
+<a class="mt-1 mb-1" href=//categories.html#embed>embed (6)</a>
+<a class="mt-1 mb-1" href=//categories.html#gochess>gochess (1)</a>
+<a class="mt-1 mb-1" href=//categories.html#Router>Router (3)</a>
+<a class="mt-1 mb-1" href=//categories.html#blog>blog (7)</a></div></div></div><footer class=footer><div class=container><div class=row><div class="col-md-6 col-sm-6 text-center text-lg-left">Copyright © 2021 类库大魔王的挖井日记</div><div class="col-md-6 col-sm-6 text-center text-lg-right"><a target=_blank href=https://www.wowthemes.net/mediumish-free-jekyll-template/>Mediumish Jekyll Theme</a> by WowThemes.net</div></div></div></footer></div><script src=https://cdn.staticfile.org/popper.js/1.14.6/umd/popper.min.js></script><script src=https://cdn.staticfile.org/twitter-bootstrap/4.2.1/js/bootstrap.min.js></script><script src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/js/mediumish.min.js></script><script src=https://cdn.jsdelivr.net/gh/missdeer/blog@gh-pages/assets/js/lazyload.min.js></script>
