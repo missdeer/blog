@@ -1,5 +1,5 @@
 ---
-image: https://upload.wikimedia.org/wikipedia/zh/5/58/DragonFly_BSD_Logo.png
+image: https://cdn.jsdelivr.net/gh/missdeer/blog@master/media/2021-12-27/DragonFly_BSD_Logo.png
 layout: post
 author: missdeer
 featured: false
