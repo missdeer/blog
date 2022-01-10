@@ -3,9 +3,9 @@ image: https://cdn.jsdelivr.net/gh/missdeer/blog@master/media/2022-01-10/cmake.j
 layout: post
 author: missdeer
 featured: false
-title: "Windows上cmake适配多种编译器"
+title: "Windows上cmake适配多种构建工具和编译器"
 categories: cmake
-description: "Windows上cmake适配多种编译器"
+description: "Windows上cmake适配多种构建工具和编译器"
 tags: cmake
 ---
 用CMake的好处一是屏蔽了多种常见编译器的编译选项和命令行参数差异，二是可以选择目标构建工具。我前段时间要写一个SDK，希望SDK能在主流操作系统（Windows，Linux，macOS）上跑，能用常见的编译器套件（MSVC，GCC，Clang，Intel C编译器等等）编译，这正好是CMake的用武之地。
