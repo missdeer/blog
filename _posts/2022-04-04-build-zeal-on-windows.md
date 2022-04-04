@@ -3,9 +3,9 @@ image: https://cdn.jsdelivr.net/gh/missdeer/blog@master/media/2022-04-04/zeal.pn
 layout: post
 author: missdeer
 featured: false
-title: "Windows编译Zeal"
+title: "Windows上编译Zeal"
 categories: cmake
-description: "Windows编译Zeal"
+description: "Windows上编译Zeal"
 tags: cmake Qt
 ---
 鉴于最近买了个梯子，不大稳定，速度也没以前的快，直接打开在线的开发文档就感觉不大舒服了，想在本地弄个快的。今天编译试用了一下[Zeal](https://github.com/zealdocs/zeal)，感觉不错，比当时刚出来的时候好多了，不会随便动两下就遇到奇怪的bug，界面也不那么丑了。
