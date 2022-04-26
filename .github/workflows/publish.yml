@@ -81,4 +81,4 @@ jobs:
         7z a ../blog-root.7z *
         cd ..
         sudo sysctl -w net.core.rmem_max=2500000
-        curl -X POST -H "Content-Type: multipart/form-data" -F "originalFile=@blog-root.7z" ${{ secrets.BLOG_SERVER }}
+        curl -X POST -H "User-Agent: GitHub Actions Blog Publisher" -H "Content-Type: multipart/form-data" -F "originalFile=@blog-root.7z" ${{ secrets.BLOG_SERVER }}
