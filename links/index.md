@@ -6,6 +6,11 @@ comments: yes
 <div class="main-post-list">
   <ol class="post-list">
     <li>
+      <h4 class="post-list__post-title post-title"><a href="https://ifconfig.ismisv.com/" title="ifconfig" target="_blank"> &#8226; ifconfig</a></h4>
+      <p class="excerpt">查看当前网络的出口公网IP，包括地理信息。</p>
+      <hr class="post-list__divider" />
+    </li>
+    <li>
       <h4 class="post-list__post-title post-title"><a href="https://earn.ismisv.com/" title="从今天开始研究网赚" target="_blank"> &#8226; 从今天开始研究网赚</a></h4>
       <p class="excerpt">作为一个IT从业人员，人到中年，职业危机感越来越强烈。抵抗风险的能力接近于0，应该想点办法增加睡后收入，于是打算折腾一下网赚。</p>
       <hr class="post-list__divider" />
