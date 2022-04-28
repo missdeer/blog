@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://fastly.jsdelivr.net/gh/missdeer/blog@master/media/2005-03-09/header.png
+image: https://blogassets.ismisv.com/media/2005-03-09/header.png
 author: missdeer
 title: 关于shellapi.h/shlobj.h头文件和宏定义冲突
 categories: 

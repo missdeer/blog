@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://fastly.jsdelivr.net/gh/missdeer/blog@master/media/2006-08-27/ph.jpg
+image: https://blogassets.ismisv.com/media/2006-08-27/ph.jpg
 author: missdeer
 title: LLYF ProcessHelper W.I.P.
 categories: 
@@ -15,4 +15,4 @@ tags:
 
 其实很多时候，都是使用者自己的问题啊！Just take a screen snap！
 
-![LLYF ProcessHelper Screenshot](https://fastly.jsdelivr.net/gh/missdeer/blog@master/media/2006-08-27/ph.jpg)
+![LLYF ProcessHelper Screenshot](https://blogassets.ismisv.com/media/2006-08-27/ph.jpg)

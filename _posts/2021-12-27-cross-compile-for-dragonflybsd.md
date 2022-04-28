@@ -1,5 +1,5 @@
 ---
-image: https://fastly.jsdelivr.net/gh/missdeer/blog@master/media/2021-12-27/DragonFly_BSD_Logo.png
+image: https://blogassets.ismisv.com/media/2021-12-27/DragonFly_BSD_Logo.png
 layout: post
 author: missdeer
 featured: false

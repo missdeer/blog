@@ -1,5 +1,5 @@
 ---
-image: https://fastly.jsdelivr.net/gh/missdeer/blog@master/media/2022-04-04/zeal.png
+image: https://blogassets.ismisv.com/media/2022-04-04/zeal.png
 layout: post
 author: missdeer
 featured: false
@@ -46,4 +46,4 @@ cmake.exe --build build
 
 编译出`zeal.exe`后，要把`archive.dll`、`sqlite3.dll`拷贝到相同目录，再用Qt的`windeployqt.exe`把依赖的Qt库都拷过来，最后把Qt的Tools目录下的OpenSSL两个文件`libcrypto-1_1-x64.dll`和`libssl-1_1-x64.dll`拷贝过来，就能双击运行`zeal.exe`了，跑起来的界面大概是这个样子：
 
-![zeal](https://fastly.jsdelivr.net/gh/missdeer/blog@master/media/2022-04-04/zeal.png)
+![zeal](https://blogassets.ismisv.com/media/2022-04-04/zeal.png)

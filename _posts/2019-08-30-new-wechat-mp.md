@@ -31,5 +31,5 @@ featured: true
 
 可扫描以下二维码关注公众号**《软件开发谈》**：
 
-![软件开发谈](https://fastly.jsdelivr.net/gh/missdeer/blog@master/media/2019-08-30/mp-wechat.dib)
+![软件开发谈](https://blogassets.ismisv.com/media/2019-08-30/mp-wechat.dib)
 

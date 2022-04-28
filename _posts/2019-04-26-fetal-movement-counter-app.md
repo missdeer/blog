@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://fastly.jsdelivr.net/gh/missdeer/blog@master/media/2019-04-26/8.jpg
+image: https://blogassets.ismisv.com/media/2019-04-26/8.jpg
 author: missdeer
 title: "胎动计数器app"
 categories: Shareware
@@ -18,8 +18,8 @@ App的功能相当的简单，启动后主界面是一个大大的圆形按钮�
 
 胎动计数器app发布在[https://itunes.apple.com/cn/app/id1455433423](https://itunes.apple.com/cn/app/id1455433423)。或者也可以用手机扫描以下二维码打开链接地址：
 
-![iOS app地址](https://fastly.jsdelivr.net/gh/missdeer/blog@master/media/2019-04-26/ios-qrcode.png)
+![iOS app地址](https://blogassets.ismisv.com/media/2019-04-26/ios-qrcode.png)
 
 最后贴几张app界面截图：
 
-![按钮](https://fastly.jsdelivr.net/gh/missdeer/blog@master/media/2019-04-26/8.jpg ){:width="250px" height="445px"}![报告](https://fastly.jsdelivr.net/gh/missdeer/blog@master/media/2019-04-26/7.jpg ){:width="250px" height="445px"}![点图](https://fastly.jsdelivr.net/gh/missdeer/blog@master/media/2019-04-26/6.jpg ){:width="250px" height="445px"}![折线图](https://fastly.jsdelivr.net/gh/missdeer/blog@master/media/2019-04-26/5.jpg ){:width="250px" height="445px"}![曲线图](https://fastly.jsdelivr.net/gh/missdeer/blog@master/media/2019-04-26/4.jpg ){:width="250px" height="445px"}![柱状图](https://fastly.jsdelivr.net/gh/missdeer/blog@master/media/2019-04-26/3.jpg ){:width="250px" height="445px"}![百分比柱状图](https://fastly.jsdelivr.net/gh/missdeer/blog@master/media/2019-04-26/2.jpg ){:width="250px" height="445px"}![比例柱状图](https://fastly.jsdelivr.net/gh/missdeer/blog@master/media/2019-04-26/1.jpg ){:width="250px" height="445px"}
+![按钮](https://blogassets.ismisv.com/media/2019-04-26/8.jpg ){:width="250px" height="445px"}![报告](https://blogassets.ismisv.com/media/2019-04-26/7.jpg ){:width="250px" height="445px"}![点图](https://blogassets.ismisv.com/media/2019-04-26/6.jpg ){:width="250px" height="445px"}![折线图](https://blogassets.ismisv.com/media/2019-04-26/5.jpg ){:width="250px" height="445px"}![曲线图](https://blogassets.ismisv.com/media/2019-04-26/4.jpg ){:width="250px" height="445px"}![柱状图](https://blogassets.ismisv.com/media/2019-04-26/3.jpg ){:width="250px" height="445px"}![百分比柱状图](https://blogassets.ismisv.com/media/2019-04-26/2.jpg ){:width="250px" height="445px"}![比例柱状图](https://blogassets.ismisv.com/media/2019-04-26/1.jpg ){:width="250px" height="445px"}

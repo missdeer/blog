@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://fastly.jsdelivr.net/gh/missdeer/blog@master/media/2019-09-17/mainwindow1.png
+image: https://blogassets.ismisv.com/media/2019-09-17/mainwindow1.png
 author: missdeer
 featured: false
 title: "为了舒服地写微信公众号，我写了个文章编辑器"
@@ -29,10 +29,10 @@ tags: Markdown
 
 一些界面截图：
 主窗口1
-![主窗口1](https://fastly.jsdelivr.net/gh/missdeer/blog@master/media/2019-09-17/mainwindow1.png)
+![主窗口1](https://blogassets.ismisv.com/media/2019-09-17/mainwindow1.png)
 主窗口2
-![主窗口2](https://fastly.jsdelivr.net/gh/missdeer/blog@master/media/2019-09-17/mainwindow2.png)
+![主窗口2](https://blogassets.ismisv.com/media/2019-09-17/mainwindow2.png)
 主窗口3
-![主窗口3](https://fastly.jsdelivr.net/gh/missdeer/blog@master/media/2019-09-17/mainwindow3.png)
+![主窗口3](https://blogassets.ismisv.com/media/2019-09-17/mainwindow3.png)
 偏好设置
-![偏好设置](https://fastly.jsdelivr.net/gh/missdeer/blog@master/media/2019-09-17/preference.png)
+![偏好设置](https://blogassets.ismisv.com/media/2019-09-17/preference.png)
