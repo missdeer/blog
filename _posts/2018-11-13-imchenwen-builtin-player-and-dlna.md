@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://cdn.jsdelivr.net/gh/missdeer/blog@master/media/2018-11-13/builtinplayer.jpg
+image: https://fastly.jsdelivr.net/gh/missdeer/blog@master/media/2018-11-13/builtinplayer.jpg
 author: missdeer
 title: "imchenwen进度：内置播放器和DLNA投屏"
 categories: Shareware
@@ -16,13 +16,13 @@ tags: Qt MPV DLNA imchenwen
 
 一些screenshots：
 
-![内置播放器](https://cdn.jsdelivr.net/gh/missdeer/blog@master/media/2018-11-13/builtinplayer.jpg)
+![内置播放器](https://fastly.jsdelivr.net/gh/missdeer/blog@master/media/2018-11-13/builtinplayer.jpg)
 
-![选项设置](https://cdn.jsdelivr.net/gh/missdeer/blog@master/media/2018-11-13/configuration.png)
+![选项设置](https://fastly.jsdelivr.net/gh/missdeer/blog@master/media/2018-11-13/configuration.png)
 
-![电视直播](https://cdn.jsdelivr.net/gh/missdeer/blog@master/media/2018-11-13/livetv.png)
+![电视直播](https://fastly.jsdelivr.net/gh/missdeer/blog@master/media/2018-11-13/livetv.png)
 
-![地址解析](https://cdn.jsdelivr.net/gh/missdeer/blog@master/media/2018-11-13/resolved.png)
+![地址解析](https://fastly.jsdelivr.net/gh/missdeer/blog@master/media/2018-11-13/resolved.png)
 
 大概说一下开发要点：
 

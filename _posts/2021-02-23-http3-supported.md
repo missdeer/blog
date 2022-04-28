@@ -1,5 +1,5 @@
 ---
-image: https://cdn.jsdelivr.net/gh/missdeer/blog@master/media/2021-02-23/http3.png
+image: https://fastly.jsdelivr.net/gh/missdeer/blog@master/media/2021-02-23/http3.png
 layout: post
 author: missdeer
 featured: false
@@ -14,11 +14,11 @@ tags: http3 quic Blog Cloudflare
 
 Firefox 75及以上版本已支持HTTP3/QUIC，启用方法如下图所示，在地址栏输入 `about:config`，配置 `network.http.http3.enabled = true`：
 
-![firefox-h3-about-config](https://cdn.jsdelivr.net/gh/missdeer/blog@master/media/2021-02-23/firefox-h3-about-config.png)
+![firefox-h3-about-config](https://fastly.jsdelivr.net/gh/missdeer/blog@master/media/2021-02-23/firefox-h3-about-config.png)
 
 开启该选项后，再重新打开本网站浏览，通过`Web开发者`功能可以看到，已经使用HTTP3协议了：
 
-![firefox-network](https://cdn.jsdelivr.net/gh/missdeer/blog@master/media/2021-02-23/firefox-network.png)
+![firefox-network](https://fastly.jsdelivr.net/gh/missdeer/blog@master/media/2021-02-23/firefox-network.png)
 
 Chrome 83 及以上版本支持 HTTP/3，使用命令行增加如下启动参数：
 

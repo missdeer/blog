@@ -1,5 +1,5 @@
 ---
-image: https://cdn.jsdelivr.net/gh/missdeer/blog@master/media/2020-03-27/llvm.png
+image: https://fastly.jsdelivr.net/gh/missdeer/blog@master/media/2020-03-27/llvm.png
 layout: post
 author: missdeer
 featured: false

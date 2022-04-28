@@ -1,6 +1,6 @@
 ---
 
-image: https://cdn.jsdelivr.net/gh/missdeer/blog@master/media/2019-11-10/etc.jpg
+image: https://fastly.jsdelivr.net/gh/missdeer/blog@master/media/2019-11-10/etc.jpg
 layout: post
 author: missdeer
 featured: false
@@ -17,11 +17,11 @@ tags: car ETC Alipay
 
 第一天提交申请，第二天审核通过，之后就很快了，立即就是制卡和快递发出，第三天就收到了快递包裹。拆开包裹就是一个小盒子设备，一张芯片卡，以及一张简单至极的说明书。
 
-![芯片卡](https://cdn.jsdelivr.net/gh/missdeer/blog@master/media/2019-11-10/etc.jpg)
+![芯片卡](https://fastly.jsdelivr.net/gh/missdeer/blog@master/media/2019-11-10/etc.jpg)
 
-![安装激活手册封面](https://cdn.jsdelivr.net/gh/missdeer/blog@master/media/2019-11-10/manual-cover.jpg "安装激活手册内容封面")
+![安装激活手册封面](https://fastly.jsdelivr.net/gh/missdeer/blog@master/media/2019-11-10/manual-cover.jpg "安装激活手册内容封面")
 
-![安装激活手册内容](https://cdn.jsdelivr.net/gh/missdeer/blog@master/media/2019-11-10/manual-content.jpg "安装激活手册内容")
+![安装激活手册内容](https://fastly.jsdelivr.net/gh/missdeer/blog@master/media/2019-11-10/manual-content.jpg "安装激活手册内容")
 
 
 

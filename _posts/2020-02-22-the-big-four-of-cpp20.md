@@ -1,5 +1,5 @@
 ---
-image: https://cdn.jsdelivr.net/gh/missdeer/blog@master/media/2020-02-22/TimelineCpp20BigFourUpdate.png
+image: https://fastly.jsdelivr.net/gh/missdeer/blog@master/media/2020-02-22/TimelineCpp20BigFourUpdate.png
 layout: post
 author: missdeer
 featured: false
@@ -12,7 +12,7 @@ tags: C++20 cpp C++
 
 本文向你展示四巨头：concepts，ranges，coroutines和modules（四个名词目前尚未全都有既信达雅，又得到大部分业内人士认同的中文翻译，继续干脆全部保留英文原文。）。
 
-![C++20四大要点时间线更新](https://cdn.jsdelivr.net/gh/missdeer/blog@master/media/2020-02-22/TimelineCpp20BigFourUpdate.png)
+![C++20四大要点时间线更新](https://fastly.jsdelivr.net/gh/missdeer/blog@master/media/2020-02-22/TimelineCpp20BigFourUpdate.png)
 
 C++20提供了很多东西。在我给你们四巨头的第一印象前，这是C++20的概览。除了四巨头，还有很多特性影响着语言核心、库、以及C++20的并发能力。
 
@@ -22,11 +22,11 @@ C++20提供了很多东西。在我给你们四巨头的第一印象前，这是
 
 简单说来，最最新的GCC，Clang和EDG编译器对语言核心提供了最好的支持。另外，MSVC和苹果Clang编译器也支持了许多C++20的特性。
 
-![语言核心](https://cdn.jsdelivr.net/gh/missdeer/blog@master/media/2020-02-22/Core.PNG)
+![语言核心](https://fastly.jsdelivr.net/gh/missdeer/blog@master/media/2020-02-22/Core.PNG)
 
 库也是类似的。GCC对库的支持最好，接下来是Clang和MSVC编译器。
 
-![库](https://cdn.jsdelivr.net/gh/missdeer/blog@master/media/2020-02-22/Library.PNG)
+![库](https://fastly.jsdelivr.net/gh/missdeer/blog@master/media/2020-02-22/Library.PNG)
 
 上面的截图只显示了表格开始的部分，但能给你一个不是特别满意的答案。甚至你使用所有最最新的编译器，也有很多特性没被任何编译器支持。
 
@@ -162,7 +162,7 @@ int main() {
 
 感谢[Wandbox](https://wandbox.org/)在线编译器，我可以向您展示程序的输出。
 
-![无限数据流](https://cdn.jsdelivr.net/gh/missdeer/blog@master/media/2020-02-22/infiniteDataStream.PNG)
+![无限数据流](https://fastly.jsdelivr.net/gh/missdeer/blog@master/media/2020-02-22/infiniteDataStream.PNG)
 
 ## Modules
 

@@ -1,5 +1,5 @@
 ---
-image: https://cdn.jsdelivr.net/gh/missdeer/blog@master/media/2019-10-08/iptables.png
+image: https://fastly.jsdelivr.net/gh/missdeer/blog@master/media/2019-10-08/iptables.png
 layout: post
 author: missdeer
 featured: false
@@ -20,6 +20,6 @@ ipset restore -f ipset.txt
 
 截止到现在，路由器上的iptables规则连带正而八经的端口映射、防火墙端口过滤等规则，总共不到80条！
 
-![iptables](https://cdn.jsdelivr.net/gh/missdeer/blog@master/media/2019-10-08/iptables.png)
+![iptables](https://fastly.jsdelivr.net/gh/missdeer/blog@master/media/2019-10-08/iptables.png)
 
 具体效果没有详细测试，先用一段时间感性体会一下。

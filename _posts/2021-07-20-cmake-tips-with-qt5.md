@@ -1,5 +1,5 @@
 ---
-image: https://cdn.jsdelivr.net/gh/missdeer/blog@master/media/2021-07-20/cmake+qt.jpg
+image: https://fastly.jsdelivr.net/gh/missdeer/blog@master/media/2021-07-20/cmake+qt.jpg
 layout: post
 author: missdeer
 featured: false

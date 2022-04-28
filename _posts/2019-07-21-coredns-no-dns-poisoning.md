@@ -114,7 +114,7 @@ CoreDNS的来头不小，它的[作者](https://github.com/miekg)是最好的开
 这时就可以用上[FelixOnMars的大陆区域名列表](https://github.com/felixonmars/dnsmasq-china-list)了，用以下命令可以得到所有域名连接而成的长字符串，放在`except`标识符后面:
 
 ```
-china=`curl https://cdn.jsdelivr.net/gh/felixonmars/dnsmasq-china-list/accelerated-domains.china.conf -s | while read line; do awk -F '/' '{print $2}' | grep -v '#' ; done |  paste -sd " " -`
+china=`curl https://fastly.jsdelivr.net/gh/felixonmars/dnsmasq-china-list/accelerated-domains.china.conf -s | while read line; do awk -F '/' '{print $2}' | grep -v '#' ; done |  paste -sd " " -`
 echo "  except $china " >> Corefile
 ```
 

@@ -1,6 +1,6 @@
 ---
 layout: post
-image: https://cdn.jsdelivr.net/gh/missdeer/blog@master/media/2019-06-04/everything.png
+image: https://fastly.jsdelivr.net/gh/missdeer/blog@master/media/2019-06-04/everything.png
 author: missdeer
 title: "Derfla，快捷应用启动器"
 categories: Shareware
@@ -71,7 +71,7 @@ tags: Qt Alfred Derfla
 
    其中`derfla.png`是同目录中的一个图片文件：
 
-   ![derfla.png](https://cdn.jsdelivr.net/gh/missdeer/blog@master/media/2019-06-04/derfla.png)
+   ![derfla.png](https://fastly.jsdelivr.net/gh/missdeer/blog@master/media/2019-06-04/derfla.png)
 
    目前两种风格的UI在业务行为上还没有完全统一，需要继续改进。
 
@@ -89,28 +89,28 @@ Roadmap：
 
 Everything搜索文件或目录：
 
-![everything.png](https://cdn.jsdelivr.net/gh/missdeer/blog@master/media/2019-06-04/everything.png)
+![everything.png](https://fastly.jsdelivr.net/gh/missdeer/blog@master/media/2019-06-04/everything.png)
 
 打开搜索引擎：
 
-![se.png](https://cdn.jsdelivr.net/gh/missdeer/blog@master/media/2019-06-04/se.png)
+![se.png](https://fastly.jsdelivr.net/gh/missdeer/blog@master/media/2019-06-04/se.png)
 
 计算器：
 
-![calc.png](https://cdn.jsdelivr.net/gh/missdeer/blog@master/media/2019-06-04/calc.png)
+![calc.png](https://fastly.jsdelivr.net/gh/missdeer/blog@master/media/2019-06-04/calc.png)
 
 快捷应用启动：
 
-![lfs.png](https://cdn.jsdelivr.net/gh/missdeer/blog@master/media/2019-06-04/lfs.png)
+![lfs.png](https://fastly.jsdelivr.net/gh/missdeer/blog@master/media/2019-06-04/lfs.png)
 
 Hash计算：
 
-![md5.png](https://cdn.jsdelivr.net/gh/missdeer/blog@master/media/2019-06-04/md5.png)
+![md5.png](https://fastly.jsdelivr.net/gh/missdeer/blog@master/media/2019-06-04/md5.png)
 
 天气：
 
-![weather.png](https://cdn.jsdelivr.net/gh/missdeer/blog@master/media/2019-06-04/weather.png)
+![weather.png](https://fastly.jsdelivr.net/gh/missdeer/blog@master/media/2019-06-04/weather.png)
 
 有道词典
 
-![dict.png](https://cdn.jsdelivr.net/gh/missdeer/blog@master/media/2019-06-04/dict.png)
+![dict.png](https://fastly.jsdelivr.net/gh/missdeer/blog@master/media/2019-06-04/dict.png)

@@ -1,5 +1,5 @@
 ---
-image: https://cdn.jsdelivr.net/gh/missdeer/blog@master/media/2022-01-10/cmake.jpg
+image: https://fastly.jsdelivr.net/gh/missdeer/blog@master/media/2022-01-10/cmake.jpg
 layout: post
 author: missdeer
 featured: false

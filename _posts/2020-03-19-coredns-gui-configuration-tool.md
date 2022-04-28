@@ -1,5 +1,5 @@
 ---
-image: https://cdn.jsdelivr.net/gh/missdeer/blog@master/media/2020-03-19/mainwindow.png
+image: https://fastly.jsdelivr.net/gh/missdeer/blog@master/media/2020-03-19/mainwindow.png
 layout: post
 author: missdeer
 featured: false
@@ -10,7 +10,7 @@ tags: CoreDNS Qt
 ---
 总共花了十几个小时用Qt写了一个简单的、具有图形用户界面的、CoreDNS配置文件生成工具，只有一个主窗口，传统widget比较丑：
 
-![主窗口](https://cdn.jsdelivr.net/gh/missdeer/blog@master/media/2020-03-19/mainwindow.png)
+![主窗口](https://fastly.jsdelivr.net/gh/missdeer/blog@master/media/2020-03-19/mainwindow.png)
 
 该工具生成的配置文件需要配合经过我[修改的CoreDNS版本](https://github.com/missdeer/coredns_custom_build)使用，因为用到了一些官方版本没有的插件。方便起见可以直接调起CoreDNS，为了能在Windows监听53端口以便可以直接在网络连接中设置为DNS Server，所以启动的时候需要管理员权限。
 
