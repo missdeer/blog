@@ -17,6 +17,9 @@ tags:
   - asio
 ---
 
+> **2022年5月更新**：gnb早已开源并更名为OpenGNB，所有源代码可在[GitHub](https://github.com/gnbdev/opengnb)下载，且可自行编译。
+
+---
 前些天Slack开源了他们的一款overlay网络工具[Nebula](https://github.com/slackhq/nebula)，简单地说，就是一款VPN，支持一定程度的P2P及内网穿透，这类工具正是我一直来有比较强烈需求的。我的需求侧重点主要在主机互连和内网穿透上，翻墙不在此列，我对翻墙的理念以前的blog上略有提及，跟VPN几乎风马牛不相及。
 
 在Nebula之前，我用过很多款工具，最早用过[ngork](https://github.com/inconshreveable/ngrok)、[frp](https://github.com/fatedier/frp)，后来还用过[OpenVPN](https://openvpn.net/)、[ZeroTier](https://www.zerotier.com/)、[tinc](https://www.tinc-vpn.org/)，再后来用过某微信群里一大佬自己开发的商业程序gnb的beta版，到现在全都因为各种原因没继续使用下去。
