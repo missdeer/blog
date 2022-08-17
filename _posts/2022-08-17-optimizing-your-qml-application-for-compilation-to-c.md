@@ -60,9 +60,13 @@ Warning: TimeMarks.qml:93:32: Unqualified access
 # 启动分析器并保存跟踪
 
 在 Qt Creator 中选择 Debug 视图，然后在下拉列表中选择“QML Profiler”。
+
 ![](https://www.qt.io/hubfs/debug.png)![](https://www.qt.io/hubfs/profiler.png)
+
 按下拉菜单旁边工具栏中的绿色三角形“开始”按钮。这将启动 Qt Creator 的另一个实例，QML Profiler 会记录跟踪。您会注意到“已用”时间开始在工具栏中滴答作响，并且所有视图都显示一个标有“Profiling Application”的标签。关闭 Qt Creator 的额外实例。结果，时间线视图将显示一个相当无聊的轨迹，只有几个事件。
+
 ![](https://www.qt.io/hubfs/exampletrace.png)
+
 现在这已经足够了。在时间线视图中单击鼠标右键，然后从下拉菜单中选择“Save QML Trace”。选择跟踪的位置和文件名。我们稍后会加载它。
 
 # 在 QML Profiler 中寻找自己的方式
@@ -75,15 +79,21 @@ Warning: ButtonsBar.qml:41:5: Could not compile function updateLockButton: Funct
 ButtonsBar.qml 是 QML 分析器和性能分析器中时间线视图左上角的按钮行。您可以逐步浏览各个事件并使用这些事件缩放视图。当切换“鼠标悬停时查看事件信息”按钮并启用或禁用悬停选择时，会触发它在这里抱怨的功能。让我们看看这需要多长时间。
 
 像以前一样开始分析 Qt Creator，并切换到打开的 Qt Creator 的新实例。打开 QML Profiler，右键单击时间线并“加载 QML Trace”我们的示例跟踪。然后切换左上角的“鼠标悬停时查看事件信息”按钮几次。
+
 ![](https://www.qt.io/hubfs/hoverbutton.png)
+
 最后关闭被跟踪的Qt Creator实例，切换回记录跟踪的Qt Creator实例。在那里，您会在时间线中看到更多事件。
+
 ![](https://www.qt.io/hubfs/timeline.png)
+
 我们对时间线的最后一部分感兴趣。您可以使用底部的概述滚动时间线。
 
 我们所看到的直接表达了我们之前与应用程序的交互。切换按钮的鼠标单击被记录为输入事件，其中一些会触发级联的绑定和 JavaScript 评估。 （注意：您可以通过拖放时间线视图左侧的标签来重新排序事件类别。）
 
 您可以单击事件以在一个小信息窗口中查看有关它们的信息。如果您这样做，Qt Creator 也会跳转到相关的源代码。在像这样的简单跟踪中，只需检查时间轴中的事件即可轻松找到我们要查找的函数。它是每个输入事件中最底层的 JavaScript 函数。单击它会为您提供有关 updateLockButton() 的特定调用的信息。您可以在 Statistics 视图中看到所有同类事件的聚合，在本例中是对 updateLockButton() 的所有调用。所有视图中的选择都是同步的。因此，只需切换到统计视图即可将您带到正确的行。
+
 ![](https://www.qt.io/hubfs/statistics.png)
+
 在我的电脑上，我切换按钮的 8 次累计时间为 61.4µs，每次调用平均需要 7.67µs。当然，这不是一个具有统计意义的测量。然而，出于演示目的，它已经足够好了。
 
 让我们记住这个数字，直到本系列的下一篇文章。现在我们已经刷新了对 QML profiler 的记忆，我们可以继续更改代码并观察以这种方式实现的效果。在下一篇文章中，我将展示在没有类型注释的情况下如何处理这些函数。
