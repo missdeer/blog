@@ -3,9 +3,9 @@ image: https://blogassets.ismisv.com/media/2022-11-03/topo.png
 layout: post
 author: missdeer
 featured: false
-title: "家庭宽带双线接入"
+title: "配置Debian路由器双WAN接入"
 categories: network
-description: "家庭宽带双线接入"
+description: "配置Debian路由器双WAN接入"
 tags: TP-Link Debian 双WAN 分流
 ---
 
