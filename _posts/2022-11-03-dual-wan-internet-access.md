@@ -6,12 +6,12 @@ featured: false
 title: "家庭宽带双线接入"
 categories: network
 description: "家庭宽带双线接入"
-tags: TP-Link
+tags: TP-Link Debian 双WAN 分流
 ---
 
 鉴于移动免费送了1年200M的一条宽带，没多犹豫决定还是要用起来。经过一番折腾，基本搞好了，目前的情况大概是这样的：
 
-```puml
+{% plantuml %}
 @startuml
 left to right direction
 skinparam titleBorderRoundCorner 5
@@ -166,7 +166,7 @@ SonyTV-->APLivingRoom
 TLIPC40C-->APLivingRoom
 Chromecast-->APLivingRoom
 @enduml
-```
+{% endplantuml %}
 
 2年前也写过[文章](/2020/04/add-tl-ac100/)提到过家里的网络拓扑，大的变化没有，只是加了一些新设备。现在在原有电信宽带的情况下，新增一条移动宽带，主要就是把接入路由器换了，原本的TP-Link R470GP只能接入一个WAN，正好目前R86S比较火，买了个最便宜的版本，先不考虑自己折腾猫棒，能双线以太网口接入就行。另外从闲鱼收了一个TP-Link SG1210P，索性把所有面板都从同一个交换机连上，情况会简单很多。
 
