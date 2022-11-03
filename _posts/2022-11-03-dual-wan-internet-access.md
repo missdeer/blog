@@ -141,8 +141,8 @@ Node SonyTV[
 Node DoorLock [
 <b>智能门锁</b>
 ]
-R86S-->CTModem 
-R86S-->CMModem 
+R86S-ri->CTModem 
+R86S-le->CMModem 
 TPLinkSG1210P --> R86S
 TPLinkSwitch --> TPLinkSG1210P 
 APBedRoom1-->TPLinkSG1210P 
