@@ -8,33 +8,30 @@
         <span>打赏</span>
       </button>
       <div id="QR" style="display: block;">
-        <div id="wechat" style="display: inline-block">
-          <a href="wxp://f2f0JOwB8LU7CU53fcitPGIuC6lYMX1q-nlk" class="fancybox"
-            rel="group">
-            {% if site.lazyimages == "enabled" %}
-            <img id="wechat_qr" class="lazyimg"
-              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII="
-              data-src="https://blogassets.ismisv.com/assets/images/wepay.jpg" alt="微信扫一扫">
-            {% else %}
-            <img id="wechat_qr" src="https://blogassets.ismisv.com/assets/images/wepay.jpg"
-              alt="微信扫一扫">
-            {% endif %}
-          </a>
-          <p>微信扫一扫</p>
-        </div>
         <div id="alipay" style="display: inline-block">
-          <a href="alipays://platformapi/startapp?appId=10000007&qrcode=https://qr.alipay.com/tsx00458kzwvymgbjk0ci9e" class="fancybox"
-            rel="group">
+          <a href="alipays://platformapi/startapp?appId=10000007&qrcode=https://qr.alipay.com/tsx00458kzwvymgbjk0ci9e"
+            class="fancybox" rel="group">
             {% if site.lazyimages == "enabled" %}
             <img id="alipay_qr" class="lazyimg"
               src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII="
               data-src="https://blogassets.ismisv.com/assets/images/alipay.jpg" alt="支付宝扫一扫">
             {% else %}
-            <img id="alipay_qr" src="https://blogassets.ismisv.com/assets/images/alipay.jpg"
-              alt="支付宝扫一扫">
+            <img id="alipay_qr" src="https://blogassets.ismisv.com/assets/images/alipay.jpg" alt="支付宝扫一扫">
             {% endif %}
           </a>
           <p>支付宝扫一扫</p>
+        </div>
+        <div id="wechat" style="display: inline-block">
+          <a href="wxp://f2f0JOwB8LU7CU53fcitPGIuC6lYMX1q-nlk" class="fancybox" rel="group">
+            {% if site.lazyimages == "enabled" %}
+            <img id="wechat_qr" class="lazyimg"
+              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII="
+              data-src="https://blogassets.ismisv.com/assets/images/wepay.jpg" alt="微信扫一扫">
+            {% else %}
+            <img id="wechat_qr" src="https://blogassets.ismisv.com/assets/images/wepay.jpg" alt="微信扫一扫">
+            {% endif %}
+          </a>
+          <p>微信扫一扫</p>
         </div>
       </div>
     </div>
