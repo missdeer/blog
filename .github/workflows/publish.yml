@@ -24,7 +24,7 @@ jobs:
     - name: Set up Go 
       uses: actions/setup-go@v2
       with:
-        go-version: 1.18
+        go-version: 1.19
       id: go
         
     - name: Setup plantuml-cmd tool
@@ -37,14 +37,6 @@ jobs:
         cd ..
         rm -rf plantuml-cmd
         
-    - name: Setup minify tool
-      run: |      
-        git clone --depth=1 https://github.com/tdewolff/minify.git
-        cd minify
-        sudo make install
-        cd ..
-        rm -rf minify
-
     - name: Set up Ruby 
       uses: ruby/setup-ruby@v1
       with:
@@ -64,10 +56,13 @@ jobs:
 
     - name: Minify files
       run: |
+        go env
+        echo "GOPATH=$GOPATH"
+        go install github.com/tdewolff/minify/v2/cmd/minify@latest
         cd _site
-        find . -name '*.html' -type f -print | while read file; do minify -o $file $file; done
-        find . -name '*.css' -type f -print | while read file; do minify -o $file $file; done
-        find . -name '*.js' -type f -print | while read file; do minify -o $file $file; done
+        find . -name '*.html' -type f -print | while read file; do $GOPATH/bin/minify -o $file $file; done
+        find . -name '*.css' -type f -print | while read file; do $GOPATH/bin/minify -o $file $file; done
+        find . -name '*.js' -type f -print | while read file; do $GOPATH/bin/minify -o $file $file; done
         cd ..
 
     - name: upload to server
