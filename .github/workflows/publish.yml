@@ -54,17 +54,6 @@ jobs:
       env:
         JEKYLL_ENV: production
 
-    - name: Minify files
-      run: |
-        go install github.com/tdewolff/minify/v2/cmd/minify@latest
-        export GOPATH=`go env | grep GOPATH | awk -F '=' '{print $2}'`
-        echo "GOPATH=$GOPATH"
-        cd _site
-        find . -name '*.html' -type f -print | while read file; do $GOPATH/bin/minify -o $file $file; done
-        find . -name '*.css' -type f -print | while read file; do $GOPATH/bin/minify -o $file $file; done
-        find . -name '*.js' -type f -print | while read file; do $GOPATH/bin/minify -o $file $file; done
-        cd ..
-
     - name: upload to server
       run: |
         cd _site
