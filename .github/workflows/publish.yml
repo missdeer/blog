@@ -41,8 +41,7 @@ jobs:
       run: |      
         git clone --depth=1 https://github.com/tdewolff/minify.git
         cd minify
-        make install
-        sudo mv ./cmd/minify /usr/local/bin/minify
+        sudo make install
         cd ..
         rm -rf minify
 
@@ -66,9 +65,9 @@ jobs:
     - name: Minify files
       run: |
         cd _site
-        find . -name '*.html' -type f -print | while read file; do /usr/local/bin/minify -o $file $file; done
-        find . -name '*.css' -type f -print | while read file; do /usr/local/bin/minify -o $file $file; done
-        find . -name '*.js' -type f -print | while read file; do /usr/local/bin/minify -o $file $file; done
+        find . -name '*.html' -type f -print | while read file; do minify -o $file $file; done
+        find . -name '*.css' -type f -print | while read file; do minify -o $file $file; done
+        find . -name '*.js' -type f -print | while read file; do minify -o $file $file; done
         cd ..
 
     - name: upload to server
