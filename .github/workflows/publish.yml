@@ -40,15 +40,16 @@ jobs:
     - name: Setup minify tool
       run: |      
         git clone --depth=1 https://github.com/tdewolff/minify.git
-        cd minify/cmd/minify
-        go build -ldflags "-s -w -X 'main.Version=$(git describe --tags)'" -trimpath
-        sudo mv minify /usr/local/bin/minify
-        cd ../../..
+        cd minify
+        make install
+        sudo mv ./cmd/minify /usr/local/bin/minify
+        cd ..
         rm -rf minify
 
     - name: Set up Ruby 
       uses: ruby/setup-ruby@v1
       with:
+        ruby-version: '3.1'
         bundler-cache: true
                         
     - name: Build site
