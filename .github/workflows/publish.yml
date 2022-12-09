@@ -26,17 +26,6 @@ jobs:
       with:
         go-version: 1.18
       id: go
-
-    - name: Set up Ruby 
-      uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: '2.7'
-        bundler-cache: true
-
-    - name: Setup bundler
-      run: |      
-        gem install bundler        
-        bundle install
         
     - name: Setup plantuml-cmd tool
       run: |      
@@ -56,6 +45,11 @@ jobs:
         sudo mv minify /usr/local/bin/minify
         cd ../../..
         rm -rf minify
+
+    - name: Set up Ruby 
+      uses: ruby/setup-ruby@v1
+      with:
+        bundler-cache: true
                         
     - name: Build site
       run: |
@@ -65,6 +59,8 @@ jobs:
         sed -i 's|site.config\[\x27baseurl\x27\] +||g' _plugins/ditaa.rb
         cat _config.yml
         bundle exec jekyll build --trace
+      env:
+        JEKYLL_ENV: production
 
     - name: Minify files
       run: |
