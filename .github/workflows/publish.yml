@@ -32,6 +32,7 @@ jobs:
         rm -rf plantuml-cmd _plantuml _site 
         git clone --depth=1 https://github.com/missdeer/plantuml-cmd.git 
         cd plantuml-cmd 
+        go get -u
         go build 
         sudo mv plantuml-cmd /usr/local/bin/plantuml-cmd
         cd ..
