@@ -15,6 +15,8 @@ echo 'tags: ' >> "_posts/$title"
 echo '---' >> "_posts/$title"
 editor="${2}"
 case ${editor} in
+    -n) nvim "_posts/$title"
+        ;;
     -v) vim "_posts/$title"
         ;;
     -m) open /Applications/MacDown.app/ --args "$PWD/_posts/$title"
