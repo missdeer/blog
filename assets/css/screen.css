@@ -27,8 +27,8 @@ pre {
     border: #E3EDF3 1px solid;
     width: 100%;
     padding: 7px;
-    font-family: "Fira Code Retina", "Source Code Pro", Menlo, Monaco, "Courier New", "Ubuntu Mono", "Droid Sans Mono", monospace, sans-serif;
-    font-size: .9rem;
+    font-family: "Rec Mono Casual", "Fira Code Retina", "Source Code Pro", Menlo, Monaco, "Courier New", "Ubuntu Mono", "Droid Sans Mono", monospace, sans-serif;
+    font-size: 1em;
     white-space: pre;
     overflow: auto;
     background: #fff;
