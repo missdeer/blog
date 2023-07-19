@@ -17,7 +17,7 @@ tags: Debian Nginx WebDav
 
 最容易出问题的就是以上3点，其他配置从网上抄一下就行，大体如下：
 
-```json
+```txt
 location / {
     root /home/missdeer/;
     dav_methods PUT DELETE MKCOL COPY MOVE;
@@ -52,4 +52,4 @@ location / {
 
 最后启用Nginx：`sudo systemctl restart nginx`。
 
-如果起不来，先看一下配置文件是否有问题：`sudo /sbin/gninx -t`。
+如果起不来，先看一下配置文件是否有问题：`sudo /sbin/nginx -t`。
