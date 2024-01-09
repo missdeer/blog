@@ -1,6 +1,6 @@
 #!/bin/bash
 if [ ! -d plantuml-cmd ]; then
-	curl -o go.tar.gz https://go.dev/dl/go1.21.5.linux-amd64.tar.gz
+	curl -sSL -o go.tar.gz https://go.dev/dl/go1.21.5.linux-amd64.tar.gz
 	tar xvf go.tar.gz
 	export PATH=%PATH%:$PWD/go/bin
 	git clone https://github.com/missdeer/plantuml-cmd.git
