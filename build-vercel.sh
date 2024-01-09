@@ -9,8 +9,6 @@ if [ ! -d plantuml-cmd ]; then
 	$PWD/../go/bin/go build
 	cd ..
 fi
-bundle install
 sed -i 's/\/usr\/local\/bin\/plantuml-cmd/\/vercel\/path0\/plantuml-cmd\/plantuml-cmd/g' _config.yml
 sed -i '/baseurl/d' _config.yml
 sed -i 's|site.config\[\x27baseurl\x27\] +||g' _plugins/ditaa.rb
-bundle exec jekyll build --trace
