@@ -3,7 +3,9 @@ if [ ! -d plantuml-cmd ]; then
 	curl -sSL -o go.tar.gz https://go.dev/dl/go1.21.5.linux-amd64.tar.gz
 	tar xvf go.tar.gz
 	export PATH=%PATH%:$PWD/go/bin
-	git clone https://github.com/missdeer/plantuml-cmd.git
+	curl -sSL -o plantuml-cmd.tar.gz https://api.github.com/repos/missdeer/plantuml-cmd/tarball/master
+	tar xvf plantuml-cmd.tar.gz
+	mv missdeer-plantuml-cmd-* plantuml-cmd
 	cd plantuml-cmd
 	go build
 	cd ..
