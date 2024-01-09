@@ -1,13 +1,12 @@
 #!/bin/bash
 if [ ! -d plantuml-cmd ]; then
 	curl -sSL -o go.tar.gz https://go.dev/dl/go1.21.5.linux-amd64.tar.gz
-	tar xvf go.tar.gz
-	export PATH=%PATH%:$PWD/go/bin
 	curl -sSL -o plantuml-cmd.tar.gz https://api.github.com/repos/missdeer/plantuml-cmd/tarball/master
+	tar xvf go.tar.gz
 	tar xvf plantuml-cmd.tar.gz
 	mv missdeer-plantuml-cmd-* plantuml-cmd
 	cd plantuml-cmd
-	go build
+	$PWD/../go/bin/go build
 	cd ..
 fi
 bundle install
