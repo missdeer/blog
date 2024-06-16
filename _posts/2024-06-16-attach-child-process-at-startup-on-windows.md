@@ -15,7 +15,7 @@ tags: Windows coding debugging
 
 可以使用`vsjitdebugger.exe`程序调起MSVS进程调试，所以写一个简单的批处理文件修改注册表：
 
-```batch
+```powershell
 @cd/d"%~dp0"&(cacls "%SystemDrive%\System Volume Information" >nul 2>nul)||(start "" mshta vbscript:CreateObject^("Shell.Application"^).ShellExecute^("%~nx0"," %*","","runas",1^)^(window.close^)&exit /b)
 @echo off
 set EXENAME=GFYProStartupCadIdentifier.exe
@@ -44,3 +44,15 @@ reg add "HKLM\Software\WOW6432Node\Microsoft\Windows NT\CurrentVersion\AeDebug" 
 ![MSVS主窗口](https://blogassets.ismisv.com/media/2024-06-16/start-debugging.png)
 
 点击“继续”按钮，就会从程序的起始点开始运行了，我们就可以开心地进行调试了。
+
+如果不想再每次启动该程序就被自动调起调试器，就要把前面修改的注册表项还原回去，同样写个批处理文件双击执行一下即可：
+
+```powershell
+@cd/d"%~dp0"&(cacls "%SystemDrive%\System Volume Information" >nul 2>nul)||(start "" mshta vbscript:CreateObject^("Shell.Application"^).ShellExecute^("%~nx0"," %*","","runas",1^)^(window.close^)&exit /b)
+@echo off
+set EXENAME=GFYProStartupCadIdentifier.exe
+reg delete "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\%EXENAME%" /f
+reg delete "HKLM\Software\WOW6432Node\Microsoft\Windows NT\CurrentVersion\AeDebug" /v Auto /f
+@echo on
+```
+
