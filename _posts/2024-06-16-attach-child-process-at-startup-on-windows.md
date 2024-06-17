@@ -9,7 +9,7 @@ description: Windows平台使调试器在子进程启动时attach
 tags: Windows coding debugging
 ---
 
-因为程序使用了多进程的架构，有时候需要在子进程被启动后非常早的阶段就进行调试，比较常见的极端情况是要调试子进程的`main()`函数，MSVS上有[插件](https://marketplace.visualstudio.com/items?itemName=vsdbgplat.MicrosoftChildProcessDebuggingPowerTool)可以在同一个调试环境同时挂载父进程和子进程进行调试，WinDBG在启动被调试程序时自带选项支持同时调试父子进程，但就我使用下来的体验发现，这时调试器的性能会变得非常差，非常影响心情和调试效果。也有比较low的办法，就是在子进程的`main()`函数开关加一个`MessageBox`，使其启动后用户有机会使用调试器attach子进程进行调试，但要改代码终归麻烦了点。
+因为程序使用了多进程的架构，有时候需要在子进程被启动后非常早的阶段就进行调试，比较常见的极端情况是要调试子进程的`main()`函数，MSVS上有[插件](https://marketplace.visualstudio.com/items?itemName=vsdbgplat.MicrosoftChildProcessDebuggingPowerTool)可以在同一个调试环境同时挂载父进程和子进程进行调试，WinDBG在启动被调试程序时自带选项支持同时调试父子进程，但就我使用下来的体验发现，这时调试器的性能会变得非常差，非常影响心情和调试效果。也有比较low的办法，就是在子进程的`main()`函数开头加一个`MessageBox`，使其启动后用户有机会使用调试器attach子进程进行调试，但要改代码终归麻烦了点，而且不是所有程序都适合加`MessageBox`。
 
 其实Windows系统提供了相应的机制可以应付这种需求，根据[这篇文章](https://learn.microsoft.com/en-us/archive/blogs/greggm/inside-image-file-execution-options-debugging#using-image-file-execution-options-with-vs-2005)和[这篇文章](https://learn.microsoft.com/en-us/visualstudio/debugger/debug-using-the-just-in-time-debugger?view=vs-2022#jit_errors)的说明，只要简单的改一下注册表，当Windows系统要启动某个可执行文件（即调用`CreateProcess` API）时，会检查注册表中是否有该可执行文件的项，如果有，则取得该项下的`Debugger`键值作为此次真正被启动的程序，同时将前面的可执行文件及命令行参数一起作为参数传递给该Debugger程序，由该Debugger程序负责启动并调试真正需要被调试的程序。
 
