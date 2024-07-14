@@ -1,6 +1,6 @@
 #!/bin/bash
 if [ ! -d plantuml-cmd ]; then
-	curl -sSL -o go.tar.gz https://go.dev/dl/go1.21.5.linux-amd64.tar.gz
+	curl -sSL -o go.tar.gz https://go.dev/dl/go1.22.5.linux-amd64.tar.gz
 	curl -sSL -o plantuml-cmd.tar.gz https://api.github.com/repos/missdeer/plantuml-cmd/tarball/master
 	tar xvf go.tar.gz
 	tar xvf plantuml-cmd.tar.gz

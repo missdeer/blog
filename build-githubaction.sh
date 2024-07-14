@@ -1,6 +1,6 @@
 #!/bin/bash
 if [ ! -d plantuml-cmd ]; then
-	git clone https://github.com/missdeer/plantuml-cmd.git
+	git clone --depth 1 https://github.com/missdeer/plantuml-cmd.git
 	cd plantuml-cmd
 	go build
 	cd ..
