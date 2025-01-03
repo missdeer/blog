@@ -25,6 +25,8 @@ case ${editor} in
         ;;
     -k) open /Applications/KarenMeu.app/ --args "$PWD/_posts/$title"
         ;;
+    -c) open "/Applications/Visual Studio Code.app/" --args "$PWD/_posts/$title"
+        ;;
     *) vim "_posts/$title"
         ;;
 esac
