@@ -3,9 +3,9 @@ image: https://sendgrid.com/content/dam/sendgrid/legacy/2022/04/Untitled-design-
 layout: post
 author: missdeer
 featured: false
-title: "搭建域名邮箱，使用Cloudflare、Mailgun和Gmail"
+title: "免费搭建域名邮箱，使用Cloudflare、Mailgun和Gmail"
 categories: Network
-description: 使用Cloudflare的Email Routing接收转发邮件到Gmail，使用Mailgun发送邮件
+description: 免费使用Cloudflare的Email Routing接收转发邮件到Gmail，使用Mailgun发送邮件
 tags: Cloudflare Mailgun Gmail EmailRouting
 ---
 
@@ -37,7 +37,7 @@ tags: Cloudflare Mailgun Gmail EmailRouting
 
 ![Unexpected from name](https://blogassets.ismisv.com/media/2025-04-26/unexpected-from-name.png)
 
-就会显得很不专业，特别是我用域名邮箱的目的就是为了不让对方知道我其他邮箱的信息，不然我干脆直接全部用Gmail就行了。所以我用了Mailgun这个邮件发送服务，有免费额度，需求更大的话可以使用收费套餐。
+就会显得很不专业，我用域名邮箱的目的就是为了不让对方知道我其他邮箱的信息，不然我干脆直接全部用Gmail就行了。所以我用了Mailgun这个邮件发送服务，有免费额度，需求更大的话可以使用收费套餐。
 
 注册一个Mailgun账号，这时已经可以用之前设置好的域名邮箱了，比如`missdeer@dfordsoft.com`，然后在后台管理页面左侧栏选`SENDING`-`Domains`添加域名`dfordsoft.com`：
 
@@ -50,4 +50,6 @@ tags: Cloudflare Mailgun Gmail EmailRouting
 最后就是回到Gmail设置页面，把Mailgun的SMTP服务器地址填进去，用户名密码就是上一步设置的邮箱地址和密码。现在再用Gmail以域名邮箱发送邮件，收件方就不会再看到`missdeer@gmail.com`这个地址了：
 
 ![Expected from name](https://blogassets.ismisv.com/media/2025-04-26/expected-from-name.png)
+
+整个过程就是这样，Cloudflare和Mailgun都有免费额度，轻度使用绰绰有余。
 
