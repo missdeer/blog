@@ -4,7 +4,7 @@ layout: post
 author: missdeer
 featured: false
 title: "Debian上使用Nginx搭建WebDav服务要点"
-categories: Network
+categories: network
 description: Debian上使用Nginx搭建WebDav服务要点
 tags: Debian Nginx WebDav
 ---

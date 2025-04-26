@@ -4,7 +4,7 @@ layout: post
 author: missdeer
 featured: false
 title: "免费搭建域名邮箱，使用Cloudflare、Mailgun和Gmail"
-categories: Network
+categories: network
 description: 免费使用Cloudflare的Email Routing接收转发邮件到Gmail，使用Mailgun发送邮件
 tags: Cloudflare Mailgun Gmail EmailRouting
 ---
