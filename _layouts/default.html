@@ -22,7 +22,6 @@
         font-family: "LXGW WenKai Screen", sans-serif;
     }
 </style>
-</head>
 
 {% if jekyll.environment == 'production' %}
 <!-- change your GA id in _config.yml -->
@@ -35,7 +34,8 @@ ga('create', '{{site.google_analytics}}', 'auto');
 ga('send', 'pageview');
 </script>
 {% endif %}
-
+</head>
+	
 {% capture layout %}{% if page.layout %}layout-{{ page.layout }}{% endif %}{% endcapture %}
 <body class="{{layout}}">
 	<!-- defer loading of font and font awesome -->
